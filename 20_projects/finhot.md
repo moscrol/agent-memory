@@ -124,3 +124,7 @@ pnpm run build:web
 - 2026-07-09 · codex · 二次确认短视频字幕/口播稿混用问题：此前给用户的 voice-director 稿（“你每天早上打开手机…”）与当前 Remotion 视频字幕稿完全不是同一版，不能用于给 `finhot-promo-75s.mp4` 录音。已新增 `docs/marketing/finhot-short-video-motion/review/user-voice-20260709/correct-recording-script-for-current-video.md`，明确当前视频唯一可用口播稿为 `/Users/a77/Desktop/finhot-vo-script.md` 的 s01-s11 版本；后续若保留当前视频画面/字幕，必须按该稿重录或分段录制，不能再混用早期 marketing 长稿。
 
 - 2026-07-09 · codex · 为桌面 `finhot-promo-75s.mp4` 做抖音安全区字幕后期：因字幕已烘焙进 MP4，无法无痕移动单独字幕层；已输出 `/Users/a77/Desktop/finhot-promo-75s-douyin-safe.mp4`，方案是复制底部字幕区域 `crop=940:205:70:1585` 到上方 `overlay=70:1345`，保留下方原字幕给抖音 UI 遮挡。记录见 `docs/marketing/finhot-short-video-motion/review/tiktok-safe-subtitles/notes.md`。若要干净单字幕版本，必须回 Remotion 源工程调高字幕组件后重渲染。
+
+- 2026-08-02 · devin · 微信源已从失效的 wechat2rss 迁移到本机 `wechat-download-api`：`finhot/watchlist.json` 的 37 个旧 `/feed/<biz_id>.xml` URL 映射为 `http://localhost:5050/api/rss/<fakeid>`，JSON 校验通过且 37/37 个 RSS XML 外壳可访问。Claude 与 Devin 均新增 `wechat-rss` MCP（模型上下文协议）stdio 桥接，客户端只保存桥接命令，桥接运行时从服务 `.env` 读取 token，未将密钥写入配置。新增 `com.finhot.wechat-download-api` launchd 服务，使用项目 venv、`RunAtLoad` + `KeepAlive` 开机自启，并停用旧 `com.finhot.wechat2rss-sync` 任务。
+  - **验证**：服务健康 HTTP 200、登录正常、38 个订阅、轮询器运行；MCP JSON-RPC initialize、Claude MCP、Devin MCP、launchd 状态和敏感值检查均通过。
+  - **阻断**：微信 `appmsgpublish` 接口持续返回 `ret=200013 / freq control`，SQLite 文章数仍为 0，因此文章抓取和全文质量尚未验证通过。后续应等待微信侧限频解除后只做低频单号复验，不要批量重试。
