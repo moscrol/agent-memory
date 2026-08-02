@@ -1,0 +1,30 @@
+{
+  "direct_answer": "数据截至 2026-07-23。涨停最集中于储能（40）、电网设备（29）、风电（29）、机器人概念（25）和光伏概念（25）；明确结论是储能数量居首，电网设备与风电并列其后，机器人概念与光伏概念再度并列。市场处于反弹阶段第3个交易日，短线情绪偏热；最强数据是储能的40家涨停，同时资金主要集中在电力设备，但成交额较前一交易日减少17.27%，且仅电力设备同时满足上涨与放量，构成主要风险。下一交易日重点验证电力设备能否继续上涨并放量，以及上述涨停集中方向能否维持集中度。现有 registry 未提供正式日报“10. 涨停题材”章节原文、具体涨停个股及题材梯队明细，因此不能逐只引用个股，也不能判断梯队是否断层；这些必须明确列为缺口。知识库积累与盘面强弱需分开：现有资料仅能确认医药已有医药、AI+医药、AI+生物医药概念页，并覆盖小方制药、泰恩康、神奇制药、丽珠集团及其业务角色；无法据此反推医药的盘面强弱，也无法确认储能、电网设备、风电、机器人概念和光伏概念中哪些方向确实没有知识库积累。",
+  "core_tension": "检索计划是读取 2026-07-23 的 canonical 正式日报，并优先核验“10. 涨停题材”章节中的题材数字、具体个股与梯队结构；但当前可用 registry 只给出了题材集中数量和市场概况，没有该章节原文及个股清单。论证时应保留“储能居首、电网设备与风电并列第二”的直接结论，同时把成交缩量、只有电力设备同时上涨放量作为持续性的反证，并严格区分盘面主线与知识库积累。",
+  "supports": [
+    "daily-review:summary",
+    "daily-review:fact:1",
+    "daily-review:fact:2",
+    "daily-review:fact:3",
+    "daily-review:fact:4"
+  ],
+  "counterevidence": [
+    "daily-review:fact:2",
+    "daily-review:fact:3",
+    "daily-review:fact:8"
+  ],
+  "unknowns": [
+    "daily-review:gap:scope",
+    "daily-review:fact:6",
+    "daily-review:fact:9"
+  ],
+  "upgrade_conditions": [
+    "daily-review:fact:2",
+    "daily-review:fact:1"
+  ],
+  "downgrade_conditions": [
+    "daily-review:fact:2",
+    "daily-review:fact:3"
+  ],
+  "chain_mapping": []
+}

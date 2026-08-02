@@ -1,0 +1,59 @@
+{
+  "status": "judge_outage_released",
+  "decision_brief": {
+    "direct_answer": "数据截至 2026-07-23。涨停最集中于储能（40）、电网设备（29）、风电（29）、机器人概念（25）和光伏概念（25）；明确结论是储能数量居首，电网设备与风电并列其后，机器人概念与光伏概念再度并列。市场处于反弹阶段第3个交易日，短线情绪偏热；最强数据是储能的40家涨停，同时资金主要集中在电力设备，但成交额较前一交易日减少17.27%，且仅电力设备同时满足上涨与放量，构成主要风险。下一交易日重点验证电力设备能否继续上涨并放量，以及上述涨停集中方向能否维持集中度。现有 registry 未提供正式日报“10. 涨停题材”章节原文、具体涨停个股及题材梯队明细，因此不能逐只引用个股，也不能判断梯队是否断层；这些必须明确列为缺口。知识库积累与盘面强弱需分开：现有资料仅能确认医药已有医药、AI+医药、AI+生物医药概念页，并覆盖小方制药、泰恩康、神奇制药、丽珠集团及其业务角色；无法据此反推医药的盘面强弱，也无法确认储能、电网设备、风电、机器人概念和光伏概念中哪些方向确实没有知识库积累。",
+    "core_tension": "检索计划是读取 2026-07-23 的 canonical 正式日报，并优先核验“10. 涨停题材”章节中的题材数字、具体个股与梯队结构；但当前可用 registry 只给出了题材集中数量和市场概况，没有该章节原文及个股清单。论证时应保留“储能居首、电网设备与风电并列第二”的直接结论，同时把成交缩量、只有电力设备同时上涨放量作为持续性的反证，并严格区分盘面主线与知识库积累。",
+    "supports": [
+      "daily-review:summary",
+      "daily-review:fact:1",
+      "daily-review:fact:2",
+      "daily-review:fact:3",
+      "daily-review:fact:4"
+    ],
+    "counterevidence": [
+      "daily-review:fact:2",
+      "daily-review:fact:3",
+      "daily-review:fact:8"
+    ],
+    "unknowns": [
+      "daily-review:gap:scope",
+      "daily-review:fact:6",
+      "daily-review:fact:9"
+    ],
+    "upgrade_conditions": [
+      "daily-review:fact:2",
+      "daily-review:fact:1"
+    ],
+    "downgrade_conditions": [
+      "daily-review:fact:2",
+      "daily-review:fact:3"
+    ],
+    "chain_mapping": []
+  },
+  "raw_answer": "数据截至 2026-07-23：涨停最集中于储能（40家），其次是电网设备（29家）与风电（29家）并列，机器人概念（25家）与光伏概念（25家）再次并列。<!-- claim_ids=daily-review:summary; evidence_atom_ids=atom-6c46c6c3329f; claim_type=fact -->\n\n明确排序是：储能居首；电网设备、风电并列第二；机器人概念、光伏概念并列其后。<!-- claim_ids=daily-review:fact:1; evidence_atom_ids=atom-39d4a1052563; claim_type=fact -->\n\n市场状态：市场处于反弹阶段第3个交易日，短线情绪偏热；上证收于3876.78点，上涨0.25%，距离短期均线1.25%。<!-- claim_ids=daily-review:fact:4,daily-review:fact:7; evidence_atom_ids=atom-453cb471f252,atom-4baf5d74cbff; claim_type=fact -->\n\n最强数据是储能的40家涨停；从资金与量价看，资金主要集中于电力设备，并且只有电力设备同时满足上涨和放量。<!-- claim_ids=daily-review:fact:1,daily-review:fact:2,daily-review:fact:3; evidence_atom_ids=atom-39d4a1052563,atom-1325180d706a,atom-dbde035aaf71; claim_type=fact -->\n\n主要风险是成交额为21949.97亿元、较前一交易日减少17.27%，而11个方向只满足上涨或放量中的一项，说明涨停家数集中并未对应全面的量价共振。<!-- claim_ids=daily-review:fact:2,daily-review:fact:3; evidence_atom_ids=atom-1325180d706a,atom-dbde035aaf71; claim_type=inference -->\n\n下一交易日重点验证两点：电力设备能否延续上涨并继续放量；储能、电网设备、风电、机器人概念和光伏概念的涨停集中度能否维持，否则主线持续性需要下调判断。<!-- claim_ids=daily-review:fact:1,daily-review:fact:2,daily-review:fact:3; evidence_atom_ids=atom-39d4a1052563,atom-1325180d706a,atom-dbde035aaf71; claim_type=expectation -->\n\n### 涨停个股与梯队边界\n\n检索计划是读取2026-07-23的正式日报，并优先核验“10. 涨停题材”章节的题材数字、具体涨停个股和梯队结构；但本轮可用资料未包含该章节原文及个股清单，因此只能确认上述题材数量，不能逐只引用涨停个股。<!-- claim_ids=daily-review:gap:scope,daily-review:fact:6; evidence_atom_ids=atom-abc3b38ce79c; claim_type=gap -->\n\n关于“梯队是否断层”，现有资料无法判断：缺少各题材的首板、连板及高度板明细，不能据此确认梯队完整或已经断层。<!-- claim_ids=daily-review:gap:scope; evidence_atom_ids=; claim_type=gap -->\n\n### 知识库积累与研究缺口\n\n盘面主线与知识库积累必须分开看：主线方向来自2026-07-23的盘面，而概念页、公司暴露和既有研究资料只代表知识积累，不能由知识积累反推盘面强弱，也不能由盘面走强反推已有研究覆盖。<!-- claim_ids=daily-review:fact:6; evidence_atom_ids=atom-abc3b38ce79c; claim_type=fact -->\n\n现有资料只能确认医药方向已有“医药”“AI+医药”“AI+生物医药”三个概念页，并覆盖四家公司：小方制药是外用药专业制药企业，涉及消化类、皮肤类和五官类；泰恩康覆盖两性健康、肠胃和眼科板块，核心品种包括爱廷玖、和胃整肠丸和沃丽汀；神奇制药布局医药制造与医药商业；丽珠集团属于医药相关产品或材料供应商。<!-- claim_ids=daily-review:fact:10; evidence_atom_ids=atom-2daf6cce298a; claim_type=fact -->\n\n对于储能、电网设备、风电、机器人概念和光伏概念，现有资料没有给出各自已有的概念页、公司暴露及角色清单，也无法确认其中哪些方向已经进入盘面主线但知识库尚无积累；这部分是后续需要补充核验的研究缺口。<!-- claim_ids=daily-review:gap:scope,daily-review:fact:6; evidence_atom_ids=atom-abc3b38ce79c; claim_type=gap -->\n\n（非投资建议）",
+  "repaired_answer": "数据截至 2026-07-23：涨停最集中于储能（40家），其次是电网设备（29家）与风电（29家）并列，机器人概念（25家）与光伏概念（25家）再次并列。<!-- claim_ids=daily-review:summary; evidence_atom_ids=atom-6c46c6c3329f; claim_type=fact -->\n\n明确排序是：储能居首；电网设备、风电并列第二；机器人概念、光伏概念并列其后。<!-- claim_ids=daily-review:fact:1; evidence_atom_ids=atom-39d4a1052563; claim_type=fact -->\n\n市场状态：市场处于反弹阶段第3个交易日，短线情绪偏热；上证收于3876.78点，上涨0.25%，距离短期均线1.25%。<!-- claim_ids=daily-review:fact:4,daily-review:fact:7; evidence_atom_ids=atom-453cb471f252,atom-4baf5d74cbff; claim_type=fact -->\n\n最强数据是储能的40家涨停；从资金与量价看，资金主要集中于电力设备，并且只有电力设备同时满足上涨和放量。<!-- claim_ids=daily-review:fact:1,daily-review:fact:2,daily-review:fact:3; evidence_atom_ids=atom-39d4a1052563,atom-1325180d706a,atom-dbde035aaf71; claim_type=fact -->\n\n主要风险是成交额为21949.97亿元、较前一交易日减少17.27%，而11个方向只满足上涨或放量中的一项，说明涨停家数集中并未对应全面的量价共振。<!-- claim_ids=daily-review:fact:2,daily-review:fact:3; evidence_atom_ids=atom-1325180d706a,atom-dbde035aaf71; claim_type=inference -->\n\n下一交易日重点验证两点：电力设备能否延续上涨并继续放量；储能、电网设备、风电、机器人概念和光伏概念的涨停集中度能否维持，否则主线持续性需要下调判断。<!-- claim_ids=daily-review:fact:1,daily-review:fact:2,daily-review:fact:3; evidence_atom_ids=atom-39d4a1052563,atom-1325180d706a,atom-dbde035aaf71; claim_type=expectation -->\n\n### 涨停个股与梯队边界\n\n\n关于“梯队是否断层”，现有资料无法判断：缺少各题材的首板、连板及高度板明细，不能据此确认梯队完整或已经断层。<!-- claim_ids=daily-review:gap:scope; evidence_atom_ids=; claim_type=gap -->\n\n### 知识库积累与研究缺口\n\n盘面主线与知识库积累必须分开看：主线方向来自2026-07-23的盘面，而概念页、公司暴露和既有研究资料只代表知识积累，不能由知识积累反推盘面强弱，也不能由盘面走强反推已有研究覆盖。<!-- claim_ids=daily-review:fact:6; evidence_atom_ids=atom-abc3b38ce79c; claim_type=fact -->\n\n现有资料只能确认医药方向已有“医药”“AI+医药”“AI+生物医药”三个概念页，并覆盖四家公司：小方制药是外用药专业制药企业，涉及消化类、皮肤类和五官类；泰恩康覆盖两性健康、肠胃和眼科板块，核心品种包括爱廷玖、和胃整肠丸和沃丽汀；神奇制药布局医药制造与医药商业；丽珠集团属于医药相关产品或材料供应商。<!-- claim_ids=daily-review:fact:10; evidence_atom_ids=atom-2daf6cce298a; claim_type=fact -->\n\n对于储能、电网设备、风电、机器人概念和光伏概念，现有资料没有给出各自已有的概念页、公司暴露及角色清单，也无法确认其中哪些方向已经进入盘面主线但知识库尚无积累；这部分是后续需要补充核验的研究缺口。<!-- claim_ids=daily-review:gap:scope,daily-review:fact:6; evidence_atom_ids=atom-abc3b38ce79c; claim_type=gap -->\n\n（非投资建议）",
+  "presented_answer": "（本条已通过证据绑定校验，但语义复核因服务瞬时问题未完成。）\n\n数据截至 2026-07-23：涨停最集中于储能（40家），其次是电网设备（29家）与风电（29家）并列，机器人概念（25家）与光伏概念（25家）再次并列。\n\n明确排序是：储能居首；电网设备、风电并列第二；机器人概念、光伏概念并列其后。\n\n市场状态：市场处于反弹阶段第3个交易日，短线情绪偏热；上证收于3876.78点，上涨0.25%，距离短期均线1.25%。\n\n最强数据是储能的40家涨停；从资金与量价看，资金主要集中于电力设备，并且只有电力设备同时满足上涨和放量。\n\n主要风险是成交额为21949.97亿元、较前一交易日减少17.27%，而11个方向只满足上涨或放量中的一项，说明涨停家数集中并未对应全面的量价共振。\n\n下一交易日重点验证两点：电力设备能否延续上涨并继续放量；储能、电网设备、风电、机器人概念和光伏概念的涨停集中度能否维持，否则主线持续性需要下调判断。\n\n### 涨停个股与梯队边界\n\n\n关于“梯队是否断层”，现有资料无法判断：缺少各题材的首板、连板及高度板明细，不能据此确认梯队完整或已经断层。\n\n### 知识库积累与研究缺口\n\n盘面主线与知识库积累必须分开看：主线方向来自2026-07-23的盘面，而概念页、公司暴露和既有研究资料只代表知识积累，不能由知识积累反推盘面强弱，也不能由盘面走强反推已有研究覆盖。\n\n现有资料只能确认医药方向已有“医药”“AI+医药”“AI+生物医药”三个概念页，并覆盖四家公司：小方制药是外用药专业制药企业，涉及消化类、皮肤类和五官类；泰恩康覆盖两性健康、肠胃和眼科板块，核心品种包括爱廷玖、和胃整肠丸和沃丽汀；神奇制药布局医药制造与医药商业；丽珠集团属于医药相关产品或材料供应商。\n\n对于储能、电网设备、风电、机器人概念和光伏概念，现有资料没有给出各自已有的概念页、公司暴露及角色清单，也无法确认其中哪些方向已经进入盘面主线但知识库尚无积累；这部分是后续需要补充核验的研究缺口。\n\n（非投资建议）",
+  "deterministic_issues": [
+    {
+      "code": "grounded_composer_unverified_heading",
+      "severity": "warning",
+      "message": "标题不在建议标题集合中：涨停个股与梯队边界"
+    },
+    {
+      "code": "grounded_composer_unverified_heading",
+      "severity": "warning",
+      "message": "标题不在建议标题集合中：知识库积累与研究缺口"
+    },
+    {
+      "code": "grounded_composer_added_number",
+      "severity": "error",
+      "message": "第 7 句增加证据外数字：10"
+    }
+  ],
+  "judge_report": null,
+  "judge_raw": null,
+  "provider": "zhipu",
+  "model": "gpt-5.6-sol",
+  "failure_reason": "LLM 合成超过共享截止时间，已降级为模板",
+  "elapsed_ms": 90054
+}
