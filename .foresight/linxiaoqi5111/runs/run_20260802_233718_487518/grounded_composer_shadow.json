@@ -1,0 +1,35 @@
+{
+  "status": "composer_unavailable",
+  "decision_brief": {
+    "direct_answer": "本轮任务边界：类型为 concept_definition，深度为 standard。现有 claim registry 不足以确认 2026-07-21 当天主线，只能形成“待补查”的判断，不能把此前材料直接外推为当天结论。现有事实显示，2026-07-09 被定义为既有国产算力主线的工程化推进日，交换网络、玻璃基板与长鑫相关节奏由认知走向可验证；但这不是 2026-07-21 的同日证据。必要视角应先解释主线是什么、如何形成、位于产业链哪里；现有材料仅提供背景和若干公司逻辑，尚未完成当天产业链或投资映射。证据优先级是先查本地 Wiki/RAG 的定义与产业链资料，本地未命中后再受控升级到 Bing Web Search via Web Access；Web 摘要只能作为外部来源线索，需保留来源链接和证据边界。当前可列出的本地来源为 W1、W2、W3、W4，但 registry 未提供可用的外部来源链接。完成条件是简洁回答是什么、如何工作、位于产业链哪里，列出本地知识或 Web 来源并区分事实与推导，不自动扩展无关公司名单或 A 股盘面判断。金融检索底线为通用金融证据。",
+    "core_tension": "核心矛盾是：registry 声明已取得该主题的定义与背景来源，但真正可核验的主线事实指向 2026-07-09，而非 2026-07-21；同时已有公司材料属于既有逻辑或远期叙事，不能替代当天盘面与催化证据。事实门要求不能只给结论，必须展示“同日材料—主线识别—技术原理—产业链位置”的推理链，并主动保留反证：歌尔股份的辅线虽有 CPO 远期想象，但公司已明确否认开展 CPO 业务；天通股份材料中的供应地位与远期判断属于所引机构表述，当前 registry 没有进一步硬证据。证伪条件是补查后仍无法取得 2026-07-21 同日、可核验且能完成产业链映射的材料；在此情形下，应维持“无法确认当天主线”。缺数据时必须先声明缺口，再决定是否调用 Web/API；外部实时查询只补最新事实，不能替代知识库或金融库的结构化底座。用户列示的 2026-06-29 晨汇详细内容没有对应独立 claim_id，另有未纳入窗口的 claims 也不得臆测，因此均按缺口处理。",
+    "supports": [
+      "base:summary:1",
+      "base:fact:1"
+    ],
+    "counterevidence": [
+      "base:fact:2"
+    ],
+    "unknowns": [
+      "base:gap:1"
+    ],
+    "upgrade_conditions": [
+      "base:gap:1"
+    ],
+    "downgrade_conditions": [
+      "base:gap:1",
+      "base:fact:2"
+    ],
+    "chain_mapping": []
+  },
+  "raw_answer": null,
+  "repaired_answer": null,
+  "presented_answer": null,
+  "deterministic_issues": [],
+  "judge_report": null,
+  "judge_raw": null,
+  "provider": "zhipu",
+  "model": "gpt-5.6-sol",
+  "failure_reason": "LLM 合成超过共享截止时间，已降级为模板",
+  "elapsed_ms": 61123
+}

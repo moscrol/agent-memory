@@ -1,0 +1,20 @@
+{
+  "direct_answer": "数据截至 2026-07-31。市场处于底部横盘阶段，为该阶段第3个交易日。论证时先读取最新 canonical 正式日报，并直接呈现市场状态、最强数据、主要风险与下一交易日验证点。最强数据包括成交额较昨日增加8.50%、93个方向同时上涨且放量，以及人工智能、AI智能体、DeepSeek概念、机器人概念、AIGC概念的涨停较集中；主要风险是短线情绪偏热、成交最集中的三个行业占44.20%，且知识库积累不能反推盘面强弱。下一交易日的具体升级、降级验证阈值未由 registry 提供，应明确列为缺口。知识库积累方面，目前可确认AI应用已有1个概念页、4家公司暴露和3条已入库证据：万兴科技的角色是融入AI人工智能与Agent技术的数字创意软件厂商；三六零以大模型驱动智慧商业升级并布局智能体蜂群；三维天地提供AI智能体开发平台；能科科技提供AI产品与服务、云产品与服务。对于其余已进入盘面主线的方向，registry 未说明其概念页、公司暴露或是否完全没有积累，因此不能断言无积累，应作为最优先补充研究的缺口。盘面强弱与知识库积累必须分别判断，不得互相推导。",
+  "core_tension": "市场仍被定义为底部横盘阶段，但成交放大、放量上涨方向较多且短线情绪偏热；核心问题是活跃度能否延续，而 registry 尚未提供下一交易日的明确验证阈值。",
+  "supports": [
+    "daily-review:fact:4",
+    "daily-review:fact:3",
+    "daily-review:fact:2",
+    "daily-review:fact:1",
+    "daily-review:fact:6"
+  ],
+  "counterevidence": [
+    "daily-review:fact:7"
+  ],
+  "unknowns": [
+    "daily-review:gap:scope"
+  ],
+  "upgrade_conditions": [],
+  "downgrade_conditions": [],
+  "chain_mapping": []
+}
