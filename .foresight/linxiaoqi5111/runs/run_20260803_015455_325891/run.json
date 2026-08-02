@@ -1,0 +1,33 @@
+{
+  "run_id": "run_20260803_015455_325891",
+  "user": "linxiaoqi5111",
+  "question": "2026-07-23 涨停集中在哪些题材",
+  "task_type": "ask",
+  "status": "running",
+  "schema_version": 1,
+  "session_id": "conv_f09c7e3c566b4b7f823b0cd2e662bea2",
+  "parent_run_id": null,
+  "created_at": "2026-08-03T01:54:55+08:00",
+  "finished_at": null,
+  "source_date": "2026-07-23",
+  "duckdb_cutoff": null,
+  "kb_commit": null,
+  "kb_index_built_at": null,
+  "kb_index_freshness": null,
+  "manifest_ref": null,
+  "degrades": [],
+  "error": null,
+  "artifacts": [
+    {
+      "artifact_id": "artifact_daily-review-skill-result_json",
+      "path": "daily-review-skill-result.json",
+      "renderer": "json",
+      "title": "Daily Review Skill 原始结果",
+      "sha256": "65a6be5d81763cd3dd1d9b69db7e534935e3231088118bb131354422000a15f7",
+      "bytes": 18163,
+      "previewable": true,
+      "downloadable": true,
+      "visibility": "public"
+    }
+  ]
+}
