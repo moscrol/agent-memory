@@ -3,19 +3,88 @@
   "user": "linxiaoqi5111",
   "question": "2026-07-21 收盘了，明天怎么看",
   "task_type": "ask",
-  "status": "running",
+  "status": "completed",
   "schema_version": 1,
   "session_id": "conv_93b8e2f8531d4a4fbf414023e85f6333",
   "parent_run_id": null,
   "created_at": "2026-08-03T01:39:26+08:00",
-  "finished_at": null,
+  "finished_at": "2026-08-03T01:40:57+08:00",
   "source_date": "2026-07-31",
   "duckdb_cutoff": null,
   "kb_commit": null,
   "kb_index_built_at": null,
   "kb_index_freshness": null,
   "manifest_ref": null,
-  "degrades": [],
+  "degrades": [
+    "Grounded Presenter自然语言合成未通过门禁或不可用（LLM 合成超过共享截止时间，已降级为模板），已降级为可核验短答。"
+  ],
   "error": null,
-  "artifacts": []
+  "artifacts": [
+    {
+      "artifact_id": "artifact_answer_md",
+      "path": "answer.md",
+      "renderer": "markdown",
+      "title": "对话回答：2026-07-21 收盘了，明天怎么看",
+      "sha256": "fca64d37bbd0d626ed0a724b7315f0de629988dd158c6d55834b9af5f2452247",
+      "bytes": 2441,
+      "previewable": true,
+      "downloadable": true,
+      "visibility": "public"
+    },
+    {
+      "artifact_id": "artifact_answer_spec_json",
+      "path": "answer_spec.json",
+      "renderer": "json",
+      "title": "回答事实边界",
+      "sha256": "1d2c42277932070c50f1241732b20c455b4cb8610f4d79db1ac5d858e590b6ff",
+      "bytes": 18054,
+      "previewable": true,
+      "downloadable": true,
+      "visibility": "public"
+    },
+    {
+      "artifact_id": "artifact_followups_json",
+      "path": "followups.json",
+      "renderer": "json",
+      "title": "猜你想问",
+      "sha256": "32119e8df1cf14a62f03d71cb9c47c3465315e95c7584bfc411a01e604fa8876",
+      "bytes": 2193,
+      "previewable": true,
+      "downloadable": true,
+      "visibility": "public"
+    },
+    {
+      "artifact_id": "artifact_decision_brief_json",
+      "path": "decision_brief.json",
+      "renderer": "json",
+      "title": "影子论证计划",
+      "sha256": "7ec0598e06bd61df94ce2231869e00450449cf3691016d1c851b983298a42483",
+      "bytes": 2233,
+      "previewable": true,
+      "downloadable": true,
+      "visibility": "public"
+    },
+    {
+      "artifact_id": "artifact_grounded_composer_shadow_json",
+      "path": "grounded_composer_shadow.json",
+      "renderer": "json",
+      "title": "Grounded Composer 影子实验",
+      "sha256": "7977af96bb51969262ca01ac6fea2baade48db8e68b0ac085326e31a610b30d9",
+      "bytes": 2644,
+      "previewable": true,
+      "downloadable": true,
+      "visibility": "public"
+    },
+    {
+      "artifact_id": "artifact_report_json",
+      "path": "report.json",
+      "renderer": "structured_report",
+      "title": "结构化对话报告",
+      "sha256": "bfaefa5e5935fbd10fb5f419db0b972ad8b14801a8ab450ea17f4c0c1ed3a616",
+      "bytes": 16969,
+      "previewable": true,
+      "downloadable": true,
+      "visibility": "public"
+    }
+  ]
 }

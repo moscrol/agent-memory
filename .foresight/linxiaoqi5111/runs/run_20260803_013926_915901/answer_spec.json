@@ -1,0 +1,486 @@
+{
+  "research_spec": {
+    "theme": "A股市场",
+    "pack_id": "generic_forecast",
+    "definition": "",
+    "chain_stages": [],
+    "company_scope": "",
+    "as_of": null,
+    "evidence_requirements": [],
+    "counter_evidence_requirements": [],
+    "trigger_conditions": [],
+    "verification_actions": [],
+    "focus_entities": [],
+    "requested_sections": [
+      "direct_answer",
+      "supporting_evidence",
+      "gaps",
+      "validation"
+    ]
+  },
+  "summary": [
+    {
+      "claim_id": "generic:summary",
+      "text": "基于本轮已收集证据的判断：基准判断（低置信度）：更可能维持弱势震荡，暂不把单日波动解释成趋势反转。当前结构同时包含修复线索和未出清卖压。反弹情景：若下一交易日跌停家数明显收缩、上涨家数扩大，且成交没有在指数上行时萎缩，则技术性修复更可信；若只有权重拉指数、个股广度不改善，只算弱反抽。继续下跌情景：若跌停继续扩散、上涨家数重新收缩，或放量但指数和主线同步走弱，说明卖压尚未出清，弱势延续的解释更占优。失效条件：开盘后涨跌停结构、成交和指数方向与上述触发条件相反时，本轮基准判断失效，必须用下一交易日的新盘面重算。 [G1, G2, G3, G4, G5, G6, G7, G8, G9, G10, G11, G12]",
+      "claim_type": "summary",
+      "theme": "A股市场",
+      "evidence_ids": [
+        "G1",
+        "G2",
+        "G3",
+        "G4",
+        "G5",
+        "G6",
+        "G7",
+        "G8",
+        "G9",
+        "G10",
+        "G11",
+        "G12"
+      ],
+      "evidence_tier": "",
+      "freshness": null,
+      "confidence": null,
+      "counter_evidence": [],
+      "status": "inferred",
+      "company": null
+    }
+  ],
+  "verified_facts": [
+    {
+      "claim_id": "generic:verified:2",
+      "text": "2026-07-27：指数 1.15%；成交 20764.75 亿；上涨 5195 家；涨停/跌停 111/6；行业成交额占全市场比例前三（括号为成交额占比，绝非行业涨跌幅）电子(29.0%)、电力设备(7.9%)、通信(6.5%)。",
+      "claim_type": "supporting_fact",
+      "theme": "A股市场",
+      "evidence_ids": [
+        "G2"
+      ],
+      "evidence_tier": "L4_structured",
+      "freshness": null,
+      "confidence": null,
+      "counter_evidence": [],
+      "status": "verified",
+      "company": null
+    },
+    {
+      "claim_id": "generic:verified:3",
+      "text": "2026-07-28：指数 -1.16%；成交 20256.14 亿；上涨 2603 家；涨停/跌停 61/49；行业成交额占全市场比例前三（括号为成交额占比，绝非行业涨跌幅）电子(29.7%)、通信(9.2%)、电力设备(7.4%)。",
+      "claim_type": "supporting_fact",
+      "theme": "A股市场",
+      "evidence_ids": [
+        "G3"
+      ],
+      "evidence_tier": "L4_structured",
+      "freshness": null,
+      "confidence": null,
+      "counter_evidence": [],
+      "status": "verified",
+      "company": null
+    },
+    {
+      "claim_id": "generic:verified:4",
+      "text": "2026-07-29：指数 0.4%；成交 22963.39 亿；上涨 4253 家；涨停/跌停 81/9；行业成交额占全市场比例前三（括号为成交额占比，绝非行业涨跌幅）电子(29.5%)、电力设备(7.8%)、通信(7.7%)。",
+      "claim_type": "supporting_fact",
+      "theme": "A股市场",
+      "evidence_ids": [
+        "G4"
+      ],
+      "evidence_tier": "L4_structured",
+      "freshness": null,
+      "confidence": null,
+      "counter_evidence": [],
+      "status": "verified",
+      "company": null
+    },
+    {
+      "claim_id": "generic:verified:5",
+      "text": "2026-07-30：指数 -0.62%；成交 23425.75 亿；上涨 1768 家；涨停/跌停 52/74；行业成交额占全市场比例前三（括号为成交额占比，绝非行业涨跌幅）电子(28.7%)、通信(8.6%)、电力设备(7.2%)。",
+      "claim_type": "supporting_fact",
+      "theme": "A股市场",
+      "evidence_ids": [
+        "G5"
+      ],
+      "evidence_tier": "L4_structured",
+      "freshness": null,
+      "confidence": null,
+      "counter_evidence": [],
+      "status": "verified",
+      "company": null
+    },
+    {
+      "claim_id": "generic:verified:6",
+      "text": "2026-07-31：指数 0.72%；成交 25417.56 亿；上涨 4691 家；涨停/跌停 99/0；行业成交额占全市场比例前三（括号为成交额占比，绝非行业涨跌幅）电子(29.0%)、通信(8.3%)、计算机(7.2%)。",
+      "claim_type": "supporting_fact",
+      "theme": "A股市场",
+      "evidence_ids": [
+        "G6"
+      ],
+      "evidence_tier": "L4_structured",
+      "freshness": null,
+      "confidence": null,
+      "counter_evidence": [],
+      "status": "verified",
+      "company": null
+    },
+    {
+      "claim_id": "generic:verified:7",
+      "text": "主线题材（截至 2026-07-31）：AI应用（2 个核心板块）、消费零售（3 个核心板块）、半导体（3 个核心板块）、AI算力（1 个核心板块）。",
+      "claim_type": "supporting_fact",
+      "theme": "A股市场",
+      "evidence_ids": [
+        "G7"
+      ],
+      "evidence_tier": "L4_structured",
+      "freshness": null,
+      "confidence": null,
+      "counter_evidence": [],
+      "status": "verified",
+      "company": null
+    },
+    {
+      "claim_id": "generic:verified:8",
+      "text": "市场数据截至：2026-07-31。该日期是本轮整体盘面日期。",
+      "claim_type": "supporting_fact",
+      "theme": "A股市场",
+      "evidence_ids": [
+        "G8"
+      ],
+      "evidence_tier": "L4_structured",
+      "freshness": null,
+      "confidence": null,
+      "counter_evidence": [],
+      "status": "verified",
+      "company": null
+    },
+    {
+      "claim_id": "generic:verified:9",
+      "text": "窗口：2026-07-27 ~ 2026-07-31，共 5 个交易日；该块只描述周内变化，不等同于外部因果。",
+      "claim_type": "supporting_fact",
+      "theme": "A股市场",
+      "evidence_ids": [
+        "G9"
+      ],
+      "evidence_tier": "L4_structured",
+      "freshness": null,
+      "confidence": null,
+      "counter_evidence": [],
+      "status": "verified",
+      "company": null
+    }
+  ],
+  "company_table": [],
+  "counter_evidence": [],
+  "gaps": [
+    {
+      "claim_id": "generic:gap:1",
+      "text": "未取得可直接预测下一交易日方向的独立证据；以上仅为条件化情景，不给出概率。",
+      "claim_type": "evidence_gap",
+      "theme": "A股市场",
+      "evidence_ids": [],
+      "evidence_tier": "",
+      "freshness": null,
+      "confidence": null,
+      "counter_evidence": [],
+      "status": "missing",
+      "company": null
+    }
+  ],
+  "triggers": [],
+  "candidate_facts": [
+    {
+      "claim_id": "generic:candidate:1",
+      "text": "一图展望丨英特尔Q2财报倒计时，数据中心扛起增长主线，PC、代工业务仍存变数：2026-07-22 14:37:56 哈富证券",
+      "claim_type": "supporting_fact",
+      "theme": "A股市场",
+      "evidence_ids": [
+        "G1"
+      ],
+      "evidence_tier": "news",
+      "freshness": null,
+      "confidence": null,
+      "counter_evidence": [],
+      "status": "candidate",
+      "company": null
+    },
+    {
+      "claim_id": "generic:candidate:10",
+      "text": "A股复盘：2026年7月21日 创业板暴涨7% 半导体掀涨停潮 — oolool：2026年7月21日 · 今日三大指数全线上涨，创业板指暴涨7.05%，深证成指涨4.81%，上证指数涨1.79%。 半导体板块大涨9.83%领涨 …",
+      "claim_type": "supporting_fact",
+      "theme": "A股市场",
+      "evidence_ids": [
+        "G10"
+      ],
+      "evidence_tier": "public_web",
+      "freshness": null,
+      "confidence": null,
+      "counter_evidence": [],
+      "status": "candidate",
+      "company": null
+    },
+    {
+      "claim_id": "generic:candidate:11",
+      "text": "穆迪将阿根廷评级上调至B3，并将展望调整为积极：2026-07-22 04:35:49 财联社",
+      "claim_type": "supporting_fact",
+      "theme": "A股市场",
+      "evidence_ids": [
+        "G11"
+      ],
+      "evidence_tier": "news",
+      "freshness": null,
+      "confidence": null,
+      "counter_evidence": [],
+      "status": "candidate",
+      "company": null
+    },
+    {
+      "claim_id": "generic:candidate:12",
+      "text": "【环球财经】穆迪上调阿根廷主权信用评级展望至“正面”：2026-07-22 10:06:35 新华财经",
+      "claim_type": "supporting_fact",
+      "theme": "A股市场",
+      "evidence_ids": [
+        "G12"
+      ],
+      "evidence_tier": "news",
+      "freshness": null,
+      "confidence": null,
+      "counter_evidence": [],
+      "status": "candidate",
+      "company": null
+    },
+    {
+      "claim_id": "generic:rebound_case",
+      "text": "反弹情景：若下一交易日跌停家数明显收缩、上涨家数扩大，且成交没有在指数上行时萎缩，则技术性修复更可信；若只有权重拉指数、个股广度不改善，只算弱反抽。",
+      "claim_type": "expectation",
+      "theme": "A股市场",
+      "evidence_ids": [
+        "G2",
+        "G3",
+        "G4",
+        "G5",
+        "G6",
+        "G7",
+        "G8",
+        "G9"
+      ],
+      "evidence_tier": "L4_structured",
+      "freshness": null,
+      "confidence": null,
+      "counter_evidence": [],
+      "status": "inferred",
+      "company": null
+    },
+    {
+      "claim_id": "generic:decline_case",
+      "text": "继续下跌情景：若跌停继续扩散、上涨家数重新收缩，或放量但指数和主线同步走弱，说明卖压尚未出清，弱势延续的解释更占优。",
+      "claim_type": "expectation",
+      "theme": "A股市场",
+      "evidence_ids": [
+        "G2",
+        "G3",
+        "G4",
+        "G5",
+        "G6",
+        "G7",
+        "G8",
+        "G9"
+      ],
+      "evidence_tier": "L4_structured",
+      "freshness": null,
+      "confidence": null,
+      "counter_evidence": [],
+      "status": "inferred",
+      "company": null
+    },
+    {
+      "claim_id": "generic:invalidation",
+      "text": "失效条件：开盘后涨跌停结构、成交和指数方向与上述触发条件相反时，本轮基准判断失效，必须用下一交易日的新盘面重算。",
+      "claim_type": "expectation",
+      "theme": "A股市场",
+      "evidence_ids": [
+        "G2",
+        "G3",
+        "G4",
+        "G5",
+        "G6",
+        "G7",
+        "G8",
+        "G9"
+      ],
+      "evidence_tier": "L4_structured",
+      "freshness": null,
+      "confidence": null,
+      "counter_evidence": [],
+      "status": "inferred",
+      "company": null
+    },
+    {
+      "claim_id": "generic:assessment",
+      "text": "基于本轮已收集证据的判断：基准判断（低置信度）：更可能维持弱势震荡，暂不把单日波动解释成趋势反转。当前结构同时包含修复线索和未出清卖压。反弹情景：若下一交易日跌停家数明显收缩、上涨家数扩大，且成交没有在指数上行时萎缩，则技术性修复更可信；若只有权重拉指数、个股广度不改善，只算弱反抽。继续下跌情景：若跌停继续扩散、上涨家数重新收缩，或放量但指数和主线同步走弱，说明卖压尚未出清，弱势延续的解释更占优。失效条件：开盘后涨跌停结构、成交和指数方向与上述触发条件相反时，本轮基准判断失效，必须用下一交易日的新盘面重算。 [G1, G2, G3, G4, G5, G6, G7, G8, G9, G10, G11, G12]",
+      "claim_type": "summary",
+      "theme": "A股市场",
+      "evidence_ids": [
+        "G1",
+        "G2",
+        "G3",
+        "G4",
+        "G5",
+        "G6",
+        "G7",
+        "G8",
+        "G9",
+        "G10",
+        "G11",
+        "G12"
+      ],
+      "evidence_tier": "agent_assessment",
+      "freshness": null,
+      "confidence": null,
+      "counter_evidence": [],
+      "status": "inferred",
+      "company": null
+    }
+  ],
+  "next_actions": [
+    "下一步验证：补充与问题直接相关的官方披露或数据，并检查是否改变当前判断。"
+  ],
+  "sources": [
+    {
+      "evidence_id": "G1",
+      "source": "http://stock.eastmoney.com/a/202607223817223662.html",
+      "detail": "2026-07-22 14:37:56 哈富证券",
+      "tier": "agent_candidate",
+      "source_date": "2026-07-22",
+      "freshness": "unknown",
+      "content_hash": "",
+      "source_revision": ""
+    },
+    {
+      "evidence_id": "G2",
+      "source": "本地 DuckDB · 预测盘面窗口",
+      "detail": "2026-07-27：指数 1.1548168186339636%；成交 20764.75 亿；上涨 5195 家；涨停/跌停 111/6；行业成交额占全市场比例前三（括号为成交额占比，绝非行业涨跌幅）电子(29.0%)、电力设备(7.9%)、通信(6.5%)。",
+      "tier": "L4_structured",
+      "source_date": "2026-07-27",
+      "freshness": "unknown",
+      "content_hash": "",
+      "source_revision": ""
+    },
+    {
+      "evidence_id": "G3",
+      "source": "本地 DuckDB · 预测盘面窗口",
+      "detail": "2026-07-28：指数 -1.1645191013012313%；成交 20256.14 亿；上涨 2603 家；涨停/跌停 61/49；行业成交额占全市场比例前三（括号为成交额占比，绝非行业涨跌幅）电子(29.7%)、通信(9.2%)、电力设备(7.4%)。",
+      "tier": "L4_structured",
+      "source_date": "2026-07-28",
+      "freshness": "unknown",
+      "content_hash": "",
+      "source_revision": ""
+    },
+    {
+      "evidence_id": "G4",
+      "source": "本地 DuckDB · 预测盘面窗口",
+      "detail": "2026-07-29：指数 0.39739701545769%；成交 22963.39 亿；上涨 4253 家；涨停/跌停 81/9；行业成交额占全市场比例前三（括号为成交额占比，绝非行业涨跌幅）电子(29.5%)、电力设备(7.8%)、通信(7.7%)。",
+      "tier": "L4_structured",
+      "source_date": "2026-07-29",
+      "freshness": "unknown",
+      "content_hash": "",
+      "source_revision": ""
+    },
+    {
+      "evidence_id": "G5",
+      "source": "本地 DuckDB · 预测盘面窗口",
+      "detail": "2026-07-30：指数 -0.6210315402841116%；成交 23425.75 亿；上涨 1768 家；涨停/跌停 52/74；行业成交额占全市场比例前三（括号为成交额占比，绝非行业涨跌幅）电子(28.7%)、通信(8.6%)、电力设备(7.2%)。",
+      "tier": "L4_structured",
+      "source_date": "2026-07-30",
+      "freshness": "unknown",
+      "content_hash": "",
+      "source_revision": ""
+    },
+    {
+      "evidence_id": "G6",
+      "source": "本地 DuckDB · 预测盘面窗口",
+      "detail": "2026-07-31：指数 0.7246051126858388%；成交 25417.56 亿；上涨 4691 家；涨停/跌停 99/0；行业成交额占全市场比例前三（括号为成交额占比，绝非行业涨跌幅）电子(29.0%)、通信(8.3%)、计算机(7.2%)。",
+      "tier": "L4_structured",
+      "source_date": "2026-07-31",
+      "freshness": "unknown",
+      "content_hash": "",
+      "source_revision": ""
+    },
+    {
+      "evidence_id": "G7",
+      "source": "本地 DuckDB · 预测盘面窗口",
+      "detail": "主线题材（截至 2026-07-31）：AI应用（2 个核心板块）、消费零售（3 个核心板块）、半导体（3 个核心板块）、AI算力（1 个核心板块）。",
+      "tier": "L4_structured",
+      "source_date": "2026-07-31",
+      "freshness": "unknown",
+      "content_hash": "",
+      "source_revision": ""
+    },
+    {
+      "evidence_id": "G8",
+      "source": "本地 DuckDB · 预测盘面窗口",
+      "detail": "市场数据截至：2026-07-31。该日期是本轮整体盘面日期。",
+      "tier": "L4_structured",
+      "source_date": "2026-07-31",
+      "freshness": "unknown",
+      "content_hash": "",
+      "source_revision": ""
+    },
+    {
+      "evidence_id": "G9",
+      "source": "本地 DuckDB · 预测盘面窗口",
+      "detail": "窗口：2026-07-27 ~ 2026-07-31，共 5 个交易日；该块只描述周内变化，不等同于外部因果。",
+      "tier": "L4_structured",
+      "source_date": "2026-07-31",
+      "freshness": "unknown",
+      "content_hash": "",
+      "source_revision": ""
+    },
+    {
+      "evidence_id": "G10",
+      "source": "https://www.oolool.com/a-share/2026-07-21-market-review.html",
+      "detail": "2026年7月21日 · 今日三大指数全线上涨，创业板指暴涨7.05%，深证成指涨4.81%，上证指数涨1.79%。 半导体板块大涨9.83%领涨 …",
+      "tier": "agent_candidate",
+      "source_date": "2026-07-21",
+      "freshness": "unknown",
+      "content_hash": "",
+      "source_revision": ""
+    },
+    {
+      "evidence_id": "G11",
+      "source": "http://finance.eastmoney.com/a/202607223816095054.html",
+      "detail": "2026-07-22 04:35:49 财联社",
+      "tier": "agent_candidate",
+      "source_date": "2026-07-22",
+      "freshness": "unknown",
+      "content_hash": "",
+      "source_revision": ""
+    },
+    {
+      "evidence_id": "G12",
+      "source": "http://finance.eastmoney.com/a/202607223816897966.html",
+      "detail": "2026-07-22 10:06:35 新华财经",
+      "tier": "agent_candidate",
+      "source_date": "2026-07-22",
+      "freshness": "unknown",
+      "content_hash": "",
+      "source_revision": ""
+    }
+  ],
+  "system_notices": [],
+  "prompt_constraints": [
+    "direct_assessment：针对预测窗口的直接判断，并明确当前基准情景",
+    "rebound_case：反弹情景：触发条件、支持证据与观察窗口",
+    "decline_case：继续下跌情景：触发条件、支持证据与观察窗口",
+    "invalidation：使当前判断失效的反证或关键监测指标",
+    "supporting_evidence：至少一条可回查的当前盘面或外部来源",
+    "evidence_boundary：TaskFrame 要求的输出：evidence_boundary"
+  ],
+  "presentation_kind": "generic_research",
+  "presentation_title": "A股市场",
+  "presentation_profile": "forecast",
+  "research_artifacts": [],
+  "research_evidence_atoms": [],
+  "quality": {
+    "passed": true,
+    "issues": []
+  }
+}
