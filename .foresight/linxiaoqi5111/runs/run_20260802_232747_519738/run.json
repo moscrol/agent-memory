@@ -1,21 +1,23 @@
 {
-  "run_id": "run_20260802_232559_474809",
+  "run_id": "run_20260802_232747_519738",
   "user": "linxiaoqi5111",
   "question": "2026-07-23 今天市场怎么样",
   "task_type": "ask",
   "status": "completed",
   "schema_version": 1,
-  "session_id": "conv_a87de5b8774e4e4bbb5caee4e94e4163",
+  "session_id": "conv_d7d511f4d5c147a589eef617f835d1ba",
   "parent_run_id": null,
-  "created_at": "2026-08-02T23:25:59+08:00",
-  "finished_at": "2026-08-02T23:27:30+08:00",
+  "created_at": "2026-08-02T23:27:47+08:00",
+  "finished_at": "2026-08-02T23:29:18+08:00",
   "source_date": "2026-07-23",
   "duckdb_cutoff": null,
   "kb_commit": null,
   "kb_index_built_at": null,
   "kb_index_freshness": null,
   "manifest_ref": null,
-  "degrades": [],
+  "degrades": [
+    "Grounded Presenter自然语言合成未通过门禁或不可用（LLM 合成超过共享截止时间，已降级为模板），已降级为可核验短答。"
+  ],
   "error": null,
   "artifacts": [
     {
@@ -34,8 +36,8 @@
       "path": "answer.md",
       "renderer": "markdown",
       "title": "对话回答：2026-07-23 今天市场怎么样",
-      "sha256": "c8454fef19d492df1de43d19b7cbefa94dc8e6884b19a2e59ad9fdd878d571c9",
-      "bytes": 2637,
+      "sha256": "3171e955dcd46d1cf0445be3f7a59b6d46909041c57e54cc1565ad9546900266",
+      "bytes": 1952,
       "previewable": true,
       "downloadable": true,
       "visibility": "public"
@@ -67,8 +69,8 @@
       "path": "decision_brief.json",
       "renderer": "json",
       "title": "影子论证计划",
-      "sha256": "6e2934ca3d51e531e50a24bf003cb6ef01af3389f32b75c29c64206b901666f1",
-      "bytes": 2108,
+      "sha256": "ed7872e6db562c20221b47c2a13df83ad1856513d327fd440e395cbc8ac2ebec",
+      "bytes": 2245,
       "previewable": true,
       "downloadable": true,
       "visibility": "public"
@@ -78,8 +80,8 @@
       "path": "grounded_composer_shadow.json",
       "renderer": "json",
       "title": "Grounded Composer 影子实验",
-      "sha256": "3205d380b8889d99cba9a585bcc4fb2e2bfd49123ea93573c71b78facbeeb2ec",
-      "bytes": 9333,
+      "sha256": "3b7309ece9c678395d59b00632dbb5ce514efa962038943f7dc22361b8fda1a7",
+      "bytes": 2664,
       "previewable": true,
       "downloadable": true,
       "visibility": "public"
@@ -89,8 +91,8 @@
       "path": "report.json",
       "renderer": "structured_report",
       "title": "结构化对话报告",
-      "sha256": "4ce5c5c02c1e02a46e1d5a8be00641e8fc638746ffcfaa8032ad8ed28cbcf586",
-      "bytes": 11975,
+      "sha256": "f1b1e42c58fe651cabba8678268979e549faf358b51637e0a428cf54d822b0b1",
+      "bytes": 12131,
       "previewable": true,
       "downloadable": true,
       "visibility": "public"

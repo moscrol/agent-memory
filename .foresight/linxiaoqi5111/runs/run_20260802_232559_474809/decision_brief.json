@@ -1,0 +1,32 @@
+{
+  "direct_answer": "数据截至 2026-07-23。论证计划先读取该日期的 canonical 正式日报，再直接回答四项：市场处于反弹阶段的第3个交易日，短线情绪偏热；最强盘面数据是储能、电网设备、风电、机器人概念和光伏概念的涨停较集中，其中储能居前，且资金主要集中在电力设备；主要风险是成交额较前一交易日减少、强势方向较集中，同时仅电力设备满足上涨且放量；下一交易日重点验证电力设备能否继续上涨且放量、成交能否改善，以及涨停集中方向和偏热情绪能否延续。知识库积累单独成段：现有资料仅明确医药方向已有医药、AI+医药、AI+生物医药概念页，公司暴露包括小方制药的外用药专业制药角色、泰恩康的两性健康与肠胃及眼科板块角色、神奇制药的医药制造与医药商业双板块角色、丽珠集团的医药相关产品及材料供应商角色。哪些盘面主线方向尚无知识库积累，现有 registry 无法完整判定，应明确列为待补研究缺口；盘面强弱与知识库积累必须分开陈述，不作互相推导。",
+  "core_tension": "反弹延续、涨停集中和短线情绪偏热，构成偏强信号；但成交收缩、确认上涨且放量的方向有限，意味着热度与量能确认之间存在张力。另一个核心边界是盘面主线不等于知识库积累充分，知识库有积累也不等于盘面强。",
+  "supports": [
+    "daily-review:summary",
+    "daily-review:fact:1",
+    "daily-review:fact:2",
+    "daily-review:fact:3",
+    "daily-review:fact:4",
+    "daily-review:fact:6"
+  ],
+  "counterevidence": [
+    "daily-review:fact:2",
+    "daily-review:fact:3",
+    "daily-review:fact:7"
+  ],
+  "unknowns": [
+    "daily-review:fact:5",
+    "daily-review:gap:scope"
+  ],
+  "upgrade_conditions": [
+    "daily-review:fact:2",
+    "daily-review:fact:3",
+    "daily-review:fact:1"
+  ],
+  "downgrade_conditions": [
+    "daily-review:fact:2",
+    "daily-review:fact:3",
+    "daily-review:fact:1"
+  ],
+  "chain_mapping": []
+}
