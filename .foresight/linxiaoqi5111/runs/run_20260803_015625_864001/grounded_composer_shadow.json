@@ -1,0 +1,43 @@
+{
+  "status": "composer_unavailable",
+  "decision_brief": {
+    "direct_answer": "数据截至 2026-07-23。明确结论：在正式日报“11. 3板及以上个股”的统计口径内，连板梯队存在断层，结构为6板、4板、3板，5板缺位；但该章节不覆盖2板和首板，因此无法据此判断完整梯队是否还有其他断层。逐条看，立新能源（001258.SZ）为6板，涨9.99%，晋级率1/1=100%；美利云（000815.SZ）为4板，涨9.98%，晋级率1/1=100%；3板共4只，分别是爱丽家居（603221.SH，涨10.03%）、盛达资源（000603.SZ，涨10.01%）、证通电子（002197.SZ，涨10.04%）、长缆科技（002879.SZ，涨9.99%），对应晋级率4/9=44%。3板及以上合计6只，最高6板。市场处于反弹阶段第3个交易日，短线情绪偏热；最强数据是储能40只涨停，其次为电网设备和风电各29只，机器人概念和光伏概念各25只，强势股平均上涨9.86%。主要风险是成交额较前一交易日减少17.27%，仅为近20日平均的74.62%，情绪偏热与成交收缩并存。下一交易日重点验证5板缺口能否补齐、6板与4板标的能否继续晋级、3板晋级率能否改善、成交能否恢复，以及电力设备能否继续保持放量上涨。",
+    "core_tension": "论证核心是“高标仍在晋级”与“梯队连续性不足、成交缩量”之间的张力：6板和4板标的晋级率均为100%，但5板缺位，3板晋级率仅44%，同时市场成交明显收缩。检索计划是读取2026-07-23的canonical正式日报，并以其中“11. 3板及以上个股”章节为连板结论的直接依据。主线盘面与知识库积累必须分开：现有registry只确认知识库侧包含概念页、公司暴露和已入库证据，但没有列出各方向的具体概念页、公司名单及公司角色，也无法识别哪些盘面主线尚无知识库积累；这些内容均作为明确缺口，不能由盘面强弱反推。",
+    "supports": [
+      "daily-review:fact:5",
+      "daily-review:fact:4",
+      "daily-review:fact:1",
+      "daily-review:fact:2",
+      "daily-review:fact:3",
+      "daily-review:fact:11"
+    ],
+    "counterevidence": [
+      "daily-review:fact:11"
+    ],
+    "unknowns": [
+      "daily-review:gap:scope",
+      "daily-review:fact:6"
+    ],
+    "upgrade_conditions": [
+      "daily-review:fact:5",
+      "daily-review:fact:11",
+      "daily-review:fact:2"
+    ],
+    "downgrade_conditions": [
+      "daily-review:fact:5",
+      "daily-review:fact:11",
+      "daily-review:fact:1"
+    ],
+    "chain_mapping": []
+  },
+  "raw_answer": null,
+  "repaired_answer": null,
+  "presented_answer": null,
+  "deterministic_issues": [],
+  "judge_report": null,
+  "judge_raw": null,
+  "provider": "zhipu",
+  "model": "gpt-5.6-sol",
+  "failure_reason": "LLM 合成超过共享截止时间，已降级为模板",
+  "elapsed_ms": 90003
+}

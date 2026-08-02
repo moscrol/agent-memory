@@ -1,0 +1,21 @@
+{
+  "run_id": "run_20260803_015758_486805",
+  "user": "linxiaoqi5111",
+  "question": "2026-07-21 当天主线是什么",
+  "task_type": "ask",
+  "status": "running",
+  "schema_version": 1,
+  "session_id": "conv_e181af7561c64e2796ead48c3f2c7a50",
+  "parent_run_id": null,
+  "created_at": "2026-08-03T01:57:58+08:00",
+  "finished_at": null,
+  "source_date": null,
+  "duckdb_cutoff": null,
+  "kb_commit": null,
+  "kb_index_built_at": null,
+  "kb_index_freshness": null,
+  "manifest_ref": null,
+  "degrades": [],
+  "error": null,
+  "artifacts": []
+}
