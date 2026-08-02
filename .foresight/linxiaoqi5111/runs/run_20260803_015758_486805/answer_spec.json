@@ -1,0 +1,236 @@
+{
+  "research_spec": {
+    "theme": "2026-07-21当天主线",
+    "pack_id": "base_finance_mode",
+    "definition": "常驻金融问答基座",
+    "chain_stages": [],
+    "company_scope": "",
+    "as_of": null,
+    "evidence_requirements": [],
+    "counter_evidence_requirements": [],
+    "trigger_conditions": [],
+    "verification_actions": [
+      "如需投资映射，可在定义确认后另行查询产业链和 A 股暴露。"
+    ],
+    "focus_entities": [],
+    "requested_sections": [
+      "direct_assessment",
+      "strongest_evidence",
+      "main_risk",
+      "condition_boundary",
+      "next_verification"
+    ]
+  },
+  "summary": [
+    {
+      "claim_id": "base:summary:1",
+      "text": "已为“2026-07-21当天主线”取得可核验的定义/背景来源。",
+      "claim_type": "summary",
+      "theme": "2026-07-21当天主线",
+      "evidence_ids": [
+        "W1",
+        "W2",
+        "W3",
+        "W4",
+        "BASE"
+      ],
+      "evidence_tier": "base_finance",
+      "freshness": null,
+      "confidence": null,
+      "counter_evidence": [],
+      "status": "inferred",
+      "company": null
+    }
+  ],
+  "verified_facts": [
+    {
+      "claim_id": "base:fact:1",
+      "text": "2026-07-09 晨汇：7 月 9 日不是\"新叙事日\"，而是**既有国产算力主线的工程化推进日**：交换网络拿到了量化框架（1:1 配比、capex 占比对标 GPU 服务器）、玻璃基板拿到了产业化时间线（26H2 小批量→2030 规模化）、长鑫拿到了发行日历（7/13 询价）——三条主线全部从\"认知\"进入\"可验证节奏\"，且均与同日晚间 #…",
+      "claim_type": "supporting_fact",
+      "theme": "2026-07-21当天主线",
+      "evidence_ids": [
+        "W1",
+        "W2",
+        "W3",
+        "W4",
+        "BASE"
+      ],
+      "evidence_tier": "base_finance",
+      "freshness": null,
+      "confidence": null,
+      "counter_evidence": [],
+      "status": "verified",
+      "company": null
+    },
+    {
+      "claim_id": "base:fact:2",
+      "text": "歌尔股份_最新逻辑跟踪_20260613：**1. 当前市场交易的核心逻辑是什么？** 双线并行：主线是**AI智能眼镜代工龙头的业绩兑现**（2025年AI眼镜营收+320%，精密零组件毛利率持续提升，2026Q1营收+14.44%重回增长），辅线是**CPO光通信的远期想象**（MTJ-PD专利+新设子公司+北航合作，但公司已明确否认开展CPO业务）。 *…",
+      "claim_type": "supporting_fact",
+      "theme": "2026-07-21当天主线",
+      "evidence_ids": [
+        "W1",
+        "W2",
+        "W3",
+        "W4",
+        "BASE"
+      ],
+      "evidence_tier": "base_finance",
+      "freshness": null,
+      "confidence": null,
+      "counter_evidence": [],
+      "status": "verified",
+      "company": null
+    },
+    {
+      "claim_id": "base:fact:3",
+      "text": "2026-06-29 晨汇：当日主线延续\"AI硬件涨价传导链\"并向下游确认——CCL/PCB上游涨价链（FR4从70涨至260元/张、7月破300、金安国纪Q2毛利率超50%）+存储紧张至2028（HBM缺口40%-50%）+液冷从主题转产业价值重估（Q2 CDU订单落地、Rubin单柜100-125万）+玻璃基板TGV量产元年（京东方中试线通线…",
+      "claim_type": "supporting_fact",
+      "theme": "2026-07-21当天主线",
+      "evidence_ids": [
+        "W1",
+        "W2",
+        "W3",
+        "W4",
+        "BASE"
+      ],
+      "evidence_tier": "base_finance",
+      "freshness": null,
+      "confidence": null,
+      "counter_evidence": [],
+      "status": "verified",
+      "company": null
+    },
+    {
+      "claim_id": "base:fact:4",
+      "text": "天通股份_最新逻辑卡_20260612：两条主线并行：① **薄膜铌酸锂是3.2T光模块/CPO时代的核心材料，天通是国内唯一供应商，远期市值看千亿**（中信通信语）；② **磷化铟出口管制受益，天通是InP衬底龙头**（海通国际语）。",
+      "claim_type": "supporting_fact",
+      "theme": "2026-07-21当天主线",
+      "evidence_ids": [
+        "W1",
+        "W2",
+        "W3",
+        "W4",
+        "BASE"
+      ],
+      "evidence_tier": "base_finance",
+      "freshness": null,
+      "confidence": null,
+      "counter_evidence": [],
+      "status": "verified",
+      "company": null
+    }
+  ],
+  "company_table": [],
+  "counter_evidence": [],
+  "gaps": [
+    {
+      "claim_id": "base:gap:1",
+      "text": "当前仅完成定义与背景核验，尚未验证产业链或投资映射。",
+      "claim_type": "evidence_gap",
+      "theme": "2026-07-21当天主线",
+      "evidence_ids": [],
+      "evidence_tier": "",
+      "freshness": null,
+      "confidence": null,
+      "counter_evidence": [],
+      "status": "missing",
+      "company": null
+    }
+  ],
+  "triggers": [
+    {
+      "claim_id": "base:trigger:1",
+      "text": "概念定义与市场交易判断分开处理，本轮不自动扩展公司名单。",
+      "claim_type": "condition_boundary",
+      "theme": "2026-07-21当天主线",
+      "evidence_ids": [
+        "W1",
+        "W2",
+        "W3",
+        "W4",
+        "BASE"
+      ],
+      "evidence_tier": "base_finance",
+      "freshness": null,
+      "confidence": null,
+      "counter_evidence": [],
+      "status": "inferred",
+      "company": null
+    }
+  ],
+  "candidate_facts": [],
+  "next_actions": [
+    "如需投资映射，可在定义确认后另行查询产业链和 A 股暴露。"
+  ],
+  "sources": [
+    {
+      "evidence_id": "W1",
+      "source": "knowledge-base · wiki/briefings/2026-07-09.md",
+      "detail": "2026-07-09 晨汇｜chunk=wiki/briefings/2026-07-09.md::12",
+      "tier": "",
+      "source_date": null,
+      "freshness": "unknown",
+      "content_hash": "",
+      "source_revision": ""
+    },
+    {
+      "evidence_id": "W2",
+      "source": "knowledge-base · wiki/sources/歌尔股份_最新逻辑跟踪_20260613.md",
+      "detail": "歌尔股份_最新逻辑跟踪_20260613｜chunk=wiki/sources/歌尔股份_最新逻辑跟踪_20260613.md::15",
+      "tier": "",
+      "source_date": null,
+      "freshness": "unknown",
+      "content_hash": "",
+      "source_revision": ""
+    },
+    {
+      "evidence_id": "W3",
+      "source": "knowledge-base · wiki/briefings/2026-06-29.md",
+      "detail": "2026-06-29 晨汇｜chunk=wiki/briefings/2026-06-29.md::1",
+      "tier": "",
+      "source_date": null,
+      "freshness": "unknown",
+      "content_hash": "",
+      "source_revision": ""
+    },
+    {
+      "evidence_id": "W4",
+      "source": "knowledge-base · wiki/sources/天通股份_最新逻辑卡_20260612.md",
+      "detail": "天通股份_最新逻辑卡_20260612｜chunk=wiki/sources/天通股份_最新逻辑卡_20260612.md::11",
+      "tier": "",
+      "source_date": null,
+      "freshness": "unknown",
+      "content_hash": "",
+      "source_revision": ""
+    },
+    {
+      "evidence_id": "BASE",
+      "source": "本轮可核验资料",
+      "detail": "用于统一答案裁决与展示。",
+      "tier": "",
+      "source_date": null,
+      "freshness": "unknown",
+      "content_hash": "",
+      "source_revision": ""
+    }
+  ],
+  "system_notices": [
+    "本轮为概念定义与技术背景查询，不使用 A 股盘面材料补答。"
+  ],
+  "prompt_constraints": [
+    "## 本轮任务边界\n- 类型：concept_definition；深度：standard\n- 必要视角：先解释定义、核心技术原理和产业链位置；本地知识库未命中时受控升级到通用 Web Search；Web 摘要只作为外部来源线索，保留来源链接和证据边界\n- 优先证据：本地 Wiki/RAG：先查已有定义和产业链资料；Bing Web Search via Web Access：本地未命中时补外部定义与技术背景\n- 完成条件：用简洁语言回答是什么、如何工作、位于产业链哪里；列出本地知识或 Web 来源，区分事实与推导；不自动扩展无关公司名单或 A 股盘面判断\n- 事实门：不能只给结论，必须说明关键推理链和证据边界；必须主动写反证和证伪条件；缺数据时要说明缺口，不能用常识或印象补齐\n- 缺数据：本地没有命中时，先声明缺口，再决定是否需要 web/API 补查；外部实时查询只补最新事实，不替代知识库/金融库的结构化底座\n- 金融检索底线：通用金融证据",
+    "2026-07-09 晨汇：7 月 9 日不是\"新叙事日\"，而是**既有国产算力主线的工程化推进日**：交换网络拿到了量化框架（1:1 配比、capex 占比对标 GPU 服务器）、玻璃基板拿到了产业化时间线（26H2 小批量→2030 规模化）、长鑫拿到了发行日历（7/13 询价）——三条主线全部从\"认知\"进入\"可验证节奏\"，且均与同日晚间 #… [W1]",
+    "歌尔股份_最新逻辑跟踪_20260613：**1. 当前市场交易的核心逻辑是什么？** 双线并行：主线是**AI智能眼镜代工龙头的业绩兑现**（2025年AI眼镜营收+320%，精密零组件毛利率持续提升，2026Q1营收+14.44%重回增长），辅线是**CPO光通信的远期想象**（MTJ-PD专利+新设子公司+北航合作，但公司已明确否认开展CPO业务）。 *… [W2]",
+    "2026-06-29 晨汇：当日主线延续\"AI硬件涨价传导链\"并向下游确认——CCL/PCB上游涨价链（FR4从70涨至260元/张、7月破300、金安国纪Q2毛利率超50%）+存储紧张至2028（HBM缺口40%-50%）+液冷从主题转产业价值重估（Q2 CDU订单落地、Rubin单柜100-125万）+玻璃基板TGV量产元年（京东方中试线通线… [W3]",
+    "天通股份_最新逻辑卡_20260612：两条主线并行：① **薄膜铌酸锂是3.2T光模块/CPO时代的核心材料，天通是国内唯一供应商，远期市值看千亿**（中信通信语）；② **磷化铟出口管制受益，天通是InP衬底龙头**（海通国际语）。 [W4]"
+  ],
+  "presentation_kind": "base_finance",
+  "presentation_title": "2026-07-21当天主线",
+  "presentation_profile": "theme",
+  "research_artifacts": [],
+  "research_evidence_atoms": [],
+  "quality": {
+    "passed": true,
+    "issues": []
+  }
+}

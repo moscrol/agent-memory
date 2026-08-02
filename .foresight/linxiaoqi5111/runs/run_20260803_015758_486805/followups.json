@@ -1,0 +1,43 @@
+{
+  "followups": [
+    {
+      "question": "2026-07-21当天主线的这个证据缺口应如何补齐并绑定可核验来源：当前仅完成定义与背景核验，尚未验证产业链或投资映射？",
+      "type": "evidence",
+      "rationale": "来自本轮 AnswerSpec 的 evidence gap",
+      "type_label": "证据加深",
+      "source": "gap:base:gap:1",
+      "label": "2026-07-21当天主线的这个证据缺",
+      "full_prompt": "2026-07-21当天主线的这个证据缺口应如何补齐并绑定可核验来源：当前仅完成定义与背景核验，尚未验证产业链或投资映射？"
+    },
+    {
+      "question": "下一步如何执行并核验：如需投资映射，可在定义确认后另行查询产业链和 A 股暴露？",
+      "type": "recheck",
+      "rationale": "来自本轮 AnswerSpec 的验证路径",
+      "type_label": "盘面回检",
+      "source": "next_action",
+      "label": "下一步如何执行并核验：如需投资映射，可在",
+      "full_prompt": "下一步如何执行并核验：如需投资映射，可在定义确认后另行查询产业链和 A 股暴露？"
+    },
+    {
+      "question": "哪些数据能验证或证伪这个条件：概念定义与市场交易判断分开处理，本轮不自动扩展公司名单？",
+      "type": "counter",
+      "rationale": "来自本轮 AnswerSpec 的触发或降级条件",
+      "type_label": "反证验证",
+      "source": "trigger:base:trigger:1",
+      "label": "哪些数据能验证或证伪这个条件：概念定义与",
+      "full_prompt": "哪些数据能验证或证伪这个条件：概念定义与市场交易判断分开处理，本轮不自动扩展公司名单？"
+    },
+    {
+      "question": "2026-07-21当天主线当前哪些关键结论仍缺公司级可核验来源？",
+      "type": "evidence",
+      "rationale": "保守补充：继续检查本轮证据边界",
+      "type_label": "证据加深",
+      "source": "answer_spec_boundary",
+      "label": "2026-07-21当天主线当前哪些关键",
+      "full_prompt": "2026-07-21当天主线当前哪些关键结论仍缺公司级可核验来源？"
+    }
+  ],
+  "llm_used": false,
+  "llm_provider": null,
+  "warnings": []
+}
