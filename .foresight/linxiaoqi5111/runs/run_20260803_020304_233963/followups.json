@@ -1,0 +1,43 @@
+{
+  "followups": [
+    {
+      "question": "下一步如何执行并核验：观点有效期：建议 30 天内复查（至 2026-08-30）；过期引用本结论须先经当下盘面复核？",
+      "type": "recheck",
+      "rationale": "来自本轮 AnswerSpec 的验证路径",
+      "type_label": "盘面回检",
+      "source": "next_action",
+      "label": "下一步如何执行并核验：观点有效期：建议3",
+      "full_prompt": "下一步如何执行并核验：观点有效期：建议 30 天内复查（至 2026-08-30）；过期引用本结论须先经当下盘面复核？"
+    },
+    {
+      "question": "下一步如何执行并核验：补充盘面与基本面证据后再评估？",
+      "type": "recheck",
+      "rationale": "来自本轮 AnswerSpec 的验证路径",
+      "type_label": "盘面回检",
+      "source": "next_action",
+      "label": "下一步如何执行并核验：补充盘面与基本面证",
+      "full_prompt": "下一步如何执行并核验：补充盘面与基本面证据后再评估？"
+    },
+    {
+      "question": "未命名题材当前哪些关键结论仍缺公司级可核验来源？",
+      "type": "evidence",
+      "rationale": "保守补充：继续检查本轮证据边界",
+      "type_label": "证据加深",
+      "source": "answer_spec_boundary",
+      "label": "未命名题材当前哪些关键结论仍缺公司级可核",
+      "full_prompt": "未命名题材当前哪些关键结论仍缺公司级可核验来源？"
+    },
+    {
+      "question": "未命名题材下一验证窗口应优先核对哪些触发条件？",
+      "type": "recheck",
+      "rationale": "保守补充：落实本轮验证路径",
+      "type_label": "盘面回检",
+      "source": "answer_spec_boundary",
+      "label": "未命名题材下一验证窗口应优先核对哪些触发",
+      "full_prompt": "未命名题材下一验证窗口应优先核对哪些触发条件？"
+    }
+  ],
+  "llm_used": false,
+  "llm_provider": null,
+  "warnings": []
+}
