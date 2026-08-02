@@ -1,0 +1,33 @@
+{
+  "run_id": "run_20260802_232559_474809",
+  "user": "linxiaoqi5111",
+  "question": "2026-07-23 今天市场怎么样",
+  "task_type": "ask",
+  "status": "running",
+  "schema_version": 1,
+  "session_id": "conv_a87de5b8774e4e4bbb5caee4e94e4163",
+  "parent_run_id": null,
+  "created_at": "2026-08-02T23:25:59+08:00",
+  "finished_at": null,
+  "source_date": "2026-07-23",
+  "duckdb_cutoff": null,
+  "kb_commit": null,
+  "kb_index_built_at": null,
+  "kb_index_freshness": null,
+  "manifest_ref": null,
+  "degrades": [],
+  "error": null,
+  "artifacts": [
+    {
+      "artifact_id": "artifact_daily-review-skill-result_json",
+      "path": "daily-review-skill-result.json",
+      "renderer": "json",
+      "title": "Daily Review Skill 原始结果",
+      "sha256": "fd076228eee56fe538de26529d50c8bec5289d8dba598d6160b898cea2fc42ce",
+      "bytes": 10791,
+      "previewable": true,
+      "downloadable": true,
+      "visibility": "public"
+    }
+  ]
+}
