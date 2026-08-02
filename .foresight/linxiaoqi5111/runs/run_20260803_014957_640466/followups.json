@@ -1,0 +1,43 @@
+{
+  "followups": [
+    {
+      "question": "A股市场的这个证据缺口应如何补齐并绑定可核验来源：未取得可直接预测下一交易日方向的独立证据；以上仅为条件化情景，不给出概率？",
+      "type": "evidence",
+      "rationale": "来自本轮 AnswerSpec 的 evidence gap",
+      "type_label": "证据加深",
+      "source": "gap:generic:gap:1",
+      "label": "A股市场的这个证据缺口应如何补齐并绑定可",
+      "full_prompt": "A股市场的这个证据缺口应如何补齐并绑定可核验来源：未取得可直接预测下一交易日方向的独立证据；以上仅为条件化情景，不给出概率？"
+    },
+    {
+      "question": "下一步如何执行并核验：下一步验证：补充与问题直接相关的官方披露或数据，并检查是否改变当前判断？",
+      "type": "recheck",
+      "rationale": "来自本轮 AnswerSpec 的验证路径",
+      "type_label": "盘面回检",
+      "source": "next_action",
+      "label": "下一步如何执行并核验：下一步验证：补充与",
+      "full_prompt": "下一步如何执行并核验：下一步验证：补充与问题直接相关的官方披露或数据，并检查是否改变当前判断？"
+    },
+    {
+      "question": "A股市场当前哪些关键结论仍缺公司级可核验来源？",
+      "type": "evidence",
+      "rationale": "保守补充：继续检查本轮证据边界",
+      "type_label": "证据加深",
+      "source": "answer_spec_boundary",
+      "label": "A股市场当前哪些关键结论仍缺公司级可核验",
+      "full_prompt": "A股市场当前哪些关键结论仍缺公司级可核验来源？"
+    },
+    {
+      "question": "A股市场下一验证窗口应优先核对哪些触发条件？",
+      "type": "recheck",
+      "rationale": "保守补充：落实本轮验证路径",
+      "type_label": "盘面回检",
+      "source": "answer_spec_boundary",
+      "label": "A股市场下一验证窗口应优先核对哪些触发条",
+      "full_prompt": "A股市场下一验证窗口应优先核对哪些触发条件？"
+    }
+  ],
+  "llm_used": false,
+  "llm_provider": null,
+  "warnings": []
+}

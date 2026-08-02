@@ -1,0 +1,14 @@
+{
+  "status": "brief_unavailable",
+  "decision_brief": null,
+  "raw_answer": null,
+  "repaired_answer": null,
+  "presented_answer": null,
+  "deterministic_issues": [],
+  "judge_report": null,
+  "judge_raw": null,
+  "provider": null,
+  "model": null,
+  "failure_reason": "LLM 合成超过共享截止时间，已降级为模板",
+  "elapsed_ms": 25790
+}
