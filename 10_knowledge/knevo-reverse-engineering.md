@@ -605,3 +605,38 @@ Knevo 是一个 **LLM function-calling 多 Agent 投研系统**：主 agent 负�
 - ⬜ 北交所票数据边界（补全 2A 里"待验证"的一格）。
 
 > 三大行业痛点（防幻觉/闭环学习/数据边界）已全部有答案，文档主干完整。以上为可选补充。
+
+---
+
+## 10. 2026-08-02 运行态实测校正（E-006）
+
+> 完整实验报告：`finance-workspace-private/docs/learning/knevo-distill/E-006-runtime-retrieval-memory-lifecycle.md`。
+> 可迁移运行时契约：`[[finance-agent-knevo-derived-knowledge-runtime-contract]]`。
+
+本轮通过 Knevo 已登录页面的真实 composer 和工具卡完成只读实验，未点击接受/拒绝/更新/删除。以下结论优先级高于早期自述：
+
+### 10.1 文本记忆与图谱不是同一查询平面
+
+- **[实测]** `finance_memory_query(sources=["fundacore"])` 对生益科技/兴森科技/宏发股份/CCL/ABF 查询返回 `count=0`；不能把 `fundacore` 当作带 title/content/tags 的文本记忆库。
+- **[实测]** 正确图谱通路是 `finance_entity_resolve → finance_graph_context`。
+- **[实测]** 本轮仅生益科技和 ABF 获得可链接实体；兴森科技、宏发股份、CCL 返回低置信度 candidate。图谱上下文返回 `edges=[] / edgeClaims=[] / facts=[] / evidence=[]`，并标出 `no_neighbors / no_facts`。
+- **[校正]** “有实体 ≠ 有关系/事实”。后续回答必须在图谱结果中显式保留 `entities / edges / facts / evidence / gaps`，空边不能由 LLM 补全。
+
+### 10.2 Finmemory 检索存在跨 query 重叠和时间漂移
+
+- **[实测]** 精确框架词稳定命中核心 `fmr-*`；泛化机制词混入观察/事件和相邻主题；月份词偏向近期新增判断。
+- **[实测]** `fmr-6dde4e37` 出现 4/5 次，`fmr-08e0a9a8` 出现 3/5 次，`fmr-6397bed7` 出现 2/5 次。
+- **[推断]** 排序至少混合语义相关性、关键词/实体匹配、时间新鲜度、主题重要性或覆盖度；工具未返回分数，不能断言具体是 BM25、向量检索或 rerank。
+- **[新增工具]** 检索后触发 `finance_memory_stage_extraction`，说明“召回”和“阶段/框架提炼”是两个运行步骤。
+
+### 10.3 Candidate、recommendation、长期 memory 必须分账
+
+- **[实测]** 只读快照为：长期 `memories=37`、pending recommendations=18、pending batches=7、`reflect-insights=0`。
+- **[实测]** 本轮只读实验没有进入长期 memories，也没有形成新的 pending batch。
+- **[校正]** UI 的“待处理”不是长期入库凭证；推荐项必须保留 `conversationId / batchId / status`，用户确认是写入长期记忆的显式 seam。
+- **[校正]** `hitCount` 只能表示记忆被召回/使用的次数，不能当预测胜率；memory confidence 也不能当校准概率。
+
+### 10.4 运行态一致性是单独的验收维度
+
+- **[实测]** API 直写 turn 虽返回 200/completed，但出现用户正文为空、旧问候复用和 `messageCount` 不同步；正常 UI 链路则在页面 turn 中真实出现工具卡。
+- **[可迁移]** UI/SSE/worker/sub-agent 的成功判定要联合检查：payload 持久化、工具事件、assistant output、会话索引刷新，不能只看 HTTP 200。
