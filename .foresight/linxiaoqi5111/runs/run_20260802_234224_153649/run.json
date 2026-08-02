@@ -1,0 +1,87 @@
+{
+  "run_id": "run_20260802_234224_153649",
+  "user": "linxiaoqi5111",
+  "question": "2026-07-21 的新高家数结构说明什么",
+  "task_type": "ask",
+  "status": "completed",
+  "schema_version": 1,
+  "session_id": "conv_dd212dafdf6e49bc82ab3c194093ee25",
+  "parent_run_id": null,
+  "created_at": "2026-08-02T23:42:24+08:00",
+  "finished_at": "2026-08-02T23:44:24+08:00",
+  "source_date": "2026-07-31",
+  "duckdb_cutoff": null,
+  "kb_commit": null,
+  "kb_index_built_at": null,
+  "kb_index_freshness": null,
+  "manifest_ref": null,
+  "degrades": [
+    "未找到 2026-07-21 的本地复盘报告；日报基础模块缺失。",
+    "盘面快照回退到 2026-07-30（2026-07-31 尚无候选）",
+    "题材候选快照截至 2026-07-30，早于本地市场数据的 2026-07-31；快照仅作辅助参考，不作为本轮整体数据日期。",
+    "answer-orchestrator：未高置信识别问题类型，建议先按通用金融问答处理并显式说明假设",
+    "AnswerSpec 质检：结论未绑定证据：主题「2026-07-21 的新高家数结构说明什么」（当日盘面候选未命中，以下仅基于知识图谱）：",
+    "AnswerSpec 质检：结论未绑定证据：图谱命中 0 概念 / 0 公司暴露，证据 0 条；盘面触发：无盘面触发。",
+    "AnswerSpec 质检：结论未绑定证据：模块路由：未启用",
+    "AnswerSpec 质检：存在绑定到其他题材的主张。",
+    "Grounded Presenter自然语言合成未通过门禁或不可用（LLM 合成超过共享截止时间，已降级为模板），已降级为可核验短答。"
+  ],
+  "error": null,
+  "artifacts": [
+    {
+      "artifact_id": "artifact_answer_md",
+      "path": "answer.md",
+      "renderer": "markdown",
+      "title": "对话回答：2026-07-21 的新高家数结构说明什么",
+      "sha256": "89121600ea80ed9bbc8729941f3d0ec46b238a88367db79e77ea677804b1694d",
+      "bytes": 505,
+      "previewable": true,
+      "downloadable": true,
+      "visibility": "public"
+    },
+    {
+      "artifact_id": "artifact_answer_spec_json",
+      "path": "answer_spec.json",
+      "renderer": "json",
+      "title": "回答事实边界",
+      "sha256": "623562fe719aaaf44fa3f1a495bc2fd70f7d0a1df0d38e9573aff7caf5fc0367",
+      "bytes": 13748,
+      "previewable": true,
+      "downloadable": true,
+      "visibility": "public"
+    },
+    {
+      "artifact_id": "artifact_followups_json",
+      "path": "followups.json",
+      "renderer": "json",
+      "title": "猜你想问",
+      "sha256": "7752690bd75c94f508c62baa82b5c07e60b809961f4a08e131f118698a0c5fba",
+      "bytes": 2009,
+      "previewable": true,
+      "downloadable": true,
+      "visibility": "public"
+    },
+    {
+      "artifact_id": "artifact_grounded_composer_shadow_json",
+      "path": "grounded_composer_shadow.json",
+      "renderer": "json",
+      "title": "Grounded Composer 影子实验",
+      "sha256": "7284bf29cecbdc4966fae0a868c4c9397792243ea8994270f5d6987c1142fea3",
+      "bytes": 352,
+      "previewable": true,
+      "downloadable": true,
+      "visibility": "public"
+    },
+    {
+      "artifact_id": "artifact_report_json",
+      "path": "report.json",
+      "renderer": "structured_report",
+      "title": "结构化对话报告",
+      "sha256": "d9ca66b1c27cff34f6725646ddfec168d749eba32561ed71c4e178a020161f2b",
+      "bytes": 11238,
+      "previewable": true,
+      "downloadable": true,
+      "visibility": "public"
+    }
+  ]
+}

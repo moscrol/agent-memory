@@ -1,0 +1,303 @@
+{
+  "schema_version": 1,
+  "report_id": "run_20260802_234224_153649",
+  "title": "2026-07-21 的新高家数结构说明什么",
+  "task_type": "workflow",
+  "status": "completed",
+  "as_of": "2026-07-31",
+  "llm": {
+    "used": false,
+    "provider": null,
+    "model": null
+  },
+  "modules": [
+    {
+      "module_id": "结论",
+      "title": "结论",
+      "kind": "summary",
+      "status": "degraded",
+      "summary": null,
+      "content": null,
+      "metrics": [],
+      "items": [
+        {
+          "summary": "主题「2026-07-21 的新高家数结构说明什么」（当日盘面候选未命中，以下仅基于知识图谱）：盘面信号有限。",
+          "badges": [],
+          "meta": []
+        },
+        {
+          "summary": "知识图谱关联 0 概念 / 0 公司暴露，证据 0 条；盘面触发：无盘面触发。",
+          "badges": [],
+          "meta": []
+        },
+        {
+          "summary": "分析路径：未启用",
+          "badges": [],
+          "meta": []
+        },
+        {
+          "summary": "结论与交易含义由结构化规则生成；证据不足处已标为待验证。",
+          "badges": [],
+          "meta": []
+        },
+        {
+          "summary": "观点有效期：建议 30 天内复查（至 2026-08-30）；过期引用本结论须先经当下盘面复核。",
+          "badges": [],
+          "meta": []
+        }
+      ],
+      "table": null,
+      "warnings": [
+        "盘面快照回退到 2026-07-30（2026-07-31 尚无候选）",
+        "题材候选快照截至 2026-07-30，早于本地市场数据的 2026-07-31；快照仅作辅助参考，不作为本轮整体数据日期。",
+        "问题理解：未高置信识别问题类型，建议先按通用金融问答处理并显式说明假设",
+        "AnswerSpec 质检：结论未绑定证据：主题「2026-07-21 的新高家数结构说明什么」（当日盘面候选未命中，以下仅基于知识图谱）：",
+        "AnswerSpec 质检：结论未绑定证据：知识图谱关联 0 概念 / 0 公司暴露，证据 0 条；盘面触发：无盘面触发。",
+        "AnswerSpec 质检：结论未绑定证据：分析路径：未启用",
+        "AnswerSpec 质检：存在绑定到其他题材的主张。"
+      ],
+      "provenance": {
+        "source": "研究检索流程",
+        "as_of": "2026-07-31",
+        "generated_by": "确定性数据整理"
+      }
+    },
+    {
+      "module_id": "证据链",
+      "title": "证据链",
+      "kind": "evidence",
+      "status": "complete",
+      "summary": null,
+      "content": null,
+      "metrics": [],
+      "items": [
+        {
+          "title": "知识库补充",
+          "summary": "",
+          "badges": [
+            "分组"
+          ],
+          "meta": []
+        },
+        {
+          "summary": "（内部检索诊断信息已隐藏。）",
+          "badges": [],
+          "meta": []
+        },
+        {
+          "summary": "0407早知道（相关度 0.0161）：点评: 创一年新高个股较上个交易日减少1家至65家。其中，前三的芯片、机器人、光纤概念分别有19、17、12家个股创一年新高。历史新高个股占比光纤位列第一，中信建投认为，自2025三季度以来，中国市场光纤价格持续上涨，反映需求向好、供应整体偏紧。海外需求旺盛，出口表现强劲，反映了全球光纤光缆市场的旺盛需求。目前，光纤光…",
+          "badges": [],
+          "meta": []
+        }
+      ],
+      "table": null,
+      "warnings": [],
+      "provenance": {
+        "source": "研究检索流程",
+        "as_of": "2026-07-31",
+        "generated_by": "确定性数据整理"
+      }
+    },
+    {
+      "module_id": "分歧反证",
+      "title": "分歧反证",
+      "kind": "risks",
+      "status": "complete",
+      "summary": null,
+      "content": null,
+      "metrics": [],
+      "items": [
+        {
+          "summary": "阶段判断：叙事观察（证据层：行业资料）",
+          "badges": [],
+          "meta": []
+        },
+        {
+          "summary": "时效边界：以上证据仅按来源日期标注，使用前需复核是否仍然有效。",
+          "badges": [],
+          "meta": []
+        },
+        {
+          "summary": "市场结构推演路径：盘面数据缺失：不能直接从公司逻辑外推上涨空间，需补市场量能、板块承接和个股确认。",
+          "badges": [],
+          "meta": []
+        },
+        {
+          "summary": "反方审稿：这条信息是新事实，还是市场早已知道的旧预期？",
+          "badges": [],
+          "meta": []
+        },
+        {
+          "summary": "反方审稿：一阶受益和二阶受益分别是谁，是否存在更直接的替代标的？",
+          "badges": [],
+          "meta": []
+        },
+        {
+          "summary": "反方审稿：公司有能力栈不等于有收入弹性，弹性是否足以改变报表预期？",
+          "badges": [],
+          "meta": []
+        },
+        {
+          "summary": "市场结构状态机：阶段=未识别；盘面信号不足：先补市场结构数据，再谈交易价值",
+          "badges": [],
+          "meta": []
+        },
+        {
+          "summary": "证据分层审计：只有盘面热度（盘面信号）支撑：属情绪脉冲，不能倒推产业逻辑成立",
+          "badges": [],
+          "meta": []
+        }
+      ],
+      "table": null,
+      "warnings": [],
+      "provenance": {
+        "source": "研究检索流程",
+        "as_of": "2026-07-31",
+        "generated_by": "确定性数据整理"
+      }
+    },
+    {
+      "module_id": "后续验证点",
+      "title": "后续验证点",
+      "kind": "actions",
+      "status": "complete",
+      "summary": null,
+      "content": null,
+      "metrics": [],
+      "items": [
+        {
+          "summary": "补充盘面与基本面证据后再评估",
+          "badges": [],
+          "meta": []
+        },
+        {
+          "summary": "[T+1] 盘面确认：相对强度、是否进入新高/涨停/强势股队列，板块是否双红",
+          "badges": [],
+          "meta": []
+        },
+        {
+          "summary": "[T+3] 持续性：边际量与双红能否连续维持，同链是否出现扩散或替代表达更强",
+          "badges": [],
+          "meta": []
+        },
+        {
+          "summary": "[T+5] 证据升级：是否出现公告/互动易/订单等公告等硬证据确认；相对基准超额与回撤半衰期是否恶化",
+          "badges": [],
+          "meta": []
+        }
+      ],
+      "table": null,
+      "warnings": [],
+      "provenance": {
+        "source": "研究检索流程",
+        "as_of": "2026-07-31",
+        "generated_by": "确定性数据整理"
+      }
+    },
+    {
+      "module_id": "research_5_implications",
+      "title": "交易含义",
+      "kind": "implications",
+      "status": "degraded",
+      "summary": null,
+      "content": null,
+      "metrics": [],
+      "items": [
+        {
+          "summary": "当日盘面未触发：以图谱认知储备为主，等待盘面信号出现。（非投资建议，检索骨架输出。）",
+          "badges": [],
+          "meta": []
+        }
+      ],
+      "table": null,
+      "warnings": [
+        "盘面快照回退到 2026-07-30（2026-07-31 尚无候选）",
+        "题材候选快照截至 2026-07-30，早于本地市场数据的 2026-07-31；快照仅作辅助参考，不作为本轮整体数据日期。",
+        "问题理解：未高置信识别问题类型，建议先按通用金融问答处理并显式说明假设",
+        "AnswerSpec 质检：结论未绑定证据：主题「2026-07-21 的新高家数结构说明什么」（当日盘面候选未命中，以下仅基于知识图谱）：",
+        "AnswerSpec 质检：结论未绑定证据：知识图谱关联 0 概念 / 0 公司暴露，证据 0 条；盘面触发：无盘面触发。",
+        "AnswerSpec 质检：结论未绑定证据：分析路径：未启用",
+        "AnswerSpec 质检：存在绑定到其他题材的主张。"
+      ],
+      "provenance": {
+        "source": "研究检索流程",
+        "as_of": "2026-07-31",
+        "generated_by": "确定性数据整理"
+      }
+    },
+    {
+      "module_id": "research_6_sources",
+      "title": "引用来源",
+      "kind": "sources",
+      "status": "complete",
+      "summary": null,
+      "content": null,
+      "metrics": [],
+      "items": [
+        {
+          "summary": "knowledge-base · 知识库/sources/0407早知道.md",
+          "badges": [],
+          "meta": []
+        },
+        {
+          "summary": "本地市场数据主线题材结构数据块",
+          "badges": [],
+          "meta": []
+        },
+        {
+          "summary": "本地证据链客户硬度数据块",
+          "badges": [],
+          "meta": []
+        },
+        {
+          "summary": "本地市场数据 + 证据链二阶导研究队列数据块",
+          "badges": [],
+          "meta": []
+        }
+      ],
+      "table": null,
+      "warnings": [],
+      "provenance": {
+        "source": "研究检索流程",
+        "as_of": "2026-07-31",
+        "generated_by": "确定性数据整理"
+      }
+    }
+  ],
+  "warnings": [
+    "未找到 2026-07-21 的本地复盘报告；日报基础模块缺失。",
+    "盘面快照回退到 2026-07-30（2026-07-31 尚无候选）",
+    "题材候选快照截至 2026-07-30，早于本地市场数据的 2026-07-31；快照仅作辅助参考，不作为本轮整体数据日期。",
+    "问题理解：未高置信识别问题类型，建议先按通用金融问答处理并显式说明假设",
+    "AnswerSpec 质检：结论未绑定证据：主题「2026-07-21 的新高家数结构说明什么」（当日盘面候选未命中，以下仅基于知识图谱）：",
+    "AnswerSpec 质检：结论未绑定证据：知识图谱关联 0 概念 / 0 公司暴露，证据 0 条；盘面触发：无盘面触发。",
+    "AnswerSpec 质检：结论未绑定证据：分析路径：未启用",
+    "AnswerSpec 质检：存在绑定到其他题材的主张。",
+    "Grounded Presenter自然语言合成未通过门禁或不可用（LLM 合成超过共享截止时间，已降级为模板），已降级为可核验短答。"
+  ],
+  "task_frame": {
+    "raw_question": "2026-07-21 的新高家数结构说明什么",
+    "user_goal": "形成条件化判断",
+    "question_type": "general_finance_qa",
+    "subject": null,
+    "subject_kind": "unknown",
+    "market_scope": "A股",
+    "timeframe": "2026-07-21",
+    "required_outputs": [
+      "direct_answer",
+      "evidence_boundary"
+    ],
+    "assumptions": [],
+    "ambiguities": [],
+    "clarification_question": null,
+    "evidence_policy": "general_finance_evidence",
+    "confidence": 0.4,
+    "task_frame_hash": "1b2cf2b4f22f27022e036476da8712f2a2ecafe9a1f6d601adddbe2f9a5ca7db"
+  },
+  "task_frame_hash": "1b2cf2b4f22f27022e036476da8712f2a2ecafe9a1f6d601adddbe2f9a5ca7db",
+  "transport_status": "completed",
+  "research_status": "complete",
+  "answer_status": "complete",
+  "business_status": "complete",
+  "completed_at": "2026-08-02T15:44:24+00:00"
+}
