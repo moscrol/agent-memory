@@ -1,0 +1,33 @@
+{
+  "run_id": "run_20260803_171452_043073",
+  "user": "linxiaoqi5111",
+  "question": "2026-07-23 哪些板块是双红",
+  "task_type": "ask",
+  "status": "running",
+  "schema_version": 1,
+  "session_id": "conv_f18de697f0344a3dbd6453e663ffb072",
+  "parent_run_id": null,
+  "created_at": "2026-08-03T17:14:52+08:00",
+  "finished_at": null,
+  "source_date": "2026-07-23",
+  "duckdb_cutoff": null,
+  "kb_commit": null,
+  "kb_index_built_at": null,
+  "kb_index_freshness": null,
+  "manifest_ref": null,
+  "degrades": [],
+  "error": null,
+  "artifacts": [
+    {
+      "artifact_id": "artifact_daily-review-skill-result_json",
+      "path": "daily-review-skill-result.json",
+      "renderer": "json",
+      "title": "Daily Review Skill 原始结果",
+      "sha256": "e2499a139207899908ce9ffd32a3d83f919bd34b0f237c9996d7ec326e19773d",
+      "bytes": 12843,
+      "previewable": true,
+      "downloadable": true,
+      "visibility": "public"
+    }
+  ]
+}
