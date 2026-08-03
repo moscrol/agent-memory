@@ -1,0 +1,57 @@
+{
+  "run_id": "run_20260803_141709_251926",
+  "user": "linxiaoqi5111",
+  "question": "2026-07-23 今天市场怎么样",
+  "task_type": "ask",
+  "status": "completed",
+  "schema_version": 1,
+  "session_id": "conv_c30176ce147e42cdb4926f0cd2004b93",
+  "parent_run_id": null,
+  "created_at": "2026-08-03T14:17:09+08:00",
+  "finished_at": "2026-08-03T14:18:52+08:00",
+  "source_date": "2026-07-23",
+  "duckdb_cutoff": null,
+  "kb_commit": null,
+  "kb_index_built_at": null,
+  "kb_index_freshness": null,
+  "manifest_ref": null,
+  "degrades": [
+    "证据或语义核验未完全通过，已按证据边界降级。"
+  ],
+  "error": null,
+  "artifacts": [
+    {
+      "artifact_id": "artifact_answer_md",
+      "path": "answer.md",
+      "renderer": "markdown",
+      "title": "对话回答：2026-07-23 今天市场怎么样",
+      "sha256": "38ec165bd9d51b87a101e5ca8816bccf4968ec8e872ab29a2e88f9022fd3fc82",
+      "bytes": 1202,
+      "previewable": true,
+      "downloadable": true,
+      "visibility": "public"
+    },
+    {
+      "artifact_id": "artifact_continuous-episode_json",
+      "path": "continuous-episode.json",
+      "renderer": "json",
+      "title": "连续研究私有审计",
+      "sha256": "08d7df90c8041de777bb1eaddaa701f8cea1694d7a9c7909c4e13b9d5ab251f3",
+      "bytes": 243281,
+      "previewable": false,
+      "downloadable": false,
+      "visibility": "internal"
+    },
+    {
+      "artifact_id": "artifact_report_json",
+      "path": "report.json",
+      "renderer": "structured_report",
+      "title": "结构化对话报告",
+      "sha256": "c78900d7bc3d39ebbc2066dfc486fc902b5e75fefd31c07964411504994fcfc8",
+      "bytes": 2058,
+      "previewable": true,
+      "downloadable": true,
+      "visibility": "public"
+    }
+  ]
+}
