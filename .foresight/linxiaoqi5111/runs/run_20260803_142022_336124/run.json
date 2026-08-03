@@ -1,0 +1,21 @@
+{
+  "run_id": "run_20260803_142022_336124",
+  "user": "linxiaoqi5111",
+  "question": "立新能源怎么看",
+  "task_type": "ask",
+  "status": "running",
+  "schema_version": 1,
+  "session_id": "conv_2b28682786b844109f8464c7c396bc2d",
+  "parent_run_id": null,
+  "created_at": "2026-08-03T14:20:22+08:00",
+  "finished_at": null,
+  "source_date": null,
+  "duckdb_cutoff": null,
+  "kb_commit": null,
+  "kb_index_built_at": null,
+  "kb_index_freshness": null,
+  "manifest_ref": null,
+  "degrades": [],
+  "error": null,
+  "artifacts": []
+}

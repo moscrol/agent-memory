@@ -3,19 +3,55 @@
   "user": "linxiaoqi5111",
   "question": "2026-07-21 收盘了，明天怎么看",
   "task_type": "ask",
-  "status": "running",
+  "status": "completed",
   "schema_version": 1,
   "session_id": "conv_633ae5483dcd4ccc89e85a48dbab3fba",
   "parent_run_id": null,
   "created_at": "2026-08-03T14:18:53+08:00",
-  "finished_at": null,
+  "finished_at": "2026-08-03T14:20:21+08:00",
   "source_date": null,
   "duckdb_cutoff": null,
   "kb_commit": null,
   "kb_index_built_at": null,
   "kb_index_freshness": null,
   "manifest_ref": null,
-  "degrades": [],
+  "degrades": [
+    "证据或语义核验未完全通过，已按证据边界降级。"
+  ],
   "error": null,
-  "artifacts": []
+  "artifacts": [
+    {
+      "artifact_id": "artifact_answer_md",
+      "path": "answer.md",
+      "renderer": "markdown",
+      "title": "对话回答：2026-07-21 收盘了，明天怎么看",
+      "sha256": "c5a3f401b4aea5f1b94fd8bbf32494d4656e20b9196f2d10fe259a67955ed2b3",
+      "bytes": 233,
+      "previewable": true,
+      "downloadable": true,
+      "visibility": "public"
+    },
+    {
+      "artifact_id": "artifact_continuous-episode_json",
+      "path": "continuous-episode.json",
+      "renderer": "json",
+      "title": "连续研究私有审计",
+      "sha256": "2fb20435ea34d5ae440482fe464cec1b8e9793d08d8b59d85650f2aee1645664",
+      "bytes": 302968,
+      "previewable": false,
+      "downloadable": false,
+      "visibility": "internal"
+    },
+    {
+      "artifact_id": "artifact_report_json",
+      "path": "report.json",
+      "renderer": "structured_report",
+      "title": "结构化对话报告",
+      "sha256": "097960bf589a58ec272eff8b3eb4820070d21d472a41cb0d3f802911088d9ddb",
+      "bytes": 2218,
+      "previewable": true,
+      "downloadable": true,
+      "visibility": "public"
+    }
+  ]
 }
