@@ -41,6 +41,7 @@ DuckDB → detect_turning_points.py / backtest_sector.py → 信号+板块边际
 ## 任务看板
 | 任务 | 负责 | 状态 | 备注 |
 |---|---|---|---|
+| 🔴 待办 K：夜跑数据链断了，DuckDB 停在 2026-08-03 | 用户/待定 | **阻塞中** | [实测 2026-08-05] `logs/daily-full-review.out.log` 末行 `2026-08-04 20:40:04 finalize 中止 sync 守卫 rc=2`；14 张 `fact_*` + 4 张 `feature_*` 全缺 2026-08-04（`fact_market_daily` 缺整行、`fact_sw_l1_daily` 0/31 行业）。`launchctl` 中 `com.financeworkspace.daily-full-review-finalize` 与 `com.financeworkspace.pit-snapshot` last exit code = 2。**影响面**：任何依赖最新盘面的问答/复盘/前瞻现在都是过期口径，验收台读数同样受污染；原记录的「连带丢 L2、阻塞 origin/main、两条路 a/b 待定」仍未决。补数前先确认 CDP proxy 与 fupanhui 登录态（会外呼，需用户在场） |
 | 28 题产品验收台跑出基线 | claude | doing | 工作 clone `tmp/agent-runtime-seam-fix-69f9cf17` @ `fix/exposure-ranking-truncation`。A 组已跑出基线（降级桩 5→0、正常完成 4→7）；**#14 验收台方差已治理（噪声 7%→2%）、#13 题目可复现性检测已落地（A8/C6 命中，根因是 date 到不了产品）**，共 625 行**未提交**，交接 `docs/handoffs/2026-08-01d-...md`。B/C 共 18 题已解封未跑——⚠️ **C6 有和 A8 同样的缺陷且在 C 组，跑之前先读 handoff §3.2**。当前通过 0 / 失败 6 / 不可判 4，**A 组四轮通过数从未离开 0**。仍阻塞用户的两项：待办 K（夜跑 sync 失败连带丢 L2，阻塞 origin/main，两条路 a/b 待定）、codex 参照答案 0/28（ChatGPT app sidecar 503/401，需重登）。判据表达力只能走 additive overlay——正典题库 sha256 密封。方法论见 [[../10_knowledge/eval-harness-variance-governance]] |
 | GLM Continuous Agent Runtime 生产候选 | codex | done | 分支 `fix/agent-harness-monotonicity` tip `c327faf7`：连续 Episode、同轮只读工具并发、终局恢复、结构+语义 verifier、估值财务硬锚与真实 UI canary 均完成；`.venv-workbench` 全量 2483 passed，8795 可自用，未合并 main、未切 8792。下一阶段另做 Agent SDK/headless/GPT 三路基准。 |
 | Adaptive Runtime Phase A/B 验证闭环 | codex | done | 隔离分支 `feat/agent-runtime-backends-verify`：benchmark 已复用产品 Adapter，SDK timeout/invalid action 分账；按 `8279b2bd` 整合 28 题与 22 份 Knevo 快照；A/B/C/D headless 预算 profile 已预注册但未 live 执行。最终离线 `2966 passed, 2 skipped`，未合并 main、未切 8792；下一入口是双 Wiki 身份与 evidence_search 直接 replay。 |
@@ -55,6 +56,39 @@ DuckDB → detect_turning_points.py / backtest_sector.py → 信号+板块边际
 | 忠实度 / 历史重放验收 | devin → 用户审定 | doing | #197→#201 已合并；a77 固定 runtime `ea86010c` 与 20:05 daily-agent、20:30 PIT、20:45 acceptance LaunchAgent 已上线，等待 7/13–7/17 前向产物及 claim-level Gold 双审；`decision_eligible=false` |
 
 ## 交接记录
+- 2026-08-05 · claude · **对 2026-08-04 那份自审做实测复核：四条与代码不符，已就地更正；根因是门禁的断言粒度不够**。
+  - **① 能力图谱写了 main 上不存在的符号。** `memory_lookup` / `relevant_memory_records`
+    只存在于 `fix/headless-tool-correlation-observability`（worktree `.worktrees/headless-tool-pairing`
+    @ `7c3a640b`，干净、已 push origin、**未合并**）。AST 数：该分支 catalog **12 项**，
+    `origin/main` 与主工作树 **11 项**。图谱两行已改写为 `@branch` 在途行。
+  - **② 门禁盲区（真正的根因，比漂移本身重要）**：旧 `graph_audit.py` 只校验路径存在，
+    而 `episode_tools.py` 在 main 上确实存在，所以整个漂移期间 **exit 0**。
+    且它审的是 `~/finance-workspace-private` 的**工作树**（长期停在特性分支），输出里从不说明，
+    读者默认按 main 读。已加 `::symbol` / `@branch` 两级 spec + revision 自述；
+    5 条变异逐条验证（写错已发布符号→红、写错在途符号→红、**把在途能力写成 main 现状→红**、
+    分支名写错→UNVERIFIED 不红，属已知软点）。
+  - **③ 上一份交接的「核心待答单点」已经答了。** 「`user_memory` 平面 agent 能不能主动检索」
+    ——同一条分支上 `3cde899a feat(agent): add memory_lookup tool (retrieval only, no depth gradient)`
+    已实现，后接 5 条 handoff 提交。同分支 `88d1a9ca` 还自行作废了中文分词那份 handoff
+    （"it fixed the wrong layer"）——`memory_block_for_query(query, theme, entity, ...)`
+    与 `_query_terms(query, theme, entity)` 在 main 上都还在，上游早抽好了实体。
+  - **④「两个待观察的坑 ②」已修**：`_BranchBudgetView`（`sub_research.py:45`）现有 `settle_seconds`，
+    commit `02c8aaec`（AST 列方法确认，非读代码推断）。坑 ①（Edit 报 success 未落盘）仍未复现，保留观察。
+  - **⑤ 更正上一段的一处机制描述**：`codex_headless` 不是「`api/app.py:276` 因 `benchmark_only` raise，
+    产品 UI 永远走不到」——三条分支的 `api/app.py` 都不含 `benchmark_only`。真实拦截在
+    **`intelligence/api/app.py:272`**：`AGENT_RUNTIME_BENCHMARK_ENABLE != "1"` 才
+    `raise RuntimeError("Codex headless runtime is benchmark-only")`。是**默认关闭的 env 开关，不是硬红线**。
+    「Task 3-6 不做」的决定不受影响，但别再把它当成走不到的死路。
+  - **⑥ 生产蓝绿正常，2026-08-04 那次翻案继续成立**：`lsof -a -p <8792pid> -d cwd` →
+    `/Users/a77/.finance-runtime/finance-workspace-bdb0bd772bd6...`，正是 `origin/main` tip 的干净快照，
+    08-05 00:24 启动。**判断加载了哪份代码只认 `lsof -d cwd`，不看 `/api/health`。**
+  - **⑦ 今天真正卡着的是待办 K，且是活的**：`logs/daily-full-review.out.log` 末行
+    `2026-08-04 20:40:04 finalize 中止 sync 守卫 rc=2`；14 张 `fact_*` + 4 张 `feature_*` 全缺 2026-08-04，
+    DuckDB 停在 **2026-08-03**。`launchctl` 里 `daily-full-review-finalize` 与 `pit-snapshot`
+    last exit code 均为 2。数据断了一天没补，**任何依赖最新盘面的问答现在都是过期口径**。
+  - **可迁移原则（本轮新增）**：**门禁的断言粒度必须匹配它声称保护的东西**——只钉文件名的门禁
+    保不住符号；只钉配置的门禁保不住生效值。以及**审计输出必须自述它审的是哪个 revision**，
+    否则 exit 0 会被读成「main 上是这样」。见 [[../10_knowledge/finance-agent-capability-graph]] 维护口径。
 - 2026-08-04 · claude · **R-10 冻结、主线切工具面诊断，并给 agent 入口加门禁**。
   - **R-20260804-10 冻结在一个干净点**：Task 1/2 完成，另补两个验收发现的洞——秒数结算的
     check-then-act race 下沉到 ledger 锁内（新增 `InMemoryRootBudgetLedger.settle_seconds()`，
