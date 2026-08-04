@@ -1,15 +1,12 @@
 ---
 title: "《前置部署工程师：人工智能时代的客户价值交付秘籍》读书索引"
-type: reading-queue
+type: knowledge
+agent: grok
 source: https://github.com/xdash/FDE-the-Guidance-Book-of-Forward-Deployed-Engineer
 author: 范冰（XDash）
 status: to-read
 date: 2026-07-31
 tags: [fde, forward-deployed-engineer, 交付, 客户价值, palantir, ai-enterprise]
-related:
-  - "[[fde-first-principles-value-and-problems]]"
-  - "[[fde-interview-curriculum-2026]]"
-  - "[[fde-field-playbook-s3-discovery]]"
 ---
 
 ## 书籍概要
@@ -39,7 +36,16 @@ related:
 
 ## 与已有笔记的关系
 
-- **补充交付流程维度**：已有笔记偏第一性原理和面试准备，本书 ch2-ch7 覆盖「找对问题→赢得客户→激活部署→守住续约→扩大收入→规模化复制」的完整交付旅程。
+> ⚠️ **2026-08-05 更正**：本节原写「已有笔记偏第一性原理和面试准备」，并在 frontmatter 的
+> `related` 里链了 `fde-first-principles-value-and-problems`、`fde-interview-curriculum-2026`、
+> `fde-field-playbook-s3-discovery` 三篇。**这三篇从未存在过**——git 全历史里提到它们的提交，
+> 只有添加本文件自身的那一个。截至今日 vault 内 FDE 相关笔记只有本篇。链接已移除，
+> 三个题目留在下方「待写」，写出来后再建真链。
+
+**待写（原被当成已有笔记引用）**：FDE 第一性原理·价值与问题 / FDE 面试课程 2026 /
+FDE 现场手册·S3 discovery。
+
+- **补充交付流程维度**：本书 ch2-ch7 覆盖「找对问题→赢得客户→激活部署→守住续约→扩大收入→规模化复制」的完整交付旅程，是上面三个待写题目的现成骨架。
 - **案例库**：ch8 有 112 个真实案例（Palantir / OpenAI / Anthropic / Harvey / Sierra / 中国实践者），可作为面试故事素材。
 - **指标体系**：附录A 可与我们金融 agent 项目的「覆盖审计 / 蒙罗验证」做交叉参考。
 

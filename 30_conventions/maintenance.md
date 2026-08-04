@@ -44,7 +44,8 @@ tags: [convention, maintenance, core]
 ## 定期维护任务（已脚本化为 exit-code 门）
 
 ```bash
-python3 scripts/vault_lint.py    # frontmatter 完整性 / type↔目录一致 / 死链 / inbox 老化(>14天 WARN)
+python3 scripts/vault_lint.py    # frontmatter 完整性 / type 合法且↔目录一致 / 死链 / inbox 老化(>14天 WARN)
+                                 # 跳过 SKIP_PATHS：模板、导览页、运行时台账(可证伪点回检/ .foresight/)
 python3 scripts/graph_audit.py   # 能力图谱节点清单路径防漂移（repo 在本地才校验）
 ```
 
