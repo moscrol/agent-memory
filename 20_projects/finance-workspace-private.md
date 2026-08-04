@@ -55,6 +55,48 @@ DuckDB → detect_turning_points.py / backtest_sector.py → 信号+板块边际
 | delta package 契约强化（manifest v1 / 多维校验 / 安全解压 / 原子回滚 / data-quality CI）| devin | doing | PR #179 待 review/merge，尚未合并；后续单独做历史债务清洗与环境 blueprint |
 | 忠实度 / 历史重放验收 | devin → 用户审定 | doing | #197→#201 已合并；a77 固定 runtime `ea86010c` 与 20:05 daily-agent、20:30 PIT、20:45 acceptance LaunchAgent 已上线，等待 7/13–7/17 前向产物及 claim-level Gold 双审；`decision_eligible=false` |
 
+## 🚦 Agent Runtime 线路（2026-08-05 用户决策，跑之前必读）
+
+**产品线 = `sdk_gpt` + `gpt-5.6-sol` + Keychain。GLM 两条退役。`codex_headless` 是对照线。**
+
+四条线枚举死在 `intelligence/services/agent_runtime_factory.py`（`RuntimeBackendName`），
+一个 env `AGENT_RUNTIME_BACKEND` 选一条，非法值 **raise 不静默回退**（factory:60）：
+
+| backend | 定位 | 模型 | 就绪条件 | benchmark_only |
+|---|---|---|---|---|
+| `sdk_gpt` | ✅ **产品线** | `gpt-5.6-sol` | `OPENAI_API_KEY` env **或** session provider=openai，**+ `agents` 包** | false |
+| `codex_headless` | 🔬 **对照线** | `codex-account-default` | codex CLI 可执行 **+ `AGENT_RUNTIME_BENCHMARK_ENABLE=1` | **true** |
+| `continuous_glm` | ⛔ 退役（当前默认值） | glm-5.2 | GLM key | false |
+| `sdk_glm` | ⛔ 退役 | glm-5.2 | GLM key + `agents` 包 | false |
+
+**「每次跑错」的两个机械根源（都不是人不小心）**：
+1. **代码默认值**：`resolve_runtime_backend` 是 `str(raw or "continuous_glm")`（factory:58）——
+   任何忘设 env 的地方**静默落回 GLM**，不报错。
+2. **启动器写死 GLM**：`/Users/a77/.local/bin/start-finance-workbench`（plist 里没有 env，
+   全在这个包装脚本里）导出 `FORESIGHT_BUILTIN_LLM_API_KEY/_MODEL=glm-5.2/_BASE_URL=bigmodel.cn`，
+   且**没有设 `AGENT_RUNTIME_BACKEND`**。
+
+**切到 GPT 要改三处，少一处都不生效**：
+- ① 启动器删 GLM 三件套；② 启动器加 `AGENT_RUNTIME_BACKEND=sdk_gpt`；
+- ③ 让 `providers[0].name == "openai"`——`api/app.py:251` 明写
+  `if provider.name != "openai": raise RuntimeError("sdk_gpt requires an OpenAI provider")`。
+  provider 携带 `api_key/model/base_url`（本地可信网关的 URL 走这里，不是单独 env）。
+- 建议同时把 factory:58 的默认值改成 `sdk_gpt`（需开分支 + 用户确认合并，CLAUDE.md 红线）。
+
+**Keychain 事实（更正 MOC 旧记法）**：服务名是 **`com.foresight.workbench.llm`**、
+account = user_id（实测存在 `acct=linxiaoqi5111`）；`openai/gpt-5.6-sol` 是 **payload 里的
+provider/model 对，不是服务名**——按旧记法 `security find-generic-password -s "openai/gpt-5.6-sol"`
+永远查不到。凭证经 `llm_settings.byok_provider(user_id)` **按 user_id 懒加载**，是
+per-user 不是进程级；`runtime_backend_readiness` 这个全局探针看不到它（只认 env 或
+显式传入的 session_provider），所以**探针说 not ready 不等于真跑不起来**。
+
+**已经不是障碍的事**：自用台账早已不再硬绑 `zhipu/glm-5.2`，
+`test_self_use_maturity.py::test_verify_run_binding_accepts_any_named_backend` 的注释直说
+「用户 Keychain 实际存的是 openai/gpt-5.6-sol，旧逻辑会以 model binding mismatch 拒收每一条真实 run」。
+
+**另一处双轨要注意**：8792 的 `FORESIGHT_USERS_DIR=/Users/a77/.local/share/finance-workbench/users`，
+而 CLI/回检走 `~/.zshrc` 里的 `/Users/a77/agent-memory/.foresight`——**两套用户台账不是同一份**。
+
 ## 交接记录
 - 2026-08-05 · claude · **对 2026-08-04 那份自审做实测复核：四条与代码不符，已就地更正；根因是门禁的断言粒度不够**。
   - **① 能力图谱写了 main 上不存在的符号。** `memory_lookup` / `relevant_memory_records`
