@@ -193,6 +193,11 @@ flowchart LR
 | 长期记忆 | agent-memory | `20_projects/`、`10_knowledge/` | 项目级交接与稳定方法论 |
 | vault 质检门 | agent-memory | `scripts/vault_lint.py` | frontmatter/死链/type-目录一致性/inbox 老化 |
 | 图谱防漂移审计 | agent-memory | `scripts/graph_audit.py` | 校验本页节点清单路径是否仍存在 |
+| Agent 工具目录 | finance | `intelligence/services/research_tool_registry.py` | agent 可见工具的 catalog（11 项）与授权 spec 装配 |
+| Episode 工具面 | finance | `intelligence/services/episode_tools.py` | 组装 market/financial/mainline/l3/finance_query/evidence_search，按 `allowed_capabilities` 逐个 gate |
+| Agent 检索工具 | finance | `intelligence/services/agent_research.py` | kb/web/news 默认工具 + `build_graph_tools` 的 graph_lookup/evidence_lookup |
+| 技能桥 | finance | `intelligence/services/skill_tools.py` | 白名单 skill 调用；只读/无外呼红线下当前仅注册 serenity-alpha |
+| 用户记忆读取 | finance | `intelligence/services/user_memory.py` | M 块由 planner 侧注入（`ask.py` 调 `memory_block_for_query`），**agent ���对应工具** |
 
 ## 更新规则
 
