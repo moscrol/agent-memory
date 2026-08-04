@@ -55,6 +55,38 @@ DuckDB → detect_turning_points.py / backtest_sector.py → 信号+板块边际
 | 忠实度 / 历史重放验收 | devin → 用户审定 | doing | #197→#201 已合并；a77 固定 runtime `ea86010c` 与 20:05 daily-agent、20:30 PIT、20:45 acceptance LaunchAgent 已上线，等待 7/13–7/17 前向产物及 claim-level Gold 双审；`decision_eligible=false` |
 
 ## 交接记录
+- 2026-08-04 · claude · **R-10 冻结、主线切工具面诊断，并给 agent 入口加门禁**。
+  - **R-20260804-10 冻结在一个干净点**：Task 1/2 完成，另补两个验收发现的洞——秒数结算的
+    check-then-act race 下沉到 ledger 锁内（新增 `InMemoryRootBudgetLedger.settle_seconds()`，
+    `min()` 必须在锁内，锁外就是"静默丢账"）；新事件 kind `root_budget_overdraft` 接进
+    `normalize_harness_trace` 映射表，否则会破坏已 confirmed 的 R-06（`unmapped_count=0`）。
+    **Task 3-6 不做**：`codex_headless` 在 `agent_runtime_factory.py:63` 标着
+    `benchmark_only=True`，`api/app.py:276` 会直接 raise，产品 web UI 永远走不到它；
+    它只是"量引擎"的尺子。`R-20260804-10` 保持 `pending`（离线全量 gate 与 live canary 都没跑）。
+    冻结原因与恢复条件见仓内 `docs/handoffs/2026-08-04d-worklist-freeze-r10-then-tool-surface.md`。
+  - **主线切到工具面诊断**，判据用 [[../10_knowledge/finance-agent-knevo-derived-knowledge-runtime-contract]]
+    的四类数据平面 + §9 吸收优先级。核心待答单点：`user_memory` 平面 agent 能不能**主动检索**
+    （Knevo 每次研究第一步是 `finance_memory_query`，并按记忆条数决定检索深度）。
+    ⚠️ **假设未证实**：工具面实为 ~10 个（catalog 8 + `finance_query`/`evidence_search`），
+    覆盖网页/新闻/公告/行情/财务/主线/DuckDB/知识库，不是"只有 2 个"。诊断可能推翻该假设。
+  - **CLAUDE.md 加了「Agent 能力现状」章节**（`e72e8131`，已 push main）：10 个工具及其
+    `allowed_capabilities` 门控、技能桥现状（`skill_tools.py` 刻意只开 `serenity-alpha`，
+    因只读/无外呼红线——**这是设计决定不是缺口**）、编排层文件清单、四条已确立的可迁移原则，
+    以及**负面断言规矩**（说"我们没有 X"前须全树 grep + 读能力图谱 + 读本笔记看板）。
+  - **起因值得记**：一次会话里连续三次把已有能力和刻意约束误判成缺口。
+    根因不是资料不够——本笔记 2026-07-19 交接记录早就写了「配额要在副作用前预占」
+    「全链 deadline 传绝对时刻」，正是那轮当成新发现的结论。**是入口没被执行**。
+  - **发现并修了 hook 的覆盖漏洞**：项目级 `.claude/hooks/load-memory.sh` 一直在注入本笔记全文，
+    但会话起在 `/Users/a77`（非 git repo）时项目 settings 不加载、hook 不跑，且脚本靠
+    `git remote` 解析项目名会失败导致「本项目笔记」整段消失。已补用户级
+    `~/.claude/hooks/session-context.sh`（vault 副本 `scripts/hooks/`），只注入索引与断言纪律，
+    与项目级分工不重复。**可迁移原则：提醒的到达率不可靠，要设门禁**——本仓 pre-commit 与
+    `graph_audit.py` 到达率 100%，CLAUDE.md 的"开工先读"这轮是 0/3。
+  - **两个待观察的坑**：① 有 agent 报告 Edit 工具在 `research_contract.py` 上报 success 但没落盘；
+    受控实验当场不复现（mtime/md5/全机 grep 全部正确）。两个可疑机制：pre-commit 的
+    stash→restore 窗口会静默盖掉期间落盘的编辑；五个 worktree 同名文件路径写错。
+    **改完 grep 复核这个习惯要保留**。② `_BranchBudgetView`（`sub_research.py:45`）缺
+    Protocol 新增的 `settle_seconds`，运行时会静默落回 racy 旧路（仓内只跑 ruff 不做类型检查）。
 - 2026-08-02 · devin · **修复常驻 RAG worker 的环境继承与错误归因**：提交 `a0847253`（`fix(kb-rag): worker 路径补齐 env 与异常归因`）已在 `main`。`PersistentRagWorker` 启动子进程时传入与直跑路径一致的离线加载、进度条静音和 transformers 日志环境，使用 `setdefault` 保留外部显式配置；worker 的异常类型仅以受限标识符形式进入遥测，不进入用户可见 warning，避免查询原文、路径和 traceback 泄露。此次修复针对常驻 worker 路径，后续复现必须显式覆盖 `RAG_WORKER_ENABLED=1`，不能只验证直跑路径。
   - **验证与边界**：worker 首次调用的无信息进度条告警已消失；串行直跑 0/10、串行 worker 0/10、联网对照 0/10、HF Hub 并发校验 0/60，机制层面推翻“HF 限流导致退出码 1”的假设；全量测试为 2061 passed / 11 failed，失败为既有 subconscious/userspace 环境基线。2026-08-01 的 8 次「检索失败（退出码 1）」历史根因仍未确定，但今后失败会保留异常类型用于遥测归因，不把内部诊断暴露给用户。
 - 2026-07-19 · codex · 审查并修复 Claude 的 Deep-Research P0/P1-B 分支，当前 tip `fix/deep-research-p1b-runtime@ec1614ba`，未推送/合并/部署：①撤销 market-review 无 marker 散文豁免，复用现有 `DecisionBrief → Grounded Composer → deterministic validator → semantic judge` 作为可信自然语言出口，失败回结构化 AnswerSpec；②LLM 硬预算下沉到每次 `_post_chat*` 网络边界，以锁保护原子 reservation，provider fallback、retry、stream fallback 和并发线程逐尝试消费预算；③agent loop 接收绝对 `ResearchDeadline`，LLM timeout 与内置 KB/Web/News/L3 工具均按 remaining 钳制，零预算零副作用；④跨轮合并保留 `candidate_facts`，`content_hash/source_revision` 完整反序列化并进入 EvidenceAtom provenance；⑤QueryLedger 从全局锁包慢 IO 改为 per-key Future single-flight，同 key 合并、异 key 并行，Web key 纳入 limit/匿名化 proxy variant；⑥AgentEvidence 分离公开来源和 internal locator，citation 投影按稳定语义键去重。验证：相关回归 278 passed，Ruff/py_compile/diff-check 全绿；全量 2066 passed/1 skipped，剩余 13 fail 与修改前相同，均为 external fallback 本地分类及 userspace/vault 宿主环境噪声。可迁移原则：配额要在副作用前“预占”而非事后计数；全链 deadline 应传绝对时刻；请求去重用 per-key single-flight，不能用全局锁包住慢 IO。
