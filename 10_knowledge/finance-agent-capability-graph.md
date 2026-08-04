@@ -197,7 +197,8 @@ flowchart LR
 | Episode 工具面 | finance | `intelligence/services/episode_tools.py` | 组装 market/financial/mainline/l3/finance_query/evidence_search，按 `allowed_capabilities` 逐个 gate |
 | Agent 检索工具 | finance | `intelligence/services/agent_research.py` | kb/web/news 默认工具 + `build_graph_tools` 的 graph_lookup/evidence_lookup |
 | 技能桥 | finance | `intelligence/services/skill_tools.py` | 白名单 skill 调用；只读/无外呼红线下当前仅注册 serenity-alpha |
-| 用户记忆读取 | finance | `intelligence/services/user_memory.py` | M 块由 planner 侧注入（`ask.py` 调 `memory_block_for_query`），**agent ���对应工具** |
+| 用户记忆读取 | finance | `intelligence/services/user_memory.py` | 两条读法共用一套相关性召回：planner 侧注入渲染好的 M 块（`memory_block_for_query`），agent 侧走结构化召回（`relevant_memory_records`） |
+| Agent 用户记忆工具 | finance | `intelligence/services/episode_tools.py` | `memory_lookup`：agent 可主动检索用户历史判断/纠偏；专属 `evidence_tier=user_memory`，不在 `_HARD_EVIDENCE_TIERS` 白名单内，故无法支撑硬确定性措辞 |
 
 ## 更新规则
 
