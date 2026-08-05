@@ -116,6 +116,16 @@ per-user 不是进程级；`runtime_backend_readiness` 这个全局探针看不�
 而 CLI/回检走 `~/.zshrc` 里的 `/Users/a77/agent-memory/.foresight`——**两套用户台账不是同一份**。
 
 ## 交接记录
+- 2026-08-06 · claude · **生产切到 gpt-5.6-sol 并连修三层；一天内四次撞上同一种跨层口径缺陷，已提炼为 [[../10_knowledge/cross-layer-vocabulary-reconciliation]]**。
+  - **生产已切换（两次）**：`main` 从 `bdb0bd77` → `109b4219` → `8ccca8ca`，快照走 `.finance-runtime/finance-workspace-<sha>` + 符号链接 `finance-workspace-runtime` 重指 + `launchctl kickstart -k`。
+    启动器（`~/.local/bin/start-finance-workbench`）删 GLM 三件套、加 `FORESIGHT_LLM_KEYCHAIN=1` / `LLM_API_KEY|BASE_URL|MODEL` / 显式 `AGENT_RUNTIME_BACKEND=continuous_glm`，备份 `start-finance-workbench.bak-20260805`。
+    **壳轴仍未定**（A/B 零数据），显式写死只为消掉 `factory:58` 的静默默认。
+  - **答案链上连修三层，每修一层下一层才可见**：① 路由——`_COMPARISON_RE` 裸词把程度副词「比较」读成动词，`question_type` 误判 `comparison`，契约要 4 个无工具可满足的输出，门如实拒答（`109b4219`，实测 degrades 7→0、拒答模板→3203 字节实答）；② 凭证——**双轨**：Agent 运行时走 `byok_provider()`→Keychain，Grounded Presenter 走 `llm_refine.detect_providers()`**只读 env**，删 GLM 三件套会静默切断合成；③ 资金——`grounded_deep` 地板 97s 按 root=180 标定，实发按 owner tier 只有 60s（`f453921c` 改资金来源，实测入场预算 59923→114998ms）。
+  - **当前卡在标定不是缺陷**：`composer_grant_seconds=40` 按一次冻结回放（33.3s×1.2）定，开放式题需要更多。删失打破实验（8795，grant 临时抬 55）拿到三个真值 31.1/44.3/45.4s，全 <55。**但 grant 与 judge 在 115s 信封里零和**——实测 judge 一次用了 57377ms 而 `judge_reserve_seconds=57000`，抬 grant 会把风险推给 judge。**要定数必须同题多轮、两段联合测**，n=3 不够。
+  - **两处工具契约事实**：`_DEFAULT_TOOL_METADATA` 原本只有 `(capability, 描述, freshness)`，无输出声明——这是「事前可满足性预检」做不了的根因（`_claim_candidates` 只能匹配**运行时已产出**的 claim）。已加 `produces: frozenset[str]`（`5773be30`，fail-open：无人声明→放行，声明不全只漏抓不误拦）。⚠️ `RequiredOutput.evidence_types` **不是**可用的推导源：`_merge_frame_outputs:726` 与 `episode_factory:187` 都是 `allowed_capabilities` 直传，拿它做判据 `evidence_types ⊆ allowed_capabilities` **恒真**。
+  - **别名层是有意为之，不是漂移**：`_merge_frame_outputs` 里的 `legacy_aliases`（`direct_answer→direct_assessment` 等 7 条）解释了 4 个 0/N。`direct_answer 0/51` 的准确读法是「一层要求、另一层不评估」，不是「评了 51 次没过」。
+  - **观测缺口（下一位的第一件事）**：fulfillment 判定**不进 trace**（实测 0/305），所以任何门禁问题只能本地复算 + 带口径声明。对账的前提是两边可观测。
+  - **执行层教训（今天栽了五次）**：本仓有 7 个 worktree 各在不同分支 + 3 处代码位置（工作树 / `.finance-runtime` 快照 / `finance-workspace-runtime` 软链）。在错误的树或用 `python3`（宿主 3.14）得出的「符号不存在」「缺包」**全是假的**——`.venv-workbench/bin/python` 是唯一入口，pytest/ruff/uvicorn 一律如此。**动手前先 `git log --oneline -1` + `lsof -a -p <pid> -d cwd`。**
 - 2026-08-05 · claude · **对 2026-08-04 那份自审做实测复核：四条与代码不符，已就地更正；根因是门禁的断言粒度不够**。
   - **① 能力图谱写了 main 上不存在的符号。** `memory_lookup` / `relevant_memory_records`
     只存在于 `fix/headless-tool-correlation-observability`（worktree `.worktrees/headless-tool-pairing`
