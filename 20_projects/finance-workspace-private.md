@@ -59,17 +59,33 @@ DuckDB → detect_turning_points.py / backtest_sector.py → 信号+板块边际
 
 ## 🚦 Agent Runtime 线路（2026-08-05 用户决策，跑之前必读）
 
-**产品线 = `sdk_gpt` + `gpt-5.6-sol` + Keychain。GLM 两条退役。`codex_headless` 是对照线。**
+**两个轴是正交的，别压成一条线**（2026-08-05 用户纠正我的原始框架）：
 
-四条线枚举死在 `intelligence/services/agent_runtime_factory.py`（`RuntimeBackendName`），
-一个 env `AGENT_RUNTIME_BACKEND` 选一条，非法值 **raise 不静默回退**（factory:60）：
+- **模型轴：已定** —— 用 `gpt-5.6-sol`，走 Keychain。**GLM 模型退役。**
+- **执行壳轴：未定** —— 自建 Continuous vs Agent SDK，**等九题 A/B 出数字再定**。
+  「不用 GLM 的 model」**不等于**「直接改用 sdk 壳」。2026-07-25 同模型盲评是
+  Continuous **195** / SDK **175**（6 维 0-4 分），SDK 只赢在协议稳定性（4→0）与
+  延迟（53.5→48.5s）；那两项是**可修的具体缺陷，不是壳的架构优势**——「有机结合」
+  指把 SDK 的协议纪律移植进 Continuous，不是换壳。
+- **`codex_headless`：对照线**，不是产品候选（`benchmark_only=true`）。
 
-| backend | 定位 | 模型 | 就绪条件 | benchmark_only |
-|---|---|---|---|---|
-| `sdk_gpt` | ✅ **产品线** | `gpt-5.6-sol` | `OPENAI_API_KEY` env **或** session provider=openai，**+ `agents` 包** | false |
-| `codex_headless` | 🔬 **对照线** | `codex-account-default` | codex CLI 可执行 **+ `AGENT_RUNTIME_BENCHMARK_ENABLE=1` | **true** |
-| `continuous_glm` | ⛔ 退役（当前默认值） | glm-5.2 | GLM key | false |
-| `sdk_glm` | ⛔ 退役 | glm-5.2 | GLM key + `agents` 包 | false |
+⚠️ **枚举名是历史包袱，别按字面读**：`continuous_glm` 里的 `glm` 只是兼容名。
+`GLMModelClient` 的 docstring 明写 adapter **provider-neutral**，吃的是调用方注入的
+providers 链。分支 `fix/continuous-runtime-provider-neutral@93ac264d`（未合并）已解开
+凭证门，`continuous_glm` 现在可以跑 `gpt-5.6-sol`。**改名要等 A/B 跑完**——
+`continuous_turn_adapter.py:105`、`run_agent_runtime_benchmark.py:554/619` 和存量
+台账 JSON 都按这个字符串分支，现在改会砸坏正要用的那把尺子。
+
+四条枚举在 `intelligence/services/agent_runtime_factory.py`，env `AGENT_RUNTIME_BACKEND`
+选一条，非法值 **raise 不静默回退**（factory:60）；**未设时静默落 `continuous_glm`**（factory:58，
+且被 `test_default_runtime_backend_preserves_continuous_glm` 显式锁住，翻默认值是一次有意翻转）：
+
+| backend | 定位 | 当前可跑的模型 | 就绪条件 |
+|---|---|---|---|
+| `continuous_glm` | 🅰️ 壳候选 A（自建，默认值） | ✅ `gpt-5.6-sol`（`93ac264d` 后） | 任一可用 provider |
+| `sdk_gpt` | 🅱️ 壳候选 B（SDK） | ✅ `gpt-5.6-sol` | provider.name 必须是 `openai` **+ `agents` 包** |
+| `codex_headless` | 🔬 对照线 | `codex-account-default` | codex CLI **+ `AGENT_RUNTIME_BENCHMARK_ENABLE=1` |
+| `sdk_glm` | ⛔ 随 GLM 模型退役 | glm-5.2 | — |
 
 **「每次跑错」的两个机械根源（都不是人不小心）**：
 1. **代码默认值**：`resolve_runtime_backend` 是 `str(raw or "continuous_glm")`（factory:58）——
