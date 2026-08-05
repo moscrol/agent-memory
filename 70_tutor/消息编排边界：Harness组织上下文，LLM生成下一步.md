@@ -10,7 +10,7 @@ related:
   - "[[MCP、Skill与Harness：协议、流程知识和最终执行权的边界]]"
   - "[[工具发现与RAG的同构：从检索证据到检索行动能力]]"
   - "[[中间答案模型：用语义防火墙隔开检索、判断与表达]]"
-  - "[[Agent技术栈分层：LLM API ≠ Harness ≠ App Server]]"
+  - "[[好工具如何被定义：通用评估骨架与类型专属断言]]"
 reviewed_by: human
 reviewed_at:
 ---
