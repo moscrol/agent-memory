@@ -5,7 +5,7 @@ agent: devin
 source: "session-tutor · ai-agent-book 第四章 工具生态：工具选择与主动工具发现 + 用户追问"
 date: 2026-08-05
 tags: [agent, rag, tool-discovery, retrieval, hybrid-search, bm25, embedding, rerank]
-status: draft
+status: verified
 related:
   - "[[检索评测的双闸门：消融实验与索引新鲜度]]"
   - "[[好工具如何被定义：通用评估骨架与类型专属断言]]"

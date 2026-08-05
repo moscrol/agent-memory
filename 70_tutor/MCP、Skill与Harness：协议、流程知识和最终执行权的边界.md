@@ -5,7 +5,7 @@ agent: devin
 source: "session-tutor · ai-agent-book 第四章 工具生态：MCP 与工具选择的挑战 + 用户追问"
 date: 2026-08-05
 tags: [agent, mcp, skill, harness, tool-ecosystem, permission, orchestration]
-status: draft
+status: verified
 related:
   - "[[skill编排层与自由编排verifier]]"
   - "[[preset权限分层与最小权限]]"

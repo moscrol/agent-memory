@@ -5,7 +5,7 @@ agent: devin
 source: "session-tutor · ai-agent-book 第一章 Agent 循环、第二章上下文工程、第四章工具生态精讲 + 用户追问"
 date: 2026-08-05
 tags: [agent, harness, message, context-engineering, llm, orchestration, long-tail]
-status: draft
+status: verified
 related:
   - "[[MCP、Skill与Harness：协议、流程知识和最终执行权的边界]]"
   - "[[工具发现与RAG的同构：从检索证据到检索行动能力]]"
