@@ -46,6 +46,7 @@ pnpm run build:web
 | cninfo-rss L3 准入收紧（标题二次校验 + 组合规则 + 纠正分类码） | devin | done | PR #92 |
 
 ## 交接记录
+- 2026-08-06 · codex · **GEO 主题知识入口（功能分支 `feature/finhot-geo-hubs`）**：在 `apps/desktop/plugins/vite/geo-topics.ts` 新增 8 个稳定主题 slug 和纯函数关键词匹配，要求至少 3 条精选证据、每页最多 20 条、按质量分/时间确定性排序；`rss-proxy.ts` 从同一 `selectedEntries` 快照生成 `/topics`、主题详情、`/about`、`/methodology`、`/sources`、`llms-full.txt`，扩展 `llms.txt`/sitemap，并加入开发服务器镜像路由。来源页只展示安全的站点 URL，不输出 RSS/query token；不复制第三方全文。验证：GEO 单测 4/4、定向 ESLint 通过、`pnpm run build:web` 成功，HTTP 冒烟验证 trust pages/llms/sitemap 200；本地缓存没有达到 3 条证据的主题，主题索引正确不生成空详情页。全仓 `typecheck` 仍被既有 `@follow/atoms` 与 Jotai `RESET` 类型不兼容阻断；全仓 `lint:fix` 被未跟踪 `.venv` 第三方 Python 文件的 6 个 `no-console` 错误阻断；全量 test 被主包锁定的 `vitest@3.2.4` 虚拟路径缺失阻断。设计/计划已提交 `bf76f31`，功能待提交、待推送，禁止直接合并 main 或部署线上。
 - 2026-08-06 · codex · **公网快照稳定性修复与恢复**：在 `fix/finhot-ops-health`（commit `2097e28`）加入空快照部署保护（raw entries 有数据但过门槛条目为 0 时拒绝部署，`FINHOT_ALLOW_EMPTY_PUBLIC_DEPLOY=1` 才允许）、快照/富集健康文件、refresh 富集错误回传与监控公开快照检查。一次有界 refresh 证实 AI provider 返回 HTTP 402，未把余额问题误判成采集代码故障。Cloudflare Pages 已回滚到已知正常部署，线上 `/api/public/items-all.json` 当前 175 条；监控为 `degraded`，只有微信上游 `ret=200013/freq control` 无缓存文章，WeChat poller 本机 launchd 已运行，禁止批量重试。分支已推送，未合并 main。
 - 2026-06-28 · devin · 初次建档（基于 README/仓库结构）
 
