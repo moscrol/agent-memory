@@ -132,3 +132,8 @@ pnpm run build:web
   - **阻断**：微信 `appmsgpublish` 接口持续返回 `ret=200013 / freq control`，SQLite 文章数仍为 0，因此文章抓取和全文质量尚未验证通过。后续应等待微信侧限频解除后只做低频单号复验，不要批量重试。
 
 - 2026-08-02 · devin · **FinHot 微信同步 LaunchAgent 已切换到 wechat-download-api**：复用原 `com.finhot.wechat2rss-sync` label，但脚本不再读取 `~/.wechat2rss_token` 或调用 8090；`scripts/sync-wechat2rss-watchlist.mjs` 改为读取 `http://localhost:5050/api/rss/subscriptions`，将旧 `/feed/<biz_id>.xml` 迁移为 `/api/rss/<fakeid>`，watchlist 变化时再 `POST http://localhost:2233/api/public/refresh`。LaunchAgent 保留每小时执行并启用 `RunAtLoad`，日志改写到 `/tmp/finhot-wechat-download-api-sync.log`。已验证 5050 健康、38 个订阅、37 个 RSS URL 全部 HTTP 200/XML、同步器 dry-run `migrations=0/additions=0` 幂等、LaunchAgent 最后退出码 0。注意：当前订阅接口返回的 `nickname`/`alias` 为空，因此未来新增账号无法自动生成可靠可读名称；现有 37 个账号的 URL 迁移已完成。FinHot 全量 refresh 首次成功返回 `imported=61`，但不要在每小时无变化时重复触发该耗时操作。
+
+- 2026-08-07 · codex · **FinHot GEO 合并与生产部署完成**：`feature/finhot-geo-hubs` 已快进合并并推送到 `main`，随后将 `fix: harden FinHot public snapshot health` 合入，最终主分支为 `0d29fff`。空快照根因是本地 enrichment 只有旧版单分质量分，没有当前代码要求的六维 `qualityDetails.scores`；AI 评分接口本次返回 402 余额不足，因此没有伪造新分数。
+  - **线上结果**：Cloudflare Pages production deployment `f19e8364`（source `0d29fff`）已生效。`https://finhot.industry7view.com` 缓存破坏复核后返回 139 条公开内容、5 个 GEO 主题、152 个 sitemap URL；`/topics`、`/about`、`/methodology`、`/sources`、`/llms-full.txt`、`/api/public/*.json`、`/feed.xml` 均非空且 HTTP 200。
+  - **恢复方式**：从上一个非空线上页面提取 38 个来源和 160 条真实文章，使用一次性 `FINHOT_WHITEBOX_FEED_PATTERNS` 恢复覆盖，仅保留三天时效窗口，最终发布 139 条；本地原 92 源 / 5,487 条 enrichment 缓存已恢复。一次性恢复缓存保留在 `/tmp/finhot-cache-legacy-recovery-f19e8364`，原缓存备份在 `/tmp/finhot-cache-backup.eV5Lgu`。
+  - **后续**：补充 AI 供应商余额后，正常执行 refresh + batch-enrich，再部署新版六维评分快照；不要设置 `FINHOT_ALLOW_EMPTY_PUBLIC_DEPLOY=1`，应让空快照保护拒绝发布并保留线上最后一个非空版本。
