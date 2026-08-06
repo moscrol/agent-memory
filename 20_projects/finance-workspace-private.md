@@ -116,6 +116,48 @@ per-user 不是进程级；`runtime_backend_readiness` 这个全局探针看不�
 而 CLI/回检走 `~/.zshrc` 里的 `/Users/a77/agent-memory/.foresight`——**两套用户台账不是同一份**。
 
 ## 交接记录
+- 2026-08-06b · claude · **评估「是否换 agent 底座」→ 决定不换；改走「固定底座 → 逐块搭 → 搭一个测一个」。路线见仓内 `docs/layered-rebuild-roadmap.md`（`967bc743`），工单见 `docs/handoffs/2026-08-06d-layer-split-and-8792-revival.md`（`6365de83`）**。
+  - **决策依据（AST 实测，`intelligence/` 219 模块 / 122K 行）**：harness 24 个模块共 22,900 行，
+    但**只有约 5,200 行是真 loop 骨架**；另有 **7,511 行是领域逻辑穿了 `episode_` 外衣**
+    （最大一块 `episode_semantic_verifier.py` **2,894 行**的金融语义 grounding 判据）。
+    干净积木 **184 模块 / 88,781 行**（传递闭包不碰 harness），污染只有 **7 个模块 / 3,851 行**，
+    其中仅 `services.lane_generation` 一个是直接 import。**边界比"架构好乱"的感觉干净得多。**
+  - **候选底座实测**：`earendil-works/pi` 是 **TypeScript**（84.7K★、MIT、2025-08 建、
+    `packages/agent/src` 只有 7 个文件），提供 `transformContext`（官方定位就是剪枝/注入）、
+    `beforeToolCall` 可阻断、`shouldStopAfterTurn`、AbortSignal、SQLite session。**但无 MCP**
+    （1337 文件零命中），`packages/server` 标注 Experimental 且是 Unix socket + CBOR 不是 HTTP。
+    **上 pi 的真实代价是契约层 3,758 行要长期维护两份**（TS + Python 校验必须同步）——
+    正是 [[../10_knowledge/cross-layer-vocabulary-reconciliation]] 那个坑的跨语言版。
+    Python 侧其实已有现成底座：`openai_agents_runtime.py` 1,732 行 + `agents` 0.18.3 已装。
+    ⚠️ 「SDK 不如自建」这个印象要校准：2026-07-25 的 195/175 是 **GLM 下**跑的，
+    切 `gpt-5.6-sol` 后 A/B **零数据**。
+  - **架构澄清（曾被我自己讲成"三条链"，是错的）**：**服务器里只有一条线**。
+    `api/app.py` 唯一部署；前端唯一下单口 `POST /api/conversations/{id}/messages` →
+    `conversation_orchestrator`（唯一调度器）→ **两个引擎**：A=`continuous_turn_adapter`→`agent_episode`
+    （模型自选工具），B=`ask.answer_query`（流程写死，兜底 + `LEGACY_DETERMINISTIC_OWNER_TYPES`
+    三题型）。**两个引擎都调 LLM**，差别是"流程谁定"不是"用不用 LLM"。
+    `agent.py` **不在服务器里**（`api/app.py` 从不 import），只服务 `cli.py:304` + `eval/runner.py:91`。
+    `POST /api/runs` 前端不调但**别删**——是崩溃后恢复孤儿 run 的兜底（`app.py:1698` lifespan）。
+  - **生产故障与修复**：`.finance-runtime` 快照被删、软链悬空，启动器 `:51` `cd` 到不存在的路径，
+    进程靠持有已删 inode 苟活，根路径返 **503**，launchd 一重启就彻底起不来。agent A 已修复
+    （实测复核：200 / pid 37634 / cwd 指向 `finance-workspace-88b28ab4` / 软链不悬空），
+    启动器加了 `test -d` 前置断言。⚠️ **但他用 `git worktree add --detach` 建的快照与开发仓
+    共享 `.git`，`git worktree prune` 能把生产删掉——同一故障换门重来，待去耦合。**
+  - **本轮实测出的 4 个 harness 缺口（Phase 1 待办）**：① 上下文压缩**零实现**（全树 grep
+    `compact/trim/summariz/prune/evict` 无命中，`messages` 只 append，工具观察全量 dumps 无上限；
+    但已见 124K token 仍 200，**不是正在出血**，先量后改）；② `memory_lookup` **结构性不可达**
+    （三个授权源——`_RUNTIME_CAPABILITY_FLOOR` 20 条策略、`_PLAN_CAPABILITY_TO_RUNTIME` 10 条映射、
+    `conversation_orchestrator` 9 分支——全部无它，唯一授权处是测试）；③ 系统提示词
+    1,601 字符 / **4 个换行** / 最长无换行段 **1,501 字符** / 24 条约束平铺；④ fulfillment 判定不进 trace。
+  - **可迁移原则（本轮新增）**：**「一块」的交付标准是四件套——可达性 / 契约 / 观测 / 变异测试，
+    缺一不算完。** 来自 `memory_lookup`：它有实现、有测试、有"先验非市场事实"的自述标注，
+    唯独缺可达性，于是生产里一次没跑过，而能力图谱、`graph_audit`、全量 3,820 条测试**全绿**。
+    这是 [[../10_knowledge/finance-agent-capability-graph]] 需要补的一类审计：**图谱只审符号存在，
+    不审生产可达。**
+  - **外部工具边界**：`deepwiki` MCP 已注册（HTTP，连接正常），但**读不了本仓**——
+    三个工具（`ask_question`/`read_wiki_contents`/`read_wiki_structure`）的 schema 只接受
+    `repoName`（owner/repo），无本地路径参数；且本仓私有（公开 API 返 `Not Found`）。
+    它适用于读公开仓。**让外部服务索引本仓等于发布私有代码，需显式授权。**
 - 2026-08-06 · claude · **生产切到 gpt-5.6-sol 并连修三层；一天内四次撞上同一种跨层口径缺陷，已提炼为 [[../10_knowledge/cross-layer-vocabulary-reconciliation]]**。
   - **生产已切换（两次）**：`main` 从 `bdb0bd77` → `109b4219` → `8ccca8ca`，快照走 `.finance-runtime/finance-workspace-<sha>` + 符号链接 `finance-workspace-runtime` 重指 + `launchctl kickstart -k`。
     启动器（`~/.local/bin/start-finance-workbench`）删 GLM 三件套、加 `FORESIGHT_LLM_KEYCHAIN=1` / `LLM_API_KEY|BASE_URL|MODEL` / 显式 `AGENT_RUNTIME_BACKEND=continuous_glm`，备份 `start-finance-workbench.bak-20260805`。
