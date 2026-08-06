@@ -50,6 +50,7 @@ npm run build
 |  |  |  |  |
 
 ## 交接记录
+- 2026-08-06 · codex · **industry7view 运维与曝光修复**：在 `fix/industry-article-quality`（commit `55edf4b`）删除 `lighthouse-factory`、`power-chip`、`thermal-materials` 的重复附录，合并保留独有相关研究链接，并同步生成 `public/llms-full.txt`；`npm run validate`、`npm run lint:articles:strict` 均通过（83/83），`npm run build` 通过（103 pages）。`public/robots.txt` 在分支上放开 GPTBot/ClaudeBot，继续拦截 CCBot/Bytespider；线上当前仍是旧版本，因 Worker 部署权限/流程未确认，未直接发布。Cloudflare 账户现有 token 可读 Pages 但不能读 Workers，`wrangler whoami` 未登录。仓库 main 当时落后 origin 24 commits 且有用户改动，未 pull/覆盖/合并；分支已推送。
 - 2026-06-28 · devin · 初次建档（基于 README/AGENTS）
 - 2026-07-02 · devin · 合并收尾：PR #11（thermal-materials 附录三件套去重）直接合并；PR #2（信息长图生成器 scripts/poster/，HBM 5 张 + 被动元件 4 张，chainmap 接题材雷达快照）先把 main 合进分支解 .gitignore 冲突（保留 .chrome-profile 忽略 + main 的 .agent-memory 行），本地 node 22 下 `npm run build`（105 页）与 `npm run validate`（85/85 严格）通过后合并。注意：本仓 Astro 要求 node >=22.12。
 - 2026-07-02 · devin · 用户约定（重要）：**网站仓 main 只部署文章类改动**（src/content/research/ 等正文/修补），海报生成器等工具类功能不上 main、不部署。当日 PR #11/#2 合并后已按用户要求 revert（main 回滚到合并前，分支保留：fix/thermal-materials-dup-appendix、site/infographic-poster-generator，需要时可重开 PR）。

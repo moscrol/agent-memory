@@ -46,6 +46,7 @@ pnpm run build:web
 | cninfo-rss L3 准入收紧（标题二次校验 + 组合规则 + 纠正分类码） | devin | done | PR #92 |
 
 ## 交接记录
+- 2026-08-06 · codex · **公网快照稳定性修复与恢复**：在 `fix/finhot-ops-health`（commit `2097e28`）加入空快照部署保护（raw entries 有数据但过门槛条目为 0 时拒绝部署，`FINHOT_ALLOW_EMPTY_PUBLIC_DEPLOY=1` 才允许）、快照/富集健康文件、refresh 富集错误回传与监控公开快照检查。一次有界 refresh 证实 AI provider 返回 HTTP 402，未把余额问题误判成采集代码故障。Cloudflare Pages 已回滚到已知正常部署，线上 `/api/public/items-all.json` 当前 175 条；监控为 `degraded`，只有微信上游 `ret=200013/freq control` 无缓存文章，WeChat poller 本机 launchd 已运行，禁止批量重试。分支已推送，未合并 main。
 - 2026-06-28 · devin · 初次建档（基于 README/仓库结构）
 
 - 2026-07-03 · devin · 积压 5 PR 评测后经用户确认全部合入 main（顺序 #102→#89→#93→#94→#97）。要点：①#94/#97 的 CI lint 失败是 main 上 `scripts/precommit.mjs` 未过 prettier 的存量问题（b481f23 引入），#102 顺手修了，故 #102 必须先合；②#94 与 #97 在 `skills/cninfo-rss/config.yaml` 排除词列表真冲突（并行分支各自加词），经用户授权按**并集**解决（排除词并集只多滤噪音、误伤风险低；「财务顾问」覆盖「独立财务顾问」去重）。合并后 main CI 全绿、cninfo 测试 24/24 过。**可复用教训**：并行 PR 同改一份关键词配置时，先判断是"并行补充"还是"后者推翻前者"，排除类列表默认并集、准入类列表需逐词裁决。
