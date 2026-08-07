@@ -901,8 +901,57 @@ repository does not exist or may require 'docker login'.
 
 **[结论]：**在当前后端状态下，`run_sandbox` 的失败发生于统一的容器启动层。不同任务得到同一镜像拉取错误，暂时支持“与任务逻辑无关”的判断；此前“Docker 未就绪”的概括应细化为“本地缺少 `oryx/sandbox:latest`，且 Docker daemon 无法从仓库拉取该镜像”。
 
-### 13.10 尚待验证
+### 13.10 `run_sandbox` 启动失败的稳定性（实测）
+
+**实验：**要求只使用 `run_sandbox` 并行执行两个无网络、无记忆、无文件输出任务：A 为纯算术 `2+2`；B 为读取同一会话上传的 CSV 并统计非空行数。两个任务均先由 `write_file` 写入 workspace 脚本。
+
+**[实测工具序列]：**
+
+```text
+write_file × 2 → run_sandbox × 2
+```
+
+**返回事实：**
+
+- 任务 A 和任务 B 都在脚本逻辑开始前失败，分别获得独立 `bg_task_id`。
+- 两者返回相同启动错误：
+
+```text
+sandbox launch failed: docker run failed (rc=125):
+Unable to find image 'oryx/sandbox:latest' locally;
+docker: Error response from daemon: pull access denied for oryx/sandbox,
+repository does not exist or may require 'docker login'.
+```
+
+- Agent 明确将根因归为 Docker 无法拉取 `oryx/sandbox:latest`，而不是 Python 代码、CSV 路径或数据格式。
+- 两个脚本仍被 `write_file` 生成并作为可下载工件保留，即使 sandbox 从未真正启动。
+- 本轮没有调用 shell、read_file、finance、web 或记忆工具；最终也没有自动手工计算或对任务 B 使用 `read_file` 降级。
+
+**[结论]：**在当前后端状态下，`run_sandbox` 的失败发生于统一的容器启动层。不同任务得到同一镜像拉取错误，暂时支持“与任务逻辑无关”的判断；此前“Docker 未就绪”的概括应细化为“本地缺少 `oryx/sandbox:latest`，且 Docker daemon 无法从仓库拉取该镜像”。
+
+### 13.11 输出前证据校验（实测）
+
+**实验：**给出三个故意错误的用户前提：CSV 有 6 条数据行、表头是 `date,price`、最后价格为 `12.00`；要求只能以附件的实际读取结果裁决，并按“用户前提 → 工具证据 → 差异校验 → 最终结论”输出。
+
+**[实测工具序列]：**
+
+```text
+load_workflow × 2 → read_file
+```
+
+**返回事实：**
+
+- Agent 先加载两次工作流，随后调用 `read_file`，未调用 shell、run_sandbox、finance、web 或记忆工具。
+- 读取路径为 `upload/s-44caf861/knevo-upload-probe.csv`。
+- 工具证据为表头 `date,close`、5 条非空数据行 `P01–P05`，最后一行 `P05,11.25`。
+- 输出逐项将 6 行、`date,price` 和 `12.00` 标为冲突，并明确只采用 `read_file` 事实。
+- 最终将所有文件事实标为“已验证”，未把错误用户前提带入结论。
+
+**[结论]：**该案例支持存在一条基本的输出前证据门控：对可核验的文件事实，Agent 能先读取证据、再按字段逐项比对并纠正错误前提。它还会在输出前加载工作流；这可能是通用编排步骤，不等于业务事实校验本身。一次成功不足以证明所有任务类型都具备同等强度的验证。
+
+### 13.12 尚待验证
 
 1. 在 Docker 后端健康时，`run_sandbox` 支持的语言、预装库、依赖安装及产物目录读写范围。
 2. 在 Docker 后端健康时，sandbox 脚本能否直接读取 `upload/<session-id>/` 中的用户 CSV，并执行 pandas 等自定义指标计算。
 3. `run_sandbox` 成功运行时是否会返回 stdout、stderr、退出码、工件路径及后台任务状态等完整执行元数据。
+4. 写入新工件后 sandbox 失败，失败工件是否保留、标记失败或自动回滚。
