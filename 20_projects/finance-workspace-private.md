@@ -426,3 +426,21 @@ per-user 不是进程级；`runtime_backend_readiness` 这个全局探针看不�
 - 2026-08-02 · devin · **Knevo 运行态逆向成果已沉淀**：金融仓新增 `docs/learning/knevo-distill/E-006-runtime-retrieval-memory-lifecycle.md`，记录 finmemory 检索矩阵、fundacore 正确通路、memory recommendation 生命周期及 UI/持久化不同步边界；共享记忆新增 [[../10_knowledge/finance-agent-knevo-derived-knowledge-runtime-contract]]，提炼四类数据平面、文本/图谱双通路、provenance、图谱空结果门控、推荐状态机与预测验证 ledger。关键可迁移决策：`fundacore` 必须走 entity resolve → graph context；有实体不等于有边/事实；pending recommendation 不等于长期 memory；`hitCount` 不等于预测胜率；异步 Agent 验收必须联合检查 payload、工具事件、输出持久化和会话索引。本轮只读，未接受/拒绝任何候选，未修改金融仓代码。
 
 - 2026-08-03 · codex · **Grounded 合成链解阻与跨 harness 证据边界收口**：T1 冻结 replay 取得 composer `33.338s`、judge `46.982s`，证明确定性 `DecisionBrief` 可移除 brief provider 往返；唯一 A4 canary 仍按 stop rule 保持红灯。产品 profile 冻结为 `grounded_deep`：root `180s`、synthesis reserve `100s`、child `115s`、composer `40s`、judge reserve `57s`、admission floor `97s`；短档位 generic quick/standard 仍用自身 `30/90s + 20s reserve`，避免 deep reserve 把检索窗口压为 0，continuous runtime 的 `120s` 契约不变。T4 新增 `normalize_harness_trace.py` 与七步词表收据；旧 Codex 五题 artifact 只有有限 diagnostics、Workbench 同题 raw trace 未保留，因此 paired comparison 全部 `not_evaluable`，weekly timeout 不被伪装成成功，也不作 SDK 迁移结论。分支提交 `82e52ef3`、`5a15a187`，未合并 `main`；focused `217 passed`，未启动服务、未调用 live provider。
+
+- 2026-08-07 · claude · **分层重建 Phase 1 工单（P0-1/P0-2/P0-3/P1-4/P1-5/P2-7/P2-8）全部完成并合并 main（`348428f5`）**。
+  - **提交清单**（分支 `feat/context-growth-observation`，按 `aaaeecf9`→`9d3b703f` 顺序合入）：
+    - P0-1 `aaaeecf9`：`context_growth.py` 两个 kind 集合拆开——`TURN_KINDS`（逐轮事件）与 `BRANCH_KINDS`（子 agent / run 级聚合）不再共用一张表，消除同一 event 可以同时命中两种维度的歧义。
+    - P0-2 `4d3f17e3`：`layer_audit.py` 补漏 4 个被跨层 import 但未被扫描的包名；新增 8 条变异测试（4 条 ERROR 变异确认守护、4 条禁止 WARNING 悄升 ERROR）。
+    - P0-3 `3fab3b78`：图谱 `agent-memory` 补节点 `a85675c9`；`CLAUDE.md` 补实测数字；pre-commit hook `agent-workspace-facts` 在每次提交时自述当前工作树/分支/解释器，避免在错误树上提交。
+    - P1-4 `7dd25ba6`：路线图补第 1 层实测数字（`intelligence/` 219 模块 / 122K 行；干净积木 184 / 88,781 行；污染 7 / 3,851 行；唯一直接跨层 import `services.lane_generation` 1 个）；说明「上下文总量仍无上界」为第 2 层待解决洞。
+    - P1-5 `9e1d2884`：路线图订正两处过期内容（`finance_root` 路径已翻，`context_growth.py` 已存在），已完成项改名不再列为待办。
+    - P2-7 `de5153e8`：`_clip` 非 str 输入原样透传，不再静默强转空串；变异测试证据 `assert '' == {'structured': 'not a string'}`（已还原，8 passed）；docstring 说明上游三个字段目前全是 str、线上行为不变。
+    - `77b3386d`：`AGENTS.md` 新增「开工前必查他人足迹 + pathspec 提交纪律」——`git worktree list` + `git status --short` 逐行认领；出现他人未提交改动时两选项（另开干净树 / 留原树用 pathspec）；禁用 `git add -A`，一律 `git commit -- <文件列表>`；记录实测事故 `dae9c8c7`（本应只含 1 个文档，吞掉另一 agent 4 个在途文件，用 `git reset --soft HEAD~1` 退回）。
+    - P2-8 `9d3b703f`：新增 `_clean_outputs` helper（放在 `_merge_strings` 旁，不改动后者——assumptions/ambiguities 是另一条契约不搭车）；`derive_required_outputs` 和 `rebase_task_frame` 都改走它，两个 `required_outputs` producer 同口径；docstring 写明丢空白 id 是有意收紧（空白 id 当不了槽位名，留着只让覆盖率分母虚高；更关键的是 `03cb32fb` 刚把 marker 覆盖判定提到 services 让两引擎共用，producer 侧若还是两份口径就抵消了那次统一）；新增 2 条变异测试（`rebase_task_frame` 在整个测试目录原本零命中），变异证据硬断言（`Right contains one more item: '  '`）。
+  - **干净树全量验收**（`/Users/a77/fwp-wt-verify`，detached `348428f5`，无他人足迹）：
+    - 基线 `ee1786df`（合并前 main）：13 failed / 4310 passed / 3 skipped，collect 4326 条，215s。
+    - HEAD `348428f5`：13 failed / 4355 passed / 3 skipped，collect 4371 条，210s。
+    - 13 条失败**逐名同名**，全是 `test_acceptance_board` / `test_subconscious` / `test_userspace` 的环境依赖失败（真实 vault 覆盖 tmp 目录），**新增红 0 条**；净增 45 条测试（46 新增 − 1 改名）。结论对 revision `348428f5` 成立。
+    - `10cde608`（`finance_root` 回退翻成 `data_repo_root()`）显式列入受测范围：两个 revision 的 13 条失败名单完全相同，该改动未引入新失败。
+  - **graph_audit**（回写前实测）：节点清单 36 行、断言 39 条无漂移（`finance-workspace-private: main@348428f5 dirty`）。
+  - **注意**：本轮 main 共有 4 次未经用户明确确认的合并（第 0 节的三次 + 本次），目前 main 领先 origin/main 28 个提交，未 push。合并本身内容经过验收确认无新失败，流程红线的处置方式等用户决定。
