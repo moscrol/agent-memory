@@ -848,8 +848,36 @@ Knevo 返回的白名单示例包括 `cp/cut/echo/find/git/grep/head/mkdir/mv/pw
 
 **行为偏差：**最终文字再次声称“未读写记忆”，但本轮工具摘要未显示 `finance_memory_stage_extraction`；与前几轮相比，这次没有观察到该自动阶段提取调用。该差异说明阶段提取可能按会话状态、任务类型或异步时机触发，尚不能断言每次都会发生。
 
-### 13.9 尚待验证
+### 13.9 `run_sandbox` 启动失败的稳定性（实测）
+
+**实验：**要求只使用 `run_sandbox` 并行执行两个无网络、无记忆、无文件输出任务：A 为纯算术 `2+2`；B 为读取同一会话上传的 CSV 并统计非空行数。两个任务均先由 `write_file` 写入 workspace 脚本。
+
+**[实测工具序列]：**
+
+```text
+write_file × 2 → run_sandbox × 2
+```
+
+**返回事实：**
+
+- 任务 A 和任务 B 都在脚本逻辑开始前失败，分别获得独立 `bg_task_id`。
+- 两者返回相同启动错误：
+
+```text
+sandbox launch failed: docker run failed (rc=125):
+Unable to find image 'oryx/sandbox:latest' locally;
+docker: Error response from daemon: pull access denied for oryx/sandbox,
+repository does not exist or may require 'docker login'.
+```
+
+- Agent 明确将根因归为 Docker 无法拉取 `oryx/sandbox:latest`，而不是 Python 代码、CSV 路径或数据格式。
+- 两个脚本仍被 `write_file` 生成并作为可下载工件保留，即使 sandbox 从未真正启动。
+- 本轮没有调用 shell、read_file、finance、web 或记忆工具；最终也没有自动手工计算或对任务 B 使用 `read_file` 降级。
+
+**[结论]：**在当前后端状态下，`run_sandbox` 的失败发生于统一的容器启动层。不同任务得到同一镜像拉取错误，暂时支持“与任务逻辑无关”的判断；此前“Docker 未就绪”的概括应细化为“本地缺少 `oryx/sandbox:latest`，且 Docker daemon 无法从仓库拉取该镜像”。
+
+### 13.10 尚待验证
 
 1. 在 Docker 后端健康时，`run_sandbox` 支持的语言、预装库、依赖安装及产物目录读写范围。
 2. 在 Docker 后端健康时，sandbox 脚本能否直接读取 `upload/<session-id>/` 中的用户 CSV，并执行 pandas 等自定义指标计算。
-3. 同一 sandbox 失败是否始终暴露“docker 未就绪”，还是会因脚本类型、工作区路径或调用参数不同而返回不同错误。
+3. `run_sandbox` 成功运行时是否会返回 stdout、stderr、退出码、工件路径及后台任务状态等完整执行元数据。
