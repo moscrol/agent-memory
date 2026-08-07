@@ -195,3 +195,81 @@ content: string
 ### `finance_provider_status` 状态语义
 
 状态是 provider 级可用性摘要：`enabled`/`disabled`、`missing_config`、`degraded`、`NO_DATA_FOR_QUERY`。它不是固定路由表；当前 ready/degraded 状态必须在运行时调用此工具或从具体 provider 结果读取。响应对用户须脱敏表达，不能将 `disabled`、配置缺失、限流等混为一般 `failed`。
+
+## 7. `load_workflow` 黑盒边界
+
+### 可见 schema
+
+```text
+load_workflow(workflow_id: string) -> workflow payload
+```
+
+调用侧只能按固定 ID 查询，未暴露 `inputs`、`version`、`mode`、`memory_ids` 或 `skill_ids` 参数。工作流 payload 可观察到稳定字段：`label`、`domain`、`executionKind`、`preset`、`primarySkillId`、`internalSkillIds`、`spawn`、`instructions`；其中 `spawn` 会向调用侧传递子代理的 preset、mode、skill_ids 和 title。
+
+示例行为路由：
+
+```text
+spawn.preset = spawn.preset
+spawn.mode = spawn.mode
+spawn.skill_ids = spawn.skill_ids
+task = 用户需求 + executorInstructions
+```
+
+### 行为观察与未知项
+
+- 工作流可观察到的执行顺序通常是：`load_skill` → 工具调用（可并行）→ `write_file` → `emit`。
+- `inspect_sub_agent` 至少能观察到 `running`、`done`；内部状态枚举和转移未暴露。
+- `load_workflow` 本身更像“按 ID 返回编排指令”，而不是由调用侧直接提交 DAG。
+- workflow 的内部注册存储、完整 ID 清单、YAML/JSON 定义格式、DAG 表示、run_id、checkpoint、重试和幂等机制均未确认。
+- 行为上观察到 timeout 后不会自动重启，部分产物也不保证自动保存；这是当前调用观察，不等同于引擎内部规范。
+- 不能把 `workflow = skill(s) + preset + mode + routing` 当成已公开的数据结构；它是当前行为的架构抽象。
+
+## 8. Skill 注册、加载与权限边界
+
+### 加载入口与 ID 形态
+
+已确认的入口：
+
+```text
+load_skill(skill_id: string)
+spawn_sub_agent(skill_ids: string[])
+```
+
+已成功观察到的 ID 包括 `finance-mode`、`finance-industry-report`、`finance-analyze-stock`、`finance-earnings-review`、`finance-industry-track`、`finance-forecast-event`、`finance-kol-analyze`、`finance-associate`、`finance-review-check`。命名规律是 `{domain}-{function}`，小写连字符，无版本号、路径或扩展名；别名、路径格式和显式 `@version` 尚未确认。
+
+`search_skills` 在金融模式返回空列表，但 `load_skill("finance-mode")` 与 `load_skill("finance-industry-report")` 可用。这表明 user-selectable skill 列表与 workspace preset / 内部 skill 注册存在分离，不能把“可选列表为空”理解成 skill 不存在。
+
+### 加载顺序与版本优先级
+
+经验上 `finance-mode` 位于 `finance-industry-report` 之前，作为基础层；后者是领域层。系统提示明确：当前 workspace preset 的 skill 版本优先于此前加载版本和压缩摘要，因此至少存在某种版本/缓存优先级。具体版本号、TTL 和缓存实现未暴露。
+
+### 内容优先级与权限
+
+可观察的注入层可抽象为：
+
+1. 基础模型规则：工具权限、安全限制、平台级约束。
+2. Workspace preset：例如自动注入的 `finance-mode`。
+3. `load_skill` 加载的 skill body：行为、来源和输出纪律。
+4. 当前系统上下文：会话规则与短期记忆。
+5. 用户消息。
+
+Skill body 可以覆盖默认语言、研究风格和输出结构，也可以进一步收紧工具使用纪律；但不能授予 preset 未开放的新工具，不能撤销平台安全限制，不能把禁止实盘交易等约束改成允许。多个 skill 冲突时的精确解决算法未确认。
+
+### UI 与错误处理
+
+“选择技能，当前无技能”更可能表示 user-selectable 列表为空；workspace preset 注入的 `finance-mode` 仍然可以被内部加载。是否只附加当前消息、是否持久化到整个会话、是否改变 provider 配置，均未直接确认。
+
+已询问的失败类别包括 404、不匹配版本、加载超时、冲突和权限拒绝，但调用侧未获得稳定错误码或公开回退协议。可推断存在“当前 workspace preset 版本 → 之前加载版本 → 压缩摘要”的降级顺序；registry、version lock、缓存 TTL、审计日志和冲突算法均是黑盒。
+
+### 最小组合抽象
+
+```json
+{
+  "preset": "report-only",
+  "mode": "isolated",
+  "skill_ids": ["knowledge-readonly", "database-query"],
+  "task": "读取知识库相关条目，查询允许的数据集，输出带来源的摘要；不得写文件、修改记忆或执行交易。"
+}
+```
+
+该示例表达组合关系，不代表 `knowledge-readonly` 和 `database-query` 是已确认存在的真实 ID。skill_ids 能组合指令和已开放能力，但不能突破 preset 的工具权限、平台安全限制或数据访问控制。
