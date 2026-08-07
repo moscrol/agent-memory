@@ -822,7 +822,34 @@ read_file → finance_memory_stage_extraction
 
 **行为偏差复现：**尽管请求禁止任何记忆读写，工具记录仍出现 `finance_memory_stage_extraction`，而最终文字声称“无记忆读写”。这与 13.6 A 的离线数值计算探针一致，增强了“阶段提取是系统级自动流程、不会被用户禁令可靠关闭”的判断；它是否等同于持久记忆写入仍未证实。
 
-### 13.8 尚待验证
+### 13.8 `shell` 白名单与路由边界（实测）
+
+**实验：**要求 `shell` 逐项处理 `pwd`、`ls`、`head`、`python3 -c` 和 `sh -c`，禁止 `run_sandbox`、联网、记忆读写和文件修改。
+
+**[实测工具序列]：**
+
+```text
+shell × 5
+```
+
+**返回事实：**
+
+| 命令 | 结果 | 观察 |
+|------|------|------|
+| `pwd` | 成功 | cwd 显示为 `.`，有非致命 locale 警告 |
+| `ls -la upload/s-44caf861` | 自动转换 | 平台转为 `read_file` 的 directory branch，返回该目录条目 |
+| `head -n 2 .../knevo-upload-probe.csv` | 成功 | 正常返回表头和首行 |
+| `python3 -c "print(1+1)"` | 拒绝 | `python3` 不在 shell 白名单，提示改用 `run_sandbox` |
+| `sh -c "echo shell-child"` | 拒绝 | `sh` 不在白名单，禁止通过子进程绕过限制 |
+
+Knevo 返回的白名单示例包括 `cp/cut/echo/find/git/grep/head/mkdir/mv/pwd/rm/sleep/sort/tail/tar/touch/uniq/unzip/wc/zip` 等；同时明确提示 `node`、`pip`、`uv`、`make` 等代码执行或构建命令不可用。
+
+**[结论]：**`shell` 是命令级白名单执行器，不是通用终端。它允许有限的文件、文本和目录操作；解释器启动、shell 嵌套和构建工具被拒绝。`ls` 不是单纯失败，而是被平台识别为目录查看请求并路由给 `read_file`，说明工具层存在命令语义转换，而非只有静态 allowlist。
+
+**行为偏差：**最终文字再次声称“未读写记忆”，但本轮工具摘要未显示 `finance_memory_stage_extraction`；与前几轮相比，这次没有观察到该自动阶段提取调用。该差异说明阶段提取可能按会话状态、任务类型或异步时机触发，尚不能断言每次都会发生。
+
+### 13.9 尚待验证
 
 1. 在 Docker 后端健康时，`run_sandbox` 支持的语言、预装库、依赖安装及产物目录读写范围。
 2. 在 Docker 后端健康时，sandbox 脚本能否直接读取 `upload/<session-id>/` 中的用户 CSV，并执行 pandas 等自定义指标计算。
+3. 同一 sandbox 失败是否始终暴露“docker 未就绪”，还是会因脚本类型、工作区路径或调用参数不同而返回不同错误。
