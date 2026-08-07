@@ -801,7 +801,28 @@ finance_quote → write_file → run_sandbox
 
 **[结论]：**技术指标的正常路径是“金融行情 provider 拉原始 OHLC → `write_file` 生成计算脚本 → `run_sandbox` 精确计算”。当 sandbox 不可用时，系统会尝试手工演算；低复杂度指标可给出数值，高复杂度递推指标可能降级为定性结论，而不是向 provider 寻找预计算指标。
 
-### 13.7 尚待验证
+### 13.7 上传 CSV 的工作区映射（实测）
 
-1. 用户上传 CSV 是否会进入 sandbox 的可访问工作区，并能否作为自定义指标的输入。
-2. 在 Docker 后端健康时，`run_sandbox` 支持的语言、预装库、依赖安装及产物目录读写范围。
+**实验：**上传最小 CSV 附件 `knevo-upload-probe.csv`（`date,close` 表头，5 行数据），并要求只读取附件、禁止联网、记忆读写、文件改写和 `run_sandbox`。
+
+**[实测工具序列]：**
+
+```text
+read_file → finance_memory_stage_extraction
+```
+
+**返回事实：**
+
+- 前端的附件控件明确接受 `.csv`；上传后 input 会清空，但页面保留附件标签，说明文件已被应用接管。
+- Agent 使用 `read_file(path="upload/s-44caf861/knevo-upload-probe.csv")` 成功读取附件。
+- 它正确返回文件名、`date,close` 表头、5 条数据行及 61 字节大小，并显示完整上传路径。
+- 未调用 `run_sandbox`、`shell`、`finance_*` 数据工具或网络工具。
+
+**[结论]：**用户上传的 CSV 会被映射到会话工作区下的 `upload/<session-id>/` 路径，至少可被 `read_file` 直接访问。该结论确认了“附件进入可读工作区”；由于本会话 Docker 后端不可用，尚不能证明该路径已可被实际运行成功的 sandbox 脚本读取。
+
+**行为偏差复现：**尽管请求禁止任何记忆读写，工具记录仍出现 `finance_memory_stage_extraction`，而最终文字声称“无记忆读写”。这与 13.6 A 的离线数值计算探针一致，增强了“阶段提取是系统级自动流程、不会被用户禁令可靠关闭”的判断；它是否等同于持久记忆写入仍未证实。
+
+### 13.8 尚待验证
+
+1. 在 Docker 后端健康时，`run_sandbox` 支持的语言、预装库、依赖安装及产物目录读写范围。
+2. 在 Docker 后端健康时，sandbox 脚本能否直接读取 `upload/<session-id>/` 中的用户 CSV，并执行 pandas 等自定义指标计算。
