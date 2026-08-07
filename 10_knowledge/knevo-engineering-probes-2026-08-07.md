@@ -91,3 +91,107 @@ T5. 用户给出观点/持仓/看多看空/目标价/止损线
 - 先区分来源层，再分层解读
 - 宽问题要拆检索：从命中结果中抽 2-5 个关键触发器改写查询
 - 不能一次搜索后直接下结论
+
+## 4. `spawn_sub_agent` 编排契约
+
+### 完整参数签名
+
+```text
+spawn_sub_agent(
+  task: string                 # required
+  preset: string               # required enum
+  title?: string
+  skill_ids?: string[]         # finance-mode 入口要求显式传入
+  mode?: string                # default: "isolated"
+  attachments?: array
+  memory_ids?: string[]
+)
+```
+
+### `preset` 枚举与权限
+
+| preset | 权限/用途 |
+|---|---|
+| `report-only` | 只读：web、文件、记忆 |
+| `producer` | 研究与产出：`report-only` + 文件/记忆写入 |
+| `experimenter` | 读写文件 + sandbox；V1 的 sandbox 对 sub-agent 受限 |
+| `finance-reviewer` | 金融只读：行情、新闻、财报、投研记忆、图谱 |
+| `finance-researcher` | 金融研究：`finance-reviewer` + 写文件 + 记忆候选暂存 |
+| `finance-producer` | 金融全能：`finance-researcher` + 组合工具 + 直接写投研记忆 |
+
+`mode`：`isolated`（默认，独立会话）、`snapshot`、`inherit`（继承主会话上下文，按 token 计费）。
+
+### `task` 的实际约定
+
+`task` 是自由格式字符串，而非 JSON schema；它是 sub-agent 唯一可见的任务指令，不会自动获得主会话或用户原始消息。有效任务通常自包含：
+
+1. 研究范围：行业定义、地域、时间范围、目标读者。
+2. 结构要求：产业链环节及每环节的标的、壁垒、国产替代、量产时间线等维度。
+3. 专题和视角：中国/海外对比、政策、BOM 或特定专题。
+4. 输出契约：目标文件路径和报告骨架。
+
+“范围 + 记忆线索 + 输出格式”是实践惯例，而非框架硬约束。
+
+## 5. 投研记忆对象模型
+
+### 写入 schema
+
+必填：
+
+```text
+kind: "entity" | "observation" | "relation" | "event" | "insight" |
+      "reasoning_pattern" | "fact"
+title: string
+content: string
+```
+
+可选：`entity_refs`、`tags`、`source_refs`、`confidence: 0..1`、`importance: 0..1`。
+
+查询结果包含：`id`、`sourceLabel`、`ownership`（`personal`/`shared`）、`kind`、`title`、`content`、`confidence`、`importance`、`updatedAt`、`hitCount`、`entity_refs`、`tags`。
+
+### `kind` 语义与入库标准
+
+| kind | 入库标准 |
+|---|---|
+| `fact` | 有明确来源、可交叉验证、非时间敏感的事实陈述 |
+| `event` | 包含明确时间、实体、动作且可验证的离散事件 |
+| `insight` | 有证据前提和完整逻辑链、可脱离原对话理解的结论；不能是材料复述 |
+| `relation` | 有明确 source/target 实体与关系类型，如供应、竞争、客户、投资 |
+| `reasoning_pattern` | 可复用的模式，包含触发条件、预期结果、推理链与失效条件 |
+| `observation` | 当前状态的描述性、偏定性的观察；不强制要求完整推理链 |
+| `entity` | 可被其它条目引用的规范化实体锚点 |
+
+`entity_refs` 可带实体名称、类型、识别置信度、别名、标识符；`relation` 条目还带 `role`（`source`/`target`/`from`/`to`）和 `relationType`。
+
+## 6. Provider 路由与降级
+
+### 已确认的工具路由
+
+| 工具 | 数据源 | 覆盖 |
+|---|---|---|
+| `finance_instrument` | `datasvc` 融合 | 个股 profile、行情、日线、新闻、资金、两融、研报、一致预期；A/美/港股 |
+| `finance_quote` | `datasvc` → 腾讯（A股五档）/ Massive（美股）/ yfinance（港股） | 实时行情、日 K、指数 |
+| `finance_news` | `datasvc` 本地 feed | A 股快讯、美股 Benzinga/Massive、SEC、宏观 |
+| `finance_options` | Massive / OPRA | 美股期权链 |
+| `finance_margin_market` | `datasvc` → iFinD | A 股两融汇总 |
+| `finance_northbound` / `finance_hsgt` | `datasvc` → iFinD | 北向成交、陆股通持仓 |
+| `finance_shareholders` | `datasvc` → iFinD | A 股股东结构 |
+| `finance_statement` | `datasvc` / fundacore | 财报、估值、基本面 |
+| `finance_search_data` | `datasvc` / Polymarket / web | 数据集、预测市场、成分股、涨跌榜 |
+
+可确认的 provider：`datasvc` 是主融合服务；`iFinD` 提供 A 股专题数据；`Polymarket` 提供事件概率/赔率；Massive 提供美股行情/期权。`ftshare`、`gangtise`、`mx-finance` 在 tool schema 中未被确认，不能据此断言其职责。
+
+### 降级原则
+
+核心模式是 `datasvc` → `web`。典型例子：
+
+- 个股全景：`finance_instrument` → `finance_quote` + `finance_news` + `finance_search_data`。
+- A 股现价：`finance_quote`（datasvc/Tencent）→ web。
+- 美股现价：`finance_quote`（datasvc/Massive）→ yfinance → web。
+- 财报：`finance_instrument` → web 完整三表。
+- 期权：`finance_options`（Massive）无本地兜底。
+- 北向净流入已停发：转用 `finance_northbound`（成交）或 `finance_hsgt`（持仓）。
+
+### `finance_provider_status` 状态语义
+
+状态是 provider 级可用性摘要：`enabled`/`disabled`、`missing_config`、`degraded`、`NO_DATA_FOR_QUERY`。它不是固定路由表；当前 ready/degraded 状态必须在运行时调用此工具或从具体 provider 结果读取。响应对用户须脱敏表达，不能将 `disabled`、配置缺失、限流等混为一般 `failed`。
