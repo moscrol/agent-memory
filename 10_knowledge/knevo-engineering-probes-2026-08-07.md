@@ -992,11 +992,25 @@ stack_trace
 
 该模型是对可观测协议的抽象，不是对隐藏服务端实现的确定性还原。
 
-### 13.14 尚待验证
+### 13.14 额度阻断下的编排边界（实测）
+
+**实验：**提交一个明确要求拆分为两个只读子任务的普通 turn，并要求观察 `subagent`、`subagent_step`、`bgTaskId`、`parentTurnId` 及主任务汇总顺序。请求不包含联网、写入、sandbox、shell、finance 或记忆操作。
+
+**返回事实：**
+
+- 页面没有出现该请求对应的用户消息或 assistant turn，输入框仍保留原文，说明请求没有进入正常生成流程。
+- 页面返回上游错误：HTTP 403，错误类型为 `insufficient_user_quota`，提示用户额度不足；没有可用的 turn id。
+- 该请求之后没有新增对应的 `/api/conversations/<id>/turns` 或 `/api/turns/<id>/stream` 资源记录；既有的 `/api/conversations/<id>/subagents/events` 只是会话级事件订阅，不能证明本次创建了子代理。
+- 因为 turn 在额度/鉴权层之前或之处被截断，本次不能观察真实的父子任务、并行关系或失败传播。
+
+**[结论]：**额度/鉴权是 agent coordinator 之前的前置门控，至少可以阻止 turn 创建和后续编排。该失败路径不应与 `turn.failed` 混为一类：本次没有 turn，因此也没有 `turn.failed` 事件。
+
+### 13.15 尚待验证
 
 1. 在 Docker 后端健康时，`run_sandbox` 支持的语言、预装库、依赖安装及产物目录读写范围。
 2. 在 Docker 后端健康时，sandbox 脚本能否直接读取 `upload/<session-id>/` 中的用户 CSV，并执行 pandas 等自定义指标计算。
 3. `run_sandbox` 成功运行时是否会返回 stdout、stderr、退出码、工件路径及后台任务状态等完整执行元数据。
 4. sandbox 已经启动后发生脚本运行时错误时，产物、临时文件和 workspace 工件是否会被回滚、保留或标记失败。
-5. 通过一个明确会触发 sub-agent 的普通任务，观察 `subagent` / `subagent_step` 是否真实出现，并记录其与主 turn 的先后、并行关系和失败传播方式。
+5. 额度恢复后，通过一个明确会触发 sub-agent 的普通任务，观察 `subagent` / `subagent_step` 是否真实出现，并记录其与主 turn 的先后、并行关系和失败传播方式。
 6. 在不触及敏感信息的前提下，比较 `turn.failed`、工具错误和 sub-agent 取消后的事件序列，确认 coordinator 的错误处理和验证门控。
+7. 仅通过服务端可见的响应头、错误体或协议字段，进一步判断底层模型调用是否走 OpenAI/Anthropic 原生 HTTP、通用 agent SDK，或 LangChain/LangGraph 适配层；前端 bundle 本身不足以定案。
