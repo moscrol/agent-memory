@@ -1,0 +1,3441 @@
+{
+  "schema_version": 1,
+  "execution_kind": "continuous_episode",
+  "runtime_backend": "continuous_glm",
+  "research_context": {
+    "information_cutoff": {
+      "as_of_date": "2026-08-08",
+      "source": "runtime_default"
+    },
+    "today": "2026-08-08",
+    "latest_data_date": "2026-08-07",
+    "trace_parent_id": "run_20260808_023839_739196:msg_d44dbd97442b4165ac1449e6f0a40aa7"
+  },
+  "contract": {
+    "task_id": "run_20260808_023839_739196:msg_d44dbd97442b4165ac1449e6f0a40aa7",
+    "question": "液冷题材现在怎么看？我之前的判断还成立吗",
+    "subject": "液冷温控",
+    "subject_kind": "theme",
+    "question_type": "theme_analysis",
+    "required_outputs": [
+      {
+        "output_id": "direct_assessment",
+        "description": "直接回答用户问题并说明判断强度",
+        "evidence_types": [
+          "kb_search",
+          "graph_lookup",
+          "news_search",
+          "web_search",
+          "memory_lookup",
+          "finance_query",
+          "evidence_search"
+        ],
+        "required": true,
+        "grounding_mode": "evidence"
+      },
+      {
+        "output_id": "chain_mapping",
+        "description": "chain_mapping",
+        "evidence_types": [
+          "kb_search",
+          "graph_lookup",
+          "news_search",
+          "web_search",
+          "memory_lookup",
+          "finance_query",
+          "evidence_search"
+        ],
+        "required": true,
+        "grounding_mode": "evidence"
+      },
+      {
+        "output_id": "counterpoint",
+        "description": "提供主要反证或竞争性解释",
+        "evidence_types": [
+          "kb_search",
+          "graph_lookup",
+          "news_search",
+          "web_search",
+          "memory_lookup",
+          "finance_query",
+          "evidence_search"
+        ],
+        "required": true,
+        "grounding_mode": "evidence"
+      },
+      {
+        "output_id": "prior_recall",
+        "description": "复述用户此前对该主体的判断或纠偏原则，并说明与当前的差异",
+        "evidence_types": [
+          "kb_search",
+          "graph_lookup",
+          "news_search",
+          "web_search",
+          "memory_lookup",
+          "finance_query",
+          "evidence_search"
+        ],
+        "required": false,
+        "grounding_mode": "user_premise"
+      }
+    ],
+    "allowed_capabilities": [
+      "kb_search",
+      "graph_lookup",
+      "news_search",
+      "web_search",
+      "memory_lookup",
+      "finance_query",
+      "evidence_search"
+    ],
+    "research_tier": "standard",
+    "presentation_profile": "general",
+    "freshness": "current",
+    "timeframe": null,
+    "evidence_plan": {
+      "profile": "general",
+      "freshness": "current",
+      "requirements": []
+    },
+    "contract_version": "1",
+    "task_frame_hash": "72e2a51c38f719e7401940a1b8ea193b9e3ef8f75029768b6d643c193385cf57"
+  },
+  "outcome": {
+    "task_frame_hash": "72e2a51c38f719e7401940a1b8ea193b9e3ef8f75029768b6d643c193385cf57",
+    "status": "partial",
+    "draft": "",
+    "evidence": [
+      {
+        "tool": "graph_lookup",
+        "title": "概念 液冷温控",
+        "detail": "匹配分 20",
+        "source": "本地知识图谱",
+        "internal_locator": "wiki/relations/concept_graph.json",
+        "source_date": null,
+        "evidence_tier": "",
+        "supports": [],
+        "contradicts": [],
+        "independent_key": "",
+        "freshness": "unknown",
+        "content_hash": "bbc7a35d7575b91f"
+      },
+      {
+        "tool": "graph_lookup",
+        "title": "概念 液冷",
+        "detail": "匹配分 10",
+        "source": "本地知识图谱",
+        "internal_locator": "wiki/relations/concept_graph.json",
+        "source_date": null,
+        "evidence_tier": "",
+        "supports": [],
+        "contradicts": [],
+        "independent_key": "",
+        "freshness": "unknown",
+        "content_hash": "9ac1c753782b3bb9"
+      },
+      {
+        "tool": "graph_lookup",
+        "title": "概念 数据中心液冷温控",
+        "detail": "匹配分 5",
+        "source": "本地知识图谱",
+        "internal_locator": "wiki/relations/concept_graph.json",
+        "source_date": null,
+        "evidence_tier": "",
+        "supports": [],
+        "contradicts": [],
+        "independent_key": "",
+        "freshness": "unknown",
+        "content_hash": "cc7adf0a8366cdef"
+      },
+      {
+        "tool": "graph_lookup",
+        "title": "金富科技",
+        "detail": "液冷温控｜core/L1_L3_candidate",
+        "source": "本地知识图谱",
+        "internal_locator": "wiki/relations/entity_exposures.json",
+        "source_date": null,
+        "evidence_tier": "",
+        "supports": [],
+        "contradicts": [],
+        "independent_key": "",
+        "freshness": "unknown",
+        "content_hash": "65464ea2fcbf5fef"
+      },
+      {
+        "tool": "graph_lookup",
+        "title": "申菱环境",
+        "detail": "液冷温控｜related/L1_L3_candidate",
+        "source": "本地知识图谱",
+        "internal_locator": "wiki/relations/entity_exposures.json",
+        "source_date": null,
+        "evidence_tier": "",
+        "supports": [],
+        "contradicts": [],
+        "independent_key": "",
+        "freshness": "unknown",
+        "content_hash": "07369305cc2b9332"
+      },
+      {
+        "tool": "graph_lookup",
+        "title": "川润股份",
+        "detail": "液冷温控｜related/L1_L3_candidate",
+        "source": "本地知识图谱",
+        "internal_locator": "wiki/relations/entity_exposures.json",
+        "source_date": null,
+        "evidence_tier": "",
+        "supports": [],
+        "contradicts": [],
+        "independent_key": "",
+        "freshness": "unknown",
+        "content_hash": "78aca6f711901ce1"
+      },
+      {
+        "tool": "graph_lookup",
+        "title": "科信技术",
+        "detail": "液冷温控｜related/L1",
+        "source": "本地知识图谱",
+        "internal_locator": "wiki/relations/entity_exposures.json",
+        "source_date": null,
+        "evidence_tier": "",
+        "supports": [],
+        "contradicts": [],
+        "independent_key": "",
+        "freshness": "unknown",
+        "content_hash": "2c56c6a41bbd9c73"
+      },
+      {
+        "tool": "graph_lookup",
+        "title": "银轮股份",
+        "detail": "液冷｜core/?",
+        "source": "本地知识图谱",
+        "internal_locator": "wiki/relations/entity_exposures.json",
+        "source_date": null,
+        "evidence_tier": "",
+        "supports": [],
+        "contradicts": [],
+        "independent_key": "",
+        "freshness": "unknown",
+        "content_hash": "8652f8dcb2c321df"
+      },
+      {
+        "tool": "graph_lookup",
+        "title": "同飞股份",
+        "detail": "液冷｜related/graph_only",
+        "source": "本地知识图谱",
+        "internal_locator": "wiki/relations/entity_exposures.json",
+        "source_date": null,
+        "evidence_tier": "",
+        "supports": [],
+        "contradicts": [],
+        "independent_key": "",
+        "freshness": "unknown",
+        "content_hash": "96608d750a1b1293"
+      },
+      {
+        "tool": "graph_lookup",
+        "title": "浪潮信息",
+        "detail": "液冷｜related/L2",
+        "source": "本地知识图谱",
+        "internal_locator": "wiki/relations/entity_exposures.json",
+        "source_date": null,
+        "evidence_tier": "",
+        "supports": [],
+        "contradicts": [],
+        "independent_key": "",
+        "freshness": "unknown",
+        "content_hash": "3bbbd2c411775c69"
+      },
+      {
+        "tool": "graph_lookup",
+        "title": "曙光数创",
+        "detail": "液冷｜core/L2",
+        "source": "本地知识图谱",
+        "internal_locator": "wiki/relations/entity_exposures.json",
+        "source_date": null,
+        "evidence_tier": "",
+        "supports": [],
+        "contradicts": [],
+        "independent_key": "",
+        "freshness": "unknown",
+        "content_hash": "91d104afe3347d03"
+      }
+    ],
+    "traces": [
+      {
+        "provider": "agent:kb_search",
+        "capability": "kb_search",
+        "status": "request_error",
+        "detail": "tool_timeout",
+        "source_trade_date": null,
+        "result_count": 0,
+        "parent_id": "run_20260808_023839_739196:msg_d44dbd97442b4165ac1449e6f0a40aa7",
+        "step_id": "run_20260808_023839_739196:msg_d44dbd97442b4165ac1449e6f0a40aa7:episode:tool:1",
+        "requested_date": null,
+        "served_date": null
+      },
+      {
+        "provider": "agent:graph_lookup",
+        "capability": "agent_loop",
+        "status": "success",
+        "detail": "液冷温控 A股 产业链 上游 中游 下游 公司 关系",
+        "source_trade_date": null,
+        "result_count": 11,
+        "parent_id": "run_20260808_023839_739196:msg_d44dbd97442b4165ac1449e6f0a40aa7",
+        "step_id": "run_20260808_023839_739196:msg_d44dbd97442b4165ac1449e6f0a40aa7:episode:tool:2",
+        "requested_date": "2026-08-08",
+        "served_date": null
+      },
+      {
+        "provider": "agent:evidence_search",
+        "capability": "evidence_search",
+        "status": "request_error",
+        "detail": "tool_timeout",
+        "source_trade_date": null,
+        "result_count": 0,
+        "parent_id": "run_20260808_023839_739196:msg_d44dbd97442b4165ac1449e6f0a40aa7",
+        "step_id": "run_20260808_023839_739196:msg_d44dbd97442b4165ac1449e6f0a40aa7:episode:tool:3",
+        "requested_date": null,
+        "served_date": null
+      }
+    ],
+    "gaps": [
+      "LLM 调用失败（TimeoutError）"
+    ],
+    "stop_reason": "repair_model_unavailable",
+    "events": [
+      {
+        "sequence": 1,
+        "kind": "task",
+        "payload": {
+          "question": "液冷题材现在怎么看？我之前的判断还成立吗",
+          "task_frame": {
+            "raw_question": "液冷题材现在怎么看？我之前的判断还成立吗",
+            "user_goal": "形成条件化判断",
+            "question_type": "theme_analysis",
+            "subject": "液冷温控",
+            "subject_kind": "theme",
+            "market_scope": "A股",
+            "timeframe": null,
+            "required_outputs": [
+              "direct_assessment",
+              "chain_mapping",
+              "counterpoint"
+            ],
+            "assumptions": [
+              "用户未明确市场范围，按A股市场理解"
+            ],
+            "ambiguities": [],
+            "clarification_question": null,
+            "evidence_policy": "theme_multi_layer_evidence",
+            "confidence": 0.98,
+            "task_frame_hash": "72e2a51c38f719e7401940a1b8ea193b9e3ef8f75029768b6d643c193385cf57"
+          },
+          "task_frame_hash": "72e2a51c38f719e7401940a1b8ea193b9e3ef8f75029768b6d643c193385cf57"
+        }
+      },
+      {
+        "sequence": 2,
+        "kind": "model_turn",
+        "payload": {
+          "content": "",
+          "tool_calls": [
+            {
+              "call_id": "call_Kth6cV1mgDLhKkeJcDk20Pnz",
+              "name": "kb_search",
+              "arguments": {
+                "query": "用户此前对液冷温控的判断 纠偏原则 历史判断"
+              }
+            },
+            {
+              "call_id": "call_VbEVfCjFByo7qsEJA4fLauVt",
+              "name": "graph_lookup",
+              "arguments": {
+                "query": "液冷温控 A股 产业链 上游 中游 下游 公司 关系"
+              }
+            },
+            {
+              "call_id": "call_Yv3S7Et5vXrlaxgLaNKIsy4v",
+              "name": "evidence_search",
+              "arguments": {
+                "query": "液冷温控 A股 当前逻辑 需求兑现 产业链 公司 反证 替代技术"
+              }
+            },
+            {
+              "call_id": "call_gFpIlkOMIAhAUdCvCtrytS2w",
+              "name": "finance_query",
+              "arguments": {
+                "dataset": "mainline_sector_daily",
+                "dimensions": [
+                  "trade_date",
+                  "sector_name",
+                  "theme_name",
+                  "cycle_level",
+                  "cycle_status",
+                  "high_status"
+                ],
+                "metrics": [
+                  "return_pct",
+                  "strength",
+                  "net_inflow_1d",
+                  "limit_up_count",
+                  "max_limit_height",
+                  "relative_amount"
+                ],
+                "filters": [
+                  {
+                    "field": "trade_date",
+                    "gte": "2026-07-20"
+                  },
+                  {
+                    "field": "trade_date",
+                    "lte": "2026-08-07"
+                  },
+                  {
+                    "field": "sector_name",
+                    "contains": "液冷"
+                  }
+                ],
+                "group_by": [
+                  "trade_date",
+                  "sector_name",
+                  "theme_name",
+                  "cycle_level",
+                  "cycle_status",
+                  "high_status"
+                ],
+                "order_by": {
+                  "field": "trade_date",
+                  "direction": "desc"
+                },
+                "limit": 100
+              }
+            },
+            {
+              "call_id": "call_KYdLOgSN6NwcxYRcJls0PQMt",
+              "name": "finance_query",
+              "arguments": {
+                "dataset": "mainline_theme_daily",
+                "dimensions": [
+                  "trade_date",
+                  "theme_name",
+                  "theme_code"
+                ],
+                "metrics": [
+                  "rank",
+                  "sector_count"
+                ],
+                "filters": [
+                  {
+                    "field": "trade_date",
+                    "gte": "2026-07-20"
+                  },
+                  {
+                    "field": "trade_date",
+                    "lte": "2026-08-07"
+                  },
+                  {
+                    "field": "theme_name",
+                    "contains": "液冷"
+                  }
+                ],
+                "group_by": [
+                  "trade_date",
+                  "theme_name",
+                  "theme_code"
+                ],
+                "order_by": {
+                  "field": "trade_date",
+                  "direction": "desc"
+                },
+                "limit": 100
+              }
+            }
+          ],
+          "provider_name": "custom",
+          "error": "",
+          "provider_attempts": 1,
+          "input_tokens": 10294,
+          "output_tokens": 456,
+          "task_frame_hash": "72e2a51c38f719e7401940a1b8ea193b9e3ef8f75029768b6d643c193385cf57"
+        }
+      },
+      {
+        "sequence": 3,
+        "kind": "tool_request",
+        "payload": {
+          "call_id": "call_Kth6cV1mgDLhKkeJcDk20Pnz",
+          "name": "kb_search",
+          "arguments": {
+            "query": "用户此前对液冷温控的判断 纠偏原则 历史判断"
+          },
+          "task_frame_hash": "72e2a51c38f719e7401940a1b8ea193b9e3ef8f75029768b6d643c193385cf57"
+        }
+      },
+      {
+        "sequence": 4,
+        "kind": "tool_error",
+        "payload": {
+          "ok": false,
+          "tool": "kb_search",
+          "error": "tool_timeout",
+          "detail": "",
+          "task_frame_hash": "72e2a51c38f719e7401940a1b8ea193b9e3ef8f75029768b6d643c193385cf57"
+        }
+      },
+      {
+        "sequence": 5,
+        "kind": "tool_request",
+        "payload": {
+          "call_id": "call_VbEVfCjFByo7qsEJA4fLauVt",
+          "name": "graph_lookup",
+          "arguments": {
+            "query": "液冷温控 A股 产业链 上游 中游 下游 公司 关系"
+          },
+          "task_frame_hash": "72e2a51c38f719e7401940a1b8ea193b9e3ef8f75029768b6d643c193385cf57"
+        }
+      },
+      {
+        "sequence": 6,
+        "kind": "tool_result",
+        "payload": {
+          "ok": true,
+          "tool": "graph_lookup",
+          "query": "液冷温控 A股 产业链 上游 中游 下游 公司 关系",
+          "observation": "概念 液冷温控（匹配分 20）；概念 液冷（匹配分 10）；概念 数据中心液冷温控（匹配分 5）；金富科技（液冷温控｜core/L1_L3_candidate）；申菱环境（液冷温控｜related/L1_L3_candidate）；川润股份（液冷温控｜related/L1_L3_candidate）；科信技术（液冷温控｜related/L1）；银轮股份（液冷｜core/?）；同飞股份（液冷｜related/graph_only）；浪潮信息（液冷｜related/L2）；曙光数创（液冷｜core/L2）",
+          "evidence": [
+            {
+              "tool": "graph_lookup",
+              "title": "概念 液冷温控",
+              "detail": "匹配分 20",
+              "source": "本地知识图谱",
+              "source_date": null,
+              "evidence_tier": "",
+              "supports": [],
+              "contradicts": [],
+              "independent_key": "",
+              "freshness": "unknown",
+              "content_hash": "bbc7a35d7575b91f"
+            },
+            {
+              "tool": "graph_lookup",
+              "title": "概念 液冷",
+              "detail": "匹配分 10",
+              "source": "本地知识图谱",
+              "source_date": null,
+              "evidence_tier": "",
+              "supports": [],
+              "contradicts": [],
+              "independent_key": "",
+              "freshness": "unknown",
+              "content_hash": "9ac1c753782b3bb9"
+            },
+            {
+              "tool": "graph_lookup",
+              "title": "概念 数据中心液冷温控",
+              "detail": "匹配分 5",
+              "source": "本地知识图谱",
+              "source_date": null,
+              "evidence_tier": "",
+              "supports": [],
+              "contradicts": [],
+              "independent_key": "",
+              "freshness": "unknown",
+              "content_hash": "cc7adf0a8366cdef"
+            },
+            {
+              "tool": "graph_lookup",
+              "title": "金富科技",
+              "detail": "液冷温控｜core/L1_L3_candidate",
+              "source": "本地知识图谱",
+              "source_date": null,
+              "evidence_tier": "",
+              "supports": [],
+              "contradicts": [],
+              "independent_key": "",
+              "freshness": "unknown",
+              "content_hash": "65464ea2fcbf5fef"
+            },
+            {
+              "tool": "graph_lookup",
+              "title": "申菱环境",
+              "detail": "液冷温控｜related/L1_L3_candidate",
+              "source": "本地知识图谱",
+              "source_date": null,
+              "evidence_tier": "",
+              "supports": [],
+              "contradicts": [],
+              "independent_key": "",
+              "freshness": "unknown",
+              "content_hash": "07369305cc2b9332"
+            },
+            {
+              "tool": "graph_lookup",
+              "title": "川润股份",
+              "detail": "液冷温控｜related/L1_L3_candidate",
+              "source": "本地知识图谱",
+              "source_date": null,
+              "evidence_tier": "",
+              "supports": [],
+              "contradicts": [],
+              "independent_key": "",
+              "freshness": "unknown",
+              "content_hash": "78aca6f711901ce1"
+            },
+            {
+              "tool": "graph_lookup",
+              "title": "科信技术",
+              "detail": "液冷温控｜related/L1",
+              "source": "本地知识图谱",
+              "source_date": null,
+              "evidence_tier": "",
+              "supports": [],
+              "contradicts": [],
+              "independent_key": "",
+              "freshness": "unknown",
+              "content_hash": "2c56c6a41bbd9c73"
+            },
+            {
+              "tool": "graph_lookup",
+              "title": "银轮股份",
+              "detail": "液冷｜core/?",
+              "source": "本地知识图谱",
+              "source_date": null,
+              "evidence_tier": "",
+              "supports": [],
+              "contradicts": [],
+              "independent_key": "",
+              "freshness": "unknown",
+              "content_hash": "8652f8dcb2c321df"
+            },
+            {
+              "tool": "graph_lookup",
+              "title": "同飞股份",
+              "detail": "液冷｜related/graph_only",
+              "source": "本地知识图谱",
+              "source_date": null,
+              "evidence_tier": "",
+              "supports": [],
+              "contradicts": [],
+              "independent_key": "",
+              "freshness": "unknown",
+              "content_hash": "96608d750a1b1293"
+            },
+            {
+              "tool": "graph_lookup",
+              "title": "浪潮信息",
+              "detail": "液冷｜related/L2",
+              "source": "本地知识图谱",
+              "source_date": null,
+              "evidence_tier": "",
+              "supports": [],
+              "contradicts": [],
+              "independent_key": "",
+              "freshness": "unknown",
+              "content_hash": "3bbbd2c411775c69"
+            },
+            {
+              "tool": "graph_lookup",
+              "title": "曙光数创",
+              "detail": "液冷｜core/L2",
+              "source": "本地知识图谱",
+              "source_date": null,
+              "evidence_tier": "",
+              "supports": [],
+              "contradicts": [],
+              "independent_key": "",
+              "freshness": "unknown",
+              "content_hash": "91d104afe3347d03"
+            }
+          ],
+          "evidence_hashes": [
+            "bbc7a35d7575b91f",
+            "9ac1c753782b3bb9",
+            "cc7adf0a8366cdef",
+            "65464ea2fcbf5fef",
+            "07369305cc2b9332",
+            "78aca6f711901ce1",
+            "2c56c6a41bbd9c73",
+            "8652f8dcb2c321df",
+            "96608d750a1b1293",
+            "3bbbd2c411775c69",
+            "91d104afe3347d03"
+          ],
+          "gaps": [],
+          "task_frame_hash": "72e2a51c38f719e7401940a1b8ea193b9e3ef8f75029768b6d643c193385cf57"
+        }
+      },
+      {
+        "sequence": 7,
+        "kind": "tool_request",
+        "payload": {
+          "call_id": "call_Yv3S7Et5vXrlaxgLaNKIsy4v",
+          "name": "evidence_search",
+          "arguments": {
+            "query": "液冷温控 A股 当前逻辑 需求兑现 产业链 公司 反证 替代技术"
+          },
+          "task_frame_hash": "72e2a51c38f719e7401940a1b8ea193b9e3ef8f75029768b6d643c193385cf57"
+        }
+      },
+      {
+        "sequence": 8,
+        "kind": "tool_error",
+        "payload": {
+          "ok": false,
+          "tool": "evidence_search",
+          "error": "tool_timeout",
+          "detail": "",
+          "task_frame_hash": "72e2a51c38f719e7401940a1b8ea193b9e3ef8f75029768b6d643c193385cf57"
+        }
+      },
+      {
+        "sequence": 9,
+        "kind": "tool_request",
+        "payload": {
+          "call_id": "call_gFpIlkOMIAhAUdCvCtrytS2w",
+          "name": "finance_query",
+          "arguments": {
+            "dataset": "mainline_sector_daily",
+            "dimensions": [
+              "trade_date",
+              "sector_name",
+              "theme_name",
+              "cycle_level",
+              "cycle_status",
+              "high_status"
+            ],
+            "metrics": [
+              "return_pct",
+              "strength",
+              "net_inflow_1d",
+              "limit_up_count",
+              "max_limit_height",
+              "relative_amount"
+            ],
+            "filters": [
+              {
+                "field": "trade_date",
+                "gte": "2026-07-20"
+              },
+              {
+                "field": "trade_date",
+                "lte": "2026-08-07"
+              },
+              {
+                "field": "sector_name",
+                "contains": "液冷"
+              }
+            ],
+            "group_by": [
+              "trade_date",
+              "sector_name",
+              "theme_name",
+              "cycle_level",
+              "cycle_status",
+              "high_status"
+            ],
+            "order_by": {
+              "field": "trade_date",
+              "direction": "desc"
+            },
+            "limit": 100
+          },
+          "task_frame_hash": "72e2a51c38f719e7401940a1b8ea193b9e3ef8f75029768b6d643c193385cf57"
+        }
+      },
+      {
+        "sequence": 10,
+        "kind": "tool_error",
+        "payload": {
+          "ok": false,
+          "tool": "finance_query",
+          "error": "invalid_arguments",
+          "detail": "",
+          "task_frame_hash": "72e2a51c38f719e7401940a1b8ea193b9e3ef8f75029768b6d643c193385cf57"
+        }
+      },
+      {
+        "sequence": 11,
+        "kind": "tool_request",
+        "payload": {
+          "call_id": "call_KYdLOgSN6NwcxYRcJls0PQMt",
+          "name": "finance_query",
+          "arguments": {
+            "dataset": "mainline_theme_daily",
+            "dimensions": [
+              "trade_date",
+              "theme_name",
+              "theme_code"
+            ],
+            "metrics": [
+              "rank",
+              "sector_count"
+            ],
+            "filters": [
+              {
+                "field": "trade_date",
+                "gte": "2026-07-20"
+              },
+              {
+                "field": "trade_date",
+                "lte": "2026-08-07"
+              },
+              {
+                "field": "theme_name",
+                "contains": "液冷"
+              }
+            ],
+            "group_by": [
+              "trade_date",
+              "theme_name",
+              "theme_code"
+            ],
+            "order_by": {
+              "field": "trade_date",
+              "direction": "desc"
+            },
+            "limit": 100
+          },
+          "task_frame_hash": "72e2a51c38f719e7401940a1b8ea193b9e3ef8f75029768b6d643c193385cf57"
+        }
+      },
+      {
+        "sequence": 12,
+        "kind": "tool_error",
+        "payload": {
+          "ok": false,
+          "tool": "finance_query",
+          "error": "invalid_arguments",
+          "detail": "",
+          "task_frame_hash": "72e2a51c38f719e7401940a1b8ea193b9e3ef8f75029768b6d643c193385cf57"
+        }
+      },
+      {
+        "sequence": 13,
+        "kind": "finalization",
+        "payload": {
+          "reason": "retrieval_deadline_closed",
+          "task_frame_hash": "72e2a51c38f719e7401940a1b8ea193b9e3ef8f75029768b6d643c193385cf57"
+        }
+      },
+      {
+        "sequence": 14,
+        "kind": "model_turn",
+        "payload": {
+          "content": "",
+          "tool_calls": [],
+          "provider_name": "custom",
+          "error": "LLM 调用失败（TimeoutError）",
+          "provider_attempts": 1,
+          "task_frame_hash": "72e2a51c38f719e7401940a1b8ea193b9e3ef8f75029768b6d643c193385cf57"
+        }
+      },
+      {
+        "sequence": 15,
+        "kind": "runtime_result",
+        "payload": {
+          "input_tokens": 10294,
+          "output_tokens": 456,
+          "task_frame_hash": "72e2a51c38f719e7401940a1b8ea193b9e3ef8f75029768b6d643c193385cf57"
+        }
+      },
+      {
+        "sequence": 16,
+        "kind": "finish",
+        "payload": {
+          "status": "partial",
+          "stop_reason": "deadline_exhausted",
+          "gaps": [
+            "研究截止时间已到，仍有必需输出未覆盖"
+          ],
+          "task_frame_hash": "72e2a51c38f719e7401940a1b8ea193b9e3ef8f75029768b6d643c193385cf57"
+        }
+      },
+      {
+        "sequence": 17,
+        "kind": "repair_goal",
+        "payload": {
+          "episode_id": "run_20260808_023839_739196:msg_d44dbd97442b4165ac1449e6f0a40aa7",
+          "repair_goal_id": "repair-run_20260808_023839_739196:msg_d44dbd97442b4165ac1449e6f0a40aa7-1-ab52d68632",
+          "cycle": 1,
+          "missing_answer_elements": [
+            "direct_assessment",
+            "chain_mapping",
+            "counterpoint"
+          ],
+          "unsupported_claims": [],
+          "missing_evidence_modes": [],
+          "attempted_actions": [
+            "kb_search:agent:kb_search",
+            "agent_loop:agent:graph_lookup",
+            "evidence_search:agent:evidence_search"
+          ],
+          "evidence_progress": {
+            "new_evidence": 0,
+            "narrowed_gaps": 0,
+            "newly_supported_outputs": 0
+          },
+          "remaining_calls": 0,
+          "remaining_seconds": 24.0,
+          "task_frame_hash": "72e2a51c38f719e7401940a1b8ea193b9e3ef8f75029768b6d643c193385cf57"
+        }
+      },
+      {
+        "sequence": 18,
+        "kind": "repair_reentry",
+        "payload": {
+          "episode_id": "run_20260808_023839_739196:msg_d44dbd97442b4165ac1449e6f0a40aa7",
+          "repair_goal_id": "repair-run_20260808_023839_739196:msg_d44dbd97442b4165ac1449e6f0a40aa7-1-ab52d68632",
+          "cycle": 1,
+          "task_frame_hash": "72e2a51c38f719e7401940a1b8ea193b9e3ef8f75029768b6d643c193385cf57"
+        }
+      },
+      {
+        "sequence": 19,
+        "kind": "model_turn",
+        "payload": {
+          "phase": "repair",
+          "content": "",
+          "tool_calls": [],
+          "provider_name": "custom",
+          "error": "LLM 调用失败（TimeoutError）",
+          "provider_attempts": 1,
+          "task_frame_hash": "72e2a51c38f719e7401940a1b8ea193b9e3ef8f75029768b6d643c193385cf57"
+        }
+      },
+      {
+        "sequence": 20,
+        "kind": "model_error",
+        "payload": {
+          "reason": "LLM 调用失败（TimeoutError）",
+          "task_frame_hash": "72e2a51c38f719e7401940a1b8ea193b9e3ef8f75029768b6d643c193385cf57"
+        }
+      },
+      {
+        "sequence": 21,
+        "kind": "runtime_result",
+        "payload": {
+          "input_tokens": 10294,
+          "output_tokens": 456,
+          "task_frame_hash": "72e2a51c38f719e7401940a1b8ea193b9e3ef8f75029768b6d643c193385cf57"
+        }
+      },
+      {
+        "sequence": 22,
+        "kind": "finish",
+        "payload": {
+          "status": "partial",
+          "stop_reason": "repair_model_unavailable",
+          "gaps": [
+            "LLM 调用失败（TimeoutError）"
+          ],
+          "task_frame_hash": "72e2a51c38f719e7401940a1b8ea193b9e3ef8f75029768b6d643c193385cf57"
+        }
+      }
+    ],
+    "bindings": [],
+    "usage": {
+      "llm_calls": 3,
+      "tool_calls": 3,
+      "invalid_actions": 2,
+      "input_tokens": 10294,
+      "output_tokens": 456
+    },
+    "plan": null
+  },
+  "events": [
+    {
+      "sequence": 1,
+      "kind": "task",
+      "payload": {
+        "question": "液冷题材现在怎么看？我之前的判断还成立吗",
+        "task_frame": {
+          "raw_question": "液冷题材现在怎么看？我之前的判断还成立吗",
+          "user_goal": "形成条件化判断",
+          "question_type": "theme_analysis",
+          "subject": "液冷温控",
+          "subject_kind": "theme",
+          "market_scope": "A股",
+          "timeframe": null,
+          "required_outputs": [
+            "direct_assessment",
+            "chain_mapping",
+            "counterpoint"
+          ],
+          "assumptions": [
+            "用户未明确市场范围，按A股市场理解"
+          ],
+          "ambiguities": [],
+          "clarification_question": null,
+          "evidence_policy": "theme_multi_layer_evidence",
+          "confidence": 0.98,
+          "task_frame_hash": "72e2a51c38f719e7401940a1b8ea193b9e3ef8f75029768b6d643c193385cf57"
+        },
+        "task_frame_hash": "72e2a51c38f719e7401940a1b8ea193b9e3ef8f75029768b6d643c193385cf57"
+      }
+    },
+    {
+      "sequence": 2,
+      "kind": "model_turn",
+      "payload": {
+        "content": "",
+        "tool_calls": [
+          {
+            "call_id": "call_Kth6cV1mgDLhKkeJcDk20Pnz",
+            "name": "kb_search",
+            "arguments": {
+              "query": "用户此前对液冷温控的判断 纠偏原则 历史判断"
+            }
+          },
+          {
+            "call_id": "call_VbEVfCjFByo7qsEJA4fLauVt",
+            "name": "graph_lookup",
+            "arguments": {
+              "query": "液冷温控 A股 产业链 上游 中游 下游 公司 关系"
+            }
+          },
+          {
+            "call_id": "call_Yv3S7Et5vXrlaxgLaNKIsy4v",
+            "name": "evidence_search",
+            "arguments": {
+              "query": "液冷温控 A股 当前逻辑 需求兑现 产业链 公司 反证 替代技术"
+            }
+          },
+          {
+            "call_id": "call_gFpIlkOMIAhAUdCvCtrytS2w",
+            "name": "finance_query",
+            "arguments": {
+              "dataset": "mainline_sector_daily",
+              "dimensions": [
+                "trade_date",
+                "sector_name",
+                "theme_name",
+                "cycle_level",
+                "cycle_status",
+                "high_status"
+              ],
+              "metrics": [
+                "return_pct",
+                "strength",
+                "net_inflow_1d",
+                "limit_up_count",
+                "max_limit_height",
+                "relative_amount"
+              ],
+              "filters": [
+                {
+                  "field": "trade_date",
+                  "gte": "2026-07-20"
+                },
+                {
+                  "field": "trade_date",
+                  "lte": "2026-08-07"
+                },
+                {
+                  "field": "sector_name",
+                  "contains": "液冷"
+                }
+              ],
+              "group_by": [
+                "trade_date",
+                "sector_name",
+                "theme_name",
+                "cycle_level",
+                "cycle_status",
+                "high_status"
+              ],
+              "order_by": {
+                "field": "trade_date",
+                "direction": "desc"
+              },
+              "limit": 100
+            }
+          },
+          {
+            "call_id": "call_KYdLOgSN6NwcxYRcJls0PQMt",
+            "name": "finance_query",
+            "arguments": {
+              "dataset": "mainline_theme_daily",
+              "dimensions": [
+                "trade_date",
+                "theme_name",
+                "theme_code"
+              ],
+              "metrics": [
+                "rank",
+                "sector_count"
+              ],
+              "filters": [
+                {
+                  "field": "trade_date",
+                  "gte": "2026-07-20"
+                },
+                {
+                  "field": "trade_date",
+                  "lte": "2026-08-07"
+                },
+                {
+                  "field": "theme_name",
+                  "contains": "液冷"
+                }
+              ],
+              "group_by": [
+                "trade_date",
+                "theme_name",
+                "theme_code"
+              ],
+              "order_by": {
+                "field": "trade_date",
+                "direction": "desc"
+              },
+              "limit": 100
+            }
+          }
+        ],
+        "provider_name": "custom",
+        "error": "",
+        "provider_attempts": 1,
+        "input_tokens": 10294,
+        "output_tokens": 456,
+        "task_frame_hash": "72e2a51c38f719e7401940a1b8ea193b9e3ef8f75029768b6d643c193385cf57"
+      }
+    },
+    {
+      "sequence": 3,
+      "kind": "tool_request",
+      "payload": {
+        "call_id": "call_Kth6cV1mgDLhKkeJcDk20Pnz",
+        "name": "kb_search",
+        "arguments": {
+          "query": "用户此前对液冷温控的判断 纠偏原则 历史判断"
+        },
+        "task_frame_hash": "72e2a51c38f719e7401940a1b8ea193b9e3ef8f75029768b6d643c193385cf57"
+      }
+    },
+    {
+      "sequence": 4,
+      "kind": "tool_error",
+      "payload": {
+        "ok": false,
+        "tool": "kb_search",
+        "error": "tool_timeout",
+        "detail": "",
+        "task_frame_hash": "72e2a51c38f719e7401940a1b8ea193b9e3ef8f75029768b6d643c193385cf57"
+      }
+    },
+    {
+      "sequence": 5,
+      "kind": "tool_request",
+      "payload": {
+        "call_id": "call_VbEVfCjFByo7qsEJA4fLauVt",
+        "name": "graph_lookup",
+        "arguments": {
+          "query": "液冷温控 A股 产业链 上游 中游 下游 公司 关系"
+        },
+        "task_frame_hash": "72e2a51c38f719e7401940a1b8ea193b9e3ef8f75029768b6d643c193385cf57"
+      }
+    },
+    {
+      "sequence": 6,
+      "kind": "tool_result",
+      "payload": {
+        "ok": true,
+        "tool": "graph_lookup",
+        "query": "液冷温控 A股 产业链 上游 中游 下游 公司 关系",
+        "observation": "概念 液冷温控（匹配分 20）；概念 液冷（匹配分 10）；概念 数据中心液冷温控（匹配分 5）；金富科技（液冷温控｜core/L1_L3_candidate）；申菱环境（液冷温控｜related/L1_L3_candidate）；川润股份（液冷温控｜related/L1_L3_candidate）；科信技术（液冷温控｜related/L1）；银轮股份（液冷｜core/?）；同飞股份（液冷｜related/graph_only）；浪潮信息（液冷｜related/L2）；曙光数创（液冷｜core/L2）",
+        "evidence": [
+          {
+            "tool": "graph_lookup",
+            "title": "概念 液冷温控",
+            "detail": "匹配分 20",
+            "source": "本地知识图谱",
+            "source_date": null,
+            "evidence_tier": "",
+            "supports": [],
+            "contradicts": [],
+            "independent_key": "",
+            "freshness": "unknown",
+            "content_hash": "bbc7a35d7575b91f"
+          },
+          {
+            "tool": "graph_lookup",
+            "title": "概念 液冷",
+            "detail": "匹配分 10",
+            "source": "本地知识图谱",
+            "source_date": null,
+            "evidence_tier": "",
+            "supports": [],
+            "contradicts": [],
+            "independent_key": "",
+            "freshness": "unknown",
+            "content_hash": "9ac1c753782b3bb9"
+          },
+          {
+            "tool": "graph_lookup",
+            "title": "概念 数据中心液冷温控",
+            "detail": "匹配分 5",
+            "source": "本地知识图谱",
+            "source_date": null,
+            "evidence_tier": "",
+            "supports": [],
+            "contradicts": [],
+            "independent_key": "",
+            "freshness": "unknown",
+            "content_hash": "cc7adf0a8366cdef"
+          },
+          {
+            "tool": "graph_lookup",
+            "title": "金富科技",
+            "detail": "液冷温控｜core/L1_L3_candidate",
+            "source": "本地知识图谱",
+            "source_date": null,
+            "evidence_tier": "",
+            "supports": [],
+            "contradicts": [],
+            "independent_key": "",
+            "freshness": "unknown",
+            "content_hash": "65464ea2fcbf5fef"
+          },
+          {
+            "tool": "graph_lookup",
+            "title": "申菱环境",
+            "detail": "液冷温控｜related/L1_L3_candidate",
+            "source": "本地知识图谱",
+            "source_date": null,
+            "evidence_tier": "",
+            "supports": [],
+            "contradicts": [],
+            "independent_key": "",
+            "freshness": "unknown",
+            "content_hash": "07369305cc2b9332"
+          },
+          {
+            "tool": "graph_lookup",
+            "title": "川润股份",
+            "detail": "液冷温控｜related/L1_L3_candidate",
+            "source": "本地知识图谱",
+            "source_date": null,
+            "evidence_tier": "",
+            "supports": [],
+            "contradicts": [],
+            "independent_key": "",
+            "freshness": "unknown",
+            "content_hash": "78aca6f711901ce1"
+          },
+          {
+            "tool": "graph_lookup",
+            "title": "科信技术",
+            "detail": "液冷温控｜related/L1",
+            "source": "本地知识图谱",
+            "source_date": null,
+            "evidence_tier": "",
+            "supports": [],
+            "contradicts": [],
+            "independent_key": "",
+            "freshness": "unknown",
+            "content_hash": "2c56c6a41bbd9c73"
+          },
+          {
+            "tool": "graph_lookup",
+            "title": "银轮股份",
+            "detail": "液冷｜core/?",
+            "source": "本地知识图谱",
+            "source_date": null,
+            "evidence_tier": "",
+            "supports": [],
+            "contradicts": [],
+            "independent_key": "",
+            "freshness": "unknown",
+            "content_hash": "8652f8dcb2c321df"
+          },
+          {
+            "tool": "graph_lookup",
+            "title": "同飞股份",
+            "detail": "液冷｜related/graph_only",
+            "source": "本地知识图谱",
+            "source_date": null,
+            "evidence_tier": "",
+            "supports": [],
+            "contradicts": [],
+            "independent_key": "",
+            "freshness": "unknown",
+            "content_hash": "96608d750a1b1293"
+          },
+          {
+            "tool": "graph_lookup",
+            "title": "浪潮信息",
+            "detail": "液冷｜related/L2",
+            "source": "本地知识图谱",
+            "source_date": null,
+            "evidence_tier": "",
+            "supports": [],
+            "contradicts": [],
+            "independent_key": "",
+            "freshness": "unknown",
+            "content_hash": "3bbbd2c411775c69"
+          },
+          {
+            "tool": "graph_lookup",
+            "title": "曙光数创",
+            "detail": "液冷｜core/L2",
+            "source": "本地知识图谱",
+            "source_date": null,
+            "evidence_tier": "",
+            "supports": [],
+            "contradicts": [],
+            "independent_key": "",
+            "freshness": "unknown",
+            "content_hash": "91d104afe3347d03"
+          }
+        ],
+        "evidence_hashes": [
+          "bbc7a35d7575b91f",
+          "9ac1c753782b3bb9",
+          "cc7adf0a8366cdef",
+          "65464ea2fcbf5fef",
+          "07369305cc2b9332",
+          "78aca6f711901ce1",
+          "2c56c6a41bbd9c73",
+          "8652f8dcb2c321df",
+          "96608d750a1b1293",
+          "3bbbd2c411775c69",
+          "91d104afe3347d03"
+        ],
+        "gaps": [],
+        "task_frame_hash": "72e2a51c38f719e7401940a1b8ea193b9e3ef8f75029768b6d643c193385cf57"
+      }
+    },
+    {
+      "sequence": 7,
+      "kind": "tool_request",
+      "payload": {
+        "call_id": "call_Yv3S7Et5vXrlaxgLaNKIsy4v",
+        "name": "evidence_search",
+        "arguments": {
+          "query": "液冷温控 A股 当前逻辑 需求兑现 产业链 公司 反证 替代技术"
+        },
+        "task_frame_hash": "72e2a51c38f719e7401940a1b8ea193b9e3ef8f75029768b6d643c193385cf57"
+      }
+    },
+    {
+      "sequence": 8,
+      "kind": "tool_error",
+      "payload": {
+        "ok": false,
+        "tool": "evidence_search",
+        "error": "tool_timeout",
+        "detail": "",
+        "task_frame_hash": "72e2a51c38f719e7401940a1b8ea193b9e3ef8f75029768b6d643c193385cf57"
+      }
+    },
+    {
+      "sequence": 9,
+      "kind": "tool_request",
+      "payload": {
+        "call_id": "call_gFpIlkOMIAhAUdCvCtrytS2w",
+        "name": "finance_query",
+        "arguments": {
+          "dataset": "mainline_sector_daily",
+          "dimensions": [
+            "trade_date",
+            "sector_name",
+            "theme_name",
+            "cycle_level",
+            "cycle_status",
+            "high_status"
+          ],
+          "metrics": [
+            "return_pct",
+            "strength",
+            "net_inflow_1d",
+            "limit_up_count",
+            "max_limit_height",
+            "relative_amount"
+          ],
+          "filters": [
+            {
+              "field": "trade_date",
+              "gte": "2026-07-20"
+            },
+            {
+              "field": "trade_date",
+              "lte": "2026-08-07"
+            },
+            {
+              "field": "sector_name",
+              "contains": "液冷"
+            }
+          ],
+          "group_by": [
+            "trade_date",
+            "sector_name",
+            "theme_name",
+            "cycle_level",
+            "cycle_status",
+            "high_status"
+          ],
+          "order_by": {
+            "field": "trade_date",
+            "direction": "desc"
+          },
+          "limit": 100
+        },
+        "task_frame_hash": "72e2a51c38f719e7401940a1b8ea193b9e3ef8f75029768b6d643c193385cf57"
+      }
+    },
+    {
+      "sequence": 10,
+      "kind": "tool_error",
+      "payload": {
+        "ok": false,
+        "tool": "finance_query",
+        "error": "invalid_arguments",
+        "detail": "",
+        "task_frame_hash": "72e2a51c38f719e7401940a1b8ea193b9e3ef8f75029768b6d643c193385cf57"
+      }
+    },
+    {
+      "sequence": 11,
+      "kind": "tool_request",
+      "payload": {
+        "call_id": "call_KYdLOgSN6NwcxYRcJls0PQMt",
+        "name": "finance_query",
+        "arguments": {
+          "dataset": "mainline_theme_daily",
+          "dimensions": [
+            "trade_date",
+            "theme_name",
+            "theme_code"
+          ],
+          "metrics": [
+            "rank",
+            "sector_count"
+          ],
+          "filters": [
+            {
+              "field": "trade_date",
+              "gte": "2026-07-20"
+            },
+            {
+              "field": "trade_date",
+              "lte": "2026-08-07"
+            },
+            {
+              "field": "theme_name",
+              "contains": "液冷"
+            }
+          ],
+          "group_by": [
+            "trade_date",
+            "theme_name",
+            "theme_code"
+          ],
+          "order_by": {
+            "field": "trade_date",
+            "direction": "desc"
+          },
+          "limit": 100
+        },
+        "task_frame_hash": "72e2a51c38f719e7401940a1b8ea193b9e3ef8f75029768b6d643c193385cf57"
+      }
+    },
+    {
+      "sequence": 12,
+      "kind": "tool_error",
+      "payload": {
+        "ok": false,
+        "tool": "finance_query",
+        "error": "invalid_arguments",
+        "detail": "",
+        "task_frame_hash": "72e2a51c38f719e7401940a1b8ea193b9e3ef8f75029768b6d643c193385cf57"
+      }
+    },
+    {
+      "sequence": 13,
+      "kind": "finalization",
+      "payload": {
+        "reason": "retrieval_deadline_closed",
+        "task_frame_hash": "72e2a51c38f719e7401940a1b8ea193b9e3ef8f75029768b6d643c193385cf57"
+      }
+    },
+    {
+      "sequence": 14,
+      "kind": "model_turn",
+      "payload": {
+        "content": "",
+        "tool_calls": [],
+        "provider_name": "custom",
+        "error": "LLM 调用失败（TimeoutError）",
+        "provider_attempts": 1,
+        "task_frame_hash": "72e2a51c38f719e7401940a1b8ea193b9e3ef8f75029768b6d643c193385cf57"
+      }
+    },
+    {
+      "sequence": 15,
+      "kind": "runtime_result",
+      "payload": {
+        "input_tokens": 10294,
+        "output_tokens": 456,
+        "task_frame_hash": "72e2a51c38f719e7401940a1b8ea193b9e3ef8f75029768b6d643c193385cf57"
+      }
+    },
+    {
+      "sequence": 16,
+      "kind": "finish",
+      "payload": {
+        "status": "partial",
+        "stop_reason": "deadline_exhausted",
+        "gaps": [
+          "研究截止时间已到，仍有必需输出未覆盖"
+        ],
+        "task_frame_hash": "72e2a51c38f719e7401940a1b8ea193b9e3ef8f75029768b6d643c193385cf57"
+      }
+    },
+    {
+      "sequence": 17,
+      "kind": "repair_goal",
+      "payload": {
+        "episode_id": "run_20260808_023839_739196:msg_d44dbd97442b4165ac1449e6f0a40aa7",
+        "repair_goal_id": "repair-run_20260808_023839_739196:msg_d44dbd97442b4165ac1449e6f0a40aa7-1-ab52d68632",
+        "cycle": 1,
+        "missing_answer_elements": [
+          "direct_assessment",
+          "chain_mapping",
+          "counterpoint"
+        ],
+        "unsupported_claims": [],
+        "missing_evidence_modes": [],
+        "attempted_actions": [
+          "kb_search:agent:kb_search",
+          "agent_loop:agent:graph_lookup",
+          "evidence_search:agent:evidence_search"
+        ],
+        "evidence_progress": {
+          "new_evidence": 0,
+          "narrowed_gaps": 0,
+          "newly_supported_outputs": 0
+        },
+        "remaining_calls": 0,
+        "remaining_seconds": 24.0,
+        "task_frame_hash": "72e2a51c38f719e7401940a1b8ea193b9e3ef8f75029768b6d643c193385cf57"
+      }
+    },
+    {
+      "sequence": 18,
+      "kind": "repair_reentry",
+      "payload": {
+        "episode_id": "run_20260808_023839_739196:msg_d44dbd97442b4165ac1449e6f0a40aa7",
+        "repair_goal_id": "repair-run_20260808_023839_739196:msg_d44dbd97442b4165ac1449e6f0a40aa7-1-ab52d68632",
+        "cycle": 1,
+        "task_frame_hash": "72e2a51c38f719e7401940a1b8ea193b9e3ef8f75029768b6d643c193385cf57"
+      }
+    },
+    {
+      "sequence": 19,
+      "kind": "model_turn",
+      "payload": {
+        "phase": "repair",
+        "content": "",
+        "tool_calls": [],
+        "provider_name": "custom",
+        "error": "LLM 调用失败（TimeoutError）",
+        "provider_attempts": 1,
+        "task_frame_hash": "72e2a51c38f719e7401940a1b8ea193b9e3ef8f75029768b6d643c193385cf57"
+      }
+    },
+    {
+      "sequence": 20,
+      "kind": "model_error",
+      "payload": {
+        "reason": "LLM 调用失败（TimeoutError）",
+        "task_frame_hash": "72e2a51c38f719e7401940a1b8ea193b9e3ef8f75029768b6d643c193385cf57"
+      }
+    },
+    {
+      "sequence": 21,
+      "kind": "runtime_result",
+      "payload": {
+        "input_tokens": 10294,
+        "output_tokens": 456,
+        "task_frame_hash": "72e2a51c38f719e7401940a1b8ea193b9e3ef8f75029768b6d643c193385cf57"
+      }
+    },
+    {
+      "sequence": 22,
+      "kind": "finish",
+      "payload": {
+        "status": "partial",
+        "stop_reason": "repair_model_unavailable",
+        "gaps": [
+          "LLM 调用失败（TimeoutError）"
+        ],
+        "task_frame_hash": "72e2a51c38f719e7401940a1b8ea193b9e3ef8f75029768b6d643c193385cf57"
+      }
+    }
+  ],
+  "traces": [
+    {
+      "provider": "agent:kb_search",
+      "capability": "kb_search",
+      "status": "request_error",
+      "detail": "tool_timeout",
+      "source_trade_date": null,
+      "result_count": 0,
+      "parent_id": "run_20260808_023839_739196:msg_d44dbd97442b4165ac1449e6f0a40aa7",
+      "step_id": "run_20260808_023839_739196:msg_d44dbd97442b4165ac1449e6f0a40aa7:episode:tool:1",
+      "requested_date": null,
+      "served_date": null
+    },
+    {
+      "provider": "agent:graph_lookup",
+      "capability": "agent_loop",
+      "status": "success",
+      "detail": "液冷温控 A股 产业链 上游 中游 下游 公司 关系",
+      "source_trade_date": null,
+      "result_count": 11,
+      "parent_id": "run_20260808_023839_739196:msg_d44dbd97442b4165ac1449e6f0a40aa7",
+      "step_id": "run_20260808_023839_739196:msg_d44dbd97442b4165ac1449e6f0a40aa7:episode:tool:2",
+      "requested_date": "2026-08-08",
+      "served_date": null
+    },
+    {
+      "provider": "agent:evidence_search",
+      "capability": "evidence_search",
+      "status": "request_error",
+      "detail": "tool_timeout",
+      "source_trade_date": null,
+      "result_count": 0,
+      "parent_id": "run_20260808_023839_739196:msg_d44dbd97442b4165ac1449e6f0a40aa7",
+      "step_id": "run_20260808_023839_739196:msg_d44dbd97442b4165ac1449e6f0a40aa7:episode:tool:3",
+      "requested_date": null,
+      "served_date": null
+    }
+  ],
+  "structural_verifier": {
+    "verified_status": "partial",
+    "issues": [
+      "missing required output: direct_assessment",
+      "missing required output: chain_mapping",
+      "missing required output: counterpoint"
+    ],
+    "completion": {
+      "status": "partial",
+      "business_status": "partial",
+      "factual_grounding": "partial",
+      "causal_adequacy": "unknown",
+      "task_coverage": "partial",
+      "outputs": [
+        {
+          "output_id": "direct_assessment",
+          "status": "missing",
+          "evidence_ids": [],
+          "gap": "仍缺少：直接回答用户问题并说明判断强度"
+        },
+        {
+          "output_id": "chain_mapping",
+          "status": "missing",
+          "evidence_ids": [],
+          "gap": "仍缺少：chain_mapping"
+        },
+        {
+          "output_id": "counterpoint",
+          "status": "missing",
+          "evidence_ids": [],
+          "gap": "仍缺少：提供主要反证或竞争性解释"
+        },
+        {
+          "output_id": "prior_recall",
+          "status": "gap",
+          "evidence_ids": [],
+          "gap": "仍缺少：复述用户此前对该主体的判断或纠偏原则，并说明与当前的差异"
+        }
+      ]
+    },
+    "outcome": {
+      "task_frame_hash": "72e2a51c38f719e7401940a1b8ea193b9e3ef8f75029768b6d643c193385cf57",
+      "status": "partial",
+      "draft": "",
+      "evidence": [
+        {
+          "tool": "graph_lookup",
+          "title": "概念 液冷温控",
+          "detail": "匹配分 20",
+          "source": "本地知识图谱",
+          "source_date": null,
+          "evidence_tier": "",
+          "supports": [],
+          "contradicts": [],
+          "independent_key": "",
+          "freshness": "unknown",
+          "content_hash": "bbc7a35d7575b91f"
+        },
+        {
+          "tool": "graph_lookup",
+          "title": "概念 液冷",
+          "detail": "匹配分 10",
+          "source": "本地知识图谱",
+          "source_date": null,
+          "evidence_tier": "",
+          "supports": [],
+          "contradicts": [],
+          "independent_key": "",
+          "freshness": "unknown",
+          "content_hash": "9ac1c753782b3bb9"
+        },
+        {
+          "tool": "graph_lookup",
+          "title": "概念 数据中心液冷温控",
+          "detail": "匹配分 5",
+          "source": "本地知识图谱",
+          "source_date": null,
+          "evidence_tier": "",
+          "supports": [],
+          "contradicts": [],
+          "independent_key": "",
+          "freshness": "unknown",
+          "content_hash": "cc7adf0a8366cdef"
+        },
+        {
+          "tool": "graph_lookup",
+          "title": "金富科技",
+          "detail": "液冷温控｜core/L1_L3_candidate",
+          "source": "本地知识图谱",
+          "source_date": null,
+          "evidence_tier": "",
+          "supports": [],
+          "contradicts": [],
+          "independent_key": "",
+          "freshness": "unknown",
+          "content_hash": "65464ea2fcbf5fef"
+        },
+        {
+          "tool": "graph_lookup",
+          "title": "申菱环境",
+          "detail": "液冷温控｜related/L1_L3_candidate",
+          "source": "本地知识图谱",
+          "source_date": null,
+          "evidence_tier": "",
+          "supports": [],
+          "contradicts": [],
+          "independent_key": "",
+          "freshness": "unknown",
+          "content_hash": "07369305cc2b9332"
+        },
+        {
+          "tool": "graph_lookup",
+          "title": "川润股份",
+          "detail": "液冷温控｜related/L1_L3_candidate",
+          "source": "本地知识图谱",
+          "source_date": null,
+          "evidence_tier": "",
+          "supports": [],
+          "contradicts": [],
+          "independent_key": "",
+          "freshness": "unknown",
+          "content_hash": "78aca6f711901ce1"
+        },
+        {
+          "tool": "graph_lookup",
+          "title": "科信技术",
+          "detail": "液冷温控｜related/L1",
+          "source": "本地知识图谱",
+          "source_date": null,
+          "evidence_tier": "",
+          "supports": [],
+          "contradicts": [],
+          "independent_key": "",
+          "freshness": "unknown",
+          "content_hash": "2c56c6a41bbd9c73"
+        },
+        {
+          "tool": "graph_lookup",
+          "title": "银轮股份",
+          "detail": "液冷｜core/?",
+          "source": "本地知识图谱",
+          "source_date": null,
+          "evidence_tier": "",
+          "supports": [],
+          "contradicts": [],
+          "independent_key": "",
+          "freshness": "unknown",
+          "content_hash": "8652f8dcb2c321df"
+        },
+        {
+          "tool": "graph_lookup",
+          "title": "同飞股份",
+          "detail": "液冷｜related/graph_only",
+          "source": "本地知识图谱",
+          "source_date": null,
+          "evidence_tier": "",
+          "supports": [],
+          "contradicts": [],
+          "independent_key": "",
+          "freshness": "unknown",
+          "content_hash": "96608d750a1b1293"
+        },
+        {
+          "tool": "graph_lookup",
+          "title": "浪潮信息",
+          "detail": "液冷｜related/L2",
+          "source": "本地知识图谱",
+          "source_date": null,
+          "evidence_tier": "",
+          "supports": [],
+          "contradicts": [],
+          "independent_key": "",
+          "freshness": "unknown",
+          "content_hash": "3bbbd2c411775c69"
+        },
+        {
+          "tool": "graph_lookup",
+          "title": "曙光数创",
+          "detail": "液冷｜core/L2",
+          "source": "本地知识图谱",
+          "source_date": null,
+          "evidence_tier": "",
+          "supports": [],
+          "contradicts": [],
+          "independent_key": "",
+          "freshness": "unknown",
+          "content_hash": "91d104afe3347d03"
+        }
+      ],
+      "traces": [
+        {
+          "provider": "agent:kb_search",
+          "capability": "kb_search",
+          "status": "request_error",
+          "detail": "tool_timeout",
+          "source_trade_date": null,
+          "result_count": 0,
+          "parent_id": "run_20260808_023839_739196:msg_d44dbd97442b4165ac1449e6f0a40aa7",
+          "step_id": "run_20260808_023839_739196:msg_d44dbd97442b4165ac1449e6f0a40aa7:episode:tool:1",
+          "requested_date": null,
+          "served_date": null
+        },
+        {
+          "provider": "agent:graph_lookup",
+          "capability": "agent_loop",
+          "status": "success",
+          "detail": "液冷温控 A股 产业链 上游 中游 下游 公司 关系",
+          "source_trade_date": null,
+          "result_count": 11,
+          "parent_id": "run_20260808_023839_739196:msg_d44dbd97442b4165ac1449e6f0a40aa7",
+          "step_id": "run_20260808_023839_739196:msg_d44dbd97442b4165ac1449e6f0a40aa7:episode:tool:2",
+          "requested_date": "2026-08-08",
+          "served_date": null
+        },
+        {
+          "provider": "agent:evidence_search",
+          "capability": "evidence_search",
+          "status": "request_error",
+          "detail": "tool_timeout",
+          "source_trade_date": null,
+          "result_count": 0,
+          "parent_id": "run_20260808_023839_739196:msg_d44dbd97442b4165ac1449e6f0a40aa7",
+          "step_id": "run_20260808_023839_739196:msg_d44dbd97442b4165ac1449e6f0a40aa7:episode:tool:3",
+          "requested_date": null,
+          "served_date": null
+        }
+      ],
+      "gaps": [
+        "LLM 调用失败（TimeoutError）"
+      ],
+      "stop_reason": "repair_model_unavailable",
+      "events": [
+        {
+          "sequence": 1,
+          "kind": "task",
+          "payload": {
+            "question": "液冷题材现在怎么看？我之前的判断还成立吗",
+            "task_frame": {
+              "raw_question": "液冷题材现在怎么看？我之前的判断还成立吗",
+              "user_goal": "形成条件化判断",
+              "question_type": "theme_analysis",
+              "subject": "液冷温控",
+              "subject_kind": "theme",
+              "market_scope": "A股",
+              "timeframe": null,
+              "required_outputs": [
+                "direct_assessment",
+                "chain_mapping",
+                "counterpoint"
+              ],
+              "assumptions": [
+                "用户未明确市场范围，按A股市场理解"
+              ],
+              "ambiguities": [],
+              "clarification_question": null,
+              "evidence_policy": "theme_multi_layer_evidence",
+              "confidence": 0.98,
+              "task_frame_hash": "72e2a51c38f719e7401940a1b8ea193b9e3ef8f75029768b6d643c193385cf57"
+            },
+            "task_frame_hash": "72e2a51c38f719e7401940a1b8ea193b9e3ef8f75029768b6d643c193385cf57"
+          }
+        },
+        {
+          "sequence": 2,
+          "kind": "model_turn",
+          "payload": {
+            "content": "",
+            "tool_calls": [
+              {
+                "call_id": "call_Kth6cV1mgDLhKkeJcDk20Pnz",
+                "name": "kb_search",
+                "arguments": {
+                  "query": "用户此前对液冷温控的判断 纠偏原则 历史判断"
+                }
+              },
+              {
+                "call_id": "call_VbEVfCjFByo7qsEJA4fLauVt",
+                "name": "graph_lookup",
+                "arguments": {
+                  "query": "液冷温控 A股 产业链 上游 中游 下游 公司 关系"
+                }
+              },
+              {
+                "call_id": "call_Yv3S7Et5vXrlaxgLaNKIsy4v",
+                "name": "evidence_search",
+                "arguments": {
+                  "query": "液冷温控 A股 当前逻辑 需求兑现 产业链 公司 反证 替代技术"
+                }
+              },
+              {
+                "call_id": "call_gFpIlkOMIAhAUdCvCtrytS2w",
+                "name": "finance_query",
+                "arguments": {
+                  "dataset": "mainline_sector_daily",
+                  "dimensions": [
+                    "trade_date",
+                    "sector_name",
+                    "theme_name",
+                    "cycle_level",
+                    "cycle_status",
+                    "high_status"
+                  ],
+                  "metrics": [
+                    "return_pct",
+                    "strength",
+                    "net_inflow_1d",
+                    "limit_up_count",
+                    "max_limit_height",
+                    "relative_amount"
+                  ],
+                  "filters": [
+                    {
+                      "field": "trade_date",
+                      "gte": "2026-07-20"
+                    },
+                    {
+                      "field": "trade_date",
+                      "lte": "2026-08-07"
+                    },
+                    {
+                      "field": "sector_name",
+                      "contains": "液冷"
+                    }
+                  ],
+                  "group_by": [
+                    "trade_date",
+                    "sector_name",
+                    "theme_name",
+                    "cycle_level",
+                    "cycle_status",
+                    "high_status"
+                  ],
+                  "order_by": {
+                    "field": "trade_date",
+                    "direction": "desc"
+                  },
+                  "limit": 100
+                }
+              },
+              {
+                "call_id": "call_KYdLOgSN6NwcxYRcJls0PQMt",
+                "name": "finance_query",
+                "arguments": {
+                  "dataset": "mainline_theme_daily",
+                  "dimensions": [
+                    "trade_date",
+                    "theme_name",
+                    "theme_code"
+                  ],
+                  "metrics": [
+                    "rank",
+                    "sector_count"
+                  ],
+                  "filters": [
+                    {
+                      "field": "trade_date",
+                      "gte": "2026-07-20"
+                    },
+                    {
+                      "field": "trade_date",
+                      "lte": "2026-08-07"
+                    },
+                    {
+                      "field": "theme_name",
+                      "contains": "液冷"
+                    }
+                  ],
+                  "group_by": [
+                    "trade_date",
+                    "theme_name",
+                    "theme_code"
+                  ],
+                  "order_by": {
+                    "field": "trade_date",
+                    "direction": "desc"
+                  },
+                  "limit": 100
+                }
+              }
+            ],
+            "provider_name": "custom",
+            "error": "",
+            "provider_attempts": 1,
+            "input_tokens": 10294,
+            "output_tokens": 456,
+            "task_frame_hash": "72e2a51c38f719e7401940a1b8ea193b9e3ef8f75029768b6d643c193385cf57"
+          }
+        },
+        {
+          "sequence": 3,
+          "kind": "tool_request",
+          "payload": {
+            "call_id": "call_Kth6cV1mgDLhKkeJcDk20Pnz",
+            "name": "kb_search",
+            "arguments": {
+              "query": "用户此前对液冷温控的判断 纠偏原则 历史判断"
+            },
+            "task_frame_hash": "72e2a51c38f719e7401940a1b8ea193b9e3ef8f75029768b6d643c193385cf57"
+          }
+        },
+        {
+          "sequence": 4,
+          "kind": "tool_error",
+          "payload": {
+            "ok": false,
+            "tool": "kb_search",
+            "error": "tool_timeout",
+            "detail": "",
+            "task_frame_hash": "72e2a51c38f719e7401940a1b8ea193b9e3ef8f75029768b6d643c193385cf57"
+          }
+        },
+        {
+          "sequence": 5,
+          "kind": "tool_request",
+          "payload": {
+            "call_id": "call_VbEVfCjFByo7qsEJA4fLauVt",
+            "name": "graph_lookup",
+            "arguments": {
+              "query": "液冷温控 A股 产业链 上游 中游 下游 公司 关系"
+            },
+            "task_frame_hash": "72e2a51c38f719e7401940a1b8ea193b9e3ef8f75029768b6d643c193385cf57"
+          }
+        },
+        {
+          "sequence": 6,
+          "kind": "tool_result",
+          "payload": {
+            "ok": true,
+            "tool": "graph_lookup",
+            "query": "液冷温控 A股 产业链 上游 中游 下游 公司 关系",
+            "observation": "概念 液冷温控（匹配分 20）；概念 液冷（匹配分 10）；概念 数据中心液冷温控（匹配分 5）；金富科技（液冷温控｜core/L1_L3_candidate）；申菱环境（液冷温控｜related/L1_L3_candidate）；川润股份（液冷温控｜related/L1_L3_candidate）；科信技术（液冷温控｜related/L1）；银轮股份（液冷｜core/?）；同飞股份（液冷｜related/graph_only）；浪潮信息（液冷｜related/L2）；曙光数创（液冷｜core/L2）",
+            "evidence": [
+              {
+                "tool": "graph_lookup",
+                "title": "概念 液冷温控",
+                "detail": "匹配分 20",
+                "source": "本地知识图谱",
+                "source_date": null,
+                "evidence_tier": "",
+                "supports": [],
+                "contradicts": [],
+                "independent_key": "",
+                "freshness": "unknown",
+                "content_hash": "bbc7a35d7575b91f"
+              },
+              {
+                "tool": "graph_lookup",
+                "title": "概念 液冷",
+                "detail": "匹配分 10",
+                "source": "本地知识图谱",
+                "source_date": null,
+                "evidence_tier": "",
+                "supports": [],
+                "contradicts": [],
+                "independent_key": "",
+                "freshness": "unknown",
+                "content_hash": "9ac1c753782b3bb9"
+              },
+              {
+                "tool": "graph_lookup",
+                "title": "概念 数据中心液冷温控",
+                "detail": "匹配分 5",
+                "source": "本地知识图谱",
+                "source_date": null,
+                "evidence_tier": "",
+                "supports": [],
+                "contradicts": [],
+                "independent_key": "",
+                "freshness": "unknown",
+                "content_hash": "cc7adf0a8366cdef"
+              },
+              {
+                "tool": "graph_lookup",
+                "title": "金富科技",
+                "detail": "液冷温控｜core/L1_L3_candidate",
+                "source": "本地知识图谱",
+                "source_date": null,
+                "evidence_tier": "",
+                "supports": [],
+                "contradicts": [],
+                "independent_key": "",
+                "freshness": "unknown",
+                "content_hash": "65464ea2fcbf5fef"
+              },
+              {
+                "tool": "graph_lookup",
+                "title": "申菱环境",
+                "detail": "液冷温控｜related/L1_L3_candidate",
+                "source": "本地知识图谱",
+                "source_date": null,
+                "evidence_tier": "",
+                "supports": [],
+                "contradicts": [],
+                "independent_key": "",
+                "freshness": "unknown",
+                "content_hash": "07369305cc2b9332"
+              },
+              {
+                "tool": "graph_lookup",
+                "title": "川润股份",
+                "detail": "液冷温控｜related/L1_L3_candidate",
+                "source": "本地知识图谱",
+                "source_date": null,
+                "evidence_tier": "",
+                "supports": [],
+                "contradicts": [],
+                "independent_key": "",
+                "freshness": "unknown",
+                "content_hash": "78aca6f711901ce1"
+              },
+              {
+                "tool": "graph_lookup",
+                "title": "科信技术",
+                "detail": "液冷温控｜related/L1",
+                "source": "本地知识图谱",
+                "source_date": null,
+                "evidence_tier": "",
+                "supports": [],
+                "contradicts": [],
+                "independent_key": "",
+                "freshness": "unknown",
+                "content_hash": "2c56c6a41bbd9c73"
+              },
+              {
+                "tool": "graph_lookup",
+                "title": "银轮股份",
+                "detail": "液冷｜core/?",
+                "source": "本地知识图谱",
+                "source_date": null,
+                "evidence_tier": "",
+                "supports": [],
+                "contradicts": [],
+                "independent_key": "",
+                "freshness": "unknown",
+                "content_hash": "8652f8dcb2c321df"
+              },
+              {
+                "tool": "graph_lookup",
+                "title": "同飞股份",
+                "detail": "液冷｜related/graph_only",
+                "source": "本地知识图谱",
+                "source_date": null,
+                "evidence_tier": "",
+                "supports": [],
+                "contradicts": [],
+                "independent_key": "",
+                "freshness": "unknown",
+                "content_hash": "96608d750a1b1293"
+              },
+              {
+                "tool": "graph_lookup",
+                "title": "浪潮信息",
+                "detail": "液冷｜related/L2",
+                "source": "本地知识图谱",
+                "source_date": null,
+                "evidence_tier": "",
+                "supports": [],
+                "contradicts": [],
+                "independent_key": "",
+                "freshness": "unknown",
+                "content_hash": "3bbbd2c411775c69"
+              },
+              {
+                "tool": "graph_lookup",
+                "title": "曙光数创",
+                "detail": "液冷｜core/L2",
+                "source": "本地知识图谱",
+                "source_date": null,
+                "evidence_tier": "",
+                "supports": [],
+                "contradicts": [],
+                "independent_key": "",
+                "freshness": "unknown",
+                "content_hash": "91d104afe3347d03"
+              }
+            ],
+            "evidence_hashes": [
+              "bbc7a35d7575b91f",
+              "9ac1c753782b3bb9",
+              "cc7adf0a8366cdef",
+              "65464ea2fcbf5fef",
+              "07369305cc2b9332",
+              "78aca6f711901ce1",
+              "2c56c6a41bbd9c73",
+              "8652f8dcb2c321df",
+              "96608d750a1b1293",
+              "3bbbd2c411775c69",
+              "91d104afe3347d03"
+            ],
+            "gaps": [],
+            "task_frame_hash": "72e2a51c38f719e7401940a1b8ea193b9e3ef8f75029768b6d643c193385cf57"
+          }
+        },
+        {
+          "sequence": 7,
+          "kind": "tool_request",
+          "payload": {
+            "call_id": "call_Yv3S7Et5vXrlaxgLaNKIsy4v",
+            "name": "evidence_search",
+            "arguments": {
+              "query": "液冷温控 A股 当前逻辑 需求兑现 产业链 公司 反证 替代技术"
+            },
+            "task_frame_hash": "72e2a51c38f719e7401940a1b8ea193b9e3ef8f75029768b6d643c193385cf57"
+          }
+        },
+        {
+          "sequence": 8,
+          "kind": "tool_error",
+          "payload": {
+            "ok": false,
+            "tool": "evidence_search",
+            "error": "tool_timeout",
+            "detail": "",
+            "task_frame_hash": "72e2a51c38f719e7401940a1b8ea193b9e3ef8f75029768b6d643c193385cf57"
+          }
+        },
+        {
+          "sequence": 9,
+          "kind": "tool_request",
+          "payload": {
+            "call_id": "call_gFpIlkOMIAhAUdCvCtrytS2w",
+            "name": "finance_query",
+            "arguments": {
+              "dataset": "mainline_sector_daily",
+              "dimensions": [
+                "trade_date",
+                "sector_name",
+                "theme_name",
+                "cycle_level",
+                "cycle_status",
+                "high_status"
+              ],
+              "metrics": [
+                "return_pct",
+                "strength",
+                "net_inflow_1d",
+                "limit_up_count",
+                "max_limit_height",
+                "relative_amount"
+              ],
+              "filters": [
+                {
+                  "field": "trade_date",
+                  "gte": "2026-07-20"
+                },
+                {
+                  "field": "trade_date",
+                  "lte": "2026-08-07"
+                },
+                {
+                  "field": "sector_name",
+                  "contains": "液冷"
+                }
+              ],
+              "group_by": [
+                "trade_date",
+                "sector_name",
+                "theme_name",
+                "cycle_level",
+                "cycle_status",
+                "high_status"
+              ],
+              "order_by": {
+                "field": "trade_date",
+                "direction": "desc"
+              },
+              "limit": 100
+            },
+            "task_frame_hash": "72e2a51c38f719e7401940a1b8ea193b9e3ef8f75029768b6d643c193385cf57"
+          }
+        },
+        {
+          "sequence": 10,
+          "kind": "tool_error",
+          "payload": {
+            "ok": false,
+            "tool": "finance_query",
+            "error": "invalid_arguments",
+            "detail": "",
+            "task_frame_hash": "72e2a51c38f719e7401940a1b8ea193b9e3ef8f75029768b6d643c193385cf57"
+          }
+        },
+        {
+          "sequence": 11,
+          "kind": "tool_request",
+          "payload": {
+            "call_id": "call_KYdLOgSN6NwcxYRcJls0PQMt",
+            "name": "finance_query",
+            "arguments": {
+              "dataset": "mainline_theme_daily",
+              "dimensions": [
+                "trade_date",
+                "theme_name",
+                "theme_code"
+              ],
+              "metrics": [
+                "rank",
+                "sector_count"
+              ],
+              "filters": [
+                {
+                  "field": "trade_date",
+                  "gte": "2026-07-20"
+                },
+                {
+                  "field": "trade_date",
+                  "lte": "2026-08-07"
+                },
+                {
+                  "field": "theme_name",
+                  "contains": "液冷"
+                }
+              ],
+              "group_by": [
+                "trade_date",
+                "theme_name",
+                "theme_code"
+              ],
+              "order_by": {
+                "field": "trade_date",
+                "direction": "desc"
+              },
+              "limit": 100
+            },
+            "task_frame_hash": "72e2a51c38f719e7401940a1b8ea193b9e3ef8f75029768b6d643c193385cf57"
+          }
+        },
+        {
+          "sequence": 12,
+          "kind": "tool_error",
+          "payload": {
+            "ok": false,
+            "tool": "finance_query",
+            "error": "invalid_arguments",
+            "detail": "",
+            "task_frame_hash": "72e2a51c38f719e7401940a1b8ea193b9e3ef8f75029768b6d643c193385cf57"
+          }
+        },
+        {
+          "sequence": 13,
+          "kind": "finalization",
+          "payload": {
+            "reason": "retrieval_deadline_closed",
+            "task_frame_hash": "72e2a51c38f719e7401940a1b8ea193b9e3ef8f75029768b6d643c193385cf57"
+          }
+        },
+        {
+          "sequence": 14,
+          "kind": "model_turn",
+          "payload": {
+            "content": "",
+            "tool_calls": [],
+            "provider_name": "custom",
+            "error": "LLM 调用失败（TimeoutError）",
+            "provider_attempts": 1,
+            "task_frame_hash": "72e2a51c38f719e7401940a1b8ea193b9e3ef8f75029768b6d643c193385cf57"
+          }
+        },
+        {
+          "sequence": 15,
+          "kind": "runtime_result",
+          "payload": {
+            "input_tokens": 10294,
+            "output_tokens": 456,
+            "task_frame_hash": "72e2a51c38f719e7401940a1b8ea193b9e3ef8f75029768b6d643c193385cf57"
+          }
+        },
+        {
+          "sequence": 16,
+          "kind": "finish",
+          "payload": {
+            "status": "partial",
+            "stop_reason": "deadline_exhausted",
+            "gaps": [
+              "研究截止时间已到，仍有必需输出未覆盖"
+            ],
+            "task_frame_hash": "72e2a51c38f719e7401940a1b8ea193b9e3ef8f75029768b6d643c193385cf57"
+          }
+        },
+        {
+          "sequence": 17,
+          "kind": "repair_goal",
+          "payload": {
+            "episode_id": "run_20260808_023839_739196:msg_d44dbd97442b4165ac1449e6f0a40aa7",
+            "repair_goal_id": "repair-run_20260808_023839_739196:msg_d44dbd97442b4165ac1449e6f0a40aa7-1-ab52d68632",
+            "cycle": 1,
+            "missing_answer_elements": [
+              "direct_assessment",
+              "chain_mapping",
+              "counterpoint"
+            ],
+            "unsupported_claims": [],
+            "missing_evidence_modes": [],
+            "attempted_actions": [
+              "kb_search:agent:kb_search",
+              "agent_loop:agent:graph_lookup",
+              "evidence_search:agent:evidence_search"
+            ],
+            "evidence_progress": {
+              "new_evidence": 0,
+              "narrowed_gaps": 0,
+              "newly_supported_outputs": 0
+            },
+            "remaining_calls": 0,
+            "remaining_seconds": 24.0,
+            "task_frame_hash": "72e2a51c38f719e7401940a1b8ea193b9e3ef8f75029768b6d643c193385cf57"
+          }
+        },
+        {
+          "sequence": 18,
+          "kind": "repair_reentry",
+          "payload": {
+            "episode_id": "run_20260808_023839_739196:msg_d44dbd97442b4165ac1449e6f0a40aa7",
+            "repair_goal_id": "repair-run_20260808_023839_739196:msg_d44dbd97442b4165ac1449e6f0a40aa7-1-ab52d68632",
+            "cycle": 1,
+            "task_frame_hash": "72e2a51c38f719e7401940a1b8ea193b9e3ef8f75029768b6d643c193385cf57"
+          }
+        },
+        {
+          "sequence": 19,
+          "kind": "model_turn",
+          "payload": {
+            "phase": "repair",
+            "content": "",
+            "tool_calls": [],
+            "provider_name": "custom",
+            "error": "LLM 调用失败（TimeoutError）",
+            "provider_attempts": 1,
+            "task_frame_hash": "72e2a51c38f719e7401940a1b8ea193b9e3ef8f75029768b6d643c193385cf57"
+          }
+        },
+        {
+          "sequence": 20,
+          "kind": "model_error",
+          "payload": {
+            "reason": "LLM 调用失败（TimeoutError）",
+            "task_frame_hash": "72e2a51c38f719e7401940a1b8ea193b9e3ef8f75029768b6d643c193385cf57"
+          }
+        },
+        {
+          "sequence": 21,
+          "kind": "runtime_result",
+          "payload": {
+            "input_tokens": 10294,
+            "output_tokens": 456,
+            "task_frame_hash": "72e2a51c38f719e7401940a1b8ea193b9e3ef8f75029768b6d643c193385cf57"
+          }
+        },
+        {
+          "sequence": 22,
+          "kind": "finish",
+          "payload": {
+            "status": "partial",
+            "stop_reason": "repair_model_unavailable",
+            "gaps": [
+              "LLM 调用失败（TimeoutError）"
+            ],
+            "task_frame_hash": "72e2a51c38f719e7401940a1b8ea193b9e3ef8f75029768b6d643c193385cf57"
+          }
+        }
+      ],
+      "bindings": [],
+      "usage": {
+        "llm_calls": 3,
+        "tool_calls": 3,
+        "invalid_actions": 2,
+        "input_tokens": 10294,
+        "output_tokens": 456
+      },
+      "plan": null
+    },
+    "missing_outputs": [
+      "direct_assessment",
+      "chain_mapping",
+      "counterpoint"
+    ],
+    "mandatory_missing_capabilities": []
+  },
+  "semantic_verifier": {
+    "status": "partial",
+    "public_answer": "关于“液冷题材现在怎么看？我之前的判断还成立吗”，现有证据不足，暂不能可靠回答。仍需核验：直接回答用户问题并说明判断强度、chain_mapping、提供主要反证或竞争性解释",
+    "judge_status": "unavailable",
+    "issues": [
+      "missing required output: direct_assessment",
+      "missing required output: chain_mapping",
+      "missing required output: counterpoint"
+    ],
+    "correlated_judge": false,
+    "gap_output_ids": [],
+    "rejected_claim_indexes": [],
+    "repair_output_ids": [
+      "direct_assessment",
+      "chain_mapping",
+      "counterpoint"
+    ],
+    "verified": {
+      "verified_status": "partial",
+      "issues": [
+        "missing required output: direct_assessment",
+        "missing required output: chain_mapping",
+        "missing required output: counterpoint"
+      ],
+      "completion": {
+        "status": "partial",
+        "business_status": "partial",
+        "factual_grounding": "partial",
+        "causal_adequacy": "unknown",
+        "task_coverage": "partial",
+        "outputs": [
+          {
+            "output_id": "direct_assessment",
+            "status": "missing",
+            "evidence_ids": [],
+            "gap": "仍缺少：直接回答用户问题并说明判断强度"
+          },
+          {
+            "output_id": "chain_mapping",
+            "status": "missing",
+            "evidence_ids": [],
+            "gap": "仍缺少：chain_mapping"
+          },
+          {
+            "output_id": "counterpoint",
+            "status": "missing",
+            "evidence_ids": [],
+            "gap": "仍缺少：提供主要反证或竞争性解释"
+          },
+          {
+            "output_id": "prior_recall",
+            "status": "gap",
+            "evidence_ids": [],
+            "gap": "仍缺少：复述用户此前对该主体的判断或纠偏原则，并说明与当前的差异"
+          }
+        ]
+      },
+      "outcome": {
+        "task_frame_hash": "72e2a51c38f719e7401940a1b8ea193b9e3ef8f75029768b6d643c193385cf57",
+        "status": "partial",
+        "draft": "",
+        "evidence": [
+          {
+            "tool": "graph_lookup",
+            "title": "概念 液冷温控",
+            "detail": "匹配分 20",
+            "source": "本地知识图谱",
+            "source_date": null,
+            "evidence_tier": "",
+            "supports": [],
+            "contradicts": [],
+            "independent_key": "",
+            "freshness": "unknown",
+            "content_hash": "bbc7a35d7575b91f"
+          },
+          {
+            "tool": "graph_lookup",
+            "title": "概念 液冷",
+            "detail": "匹配分 10",
+            "source": "本地知识图谱",
+            "source_date": null,
+            "evidence_tier": "",
+            "supports": [],
+            "contradicts": [],
+            "independent_key": "",
+            "freshness": "unknown",
+            "content_hash": "9ac1c753782b3bb9"
+          },
+          {
+            "tool": "graph_lookup",
+            "title": "概念 数据中心液冷温控",
+            "detail": "匹配分 5",
+            "source": "本地知识图谱",
+            "source_date": null,
+            "evidence_tier": "",
+            "supports": [],
+            "contradicts": [],
+            "independent_key": "",
+            "freshness": "unknown",
+            "content_hash": "cc7adf0a8366cdef"
+          },
+          {
+            "tool": "graph_lookup",
+            "title": "金富科技",
+            "detail": "液冷温控｜core/L1_L3_candidate",
+            "source": "本地知识图谱",
+            "source_date": null,
+            "evidence_tier": "",
+            "supports": [],
+            "contradicts": [],
+            "independent_key": "",
+            "freshness": "unknown",
+            "content_hash": "65464ea2fcbf5fef"
+          },
+          {
+            "tool": "graph_lookup",
+            "title": "申菱环境",
+            "detail": "液冷温控｜related/L1_L3_candidate",
+            "source": "本地知识图谱",
+            "source_date": null,
+            "evidence_tier": "",
+            "supports": [],
+            "contradicts": [],
+            "independent_key": "",
+            "freshness": "unknown",
+            "content_hash": "07369305cc2b9332"
+          },
+          {
+            "tool": "graph_lookup",
+            "title": "川润股份",
+            "detail": "液冷温控｜related/L1_L3_candidate",
+            "source": "本地知识图谱",
+            "source_date": null,
+            "evidence_tier": "",
+            "supports": [],
+            "contradicts": [],
+            "independent_key": "",
+            "freshness": "unknown",
+            "content_hash": "78aca6f711901ce1"
+          },
+          {
+            "tool": "graph_lookup",
+            "title": "科信技术",
+            "detail": "液冷温控｜related/L1",
+            "source": "本地知识图谱",
+            "source_date": null,
+            "evidence_tier": "",
+            "supports": [],
+            "contradicts": [],
+            "independent_key": "",
+            "freshness": "unknown",
+            "content_hash": "2c56c6a41bbd9c73"
+          },
+          {
+            "tool": "graph_lookup",
+            "title": "银轮股份",
+            "detail": "液冷｜core/?",
+            "source": "本地知识图谱",
+            "source_date": null,
+            "evidence_tier": "",
+            "supports": [],
+            "contradicts": [],
+            "independent_key": "",
+            "freshness": "unknown",
+            "content_hash": "8652f8dcb2c321df"
+          },
+          {
+            "tool": "graph_lookup",
+            "title": "同飞股份",
+            "detail": "液冷｜related/graph_only",
+            "source": "本地知识图谱",
+            "source_date": null,
+            "evidence_tier": "",
+            "supports": [],
+            "contradicts": [],
+            "independent_key": "",
+            "freshness": "unknown",
+            "content_hash": "96608d750a1b1293"
+          },
+          {
+            "tool": "graph_lookup",
+            "title": "浪潮信息",
+            "detail": "液冷｜related/L2",
+            "source": "本地知识图谱",
+            "source_date": null,
+            "evidence_tier": "",
+            "supports": [],
+            "contradicts": [],
+            "independent_key": "",
+            "freshness": "unknown",
+            "content_hash": "3bbbd2c411775c69"
+          },
+          {
+            "tool": "graph_lookup",
+            "title": "曙光数创",
+            "detail": "液冷｜core/L2",
+            "source": "本地知识图谱",
+            "source_date": null,
+            "evidence_tier": "",
+            "supports": [],
+            "contradicts": [],
+            "independent_key": "",
+            "freshness": "unknown",
+            "content_hash": "91d104afe3347d03"
+          }
+        ],
+        "traces": [
+          {
+            "provider": "agent:kb_search",
+            "capability": "kb_search",
+            "status": "request_error",
+            "detail": "tool_timeout",
+            "source_trade_date": null,
+            "result_count": 0,
+            "parent_id": "run_20260808_023839_739196:msg_d44dbd97442b4165ac1449e6f0a40aa7",
+            "step_id": "run_20260808_023839_739196:msg_d44dbd97442b4165ac1449e6f0a40aa7:episode:tool:1",
+            "requested_date": null,
+            "served_date": null
+          },
+          {
+            "provider": "agent:graph_lookup",
+            "capability": "agent_loop",
+            "status": "success",
+            "detail": "液冷温控 A股 产业链 上游 中游 下游 公司 关系",
+            "source_trade_date": null,
+            "result_count": 11,
+            "parent_id": "run_20260808_023839_739196:msg_d44dbd97442b4165ac1449e6f0a40aa7",
+            "step_id": "run_20260808_023839_739196:msg_d44dbd97442b4165ac1449e6f0a40aa7:episode:tool:2",
+            "requested_date": "2026-08-08",
+            "served_date": null
+          },
+          {
+            "provider": "agent:evidence_search",
+            "capability": "evidence_search",
+            "status": "request_error",
+            "detail": "tool_timeout",
+            "source_trade_date": null,
+            "result_count": 0,
+            "parent_id": "run_20260808_023839_739196:msg_d44dbd97442b4165ac1449e6f0a40aa7",
+            "step_id": "run_20260808_023839_739196:msg_d44dbd97442b4165ac1449e6f0a40aa7:episode:tool:3",
+            "requested_date": null,
+            "served_date": null
+          }
+        ],
+        "gaps": [
+          "LLM 调用失败（TimeoutError）"
+        ],
+        "stop_reason": "repair_model_unavailable",
+        "events": [
+          {
+            "sequence": 1,
+            "kind": "task",
+            "payload": {
+              "question": "液冷题材现在怎么看？我之前的判断还成立吗",
+              "task_frame": {
+                "raw_question": "液冷题材现在怎么看？我之前的判断还成立吗",
+                "user_goal": "形成条件化判断",
+                "question_type": "theme_analysis",
+                "subject": "液冷温控",
+                "subject_kind": "theme",
+                "market_scope": "A股",
+                "timeframe": null,
+                "required_outputs": [
+                  "direct_assessment",
+                  "chain_mapping",
+                  "counterpoint"
+                ],
+                "assumptions": [
+                  "用户未明确市场范围，按A股市场理解"
+                ],
+                "ambiguities": [],
+                "clarification_question": null,
+                "evidence_policy": "theme_multi_layer_evidence",
+                "confidence": 0.98,
+                "task_frame_hash": "72e2a51c38f719e7401940a1b8ea193b9e3ef8f75029768b6d643c193385cf57"
+              },
+              "task_frame_hash": "72e2a51c38f719e7401940a1b8ea193b9e3ef8f75029768b6d643c193385cf57"
+            }
+          },
+          {
+            "sequence": 2,
+            "kind": "model_turn",
+            "payload": {
+              "content": "",
+              "tool_calls": [
+                {
+                  "call_id": "call_Kth6cV1mgDLhKkeJcDk20Pnz",
+                  "name": "kb_search",
+                  "arguments": {
+                    "query": "用户此前对液冷温控的判断 纠偏原则 历史判断"
+                  }
+                },
+                {
+                  "call_id": "call_VbEVfCjFByo7qsEJA4fLauVt",
+                  "name": "graph_lookup",
+                  "arguments": {
+                    "query": "液冷温控 A股 产业链 上游 中游 下游 公司 关系"
+                  }
+                },
+                {
+                  "call_id": "call_Yv3S7Et5vXrlaxgLaNKIsy4v",
+                  "name": "evidence_search",
+                  "arguments": {
+                    "query": "液冷温控 A股 当前逻辑 需求兑现 产业链 公司 反证 替代技术"
+                  }
+                },
+                {
+                  "call_id": "call_gFpIlkOMIAhAUdCvCtrytS2w",
+                  "name": "finance_query",
+                  "arguments": {
+                    "dataset": "mainline_sector_daily",
+                    "dimensions": [
+                      "trade_date",
+                      "sector_name",
+                      "theme_name",
+                      "cycle_level",
+                      "cycle_status",
+                      "high_status"
+                    ],
+                    "metrics": [
+                      "return_pct",
+                      "strength",
+                      "net_inflow_1d",
+                      "limit_up_count",
+                      "max_limit_height",
+                      "relative_amount"
+                    ],
+                    "filters": [
+                      {
+                        "field": "trade_date",
+                        "gte": "2026-07-20"
+                      },
+                      {
+                        "field": "trade_date",
+                        "lte": "2026-08-07"
+                      },
+                      {
+                        "field": "sector_name",
+                        "contains": "液冷"
+                      }
+                    ],
+                    "group_by": [
+                      "trade_date",
+                      "sector_name",
+                      "theme_name",
+                      "cycle_level",
+                      "cycle_status",
+                      "high_status"
+                    ],
+                    "order_by": {
+                      "field": "trade_date",
+                      "direction": "desc"
+                    },
+                    "limit": 100
+                  }
+                },
+                {
+                  "call_id": "call_KYdLOgSN6NwcxYRcJls0PQMt",
+                  "name": "finance_query",
+                  "arguments": {
+                    "dataset": "mainline_theme_daily",
+                    "dimensions": [
+                      "trade_date",
+                      "theme_name",
+                      "theme_code"
+                    ],
+                    "metrics": [
+                      "rank",
+                      "sector_count"
+                    ],
+                    "filters": [
+                      {
+                        "field": "trade_date",
+                        "gte": "2026-07-20"
+                      },
+                      {
+                        "field": "trade_date",
+                        "lte": "2026-08-07"
+                      },
+                      {
+                        "field": "theme_name",
+                        "contains": "液冷"
+                      }
+                    ],
+                    "group_by": [
+                      "trade_date",
+                      "theme_name",
+                      "theme_code"
+                    ],
+                    "order_by": {
+                      "field": "trade_date",
+                      "direction": "desc"
+                    },
+                    "limit": 100
+                  }
+                }
+              ],
+              "provider_name": "custom",
+              "error": "",
+              "provider_attempts": 1,
+              "input_tokens": 10294,
+              "output_tokens": 456,
+              "task_frame_hash": "72e2a51c38f719e7401940a1b8ea193b9e3ef8f75029768b6d643c193385cf57"
+            }
+          },
+          {
+            "sequence": 3,
+            "kind": "tool_request",
+            "payload": {
+              "call_id": "call_Kth6cV1mgDLhKkeJcDk20Pnz",
+              "name": "kb_search",
+              "arguments": {
+                "query": "用户此前对液冷温控的判断 纠偏原则 历史判断"
+              },
+              "task_frame_hash": "72e2a51c38f719e7401940a1b8ea193b9e3ef8f75029768b6d643c193385cf57"
+            }
+          },
+          {
+            "sequence": 4,
+            "kind": "tool_error",
+            "payload": {
+              "ok": false,
+              "tool": "kb_search",
+              "error": "tool_timeout",
+              "detail": "",
+              "task_frame_hash": "72e2a51c38f719e7401940a1b8ea193b9e3ef8f75029768b6d643c193385cf57"
+            }
+          },
+          {
+            "sequence": 5,
+            "kind": "tool_request",
+            "payload": {
+              "call_id": "call_VbEVfCjFByo7qsEJA4fLauVt",
+              "name": "graph_lookup",
+              "arguments": {
+                "query": "液冷温控 A股 产业链 上游 中游 下游 公司 关系"
+              },
+              "task_frame_hash": "72e2a51c38f719e7401940a1b8ea193b9e3ef8f75029768b6d643c193385cf57"
+            }
+          },
+          {
+            "sequence": 6,
+            "kind": "tool_result",
+            "payload": {
+              "ok": true,
+              "tool": "graph_lookup",
+              "query": "液冷温控 A股 产业链 上游 中游 下游 公司 关系",
+              "observation": "概念 液冷温控（匹配分 20）；概念 液冷（匹配分 10）；概念 数据中心液冷温控（匹配分 5）；金富科技（液冷温控｜core/L1_L3_candidate）；申菱环境（液冷温控｜related/L1_L3_candidate）；川润股份（液冷温控｜related/L1_L3_candidate）；科信技术（液冷温控｜related/L1）；银轮股份（液冷｜core/?）；同飞股份（液冷｜related/graph_only）；浪潮信息（液冷｜related/L2）；曙光数创（液冷｜core/L2）",
+              "evidence": [
+                {
+                  "tool": "graph_lookup",
+                  "title": "概念 液冷温控",
+                  "detail": "匹配分 20",
+                  "source": "本地知识图谱",
+                  "source_date": null,
+                  "evidence_tier": "",
+                  "supports": [],
+                  "contradicts": [],
+                  "independent_key": "",
+                  "freshness": "unknown",
+                  "content_hash": "bbc7a35d7575b91f"
+                },
+                {
+                  "tool": "graph_lookup",
+                  "title": "概念 液冷",
+                  "detail": "匹配分 10",
+                  "source": "本地知识图谱",
+                  "source_date": null,
+                  "evidence_tier": "",
+                  "supports": [],
+                  "contradicts": [],
+                  "independent_key": "",
+                  "freshness": "unknown",
+                  "content_hash": "9ac1c753782b3bb9"
+                },
+                {
+                  "tool": "graph_lookup",
+                  "title": "概念 数据中心液冷温控",
+                  "detail": "匹配分 5",
+                  "source": "本地知识图谱",
+                  "source_date": null,
+                  "evidence_tier": "",
+                  "supports": [],
+                  "contradicts": [],
+                  "independent_key": "",
+                  "freshness": "unknown",
+                  "content_hash": "cc7adf0a8366cdef"
+                },
+                {
+                  "tool": "graph_lookup",
+                  "title": "金富科技",
+                  "detail": "液冷温控｜core/L1_L3_candidate",
+                  "source": "本地知识图谱",
+                  "source_date": null,
+                  "evidence_tier": "",
+                  "supports": [],
+                  "contradicts": [],
+                  "independent_key": "",
+                  "freshness": "unknown",
+                  "content_hash": "65464ea2fcbf5fef"
+                },
+                {
+                  "tool": "graph_lookup",
+                  "title": "申菱环境",
+                  "detail": "液冷温控｜related/L1_L3_candidate",
+                  "source": "本地知识图谱",
+                  "source_date": null,
+                  "evidence_tier": "",
+                  "supports": [],
+                  "contradicts": [],
+                  "independent_key": "",
+                  "freshness": "unknown",
+                  "content_hash": "07369305cc2b9332"
+                },
+                {
+                  "tool": "graph_lookup",
+                  "title": "川润股份",
+                  "detail": "液冷温控｜related/L1_L3_candidate",
+                  "source": "本地知识图谱",
+                  "source_date": null,
+                  "evidence_tier": "",
+                  "supports": [],
+                  "contradicts": [],
+                  "independent_key": "",
+                  "freshness": "unknown",
+                  "content_hash": "78aca6f711901ce1"
+                },
+                {
+                  "tool": "graph_lookup",
+                  "title": "科信技术",
+                  "detail": "液冷温控｜related/L1",
+                  "source": "本地知识图谱",
+                  "source_date": null,
+                  "evidence_tier": "",
+                  "supports": [],
+                  "contradicts": [],
+                  "independent_key": "",
+                  "freshness": "unknown",
+                  "content_hash": "2c56c6a41bbd9c73"
+                },
+                {
+                  "tool": "graph_lookup",
+                  "title": "银轮股份",
+                  "detail": "液冷｜core/?",
+                  "source": "本地知识图谱",
+                  "source_date": null,
+                  "evidence_tier": "",
+                  "supports": [],
+                  "contradicts": [],
+                  "independent_key": "",
+                  "freshness": "unknown",
+                  "content_hash": "8652f8dcb2c321df"
+                },
+                {
+                  "tool": "graph_lookup",
+                  "title": "同飞股份",
+                  "detail": "液冷｜related/graph_only",
+                  "source": "本地知识图谱",
+                  "source_date": null,
+                  "evidence_tier": "",
+                  "supports": [],
+                  "contradicts": [],
+                  "independent_key": "",
+                  "freshness": "unknown",
+                  "content_hash": "96608d750a1b1293"
+                },
+                {
+                  "tool": "graph_lookup",
+                  "title": "浪潮信息",
+                  "detail": "液冷｜related/L2",
+                  "source": "本地知识图谱",
+                  "source_date": null,
+                  "evidence_tier": "",
+                  "supports": [],
+                  "contradicts": [],
+                  "independent_key": "",
+                  "freshness": "unknown",
+                  "content_hash": "3bbbd2c411775c69"
+                },
+                {
+                  "tool": "graph_lookup",
+                  "title": "曙光数创",
+                  "detail": "液冷｜core/L2",
+                  "source": "本地知识图谱",
+                  "source_date": null,
+                  "evidence_tier": "",
+                  "supports": [],
+                  "contradicts": [],
+                  "independent_key": "",
+                  "freshness": "unknown",
+                  "content_hash": "91d104afe3347d03"
+                }
+              ],
+              "evidence_hashes": [
+                "bbc7a35d7575b91f",
+                "9ac1c753782b3bb9",
+                "cc7adf0a8366cdef",
+                "65464ea2fcbf5fef",
+                "07369305cc2b9332",
+                "78aca6f711901ce1",
+                "2c56c6a41bbd9c73",
+                "8652f8dcb2c321df",
+                "96608d750a1b1293",
+                "3bbbd2c411775c69",
+                "91d104afe3347d03"
+              ],
+              "gaps": [],
+              "task_frame_hash": "72e2a51c38f719e7401940a1b8ea193b9e3ef8f75029768b6d643c193385cf57"
+            }
+          },
+          {
+            "sequence": 7,
+            "kind": "tool_request",
+            "payload": {
+              "call_id": "call_Yv3S7Et5vXrlaxgLaNKIsy4v",
+              "name": "evidence_search",
+              "arguments": {
+                "query": "液冷温控 A股 当前逻辑 需求兑现 产业链 公司 反证 替代技术"
+              },
+              "task_frame_hash": "72e2a51c38f719e7401940a1b8ea193b9e3ef8f75029768b6d643c193385cf57"
+            }
+          },
+          {
+            "sequence": 8,
+            "kind": "tool_error",
+            "payload": {
+              "ok": false,
+              "tool": "evidence_search",
+              "error": "tool_timeout",
+              "detail": "",
+              "task_frame_hash": "72e2a51c38f719e7401940a1b8ea193b9e3ef8f75029768b6d643c193385cf57"
+            }
+          },
+          {
+            "sequence": 9,
+            "kind": "tool_request",
+            "payload": {
+              "call_id": "call_gFpIlkOMIAhAUdCvCtrytS2w",
+              "name": "finance_query",
+              "arguments": {
+                "dataset": "mainline_sector_daily",
+                "dimensions": [
+                  "trade_date",
+                  "sector_name",
+                  "theme_name",
+                  "cycle_level",
+                  "cycle_status",
+                  "high_status"
+                ],
+                "metrics": [
+                  "return_pct",
+                  "strength",
+                  "net_inflow_1d",
+                  "limit_up_count",
+                  "max_limit_height",
+                  "relative_amount"
+                ],
+                "filters": [
+                  {
+                    "field": "trade_date",
+                    "gte": "2026-07-20"
+                  },
+                  {
+                    "field": "trade_date",
+                    "lte": "2026-08-07"
+                  },
+                  {
+                    "field": "sector_name",
+                    "contains": "液冷"
+                  }
+                ],
+                "group_by": [
+                  "trade_date",
+                  "sector_name",
+                  "theme_name",
+                  "cycle_level",
+                  "cycle_status",
+                  "high_status"
+                ],
+                "order_by": {
+                  "field": "trade_date",
+                  "direction": "desc"
+                },
+                "limit": 100
+              },
+              "task_frame_hash": "72e2a51c38f719e7401940a1b8ea193b9e3ef8f75029768b6d643c193385cf57"
+            }
+          },
+          {
+            "sequence": 10,
+            "kind": "tool_error",
+            "payload": {
+              "ok": false,
+              "tool": "finance_query",
+              "error": "invalid_arguments",
+              "detail": "",
+              "task_frame_hash": "72e2a51c38f719e7401940a1b8ea193b9e3ef8f75029768b6d643c193385cf57"
+            }
+          },
+          {
+            "sequence": 11,
+            "kind": "tool_request",
+            "payload": {
+              "call_id": "call_KYdLOgSN6NwcxYRcJls0PQMt",
+              "name": "finance_query",
+              "arguments": {
+                "dataset": "mainline_theme_daily",
+                "dimensions": [
+                  "trade_date",
+                  "theme_name",
+                  "theme_code"
+                ],
+                "metrics": [
+                  "rank",
+                  "sector_count"
+                ],
+                "filters": [
+                  {
+                    "field": "trade_date",
+                    "gte": "2026-07-20"
+                  },
+                  {
+                    "field": "trade_date",
+                    "lte": "2026-08-07"
+                  },
+                  {
+                    "field": "theme_name",
+                    "contains": "液冷"
+                  }
+                ],
+                "group_by": [
+                  "trade_date",
+                  "theme_name",
+                  "theme_code"
+                ],
+                "order_by": {
+                  "field": "trade_date",
+                  "direction": "desc"
+                },
+                "limit": 100
+              },
+              "task_frame_hash": "72e2a51c38f719e7401940a1b8ea193b9e3ef8f75029768b6d643c193385cf57"
+            }
+          },
+          {
+            "sequence": 12,
+            "kind": "tool_error",
+            "payload": {
+              "ok": false,
+              "tool": "finance_query",
+              "error": "invalid_arguments",
+              "detail": "",
+              "task_frame_hash": "72e2a51c38f719e7401940a1b8ea193b9e3ef8f75029768b6d643c193385cf57"
+            }
+          },
+          {
+            "sequence": 13,
+            "kind": "finalization",
+            "payload": {
+              "reason": "retrieval_deadline_closed",
+              "task_frame_hash": "72e2a51c38f719e7401940a1b8ea193b9e3ef8f75029768b6d643c193385cf57"
+            }
+          },
+          {
+            "sequence": 14,
+            "kind": "model_turn",
+            "payload": {
+              "content": "",
+              "tool_calls": [],
+              "provider_name": "custom",
+              "error": "LLM 调用失败（TimeoutError）",
+              "provider_attempts": 1,
+              "task_frame_hash": "72e2a51c38f719e7401940a1b8ea193b9e3ef8f75029768b6d643c193385cf57"
+            }
+          },
+          {
+            "sequence": 15,
+            "kind": "runtime_result",
+            "payload": {
+              "input_tokens": 10294,
+              "output_tokens": 456,
+              "task_frame_hash": "72e2a51c38f719e7401940a1b8ea193b9e3ef8f75029768b6d643c193385cf57"
+            }
+          },
+          {
+            "sequence": 16,
+            "kind": "finish",
+            "payload": {
+              "status": "partial",
+              "stop_reason": "deadline_exhausted",
+              "gaps": [
+                "研究截止时间已到，仍有必需输出未覆盖"
+              ],
+              "task_frame_hash": "72e2a51c38f719e7401940a1b8ea193b9e3ef8f75029768b6d643c193385cf57"
+            }
+          },
+          {
+            "sequence": 17,
+            "kind": "repair_goal",
+            "payload": {
+              "episode_id": "run_20260808_023839_739196:msg_d44dbd97442b4165ac1449e6f0a40aa7",
+              "repair_goal_id": "repair-run_20260808_023839_739196:msg_d44dbd97442b4165ac1449e6f0a40aa7-1-ab52d68632",
+              "cycle": 1,
+              "missing_answer_elements": [
+                "direct_assessment",
+                "chain_mapping",
+                "counterpoint"
+              ],
+              "unsupported_claims": [],
+              "missing_evidence_modes": [],
+              "attempted_actions": [
+                "kb_search:agent:kb_search",
+                "agent_loop:agent:graph_lookup",
+                "evidence_search:agent:evidence_search"
+              ],
+              "evidence_progress": {
+                "new_evidence": 0,
+                "narrowed_gaps": 0,
+                "newly_supported_outputs": 0
+              },
+              "remaining_calls": 0,
+              "remaining_seconds": 24.0,
+              "task_frame_hash": "72e2a51c38f719e7401940a1b8ea193b9e3ef8f75029768b6d643c193385cf57"
+            }
+          },
+          {
+            "sequence": 18,
+            "kind": "repair_reentry",
+            "payload": {
+              "episode_id": "run_20260808_023839_739196:msg_d44dbd97442b4165ac1449e6f0a40aa7",
+              "repair_goal_id": "repair-run_20260808_023839_739196:msg_d44dbd97442b4165ac1449e6f0a40aa7-1-ab52d68632",
+              "cycle": 1,
+              "task_frame_hash": "72e2a51c38f719e7401940a1b8ea193b9e3ef8f75029768b6d643c193385cf57"
+            }
+          },
+          {
+            "sequence": 19,
+            "kind": "model_turn",
+            "payload": {
+              "phase": "repair",
+              "content": "",
+              "tool_calls": [],
+              "provider_name": "custom",
+              "error": "LLM 调用失败（TimeoutError）",
+              "provider_attempts": 1,
+              "task_frame_hash": "72e2a51c38f719e7401940a1b8ea193b9e3ef8f75029768b6d643c193385cf57"
+            }
+          },
+          {
+            "sequence": 20,
+            "kind": "model_error",
+            "payload": {
+              "reason": "LLM 调用失败（TimeoutError）",
+              "task_frame_hash": "72e2a51c38f719e7401940a1b8ea193b9e3ef8f75029768b6d643c193385cf57"
+            }
+          },
+          {
+            "sequence": 21,
+            "kind": "runtime_result",
+            "payload": {
+              "input_tokens": 10294,
+              "output_tokens": 456,
+              "task_frame_hash": "72e2a51c38f719e7401940a1b8ea193b9e3ef8f75029768b6d643c193385cf57"
+            }
+          },
+          {
+            "sequence": 22,
+            "kind": "finish",
+            "payload": {
+              "status": "partial",
+              "stop_reason": "repair_model_unavailable",
+              "gaps": [
+                "LLM 调用失败（TimeoutError）"
+              ],
+              "task_frame_hash": "72e2a51c38f719e7401940a1b8ea193b9e3ef8f75029768b6d643c193385cf57"
+            }
+          }
+        ],
+        "bindings": [],
+        "usage": {
+          "llm_calls": 3,
+          "tool_calls": 3,
+          "invalid_actions": 2,
+          "input_tokens": 10294,
+          "output_tokens": 456
+        },
+        "plan": null
+      },
+      "missing_outputs": [
+        "direct_assessment",
+        "chain_mapping",
+        "counterpoint"
+      ],
+      "mandatory_missing_capabilities": []
+    }
+  },
+  "semantic_verifier_stale": false,
+  "repair_attempts": 1,
+  "repair_cycles": 0,
+  "metrics": {
+    "provider_attempts": 3,
+    "tool_calls": 3,
+    "duplicate_queries": 0,
+    "structural_status": "partial",
+    "semantic_status": "unavailable"
+  },
+  "task_frame": {
+    "raw_question": "液冷题材现在怎么看？我之前的判断还成立吗",
+    "user_goal": "形成条件化判断",
+    "question_type": "theme_analysis",
+    "subject": "液冷温控",
+    "subject_kind": "theme",
+    "market_scope": "A股",
+    "timeframe": null,
+    "required_outputs": [
+      "direct_assessment",
+      "chain_mapping",
+      "counterpoint"
+    ],
+    "assumptions": [
+      "用户未明确市场范围，按A股市场理解"
+    ],
+    "ambiguities": [],
+    "clarification_question": null,
+    "evidence_policy": "theme_multi_layer_evidence",
+    "confidence": 0.98,
+    "task_frame_hash": "72e2a51c38f719e7401940a1b8ea193b9e3ef8f75029768b6d643c193385cf57"
+  },
+  "turn_intent": {
+    "primary_subject": "液冷温控",
+    "secondary_topics": [],
+    "question_type": "theme_analysis",
+    "answer_owner": "theme-research",
+    "comparison_entities": [],
+    "inherited_from_turn": null,
+    "evidence_atom_ids": [],
+    "skill_ids": [],
+    "stage_artifact_ids": [],
+    "time_horizon": "unspecified",
+    "operators": [],
+    "required_outputs": [
+      "direct_assessment",
+      "chain_mapping",
+      "counterpoint"
+    ],
+    "timeframe": null,
+    "task_frame_hash": "72e2a51c38f719e7401940a1b8ea193b9e3ef8f75029768b6d643c193385cf57",
+    "pending_task_frame": null,
+    "clarification_rounds": 0
+  }
+}
