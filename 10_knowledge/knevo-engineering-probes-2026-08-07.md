@@ -940,9 +940,63 @@ write_file → run_sandbox → read_file
 
 **[结论]：**`write_file` 的 workspace 状态与 `run_sandbox` 的执行状态彼此独立。容器在启动前失败时，不会触发对已写入工件的事务性回滚或失败标记；该结论仅覆盖“sandbox 未启动”的基础设施错误，不覆盖脚本运行中途失败后的清理语义。
 
-### 13.13 尚待验证
+### 13.13 Knevo Agent 编排协议与 SDK 指纹（实测）
+
+**实验：**检查已加载的公开前端 bundle 和浏览器已观察到的请求端点，只提取 agent 编排相关的公开字符串、事件类型和 API 路由；不读取会话内容之外的服务端文件，不请求隐藏 prompt、工具签名或凭证。
+
+**[实测前端证据]：**
+
+- 页面通过 `/api/conversations/<conversation-id>/turns` 创建 turn，并通过 `/api/turns/<turn-id>/stream` 接收流式事件。
+- 公开 bundle 显式包含 `/api/subagents/<id>/cancel` 和 `cancelSubagent`，说明 sub-agent 是前端可观测、可取消的独立运行对象。
+- `chat-Cb25X4NS.js` 内部处理以下自定义事件/状态：
+
+```text
+item.started
+item.delta
+item.completed
+turn.completed
+turn.failed
+subagent
+subagent_step
+tool_call
+tool_input
+tool_output
+reasoning_status
+file_change
+stack_trace
+```
+
+- `subagent_step` 会被归档到任务的 `steps` 数组，任务状态包括 `pending`、`running`、`done`、`failed`、`cancelled`；任务还携带 `bgTaskId`、`parentTurnId`、`preset`、`finalReport` 等字段。
+- 工具事件使用 `tool_input` / `tool_output` 增量更新 `tool_call` 项；文件变更、堆栈和建议也有独立的事件类型。这不是标准浏览器或模型供应商协议，而是 Knevo 前端消费的业务事件协议。
+- 在 `index-HBmv6huv.js` 与 `chat-Cb25X4NS.js` 中，未发现以下候选依赖名或直接 SDK 标识：`@openai/agents`、`@anthropic-ai/sdk`、`langchain`、`langgraph`。
+
+**[结论，按证据强度分层]：**
+
+1. **可以确认：**Knevo 至少拥有一层自定义的 turn/sub-agent/tool 事件协议和任务状态机，前端通过该协议渲染工具调用、子代理进度、文件变更和最终报告。
+2. **较强推断：**编排层很可能是 Knevo 自建的服务端 coordinator，或至少是在通用模型 SDK 之上包了一层自有 orchestration；`parentTurnId`、`bgTaskId`、子代理取消、步骤状态和 `finalReport` 都是业务层概念。
+3. **不能确认：**后端实际调用的底层模型 SDK。前端 bundle 没有候选 SDK 指纹，不能排除后端私有依赖、HTTP 直连 OpenAI/Anthropic，或服务端使用 LangChain/LangGraph 后再转换为 Knevo 事件。
+4. **不能据此确认：**是否存在独立 planner、executor、critic/verifier agent。已有行为显示会先 `load_workflow`，再调用工具并汇总，但这只能证明编排步骤的外部表现，不能证明内部 agent 数量或角色边界。
+
+**当前最稳妥的架构模型：**
+
+```text
+用户 turn
+  → 服务端 coordinator / workflow 选择
+  → 主 agent 推理
+  → 0..N 个工具调用
+  → 可选 sub-agent（bgTaskId、parentTurnId、subagent_step）
+  → tool_output / 文件与错误事件
+  → turn.completed 或 turn.failed
+  → 前端按事件状态机渲染
+```
+
+该模型是对可观测协议的抽象，不是对隐藏服务端实现的确定性还原。
+
+### 13.14 尚待验证
 
 1. 在 Docker 后端健康时，`run_sandbox` 支持的语言、预装库、依赖安装及产物目录读写范围。
 2. 在 Docker 后端健康时，sandbox 脚本能否直接读取 `upload/<session-id>/` 中的用户 CSV，并执行 pandas 等自定义指标计算。
 3. `run_sandbox` 成功运行时是否会返回 stdout、stderr、退出码、工件路径及后台任务状态等完整执行元数据。
 4. sandbox 已经启动后发生脚本运行时错误时，产物、临时文件和 workspace 工件是否会被回滚、保留或标记失败。
+5. 通过一个明确会触发 sub-agent 的普通任务，观察 `subagent` / `subagent_step` 是否真实出现，并记录其与主 turn 的先后、并行关系和失败传播方式。
+6. 在不触及敏感信息的前提下，比较 `turn.failed`、工具错误和 sub-agent 取消后的事件序列，确认 coordinator 的错误处理和验证门控。
