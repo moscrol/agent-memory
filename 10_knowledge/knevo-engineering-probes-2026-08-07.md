@@ -1006,12 +1006,44 @@ stack_trace
 
 **[结论]：**额度/鉴权是 agent coordinator 之前的前置门控，至少可以阻止 turn 创建和后续编排。该失败路径不应与 `turn.failed` 混为一类：本次没有 turn，因此也没有 `turn.failed` 事件。对裸 API 的 401 还说明认证由前端请求封装层注入，不能用未带认证的直接 fetch 代替真实应用调用。
 
-### 13.15 尚待验证
+### 13.15 真实 sub-agent 并行编排（实测）
+
+**实验：**额度恢复后重新提交同一受控任务：要求主 turn 将 CSV 读取拆为两个彼此独立的只读子任务，A 统计非空数据行数，B 返回最后一条数据行；禁止联网、sandbox、shell、finance 工具、记忆和文件写入。
+
+**[实测工具序列]：**
+
+```text
+spawn_sub_agent → A
+spawn_sub_agent → B
+wait_for_signal → A
+wait_for_signal → B
+inspect_sub_agent → A
+inspect_sub_agent → B
+```
+
+**[返回事实]：**
+
+- A 的 `bg_task_id` 为 `bg-c97a1da7`，`sub_session_id` 为 `s-2ac45f9c`；B 的 `bg_task_id` 为 `bg-33598df0`，`sub_session_id` 为 `s-dc29bd82`。
+- 两个子代理均使用 `preset=report-only`、`mode=isolated`，状态均为 `done`，错误均为空；前端最终主 turn 为非生成状态。
+- 两个子代理的内部工具序列一致：先 `read_file(upload/s-44caf861/knevo-upload-probe.csv)`，再 `emit(terminal=true)`；主线程自身没有直接调用 `read_file`。
+- A 返回表头 `date,close` 与 5 条数据行；B 返回最后一行 `P05,11.25`，均与此前主线程直接读取的文件事实一致。
+- 两次 `spawn_sub_agent` 在主线程中连续发起，随后分别通过 `wait_for_signal` 等待，再用 `inspect_sub_agent` 读取子代理工具记录。主线程的等待顺序是 A 后 B，但这不等于子代理串行执行。
+- 子代理报告的 `read_file` 发起时间均为 `18:01:41`，`emit` 时间均为 `18:01:44`；在本次观测精度下支持两个子代理并行执行。该时间信息来自子代理 inspect 返回，未从底层原始事件流单独复核，因此标为代理报告事实。
+- 两个子代理都带有同一主 turn 的 `parentTurnId` 关系，但 UI 汇总没有展示主 turn 的具体 ID；只能确认父子关系存在，不能补写未显示的 ID。
+- 会话级网络资源出现 `/api/conversations/s-44caf861/subagents/events`，主 turn 流为 `/api/turns/t-c83cfcf2/stream`；这与公开 bundle 中的 sub-agent 事件状态机相互印证。
+
+**[结论]：**该实验首次直接证实 Knevo 不是单一线性 tool loop：它能够由主 coordinator 一次派发多个独立、隔离的后台子代理，再由父 turn 通过信号等待和 inspect 汇总。已确认的编排层级为：父 turn → 多个 `spawn_sub_agent` → 独立 session/tool trace → `wait_for_signal` → `inspect_sub_agent` → 父 turn 汇总。
+
+**[失败传播边界]：**本次无失败，只能确认成功路径。子代理返回中声称 `mode=isolated` 时，读取失败会通过 `wait_for_signal` 作为父上下文错误返回，且不会修改父 workspace；这属于子代理 inspect 的设计描述，尚未通过故意失败的实际子任务验证。
+
+**[对 SDK 判断的更新]：**真实运行时使用了 `spawn_sub_agent`、`wait_for_signal`、`inspect_sub_agent` 和 `emit` 这一组 Knevo 业务工具/协议。结合前端 bundle 未出现 `@openai/agents`、`@anthropic-ai/sdk`、`langchain` 或 `langgraph` 指纹，目前最合理的判断是“自建 coordinator 和子代理协议，底层模型 SDK 未知”；仍不能排除服务端在自建层下面调用上述任一 SDK 或直接调用模型 API。
+
+### 13.16 尚待验证
 
 1. 在 Docker 后端健康时，`run_sandbox` 支持的语言、预装库、依赖安装及产物目录读写范围。
 2. 在 Docker 后端健康时，sandbox 脚本能否直接读取 `upload/<session-id>/` 中的用户 CSV，并执行 pandas 等自定义指标计算。
 3. `run_sandbox` 成功运行时是否会返回 stdout、stderr、退出码、工件路径及后台任务状态等完整执行元数据。
 4. sandbox 已经启动后发生脚本运行时错误时，产物、临时文件和 workspace 工件是否会被回滚、保留或标记失败。
-5. 额度恢复后，通过一个明确会触发 sub-agent 的普通任务，观察 `subagent` / `subagent_step` 是否真实出现，并记录其与主 turn 的先后、并行关系和失败传播方式。
+5. 通过故意使用一个不存在的、非敏感的 CSV 路径，验证 sub-agent 工具失败如何经 `wait_for_signal` 传播到父 turn，以及父 workspace 是否保持不变。
 6. 在不触及敏感信息的前提下，比较 `turn.failed`、工具错误和 sub-agent 取消后的事件序列，确认 coordinator 的错误处理和验证门控。
 7. 仅通过服务端可见的响应头、错误体或协议字段，进一步判断底层模型调用是否走 OpenAI/Anthropic 原生 HTTP、通用 agent SDK，或 LangChain/LangGraph 适配层；前端 bundle 本身不足以定案。
