@@ -936,7 +936,7 @@ write_file → run_sandbox → read_file
 - `write_file` 成功生成 `upload/s-44caf861/rollback-probe-20260808-0048.py`，大小为 11 字节，内容为 `print(123)`。
 - `run_sandbox` 获得 `bg-f9231efb`，在容器启动阶段失败；其 `exit_code` 为 `null`，错误仍为 `oryx/sandbox:latest` 镜像不可用。
 - `read_file` 随后确认原路径文件仍存在且内容完整。
-- 没有发现异常堆栈写入脚本、`.cleanup`/`.failed` 后缀文件或自动删除；`outputs/bg-f9231efb` 的 `final_report` �� `null`，只保存 Docker 错误。
+- 没有发现异常堆栈写入脚本、`.cleanup`/`.failed` 后缀文件或自动删除；`outputs/bg-f9231efb` 的 `final_report` 为 `null`，只保存 Docker 错误。
 
 **[结论]：**`write_file` 的 workspace 状态与 `run_sandbox` 的执行状态彼此独立。容器在启动前失败时，不会触发对已写入工件的事务性回滚或失败标记；该结论仅覆盖“sandbox 未启动”的基础设施错误，不覆盖脚本运行中途失败后的清理语义。
 
