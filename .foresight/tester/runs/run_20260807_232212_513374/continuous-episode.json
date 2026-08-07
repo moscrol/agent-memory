@@ -1,0 +1,580 @@
+{
+  "schema_version": 1,
+  "execution_kind": "continuous_episode",
+  "runtime_backend": "continuous_glm",
+  "research_context": {
+    "information_cutoff": {
+      "as_of_date": "2026-08-07",
+      "source": "runtime_default"
+    },
+    "today": "2026-08-07",
+    "latest_data_date": "2026-08-07",
+    "trace_parent_id": "run_20260807_232212_513374:msg_e5043597c0ad4a528896e6e3709143c2"
+  },
+  "contract": {
+    "task_id": "run_20260807_232212_513374:msg_e5043597c0ad4a528896e6e3709143c2",
+    "question": "液冷题材现在怎么看？我之前的判断还成立吗",
+    "subject": "液冷温控",
+    "subject_kind": "theme",
+    "question_type": "theme_analysis",
+    "required_outputs": [
+      {
+        "output_id": "direct_assessment",
+        "description": "直接回答用户问题并说明判断强度",
+        "evidence_types": [
+          "kb_search",
+          "graph_lookup",
+          "news_search",
+          "web_search",
+          "memory_lookup",
+          "finance_query",
+          "evidence_search"
+        ],
+        "required": true,
+        "grounding_mode": "evidence"
+      },
+      {
+        "output_id": "chain_mapping",
+        "description": "chain_mapping",
+        "evidence_types": [
+          "kb_search",
+          "graph_lookup",
+          "news_search",
+          "web_search",
+          "memory_lookup",
+          "finance_query",
+          "evidence_search"
+        ],
+        "required": true,
+        "grounding_mode": "evidence"
+      },
+      {
+        "output_id": "counterpoint",
+        "description": "提供主要反证或竞争性解释",
+        "evidence_types": [
+          "kb_search",
+          "graph_lookup",
+          "news_search",
+          "web_search",
+          "memory_lookup",
+          "finance_query",
+          "evidence_search"
+        ],
+        "required": true,
+        "grounding_mode": "evidence"
+      },
+      {
+        "output_id": "prior_recall",
+        "description": "复述用户此前对该主体的判断或纠偏原则，并说明与当前的差异",
+        "evidence_types": [
+          "kb_search",
+          "graph_lookup",
+          "news_search",
+          "web_search",
+          "memory_lookup",
+          "finance_query",
+          "evidence_search"
+        ],
+        "required": false,
+        "grounding_mode": "user_premise"
+      }
+    ],
+    "allowed_capabilities": [
+      "kb_search",
+      "graph_lookup",
+      "news_search",
+      "web_search",
+      "memory_lookup",
+      "finance_query",
+      "evidence_search"
+    ],
+    "research_tier": "standard",
+    "presentation_profile": "general",
+    "freshness": "current",
+    "timeframe": null,
+    "evidence_plan": {
+      "profile": "general",
+      "freshness": "current",
+      "requirements": []
+    },
+    "contract_version": "1",
+    "task_frame_hash": "72e2a51c38f719e7401940a1b8ea193b9e3ef8f75029768b6d643c193385cf57"
+  },
+  "outcome": {
+    "task_frame_hash": "72e2a51c38f719e7401940a1b8ea193b9e3ef8f75029768b6d643c193385cf57",
+    "status": "failed",
+    "draft": "",
+    "evidence": [],
+    "traces": [],
+    "gaps": [
+      "LLM 调用 HTTP 502"
+    ],
+    "stop_reason": "model_unavailable",
+    "events": [
+      {
+        "sequence": 1,
+        "kind": "task",
+        "payload": {
+          "question": "液冷题材现在怎么看？我之前的判断还成立吗",
+          "task_frame": {
+            "raw_question": "液冷题材现在怎么看？我之前的判断还成立吗",
+            "user_goal": "形成条件化判断",
+            "question_type": "theme_analysis",
+            "subject": "液冷温控",
+            "subject_kind": "theme",
+            "market_scope": "A股",
+            "timeframe": null,
+            "required_outputs": [
+              "direct_assessment",
+              "chain_mapping",
+              "counterpoint"
+            ],
+            "assumptions": [
+              "用户未明确市场范围，按A股市场理解"
+            ],
+            "ambiguities": [],
+            "clarification_question": null,
+            "evidence_policy": "theme_multi_layer_evidence",
+            "confidence": 0.98,
+            "task_frame_hash": "72e2a51c38f719e7401940a1b8ea193b9e3ef8f75029768b6d643c193385cf57"
+          },
+          "task_frame_hash": "72e2a51c38f719e7401940a1b8ea193b9e3ef8f75029768b6d643c193385cf57"
+        }
+      },
+      {
+        "sequence": 2,
+        "kind": "model_turn",
+        "payload": {
+          "content": "",
+          "tool_calls": [],
+          "provider_name": "custom",
+          "error": "LLM 调用 HTTP 502",
+          "provider_attempts": 1,
+          "task_frame_hash": "72e2a51c38f719e7401940a1b8ea193b9e3ef8f75029768b6d643c193385cf57"
+        }
+      },
+      {
+        "sequence": 3,
+        "kind": "model_error",
+        "payload": {
+          "reason": "LLM 调用 HTTP 502",
+          "task_frame_hash": "72e2a51c38f719e7401940a1b8ea193b9e3ef8f75029768b6d643c193385cf57"
+        }
+      },
+      {
+        "sequence": 4,
+        "kind": "finish",
+        "payload": {
+          "status": "failed",
+          "stop_reason": "model_unavailable",
+          "gaps": [
+            "LLM 调用 HTTP 502"
+          ],
+          "task_frame_hash": "72e2a51c38f719e7401940a1b8ea193b9e3ef8f75029768b6d643c193385cf57"
+        }
+      }
+    ],
+    "bindings": [],
+    "usage": {
+      "llm_calls": 1,
+      "tool_calls": 0,
+      "invalid_actions": 0
+    },
+    "plan": null
+  },
+  "events": [
+    {
+      "sequence": 1,
+      "kind": "task",
+      "payload": {
+        "question": "液冷题材现在怎么看？我之前的判断还成立吗",
+        "task_frame": {
+          "raw_question": "液冷题材现在怎么看？我之前的判断还成立吗",
+          "user_goal": "形成条件化判断",
+          "question_type": "theme_analysis",
+          "subject": "液冷温控",
+          "subject_kind": "theme",
+          "market_scope": "A股",
+          "timeframe": null,
+          "required_outputs": [
+            "direct_assessment",
+            "chain_mapping",
+            "counterpoint"
+          ],
+          "assumptions": [
+            "用户未明确市场范围，按A股市场理解"
+          ],
+          "ambiguities": [],
+          "clarification_question": null,
+          "evidence_policy": "theme_multi_layer_evidence",
+          "confidence": 0.98,
+          "task_frame_hash": "72e2a51c38f719e7401940a1b8ea193b9e3ef8f75029768b6d643c193385cf57"
+        },
+        "task_frame_hash": "72e2a51c38f719e7401940a1b8ea193b9e3ef8f75029768b6d643c193385cf57"
+      }
+    },
+    {
+      "sequence": 2,
+      "kind": "model_turn",
+      "payload": {
+        "content": "",
+        "tool_calls": [],
+        "provider_name": "custom",
+        "error": "LLM 调用 HTTP 502",
+        "provider_attempts": 1,
+        "task_frame_hash": "72e2a51c38f719e7401940a1b8ea193b9e3ef8f75029768b6d643c193385cf57"
+      }
+    },
+    {
+      "sequence": 3,
+      "kind": "model_error",
+      "payload": {
+        "reason": "LLM 调用 HTTP 502",
+        "task_frame_hash": "72e2a51c38f719e7401940a1b8ea193b9e3ef8f75029768b6d643c193385cf57"
+      }
+    },
+    {
+      "sequence": 4,
+      "kind": "finish",
+      "payload": {
+        "status": "failed",
+        "stop_reason": "model_unavailable",
+        "gaps": [
+          "LLM 调用 HTTP 502"
+        ],
+        "task_frame_hash": "72e2a51c38f719e7401940a1b8ea193b9e3ef8f75029768b6d643c193385cf57"
+      }
+    }
+  ],
+  "traces": [],
+  "structural_verifier": {
+    "verified_status": "failed",
+    "issues": [
+      "missing required output: direct_assessment",
+      "missing required output: chain_mapping",
+      "missing required output: counterpoint"
+    ],
+    "completion": {
+      "status": "partial",
+      "business_status": "partial",
+      "factual_grounding": "partial",
+      "causal_adequacy": "unknown",
+      "task_coverage": "partial",
+      "outputs": [
+        {
+          "output_id": "direct_assessment",
+          "status": "missing",
+          "evidence_ids": [],
+          "gap": "仍缺少：直接回答用户问题并说明判断强度"
+        },
+        {
+          "output_id": "chain_mapping",
+          "status": "missing",
+          "evidence_ids": [],
+          "gap": "仍缺少：chain_mapping"
+        },
+        {
+          "output_id": "counterpoint",
+          "status": "missing",
+          "evidence_ids": [],
+          "gap": "仍缺少：提供主要反证或竞争性解释"
+        },
+        {
+          "output_id": "prior_recall",
+          "status": "gap",
+          "evidence_ids": [],
+          "gap": "仍缺少：复述用户此前对该主体的判断或纠偏原则，并说明与当前的差异"
+        }
+      ]
+    },
+    "outcome": {
+      "task_frame_hash": "72e2a51c38f719e7401940a1b8ea193b9e3ef8f75029768b6d643c193385cf57",
+      "status": "failed",
+      "draft": "",
+      "evidence": [],
+      "traces": [],
+      "gaps": [
+        "LLM 调用 HTTP 502"
+      ],
+      "stop_reason": "model_unavailable",
+      "events": [
+        {
+          "sequence": 1,
+          "kind": "task",
+          "payload": {
+            "question": "液冷题材现在怎么看？我之前的判断还成立吗",
+            "task_frame": {
+              "raw_question": "液冷题材现在怎么看？我之前的判断还成立吗",
+              "user_goal": "形成条件化判断",
+              "question_type": "theme_analysis",
+              "subject": "液冷温控",
+              "subject_kind": "theme",
+              "market_scope": "A股",
+              "timeframe": null,
+              "required_outputs": [
+                "direct_assessment",
+                "chain_mapping",
+                "counterpoint"
+              ],
+              "assumptions": [
+                "用户未明确市场范围，按A股市场理解"
+              ],
+              "ambiguities": [],
+              "clarification_question": null,
+              "evidence_policy": "theme_multi_layer_evidence",
+              "confidence": 0.98,
+              "task_frame_hash": "72e2a51c38f719e7401940a1b8ea193b9e3ef8f75029768b6d643c193385cf57"
+            },
+            "task_frame_hash": "72e2a51c38f719e7401940a1b8ea193b9e3ef8f75029768b6d643c193385cf57"
+          }
+        },
+        {
+          "sequence": 2,
+          "kind": "model_turn",
+          "payload": {
+            "content": "",
+            "tool_calls": [],
+            "provider_name": "custom",
+            "error": "LLM 调用 HTTP 502",
+            "provider_attempts": 1,
+            "task_frame_hash": "72e2a51c38f719e7401940a1b8ea193b9e3ef8f75029768b6d643c193385cf57"
+          }
+        },
+        {
+          "sequence": 3,
+          "kind": "model_error",
+          "payload": {
+            "reason": "LLM 调用 HTTP 502",
+            "task_frame_hash": "72e2a51c38f719e7401940a1b8ea193b9e3ef8f75029768b6d643c193385cf57"
+          }
+        },
+        {
+          "sequence": 4,
+          "kind": "finish",
+          "payload": {
+            "status": "failed",
+            "stop_reason": "model_unavailable",
+            "gaps": [
+              "LLM 调用 HTTP 502"
+            ],
+            "task_frame_hash": "72e2a51c38f719e7401940a1b8ea193b9e3ef8f75029768b6d643c193385cf57"
+          }
+        }
+      ],
+      "bindings": [],
+      "usage": {
+        "llm_calls": 1,
+        "tool_calls": 0,
+        "invalid_actions": 0
+      },
+      "plan": null
+    },
+    "missing_outputs": [
+      "direct_assessment",
+      "chain_mapping",
+      "counterpoint"
+    ],
+    "mandatory_missing_capabilities": []
+  },
+  "semantic_verifier": {
+    "status": "failed",
+    "public_answer": "关于“液冷题材现在怎么看？我之前的判断还成立吗”，现有证据不足，暂不能可靠回答。仍需核验：直接回答用户问题并说明判断强度、chain_mapping、提供主要反证或竞争性解释",
+    "judge_status": "unavailable",
+    "issues": [
+      "missing required output: direct_assessment",
+      "missing required output: chain_mapping",
+      "missing required output: counterpoint"
+    ],
+    "correlated_judge": false,
+    "gap_output_ids": [],
+    "rejected_claim_indexes": [],
+    "repair_output_ids": [
+      "direct_assessment",
+      "chain_mapping",
+      "counterpoint"
+    ],
+    "verified": {
+      "verified_status": "failed",
+      "issues": [
+        "missing required output: direct_assessment",
+        "missing required output: chain_mapping",
+        "missing required output: counterpoint"
+      ],
+      "completion": {
+        "status": "partial",
+        "business_status": "partial",
+        "factual_grounding": "partial",
+        "causal_adequacy": "unknown",
+        "task_coverage": "partial",
+        "outputs": [
+          {
+            "output_id": "direct_assessment",
+            "status": "missing",
+            "evidence_ids": [],
+            "gap": "仍缺少：直接回答用户问题并说明判断强度"
+          },
+          {
+            "output_id": "chain_mapping",
+            "status": "missing",
+            "evidence_ids": [],
+            "gap": "仍缺少：chain_mapping"
+          },
+          {
+            "output_id": "counterpoint",
+            "status": "missing",
+            "evidence_ids": [],
+            "gap": "仍缺少：提供主要反证或竞争性解释"
+          },
+          {
+            "output_id": "prior_recall",
+            "status": "gap",
+            "evidence_ids": [],
+            "gap": "仍缺少：复述用户此前对该主体的判断或纠偏原则，并说明与当前的差异"
+          }
+        ]
+      },
+      "outcome": {
+        "task_frame_hash": "72e2a51c38f719e7401940a1b8ea193b9e3ef8f75029768b6d643c193385cf57",
+        "status": "failed",
+        "draft": "",
+        "evidence": [],
+        "traces": [],
+        "gaps": [
+          "LLM 调用 HTTP 502"
+        ],
+        "stop_reason": "model_unavailable",
+        "events": [
+          {
+            "sequence": 1,
+            "kind": "task",
+            "payload": {
+              "question": "液冷题材现在怎么看？我之前的判断还成立吗",
+              "task_frame": {
+                "raw_question": "液冷题材现在怎么看？我之前的判断还成立吗",
+                "user_goal": "形成条件化判断",
+                "question_type": "theme_analysis",
+                "subject": "液冷温控",
+                "subject_kind": "theme",
+                "market_scope": "A股",
+                "timeframe": null,
+                "required_outputs": [
+                  "direct_assessment",
+                  "chain_mapping",
+                  "counterpoint"
+                ],
+                "assumptions": [
+                  "用户未明确市场范围，按A股市场理解"
+                ],
+                "ambiguities": [],
+                "clarification_question": null,
+                "evidence_policy": "theme_multi_layer_evidence",
+                "confidence": 0.98,
+                "task_frame_hash": "72e2a51c38f719e7401940a1b8ea193b9e3ef8f75029768b6d643c193385cf57"
+              },
+              "task_frame_hash": "72e2a51c38f719e7401940a1b8ea193b9e3ef8f75029768b6d643c193385cf57"
+            }
+          },
+          {
+            "sequence": 2,
+            "kind": "model_turn",
+            "payload": {
+              "content": "",
+              "tool_calls": [],
+              "provider_name": "custom",
+              "error": "LLM 调用 HTTP 502",
+              "provider_attempts": 1,
+              "task_frame_hash": "72e2a51c38f719e7401940a1b8ea193b9e3ef8f75029768b6d643c193385cf57"
+            }
+          },
+          {
+            "sequence": 3,
+            "kind": "model_error",
+            "payload": {
+              "reason": "LLM 调用 HTTP 502",
+              "task_frame_hash": "72e2a51c38f719e7401940a1b8ea193b9e3ef8f75029768b6d643c193385cf57"
+            }
+          },
+          {
+            "sequence": 4,
+            "kind": "finish",
+            "payload": {
+              "status": "failed",
+              "stop_reason": "model_unavailable",
+              "gaps": [
+                "LLM 调用 HTTP 502"
+              ],
+              "task_frame_hash": "72e2a51c38f719e7401940a1b8ea193b9e3ef8f75029768b6d643c193385cf57"
+            }
+          }
+        ],
+        "bindings": [],
+        "usage": {
+          "llm_calls": 1,
+          "tool_calls": 0,
+          "invalid_actions": 0
+        },
+        "plan": null
+      },
+      "missing_outputs": [
+        "direct_assessment",
+        "chain_mapping",
+        "counterpoint"
+      ],
+      "mandatory_missing_capabilities": []
+    }
+  },
+  "semantic_verifier_stale": false,
+  "repair_attempts": 0,
+  "repair_cycles": 0,
+  "metrics": {
+    "provider_attempts": 1,
+    "tool_calls": 0,
+    "duplicate_queries": 0,
+    "structural_status": "failed",
+    "semantic_status": "unavailable"
+  },
+  "task_frame": {
+    "raw_question": "液冷题材现在怎么看？我之前的判断还成立吗",
+    "user_goal": "形成条件化判断",
+    "question_type": "theme_analysis",
+    "subject": "液冷温控",
+    "subject_kind": "theme",
+    "market_scope": "A股",
+    "timeframe": null,
+    "required_outputs": [
+      "direct_assessment",
+      "chain_mapping",
+      "counterpoint"
+    ],
+    "assumptions": [
+      "用户未明确市场范围，按A股市场理解"
+    ],
+    "ambiguities": [],
+    "clarification_question": null,
+    "evidence_policy": "theme_multi_layer_evidence",
+    "confidence": 0.98,
+    "task_frame_hash": "72e2a51c38f719e7401940a1b8ea193b9e3ef8f75029768b6d643c193385cf57"
+  },
+  "turn_intent": {
+    "primary_subject": "液冷温控",
+    "secondary_topics": [],
+    "question_type": "theme_analysis",
+    "answer_owner": "theme-research",
+    "comparison_entities": [],
+    "inherited_from_turn": null,
+    "evidence_atom_ids": [],
+    "skill_ids": [],
+    "stage_artifact_ids": [],
+    "time_horizon": "unspecified",
+    "operators": [],
+    "required_outputs": [
+      "direct_assessment",
+      "chain_mapping",
+      "counterpoint"
+    ],
+    "timeframe": null,
+    "task_frame_hash": "72e2a51c38f719e7401940a1b8ea193b9e3ef8f75029768b6d643c193385cf57",
+    "pending_task_frame": null,
+    "clarification_rounds": 0
+  }
+}
