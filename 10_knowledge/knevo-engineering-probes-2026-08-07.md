@@ -1038,7 +1038,85 @@ inspect_sub_agent → B
 
 **[对 SDK 判断的更新]：**真实运行时使用了 `spawn_sub_agent`、`wait_for_signal`、`inspect_sub_agent` 和 `emit` 这一组 Knevo 业务工具/协议。结合前端 bundle 未出现 `@openai/agents`、`@anthropic-ai/sdk`、`langchain` 或 `langgraph` 指纹，目前最合理的判断是“自建 coordinator 和子代理协议，底层模型 SDK 未知”；仍不能排除服务端在自建层下面调用上述任一 SDK 或直接调用模型 API。
 
-### 13.16 尚待验证
+### 13.16 工具输入、完成事件与返回值处理（历史 SSE 实测）
+
+**分析范围：** `/tmp/knevo-probe-out.json` 与 `/tmp/k1-out.json` 中已保存的历史 SSE。解析时以 `item.id`/`itemId` 关联同一工具调用的 `item.started` 与 `item.completed`，并同时检查 `item.delta` 和 turn 级结束事件。
+
+**[协议形状]**
+
+```text
+item.started
+  { seq, type, turnId, conversationId, createdAt,
+    item: { id, turnId, kind, status, name, title, category, input? } }
+
+item.completed
+  { seq, type, turnId, conversationId, createdAt, itemId,
+    final: { status, output? | input? } }
+
+item.delta
+  { seq, type, turnId, conversationId, createdAt, itemId,
+    delta: { kind: "text", text } }
+
+turn.completed
+  { seq, type, turnId, conversationId, createdAt,
+    usage, credits, freeTurn }
+```
+
+这表明工具输入和工具最终返回值不是固定放在同一事件中：调用参数通常出现在 `item.started.item.input`；工具返回值在已捕获的成功案例中出现在对应 `item.completed.final.output`；模型面向用户的解释或汇总则通过后续 `item.delta.delta.text` 输出。`item.completed.final` 也可能只有 `{status: "success"}`，因此不能把完成状态当成工具业务返回值。
+
+**[已观察到的输入]**
+
+- `read_file`：`{"path":"upload/s-44caf861/knevo-upload-probe.csv"}`，或读取不存在文件时使用相同的单字段 `path` 结构。
+- `write_file`：使用 `path` 与 `contentStats`，例如 `{"path":"task_a.py","contentStats":{"chars":11,"bytes":11,"lines":2}}`。SSE 的工具输入只暴露内容统计，不暴露完整文件正文。
+- `load_workflow`：`{"workflow_id":"finance-review-check"}`。
+- `finance_memory_stage_extraction`：`{"sourceLabel":"","summary":"本窗口没有符合长期记忆标准的内容","candidateCount":0,"contextDigest":""}`。从该样本只能确认记忆候选提取接口的入参命名，不能推断其内部数据库查询语句或知识库检索实现。
+- `run_sandbox`、`wait_for_signal`、`inspect_sub_agent` 的部分 `item.started` 事件没有 `input` 字段；这可能是输入被其他事件/后台任务记录，或者该工具的公开事件模型不回显参数，现有流不足以进一步判断。
+
+**[已观察到的结构化输出]**
+
+- `finance_memory_stage_extraction`：
+
+  ```json
+  {"ok":true,"batchId":null,"status":"empty","candidateCount":0,"summary":"本窗口没有符合长期记忆标准的内容"}
+  ```
+
+  该返回值表达的是“本窗口没有候选”的空结果，并包含 `ok`、批次标识、状态、候选数量和摘要；当前样本没有观察到候选非空时的数组结构，也没有观察到写入知识库的结果。
+
+- `load_workflow`：
+
+  ```json
+  {"ok":true,"workflow_id":"finance-review-check","label":"投研事实审查","domain":"finance","executionKind":"sub_agent","preset":"finance-reviewer","primarySkillId":"finance-review-check","publicSummary":"对投研报告/观点/结论做 6 维事实与质量审查(数值/实体/来源/逻辑/时效/完整性),输出修订版报告。"}
+  ```
+
+  该工具返回的是 workflow 元数据和路由信息，不是 workflow 执行结果。`executionKind= sub_agent` 与随后是否真的创建子代理属于两个不同层次，不能仅凭该返回值断言已经执行。
+
+- `write_file`：返回 `ok`、规范化后的 `path`、字节数、可读字节数、总行数、变更前后行数、增删行数及 `requested_path`。例如成功写入 `task_a.py` 时返回 `bytes=11`、`lines_after=2`、`added_lines=2`。
+- `read_file`：当前已捕获的完成事件主要是 `{status:"success", input:{...}}` 或仅 `{status:"success"}`，文件的实际内容没有作为同一 `final.output` 结构化字段出现；实际内容被后续 assistant 文本通过 `item.delta` 汇总出来，例如 CSV 表头、非空行数和最后一行。因而不能把汇总文本误当作 `read_file` 的原始 JSON 返回格式。
+- `run_sandbox`：当前样本的 `item.completed.final` 只有 `{status:"success"}`，但后续文本记录了后台任务 ID 和 Docker 镜像拉取失败。该样本不能证明 sandbox 成功执行时的 stdout、stderr、退出码或工件字段，因为实际 sandbox 没有启动。
+
+**[返回数据的上层处理]**
+
+观察到的处理链可以写成：
+
+```text
+工具调用参数
+  → item.started.item.input
+工具执行完成
+  → item.completed.final.output（若工具返回结构化业务值）
+  → item.completed.final.status（仅完成/失败状态时）
+模型/编排层解释
+  → item.delta.delta.text
+turn 收尾
+  → turn.completed（usage、credits、freeTurn）
+```
+
+`read_file` 的 CSV 原始事实先由工具提供给 agent，再由 agent 在 `item.delta` 中做计数、字段对比和结论汇总；`load_workflow` 返回的路由元数据则被用于说明审查 workflow 的性质，而不是直接当作审查报告。现有证据支持“工具输出先进入编排/模型上下文，再由文本事件生成用户可读结果”，但不能仅凭 SSE 还原服务端内部是如何把 JSON 注入模型上下文的。
+
+**[数据库与知识库边界]**
+
+本批样本中没有捕获到名称明确的 SQL、DuckDB、RAG、向量检索或知识库搜索工具调用。唯一与记忆/知识库边界直接相关的工具是 `finance_memory_stage_extraction`，其样本表现为“提取候选并返回 empty”，而不是已确认的落库操作；`batchId:null`、`candidateCount:0` 反而说明该次没有产生可供后续写入的候选。因此目前只能确认接口契约的外层字段，不能声称已经探明 Knevo 的数据库调用、知识库检索、写入事务或返回结果归一化逻辑。
+
+### 13.17 尚待验证
 
 1. 在 Docker 后端健康时，`run_sandbox` 支持的语言、预装库、依赖安装及产物目录读写范围。
 2. 在 Docker 后端健康时，sandbox 脚本能否直接读取 `upload/<session-id>/` 中的用户 CSV，并执行 pandas 等自定义指标计算。
@@ -1047,3 +1125,5 @@ inspect_sub_agent → B
 5. 通过故意使用一个不存在的、非敏感的 CSV 路径，验证 sub-agent 工具失败如何经 `wait_for_signal` 传播到父 turn，以及父 workspace 是否保持不变。
 6. 在不触及敏感信息的前提下，比较 `turn.failed`、工具错误和 sub-agent 取消后的事件序列，确认 coordinator 的错误处理和验证门控。
 7. 仅通过服务端可见的响应头、错误体或协议字段，进一步判断底层模型调用是否走 OpenAI/Anthropic 原生 HTTP、通用 agent SDK，或 LangChain/LangGraph 适配层；前端 bundle 本身不足以定案。
+8. 捕获 `finance_memory_stage_extraction` 的非空候选样本，确认候选数组、去重/批次字段、写入前确认和实际落库工具是否存在。
+9. 捕获一个真实数据库或知识库检索 workflow，确认其工具名、参数 schema、分页/限制字段、错误格式及结果如何进入后续 agent 上下文。
