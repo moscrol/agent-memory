@@ -1,0 +1,21 @@
+{
+  "run_id": "run_20260808_013201_410062",
+  "user": "linxiaoqi5111",
+  "question": "液冷题材现在怎么看？我之前的判断还成立吗",
+  "task_type": "ask",
+  "status": "running",
+  "schema_version": 1,
+  "session_id": "conv_efc414eca58347869e8edb5861c56956",
+  "parent_run_id": null,
+  "created_at": "2026-08-08T01:32:01+08:00",
+  "finished_at": null,
+  "source_date": null,
+  "duckdb_cutoff": null,
+  "kb_commit": null,
+  "kb_index_built_at": null,
+  "kb_index_freshness": null,
+  "manifest_ref": null,
+  "degrades": [],
+  "error": null,
+  "artifacts": []
+}
