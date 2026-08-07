@@ -1002,8 +1002,9 @@ stack_trace
 - 页面返回上游错误：HTTP 403，错误类型为 `insufficient_user_quota`，提示用户额度不足；没有可用的 turn id。
 - 该请求之后没有新增对应的 `/api/conversations/<id>/turns` 或 `/api/turns/<id>/stream` 资源记录；既有的 `/api/conversations/<id>/subagents/events` 只是会话级事件订阅，不能证明本次创建了子代理。
 - 因为 turn 在额度/鉴权层之前或之处被截断，本次不能观察真实的父子任务、并行关系或失败传播。
+- 随后在页面运行时直接请求 `/api/subscription`，得到 HTTP 401 `missing bearer token`。这不是对已登录应用请求的完整复现：应用自身通过封装请求函数附加认证，而裸 `fetch` 不会自动添加该 bearer。该结果只能证明 API 端点本身有认证门控，不能单独归因于额度不足。
 
-**[结论]：**额度/鉴权是 agent coordinator 之前的前置门控，至少可以阻止 turn 创建和后续编排。该失败路径不应与 `turn.failed` 混为一类：本次没有 turn，因此也没有 `turn.failed` 事件。
+**[结论]：**额度/鉴权是 agent coordinator 之前的前置门控，至少可以阻止 turn 创建和后续编排。该失败路径不应与 `turn.failed` 混为一类：本次没有 turn，因此也没有 `turn.failed` 事件。对裸 API 的 401 还说明认证由前端请求封装层注入，不能用未带认证的直接 fetch 代替真实应用调用。
 
 ### 13.15 尚待验证
 
