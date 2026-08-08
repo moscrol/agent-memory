@@ -1321,7 +1321,7 @@ turn.failed     -> error
 只读条件下，下一步优先级应为：
 
 1. 在已有、仍保留 tool item 的历史会话中，按 `entityRefs`、`fundacore`、`recommended_decision`、`subagent_divider` 和 `stack_trace` 分类，建立“出现条件 - item schema - turn 终态”矩阵。
-2. 从前端 API 封装及已加载代码继续定位 streaming URL 的 `since`/`lastSeq` 查询参数、重连与 turn 状态轮询的边界；不连接新的或仍在运行的 stream。
+2. 从前端 API 封装及已加载代码继续观察 `?after={lastSeq}` 的补帧边界、重连与 turn 状态轮询；不连接新的或仍在运行的 stream。
 3. 仅在用户明确允许创建一条无副作用测试 turn 后，以固定非敏感短语比较 `databaseIds:["fundacore"]`、`["finmemory"]`、两者合并的服务端 observable 差异；这一步会消耗积分并改变会话状态，当前未执行。
 
 ### 13.19 尚待验证
@@ -1337,5 +1337,5 @@ turn.failed     -> error
 9. 捕获一个真实数据库或知识库检索 workflow，确认其工具名、参数 schema、分页/限制字段、错误格式及结果如何进入后续 agent 上下文。
 10. 捕获独立图谱实体/关系返回，或获得只读、已有请求的网络记录，确认 `fundacore` 的实体 schema、关系方向、分页与错误格式。
 11. 在不新建 turn 的条件下，补齐一个保留 `turn.failed` 的历史 transcript，确认顶层 `error` 与客户端合成 `stack_trace` 的字段。
-12. 观察 SSE 重连后的 `seq`、`lastSeq`/`since` 参数和补帧行为，确认断线窗口与重复事件处理。
+12. 观察 SSE 重连后的 `seq`、`?after={lastSeq}` 补帧参数和重放行为，确认断线窗口与重复事件处理。
 13. 在经用户许可的新建测试 turn 中，对不同 `databaseIds` 组合做最小对照，验证选择范围是否影响工具选择、模型提示词或最终命中内容。
