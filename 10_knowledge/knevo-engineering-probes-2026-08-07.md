@@ -1116,7 +1116,117 @@ turn 收尾
 
 本批样本中没有捕获到名称明确的 SQL、DuckDB、RAG、向量检索或知识库搜索工具调用。唯一与记忆/知识库边界直接相关的工具是 `finance_memory_stage_extraction`，其样本表现为“提取候选并返回 empty”，而不是已确认的落库操作；`batchId:null`、`candidateCount:0` 反而说明该次没有产生可供后续写入的候选。因此目前只能确认接口契约的外层字段，不能声称已经探明 Knevo 的数据库调用、知识库检索、写入事务或返回结果归一化逻辑。
 
-### 13.17 尚待验证
+### 13.17 风远与金融本体图谱抽象（只读探针）
+
+**探针范围：** 本节只读取已登录页面的数据库选择器、`localStorage`、前端 bundle 和历史会话的 `/api/chat/bootstrap` transcript snapshot；未发送新的语义检索请求，未触发写入，也未读取用户金融记忆作为本次目标。
+
+#### 13.17.1 UI 定义与内部 ID
+
+数据库选择器显示三个数据库源：
+
+| UI 名称 | 内部 ID | UI 描述 | 本次状态 |
+|---|---|---|---|
+| 用户金融记忆 | `user-finmemory` | `Current user's private finance memory; read/write.` | 未选中 |
+| 风远94共享数据库 | `finmemory` | `Shared finance memory; read-only for normal users.` | 已选中 |
+| 金融本体图谱 | `fundacore` | `Structured facts and graph context from FundaCore.` | 已选中 |
+
+选择状态存储在 `localStorage` 键 `knevo.composer.databaseSelection`，实测值为：
+
+```json
+{"value":"{\\"user-finmemory\\":false,\\"finmemory\\":true,\\"fundacore\\":true}"}
+```
+
+前端 composer 提交消息时将选中的 ID 组装为 `databaseIds` 字段；bundle 中对应逻辑为 `databaseIds: _e`。因此，选择器本身是数据库范围声明/请求参数生成器，不是数据库内容面板，也不能仅凭前端组件推断后端存储实现。
+
+#### 13.17.2 风远94共享数据库：实测的检索与内容形态
+
+历史会话中捕获到的工具名为 `finance_memory_query`。已观察到的输入形态：
+
+```json
+{"query":"三浪 金叉 量价 确认","limit":5}
+```
+
+对应的工具输出顶层字段为：
+
+```json
+{
+  "ok": true,
+  "query": "...",
+  "sources": "...",
+  "count": 5,
+  "items": [...],
+  "ownershipNote": "..."
+}
+```
+
+风远条目的稳定字段集合为：
+
+```json
+{
+  "id": "fmr-...",
+  "sourceId": "finmemory",
+  "sourceLabel": "风远94共享数据库",
+  "ownership": "shared",
+  "kind": "fact | observation | event | insight | reasoning_pattern",
+  "title": "...",
+  "preview": "...",
+  "tags": [...],
+  "entityRefs": [...],
+  "confidence": 0.85,
+  "updatedAt": "..."
+}
+```
+
+`entityRefs` 是风远内容与图谱实体之间的连接点，已观察到的引用形态包括：
+
+```json
+{
+  "mention": "深南电路",
+  "entityId": "fent-...",
+  "entityType": "stock",
+  "identifiers": {"ticker": "002916"},
+  "canonicalName": "深南电路",
+  "graphConfidence": 0.98
+}
+```
+
+也观察到 `source: "knevo_finmemory"`、`sourceEntityId`、`graphStatus: "entity_not_found"`、`graphStatus: "created_from_extraction"` 等引用状态。这说明风远条目不是纯文本列表，而是“记忆条目 + 来源/所有权 + 类型 + 标签 + 实体引用 + 置信度/时间”的混合结构。内容本身覆盖事实、事件、观点洞察和可迁移推理模式；其中 `reasoning_pattern` 属于方法/框架性知识，不能自动等同于已验证事实。
+
+#### 13.17.3 金融本体图谱：已证实的边界
+
+当前已证实本体图谱作为独立数据库源存在于 bootstrap 的 `databases` 数组和 UI 选择器中，内部 ID 是 `fundacore`，描述明确为 FundaCore 提供的“结构化事实与图谱上下文”。选择器允许它与 `finmemory` 同时勾选，说明请求层支持多源联合上下文。
+
+但在已保存的历史 transcript 中，尚未捕获到名称明确的 `fundacore`/`finance_ontology` 独立工具调用，也未观察到条目使用 `sourceLabel: "金融本体图谱"`。已有风远结果中的 `entityRefs` 已出现 `entityId`、`entityType`、`canonicalName`、`graphConfidence`、`graphStatus` 等图谱关联字段，因此目前最稳妥的抽象是：
+
+```text
+finmemory / 风远94共享数据库
+  = 可检索的共享记忆条目层
+  = fact / observation / event / insight / reasoning_pattern
+  + entityRefs
+
+fundacore / 金融本体图谱
+  = 可选的结构化事实与图谱上下文层
+  = 负责实体规范化、实体类型、标识符和关系/置信度上下文的候选来源
+  = 独立检索工具、关系返回字段和注入顺序尚未直接观测
+```
+
+上面最后一行是“基于 UI 描述与风远 `entityRefs` 字段的边界性抽象”，不是对 FundaCore 后端实现的定案。当前不能声称已读出本体图谱的完整实体目录、关系表、查询 DSL、分页协议或独立返回 JSON。
+
+#### 13.17.4 二者的抽象对照
+
+| 维度 | 风远94共享数据库 | 金融本体图谱 |
+|---|---|---|
+| 主要角色 | 共享研究记忆/观点资料库 | 结构化事实与图谱上下文 |
+| 内容粒度 | 条目、事件、观点、规则/推理模式 | 实体、类型、标识符、规范化和关系上下文（部分由引用字段可见） |
+| 可见入口 | `finance_memory_query` 历史实测 | 数据库选择器与 `databaseIds` 透传已实测 |
+| 权限 | 普通用户只读 | 本次未观察到写入口；权限细节未定案 |
+| 典型证据 | `sourceId=finmemory`、`ownership=shared`、`kind`、`title/preview` | `entityId`、`entityType`、`canonicalName`、`graphConfidence`、`graphStatus` |
+| 主要风险 | 观点/推理模式可能被误读为事实；共享库存在来源、反例和验证状态缺口 | 图谱关联可能被误读为事实证明；独立检索和关系方向尚未验证 |
+| 当前结论 | 已直接探明外层检索契约和内容形态 | 只探明选择/配置层及与记忆条目的关联痕迹 |
+
+**抽象结论：** 两者不是“用户金融记忆”的同义名称。风远是共享知识条目层，承担研究材料、事实记录、事件、洞察和方法论的可检索承载；本体图谱是与之并列可选的结构化事实/关系上下文层。实际 agent 回答很可能通过 `databaseIds` 同时请求两层，再把风远条目与实体图谱引用拼接到模型上下文，但“很可能”部分尚未由独立本体工具事件直接证实。
+
+### 13.18 尚待验证
 
 1. 在 Docker 后端健康时，`run_sandbox` 支持的语言、预装库、依赖安装及产物目录读写范围。
 2. 在 Docker 后端健康时，sandbox 脚本能否直接读取 `upload/<session-id>/` 中的用户 CSV，并执行 pandas 等自定义指标计算。
