@@ -1069,7 +1069,7 @@ turn.completed
 - `read_file`：`{"path":"upload/s-44caf861/knevo-upload-probe.csv"}`，或读取不存在文件时使用相同的单字段 `path` 结构。
 - `write_file`：使用 `path` 与 `contentStats`，例如 `{"path":"task_a.py","contentStats":{"chars":11,"bytes":11,"lines":2}}`。SSE 的工具输入只暴露内容统计，不暴露完整文件正文。
 - `load_workflow`：`{"workflow_id":"finance-review-check"}`。
-- `finance_memory_stage_extraction`：`{"sourceLabel":"","summary":"本窗口没有符合长期记忆标准的内容","candidateCount":0,"contextDigest":""}`。从该样本只能确认记忆候选提取接口的入参命名，不能推断其内部数据库查询语句或知识库检索实现。
+- `finance_memory_stage_extraction`：空样本输入为 `{"sourceLabel":"","summary":"本窗口没有符合长期记忆标准的内容","candidateCount":0,"contextDigest":""}`；非空样本还可包含 `source_label`、`summary`、`context_digest` 和 `candidates[]`。每个候选至少出现 `kind`、`title`、`content`、`tags`、`entity_refs`、`confidence`、`importance`。这确认候选提取接口的外层入参形状，但不能推断其内部数据库查询语句或知识库检索实现。
 - `run_sandbox`、`wait_for_signal`、`inspect_sub_agent` 的部分 `item.started` 事件没有 `input` 字段；这可能是输入被其他事件/后台任务记录，或者该工具的公开事件模型不回显参数，现有流不足以进一步判断。
 
 **[已观察到的结构化输出]**
@@ -1080,7 +1080,7 @@ turn.completed
   {"ok":true,"batchId":null,"status":"empty","candidateCount":0,"summary":"本窗口没有符合长期记忆标准的内容"}
   ```
 
-  该返回值表达的是“本窗口没有候选”的空结果，并包含 `ok`、批次标识、状态、候选数量和摘要；当前样本没有观察到候选非空时的数组结构，也没有观察到写入知识库的结果。
+  该返回值表达的是“本窗口没有候选”的空结果，并包含 `ok`、批次标识、状态、候选数量和摘要。另一个当前可复核的历史样本返回 `{"ok":true,"batchId":"fmext-...","status":"pending","candidateCount":2,"items":[...]}`：`items[]` 中每项为候选 `id`、`title`、`content`。因此，`pending` 是“候选已暂存、尚待后续接受/拒绝”的可见状态，不等于已经写入长期记忆；本轮仍未观察到接受批次后的持久化结果。另有同类调用返回 `{"ok":false,"error":"artifact is not visible to this user"}`，说明 artifact 可见性会在该阶段阻断候选提取。
 
 - `load_workflow`：
 
@@ -1114,7 +1114,7 @@ turn 收尾
 
 **[数据库与知识库边界]**
 
-本批样本中没有捕获到名称明确的 SQL、DuckDB、RAG、向量检索或知识库搜索工具调用。唯一与记忆/知识库边界直接相关的工具是 `finance_memory_stage_extraction`，其样本表现为“提取候选并返回 empty”，而不是已确认的落库操作；`batchId:null`、`candidateCount:0` 反而说明该次没有产生可供后续写入的候选。因此目前只能确认接口契约的外层字段，不能声称已经探明 Knevo 的数据库调用、知识库检索、写入事务或返回结果归一化逻辑。
+本批样本中没有捕获到名称明确的 SQL、DuckDB、RAG 或向量检索工具调用。`finance_memory_stage_extraction` 已同时出现 `empty`、候选 `pending` 和 artifact 不可见错误三类外层结果，但没有观察到接受候选后的长期记忆持久化结果。因此目前只能确认候选提取接口的外层字段，不能声称已经探明 Knevo 的底层数据库调用、写入事务或最终结果归一化逻辑。
 
 ### 13.17 风远与金融本体图谱抽象（只读探针）
 
@@ -1196,7 +1196,23 @@ turn 收尾
 
 当前已证实本体图谱作为独立数据库源存在于 bootstrap 的 `databases` 数组和 UI 选择器中，内部 ID 是 `fundacore`，描述明确为 FundaCore 提供的“结构化事实与图谱上下文”。选择器允许它与 `finmemory` 同时勾选，说明请求层支持多源联合上下文。
 
-但在已保存的历史 transcript 中，尚未捕获到名称明确的 `fundacore`/`finance_ontology` 独立工具调用，也未观察到条目使用 `sourceLabel: "金融本体图谱"`。已有风远结果中的 `entityRefs` 已出现 `entityId`、`entityType`、`canonicalName`、`graphConfidence`、`graphStatus` 等图谱关联字段，因此目前最稳妥的抽象是：
+当前可复核的历史 turn 另包含两条独立图谱工具通路：
+
+```text
+finance_entity_resolve
+  input:  mentions[], entity_types[], limit
+  output: results[].mention + candidates[]
+          { entityId?, canonicalName, entityType, confidence, why, suggestedAction }
+
+finance_graph_context
+  input:  query, entity_type?, graph_hops, max_facts, max_edges, max_evidence, sources:["fundacore"]
+  output: centerEntityIds, counts, entities, edges, edgeClaims, facts, evidence, gaps,
+          graphUsage, agentGuidance, sourceScope
+```
+
+`finance_entity_resolve` 会返回可链接的 `entityId`，也会返回 `entityId:null`、`suggestedAction:"create_candidate"` 的未匹配候选；这不是已写入图谱。一次显式 `sources:["fundacore"]`、`graph_hops:2` 的 `finance_graph_context` 返回一个中心实体，同时 `edges`、`edgeClaims`、`facts`、`evidence` 均为空、`gaps=["no_neighbors","no_facts"]`，并以 `graphUsage.status:"no_context"` 和 `sourceScope` 要求 agent 不得把空结果表述为已验证的图谱关系。
+
+因此目前最稳妥的抽象是：
 
 ```text
 finmemory / 风远94共享数据库
@@ -1205,12 +1221,12 @@ finmemory / 风远94共享数据库
   + entityRefs
 
 fundacore / 金融本体图谱
-  = 可选的结构化事实与图谱上下文层
-  = 负责实体规范化、实体类型、标识符和关系/置信度上下文的候选来源
-  = 独立检索工具、关系返回字段和注入顺序尚未直接观测
+  = 可独立执行实体消歧与邻接图谱上下文查询的结构化层
+  = 返回实体、边、边声明、事实、证据和覆盖缺口的容器
+  = 具体覆盖、关系方向、实体目录、分页与服务端注入顺序仍未完全观测
 ```
 
-上面最后一行是“基于 UI 描述与风远 `entityRefs` 字段的边界性抽象”，不是对 FundaCore 后端实现的定案。当前不能声称已读出本体图谱的完整实体目录、关系表、查询 DSL、分页协议或独立返回 JSON。
+这些样本确认独立工具和一次返回 JSON 的字段，不代表完整实体目录、关系表、查询 DSL、分页协议或每类实体均有图谱覆盖。
 
 #### 13.17.4 二者的抽象对照
 
@@ -1218,13 +1234,13 @@ fundacore / 金融本体图谱
 |---|---|---|
 | 主要角色 | 共享研究记忆/观点资料库 | 结构化事实与图谱上下文 |
 | 内容粒度 | 条目、事件、观点、规则/推理模式 | 实体、类型、标识符、规范化和关系上下文（部分由引用字段可见） |
-| 可见入口 | `finance_memory_query` 历史实测 | 数据库选择器与 `databaseIds` 透传已实测 |
-| 权限 | 普通用户只读 | 本次未观察到写入口；权限细节未定案 |
-| 典型证据 | `sourceId=finmemory`、`ownership=shared`、`kind`、`title/preview` | `entityId`、`entityType`、`canonicalName`、`graphConfidence`、`graphStatus` |
-| 主要风险 | 观点/推理模式可能被误读为事实；共享库存在来源、反例和验证状态缺口 | 图谱关联可能被误读为事实证明；独立检索和关系方向尚未验证 |
-| 当前结论 | 已直接探明外层检索契约和内容形态 | 只探明选择/配置层及与记忆条目的关联痕迹 |
+| 可见入口 | `finance_memory_query` 历史实测 | 数据库选择器、`databaseIds`、`finance_entity_resolve`、`finance_graph_context` |
+| 权限 | 普通用户只读 | 本次未观察到图谱写入口；实体候选 `create_candidate` 不等于写入 |
+| 典型证据 | `sourceId=finmemory`、`ownership=shared`、`kind`、`title/preview` | `entityId`、`entityType`、`canonicalName`、`graphConfidence`、`graphStatus`、`edges/facts/evidence/gaps` |
+| 主要风险 | 观点/推理模式可能被误读为事实；共享库存在来源、反例和验证状态缺口 | 图谱关联或空返回均可能被误读为事实证明或全库覆盖结论 |
+| 当前结论 | 已直接探明外层检索契约和内容形态 | 已探明实体消歧和图谱上下文的外层 schema；覆盖与关系质量待逐项验证 |
 
-**抽象结论：** 两者不是“用户金融记忆”的同义名称。风远是共享知识条目层，承担研究材料、事实记录、事件、洞察和方法论的可检索承载；本体图谱是与之并列可选的结构化事实/关系上下文层。实际 agent 回答很可能通过 `databaseIds` 同时请求两层，再把风远条目与实体图谱引用拼接到模型上下文，但“很可能”部分尚未由独立本体工具事件直接证实。
+**抽象结论：** 两者不是“用户金融记忆”的同义名称。风远是共享知识条目层，承担研究材料、事实记录、事件、洞察和方法论的可检索承载；本体图谱是与之并列可选的结构化实体/关系上下文层，已观察到实体消歧和邻接上下文查询工具。`databaseIds` 如何决定每次工具选择、图谱工具是否自动调用、以及其结果如何与风远条目共同注入模型，仍未由服务端编排事件直接证实。
 
 ### 13.18 请求、检索与流协议补充（只读复核）
 
@@ -1316,7 +1332,7 @@ turn.failed     -> error
 
 #### 13.18.5 结论与最小下一步
 
-[C] 当前最稳妥的模型是：`databaseIds` 是 turn 级候选数据库范围；`finance_memory_query` 的默认范围覆盖三库，结果层可携带来自私有记忆和风远的条目；FundaCore 至少在候选范围和条目 `entityRefs` 关联层可见，但独立内容检索、关系展开和上下文注入均未直接证实。
+[C] 当前最稳妥的模型是：`databaseIds` 是 turn 级候选数据库范围；`finance_memory_query` 的默认范围覆盖三库，结果层可携带来自私有记忆和风远的条目；FundaCore 已存在独立实体消歧和图谱上下文工具，可返回实体、边、事实、证据及覆盖缺口。仍未直接证实的是 `databaseIds` 到具体图谱工具选择的服务端路由、全量关系覆盖与模型上下文注入顺序。
 
 只读条件下，下一步优先级应为：
 
@@ -1333,9 +1349,9 @@ turn.failed     -> error
 5. 通过故意使用一个不存在的、非敏感的 CSV 路径，验证 sub-agent 工具失败如何经 `wait_for_signal` 传播到父 turn，以及父 workspace 是否保持不变。
 6. 在不触及敏感信息的前提下，比较 `turn.failed`、工具错误和 sub-agent 取消后的事件序列，确认 coordinator 的错误处理和验证门控。
 7. 仅通过服务端可见的响应头、错误体或协议字段，进一步判断底层模型调用是否走 OpenAI/Anthropic 原生 HTTP、通用 agent SDK，或 LangChain/LangGraph 适配层；前端 bundle 本身不足以定案。
-8. 捕获 `finance_memory_stage_extraction` 的非空候选样本，确认候选数组、去重/批次字段、写入前确认和实际落库工具是否存在。
-9. 捕获一个真实数据库或知识库检索 workflow，确认其工具名、参数 schema、分页/限制字段、错误格式及结果如何进入后续 agent 上下文。
-10. 捕获独立图谱实体/关系返回，或获得只读、已有请求的网络记录，确认 `fundacore` 的实体 schema、关系方向、分页与错误格式。
-11. 在不新建 turn 的条件下，补齐一个保留 `turn.failed` 的历史 transcript，确认顶层 `error` 与客户端合成 `stack_trace` 的字段。
+8. 捕获记忆候选的接受/拒绝事件和其后的持久化结果，确认 `pending` 批次的去重、写入前确认和实际落库工具。
+9. 捕获一个真实数据库或知识库检索 workflow，确认分页/限制字段、错误格式及结果如何进入后续 agent 上下文。
+10. 用有关系命中的非敏感既有样本补齐 `finance_graph_context` 的非空 `edges`、`edgeClaims`、`facts` 或 `evidence` schema，并确认关系方向与分页。
+11. 已捕获 `failed` turn 的持久化形态，但仍需观察实时 `turn.failed` 事件，确认顶层 `error` 与客户端合成 `stack_trace` 的字段。
 12. 观察 SSE 重连后的 `seq`、`?after={lastSeq}` 补帧参数和重放行为，确认断线窗口与重复事件处理。
 13. 在经用户许可的新建测试 turn 中，对不同 `databaseIds` 组合做最小对照，验证选择范围是否影响工具选择、模型提示词或最终命中内容。
