@@ -137,3 +137,7 @@ pnpm run build:web
   - **线上结果**：Cloudflare Pages production deployment `f19e8364`（source `0d29fff`）已生效。`https://finhot.industry7view.com` 缓存破坏复核后返回 139 条公开内容、5 个 GEO 主题、152 个 sitemap URL；`/topics`、`/about`、`/methodology`、`/sources`、`/llms-full.txt`、`/api/public/*.json`、`/feed.xml` 均非空且 HTTP 200。
   - **恢复方式**：从上一个非空线上页面提取 38 个来源和 160 条真实文章，使用一次性 `FINHOT_WHITEBOX_FEED_PATTERNS` 恢复覆盖，仅保留三天时效窗口，最终发布 139 条；本地原 92 源 / 5,487 条 enrichment 缓存已恢复。一次性恢复缓存保留在 `/tmp/finhot-cache-legacy-recovery-f19e8364`，原缓存备份在 `/tmp/finhot-cache-backup.eV5Lgu`。
   - **后续**：补充 AI 供应商余额后，正常执行 refresh + batch-enrich，再部署新版六维评分快照；不要设置 `FINHOT_ALLOW_EMPTY_PUBLIC_DEPLOY=1`，应让空快照保护拒绝发布并保留线上最后一个非空版本。
+
+- 2026-08-07 · codex · **FinHot GEO UI 对齐与静态首页修复完成**：在 `feature/finhot-geo-ui` 上将 `/public` 和部署管线统一到 `_buildPublicPageHtml`，补齐首页 canonical、robots/CSP 元信息和“主题中心”导航；静态客户端对服务端已批准的白盒快照跳过重复质量门槛，避免旧缓存因缺少六维 `qualityDetails.scores` 被再次过滤为空。另修复静态卡片渲染调用不存在的 `platform()`，改用当前 `getPlatform(feedUrl, feedCategory)`。
+  - **线上验证**：预览部署 `https://df0a6249.finhot.pages.dev`，自定义域 `https://finhot.industry7view.com` 的 `/public`、`/topics`、`/api/public/items.json` 均 HTTP 200；真实浏览器桌面/移动端首页均能渲染内容卡片，移动端 390px 无横向溢出且无新增运行时错误；主题中心两种尺寸均能加载主题入口和 canonical。
+  - **验证与恢复**：公开数据/GEO 测试 20/20、目标文件 ESLint、web 构建均通过；全量 typecheck 仍仅受既有 Jotai `RESET` 泛型错误阻断。部署后已恢复本地原始 `.finhot-cache`，发布用恢复快照留在 `/tmp/finhot-cache-ui-IJ1LAy/recovery-cache-final`。未合并 `main`。
