@@ -1080,7 +1080,7 @@ turn.completed
   {"ok":true,"batchId":null,"status":"empty","candidateCount":0,"summary":"本窗口没有符合长期记忆标准的内容"}
   ```
 
-  该返回值表达的是“本窗口没有候选”的空结果，并包含 `ok`、批次标识、状态、候选数量和摘要。另一个当前可复核的历史样本返回 `{"ok":true,"batchId":"fmext-...","status":"pending","candidateCount":2,"items":[...]}`：`items[]` 中每项为候选 `id`、`title`、`content`。因此，`pending` 是“候选已暂存、尚待后续接受/拒绝”的可见状态，不等于已经写入长期记忆；本轮仍未观察到接受批次后的持久化结果。另有同类调用返回 `{"ok":false,"error":"artifact is not visible to this user"}`，说明 artifact 可见性会在该阶段阻断候选提取。
+  该返回值表达的是“本窗口没有候选”的空结果，并包含 `ok`、批次标识、状态、候选数量和摘要。另一个当前可复核的历史样本返回 `{"ok":true,"batchId":"fmext-...","status":"pending","candidateCount":2,"items":[...]}`：`items[]` 中每项为候选 `id`、`title`、`content`。`pending` 是候选批次的可见待决状态，不等于已经写入长期记忆；本轮仍未观察到接受或拒绝该批次，以及其后的持久化结果。另有同类调用返回 `{"ok":false,"error":"artifact is not visible to this user"}`，说明 artifact 可见性会在该阶段阻断候选提取。
 
 - `load_workflow`：
 
@@ -1118,7 +1118,7 @@ turn 收尾
 
 ### 13.17 风远与金融本体图谱抽象（只读探针）
 
-**探针范围：** 本节只读取已登录页面的数据库选择器、`localStorage`、前端 bundle 和历史会话的 `/api/chat/bootstrap` transcript snapshot；未发送新的语义检索请求，未触发写入，也未读取用户金融记忆作为本次目标。
+**探针范围：** 本节只读取已登录页面的数据库选择器、`localStorage`、前端 bundle、`/api/chat/bootstrap` 和既有会话的 `GET /api/conversations/{id}` transcript；未发送新的语义检索请求，未触发写入，也未读取用户金融记忆作为本次目标。
 
 #### 13.17.1 UI 定义与内部 ID
 
@@ -1329,6 +1329,8 @@ turn.failed     -> error
 `tool_input` 与 `tool_output` 是增量 patch，前端浅合并到已开始的 `tool_call` item；这解释了为什么持久化 transcript 中可见到完整的 `input`、`output`。它仍不能证明服务端的内部事件生产顺序、重连的保留窗口或各类工具的完整错误对象。
 
 [A] `GET /api/conversations/{id}` 当前返回 `conversation`、`transcript`、`activeTurn`。当前 `s-4c497c37` 的 `conversation.messageCount` 和 `transcript.length` 都是 17，而 `s-5aa16ffe` 两者都为 2；因此，分析历史样本必须附会话 ID、turn ID 与读取时刻。不得将其他时点看到、当前端点已不能复核的 item，当作与当前响应相同等级的持续证据。
+
+[B] 两个当前可复核的 `failed` turn 都只持久化了一个 `assistant_message`，其 item 本身仍为 `status:"complete"`，turn 的 `credits` 是 `null`；消息文本说明请求被安全护栏拦截。该形态证明持久化 turn 终态可为 `failed` 而不一定同时保存 `stack_trace`、工具 item 或顶层 error 字段。它不等价于实时 SSE 的 `turn.failed` 载荷，也不能说明一般工具失败会采用相同消息形态。
 
 #### 13.18.5 结论与最小下一步
 
