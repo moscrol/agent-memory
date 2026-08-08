@@ -1,0 +1,57 @@
+{
+  "run_id": "run_20260808_114635_724215",
+  "user": "tester",
+  "question": "液冷题材现在怎么看？我之前的判断还成立吗",
+  "task_type": "ask",
+  "status": "completed",
+  "schema_version": 1,
+  "session_id": "conv_b8f844138a4744dba744f3fd97ca3e27",
+  "parent_run_id": null,
+  "created_at": "2026-08-08T11:46:35+08:00",
+  "finished_at": "2026-08-08T11:48:10+08:00",
+  "source_date": "2026-06-18",
+  "duckdb_cutoff": null,
+  "kb_commit": null,
+  "kb_index_built_at": null,
+  "kb_index_freshness": null,
+  "manifest_ref": null,
+  "degrades": [
+    "证据或语义核验未完全通过，已按证据边界降级。"
+  ],
+  "error": null,
+  "artifacts": [
+    {
+      "artifact_id": "artifact_answer_md",
+      "path": "answer.md",
+      "renderer": "markdown",
+      "title": "对话回答：液冷题材现在怎么看？我之前的判断还成立吗",
+      "sha256": "dcd256206e63cfb244a184a01cdcb95e36a024358216f7bdf0c3227196a374f4",
+      "bytes": 742,
+      "previewable": true,
+      "downloadable": true,
+      "visibility": "public"
+    },
+    {
+      "artifact_id": "artifact_continuous-episode_json",
+      "path": "continuous-episode.json",
+      "renderer": "json",
+      "title": "连续研究私有审计",
+      "sha256": "63b51580274556d75bbf49a2eb77e6ec0781cf97cb19259c67961643bab8d052",
+      "bytes": 127042,
+      "previewable": false,
+      "downloadable": false,
+      "visibility": "internal"
+    },
+    {
+      "artifact_id": "artifact_report_json",
+      "path": "report.json",
+      "renderer": "structured_report",
+      "title": "结构化对话报告",
+      "sha256": "261a66a3ca78276d8b6a3a6d0d6c5e7f44327576775b3ec7551ab09c880a2eaf",
+      "bytes": 2907,
+      "previewable": true,
+      "downloadable": true,
+      "visibility": "public"
+    }
+  ]
+}
