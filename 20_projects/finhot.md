@@ -141,3 +141,5 @@ pnpm run build:web
 - 2026-08-07 · codex · **FinHot GEO UI 对齐与静态首页修复完成**：在 `feature/finhot-geo-ui` 上将 `/public` 和部署管线统一到 `_buildPublicPageHtml`，补齐首页 canonical、robots/CSP 元信息和“主题中心”导航；静态客户端对服务端已批准的白盒快照跳过重复质量门槛，避免旧缓存因缺少六维 `qualityDetails.scores` 被再次过滤为空。另修复静态卡片渲染调用不存在的 `platform()`，改用当前 `getPlatform(feedUrl, feedCategory)`。
   - **线上验证**：预览部署 `https://df0a6249.finhot.pages.dev`，自定义域 `https://finhot.industry7view.com` 的 `/public`、`/topics`、`/api/public/items.json` 均 HTTP 200；真实浏览器桌面/移动端首页均能渲染内容卡片，移动端 390px 无横向溢出且无新增运行时错误；主题中心两种尺寸均能加载主题入口和 canonical。
   - **验证与恢复**：公开数据/GEO 测试 20/20、目标文件 ESLint、web 构建均通过；全量 typecheck 仍仅受既有 Jotai `RESET` 泛型错误阻断。部署后已恢复本地原始 `.finhot-cache`，发布用恢复快照留在 `/tmp/finhot-cache-ui-IJ1LAy/recovery-cache-final`。未合并 `main`。
+
+- 2026-08-08 · codex · **隐藏主题中心首页入口**：按“隐藏入口、保留页面”的 GEO 方案，移除 React 公开阅读页顶部/空态的主题中心链接，以及静态公开阅读页侧栏链接；保留 `/topics`、主题详情、sitemap、llms 和主题页自身导航。线上首页实际渲染 76 张内容卡片，`/topics` 保持 HTTP 200、canonical 和主题入口，浏览器无新增错误或横向溢出。部署预览为 `https://39fcf2c2.finhot.pages.dev`，本地原始缓存已恢复。
