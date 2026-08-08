@@ -1226,7 +1226,105 @@ fundacore / 金融本体图谱
 
 **抽象结论：** 两者不是“用户金融记忆”的同义名称。风远是共享知识条目层，承担研究材料、事实记录、事件、洞察和方法论的可检索承载；本体图谱是与之并列可选的结构化事实/关系上下文层。实际 agent 回答很可能通过 `databaseIds` 同时请求两层，再把风远条目与实体图谱引用拼接到模型上下文，但“很可能”部分尚未由独立本体工具事件直接证实。
 
-### 13.18 尚待验证
+### 13.18 请求、检索与流协议补充（只读复核）
+
+**范围与证据标记：** 本节只读取已加载 bundle、`GET /api/databases`、`GET /api/skills`、`GET /api/contexts` 和既有会话的 `GET /api/conversations/{id}`；没有创建 turn、没有提交检索、没有触发取消或任何写入。`[A]` 表示当前可从前端代码或当前 API 响应直接复核，`[B]` 表示当前仍可读到的历史 turn 样本，`[C]` 表示受证据约束的推断。
+
+#### 13.18.1 数据库选择到创建 turn 的路径
+
+[A] composer 将选择状态保存在 `localStorage["knevo.composer.databaseSelection"]`。逻辑等价于：
+
+```js
+selectedIds = databases
+  .filter(database => savedSelection[database.id] ?? true)
+  .map(database => database.id)
+```
+
+因此，对一个尚未出现在保存映射中的数据库，客户端默认选中；保存的值只是以数据库 ID 为键的布尔覆盖层，并不是服务端授权或数据库内容的快照。
+
+[A] 提交时 composer 先形成局部消息对象，再调用 `createTurn(conversationId, body)`；可观察到的 body 字段为：
+
+```json
+{
+  "text": "...",
+  "mode": "chat",
+  "skillId": "optional; none 时省略",
+  "toolIds": [],
+  "contextIds": [],
+  "attachmentIds": [],
+  "databaseIds": ["..."],
+  "quotes": [{"id": "...", "text": "..."}],
+  "idempotencyKey": "UUID",
+  "optionId": "optional",
+  "optionEdited": false,
+  "optionOriginalContent": "optional",
+  "type": null
+}
+```
+
+其中 `databaseIds` 直接取上述 `selectedIds`，而不是由客户端改写成工具名、查询条件或图谱 DSL。客户端 API 封装进一步确认请求和后续控制路径：
+
+```text
+POST /api/conversations/{conversationId}/turns
+GET  /api/turns/{turnId}/stream
+GET  /api/turns/{turnId}
+POST /api/turns/{turnId}/cancel
+GET  /api/conversations/{conversationId}
+```
+
+这证明数据库选择到 turn 请求的客户端传递链；不证明服务端会对每一个列入 `databaseIds` 的库发起独立查询，也不证明任一数据库必然有内容命中。
+
+#### 13.18.2 公开元数据与可见能力边界
+
+[A] `GET /api/databases` 当前只返回 `items[]`，每项仅有 `id`、`name`、`description`：`user-finmemory`（当前用户私有、read/write）、`finmemory`（共享、普通用户 read-only）和 `fundacore`（FundaCore 的 structured facts and graph context）。同接口加入 `?limit=100` 未增加字段或条目。
+
+[A] `GET /api/contexts` 当前返回空 `items` 与全零 usage；这只能说明本账户当前没有通过该公开端点暴露的独立 context 项，不能推断 `fundacore` 未向 turn 注入任何上下文。
+
+[A] `GET /api/skills` 当前暴露九个启用技能的 `id`、`label`、`description`、`enabled`，包括：`finance-analyze-stock`、`finance-associate`、`finance-earnings-review`、`finance-forecast-event`、`finance-industry-report`、`finance-industry-track`、`finance-kol-analyze`、`finance-portfolio-manager`、`finance-review-check`。它是 UI 可选技能目录，而非底层 tool registry 或模型可调用工具的完整 schema。
+
+#### 13.18.3 历史检索样本：请求源与实际命中源
+
+[B] 在仍可由 `GET /api/conversations/s-4c497c37` 复核的 `finance_memory_query` 样本中，工具输入的 `sources` 可以省略，也可以显式指定；工具输出则稳定包含已解析的 `sources`、`count`、`items`，共享条目存在时还含 `ownershipNote`。
+
+| 输入 `sources` | 输出 `sources` | `count` | `items[].sourceId` | 可得出的最小结论 |
+|---|---|---:|---|---|
+| 省略 | `user-finmemory`, `finmemory`, `fundacore` | 5 | `finmemory` | 默认候选范围是三个库；本次实际命中来自风远 |
+| 省略 | `user-finmemory`, `finmemory`, `fundacore` | 5 | `user-finmemory`, `finmemory` | 默认候选范围下可以混合命中私有记忆与风远 |
+| 显式 `fundacore` | `fundacore` | 0 | 无 | 空 query、`limit:30` 的单次图谱源检索未返回条目 |
+| 显式 `finmemory` | `finmemory` | 30 | `finmemory` | 风远可作为条目检索源返回共享内容 |
+
+最关键的区分是：输出的 `sources` 是该次查询所采用/解析的候选范围，`items[].sourceId` 才是本次实际返回内容的来源。单次 `sources:["fundacore"]`、空 query、`count:0` 仅能证实该参数组合的空结果；它不能证明 FundaCore 没有实体、没有关系，也不能说明服务端不会在其他阶段把图谱上下文注入模型。
+
+[B] 一个状态为 `cancelled` 的历史 turn 仍包含 `reasoning_status`、状态为 `success` 的 `finance_memory_query` 和完整 assistant message。故 turn 终态与已完成的子 item 终态不是一一对应关系；取消可能发生在已有结果和回复落入 transcript 之后。当前样本没有 `turn.failed`，不能以此构造失败事件的完整协议。
+
+#### 13.18.4 流式事件与会话快照
+
+[A] 客户端以 `GET /api/turns/{turnId}/stream` 和 `Accept: text/event-stream` 读取 turn 流，按空行切分帧，收集 `data:` 行并 JSON 解析。事件由单调 `seq` 去重；归约器当前明确处理：
+
+```text
+turn.started
+item.started
+item.delta      text | reasoning_status | tool_input | tool_output | diff | suggestions | stack_trace
+item.completed
+turn.completed  -> credits, freeTurn
+turn.failed     -> error
+```
+
+`tool_input` 与 `tool_output` 是增量 patch，前端浅合并到已开始的 `tool_call` item；这解释了为什么持久化 transcript 中可见到完整的 `input`、`output`。它仍不能证明服务端的内部事件生产顺序、重连的保留窗口或各类工具的完整错误对象。
+
+[A] `GET /api/conversations/{id}` 当前返回 `conversation`、`transcript`、`activeTurn`。当前 `s-4c497c37` 的 `conversation.messageCount` 和 `transcript.length` 都是 17，而 `s-5aa16ffe` 两者都为 2；因此，分析历史样本必须附会话 ID、turn ID 与读取时刻。不得将其他时点看到、当前端点已不能复核的 item，当作与当前响应相同等级的持续证据。
+
+#### 13.18.5 结论与最小下一步
+
+[C] 当前最稳妥的模型是：`databaseIds` 是 turn 级候选数据库范围；`finance_memory_query` 的默认范围覆盖三库，结果层可携带来自私有记忆和风远的条目；FundaCore 至少在候选范围和条目 `entityRefs` 关联层可见，但独立内容检索、关系展开和上下文注入均未直接证实。
+
+只读条件下，下一步优先级应为：
+
+1. 在已有、仍保留 tool item 的历史会话中，按 `entityRefs`、`fundacore`、`recommended_decision`、`subagent_divider` 和 `stack_trace` 分类，建立“出现条件 - item schema - turn 终态”矩阵。
+2. 从前端 API 封装及已加载代码继续定位 streaming URL 的 `since`/`lastSeq` 查询参数、重连与 turn 状态轮询的边界；不连接新的或仍在运行的 stream。
+3. 仅在用户明确允许创建一条无副作用测试 turn 后，以固定非敏感短语比较 `databaseIds:["fundacore"]`、`["finmemory"]`、两者合并的服务端 observable 差异；这一步会消耗积分并改变会话状态，当前未执行。
+
+### 13.19 尚待验证
 
 1. 在 Docker 后端健康时，`run_sandbox` 支持的语言、预装库、依赖安装及产物目录读写范围。
 2. 在 Docker 后端健康时，sandbox 脚本能否直接读取 `upload/<session-id>/` 中的用户 CSV，并执行 pandas 等自定义指标计算。
@@ -1237,3 +1335,7 @@ fundacore / 金融本体图谱
 7. 仅通过服务端可见的响应头、错误体或协议字段，进一步判断底层模型调用是否走 OpenAI/Anthropic 原生 HTTP、通用 agent SDK，或 LangChain/LangGraph 适配层；前端 bundle 本身不足以定案。
 8. 捕获 `finance_memory_stage_extraction` 的非空候选样本，确认候选数组、去重/批次字段、写入前确认和实际落库工具是否存在。
 9. 捕获一个真实数据库或知识库检索 workflow，确认其工具名、参数 schema、分页/限制字段、错误格式及结果如何进入后续 agent 上下文。
+10. 捕获独立图谱实体/关系返回，或获得只读、已有请求的网络记录，确认 `fundacore` 的实体 schema、关系方向、分页与错误格式。
+11. 在不新建 turn 的条件下，补齐一个保留 `turn.failed` 的历史 transcript，确认顶层 `error` 与客户端合成 `stack_trace` 的字段。
+12. 观察 SSE 重连后的 `seq`、`lastSeq`/`since` 参数和补帧行为，确认断线窗口与重复事件处理。
+13. 在经用户许可的新建测试 turn 中，对不同 `databaseIds` 组合做最小对照，验证选择范围是否影响工具选择、模型提示词或最终命中内容。
