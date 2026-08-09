@@ -1,3 +1,16 @@
 .DS_Store
 .obsidian/workspace*
 .obsidian/cache
+__pycache__/
+*.pyc
+
+# 数据库文件绝不进 vault 历史。vault 是可读的 Markdown 记忆库，二进制库文件
+# 一旦提交就永久占据历史，且无法有意义地 diff 或 review。
+# 2026-08-09 实测：docs/session-tutor-first-principles 分支已带进三份
+# .foresight/**/workbench.sqlite3（53KB / 802KB），全部由每 180 秒的
+# auto-sync `git add -A` 顺带提交。main 当前零 db 文件，此规则不误伤已跟踪的
+# 17 个 .foresight JSON/JSONL 台账。
+*.sqlite
+*.sqlite3
+*.db
+*.duckdb
