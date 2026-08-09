@@ -14,3 +14,18 @@ __pycache__/
 *.sqlite3
 *.db
 *.duckdb
+
+# 运行时派生产物：夜间回检的人类可读快照。
+# 判定明细的真本源是 .foresight/<user>/verdicts.jsonl，该目录的每份 .md 都由
+# 03:50 的 launchd 回检任务从中重新生成——文件自己第一行就写着「明细以
+# verdicts.jsonl 为准」。可再生的视图进 git 只会制造噪音（每晚一个新文件、
+# 无人 diff），因此 2026-08-09 用户决定不进 git。
+#
+# 该目录已在 vault_lint.py 的 SKIP_PATHS 里（它没有 frontmatter，也不在
+# frontmatter-spec.md 的 8 个法定 type 内）——当时是给规范开后门让它通过，
+# 现在改为不纳入版本控制，规范和实际终于一致。
+#
+# 历史遗留：main 上曾被 auto-sync 顺带提交过 4 份（2026-07-07~07-10，见
+# 89d42c80 / 68045b79 / 463470fb），本次一并 git rm --cached 取消跟踪；
+# 磁盘文件保留，Obsidian 里照常可读。
+可证伪点回检/
