@@ -38,10 +38,17 @@ BRANCH="$(git symbolic-ref --quiet --short HEAD || echo '<detached>')"
 # happily commits a 802KB workbench.sqlite3 again.  The staging rule must not
 # depend on which branch's ignore file happens to be checked out.
 #
+# 可证伪点回检/ is nightly-generated prose whose own first line says the verdicts
+# of record live in verdicts.jsonl — a derived view, regenerable, so it is not
+# git content (2026-08-09 user decision; untracked in main by c9f5017c).  It also
+# never had frontmatter and only passed vault_lint via SKIP_PATHS, i.e. it was a
+# hole in the spec rather than a citizen of it.
+#
 # Already-tracked files under these paths stay tracked — this only stops *new*
 # and *modified* ones from riding along.
 EXCLUDES=(
   ':!60_dialogues'
+  ':!可证伪点回检'
   ':!*.sqlite' ':!*.sqlite3' ':!*.db' ':!*.duckdb'
 )
 
