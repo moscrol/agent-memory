@@ -119,6 +119,18 @@ per-user 不是进程级；`runtime_backend_readiness` 这个全局探针看不�
 而 CLI/回检走 `~/.zshrc` 里的 `/Users/a77/agent-memory/.foresight`——**两套用户台账不是同一份**。
 
 ## 交接记录
+- 2026-08-10 · claude · **消融实验 P7 跑通，三条验收判据首次全达标（`8640d2c7..a4e1fc60`，18 提交，已合 main 并推送，对账 0/0）**。交接全文见 `docs/handoffs/2026-08-10-seam-ladder-live-and-budget-calibration.md`。
+  - **入口就翻了一条前提**：上一份交接说 P7 被三项 preflight 卡住。复核发现**三项当时已全部满足**——"阻塞"其实是跑 ladder 的 shell 没有生产 env，不是环境缺东西。
+  - **修掉的四个缺陷，前三个同属一个形状**：① live judge **根本没接线**（收据标 `production_llm_judge`，实际构造的是无参数 `SemanticEpisodeVerifier()`，第三条判据**在构造上不可能满足**）；② reserve 没按生产分配（生产 60s / 阶梯 20s 恰等于地板，导致 `_opening_planning_timeout` 的借用**是死代码**）；③ 没传 `deadline_expires_at`（每跳重置时钟）。**三处都是"阶梯号称复刻生产、实际漏参"——装配错不是算法错。** ④ S3 题面前提为假（问"本周下跌原因"，而那周 **+2.81% 且逐日上行**，模型正确拒答，**离线桩却在同一道题发绿光**）。
+  - **四处超时收敛成一件事**：首轮模型 69.77s（草稿需 26–91s）／工具批次 ≤30s（`evidence_search` 冷调用 **28.2s**，94% 占用）／judge 15+7.5+7.5s（实测需 **13.3–24.1s**）／synthesis reserve 60s 要装下草稿与 judge。**这套标定对应的是比当前 provider 更快的模型。**
+  - **⚠️ 升档救不了**：工具批次与 judge 各被一个**与 tier 无关的硬编码字面量**卡住（`stage_timeout(30.0)`、`MAX_SEMANTIC_JUDGE_WINDOW_SECONDS=30`）。`stage_timeout` 取 `min(字面量, remaining−reserve)`，deep 档下后者 105s，**于是被字面量卡死，tier 给的时间流不进去**。最终有效配置是 `tier=deep` **+** 工具上限 60 **+** judge 窗口 60 —— **三者缺一不可**，judge 由 0/6 变 6/6。
+  - **🔴 最贵的一条方法论（可迁移）**：我曾把"judge 窗口过小"判为 `refuted`。**那个结论是错的**——当初实验在 **standard 档**做，reserve 只有 60s，judge 拿走的每一秒都从草稿里扣，于是"抬窗口反而更差"。**同一个改动在错的档位下会得出相反结论。** 一个改动同时动了两个耦合量时，它的失败**无法区分"病因判错"与"代价没算"**。
+  - **另五条被实测推翻的判断**（详见交接 §3，别重走）：中转在大 prompt 下不稳 ❌（真自变量是出参 token）／书上"工具失败先查描述"❌（两个工具都是 `tool_timeout`，**套用判据前没验它的前提**）／我们没有预算感知 ❌（**步数一直在传**，缺的只是时间维）／分档用错了 ❌／配 `LLM_JUDGE_*` 能解预算争抢 ❌（`attempt_timeouts` 只算一次，两条 judge 路径共用同一 deadline）。
+  - **落下的工具比结论耐用**：收据七类诊断字段（`semantic_issues`/`draft_chars`/`gaps`/`trajectory`/`model_errors`/`tool_errors`/`judge_calls`）——**三次实验里有两次靠 `model_errors` 才认出"是中转挂了不是我改坏了"**；`runtime.*` 自述字段记**生效值**让标定运行可与基线对照；`scripts/probe_provider_latency.py`；两个 ceiling 可标定（`ASK_TOOL_BATCH_TIMEOUT`/`ASK_SEMANTIC_JUDGE_WINDOW`，**默认一字未改**）；时间预算感知（扩已有 `runtime_budget` 通道，**默认关**）。
+  - **后续首要项（需用户拍板）**：judge 窗口应**按 reserve 比例推导**而非固定常量——judge 与草稿零和，固定值无法同时适配 standard 与 deep。已验证的 60 **只在 deep 档成立**，直接改全局默认会让 standard 档重演草稿饿死。
+  - **中转/模型轴仍未决**：本轮能跑通全靠用户新供的 cockpit（`localhost:57244`，仅 `gpt-5.6-sol`，短输出 p90 **4.3s**，全程无 503）；而**生产 8792 现配 x.ailzd + terra**（p90 21.8s，本轮反复 503）。⚠️ cockpit 08-08 曾因上游凭证归档被弃用，**下次用前先探活**。
+  - **⚠️ 探活通过 ≠ 跑得完**：x.ailzd 小请求/大 prompt/带 tools 各探 3–10 次全 200，但 episode 期间反复 503。另：**两条中转都不兑现 `max_tokens`**（请求 10 实得 416–722、`finish_reason=stop`），是上游属性，**堵不住出参**。
+  - 主树 43 个他人未提交改动全程未受影响（全程 pathspec 提交，禁 `git add -A`）；我的 16 个特性分支已全部合入并删除；用户提供的 key **未落盘**（全盘 grep 确认）。
 - 2026-08-09 · devin · **意图路由假阳性：止血完成，但「候选/仲裁」架构被自己的实测数据否掉（改动未 commit，在 finance 仓 `main` 工作树）**。
   - **背景**：`docs/superpowers/specs/2026-08-05-intent-routing-candidate-arbitration-design.md` 提出给 `_research_operators()` 的九个正则加「候选/置信/LLM 裁定/Harness 校验」四段式。本轮任务是先量真实频率再决定投入，**结论是不投**。
   - **失败形状（为什么这件事值得排第一）**：正则误命中 → `_required_outputs()` 追加验收项 → 工具目录无 claim 能填 → 契约门**如实拒答**。用户看到的症状是「证据不足」，会去查检索层——**而检索层是好的**。链上每层都在正确履职，坏的只有第一个正则，所以这类缺陷不会自己暴露。
