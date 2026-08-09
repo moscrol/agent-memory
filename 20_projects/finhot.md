@@ -46,6 +46,8 @@ pnpm run build:web
 | cninfo-rss L3 准入收紧（标题二次校验 + 组合规则 + 纠正分类码） | devin | done | PR #92 |
 
 ## 交接记录
+- 2026-08-06 · codex · **GEO 主题知识入口（功能分支 `feature/finhot-geo-hubs`）**：在 `apps/desktop/plugins/vite/geo-topics.ts` 新增 8 个稳定主题 slug 和纯函数关键词匹配，要求至少 3 条精选证据、每页最多 20 条、按质量分/时间确定性排序；`rss-proxy.ts` 从同一 `selectedEntries` 快照生成 `/topics`、主题详情、`/about`、`/methodology`、`/sources`、`llms-full.txt`，扩展 `llms.txt`/sitemap，并加入开发服务器镜像路由。来源页只展示安全的站点 URL，不输出 RSS/query token；不复制第三方全文。验证：GEO 单测 4/4、定向 ESLint 通过、`pnpm run build:web` 成功，HTTP 冒烟验证 trust pages/llms/sitemap 200；本地缓存没有达到 3 条证据的主题，主题索引正确不生成空详情页。全仓 `typecheck` 仍被既有 `@follow/atoms` 与 Jotai `RESET` 类型不兼容阻断；全仓 `lint:fix` 被未跟踪 `.venv` 第三方 Python 文件的 6 个 `no-console` 错误阻断；全量 test 被主包锁定的 `vitest@3.2.4` 虚拟路径缺失阻断。设计/计划提交 `bf76f31`，功能提交 `279f9e5`，已推送到远端，禁止直接合并 main 或部署线上。
+- 2026-08-06 · codex · **公网快照稳定性修复与恢复**：在 `fix/finhot-ops-health`（commit `2097e28`）加入空快照部署保护（raw entries 有数据但过门槛条目为 0 时拒绝部署，`FINHOT_ALLOW_EMPTY_PUBLIC_DEPLOY=1` 才允许）、快照/富集健康文件、refresh 富集错误回传与监控公开快照检查。一次有界 refresh 证实 AI provider 返回 HTTP 402，未把余额问题误判成采集代码故障。Cloudflare Pages 已回滚到已知正常部署，线上 `/api/public/items-all.json` 当前 175 条；监控为 `degraded`，只有微信上游 `ret=200013/freq control` 无缓存文章，WeChat poller 本机 launchd 已运行，禁止批量重试。分支已推送，未合并 main。
 - 2026-06-28 · devin · 初次建档（基于 README/仓库结构）
 
 - 2026-07-03 · devin · 积压 5 PR 评测后经用户确认全部合入 main（顺序 #102→#89→#93→#94→#97）。要点：①#94/#97 的 CI lint 失败是 main 上 `scripts/precommit.mjs` 未过 prettier 的存量问题（b481f23 引入），#102 顺手修了，故 #102 必须先合；②#94 与 #97 在 `skills/cninfo-rss/config.yaml` 排除词列表真冲突（并行分支各自加词），经用户授权按**并集**解决（排除词并集只多滤噪音、误伤风险低；「财务顾问」覆盖「独立财务顾问」去重）。合并后 main CI 全绿、cninfo 测试 24/24 过。**可复用教训**：并行 PR 同改一份关键词配置时，先判断是"并行补充"还是"后者推翻前者"，排除类列表默认并集、准入类列表需逐词裁决。
@@ -124,3 +126,20 @@ pnpm run build:web
 - 2026-07-09 · codex · 二次确认短视频字幕/口播稿混用问题：此前给用户的 voice-director 稿（“你每天早上打开手机…”）与当前 Remotion 视频字幕稿完全不是同一版，不能用于给 `finhot-promo-75s.mp4` 录音。已新增 `docs/marketing/finhot-short-video-motion/review/user-voice-20260709/correct-recording-script-for-current-video.md`，明确当前视频唯一可用口播稿为 `/Users/a77/Desktop/finhot-vo-script.md` 的 s01-s11 版本；后续若保留当前视频画面/字幕，必须按该稿重录或分段录制，不能再混用早期 marketing 长稿。
 
 - 2026-07-09 · codex · 为桌面 `finhot-promo-75s.mp4` 做抖音安全区字幕后期：因字幕已烘焙进 MP4，无法无痕移动单独字幕层；已输出 `/Users/a77/Desktop/finhot-promo-75s-douyin-safe.mp4`，方案是复制底部字幕区域 `crop=940:205:70:1585` 到上方 `overlay=70:1345`，保留下方原字幕给抖音 UI 遮挡。记录见 `docs/marketing/finhot-short-video-motion/review/tiktok-safe-subtitles/notes.md`。若要干净单字幕版本，必须回 Remotion 源工程调高字幕组件后重渲染。
+
+- 2026-08-02 · devin · 微信源已从失效的 wechat2rss 迁移到本机 `wechat-download-api`：`finhot/watchlist.json` 的 37 个旧 `/feed/<biz_id>.xml` URL 映射为 `http://localhost:5050/api/rss/<fakeid>`，JSON 校验通过且 37/37 个 RSS XML 外壳可访问。Claude 与 Devin 均新增 `wechat-rss` MCP（模型上下文协议）stdio 桥接，客户端只保存桥接命令，桥接运行时从服务 `.env` 读取 token，未将密钥写入配置。新增 `com.finhot.wechat-download-api` launchd 服务，使用项目 venv、`RunAtLoad` + `KeepAlive` 开机自启，并停用旧 `com.finhot.wechat2rss-sync` 任务。
+  - **验证**：服务健康 HTTP 200、登录正常、38 个订阅、轮询器运行；MCP JSON-RPC initialize、Claude MCP、Devin MCP、launchd 状态和敏感值检查均通过。
+  - **阻断**：微信 `appmsgpublish` 接口持续返回 `ret=200013 / freq control`，SQLite 文章数仍为 0，因此文章抓取和全文质量尚未验证通过。后续应等待微信侧限频解除后只做低频单号复验，不要批量重试。
+
+- 2026-08-02 · devin · **FinHot 微信同步 LaunchAgent 已切换到 wechat-download-api**：复用原 `com.finhot.wechat2rss-sync` label，但脚本不再读取 `~/.wechat2rss_token` 或调用 8090；`scripts/sync-wechat2rss-watchlist.mjs` 改为读取 `http://localhost:5050/api/rss/subscriptions`，将旧 `/feed/<biz_id>.xml` 迁移为 `/api/rss/<fakeid>`，watchlist 变化时再 `POST http://localhost:2233/api/public/refresh`。LaunchAgent 保留每小时执行并启用 `RunAtLoad`，日志改写到 `/tmp/finhot-wechat-download-api-sync.log`。已验证 5050 健康、38 个订阅、37 个 RSS URL 全部 HTTP 200/XML、同步器 dry-run `migrations=0/additions=0` 幂等、LaunchAgent 最后退出码 0。注意：当前订阅接口返回的 `nickname`/`alias` 为空，因此未来新增账号无法自动生成可靠可读名称；现有 37 个账号的 URL 迁移已完成。FinHot 全量 refresh 首次成功返回 `imported=61`，但不要在每小时无变化时重复触发该耗时操作。
+
+- 2026-08-07 · codex · **FinHot GEO 合并与生产部署完成**：`feature/finhot-geo-hubs` 已快进合并并推送到 `main`，随后将 `fix: harden FinHot public snapshot health` 合入，最终主分支为 `0d29fff`。空快照根因是本地 enrichment 只有旧版单分质量分，没有当前代码要求的六维 `qualityDetails.scores`；AI 评分接口本次返回 402 余额不足，因此没有伪造新分数。
+  - **线上结果**：Cloudflare Pages production deployment `f19e8364`（source `0d29fff`）已生效。`https://finhot.industry7view.com` 缓存破坏复核后返回 139 条公开内容、5 个 GEO 主题、152 个 sitemap URL；`/topics`、`/about`、`/methodology`、`/sources`、`/llms-full.txt`、`/api/public/*.json`、`/feed.xml` 均非空且 HTTP 200。
+  - **恢复方式**：从上一个非空线上页面提取 38 个来源和 160 条真实文章，使用一次性 `FINHOT_WHITEBOX_FEED_PATTERNS` 恢复覆盖，仅保留三天时效窗口，最终发布 139 条；本地原 92 源 / 5,487 条 enrichment 缓存已恢复。一次性恢复缓存保留在 `/tmp/finhot-cache-legacy-recovery-f19e8364`，原缓存备份在 `/tmp/finhot-cache-backup.eV5Lgu`。
+  - **后续**：补充 AI 供应商余额后，正常执行 refresh + batch-enrich，再部署新版六维评分快照；不要设置 `FINHOT_ALLOW_EMPTY_PUBLIC_DEPLOY=1`，应让空快照保护拒绝发布并保留线上最后一个非空版本。
+
+- 2026-08-07 · codex · **FinHot GEO UI 对齐与静态首页修复完成**：在 `feature/finhot-geo-ui` 上将 `/public` 和部署管线统一到 `_buildPublicPageHtml`，补齐首页 canonical、robots/CSP 元信息和“主题中心”导航；静态客户端对服务端已批准的白盒快照跳过重复质量门槛，避免旧缓存因缺少六维 `qualityDetails.scores` 被再次过滤为空。另修复静态卡片渲染调用不存在的 `platform()`，改用当前 `getPlatform(feedUrl, feedCategory)`。
+  - **线上验证**：预览部署 `https://df0a6249.finhot.pages.dev`，自定义域 `https://finhot.industry7view.com` 的 `/public`、`/topics`、`/api/public/items.json` 均 HTTP 200；真实浏览器桌面/移动端首页均能渲染内容卡片，移动端 390px 无横向溢出且无新增运行时错误；主题中心两种尺寸均能加载主题入口和 canonical。
+  - **验证与恢复**：公开数据/GEO 测试 20/20、目标文件 ESLint、web 构建均通过；全量 typecheck 仍仅受既有 Jotai `RESET` 泛型错误阻断。部署后已恢复本地原始 `.finhot-cache`，发布用恢复快照留在 `/tmp/finhot-cache-ui-IJ1LAy/recovery-cache-final`。未合并 `main`。
+
+- 2026-08-08 · codex · **隐藏主题中心首页入口**：按“隐藏入口、保留页面”的 GEO 方案，移除 React 公开阅读页顶部/空态的主题中心链接，以及静态公开阅读页侧栏链接；保留 `/topics`、主题详情、sitemap、llms 和主题页自身导航。线上首页实际渲染 76 张内容卡片，`/topics` 保持 HTTP 200、canonical 和主题入口，浏览器无新增错误或横向溢出。部署预览为 `https://39fcf2c2.finhot.pages.dev`，本地原始缓存已恢复。
