@@ -1,1 +1,0 @@
-{"ts": "2026-08-02T14:03:06+00:00", "question": "立新能源 2026-07-20 和 07-21 分别涨了多少、收盘价多少", "question_type": "quick_fact", "total_score": 13, "max_score": 30, "grade": "F", "failures": ["证据分层不足：缺少 L1-L4 或事实/情绪/基本面分层"], "role": "advisory_review", "calibration_status": "unvalidated", "decision_eligible": false, "flagged_for_review": true}
