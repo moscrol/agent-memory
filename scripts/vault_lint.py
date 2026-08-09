@@ -4,7 +4,10 @@
 检查项（对应 30_conventions/maintenance.md 写入检查清单）：
 
 1. frontmatter 完整性：title / type / agent / source / date / tags 必填；
-2. type ↔ 目录一致（frontmatter-spec 的 type 取值表）；
+2. type 合法且 ↔ 目录一致（frontmatter-spec 的 type 取值表）；
+   **不在取值表里的 type 直接 ERROR**——2026-08-05 前是 `TYPE_DIRS.get()` 返回 None
+   然后静默放行，`type: reading-queue` 就这么混了进来。认不出来的值必须 fail closed，
+   否则「写错 type」和「type 正确」在门禁眼里长得一样；
 3. date 格式 YYYY-MM-DD；
 4. 双链死链：`[[笔记名]]` 必须能解析到 vault 内某个 .md 文件名；
 5. inbox 老化：`00_inbox/` 中超过 14 天未提炼的条目（仅 WARN，不拦截）；
@@ -46,11 +49,20 @@ WIKILINK_RE = re.compile(r"\[\[([^\]|#]+)(?:[|#][^\]]*)?\]\]")
 CODE_RE = re.compile(r"```.*?```|`[^`\n]*`", re.DOTALL)
 INBOX_MAX_AGE_DAYS = 14
 KNOWLEDGE_STALE_DAYS = 90
-# 不做 frontmatter 校验的路径（模板、Agent 配置、生成报告和导览页不是 vault 笔记）。
-SKIP_FRONTMATTER = {
+# 完全跳过校验的路径——这些不是 vault 笔记，逐条说明为什么：
+#   .agents/_templates/_template.md  模板与 Agent 配置，本就没有 frontmatter
+#   README.md / 欢迎.md              导览页
+#   可证伪点回检/ .foresight/         **运行时台账**：机器逐 run 写出来的产物，
+#                                    永远不会有 frontmatter（.foresight 由
+#                                    FORESIGHT_USERS_DIR 指到 vault 内，见项目 MOC 2026-07-07）
+# 注意名字：它跳过的是**全部检查**（含死链），不只是 frontmatter。
+# 2026-08-05 前 .foresight 不在此列，35 条运行时产物长期把这道门禁刷成红色——
+# 一个因无关原因常红的门禁等于没有门禁，真问题会混在噪声里没人看。
+SKIP_PATHS = {
     ".agents",
     "_templates",
     "可证伪点回检",
+    ".foresight",
     "_template.md",
     "README.md",
     "欢迎.md",
@@ -71,7 +83,7 @@ def parse_frontmatter(text: str) -> dict[str, str] | None:
 
 def should_skip(path: Path) -> bool:
     rel = path.relative_to(VAULT)
-    return rel.parts[0] in SKIP_FRONTMATTER or rel.name in SKIP_FRONTMATTER
+    return rel.parts[0] in SKIP_PATHS or rel.name in SKIP_PATHS
 
 
 def main() -> int:
@@ -122,6 +134,12 @@ def main() -> int:
             errors.append(f"{rel}: stale_after 应为天数整数，实际 {stale_after}")
 
         note_type = fm.get("type", "")
+        if note_type and note_type not in TYPE_DIRS:
+            # 认不出来的 type 必须失败，不能因为查表落空就当没事——见模块 docstring 第 2 条。
+            errors.append(
+                f"{rel}: type={note_type} 不在合法取值表里"
+                f"（{'/'.join(TYPE_DIRS)}），见 30_conventions/frontmatter-spec.md"
+            )
         expected_dir = TYPE_DIRS.get(note_type)
         if expected_dir and rel.parts[0] != expected_dir:
             errors.append(f"{rel}: type={note_type} 应放在 {expected_dir}/")
