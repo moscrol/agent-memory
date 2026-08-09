@@ -107,6 +107,4 @@ grep -rl X --include='*.py' . | wc -l
 
 - [[eval-harness-variance-governance]] — 确定性判据优先；但确定性层的误判没有第二道防线
 - [[agent-control-plane-five-invariants]] — 预算/超时类设计的对表清单
-- `70_tutor/消息编排边界：Harness组织上下文，LLM生成下一步` — 「没有记录边界则错误无法定位」。
-  该 tutor 笔记尚未经人工检阅批准（缺 `reviewed_by`），按 maintenance.md 未入库，
-  因此这里暂用普通引用而非双链；批准入库后应改回 `[[...]]`。
+- [[../70_tutor/消息编排边界：Harness组织上下文，LLM生成下一步]] — 「没有记录边界则错误无法定位」
