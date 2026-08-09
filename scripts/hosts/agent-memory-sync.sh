@@ -44,11 +44,22 @@ BRANCH="$(git symbolic-ref --quiet --short HEAD || echo '<detached>')"
 # never had frontmatter and only passed vault_lint via SKIP_PATHS, i.e. it was a
 # hole in the spec rather than a citizen of it.
 #
+# .foresight/ is the agent's live runtime ledger: answer_scores / interactions /
+# corrections / verdicts / checkpoints append on every question, plus per-run
+# trace/stream dumps.  614 files under it were modified in August alone.  A
+# 3-minute timer committing an append-only ledger produces one commit per tick
+# and nothing anyone will ever diff; worse, the branch-parked copies of these
+# files were stale enough that checking out another branch would have *reverted*
+# live ledgers (main's corrections.jsonl was 16,686B against 37,574B on disk).
+# Untracked in main by dc7282d7 — the files stay on disk, which is what
+# FORESIGHT_USERS_DIR in ~/.zshrc points at.
+#
 # Already-tracked files under these paths stay tracked — this only stops *new*
 # and *modified* ones from riding along.
 EXCLUDES=(
   ':!60_dialogues'
   ':!可证伪点回检'
+  ':!.foresight'
   ':!*.sqlite' ':!*.sqlite3' ':!*.db' ':!*.duckdb'
 )
 
