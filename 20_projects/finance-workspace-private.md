@@ -119,6 +119,15 @@ per-user 不是进程级；`runtime_backend_readiness` 这个全局探针看不�
 而 CLI/回检走 `~/.zshrc` 里的 `/Users/a77/agent-memory/.foresight`——**两套用户台账不是同一份**。
 
 ## 交接记录
+- 2026-08-10b · claude · **修复轮回退缺陷 + trace 仪表；本轮推进的是「能不能查得出来」而非达标率**（分支 `fix/tool-contracts-remaining-six`，18 提交，**已推送、未合 main**）。交接全文见 `docs/handoffs/2026-08-10b-repair-regression-and-trace-instrumentation.md`。
+  - **修掉一个真实缺陷**：修复轮失败会**吞掉上一轮的答案**。链路是 episode 产出可用 partial 草稿 → 修复轮模型超时 → `_stopped_outcome` 返回 `draft=""`/`bindings=()` → `continuous_turn_adapter` 的 `outcome, structural, _ = repaired` **无条件替换** → 语义验证拿到空草稿判 `unavailable`。**"judge 没轮到"这个现象就是这么来的**，被误读成"草稿在首轮就超时"。源头 + 适配器两处都修（另两个 runtime 各自还有 `draft=""` 出口，适配器是共同下游）。
+  - **🔴 可迁移**：任何 repair/retry/refine 阶段都是对产物的一次**写**。失败路径写空值 + 安装点无条件赋值 = **修复比不修更差**。检查方式：在安装点搜 `x = candidate`，问"候选会不会严格劣于被它替换的东西"。
+  - **🔴 最值钱的一条：四种验证手段各有天然盲区，选错工具会反复挖空**。同一个 bug 上的实测对照——**playground（单工具试验场）照不到**（12 个工具全正常，失败 run 也拿到 16 条证据哈希，bug 不在任何工具里）；**消融实验照不到**（四档一起翻车，它变的是"给几个工具"，而 bug 在共用控制流）；**只有 trace 照到了**（唯一记录**先后**：`finalization → finish` 在 `model_error` 之前）。**判据**：先问"故障的变量是什么"——零件本身→playground；装了哪些零件→消融；装配顺序/交接→trace。**顺序类故障只有记录顺序的工具能抓到，这是分类学不是勤奋问题。**
+  - **补上观测**：`repair_reentry` 现记 `timeout_asked`/`granted_seconds`/`previous_draft_chars`，收据出 `repair_calls`（判读同 judge 那次：asked ≪ configured ⇒ 时钟被上游耗光，加预算没用）。试验台按**生产 schema** 写 `<收据>.trace.jsonl`——`run_store` 抽出 `build_trace_step()` 使 schema **只有一处定义**，否则分诊工具只认生产那份。事件时刻记在 payload，**相邻两条的差值即耗时**，不必每步单开 span。
+  - **接上 `agent-run-triage` skill**（软链到 `~/.claude/skills/`，不进仓库：`.claude/skills/` 受 git 跟踪，绝对软链会让别人 clone 即断链；复制则成第二事实源）。
+  - **推翻三条上一轮的判断**（已回写前一份交接的 🔁 块）：① 「prompt 侧输出量约束未做」❌ **一直都在**（`episode_protocol.py:192` + `agent_episode.py:1584`，且在生效，出稿 357–486 字符从未逼近 1000）——**负面断言没先 grep**；② 「主方差源是出参长度」❌ 证据不成立，那 8338 token 来自探针自己的 `LONG_INSTRUCTION="请据此写一份**尽可能详尽**的市场结构分析"，**测量条件与生产相反**；③ 「草稿在首轮就超时」❌ 收据 trajectory 自己否掉。
+  - **待验证（用户提出，值得做）**：`draft` **就是用户最终看到的答案**，所以 1000 汉字是加在**研报**上的约束。56 份样本全部落在 **480–556** 字、**从未触及上限**，窄带疑似**锚定**。⚠️ 但**不要直接删**——上限防的是「JSON 写不完整个作废、连绑定一起丢」，删而不解耦 = 拿"答案短"换"更常没答案"。先做便宜实验：改成"不设上限但必须完成结构化交付"，看字数分布变不变。
+  - **下一步**：一次 live，读 `repair_calls` + `trace.jsonl` 相邻时刻差，直接判"时钟被上游耗光"还是"provider 真写不完"，跑完交给 `agent-run-triage` 分诊，别手工对流水账。
 - 2026-08-10 · claude · **消融实验 P7 跑通，三条验收判据首次全达标（`8640d2c7..a4e1fc60`，18 提交，已合 main 并推送，对账 0/0）**。交接全文见 `docs/handoffs/2026-08-10-seam-ladder-live-and-budget-calibration.md`。
   - **入口就翻了一条前提**：上一份交接说 P7 被三项 preflight 卡住。复核发现**三项当时已全部满足**——"阻塞"其实是跑 ladder 的 shell 没有生产 env，不是环境缺东西。
   - **修掉的四个缺陷，前三个同属一个形状**：① live judge **根本没接线**（收据标 `production_llm_judge`，实际构造的是无参数 `SemanticEpisodeVerifier()`，第三条判据**在构造上不可能满足**）；② reserve 没按生产分配（生产 60s / 阶梯 20s 恰等于地板，导致 `_opening_planning_timeout` 的借用**是死代码**）；③ 没传 `deadline_expires_at`（每跳重置时钟）。**三处都是"阶梯号称复刻生产、实际漏参"——装配错不是算法错。** ④ S3 题面前提为假（问"本周下跌原因"，而那周 **+2.81% 且逐日上行**，模型正确拒答，**离线桩却在同一道题发绿光**）。
