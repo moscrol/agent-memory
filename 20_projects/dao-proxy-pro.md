@@ -40,3 +40,4 @@ status: active
 
 ## 交接记录
 - 2026-07-28 · devin · 诊断路由失败（mimo key 失效、opus 渠道 baseUrl/key 不匹配）；opus 切 anyrouter.top；注册 kfcoding/fable-relay；加渠道额度显示；定位 kfcoding 流式无缓存 → 切非流式实测提速；实现 streamMode:auto + 启动预热探测；确认会话粘性已内置。PR: https://github.com/linxiaoqi5111-del/dao-proxy-pro/pull/6
+- 2026-08-11 · devin · 状态栏 4 项假事实修复（isError 旁路绕过闸门 / test_status 假绿灯 / 缓存分档 Sonnet 4.5 误判 / system·tools 断点无门槛）+ openaiTtl 降级上报 + legacyRetention 接上线；分支 codex/prompt-cache-optimization，提交 d7f479a、cde5bc3，未合 main 未推送。方法论沉淀：[[../10_knowledge/gate-covers-only-its-return-value]]。
