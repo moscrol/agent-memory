@@ -38,6 +38,18 @@ DuckDB → detect_turning_points.py / backtest_sector.py → 信号+板块边际
 ## 关键约定
 - **错误教训唯一沉淀地**：`finance-workspace-private/.claude/lessons_learned.md`（知识库的教训用 `[kb]` 前缀也记到这里）。
 
+## 📚 外部知识源（任务开始前可检索）
+
+本机三处常用知识库，遇到疑惑时主动查，不要臆测：
+
+| 路径 | 内容 | 触发场景 |
+|---|---|---|
+| `~/agent-memory/10_knowledge/` | 已沉淀的失败形状、审查清单（如 `evidence-hygiene-three-failure-shapes.md`） | agent 自审、证据链校验、测试对账失败归因 |
+| `~/ai-agent-book/` | agent 使用模式与最佳实践 | 不确定某类任务的标准做法、需要参考既有 pattern |
+| `~/harness-reference/` | audit 工具（`TOOLKIT.md`）+ 数据源索引（`INDEX.md`，含族群分类与交叉验证规则） | 需要审查工具、查证 API 行为、交叉验证事实 |
+
+检索规则：用 `grep` / `find_file_by_name` 明确查找，不得臆测路径或内容。若三处都没有，说明尚未沉淀，本轮完成后按 `40_playbooks/devin-writeback.md` 补录进 `10_knowledge/`。
+
 ## 任务看板
 | 任务 | 负责 | 状态 | 备注 |
 |---|---|---|---|
@@ -59,18 +71,6 @@ DuckDB → detect_turning_points.py / backtest_sector.py → 信号+板块边际
 | Workbench 显式视角切换 | devin | done | [PR #205](https://github.com/linxiaoqi5111-del/finance-workspace-private/pull/205)：数据中立 / 单一 KOL / 多视角并列，消息级持久化、用户隔离与独立 BM25 观点召回；CI 全绿，待用户决定合并 |
 | delta package 契约强化（manifest v1 / 多维校验 / 安全解压 / 原子回滚 / data-quality CI）| devin | doing | PR #179 待 review/merge，尚未合并；后续单独做历史债务清洗与环境 blueprint |
 | 忠实度 / 历史重放验收 | devin → 用户审定 | doing | #197→#201 已合并；a77 固定 runtime `ea86010c` 与 20:05 daily-agent、20:30 PIT、20:45 acceptance LaunchAgent 已上线，等待 7/13–7/17 前向产物及 claim-level Gold 双审；`decision_eligible=false` |
-
-## 📚 外部知识源（任务开始前可检索）
-
-本机三处常用知识库，遇到疑惑时主动查，不要臆测：
-
-| 路径 | 内容 | 触发场景 |
-|---|---|---|
-| `~/agent-memory/10_knowledge/` | 已沉淀的失败形状、审查清单（如 `evidence-hygiene-three-failure-shapes.md`） | agent 自审、证据链校验、测试对账失败归因 |
-| `~/ai-agent-book/` | agent 使用模式与最佳实践 | 不确定某类任务的标准做法、需要参考既有 pattern |
-| `~/harness-reference/` | audit 工具（`TOOLKIT.md`）+ 数据源索引（`INDEX.md`，含族群分类与交叉验证规则） | 需要审查工具、查证 API 行为、交叉验证事实 |
-
-检索规则：用 `grep` / `find_file_by_name` 明确查找，不得臆测路径或内容。若三处都没有，说明尚未沉淀，本轮完成后按 `40_playbooks/devin-writeback.md` 补录进 `10_knowledge/`。
 
 ## 🚦 Agent Runtime 线路（2026-08-05 用户决策，跑之前必读）
 
