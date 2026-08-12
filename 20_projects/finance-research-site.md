@@ -60,3 +60,7 @@ npm run build
 - 2026-08-12 · grok · add research 钛合金（titanium-alloy）raw full 主稿经隧道取回+2025 年报更新，高端认证 vs 中低端内卷主线 → https://github.com/linxiaoqi5111-del/finance-research-site/pull/30
 - 2026-08-12 · grok · add research ASIC芯片（asic-chip）raw 主稿+博通FY2025/寒武纪海光2025年报更新，剔除主稿投顾表达；用户定：不跑 IndexNow、三分支独立按天推 → https://github.com/linxiaoqi5111-del/finance-research-site/pull/31
 - 2026-08-12 · grok · add research 激光雷达（lidar）raw 提纲式主稿+禾赛/速腾2025年报更新，主线：降价99%→智驾平权+机器人第二曲线→盈利拐点 → https://github.com/linxiaoqi5111-del/finance-research-site/pull/32
+- 2026-08-12 · grok · add research 超导（superconductor）并行子agent撰写+主agent终审，供给曲线×聚变需求曲线框架 → https://github.com/linxiaoqi5111-del/finance-research-site/pull/33
+- 2026-08-12 · grok · add research 信创（xinchuang）并行子agent撰写+主agent终审，政策雄心vs报表现实主线 → https://github.com/linxiaoqi5111-del/finance-research-site/pull/34
+- 2026-08-12 · grok · add research 折叠屏（foldable-screen）并行子agent撰写+主agent终审，苹果入局+增收不增利排雷框架 → https://github.com/linxiaoqi5111-del/finance-research-site/pull/35
+- 2026-08-12 · grok · 方法论沉淀：3 篇并行 = git worktree 隔离 + 任务书写死规范（17节/lint/红线/清洗）+ 主agent终审闸门；质量与串行相当
