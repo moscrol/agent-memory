@@ -131,6 +131,13 @@ per-user 不是进程级；`runtime_backend_readiness` 这个全局探针看不�
 而 CLI/回检走 `~/.zshrc` 里的 `/Users/a77/agent-memory/.foresight`——**两套用户台账不是同一份**。
 
 ## 交接记录
+- 2026-08-12 · claude · **对照检索源逐层修缮工具接口/压缩/RAG；真正的产出是一个失败形状，不是若干 bug**（已合并 `fc0540ee`、部署生产 `da27ad01`）。全文见 `docs/handoffs/2026-08-12-tool-interface-and-rag-fixes.md`。
+  - **🔴 最值钱的一条：「契约与交付不符」一天在七个互不相干的模块各命中一次**——某处向模型承诺一件事、实际交付另一件，**且模型无法自行诊断**。schema 广告 limit=1000 实压 25；工具拒绝只给分类码丢掉 detail；`无命中（error）` 把故障写成没查到；尾部截断标成「摘要」；hybrid 降级为 BM25 不告知；health 报 `vector_index: true` 而解释器不可执行；**连专门抓这类问题的就绪门禁自己也漏判**。七处无共同代码 → **跨层边界架构性易发**：每层单独看都对（遥测如实记了、执行如实做了），错在没人负责把上层事实搬到下层。与「授予的额度必须真的传到最下游执行者」同构。审查手法进 `TOOLKIT.md` H+，知识层 `10_knowledge/contract-vs-delivery-mismatch.md`。
+  - **线上停摆**：`.rag_venv` 悬空符号链接致 kb_search 每次 7ms `FileNotFoundError`，而两个仪表同时发绿。venv 已重建（3.14.5/torch 2.13/transformers 5.15，权重走 HF 缓存未重下），三步验证末步端到端 `mode=hybrid` 检索成功；判据 `kb_rag.rag_runtime_ready` 接入 health + 就绪门禁 + 部署链，三处共用一个真相源。
+  - **干净对照实测**：finance_query 参数合法率 55.9% → 87.9%（同题集同模型 repeat 3），`order_by` 形状错误 14 → 0；生产实跑 24/24 合法。关键在 schema **本来就写着 `type: array`**——光有类型挡不住，缺的是例子（族 A `.describe()` 与族 C ch4 §3 跨族一致）。
+  - **🔴 卡点未解**：continuous 路径 `evidence_bound` 恒为 0，工具正常取回 24–60 条证据却输出「证据不足」。变量已锁定 `ASK_CONTINUOUS_RUNTIME`（off→30/13，on→0/0），**与代码版本无关**，可二分、零配额起步。
+  - **🔴 方法论教训（本轮自己犯的）**：① 把 3 条抽样写成「逐条查看」；② 拿符号链接**创建**日期当**断裂**日期，得出「停摆一个月」（实为 ≤6 天）；③ 起对照实例漏了 `ASK_CONTINUOUS_RUNTIME`，据此误判「自己造成回归」并回滚生产。**共同外壳：手上有一个真实观察，就顺手把邻近的数据也归给它——真实观察最容易让人放松警惕。**
+  - **量具边界即结论边界**：`probe_tool_arguments.py`（新建，TOOLKIT B 档）用 `capabilities=ALL_TOOLS` 绕过路由，其读数只在「工具已授权」前提下成立；而合成 eval 集判别不了 hybrid 与 BM25，**所以走 eval 也发现不了那次静默降级**——量具盲区与生产盲区重合时，缺陷可长期存在而两边都发绿。
 - 2026-08-10b · claude · **修复轮回退缺陷 + trace 仪表；本轮推进的是「能不能查得出来」而非达标率**（分支 `fix/tool-contracts-remaining-six`，18 提交，**已推送、未合 main**）。交接全文见 `docs/handoffs/2026-08-10b-repair-regression-and-trace-instrumentation.md`。
   - **修掉一个真实缺陷**：修复轮失败会**吞掉上一轮的答案**。链路是 episode 产出可用 partial 草稿 → 修复轮模型超时 → `_stopped_outcome` 返回 `draft=""`/`bindings=()` → `continuous_turn_adapter` 的 `outcome, structural, _ = repaired` **无条件替换** → 语义验证拿到空草稿判 `unavailable`。**"judge 没轮到"这个现象就是这么来的**，被误读成"草稿在首轮就超时"。源头 + 适配器两处都修（另两个 runtime 各自还有 `draft=""` 出口，适配器是共同下游）。
   - **🔴 可迁移**：任何 repair/retry/refine 阶段都是对产物的一次**写**。失败路径写空值 + 安装点无条件赋值 = **修复比不修更差**。检查方式：在安装点搜 `x = candidate`，问"候选会不会严格劣于被它替换的东西"。
