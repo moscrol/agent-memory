@@ -3,7 +3,7 @@ title: 需求全流程协作 (调研→规划→执行→沉淀)
 type: playbook
 agent: devin
 source: 设计约定
-date: 2026-06-28
+date: 2026-08-12
 tags: [playbook, workflow, core]
 status: verified
 ---
@@ -20,8 +20,10 @@ status: verified
 |---|---|---|---|
 | 1. 调研 | grok | 需求一句话描述 | `00_inbox/` 调研笔记（含来源链接） |
 | 2. 规划 | codex | 调研笔记 + `30_conventions/` 偏好 | `20_projects/<项目>` 方案 + 任务看板 |
-| 3. 执行 | devin | 项目方案 + 任务看板 | 代码 / PR + 更新看板 |
-| 4. 沉淀 | devin/claude | 执行结果 | `10_knowledge/` 提炼条目 |
+| 3. 执行 | claude（要学的）或 devin（要搞定的） | 项目方案 + 任务看板 | 代码 / PR + 更新看板 |
+| 4. 沉淀 | claude/devin | 执行结果 | `10_knowledge/` 提炼条目 |
+
+分工判据见 [[../30_conventions/agent-division]]：想学会的部分用会讲解的亲自做，只想搞定的丢给能跑长任务的。
 
 ## 交接物格式约定
 - **调研笔记**：用 `inbox-item.md` 模板，每条结论带 source URL。

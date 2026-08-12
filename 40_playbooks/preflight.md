@@ -19,7 +19,7 @@ status: verified
   ```sh
   bash .agent-memory/preflight.sh
   ```
-- 输出：① Git 现状（分支 + `status --short`）② 红线提醒 ③ 本项目 `20_projects/<repo>.md` 摘要 ④ 完工回写提醒。自动识别当前 repo。
+- 输出：① Git 现状（分支 + `status --short`）② 红线提醒 ③ 本项目 `20_projects/<repo>.md` 摘要（按章节边界截取：注入「交接记录」之前的概述/看板/必读节，再补该节末尾几行；不是死数前 N 行）④ 完工回写提醒。自动识别当前 repo（笔记文件名 = `git remote` 短名）。
 - Claude Code：SessionStart hook（`.claude/hooks/load-memory.sh`）已顺带注入「Git 现状」，无需手动跑；Codex/Devin/人 手动跑这句即可。
 
 ## ② 红线 pre-commit 硬拦截（程序级强制）

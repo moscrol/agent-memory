@@ -27,7 +27,7 @@ related: ["[[feature-lifecycle]]", "[[../50_agents/devin]]"]
 ## 前置
 - 用有写权限的 GitHub PAT 访问本 vault 仓库 `linxiaoqi5111-del/agent-memory`。
 - 按 `30_conventions/frontmatter-spec.md` 写 frontmatter；双链用 `[[文件名]]`，不要裸路径。
-- vault 约定**直接 commit 到 `main`**；Mac launchd 每 ~3 分钟双向同步到 Obsidian 库。
+- **谁推到哪**：Mac 本机对非受保护区的小型回写，按 vault 惯例可直 commit `main`（launchd 每 ~3 分钟双向同步）。云端 / 新 agent、以及任何改动 `30_conventions/` 或 `50_agents/` 的写入，**开分支 + PR 人审**，不得直推（见 [[../30_conventions/trust-boundary]]、[[../50_agents/generic]]）。
 
 ## 分层判断
 1. **项目层**：代码、配置、流程、架构、数据管线、部署、CI、跨 agent 协作规则的变化 → 写 `20_projects/<repo>.md`。

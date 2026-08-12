@@ -56,7 +56,7 @@ INBOX_MAX_AGE_DAYS = 14
 KNOWLEDGE_STALE_DAYS = 90
 # 完全跳过校验的路径——这些不是 vault 笔记，逐条说明为什么：
 #   .agents/_templates/_template.md  模板与 Agent 配置，本就没有 frontmatter
-#   README.md / 欢迎.md              导览页
+#   README.md                        导览页
 #   TOOLKIT.md                       **来源镜像**：canonical 在 harness-reference 仓，
 #                                    文件头一行就写着「改内容请改 harness-reference 后同步」。
 #                                    给它补 frontmatter / 改死链都算本地改内容、会与
@@ -75,7 +75,6 @@ SKIP_PATHS = {
     ".foresight",
     "_template.md",
     "README.md",
-    "欢迎.md",
     "TOOLKIT.md",
 }
 

@@ -3,7 +3,7 @@ title: 维护纪律
 type: convention
 agent: devin
 source: 设计约定
-date: 2026-06-28
+date: 2026-08-12
 tags: [convention, maintenance, core]
 ---
 
@@ -44,10 +44,12 @@ tags: [convention, maintenance, core]
 ## 定期维护任务（已脚本化为 exit-code 门）
 
 ```bash
-python3 scripts/vault_lint.py    # frontmatter 完整性 / type 合法且↔目录一致 / 死链 / inbox 老化(>14天 WARN)
-                                 # 跳过 SKIP_PATHS：模板、导览页、运行时台账(可证伪点回检/ .foresight/)
+python3 scripts/vault_lint.py    # frontmatter 完整性 / type 合法且↔目录一致 / agent 取值合法
+                                 # / 死链 / inbox 老化(>14天 WARN) / verified 知识过期(>90天 WARN)
+                                 # 跳过 SKIP_PATHS：模板、导览页、运行时台账、TOOLKIT.md 来源镜像
 python3 scripts/graph_audit.py   # 能力图谱节点清单路径防漂移（repo 在本地才校验）
 ```
 
 - 回写沉淀前、改动 vault 后各跑一遍 `vault_lint.py`，exit 0 才算写入合规。
+- push 到 `main` 或开 PR 时，GitHub Actions 工作流 `vault-lint` 会再跑一遍（事后告警，不拦 Mac auto-sync）。
 - 改能力图谱或相关仓有结构性合并后跑 `graph_audit.py`。
