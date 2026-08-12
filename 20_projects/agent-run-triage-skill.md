@@ -41,3 +41,4 @@ status: active
 - 2026-08-13 · claude · plan 7 票全部执行完毕（Mac 实做 01/03，fresh 子 agent 冒烟 02/04–07 全 PASS，T7–T14）；28 skill 全部有行为证据 · 指向仓内 docs/superpowers/acceptance/matt-pocock-skills/behavioral-tests.md
 - 2026-08-13 · claude · 与 harness-reference 接线（不合仓）：skill 仓 TOOLKIT 空指针改为 canonical+vault fallback；KIT/BUILD/TOOLKIT 回指本仓 skills/ · 指向 harness-reference commit 14ad10e 与 skill 仓 5678703
 - 2026-08-13 · claude · 适配收录 khazix leader（哑巴执行者任务书，默认落盘 goal-brief 不绑 /goal）并自审压 3 条超 250 字 description；Mac 三 harness 已链 symlink · 指向 PR #4（cursor/adapt-leader-skill-f164，base=Matt 适配分支）
+- 2026-08-13 · claude · PR #3（Matt 28 skill 适配）与 PR #4（khazix leader 适配 + 自审压 description）均已合入 codex/agent-run-triage-v1-hardening（bc7af12）；head 分支已删；Mac 安装 clone 已切到合并后基线 · 指向 GitHub PR #3/#4（MERGED）
