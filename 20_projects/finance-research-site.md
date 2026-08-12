@@ -57,3 +57,4 @@ npm run build
 - 2026-07-06 · devin · add research: 华为芯片（huawei-chip）：走 import/enrich/deepen 管线，17 节+附录三件套、11 表、加粗数字带来源；lint 0 warn，node 22 下 npm run build 107 页通过。PR #13（research/huawei-chip → main），等用户确认合并；合并后需 npm run indexnow。sourceFile=华为芯片产业新格局深度研究报告：自主可控突破与供应链重构-full.md。
 - 2026-07-06 · devin · 华为芯片收尾：PR #13 已合并 main，npm run indexnow 返回 200（含 huawei-chip URL）；另按 content-matrix 工作流产出三件套（内容矩阵/公众号/雪球 各目录下 华为芯片-*.md），敏感词检查全过。
 - 2026-08-12 · grok · add research 电子特气（electronic-specialty-gas）手写17节+石英砂骨架公众号稿 → https://github.com/linxiaoqi5111-del/finance-research-site/pull/29
+- 2026-08-12 · grok · add research 钛合金（titanium-alloy）raw full 主稿经隧道取回+2025 年报更新，高端认证 vs 中低端内卷主线 → https://github.com/linxiaoqi5111-del/finance-research-site/pull/30
