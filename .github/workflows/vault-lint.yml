@@ -1,0 +1,20 @@
+# vault 质检门的自动执行点。
+#
+# 定位是「事后告警」而非 pre-merge 拦截：本仓由 Mac launchd auto-sync 每 ~180s
+# 直推 main（见 30_conventions/sync-setup.md），没有强制 PR 流程可挂门禁。
+# 此前 lint 只在某个 agent 记得跑时才跑——2026-08-12 实测 main 红了数日无人发现
+# （TOOLKIT.md 镜像缺 frontmatter + 两处死链）。红灯会出现在 commit 状态和
+# Actions 通知里，不阻塞同步。
+name: vault-lint
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  vault-lint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      # 只用标准库，仓库自带 python3 即可，无依赖安装。
+      - run: python3 scripts/vault_lint.py

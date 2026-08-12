@@ -13,7 +13,7 @@ related: ["[[finance-answer-orchestrator]]", "[[multi-agent-memory-system-design
 
 > 目的：拆解 Knevo（AI 投研 Agent）的架构、数据源、记忆与反馈机制，用于优化我们自己的 agent。
 > 状态：持续更新。信息来源为公开使用文档 + 用户与 Knevo 的实际对话截取 + Knevo 自述配置。
-> 最近更新：2026-07-08（回写 [[60_dialogues]] 的 26 篇双盲探针语料——路由/技能/记忆/输出各章从定性推断升级为量化规则+行为验证；原始证据见 60_dialogues/knevo/ 各篇）
+> 最近更新：2026-07-08（回写 `60_dialogues/`（仅 Mac 本地，不入 git）的 26 篇双盲探针语料——路由/技能/记忆/输出各章从定性推断升级为量化规则+行为验证；原始证据见 60_dialogues/knevo/ 各篇）
 >
 > **证据分级标注约定**（全文统一）：
 > - **[自述]** = Knevo 主动描述"我怎么做的"，可能被美化/sanitize，可信度中。
