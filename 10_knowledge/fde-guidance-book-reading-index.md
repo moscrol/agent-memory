@@ -4,7 +4,7 @@ type: knowledge
 agent: grok
 source: https://github.com/xdash/FDE-the-Guidance-Book-of-Forward-Deployed-Engineer
 author: 范冰（XDash）
-status: to-read
+status: read
 date: 2026-07-31
 tags: [fde, forward-deployed-engineer, 交付, 客户价值, palantir, ai-enterprise]
 ---
@@ -48,6 +48,15 @@ FDE 现场手册·S3 discovery。
 - **补充交付流程维度**：本书 ch2-ch7 覆盖「找对问题→赢得客户→激活部署→守住续约→扩大收入→规模化复制」的完整交付旅程，是上面三个待写题目的现成骨架。
 - **案例库**：ch8 有 112 个真实案例（Palantir / OpenAI / Anthropic / Harvey / Sierra / 中国实践者），可作为面试故事素材。
 - **指标体系**：附录A 可与我们金融 agent 项目的「覆盖审计 / 蒙罗验证」做交叉参考。
+
+## 精读完成（2026-08-12）
+
+全书已精读并 vendor + 蒸馏，产物在 harness-reference 仓：
+- 原文 vendor：（pin 2ae4300，可由  复原；已删红线 PDF）。
+- 逐章蒸馏：（FDE 定义/95% 失败悖论/一切用结果说话/交付旅程六章/指标四层/职业道德六底线/对金融 agent 的可迁移点）。
+- 跨书检索入口： D16、 D16(FDE 行=已精读)。
+
+> 注：本仓当前只有本篇 FDE 笔记；上面「待写」的三篇 FDE 题目仍未写。
 
 ## 精讲计划
 
