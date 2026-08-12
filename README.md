@@ -45,7 +45,7 @@ Codex 规划 ─┤                                    │
 ## 快速开始
 
 - **人类**：用 Obsidian 打开本仓库根目录即可（vault = 仓库根）。
-- **Agent**：clone 本仓库 → 读 [`30_conventions/`](30_conventions/) 了解约定 → 按 [`50_agents/`](50_agents/) 里对应自己的卡片读写 → 用 [`_templates/`](_templates/) 的模板新建笔记。
+- **Agent**：clone 本仓库 → 读 [`30_conventions/`](30_conventions/) 了解约定 → 按 [`50_agents/`](50_agents/) 里对应自己的卡片读写（**没有具名卡的新工具用 [`generic.md`](50_agents/generic.md) 兜底**）→ 用 [`_templates/`](_templates/) 的模板新建笔记。
 
 ## 维护纪律（成败关键）
 
