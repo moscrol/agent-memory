@@ -37,6 +37,7 @@ related: ["[[finance-workspace-private]]", "[[finance-research-site]]", "[[finan
 ## 任务看板
 | 任务 | 负责 | 状态 | 备注 |
 |---|---|---|---|
+| RAG P0：page_id 消歧 + freshness 单一事实源 | cursor | done | 代码在 main（#304/#305 git merge）；闸门修复 #306 待合；索引 v1→v3 update 进行中 |
 | Top-30 P0 纵切片首批闭环 | devin | done | PR #258（堆叠 #257），明细见 wiki/log.md #2880 |
 | Top-N 主题纵切片 planner | devin | done | PR #256（堆叠 #255），见 [[demand-first-theme-vertical-slice]] |
 | F10 missing-exposure 终态路由 | devin | done | PR #255（堆叠 #254） |
@@ -44,6 +45,7 @@ related: ["[[finance-workspace-private]]", "[[finance-research-site]]", "[[finan
 | RAG 实际入索引文件 manifest freshness | devin | done | PR #269 已合并，main CI 全绿；110,065-chunk `manifest:v1` 索引已发布 non-prerelease stable release `rag-index-20260712-manifest-v1` |
 
 ## 交接记录
+- 2026-08-13 · cursor · RAG 两 P0 已在 `main`（#304 切块对齐 + #305 page_id=相对路径作自然主键；freshness 收敛为 `RagStore.freshness_report`，git 仅作单向短路预检）。轻量闸门被 numpy 测例带红，修在 #306。方法论：[[aggregation-key-use-natural-primary-key]]、[[fast-path-must-not-mint-authority]]。Mac 干净索引仍是 v1，已在 `kb-hooks-portable` worktree 对 live `.rag_index` 跑 v3 `rag update`（切块预算变了，不是纯改元数据）。
 - 2026-07-10 · devin · 统一 ingest enum SSOT 并收口关系写入（PR #263，待 review/merge，**尚未合并**）：把 ingest 枚举收敛到单一事实来源（SSOT），改为 strict-by-default / fail-closed（未知枚举默认拒绝，须显式 opt-out），relations 写入收到单一 choke point，并把 non-regression 质量 baseline 提交进仓 + 挂 CI 守护。**可复用架构决策**：枚举/校验类约束用「SSOT + 默认严格 + 显式 opt-out」比分散校验更抗腐化；写入收敛到单一 choke point 才能统一加校验与审计；质量 baseline 提交进仓并挂 CI，使「不倒退」成为机检而非口头约定。测试 317 passed / 8 skipped / 3 subtests、CI 全绿。**后续动作**：先 review/merge；历史遗留 `unknown_enum` 债务仍需后续单独清洗，环境 blueprint 另做。
 - 2026-07-12 · devin · RAG freshness 修复 [PR #269](https://github.com/linxiaoqi5111-del/knowledge-base-private/pull/269) 已合并至 `main`（`dcf49b74`），main `tests-and-gate` 全绿：freshness 从只覆盖 `wiki/` 的 Git tree 改为对实际选择并入索引的 path + bytes SHA-256 计算 deterministic `manifest:v1:`，选择参数包含 `include_raw/max_files`；legacy `git-tree:` / `snapshot:` 一律返回 `unknown`。raw-only 新增/删除/修改/改名均有回归测试；manifest 路径改为与 `chunk_file()` 一致的 lexical repo path，避免外部 symlink 经 `.resolve()` 越出 repo，同时仍能检测目标 bytes 变化。full build 在所有 vectors 可复用时不再加载约 2GB BGE 模型。已复用旧 dense vectors 重建并发布 [stable release `rag-index-20260712-manifest-v1`](https://github.com/linxiaoqi5111-del/knowledge-base-private/releases/tag/rag-index-20260712-manifest-v1)：chunks/dense/BM25 均 110,065，dense=`110065×1024`，`include_raw=true`、`max_files=0`、`progress=110065/110065`、`source_revision=manifest:v1:c66a...`，asset 330,078,997 bytes，non-draft/non-prerelease。旧 prerelease 未被提升。
 - 2026-07-10 · devin · Top-30 P0 首批执行完成（PR #258，明细见 wiki/log.md #2880）：任务计划确认后冻结 7 个主题范围，逐项关闭 definition/industry_chain/wikilink/eval gate；队列重建后 7/7 为 `ready`。**可复用经验**：新增 eval 会改变重要度并重排下一批，执行中不追逐动态 P0；带小数点的 canonical name 只能精确去 `.md` 后缀，不能用 `Path.stem`。方法论已补入 [[demand-first-theme-vertical-slice]]。
