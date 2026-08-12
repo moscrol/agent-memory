@@ -18,7 +18,8 @@ tags: [agent-card, index]
 | Devin | 开发执行 + 回写沉淀 | [[devin]] |
 | Codex | 系统性规划 (Planner) | [[codex]] |
 | Grok | 搜索 / 信息采集 | [[grok]] |
-| Claude | 通用读写 (备用) | [[claude]] |
+| Claude | 学习型实现（核心开发） | [[claude]] |
+| **其他任何工具** | 兜底接入（无具名卡时从这进） | [[generic]] |
 
 ## 所有 Agent 的通用规则
 
