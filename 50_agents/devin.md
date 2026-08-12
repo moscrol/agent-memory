@@ -26,7 +26,6 @@ tags: [agent-card, devin]
 
 ## 接入方式
 - 直接 `git clone` 本仓库读写（用有写权限的 PAT）。
-- 也可与 Devin 自带 **Knowledge** 双向同步（见 [[../40_playbooks/]] 里的同步 playbook，待建）。
 
 ## 自动化
 - 可设 Devin 定时任务：维护 `00_inbox/`、校验 frontmatter、检查失效双链（见 [[maintenance]]）。
