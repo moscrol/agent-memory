@@ -5,6 +5,8 @@
 
 # 审查工具包
 
+> **本文只回答「用哪一档审查工具」。** 跨仓流程手册（拆票 / 交接 / 分诊 / 实现验收链）在 `agent-run-triage-skill/skills/`，不在本文件。canonical 在 harness-reference/TOOLKIT.md。
+
 **怎么选**：见 `PLAYBOOK.md` Stage 2 —— 先问「这个现象最小需要多大的系统才能复现」，
 **能用 0 档复现的绝不上 4 档**。整条 episode 是诊断单个部件最贵的方式。
 
