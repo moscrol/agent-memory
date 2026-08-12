@@ -30,7 +30,15 @@ echo
 echo "----- ③ 本项目笔记摘要（${repo}）-----"
 note="${V}/20_projects/${repo}.md"
 if [ -f "${note}" ]; then
-  sed -n '1,40p' "${note}"
+  # 按内容截取而非死数行数（2026-08-12 改）：旧版 sed -n '1,40p' 在最大的项目笔记上
+  # 恰好把任务看板（53 行起）和「跑之前必读」的决策节整段切掉——注入什么该由
+  # 章节边界决定。现在注入「## 交接记录」之前的全部（概述/看板/必读），
+  # 上限 150 行防超长；交接历史只补末尾几行（最新的在最后）。
+  awk 'NR>150{print "…（前置部分超 150 行，已截断）"; exit} /^## 交接记录/{exit} {print}' "${note}"
+  if grep -q '^## 交接记录' "${note}"; then
+    echo "--- 最近交接（该节末尾 8 行，完整历史见笔记本体）---"
+    awk 'f{print} /^## 交接记录/{f=1}' "${note}" | tail -n 8
+  fi
   echo "...（完整见 .agent-memory/20_projects/${repo}.md）"
 else
   echo "(暂无 ${repo}.md，可用 _templates/project.md 新建)"

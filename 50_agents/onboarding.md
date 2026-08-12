@@ -3,7 +3,7 @@ title: 开场白 (接入任意新会话)
 type: agent-card
 agent: devin
 source: 设计约定
-date: 2026-06-28
+date: 2026-08-12
 tags: [agent-card, onboarding, bootstrap, core]
 related: ["[[devin]]", "[[grok]]", "[[claude]]", "[[codex]]", "[[../30_conventions/preferences]]"]
 ---
@@ -51,5 +51,5 @@ Git：开工先报 git status --short && git branch --show-current；大任务�
 ```
 
 ## 备注
-- `<repo>` 替换成实际短名：`finhot` / `finance-workspace-private` / `knowledge-base-private` / `finance-research-site`。
+- `<repo>` 替换成实际短名：`finhot` / `finance-workspace-private` / `knowledge-base-private` / `finance-research-site` / `dao-proxy-pro` / `vidio`（笔记名为 `vidio-short-video`）。
 - 这些都是「软指令」：能强烈引导模型但非 100%，长对话跑偏时重贴一次即可。

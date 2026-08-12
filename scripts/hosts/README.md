@@ -43,3 +43,4 @@ git diff --stat -- scripts/hosts   # 有 diff 就说明 ~/bin 改过而这里没
 | `cockpit-codex-auth-watchdog.sh` | 上面那个 py 的 launchd 包装 |
 | `cockpit-disable-empty-plus-refresh.py` | 关掉额度耗尽的 Plus 账号的刷新组 |
 | `finhot-exec-watchdog.sh` | finhot 执行看护 |
+| `untracked-backup.sh` | vault 内不入 git 的孤本目录（`60_dialogues/`、`.foresight/`）每日 tar 快照。⚠ 方向与其余脚本相反：先在本目录写好、**尚待部署**到 `~/bin` + launchd（步骤见脚本头注释），部署后按上面的快照同步规则维护 |
