@@ -58,3 +58,4 @@ npm run build
 - 2026-07-06 · devin · 华为芯片收尾：PR #13 已合并 main，npm run indexnow 返回 200（含 huawei-chip URL）；另按 content-matrix 工作流产出三件套（内容矩阵/公众号/雪球 各目录下 华为芯片-*.md），敏感词检查全过。
 - 2026-08-12 · grok · add research 电子特气（electronic-specialty-gas）手写17节+石英砂骨架公众号稿 → https://github.com/linxiaoqi5111-del/finance-research-site/pull/29
 - 2026-08-12 · grok · add research 钛合金（titanium-alloy）raw full 主稿经隧道取回+2025 年报更新，高端认证 vs 中低端内卷主线 → https://github.com/linxiaoqi5111-del/finance-research-site/pull/30
+- 2026-08-12 · grok · add research ASIC芯片（asic-chip）raw 主稿+博通FY2025/寒武纪海光2025年报更新，剔除主稿投顾表达；用户定：不跑 IndexNow、三分支独立按天推 → https://github.com/linxiaoqi5111-del/finance-research-site/pull/31
