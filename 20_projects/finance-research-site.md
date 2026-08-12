@@ -67,3 +67,4 @@ npm run build
 - 2026-08-12 · grok · add research 稳定币（stablecoin）并行批次2，真产业假题材+三问排雷框架，新增「金融」分类 → https://github.com/linxiaoqi5111-del/finance-research-site/pull/36
 - 2026-08-12 · grok · add research 固态变压器（solid-state-transformer）并行批次2，纠正主稿英伟达路线表述+三级验证框架 → https://github.com/linxiaoqi5111-del/finance-research-site/pull/37
 - 2026-08-12 · grok · add research 制冷剂（refrigerant）并行批次2，配额=类牌照资产+R22 反例风控 → https://github.com/linxiaoqi5111-del/finance-research-site/pull/38
+- 2026-08-12 · grok · add research GPU/先进封装/磷酸铁锂（B5 并行批次），差集队列共 43 批约 110 主题已落盘（/Users/a77/内容矩阵/主站选题队列.md）→ PR #39/#40/#41
