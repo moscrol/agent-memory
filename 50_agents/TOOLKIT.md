@@ -1,5 +1,7 @@
 > **来源镜像**：canonical 在 `harness-reference/TOOLKIT.md`（`linxiaoqi5111-del/harness-reference` main）。
 > 本文件供云端 Agent / agent-memory 拉取使用；改内容请改 harness-reference 后同步。
+> pinned_sha256: 43b0d5aa0ab81ab99cf6f1eb3bd0cd8fc3c07919f23feccacbeefecd853c5aa1
+> pinned_at: 2026-08-12
 
 # 审查工具包
 
