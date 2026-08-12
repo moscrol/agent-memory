@@ -5,7 +5,7 @@ agent: devin
 source: 设计约定
 date: 2026-08-12
 tags: [agent-card, onboarding, bootstrap, core]
-related: ["[[devin]]", "[[grok]]", "[[claude]]", "[[codex]]", "[[../30_conventions/preferences]]"]
+related: ["[[generic]]", "[[devin]]", "[[grok]]", "[[claude]]", "[[codex]]", "[[../30_conventions/preferences]]"]
 ---
 
 # 开场白 — 让任意新会话立刻进入状态
@@ -50,6 +50,10 @@ Git：开工先报 git status --short && git branch --show-current；大任务�
 <把 preferences.md 全文粘贴到这里>
 ```
 
+## ④ 其他任何工具（云端 Cursor / 新 IDE / 没有具名卡）
+
+> 不要套上面 ①——① 假定 Mac 本机软链存在。按 [[generic]] 执行：clone 本仓库，按卡上的读顺序逐条读，写入过 lint、受保护区走 PR。
+
 ## 备注
-- `<repo>` 替换成实际短名：`finhot` / `finance-workspace-private` / `knowledge-base-private` / `finance-research-site` / `dao-proxy-pro` / `vidio`（笔记名为 `vidio-short-video`）。
+- `<repo>` 替换成实际短名（= `20_projects/<repo>.md` 文件名）：`finhot` / `finance-workspace-private` / `knowledge-base-private` / `finance-research-site` / `dao-proxy-pro` / `vidio`。
 - 这些都是「软指令」：能强烈引导模型但非 100%，长对话跑偏时重贴一次即可。
