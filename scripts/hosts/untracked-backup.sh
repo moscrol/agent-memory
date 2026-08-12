@@ -14,10 +14,9 @@
 # 「任意一天的状态都能回去」。同日重跑幂等覆盖当日份。
 #
 # 部署（Mac，一次性）：
-#   cp scripts/hosts/untracked-backup.sh ~/bin/ && chmod +x ~/bin/untracked-backup.sh
-#   然后建 ~/Library/LaunchAgents/com.a77.agent-memory-backup.plist，
-#   ProgramArguments 指向 ~/bin/untracked-backup.sh，StartCalendarInterval 定每天
-#   04:10（避开 03:50 的回检任务），launchctl load -w 生效。
+#   bash /Users/a77/agent-memory/scripts/hosts/install-mac-tail.sh
+#   脚本会拷到 ~/bin、装 launchd（每天 04:10）、立刻跑一次，并检查
+#   用户级 session-context hook 是否指向 vault 内路径。
 #   注意 scripts/hosts/ 的边界（见本目录 README）：运行位置是 ~/bin，这里是快照；
 #   改了 ~/bin 的版本要手动同步回来。
 #
