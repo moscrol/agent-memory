@@ -17,6 +17,10 @@
 6. 知识过期：`10_knowledge/` 中 `status: verified` 的笔记，若 `last_verified`
    （缺省回退到 `date`）超过 `stale_after` 天（缺省 90）未复核，降为 WARN，
    提醒复核后刷新 `last_verified` 或把 status 改回 draft。
+7. 项目笔记体积：`20_projects/` 单文件超过 80KiB 降为 WARN（交接记录应一行，
+   正文在 repo 的 docs/handoffs/；存量按棘轮可不动，但不要继续往里堆）。
+8. TOOLKIT.md 镜像钉扎：文件头 `pinned_sha256` 必须等于「去掉 pinned_* 行后」
+   的 sha256；sibling `harness-reference` 在本地时再对表 canonical。
 
 用法::
 
@@ -30,6 +34,7 @@ from __future__ import annotations
 
 import argparse
 import datetime as dt
+import hashlib
 import re
 import sys
 from pathlib import Path
@@ -54,6 +59,9 @@ WIKILINK_RE = re.compile(r"\[\[([^\]|#]+)(?:[|#][^\]]*)?\]\]")
 CODE_RE = re.compile(r"```.*?```|`[^`\n]*`", re.DOTALL)
 INBOX_MAX_AGE_DAYS = 14
 KNOWLEDGE_STALE_DAYS = 90
+PROJECT_NOTE_WARN_BYTES = 80 * 1024
+PINNED_SHA_RE = re.compile(r"^> pinned_sha256: ([0-9a-f]{64})\s*$", re.M)
+PINNED_LINE_RE = re.compile(r"^> pinned_")
 # 完全跳过校验的路径——这些不是 vault 笔记，逐条说明为什么：
 #   .agents/_templates/_template.md  模板与 Agent 配置，本就没有 frontmatter
 #   README.md                        导览页
@@ -94,6 +102,39 @@ def parse_frontmatter(text: str) -> dict[str, str] | None:
 def should_skip(path: Path) -> bool:
     rel = path.relative_to(VAULT)
     return rel.parts[0] in SKIP_PATHS or rel.name in SKIP_PATHS
+
+
+def toolkit_body(text: str) -> str:
+    """去掉 pinned_* 行再哈希，这样更新 pin 本身不会改被钉的内容。"""
+    return "".join(ln for ln in text.splitlines(True) if not PINNED_LINE_RE.match(ln))
+
+
+def check_toolkit_mirror(errors: list[str], warns: list[str]) -> None:
+    path = VAULT / "50_agents" / "TOOLKIT.md"
+    if not path.is_file():
+        return
+    text = path.read_text(encoding="utf-8", errors="replace")
+    m = PINNED_SHA_RE.search(text)
+    if not m:
+        warns.append("50_agents/TOOLKIT.md: 缺 pinned_sha256，镜像无法检测漂移")
+        return
+    actual = hashlib.sha256(toolkit_body(text).encode()).hexdigest()
+    if actual != m.group(1):
+        errors.append(
+            f"50_agents/TOOLKIT.md: pinned_sha256 与正文不符（pin={m.group(1)[:12]}… "
+            f"actual={actual[:12]}…）。改镜像必须同步改 pin；"
+            "内容应先改 harness-reference 再拷回来"
+        )
+        return
+    sibling = VAULT.parent / "harness-reference" / "TOOLKIT.md"
+    if sibling.is_file():
+        src = hashlib.sha256(toolkit_body(sibling.read_text(encoding="utf-8", errors="replace")).encode()).hexdigest()
+        if src != actual:
+            errors.append(
+                "50_agents/TOOLKIT.md: 与 ../harness-reference/TOOLKIT.md 正文不一致（镜像已漂）"
+            )
+    # sibling 不在（云端 CI / 未 clone）就只做 pin 自检，不 WARN——
+    # 每次 CI 一条修不了的黄灯 = 常红门禁。
 
 
 def main() -> int:
@@ -178,6 +219,16 @@ def main() -> int:
             age = (today - dt.date.fromisoformat(date_val.strip('"'))).days
             if age > INBOX_MAX_AGE_DAYS:
                 warns.append(f"{rel}: inbox 条目已 {age} 天未提炼（>{INBOX_MAX_AGE_DAYS} 天）")
+
+        if rel.parts[0] == "20_projects":
+            size = len(text.encode("utf-8"))
+            if size > PROJECT_NOTE_WARN_BYTES:
+                warns.append(
+                    f"{rel}: 项目笔记 {size} 字节（>{PROJECT_NOTE_WARN_BYTES}），"
+                    "新交接严格一行，正文放 repo 的 docs/handoffs/；存量按棘轮可不动"
+                )
+
+    check_toolkit_mirror(errors, warns)
 
     for w in warns:
         print(f"WARN  {w}")

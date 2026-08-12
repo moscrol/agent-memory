@@ -46,10 +46,12 @@ tags: [convention, maintenance, core]
 ```bash
 python3 scripts/vault_lint.py    # frontmatter 完整性 / type 合法且↔目录一致 / agent 取值合法
                                  # / 死链 / inbox 老化(>14天 WARN) / verified 知识过期(>90天 WARN)
-                                 # 跳过 SKIP_PATHS：模板、导览页、运行时台账、TOOLKIT.md 来源镜像
+                                 # / 项目笔记 >80KiB WARN / TOOLKIT.md 镜像 pin（sibling 在才对表 canonical）
+                                 # 跳过 SKIP_PATHS：模板、导览页、运行时台账、TOOLKIT.md 的 frontmatter/死链
 python3 scripts/graph_audit.py   # 能力图谱节点清单路径防漂移（repo 在本地才校验）
 ```
 
 - 回写沉淀前、改动 vault 后各跑一遍 `vault_lint.py`，exit 0 才算写入合规。
-- push 到 `main` 或开 PR 时，GitHub Actions 工作流 `vault-lint` 会再跑一遍（事后告警，不拦 Mac auto-sync）。
+- push 到 `main` 或开 PR 时，GitHub Actions 工作流 `vault-lint` 会再跑一遍（事后告警，不拦 Mac auto-sync；默认不含 `--strict`，WARN 不红）。
 - 改能力图谱或相关仓有结构性合并后跑 `graph_audit.py`。
+- Mac 孤本备份与 hook 路径：见 [[../40_playbooks/mac-tail]]。

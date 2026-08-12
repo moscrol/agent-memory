@@ -29,6 +29,7 @@ status: verified
 
 - 用 `_templates/` 对应模板 + 完整 frontmatter（见 `30_conventions/frontmatter-spec.md`），放进 `type` 对应目录。
 - 写完跑 `python3 scripts/vault_lint.py`，**exit 0 才算合规**（push 后 CI 会复验）。
+- 本仓自己的项目笔记是 `20_projects/agent-memory.md`。
 - **受保护区**（`30_conventions/`、`50_agents/`）：改动必须走 PR 人审，不得直推。
 - `70_tutor/` 只经 `tutor` skill 的人审流程写入（先教学、确认理解、明确批准，才落库）。
 - 红线：不写密钥/token 到任何文件；不贴整段代码 diff（记结论与决策，代码看 PR）；不删别的 agent 的交接记录，只追加。

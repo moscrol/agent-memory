@@ -3,7 +3,7 @@ title: 同步机制 (Mac launchd 自动双向同步)
 type: convention
 agent: devin
 source: 部署记录
-date: 2026-06-28
+date: 2026-08-12
 tags: [convention, sync, infra, mac]
 status: verified
 ---
@@ -40,3 +40,17 @@ launchctl list | grep agent-memory
 ```
 
 > 注:`.obsidian/workspace*` 已在 `.gitignore` 忽略(每台机器不同),其余 `.obsidian/` 配置会同步,方便多端共享设置。
+
+## 孤本备份（不入 git 的目录）
+
+`60_dialogues/` 与 `.foresight/` 被 gitignore，auto-sync 覆盖不到。每日 tar 快照由 `com.a77.agent-memory-backup` 跑，安装见 [[../40_playbooks/mac-tail]]。
+
+## 用户级 SessionStart hook 必须指向 vault 内路径
+
+`scripts/hooks/session-context.sh` 是注入器，纪律正文在 [[assertion-discipline]]。Claude 用户级 settings 里的 SessionStart 应写：
+
+```
+/Users/a77/agent-memory/scripts/hooks/session-context.sh
+```
+
+不要指向 `~/bin` 或别处的拷贝——拷贝不会随 auto-sync 更新，断言纪律会静默漂。`install-mac-tail.sh` 会检查这一点。
