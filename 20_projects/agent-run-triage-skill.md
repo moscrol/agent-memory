@@ -26,7 +26,7 @@ status: active
 |---|---|---|---|
 | 01 Mac 本机 symlink 安装 + guardrails hook | human | done | 2026-08-13 经远程隧道实做：28 skill × 3 harness 全 symlink，sha256 一致；hook 两向 12/12+12/12；plan 见仓内 docs/superpowers/plans/2026-08-12-matt-pocock-skills-adaptation.md |
 | 02 to-tickets 确认轮补测 | grok | todo | 模拟用户改拆分后重编号发布 |
-| 03 黑板看板 e2e（写 vault + vault_lint） | claude | doing | 本 MOC 即其产物；lint 通过后置 done |
+| 03 黑板看板 e2e（写 vault + vault_lint） | claude | done | 2026-08-13 lint 全绿（182 文件 0 错 0 警）；本 MOC 即其产物 |
 | 04 ask-matt 路由补测 | grok | todo | 含「先路由 agent 再路由 skill」 |
 | 05 B 组代表路径（grilling/handoff/claude-handoff） | devin | todo | |
 | 06 其余 B 组沙盒断言 | devin | todo | /tmp 沙盒，不留仓内产物 |
