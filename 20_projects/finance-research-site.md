@@ -64,3 +64,6 @@ npm run build
 - 2026-08-12 · grok · add research 信创（xinchuang）并行子agent撰写+主agent终审，政策雄心vs报表现实主线 → https://github.com/linxiaoqi5111-del/finance-research-site/pull/34
 - 2026-08-12 · grok · add research 折叠屏（foldable-screen）并行子agent撰写+主agent终审，苹果入局+增收不增利排雷框架 → https://github.com/linxiaoqi5111-del/finance-research-site/pull/35
 - 2026-08-12 · grok · 方法论沉淀：3 篇并行 = git worktree 隔离 + 任务书写死规范（17节/lint/红线/清洗）+ 主agent终审闸门；质量与串行相当
+- 2026-08-12 · grok · add research 稳定币（stablecoin）并行批次2，真产业假题材+三问排雷框架，新增「金融」分类 → https://github.com/linxiaoqi5111-del/finance-research-site/pull/36
+- 2026-08-12 · grok · add research 固态变压器（solid-state-transformer）并行批次2，纠正主稿英伟达路线表述+三级验证框架 → https://github.com/linxiaoqi5111-del/finance-research-site/pull/37
+- 2026-08-12 · grok · add research 制冷剂（refrigerant）并行批次2，配额=类牌照资产+R22 反例风控 → https://github.com/linxiaoqi5111-del/finance-research-site/pull/38
