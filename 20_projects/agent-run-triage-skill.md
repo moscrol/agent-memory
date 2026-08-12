@@ -39,3 +39,4 @@ status: active
 ## 交接记录（谁做了什么）
 - 2026-08-13 · claude · Mac 实装 28 skill symlink + guardrails hook 两向验证；创建本 MOC 落 7 张票看板 · 指向仓内 docs/superpowers/plans/2026-08-12-matt-pocock-skills-adaptation.md
 - 2026-08-13 · claude · plan 7 票全部执行完毕（Mac 实做 01/03，fresh 子 agent 冒烟 02/04–07 全 PASS，T7–T14）；28 skill 全部有行为证据 · 指向仓内 docs/superpowers/acceptance/matt-pocock-skills/behavioral-tests.md
+- 2026-08-13 · claude · 与 harness-reference 接线（不合仓）：skill 仓 TOOLKIT 空指针改为 canonical+vault fallback；KIT/BUILD/TOOLKIT 回指本仓 skills/ · 指向 harness-reference commit 14ad10e 与 skill 仓 5678703
