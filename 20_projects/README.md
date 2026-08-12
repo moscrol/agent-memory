@@ -19,6 +19,7 @@ tags: [project, index, moc]
 | [[finance-research-site\|金融网站]] | finance-research-site | 面向读者+AI检索的研究网站 | Astro + Cloudflare |
 | [[dao-proxy-pro]] | dao-proxy-pro | 本地 LLM 网关（多协议路由/缓存/熔断） | Node/JS · VS Code 扩展 |
 | [[vidio]] | vidio | 抖音冷启动与内容获客（FinHot + 金融 Agent） | 运营为主 · Remotion 成片 |
+| [[agent-memory]] | agent-memory | 本记忆底座（跨 Agent 黑板） | Markdown · Git · Obsidian |
 
 ## 金融内容矩阵（它们怎么串起来）
 ```
@@ -28,6 +29,6 @@ knowledge-base-private  ──(知识/synthesis)──►  finance-research-site
 finance-workspace-private (量化复盘/数据)              finhot (信息流阅读器/采集)
 ```
 
-另两份不在这条内容链上：`dao-proxy-pro` 是各 agent 共用的本地推理基建；`vidio` 是获客运营，项目 SSOT 在仓内 `ops/`，本 vault 只留 MOC。
+另两份不在这条内容链上：`dao-proxy-pro` 是各 agent 共用的本地推理基建；`vidio` 是获客运营，项目 SSOT 在仓内 `ops/`，本 vault 只留 MOC。`agent-memory` 是本仓自己的 MOC。
 
 > 每个项目的任务看板、关键决策、交接记录都在各自的 MOC 里维护。新项目按 `_templates/project.md` 新建，文件名必须等于仓库短名。
