@@ -8,6 +8,9 @@
    **不在取值表里的 type 直接 ERROR**——2026-08-05 前是 `TYPE_DIRS.get()` 返回 None
    然后静默放行，`type: reading-queue` 就这么混了进来。认不出来的值必须 fail closed，
    否则「写错 type」和「type 正确」在门禁眼里长得一样；
+2b. agent 取值合法（frontmatter-spec 的固定值表，2026-08-12 起）——
+   此前只查「有没有」不查「是什么」，`all` / `any` 就这么用了一个半月才被
+   收编进规范。与 type 同一条纪律：认不出来的值 fail closed；
 3. date 格式 YYYY-MM-DD；
 4. 双链死链：`[[笔记名]]` 必须能解析到 vault 内某个 .md 文件名；
 5. inbox 老化：`00_inbox/` 中超过 14 天未提炼的条目（仅 WARN，不拦截）；
@@ -44,6 +47,8 @@ TYPE_DIRS = {
     "dialogue": "60_dialogues",
     "tutor-note": "70_tutor",
 }
+# agent 固定取值（frontmatter-spec）。all/any 用于面向所有/任意 agent 的约定与 playbook。
+AGENT_VALUES = {"devin", "codex", "grok", "claude", "human", "all", "any"}
 DATE_RE = re.compile(r"^\d{4}-\d{2}-\d{2}$")
 WIKILINK_RE = re.compile(r"\[\[([^\]|#]+)(?:[|#][^\]]*)?\]\]")
 CODE_RE = re.compile(r"```.*?```|`[^`\n]*`", re.DOTALL)
@@ -52,6 +57,11 @@ KNOWLEDGE_STALE_DAYS = 90
 # 完全跳过校验的路径——这些不是 vault 笔记，逐条说明为什么：
 #   .agents/_templates/_template.md  模板与 Agent 配置，本就没有 frontmatter
 #   README.md / 欢迎.md              导览页
+#   TOOLKIT.md                       **来源镜像**：canonical 在 harness-reference 仓，
+#                                    文件头一行就写着「改内容请改 harness-reference 后同步」。
+#                                    给它补 frontmatter / 改死链都算本地改内容、会与
+#                                    canonical 漂移，所以整体跳过（2026-08-12，
+#                                    它曾把本门禁刷红：缺 frontmatter + 指向外仓的死链）
 #   可证伪点回检/ .foresight/         **运行时台账**：机器逐 run 写出来的产物，
 #                                    永远不会有 frontmatter（.foresight 由
 #                                    FORESIGHT_USERS_DIR 指到 vault 内，见项目 MOC 2026-07-07）
@@ -66,6 +76,7 @@ SKIP_PATHS = {
     "_template.md",
     "README.md",
     "欢迎.md",
+    "TOOLKIT.md",
 }
 
 
@@ -132,6 +143,13 @@ def main() -> int:
         stale_after = fm.get("stale_after", "").strip('"')
         if stale_after and not stale_after.isdigit():
             errors.append(f"{rel}: stale_after 应为天数整数，实际 {stale_after}")
+
+        agent_val = fm.get("agent", "")
+        if agent_val and agent_val not in AGENT_VALUES:
+            errors.append(
+                f"{rel}: agent={agent_val} 不在固定取值表里"
+                f"（{'/'.join(sorted(AGENT_VALUES))}），见 30_conventions/frontmatter-spec.md"
+            )
 
         note_type = fm.get("type", "")
         if note_type and note_type not in TYPE_DIRS:
