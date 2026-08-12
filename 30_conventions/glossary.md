@@ -37,6 +37,7 @@ status: draft
 | preflight | 开工前跑的自检脚本（`preflight.sh`）：注入 git 现状、红线、项目笔记摘要 | |
 | hook | agent 生命周期上挂的自动脚本：SessionStart（开窗自动注入记忆）、Stop（结束前拦住没做沉淀判断的会话） | 钩子 |
 | 能力图谱 | `10_knowledge/finance-agent-capability-graph.md`，回答「我们有没有 X」的权威事实源，配 `graph_audit.py` 防漂移 | |
+| 断言纪律 | 负面断言（「没有 X / 还没做 X」）必须三步验证才能出口；正文在 [[assertion-discipline]] | |
 | 变异验证 | 故意改坏被测逻辑，确认检查/测试真的会红——防「永远绿的测试」 | mutation test |
 | 活性检查 | 确认改动路径这次真的被执行到了；没执行到的样本不能当证据 | |
 | 来源镜像 | canonical 在别处、拷进本库供读取的副本（如 `TOOLKIT.md`）；改内容必须改源头再同步，镜像必漂所以要对表 | mirror |

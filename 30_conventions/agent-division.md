@@ -6,7 +6,7 @@ source: 客观评估 (2026-06-28)
 date: 2026-08-12
 tags: [convention, agents, division-of-labor, core, workflow]
 status: verified
-related: ["[[../50_agents/devin]]", "[[../50_agents/claude]]", "[[../50_agents/codex]]", "[[../50_agents/grok]]", "[[../50_agents/onboarding]]"]
+related: ["[[../50_agents/devin]]", "[[../50_agents/claude]]", "[[../50_agents/codex]]", "[[../50_agents/grok]]", "[[../50_agents/generic]]", "[[../50_agents/onboarding]]"]
 ---
 
 # 多 Agent 分工约定
@@ -36,7 +36,7 @@ related: ["[[../50_agents/devin]]", "[[../50_agents/claude]]", "[[../50_agents/c
 - **`dao-proxy-pro`（本地 LLM 网关/路由代理）= 基建**（2026-08-12 收编，此前已在跑但不在本表）
   → 排查与优化（协议适配、缓存、熔断）交 Devin/Codex；网关原理值得学的部分拉 Claude 讲。
 - **`vidio`（抖音短视频运营）= 获客**（2026-08-12 收编）
-  → Grok 任运营顾问（策略/脚本/复盘），human 拍发；项目 SSOT 在仓内 `ops/`，vault 只留 MOC（见 [[../20_projects/vidio-short-video]]）。
+  → Grok 任运营顾问（策略/脚本/复盘），human 拍发；项目 SSOT 在仓内 `ops/`，vault 只留 MOC（见 [[../20_projects/vidio]]）。
 
 ## 协作闭环
 

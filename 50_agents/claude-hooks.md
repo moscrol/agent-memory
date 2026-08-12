@@ -2,16 +2,16 @@
 title: Claude/Codex Hooks (自动读 + 分层回写门禁)
 type: agent-card
 agent: claude
-source: 设计约定 (2026-06-28)
-date: 2026-06-28
+source: 设计约定 (2026-06-28)；2026-08-12 标明 hook 目前只装在 4 个金融仓
+date: 2026-08-12
 tags: [agent-card, claude, hooks, automation, core]
-related: ["[[claude]]", "[[onboarding]]", "[[../40_playbooks/devin-writeback]]", "[[../30_conventions/preferences]]"]
+related: ["[[claude]]", "[[onboarding]]", "[[generic]]", "[[../40_playbooks/devin-writeback]]", "[[../30_conventions/preferences]]"]
 status: verified
 ---
 
 # Claude/Codex Hooks —— 记忆底座的自动读 + 分层回写门禁
 
-给 4 个项目仓（finhot / finance-workspace-private / knowledge-base-private / finance-research-site）的 `.claude/` / `.codex/` 装了 hook，让 agent 开窗自动加载记忆，结束前判断是否完成分层沉淀。**项目级配置，需在 repo 目录里启动 agent，首次可能弹安全确认批准。**
+给 **4 个金融仓**（finhot / finance-workspace-private / knowledge-base-private / finance-research-site）的 `.claude/` / `.codex/` 装了 hook，让 agent 开窗自动加载记忆，结束前判断是否完成分层沉淀。`dao-proxy-pro` 与 `vidio` 目前未装——在那两个仓开工不会自动注入，按 [[generic]] / [[onboarding]] 手动读。**项目级配置，需在 repo 目录里启动 agent，首次可能弹安全确认批准。**
 
 ## 文件位置（每个 repo 内）
 - `.claude/settings.json` —— 注册 hook（项目级，提交进仓库）。

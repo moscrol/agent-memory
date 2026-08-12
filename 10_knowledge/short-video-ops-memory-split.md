@@ -6,7 +6,7 @@ source: 2026-07-10 运营共创对话 + 资产架构决策
 date: 2026-07-10
 tags: [knowledge, vidio, douyin, memory, architecture]
 status: verified
-related: ["[[vidio-short-video]]"]
+related: ["[[vidio]]"]
 ---
 
 # 短视频运营知识分层
@@ -14,7 +14,7 @@ related: ["[[vidio-short-video]]"]
 ## 结论
 - **不新开 Obsidian vault**。
 - **项目 SSOT** = `vidio/ops/`（策略、脚本、复盘、钩子 playbook、skill 目录）。
-- **跨项目长期结论** 才蒸馏进本 vault 的 `10_knowledge/`；项目 MOC 在 `20_projects/vidio-short-video.md`。
+- **跨项目长期结论** 才蒸馏进本 vault 的 `10_knowledge/`；项目 MOC 在 `20_projects/vidio.md`。
 
 ## 起号硬规则（已采纳）
 1. 产品号第一条不做产品介绍。
