@@ -48,7 +48,7 @@ status: verified
 | [[finance-workspace-private\|金融项目]] | Python · DuckDB · 飞书 Bitable · CDP 抓取 |
 | [[knowledge-base-private\|知识库]] | Python · RAG · 知识图谱(Theme Radar) |
 | [[dao-proxy-pro]] | Node/JS · VS Code 扩展 · 本地 LLM 网关(多协议路由/prompt 缓存/熔断) |
-| [[vidio-short-video\|vidio 短视频]] | 运营项目(非代码为主) · 抖音起号 · Remotion 成片 |
+| [[vidio\|vidio 短视频]] | 运营项目(非代码为主) · 抖音起号 · Remotion 成片 |
 
 - 部署/基建:Cloudflare、Docker、Mac 本地(RSSHub/wechat2rss 等已在 Mac 跑)。
 - 包管理:JS 侧用 **pnpm**;Python 侧见各 repo。
