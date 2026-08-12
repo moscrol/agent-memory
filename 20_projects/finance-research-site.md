@@ -71,3 +71,4 @@ npm run build
 - 2026-08-12 · grok · add research 稀土/铀矿/MiniLED（B6 并行批次）→ PR #42/#43/#44；队列 B7 起继续
 - 2026-08-12 · grok · add research 一体化压铸/盾构机/模拟芯片（B7 并行批次）→ PR #45/#46/#47
 - 2026-08-12 · grok · add research 英伟达供应链/锂电池/航运（B8 并行批次，两个双主稿合并主题）→ PR #48/#49/#50
+- 2026-08-12 · grok · add research 卫星导航/毫米波雷达/车路协同（B9 并行批次）→ PR #51/#52/#53
