@@ -52,13 +52,14 @@ FDE 现场手册·S3 discovery。
 ## 精读完成（2026-08-12）
 
 全书已精读并 vendor + 蒸馏，产物在 harness-reference 仓：
-- 原文 vendor：（pin 2ae4300，可由  复原；已删红线 PDF）。
-- 逐章蒸馏：（FDE 定义/95% 失败悖论/一切用结果说话/交付旅程六章/指标四层/职业道德六底线/对金融 agent 的可迁移点）。
-- 跨书检索入口： D16、 D16(FDE 行=已精读)。
+- 原文 vendor：`harness-reference/upstream/fde/`（pin 2ae4300，可由 `scripts/restore_sources.sh` 复原；已删红线 PDF）。
+- 逐章蒸馏：`harness-reference/distilled/fde-deep-read.md`（FDE 定义 / 95% 失败悖论 / 一切用结果说话 / 交付旅程六章 / 指标四层 / 职业道德六底线 / 对金融 agent 的可迁移点）。
+- 跨书检索入口：`harness-reference/MAP.md` D16、`topics.tsv` D16（FDE 行=已精读）。
 
 > 注：本仓当前只有本篇 FDE 笔记；上面「待写」的三篇 FDE 题目仍未写。
 
 ## 精讲计划
+
 
 待用户启动时，按章节顺序逐章精讲，重点标注：
 - 可迁移到金融 agent 项目的设计思路
