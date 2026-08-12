@@ -1,7 +1,7 @@
 ---
 title: 快路径只能加速权威答案，不能自己产生权威答案
 type: knowledge
-agent: cursor
+agent: claude
 source: knowledge-base-private RAG P0（#305 freshness 单一事实源）
 date: 2026-08-13
 tags: [knowledge, methodology, cache, freshness, source-of-truth, core]

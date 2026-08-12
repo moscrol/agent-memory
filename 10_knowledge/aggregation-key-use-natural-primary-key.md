@@ -1,7 +1,7 @@
 ---
 title: 聚合键必须用自然主键，且在聚合域内全局唯一
 type: knowledge
-agent: cursor
+agent: claude
 source: knowledge-base-private RAG P0（#305 page_id 消歧）
 date: 2026-08-13
 tags: [knowledge, methodology, identity, primary-key, rag, core]
