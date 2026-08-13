@@ -46,10 +46,11 @@ related: ["[[finance-workspace-private]]", "[[finance-research-site]]", "[[finan
 | entity YAML 修复接到 #327/#329 重号 | grok | done | #338 已合 main；合入版固化的长光华芯/长电科技 log 丢失已由 #342 还原（#4353）。 |
 | frontmatter 闭合分隔符畸形 4 页 | grok | done | PR #343（#4354）已合 main `992f890d`；4 页 frontmatter 恢复可定位，main log 4206 条 0 重复。 |
 | 概念回补接到当前 #317 | grok | done | #317 + #339 已合 main。 |
-| r3 年报 128 家接到当前 main | grok | doing | #340 已 merge 当前 main（CLEAN）；quality_gate 过、annual 20 passed；draft，合入等确认。先合 #340 再合 #341。 |
+| r3 年报 128+60 家接到当前 main | grok | done | #340（wave1-2 128 家 #4225–#4352 + wave3 60 家 #4355–#4414）已合 main `ae88c5cb`、#341 cninfo 迁出已合，CI 全绿；合前全树质检 0 丢失。 |
 
 ## 交接记录
 
+- 2026-08-14 · grok · 质检放行 #340（合并由并行 remerge-f46 线在质检中途完成，`ae88c5cb`，CI 绿）：对合入树 `4663ac9b` 全量审——188 页 vs main frontmatter（log/sources/tags/raw_sources）0 丢失；wave3 撞号已重排（#4353/#4354→#4413/#4414，页面与 log.md 一致、全库 0 重号）；YAML 3201 页 0 失败 0 重复键；strict-vocab 0/0；log-id/index 守卫 OK；quality_gate 4 改善 1 持平；annual 20 passed；size gate 17864 文件（raw 迁出生效）。#341 亦已合，open PR 清零。踩坑：`git diff --name-only` 对中文路径默认输出 C 转义引号，喂给 `git show` 会全部静默失败——首轮审计因此假阴性，批量审计必须加 `-c core.quotepath=false`（或用 `-z`）。本地 `worktrees/kb-pr340` 留有被取代的半成品（3ca1270d + 715 个暂存删除），可删。尾巴不变：7 家 need-concept / 泽润新能 OCR / 14 家 name_mismatch 仍等本机 PDF。
 - 2026-08-14 · grok · 最优路径收尾：#338/#337/#336 已合 main。#340 接到当前 main（4 页保历史 log + 年报层；graph 以 main 为底 +2 概念；index 19574+770）。闸门过。尾巴仍无 PDF。下一跳先合 #340 再合 #341（cninfo-baseline 迁出，Release 已含 r3 的 655 份）。
 - 2026-08-14 · grok · 质检 #338 又挖出一层：全库扫 3201 页发现 **上海电气/天宜新材/雪人集团/龙星科技 4 页闭合 `---` 紧贴行尾**（出自 `099543da` 更名迁移）。仓内所有 `split_frontmatter` 都找「独占一行的 ---」，这 4 页被当成完全没有 frontmatter，sources/log/tickers 对入库与图谱隐形；`ingest check` 报 0 错正是因为跳过了它们——**「跳过」被当成「通过」**。修在 PR #343（#4354）。另核 409 页里 9 页条目减少均属有意（错域概念清理/同码双实体拆分/枚举清理/ticker 更正）。
 - 2026-08-14 · grok · 最优路径继续：#338 已把当前 main merge 进来，其余 ~48 页修复 + #4096 保留。等 CI 绿后合。#337 只剩 log.md，#338 合入后再接。
