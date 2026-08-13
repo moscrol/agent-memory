@@ -78,3 +78,4 @@ npm run build
 - 2026-08-12 · grok · add research 磁悬浮压缩机(两稿合并)/铜母线/HVDC（B13 并行批次）→ PR #63/#64/#65
 - 2026-08-12 · grok · add research 硅产业/铜箔/石墨电极（B14 并行批次）→ PR #66/#67/#68
 - 2026-08-12 · grok · add research 磷化工/有机硅/钛白粉（B15 化工批次）→ PR #69/#70/#71
+- 2026-08-12 · grok · add research 锑/钌/镍基合金（B16 小金属与高温合金批次）→ PR #72/#73/#74
