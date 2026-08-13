@@ -131,6 +131,11 @@ per-user 不是进程级；`runtime_backend_readiness` 这个全局探针看不�
 而 CLI/回检走 `~/.zshrc` 里的 `/Users/a77/agent-memory/.foresight`——**两套用户台账不是同一份**。
 
 ## 交接记录
+- 2026-08-14 · cursor · **研究队列升格为 intelligence 一等产物，不再把完整 daily-agent HTML 当日常入口**（分支 `feat/research-queue-canonical`，干净 worktree `/Users/a77/fwp-wt-research-queue`，**未 commit / 未 push**）。
+  - **动机**：8-13 `agent-daily` 生成成功但 fidelity 1.2（知识库 HEAD 晚于 `evidence_cutoff`）拦住全部落盘，下游 ask / L3 / 工作台拿不到当日队列。人要的是「今日 IMA / 找公告 / 等盘面 / 降级」，不是第二份市场复盘。
+  - **契约**：canonical `{date}-research-queue.json`（+ md/html 卡片）；完整 `{date}-daily-agent.*` 仍生成，但只在 fidelity 1.2 通过时落盘。队列写入**先于**门禁，门禁失败 CLI 仍 exit 0，不挡后续矩阵。
+  - **消费方**：ask / forecast_preflight / L3 backfill / workbench 信号 / 工作台 Tab / cockpit 卡片，一律 `load_research_queue()`：先队列文件，再 fallback 嵌在 daily-agent.json 里的旧字段。
+  - **替代方案**：① 放宽 fidelity 让整份日报落盘——会把 PIT 门做成摆设；② 另养一份独立日报——正是用户否掉的。选定「拆产物、不拆生成」。
 - 2026-08-12 · claude · **对照检索源逐层修缮工具接口/压缩/RAG；真正的产出是一个失败形状，不是若干 bug**（已合并 `fc0540ee`、部署生产 `da27ad01`）。全文见 `docs/handoffs/2026-08-12-tool-interface-and-rag-fixes.md`。
   - **🔴 最值钱的一条：「契约与交付不符」一天在七个互不相干的模块各命中一次**——某处向模型承诺一件事、实际交付另一件，**且模型无法自行诊断**。schema 广告 limit=1000 实压 25；工具拒绝只给分类码丢掉 detail；`无命中（error）` 把故障写成没查到；尾部截断标成「摘要」；hybrid 降级为 BM25 不告知；health 报 `vector_index: true` 而解释器不可执行；**连专门抓这类问题的就绪门禁自己也漏判**。七处无共同代码 → **跨层边界架构性易发**：每层单独看都对（遥测如实记了、执行如实做了），错在没人负责把上层事实搬到下层。与「授予的额度必须真的传到最下游执行者」同构。审查手法进 `TOOLKIT.md` H+，知识层 `10_knowledge/contract-vs-delivery-mismatch.md`。
   - **线上停摆**：`.rag_venv` 悬空符号链接致 kb_search 每次 7ms `FileNotFoundError`，而两个仪表同时发绿。venv 已重建（3.14.5/torch 2.13/transformers 5.15，权重走 HF 缓存未重下），三步验证末步端到端 `mode=hybrid` 检索成功；判据 `kb_rag.rag_runtime_ready` 接入 health + 就绪门禁 + 部署链，三处共用一个真相源。
