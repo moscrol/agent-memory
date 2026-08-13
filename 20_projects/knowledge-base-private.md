@@ -43,12 +43,13 @@ related: ["[[finance-workspace-private]]", "[[finance-research-site]]", "[[finan
 | F10 missing-exposure 终态路由 | devin | done | PR #255（堆叠 #254） |
 | ingest enum SSOT 统一 + strict/fail-closed + relations choke point + 质量 baseline/CI | devin | doing | PR #263 待 review/merge，尚未合并；历史 unknown_enum 债务待后续清洗 |
 | RAG 实际入索引文件 manifest freshness | devin | done | PR #269 已合并，main CI 全绿；110,065-chunk `manifest:v1` 索引已发布 non-prerelease stable release `rag-index-20260712-manifest-v1` |
-| entity YAML 修复接到 #327/#329 重号 | grok | doing | #338 已 merge 当前 main（5 冲突页听 main）。等 CI 后合。 |
+| entity YAML 修复接到 #327/#329 重号 | grok | doing | #338 已 merge 当前 main（3 页听 main、长光华芯/长电科技取并集）。CI 绿，等确认后合。 |
 | 概念回补接到当前 #317 | grok | done | #317 + #339 已合 main。尾巴：need-concept 7 家等 Mac 重解析 raw；泽润新能 OCR / 14 家 name_mismatch 不在本线。 |
 
 ## 交接记录
 
-- 2026-08-14 · grok · 最优路径继续：#338 已把当前 main merge 进来，5 个冲突页听 main（YAML 已合法 + 年报层），其余 ~48 页修复 + #4096 保留。等 CI 绿后合。#337 只剩 log.md，#338 合入后再接。
+- 2026-08-14 · grok · 质检 #338 更正上一条：5 个冲突页**不能一律听 main**。#317 的 writer 重演覆写 bug，长光华芯 log 9→3、长电科技 25→2，「YAML 合法」不等于「数据完整」，这两页取并集才没把丢数据固化；其余 3 页 main 确为超集。经验已进金融仓 `lessons_learned.md` `[kb]`。
+- 2026-08-14 · grok · 最优路径继续：#338 已把当前 main merge 进来，其余 ~48 页修复 + #4096 保留。等 CI 绿后合。#337 只剩 log.md，#338 合入后再接。
 - 2026-08-14 · grok · 用户接受概念回补线：#317、#339 已合 main（`0400ff1e` / `50b74b2e`）。已知尾巴不阻塞：need-concept 7 家（迅安科技/铜冠矿建/颖泰生物/阳光乳业/雅本化学/志邦家居/柳钢股份）等 Mac 重解析 raw；#328 零碎线泽润新能 OCR、14 家 name_mismatch 要本机 PDF，未做。#338 因此与新 main 冲突 5 页，需再接一次。
 - 2026-08-14 · grok · 接手 #335 概念回补：#339 已接到当前 #317（vs #317/#main merge-tree 0 冲突）。复验发现 rebase 用 append-only union 把旧 `evidence_index` 25165 条骨架带回来（25312），真实增量只有 137；已按「#317 为底 + 增量」收回 19574 并 repair-meta。strict-vocab 0/0，quality_gate 通过。关 #335，先合 #317 再合 #339。合入等确认 → https://github.com/linxiaoqi5111-del/knowledge-base-private/pull/339
 - 2026-08-14 · grok · 接手 #328 entity YAML：冲突已由 #338 接到 main（结构听 YAML 修复、号按 log 文案对齐 #327/#329）；本机 2940 页 0 失败；关 #328。合入等确认 → https://github.com/linxiaoqi5111-del/knowledge-base-private/pull/338
