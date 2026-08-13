@@ -45,6 +45,15 @@ related: ["[[finance-workspace-private]]", "[[finance-research-site]]", "[[finan
 | RAG 实际入索引文件 manifest freshness | devin | done | PR #269 已合并，main CI 全绿；110,065-chunk `manifest:v1` 索引已发布 non-prerelease stable release `rag-index-20260712-manifest-v1` |
 
 ## 交接记录
+
+### 2026-08-13 · RAG 收口终局 + B2 词表清零（cloud agent）
+
+- **A 表 8/8 封口、B 表 B1/B2/B4 ✅**，B3 只剩晚间周期。明细见 kb 仓 `eval/acceptance.md` 与 `docs/handoffs/2026-08-13-rag-closeout.md`。
+- **经验：Contextual Retrieval（lead 前缀）在 BM25 上的收益不自动迁移到 dense/agentic**——hash 索引预量 BM25 +15% 兑现，但 dense 路 MRR −12%：页首定义词稀释 chunk 本体判别性，dense 被页面级语义拉平，头名滑落。凡「换检索路径的优化」必须在目标路径上重新 A/B，不能拿代理路径的数字外推。与入度先验否决同型：整体某些面涨、默认路头名回退超线即否决。
+- **经验：缺失字段三层治理**——①结构可推导（共存字段同义映射，机械跑+抽检）②内容可判（LLM 按 codebook 判，codebook 必须锚定既有标准/存量多数派，不现编）③无安全值（组合表推不出合法值的，留台账宁缺勿错）。本轮 4,555→18 / 838→3，strict-vocab 已设 CI 默认。这套分法在任何脏数据治理可复用。
+- **经验：发布契约字段缺失 ≠ 重建**——旧索引 meta 缺 `source_fingerprint` 时，若字段是索引自身内容的确定性函数（sha256 over chunk_id+content_hash），从 chunks.jsonl 按同算法补算是诚实的，几秒替代数小时重嵌。
+- eval harness 补齐 nDCG@k（expected rel=2/optional rel=1）：MRR 看首命中、nDCG 看整窗，两指标分歧本身就是信息（agentic 钉头名赢 MRR、bm25 深召回赢 nDCG）。
+
 - 2026-08-13 · cursor · ingest 规范化：词表审计进 check（kb #316，四桶存量见 INGEST_FIELD_STANDARDS P3）；公告 L3 断点=apply 无排班（daily-ops 补 3.5 步）；fupanhui KB 落盘改 opt-in（无消费层不入库）；cninfo 筛选修「租赁」漏放。RAG 收口合同 eval/acceptance.md（kb #315），等 dense 双档判定翻默认。
 - 2026-08-13 · cursor · RAG 两 P0 已在 `main`（#304 切块对齐 + #305 page_id=相对路径作自然主键；freshness 收敛为 `RagStore.freshness_report`，git 仅作单向短路预检）。轻量闸门被 numpy 测例带红，修在 #306。方法论：[[aggregation-key-use-natural-primary-key]]、[[fast-path-must-not-mint-authority]]。Mac 干净索引仍是 v1，已在 `kb-hooks-portable` worktree 对 live `.rag_index` 跑 v3 `rag update`（切块预算变了，不是纯改元数据）。
 - 2026-07-10 · devin · 统一 ingest enum SSOT 并收口关系写入（PR #263，待 review/merge，**尚未合并**）：把 ingest 枚举收敛到单一事实来源（SSOT），改为 strict-by-default / fail-closed（未知枚举默认拒绝，须显式 opt-out），relations 写入收到单一 choke point，并把 non-regression 质量 baseline 提交进仓 + 挂 CI 守护。**可复用架构决策**：枚举/校验类约束用「SSOT + 默认严格 + 显式 opt-out」比分散校验更抗腐化；写入收敛到单一 choke point 才能统一加校验与审计；质量 baseline 提交进仓并挂 CI，使「不倒退」成为机检而非口头约定。测试 317 passed / 8 skipped / 3 subtests、CI 全绿。**后续动作**：先 review/merge；历史遗留 `unknown_enum` 债务仍需后续单独清洗，环境 blueprint 另做。
