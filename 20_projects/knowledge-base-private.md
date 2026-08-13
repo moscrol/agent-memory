@@ -44,7 +44,7 @@ related: ["[[finance-workspace-private]]", "[[finance-research-site]]", "[[finan
 | ingest enum SSOT 统一 + strict/fail-closed + relations choke point + 质量 baseline/CI | devin | doing | PR #263 待 review/merge，尚未合并；历史 unknown_enum 债务待后续清洗 |
 | RAG 实际入索引文件 manifest freshness | devin | done | PR #269 已合并，main CI 全绿；110,065-chunk `manifest:v1` 索引已发布 non-prerelease stable release `rag-index-20260712-manifest-v1` |
 | entity YAML 修复接到 #327/#329 重号 | grok | done | #338 已合 main；合入版固化的长光华芯/长电科技 log 丢失已由 #342 还原（#4353）。 |
-| frontmatter 闭合分隔符畸形 4 页 | grok | doing | PR #343（#4354）：上海电气/天宜新材/雪人集团/龙星科技 闭合 `---` 紧贴行尾，被所有解析器当成无 frontmatter。CI 绿，等确认后合。 |
+| frontmatter 闭合分隔符畸形 4 页 | grok | done | PR #343（#4354）已合 main `992f890d`；4 页 frontmatter 恢复可定位，main log 4206 条 0 重复。 |
 | 概念回补接到当前 #317 | grok | done | #317 + #339 已合 main。 |
 | r3 年报 128 家接到当前 main | grok | doing | #340 已 merge 当前 main（CLEAN）；quality_gate 过、annual 20 passed；draft，合入等确认。先合 #340 再合 #341。 |
 
