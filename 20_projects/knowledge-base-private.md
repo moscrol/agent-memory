@@ -52,6 +52,7 @@ related: ["[[finance-workspace-private]]", "[[finance-research-site]]", "[[finan
 - **经验：Contextual Retrieval（lead 前缀）在 BM25 上的收益不自动迁移到 dense/agentic**——hash 索引预量 BM25 +15% 兑现，但 dense 路 MRR −12%：页首定义词稀释 chunk 本体判别性，dense 被页面级语义拉平，头名滑落。凡「换检索路径的优化」必须在目标路径上重新 A/B，不能拿代理路径的数字外推。与入度先验否决同型：整体某些面涨、默认路头名回退超线即否决。
 - **经验：缺失字段三层治理**——①结构可推导（共存字段同义映射，机械跑+抽检）②内容可判（LLM 按 codebook 判，codebook 必须锚定既有标准/存量多数派，不现编）③无安全值（组合表推不出合法值的，留台账宁缺勿错）。本轮 4,555→18 / 838→3，strict-vocab 已设 CI 默认。这套分法在任何脏数据治理可复用。
 - **经验：发布契约字段缺失 ≠ 重建**——旧索引 meta 缺 `source_fingerprint` 时，若字段是索引自身内容的确定性函数（sha256 over chunk_id+content_hash），从 chunks.jsonl 按同算法补算是诚实的，几秒替代数小时重嵌。
+- **经验：「补证据升级」vs「降级到诚实水位」是数据修复的对偶路径**——声明强度 > 来源强度的数据债（如研报材料被写成 delta），默认先降级到来源真正支持的级别（curated_research/review_candidate），可补官方证据的事件挂进 gap 队列由管线异步升级。库随时一致、升级是增量，优于阻塞在补证上。B2 全量清零（四桶+尾巴 0 错误 0 告警）即用此法收口。
 - eval harness 补齐 nDCG@k（expected rel=2/optional rel=1）：MRR 看首命中、nDCG 看整窗，两指标分歧本身就是信息（agentic 钉头名赢 MRR、bm25 深召回赢 nDCG）。
 
 - 2026-08-13 · cursor · ingest 规范化：词表审计进 check（kb #316，四桶存量见 INGEST_FIELD_STANDARDS P3）；公告 L3 断点=apply 无排班（daily-ops 补 3.5 步）；fupanhui KB 落盘改 opt-in（无消费层不入库）；cninfo 筛选修「租赁」漏放。RAG 收口合同 eval/acceptance.md（kb #315），等 dense 双档判定翻默认。
