@@ -44,9 +44,11 @@ related: ["[[finance-workspace-private]]", "[[finance-research-site]]", "[[finan
 | ingest enum SSOT 统一 + strict/fail-closed + relations choke point + 质量 baseline/CI | devin | doing | PR #263 待 review/merge，尚未合并；历史 unknown_enum 债务待后续清洗 |
 | RAG 实际入索引文件 manifest freshness | devin | done | PR #269 已合并，main CI 全绿；110,065-chunk `manifest:v1` 索引已发布 non-prerelease stable release `rag-index-20260712-manifest-v1` |
 | entity YAML 修复接到 #327/#329 重号 | grok | doing | 接替 PR #338 可合（CI 绿）；旧 #328 已关。合入等确认。 |
+| 概念回补接到当前 #317 | grok | doing | 接替 PR #339（base=#317）；旧 #335 应关。evidence_index 已从错误并集收回 19574。先合 #317 再合 #339。 |
 
 ## 交接记录
 
+- 2026-08-14 · grok · 接手 #335 概念回补：#339 已接到当前 #317（vs #317/#main merge-tree 0 冲突）。复验发现 rebase 用 append-only union 把旧 `evidence_index` 25165 条骨架带回来（25312），真实增量只有 137；已按「#317 为底 + 增量」收回 19574 并 repair-meta。strict-vocab 0/0，quality_gate 通过。关 #335，先合 #317 再合 #339。合入等确认 → https://github.com/linxiaoqi5111-del/knowledge-base-private/pull/339
 - 2026-08-14 · grok · 接手 #328 entity YAML：冲突已由 #338 接到 main（结构听 YAML 修复、号按 log 文案对齐 #327/#329）；本机 2940 页 0 失败；关 #328。合入等确认 → https://github.com/linxiaoqi5111-del/knowledge-base-private/pull/338
 - 2026-08-13 · cursor · 对抗性审查全链收口（#329/#330 已合 main `ae85b208`）：#325 摘入、#326 流程加固、#327 重号清理、#329 撞号修复（log #3864）、#330 图谱口径收口（log #3865）。下一号 #3866。日期快照 `docs/handoffs/2026-08-13-adversarial-review-closeout.md`；不留 inflight。踩坑见金融仓 `lessons_learned.md` `[kb]`。
 
