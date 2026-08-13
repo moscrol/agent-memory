@@ -50,6 +50,7 @@ npm run build
 |  |  |  |  |
 
 ## 交接记录
+- 2026-08-13 · cursor-cloud · **主站文章批量撰写收官（B20-B44）+ 抽样质检**：raw 249 份 full 主稿全覆盖零遗漏——本轮新增 73 篇（PR #39-#156，每篇独立分支 cursor/research-<slug>-5451，未合 main、未跑 IndexNow）。每篇=主站 17 节文章+素材包+公众号 19 段稿，validate/lint/build 全绿，平台稿已同步 Mac。抽样质检修了 9 处硬伤（教学口令「这在 X 场景也能用」泄漏×4、钌 JM 供需表抄错、天然气发改委/统计局口径张冠李戴等）并回写进对应 PR。两个盘点纠错：超级电容 5 月已上线（误记待写，重复产物已弃）；推理芯片是唯一漏网稿（#156 补齐）。可复用方法论：先全量脚本扫+分层深读抽样；加粗数字三问（谁发布/哪年/实际还是预测）；映射稀缺赛道按「公告级别分级」（研发/送样/中试/量产）写；agent 教学口令必须进禁词表。合并提示：llms-full.txt 各分支均改，后合并者重跑 npm run llms。
 - 2026-08-06 · codex · **industry7view 运维与曝光修复**：在 `fix/industry-article-quality`（commit `55edf4b`）删除 `lighthouse-factory`、`power-chip`、`thermal-materials` 的重复附录，合并保留独有相关研究链接，并同步生成 `public/llms-full.txt`；`npm run validate`、`npm run lint:articles:strict` 均通过（83/83），`npm run build` 通过（103 pages）。`public/robots.txt` 在分支上放开 GPTBot/ClaudeBot，继续拦截 CCBot/Bytespider；线上当前仍是旧版本，因 Worker 部署权限/流程未确认，未直接发布。Cloudflare 账户现有 token 可读 Pages 但不能读 Workers，`wrangler whoami` 未登录。仓库 main 当时落后 origin 24 commits 且有用户改动，未 pull/覆盖/合并；分支已推送。
 - 2026-06-28 · devin · 初次建档（基于 README/AGENTS）
 - 2026-07-02 · devin · 合并收尾：PR #11（thermal-materials 附录三件套去重）直接合并；PR #2（信息长图生成器 scripts/poster/，HBM 5 张 + 被动元件 4 张，chainmap 接题材雷达快照）先把 main 合进分支解 .gitignore 冲突（保留 .chrome-profile 忽略 + main 的 .agent-memory 行），本地 node 22 下 `npm run build`（105 页）与 `npm run validate`（85/85 严格）通过后合并。注意：本仓 Astro 要求 node >=22.12。
