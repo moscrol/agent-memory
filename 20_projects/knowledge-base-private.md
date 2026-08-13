@@ -46,6 +46,8 @@ related: ["[[finance-workspace-private]]", "[[finance-research-site]]", "[[finan
 
 ## 交接记录
 
+- 2026-08-13 · cursor · 对抗性审查全链收口（#329/#330 已合 main `ae85b208`）：#325 摘入、#326 流程加固、#327 重号清理、#329 撞号修复（log #3864）、#330 图谱口径收口（log #3865）。下一号 #3866。日期快照 `docs/handoffs/2026-08-13-adversarial-review-closeout.md`；不留 inflight。踩坑见金融仓 `lessons_learned.md` `[kb]`。
+
 ### 2026-08-13 · RAG 收口终局 + B2 词表清零（cloud agent）
 
 - **A 表 8/8 封口、B 表 B1/B2/B4 ✅**，B3 只剩晚间周期。明细见 kb 仓 `eval/acceptance.md` 与 `docs/handoffs/2026-08-13-rag-closeout.md`。
