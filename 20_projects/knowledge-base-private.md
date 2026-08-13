@@ -43,14 +43,15 @@ related: ["[[finance-workspace-private]]", "[[finance-research-site]]", "[[finan
 | F10 missing-exposure 终态路由 | devin | done | PR #255（堆叠 #254） |
 | ingest enum SSOT 统一 + strict/fail-closed + relations choke point + 质量 baseline/CI | devin | doing | PR #263 待 review/merge，尚未合并；历史 unknown_enum 债务待后续清洗 |
 | RAG 实际入索引文件 manifest freshness | devin | done | PR #269 已合并，main CI 全绿；110,065-chunk `manifest:v1` 索引已发布 non-prerelease stable release `rag-index-20260712-manifest-v1` |
-| entity YAML 修复接到 #327/#329 重号 | grok | done | #338 已合 main。 |
+| entity YAML 修复接到 #327/#329 重号 | grok | done | #338 已合 main；合入版固化的长光华芯/长电科技 log 丢失已由 #342 还原（#4353）。 |
+| frontmatter 闭合分隔符畸形 4 页 | grok | doing | PR #343（#4354）：上海电气/天宜新材/雪人集团/龙星科技 闭合 `---` 紧贴行尾，被所有解析器当成无 frontmatter。CI 绿，等确认后合。 |
 | 概念回补接到当前 #317 | grok | done | #317 + #339 已合 main。 |
 | r3 年报 128 家接到当前 main | grok | doing | #340 已 merge 当前 main（CLEAN）；quality_gate 过、annual 20 passed；draft，合入等确认。先合 #340 再合 #341。 |
 
 ## 交接记录
 
 - 2026-08-14 · grok · 最优路径收尾：#338/#337/#336 已合 main。#340 接到当前 main（4 页保历史 log + 年报层；graph 以 main 为底 +2 概念；index 19574+770）。闸门过。尾巴仍无 PDF。下一跳先合 #340 再合 #341（cninfo-baseline 迁出，Release 已含 r3 的 655 份）。
-- 2026-08-14 · grok · 质检 #338 更正上一条：5 个冲突页**不能一律听 main**。#317 的 writer 重演覆写 bug，长光华芯 log 9→3、长电科技 25→2，「YAML 合法」不等于「数据完整」，这两页取并集才没把丢数据固化；其余 3 页 main 确为超集。经验已进金融仓 `lessons_learned.md` `[kb]`。
+- 2026-08-14 · grok · 质检 #338 又挖出一层：全库扫 3201 页发现 **上海电气/天宜新材/雪人集团/龙星科技 4 页闭合 `---` 紧贴行尾**（出自 `099543da` 更名迁移）。仓内所有 `split_frontmatter` 都找「独占一行的 ---」，这 4 页被当成完全没有 frontmatter，sources/log/tickers 对入库与图谱隐形；`ingest check` 报 0 错正是因为跳过了它们——**「跳过」被当成「通过」**。修在 PR #343（#4354）。另核 409 页里 9 页条目减少均属有意（错域概念清理/同码双实体拆分/枚举清理/ticker 更正）。
 - 2026-08-14 · grok · 最优路径继续：#338 已把当前 main merge 进来，其余 ~48 页修复 + #4096 保留。等 CI 绿后合。#337 只剩 log.md，#338 合入后再接。
 - 2026-08-14 · grok · 用户接受概念回补线：#317、#339 已合 main（`0400ff1e` / `50b74b2e`）。已知尾巴不阻塞：need-concept 7 家（迅安科技/铜冠矿建/颖泰生物/阳光乳业/雅本化学/志邦家居/柳钢股份）等 Mac 重解析 raw；#328 零碎线泽润新能 OCR、14 家 name_mismatch 要本机 PDF，未做。#338 因此与新 main 冲突 5 页，需再接一次。
 - 2026-08-14 · grok · 接手 #335 概念回补：#339 已接到当前 #317（vs #317/#main merge-tree 0 冲突）。复验发现 rebase 用 append-only union 把旧 `evidence_index` 25165 条骨架带回来（25312），真实增量只有 137；已按「#317 为底 + 增量」收回 19574 并 repair-meta。strict-vocab 0/0，quality_gate 通过。关 #335，先合 #317 再合 #339。合入等确认 → https://github.com/linxiaoqi5111-del/knowledge-base-private/pull/339
