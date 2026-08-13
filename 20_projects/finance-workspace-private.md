@@ -18,11 +18,29 @@ related: ["[[knowledge-base-private]]", "[[finance-agent-capability-graph]]"]
 
 ## 目录导览
 - `db/` — DuckDB：canonical 库是 `market_feature_store.duckdb`（`market.duckdb` 是早期飞书同步阶段的 legacy 路径，不作为当前数据源，见 [[finance-canonical-data-source-freshness]]）
-- `scripts/` — `sync_to_local.py`（飞书→DuckDB）、`detect_turning_points.py`（MA5峰谷+放量信号）、`backfill_sector_marginal.py`（板块边际量回填，CDP代理）、`backtest_sector.py`（板块回测）
+- `scripts/` — `detect_turning_points.py`（MA5峰谷+放量信号）、`backtest_sector.py`（板块回测）、`layer_audit.py`（分层门禁）；`sync_to_local.py` 已退役为无副作用 shim、`backfill_sector_marginal.py` broken 勿跑
 - `intelligence/` `market_feature_store/` `research/` `evolution/` `复盘/`
 - `skills/` — 各分析模块 SKILL.md（注：ingest 类 skill 已于 2026-06-12 迁至 [[knowledge-base-private]] 的 `skills/`）
 - `shared/` → 软链到 `~/.claude/shared`（飞书工具库）
 - `CLAUDE.md` / `AGENTS.md` — AI agent 项目指令；`UBIQUITOUS_LANGUAGE.md` — 术语
+
+## 分层结构（2026-08-14 审查快照）
+
+> 权威源：`docs/layered-rebuild-roadmap.md`（分层重建路线）、`scripts/layer_audit.py` docstring（门禁规则）、CLAUDE.md「Agent 能力现状」。本节是导览摘要，模块数会漂，复核以权威源为准。
+
+主仓自下而上五层：
+
+1. **数据事实层**：`db/market_feature_store.duckdb`（星型 29 表，唯一主库）+ `market_snapshot/`（每日 JSON 快照）。`fact_sector_daily`/`fact_sector_stock_daily` 是 VIEW（板块名单快照分代，写入走 `*_generation` 表 + `sector_universe_snapshot_id`）。
+2. **数据管道层**：`market_feature_store/` 包，唯一写入口 `python3 -m market_feature_store.cli daily-full`；数据源 fupanhui（CDP 代理）/iFinD/AKShare/飞书（Bitable 写入已废弃）。
+3. **分析与策略层**：`scripts/`（~118 个，一半是门禁/运维：`layer_audit.py`、`check_*`、`db_delta_*`）+ `evolution/`（strategy1/3/4 + `params.json` + `validate.py`，suggest 只建议不自动改参）。
+4. **技能层**：`skills/` ~30 个 SKILL.md；`.claude/skills/` 只软链 19 个是**刻意设计**（多数 skill 拉实时数据或写库，接入 agent 会破只读+无外呼红线）；`skills.registry.json` 由 `build_registry.py` 生成。
+5. **智能层 `intelligence/`**（约 219 模块/122K 行）：内部再分三层，`layer_audit.py` 硬门禁守边界——
+   - **入口层**：`api/app.py`（FastAPI Workbench）、`webapp/`（React）、`cli.py`、`eval/`
+   - **底座 `runtime/`**（16 模块）：判别口径「做 IO/调模型/起子进程/管预算」→ `agent_episode`、`conversation_orchestrator`、`glm_agent_runtime`/`openai_agents_runtime` 等
+   - **领域积木 `services/`**（147 模块，**禁止 import runtime**，门禁圈底座不圈积木）：`question_router`、`retrieval_planner`、`evidence_*` 系、`episode_semantic_verifier`（2,894 行金融语义判据）、`research_tool_registry`（12 个 agent 工具，逐个受 contract 门控）
+   - 编排格局：**一个调度器 + 两个引擎**（A=`agent_episode` continuous loop 模型自选工具，生产默认；B=`ask.answer_query` 写死流程，接 quick_fact/external_market/dated_market_review 三题型）
+
+Workspace 配套仓：[[knowledge-base-private]]（wiki 图谱 + 20 个 ingest 类 skill）、agent-memory（本 vault）、khazix-skills（apps）、dao-proxy-pro；`Desktop/c c/金融|知识库` 是旧数据根（「双根失真」bug 已修，`test_paths.py` 锁两根一致）。
 
 ## 数据流
 ```
