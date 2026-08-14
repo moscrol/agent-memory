@@ -20,6 +20,7 @@ tags: [project, index, moc]
 | [[dao-proxy-pro]] | dao-proxy-pro | 本地 LLM 网关（多协议路由/缓存/熔断） | Node/JS · VS Code 扩展 |
 | [[vidio]] | vidio | 抖音冷启动与内容获客（FinHot + 金融 Agent） | 运营为主 · Remotion 成片 |
 | [[agent-memory]] | agent-memory | 本记忆底座（跨 Agent 黑板） | Markdown · Git · Obsidian |
+| [[金融Agent面试学习]] | agent-memory | 金融 Agent 面试教材、教学计划与跨账号进度交接 | Markdown + Obsidian |
 
 ## 金融内容矩阵（它们怎么串起来）
 ```
