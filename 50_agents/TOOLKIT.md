@@ -1,9 +1,12 @@
 > **来源镜像**：canonical 在 `harness-reference/TOOLKIT.md`（`linxiaoqi5111-del/harness-reference` main）。
 > 本文件供云端 Agent / agent-memory 拉取使用；改内容请改 harness-reference 后同步。
-> pinned_sha256: 43b0d5aa0ab81ab99cf6f1eb3bd0cd8fc3c07919f23feccacbeefecd853c5aa1
-> pinned_at: 2026-08-12
+> pinned_sha256: 5ea14ede3d42f3a8f4e1b4c7a246558a46fe5c3a23309ee4a39721646cc4092b
+> pinned_at: 2026-08-14
 
 # 审查工具包
+
+> **本文只回答「用哪一档审查工具」。** 跨仓流程手册（拆票 / 交接 / 分诊 / 实现验收链）在 `agent-run-triage-skill/skills/`，不在本文件。vault `50_agents/TOOLKIT.md` 是本文件的镜像，改这里再同步。
+
 
 **怎么选**：见 `PLAYBOOK.md` Stage 2 —— 先问「这个现象最小需要多大的系统才能复现」，
 **能用 0 档复现的绝不上 4 档**。整条 episode 是诊断单个部件最贵的方式。
@@ -160,6 +163,7 @@
 | **「零行为变更」不能由测试全绿推出** | 全绿只说明���没有测试钉住修复前的语义」。异常类型不变 ≠ 抛不抛不变。要证伪用 `baseline_diff.py --mode probe` |
 | **失败归属要比名字，不比计数** | 修好 3 条 + 引入 3 条 = 总数不变。用 `baseline_diff.py --mode diff` |
 | **契约体检：标签承诺的 == 实际交付的？** | 见下节。2026-08-12 一天里在**五个互不相干的模块**各命中一次 |
+| **收据表先行（验收后第一动作）** | 把「修复层 bug」和「修复层够不着的 bug」混为一谈。`scripts/dump_episode_receipts.py` 一眼区分：`repair=0/0 stop=None` = 异常逃逸/episode 未起，修法与饿死完全不同（2026-08-13 R13-A3 当场改判） |
 
 ---
 

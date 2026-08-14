@@ -105,8 +105,32 @@ def should_skip(path: Path) -> bool:
 
 
 def toolkit_body(text: str) -> str:
-    """去掉 pinned_* 行再哈希，这样更新 pin 本身不会改被钉的内容。"""
-    return "".join(ln for ln in text.splitlines(True) if not PINNED_LINE_RE.match(ln))
+    """只哈希正文：开头那段「出处声明」不算内容。
+
+    排除两类行，理由相同——它们描述的是"这份文件是谁的镜像"，不是被镜像的内容：
+
+    1. `> pinned_*`：更新 pin 本身不该改变被钉的内容（原有行为）。
+    2. **第一个 Markdown 标题之前的所有 `> ` 引用行**：镜像侧比 canonical 多出
+       「来源镜像：canonical 在 harness-reference/TOOLKIT.md」这段头。canonical
+       自己不带它（它开头就是 `# 审查工具包`），于是按旧定义两边的 body 永远
+       不可能相等——sibling 对表是**结构性常红**，只是云端 CI 没 clone
+       harness-reference 才看不见，本地跑一次就红一次。
+
+    标题之后的 `> ` 引用行（canonical 的「本文只回答用哪一档审查工具」那段）
+    是正文，照常参与哈希。
+    """
+    out: list[str] = []
+    seen_heading = False
+    for ln in text.splitlines(True):
+        if not seen_heading:
+            if ln.startswith("#"):
+                seen_heading = True
+            elif ln.startswith(">") or not ln.strip():
+                continue  # 出处声明与其后空行
+        if PINNED_LINE_RE.match(ln):
+            continue
+        out.append(ln)
+    return "".join(out)
 
 
 def check_toolkit_mirror(errors: list[str], warns: list[str]) -> None:
