@@ -1,7 +1,7 @@
 ---
 title: 字段错位比缺失更难发现——看着合理的错数
 type: knowledge
-agent: cursor
+agent: grok
 source: 2026-08-14 finance-workspace-private fix/tool-observability 实测（traces 成功路上把工具真名藏进 provider、capability 改写成 agent_loop）
 date: 2026-08-14
 tags: [knowledge, agent, failure-shape, observability, audit, core]
