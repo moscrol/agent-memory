@@ -17,7 +17,7 @@ related: ["[[generic]]", "[[devin]]", "[[grok]]", "[[claude]]", "[[codex]]", "[[
 - **Claude Code / Cursor**：跑在**你的 Mac 本机**、在 repo 目录里 → 能直接用 repo 内软链 `.agent-memory/`（软链只在 Mac 本地、已 gitignore）。
 - **Devin**：它的**工作文件系统在自己的云端 VM**——会把 repo 单独 clone 到那台 VM，**那里没有 `.agent-memory` 软链**（软链没提交进仓库）。
   - 即使你用 `rx.py` 把 Devin「穿透」到 Mac，那也只是让 Devin **能远程在 Mac 上跑命令读到 vault**；Devin 真正编辑的 repo 仍在云端 VM 上。所以 Devin **不要假设工作目录里有 `.agent-memory/`**。
-  - Devin 读 vault 的两条路：①（已配 rx.py 隧道时）远程读 Mac 的 `/Users/a77/agent-memory/...`；②（最通用、换任何一次性账号都行）用 GitHub PAT 现 clone `agent-memory` 仓库来读。
+  - Devin 读 vault 的两条路：①（已配 rx.py 隧道时）远程读 Mac 的 `/Users/a77/agent-memory/...`；② GitHub 账号已暂停，PAT clone `linxiaoqi5111-del/agent-memory` **不可用**。在 Mac 本机改读 Gitea：`git clone http://127.0.0.1:3300/a77/agent-memory.git`。云端 VM 到不了 localhost，只能走① 或仓库内 `AGENTS.md` 内联偏好。
   - ⚠️ 注意：`rx.py` 文件和 `CC_REMOTE_EXEC_TOKEN`（org 级）**不随一次性 Devin 账号持久**；换新账号若还没重建隧道，就走②。而 **`AGENTS.md` 永远在仓库里**，顶部已内联核心偏好——这是 Devin 最稳的底线。
 
 ---
@@ -34,7 +34,7 @@ related: ["[[generic]]", "[[devin]]", "[[grok]]", "[[claude]]", "[[codex]]", "[[
 
 ```
 先读本仓库 AGENTS.md，顶部「用户偏好（核心）」务必严格遵守：中文、教学模式（讲原理 + 给技术选型/替代方案对比 + 标注可复用知识点）。
-需要完整偏好/项目背景时按二选一读记忆底座：① 若本会话已配 rx.py 隧道：python3 rx.py -- 'cat /Users/a77/agent-memory/30_conventions/preferences.md'（及 20_projects/<repo>.md）；② 否则用 GitHub PAT (GITHUB_PAT_LINXIAOQI5111) clone linxiaoqi5111-del/agent-memory 来读。
+需要完整偏好/项目背景时：① 若本会话已配 rx.py 隧道：python3 rx.py -- 'cat /Users/a77/agent-memory/30_conventions/preferences.md'（及 20_projects/<repo>.md）；② GitHub PAT clone 已不可用。在 Mac 上读本机 Gitea `http://127.0.0.1:3300/a77/agent-memory.git`，云端只靠① 或本仓 AGENTS.md 内联偏好。
 Git：开工先报 git status --short && git branch --show-current；大任务开分支，合并 main 必须等我确认，不强推。
 任务：<任务>。
 完工后把关键结论/决策回写到 agent-memory 的 20_projects/<repo>.md（按 40_playbooks/devin-writeback.md 的步骤）。

@@ -13,8 +13,8 @@ related: ["[[finhot]]", "[[finance-workspace-private]]"]
 
 ## 概述
 - **目标**：为 FinHot + 金融 Agent 做抖音冷启动与内容获客；Grok 任运营顾问。
-- **状态**：active（分支 `ops/short-video`，知识资产已起）
-- **工作仓**：本机 `/Users/a77/vidio`（GitHub `linxiaoqi5111-del/vidio`）
+- **状态**：active。日常 tip 是本机 Gitea `main`（2026-08-14 #9+#10 后快照 `70f67ef`）。`~/vidio` 的 `ops/short-video` 停在 7-11，新活不要从那开。
+- **工作仓**：本机 `/Users/a77/vidio`，远程 `gitea` → `http://127.0.0.1:3300/a77/vidio.git`
 - **负责**：human 拍发 · grok 策略/脚本/复盘
 
 ## 架构决策（重要）
@@ -56,5 +56,6 @@ related: ["[[finhot]]", "[[finance-workspace-private]]"]
 - 产品：[[finhot]] · [[finance-workspace-private]]
 
 ## 交接记录
+- 2026-08-15 · cursor · GitHub 按不解封：日常远程改本机 Gitea。`gitea/main`=`70f67ef`（#10 后内容快照）。本机 `ops/short-video` 不是日常基线。
 - 2026-07-10 · grok · 建 MOC；沉淀 hooks/skills/算法假设到 vidio/ops/knowledge
 - 2026-07-10 · grok · 用户确认：情绪+屏幕、产业偶插、弃旧开新；更新排期与 strategy

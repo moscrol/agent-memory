@@ -55,10 +55,12 @@ status: verified
 
 ## 工作流 / Git 约定(各 repo AGENTS.md 的共性,跨项目通用)
 
-- **开工先报状态**:`git status --short && git branch --show-current`。
+- **日常远程是本机 Gitea**（2026-08-15 起，按 GitHub 不解封规划）：`git fetch gitea`，从 `gitea/main` 开分支，`git push` 走 `remote.pushDefault=gitea`。GitHub `origin` 保留但不假设会解封，日常不要 fetch/push `origin`。用法：`~/backups/github-suspension-20260814/GITEA-USAGE.md`。
+- **开工先报状态**:`git status --short && git branch --show-current`。基线用 `gitea/main`，不要用本机停住的旧 `main`。
 - **大任务必开分支**,不在 `main` 直接做(新增/批量改内容、改脚本、跨仓库改动等);分支名按 `<type>/<short-task>`(如 `research/...`、`pdf-ingest/...`、`fix/...`)。
 - **合并回 `main` 必须等我确认**。
 - 小型文档修补可直接在 `main`。
+- Gitea 不跑 GitHub Actions：合并前在本机跑该仓等价检查。
 
 ## 🚫 红线(永远别做)
 
