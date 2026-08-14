@@ -18,11 +18,29 @@ related: ["[[knowledge-base-private]]", "[[finance-agent-capability-graph]]"]
 
 ## 目录导览
 - `db/` — DuckDB：canonical 库是 `market_feature_store.duckdb`（`market.duckdb` 是早期飞书同步阶段的 legacy 路径，不作为当前数据源，见 [[finance-canonical-data-source-freshness]]）
-- `scripts/` — `sync_to_local.py`（飞书→DuckDB）、`detect_turning_points.py`（MA5峰谷+放量信号）、`backfill_sector_marginal.py`（板块边际量回填，CDP代理）、`backtest_sector.py`（板块回测）
+- `scripts/` — `detect_turning_points.py`（MA5峰谷+放量信号）、`backtest_sector.py`（板块回测）、`layer_audit.py`（分层门禁）；`sync_to_local.py` 已退役为无副作用 shim、`backfill_sector_marginal.py` broken 勿跑
 - `intelligence/` `market_feature_store/` `research/` `evolution/` `复盘/`
 - `skills/` — 各分析模块 SKILL.md（注：ingest 类 skill 已于 2026-06-12 迁至 [[knowledge-base-private]] 的 `skills/`）
 - `shared/` → 软链到 `~/.claude/shared`（飞书工具库）
 - `CLAUDE.md` / `AGENTS.md` — AI agent 项目指令；`UBIQUITOUS_LANGUAGE.md` — 术语
+
+## 分层结构（2026-08-14 审查快照）
+
+> 权威源：`docs/layered-rebuild-roadmap.md`（分层重建路线）、`scripts/layer_audit.py` docstring（门禁规则）、CLAUDE.md「Agent 能力现状」。本节是导览摘要，模块数会漂，复核以权威源为准。
+
+主仓自下而上五层：
+
+1. **数据事实层**：`db/market_feature_store.duckdb`（星型 29 表，唯一主库）+ `market_snapshot/`（每日 JSON 快照）。`fact_sector_daily`/`fact_sector_stock_daily` 是 VIEW（板块名单快照分代，写入走 `*_generation` 表 + `sector_universe_snapshot_id`）。
+2. **数据管道层**：`market_feature_store/` 包，唯一写入口 `python3 -m market_feature_store.cli daily-full`；数据源 fupanhui（CDP 代理）/iFinD/AKShare/飞书（Bitable 写入已废弃）。
+3. **分析与策略层**：`scripts/`（~118 个，一半是门禁/运维：`layer_audit.py`、`check_*`、`db_delta_*`）+ `evolution/`（strategy1/3/4 + `params.json` + `validate.py`，suggest 只建议不自动改参）。
+4. **技能层**：`skills/` ~30 个 SKILL.md；`.claude/skills/` 只软链 19 个是**刻意设计**（多数 skill 拉实时数据或写库，接入 agent 会破只读+无外呼红线）；`skills.registry.json` 由 `build_registry.py` 生成。
+5. **智能层 `intelligence/`**（约 219 模块/122K 行）：内部再分三层，`layer_audit.py` 硬门禁守边界——
+   - **入口层**：`api/app.py`（FastAPI Workbench）、`webapp/`（React）、`cli.py`、`eval/`
+   - **底座 `runtime/`**（16 模块）：判别口径「做 IO/调模型/起子进程/管预算」→ `agent_episode`、`conversation_orchestrator`、`glm_agent_runtime`/`openai_agents_runtime` 等
+   - **领域积木 `services/`**（147 模块，**禁止 import runtime**，门禁圈底座不圈积木）：`question_router`、`retrieval_planner`、`evidence_*` 系、`episode_semantic_verifier`（2,894 行金融语义判据）、`research_tool_registry`（12 个 agent 工具，逐个受 contract 门控）
+   - 编排格局：**一个调度器 + 两个引擎**（A=`agent_episode` continuous loop 模型自选工具，生产默认；B=`ask.answer_query` 写死流程，接 quick_fact/external_market/dated_market_review 三题型）
+
+Workspace 配套仓：[[knowledge-base-private]]（wiki 图谱 + 20 个 ingest 类 skill）、agent-memory（本 vault）、khazix-skills（apps）、dao-proxy-pro；`Desktop/c c/金融|知识库` 是旧数据根（「双根失真」bug 已修，`test_paths.py` 锁两根一致）。
 
 ## 数据流
 ```
@@ -134,6 +152,11 @@ per-user 不是进程级；`runtime_backend_readiness` 这个全局探针看不�
 > 存量正文偏长（棘轮不动）。**新交接严格一行**，正文写本仓 `docs/handoffs/`；preflight 只注入本节之前 + 末尾 8 行。
 - 2026-08-14b · grok · **#345/#346/#347 已合 origin/main，未切 8792**。完工快照 `docs/handoffs/2026-08-14-{smoke-gap-anchor,l3-evidence-title-only,tool-observability}.md`。`branch_tool` 仅单测；知识卡 [[../10_knowledge/misaligned-field-looks-plausible]] 已合。
 - 2026-08-14 · cursor · **三条 inflight 分支补验 + 开 PR，未合 main**。smoke [#345](https://github.com/linxiaoqi5111-del/finance-workspace-private/pull/345) CI 绿（估值支真实样本已验）；l3 [#346](https://github.com/linxiaoqi5111-del/finance-workspace-private/pull/346) CI 绿（双良节能 P0 中标不误杀）；observability 仍在验 `branch_tool` 现场路径。方法论归位 [[../10_knowledge/misaligned-field-looks-plausible]]。
+- 2026-08-14 · cursor · **研究队列升格为 intelligence 一等产物，不再把完整 daily-agent HTML 当日常入口**（分支 `feat/research-queue-canonical`，干净 worktree `/Users/a77/fwp-wt-research-queue`，**未 commit / 未 push**）。
+  - **动机**：8-13 `agent-daily` 生成成功但 fidelity 1.2（知识库 HEAD 晚于 `evidence_cutoff`）拦住全部落盘，下游 ask / L3 / 工作台拿不到当日队列。人要的是「今日 IMA / 找公告 / 等盘面 / 降级」，不是第二份市场复盘。
+  - **契约**：canonical `{date}-research-queue.json`（+ md/html 卡片）；完整 `{date}-daily-agent.*` 仍生成，但只在 fidelity 1.2 通过时落盘。队列写入**先于**门禁，门禁失败 CLI 仍 exit 0，不挡后续矩阵。
+  - **消费方**：ask / forecast_preflight / L3 backfill / workbench 信号 / 工作台 Tab / cockpit 卡片，一律 `load_research_queue()`：先队列文件，再 fallback 嵌在 daily-agent.json 里的旧字段。
+  - **替代方案**：① 放宽 fidelity 让整份日报落盘——会把 PIT 门做成摆设；② 另养一份独立日报——正是用户否掉的。选定「拆产物、不拆生成」。
 - 2026-08-12 · claude · **对照检索源逐层修缮工具接口/压缩/RAG；真正的产出是一个失败形状，不是若干 bug**（已合并 `fc0540ee`、部署生产 `da27ad01`）。全文见 `docs/handoffs/2026-08-12-tool-interface-and-rag-fixes.md`。
   - **🔴 最值钱的一条：「契约与交付不符」一天在七个互不相干的模块各命中一次**——某处向模型承诺一件事、实际交付另一件，**且模型无法自行诊断**。schema 广告 limit=1000 实压 25；工具拒绝只给分类码丢掉 detail；`无命中（error）` 把故障写成没查到；尾部截断标成「摘要」；hybrid 降级为 BM25 不告知；health 报 `vector_index: true` 而解释器不可执行；**连专门抓这类问题的就绪门禁自己也漏判**。七处无共同代码 → **跨层边界架构性易发**：每层单独看都对（遥测如实记了、执行如实做了），错在没人负责把上层事实搬到下层。与「授予的额度必须真的传到最下游执行者」同构。审查手法进 `TOOLKIT.md` H+，知识层 `10_knowledge/contract-vs-delivery-mismatch.md`。
   - **线上停摆**：`.rag_venv` 悬空符号链接致 kb_search 每次 7ms `FileNotFoundError`，而两个仪表同时发绿。venv 已重建（3.14.5/torch 2.13/transformers 5.15，权重走 HF 缓存未重下），三步验证末步端到端 `mode=hybrid` 检索成功；判据 `kb_rag.rag_runtime_ready` 接入 health + 就绪门禁 + 部署链，三处共用一个真相源。
@@ -536,3 +559,10 @@ per-user 不是进程级；`runtime_backend_readiness` 这个全局探针看不�
 - 2026-08-13 · claude · skill 渐进式披露两批合入 main（d4832797）：description ≤250、6 个长尾改手动、daily-full-review/opinion-cross/theme-radar 正文外拆 references/，闸门留文首；已合并删分支，安装层即时生效 · 指向 finance main d4832797
 - 2026-08-13 · cursor · **repair 链夜间修复循环收口 + 全量验收 + knevo 对照**（main `5a645c28`，8792 已切 `3b7158a8`）：一夜合并部署 5 个 PR（#301 冷启动 / #302 RAG worker 缓存键 / #303 截断哈希 FORMAT / #304 冷启动扩判据 / #306 记账结平），28 题全量验收 A10/10+B8/8+C10/10，R14 判决 A3 硬失败→completed；knevo 蒸馏题对照包已生成（eligible 11 题）。**可迁移**：①结算已完成的工作不能 fail closed（#297/#306 两处现场，已归位 BUILD.md）；②收据表先行区分「修复层 bug vs 修复层够不着的 bug」（已归位 TOOLKIT.md H 档）。新立案：实体识别吞前缀（「立新能源」→「新能源」）、交易日历判定（C1 该答周六休市）。全文见 `docs/handoffs/2026-08-13b-night-loop-and-r15-knevo-comparison.md`。
 - 2026-08-13 · cursor · **待决队列清空 + 判决循环收口**（main `7f744c24`，8792 已切 `02028b29`）：处理完实体识别吞前缀（#308 主题左边界，国新能源/宝新能源同雷）、交易日历判定（#309 注入 + #311 措辞被 R16/R18 两轮证伪 → #313 交付层确定性前置，R19 通过）、证券名单第二词典（#312，R17 判决 stock_deep_dive 路由通过）、knevo 对比包判分（9 knevo_wins/2 tie/0，validate-comparison 双绿，附时间不对称口径警告）；顺手修共享 main 出生即红测试（#310 密封化）。**可迁移**（已归位 BUILD.md）：①模型使用信息可靠、转述信息不可靠——确定性披露在交付层执行；②新数据源接入第一问「测试怎么不连真的」——默认路径绕开 env 时 delenv 密封失效，须显式关闭开关。剩余全部为设计评审项（核验合成层预算最优先）。全文见 `docs/handoffs/inflight/main.md` 与 `docs/handoffs/2026-08-13b-night-loop-and-r15-knevo-comparison.md`。
+- 2026-08-14 · cursor · **工具批次天花板 30s→60s 上线，昨夜「检索基础设施卡死生成质量」诊断验证解除**：接续 08-13 深夜 runtime 质量评估（结论：纪律骨架好，但 `evidence_search` 30s 窗口下 8/8 全超时、公司映射/证据/风险整段交付不出来，答案「对但薄」或坍缩拒答）。动作只有一个：`~/.local/bin/start-finance-workbench`（launcher 不在仓里）加 `ASK_TOOL_BATCH_TIMEOUT=60` 并重启 8792——这是仓里实验臂验证过的值（deep 档 60s，3 次 structural=completed 零缺失，`episode_tool_batch.py:53-57`）。**机制核验后确认全局加是安全的**：调用点 `stage_timeout = min(此值, remaining − synthesis_reserve)`（`research_contract.py:356`），合成保留是硬边界，quick 档 available 本来就 ≤10s 不受影响。验收（同昨夜两题 + 复跑一次，user `smoke-quality-0814`，收据 `tmp/smoke-quality-*-after60*.json`）：42 次工具调用仅 3 次超时（其中 2 次是修复分支预算边缘的 9ms 瞬时拒绝，非真超时）；题材题 run `112138` 结构核验全 fulfilled——`direct_assessment` 绑 17 条证据、`chain_mapping` 绑 3 条（昨夜绑不上/整段缺失的东西）；公司题 run `112807` 零工具错误，英维克 GB300 液冷证据捞到，smoke 语义内容检查 passed。**三条认知修正**：① `docs/superpowers/2026-08-10-agent-book-chapter-audit.md` 里「提 judge 窗口会饿死草稿」的说法已被 08-10 晚 `episode_semantic_verifier.py:89-98` docstring 推翻（管线严格串行，judge 跑时草稿已付讫），judge 窗口默认已是 60，别再引用旧结论；② judge 单次尝试 cap=30 是代码常量 `DEFAULT_JUDGE_TIMEOUT_SECONDS`，无 env 可调，首窗 = min(cap, 窗口×0.5)=30s；③ 中转当前忽略 `max_tokens`/`max_completion_tokens`（探针实证），judge 输出压不住会推高延迟尾部。**残留（性质已变，不是超时配置问题）**：judge 在 11:21–11:31 两连吃「transient provider error」（5xx/429 或尖峰），但探针实测中转当下健康（6K/16K prompt P50 5.3/6.0s、11/11 成功，对比 08-08 的 P50 28s 快一个量级），第三跑 judge 即 `repaired` 且正确删除了无证据绑定的产业链句——反幻觉在干活；逐 run 检索方差仍在（run3 只捞到 13 次调用、公司级一手披露没落地，诚实拒列）；题材证据摄入仍停在 08-04（昨夜遗留 lever #3，未动）；重启成本高——kickstart 后 RAG 预热阻塞启动，>4 分钟才绑端口，部署要打包别零敲。smoke 的 `protocol_error`/exit 2 是严格门（partial 带完整内容也判红），读结果先看 episode 的 structural/semantic 分账再看 smoke 判定。
+- 2026-08-14 · devin · **修复知识库断更检测假绿问题——去掉 mtime 回落 + 分线报龄**（分支 `fix/kb-freshness-lane-split@7192b937`，干净 worktree `/Users/a77/fwp-wt-kb-freshness-fix`，**已推送、未合 main**）。
+  - **问题诊断**：① `check_kb_freshness.py` 用 `max(文件名日期, mtime)` 做批次日期——任何批量 frontmatter 改写或 `git checkout` 都会把 mtime 刷到今天，门禁变绿；② 全库取最大值——公告线（`official_disclosure`）活着就能盖住卖方/题材线（`broker_research_high`）断更 11 天。实测 2026-08-13：公告线 1 天前、卖方线 11 天前，但旧版脚本只报"1 天前"。
+  - **修复方案**：改读 `evidence_index.json` 的 `items`（证据关系台账，运行时检索的唯一消费源），按 `source_quality` 分组统计各线最新 `source_date`，**完全不使用文件 mtime**。支持 `--watch-lanes` 自定义监控线（默认公告 + 卖方），缺 `source_date` 或格式错误记为 `unknown` 不参与 max。
+  - **验收测试**（`scripts/test_kb_freshness_fix.py`，三个场景全通过）：① 构造 30 天前的 `source_date`、文件 mtime 是今天 → 仍报 30 天前（证明 mtime 不影响）；② 公告线今天、卖方线 11 天前 → 分别报告（证明分线隔离）；③ 混入空日期/格式错误/缺字段 → 正确忽略无效数据。
+  - **可迁移原则**（值得提炼到 `10_knowledge/`）：① **监控门禁不能依赖 mtime**——任何批量改写（frontmatter 修正、format 重排、git 操作）都会刷新 mtime，把真实断更掩盖；② **分线监控比全局最大值更精确**——多条数据管线的新鲜度应独立报告，避免活跃线掩盖断流线；③ **监控应读取运行时消费的数据结构**——本例中 `evidence_index.json` 是检索层唯一读取的证据索引，比扫描 `sources/*.md` 更可靠（文件可能存在但未入索引）。
+  - **关联工作（C2/C3 在途）**：RAG 索引增量更新进行中（8349 块待更新，用 `.rag_index.new` 旁路建避免撕裂读）；微信抓取��道需用户登录解锁（新通道 wechat-download-api:5050 活着但 `articles=0`，需扫码登录 `http://127.0.0.1:5050/login.html`，登录后原料到位仍需人工四问复核逐日处理 11 天积压）。
