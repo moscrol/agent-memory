@@ -132,6 +132,7 @@ per-user 不是进程级；`runtime_backend_readiness` 这个全局探针看不�
 
 ## 交接记录
 > 存量正文偏长（棘轮不动）。**新交接严格一行**，正文写本仓 `docs/handoffs/`；preflight 只注入本节之前 + 末尾 8 行。
+- 2026-08-14b · grok · **#345/#346/#347 已合 origin/main，未切 8792**。完工快照 `docs/handoffs/2026-08-14-{smoke-gap-anchor,l3-evidence-title-only,tool-observability}.md`。`branch_tool` 仅单测；知识卡 [[../10_knowledge/misaligned-field-looks-plausible]] 已合。
 - 2026-08-14 · cursor · **三条 inflight 分支补验 + 开 PR，未合 main**。smoke [#345](https://github.com/linxiaoqi5111-del/finance-workspace-private/pull/345) CI 绿（估值支真实样本已验）；l3 [#346](https://github.com/linxiaoqi5111-del/finance-workspace-private/pull/346) CI 绿（双良节能 P0 中标不误杀）；observability 仍在验 `branch_tool` 现场路径。方法论归位 [[../10_knowledge/misaligned-field-looks-plausible]]。
 - 2026-08-12 · claude · **对照检索源逐层修缮工具接口/压缩/RAG；真正的产出是一个失败形状，不是若干 bug**（已合并 `fc0540ee`、部署生产 `da27ad01`）。全文见 `docs/handoffs/2026-08-12-tool-interface-and-rag-fixes.md`。
   - **🔴 最值钱的一条：「契约与交付不符」一天在七个互不相干的模块各命中一次**——某处向模型承诺一件事、实际交付另一件，**且模型无法自行诊断**。schema 广告 limit=1000 实压 25；工具拒绝只给分类码丢掉 detail；`无命中（error）` 把故障写成没查到；尾部截断标成「摘要」；hybrid 降级为 BM25 不告知；health 报 `vector_index: true` 而解释器不可执行；**连专门抓这类问题的就绪门禁自己也漏判**。七处无共同代码 → **跨层边界架构性易发**：每层单独看都对（遥测如实记了、执行如实做了），错在没人负责把上层事实搬到下层。与「授予的额度必须真的传到最下游执行者」同构。审查手法进 `TOOLKIT.md` H+，知识层 `10_knowledge/contract-vs-delivery-mismatch.md`。
