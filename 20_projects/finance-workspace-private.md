@@ -150,6 +150,7 @@ per-user 不是进程级；`runtime_backend_readiness` 这个全局探针看不�
 
 ## 交接记录
 > 存量正文偏长（棘轮不动）。**新交接严格一行**，正文写本仓 `docs/handoffs/`；preflight 只注入本节之前 + 末尾 8 行。
+- 2026-08-19 · grok · **#245 质检收尾**（协议到位；字面缺口见 closeout）。定向 335 passed @ `20260819T143910Z-9a6cd3ea`。正文 `docs/verification/2026-08-19-workbench-runtime-hardening-closeout.md`。
 - 2026-08-19 · grok · **#245 已合** `gitea/main=e5ca01d9`。Workbench runtime P0–P5（phase sidecar / 预算不变量 / 终态认领对齐 / SLO 离线门 / 故障矩阵）。未重写 claim_terminal_run / QueryPublishGuard；G7 仍不支持进程重启。未切 8792。主仓脏树没动。正文 `docs/superpowers/specs/2026-08-19-workbench-production-agent-hardening-p5-receipt.md`。
 - 2026-08-19 · grok · **#229 已合** `gitea/main=bbdb8317`。E4 下期关注消费端。8792 仍 `441c60f2`，不切。轨道 C 可开。正文 `docs/verification/2026-08-19-p1e4-next-watch-live.md`。
 - 2026-08-19 · grok · **轨道 B r3 过**（#229，可合未合）：E4 continuous 收尾登记下期关注；sidecar `:8812` @ `4dd56941` 两发 `track_next_watch` 入账。8792 仍 `441c60f2`。C 同改 orchestrator，合完再开。正文 `docs/verification/2026-08-19-p1e4-next-watch-live.md`。
