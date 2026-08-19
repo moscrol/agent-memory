@@ -49,9 +49,10 @@ npm run build
 |---|---|---|---|
 | 0812-0813 128 篇批量集成 | cursor | 完成 | #157 已合 main；#158 pr-checks 防 llms 冲突；#15 关闭不采用 wechat-adapt |
 | 工作流路径对齐 a77 | cursor | 完成 | #159 已合；禁 git add .；仓内 docs/content-matrix；RAW_DIR 回退 |
-| 一日一篇：0816 电子特气 → 0818 钛合金，队列工具 `scripts/publish-queue.mjs` | devin | done | 0818 钛合金已上线（102 篇基线），明日 #31 asic-chip |
+| 一日一篇：0816 电子特气 → 0818 钛合金 → 0819 ASIC芯片，队列工具 `scripts/publish-queue.mjs` | devin | done | 0819 ASIC芯��已上线（103 篇基线），明日 #32 lidar |
 
 ## 交接记录
+- 2026-08-19 · devin · **一日一篇第 3 篇（ASIC芯片）全链上线**：`publish-queue.mjs` 推 #31 → `git checkout 9612923` 恢复 + redate 0819 → 通读修复正文硬伤（§六标题混入俄语词«второй»，批量质检漏网）→ validate 103/103 + lint 0 warn + build 123 页 → merge main（3fa75ef）+ llms 103 篇基线（128bcbc）+ push gitea + `wrangler deploy`（37369c81）+ 线上 200 已验 + indexnow 200。公众号排版 html（8/18 预生成）核验：12 个 h2 与 md 十节+FAQ 对齐、7 处核心数据计数全一致、敏感词零命中，直接复用未重生成。GitHub origin 仍 repository not found（预期，日常远程 gitea）。明日 #32 lidar。
 - 2026-08-18 · devin · **一日一篇第 2 篇（钛合金）全链上线**：`publish-queue.mjs` 推 #30 → `git checkout 9612923` 恢复 + redate 0818 → validate/lint/build 全绿 → merge main（141e5f8）+ llms 102 篇基线（86e08e0）+ push gitea + `wrangler deploy` + indexnow(200)，线上 200 已验。vault 主 worktree 被 cursor 在途分支占用，回写走临时 worktree main 不干扰；明日 #31 asic-chip。
 - 2026-08-14 · cursor · **0812-0813 批量 PR 集成收官 + 约定固化**：开放 PR 曾 131 个，128 个文章 PR（#29–#156）因人人携带 `public/llms*.txt` 无法逐个 merge。集成分支每 PR 只取 4 个独有文件（研究文 + 仓内素材包 + 公众号稿 + handoff），`npm run llms` 统一再生；#157 merge 进 main（228 篇文章）。存量 3 篇（lighthouse-factory / power-chip / thermal-materials）deepen 残留旧附录已去重。#158 上了 `pr-checks`（validate + 禁止 llms 入 PR）；首次 workflow 需 reopen 才触发，且必须显式 `permissions.pull-requests: read`。遗留 #15（wechat-adapt.mjs）关闭不采用——现行走 content-matrix 三件套、平台稿落点是仓内 `docs/content-matrix/` 而非脚本写的仓外目录。#1/#16 已关。约定 PR #159：工作流路径改 a77、`import-research` 认 RAW_DIR、禁止 `git add .`。可复用：共享生成文件不要进功能 PR；GitHub Actions 新仓第一次 `opened` 可能丢事件。
 - 2026-08-13 · cursor-cloud · **主站文章批量撰写收官（B20-B44）+ 抽样质检**：raw 249 份 full 主稿全覆盖零遗漏——本轮新增 73 篇（PR #39-#156，每篇独立分支 cursor/research-<slug>-5451，未合 main、未跑 IndexNow）。每篇=主站 17 节文章+素材包+公众号 19 段稿，validate/lint/build 全绿，平台稿已同步 Mac。抽样质检修了 9 处硬伤（教学口令「这在 X 场景也能用」泄漏×4、钌 JM 供需表抄错、天然气发改委/统计局口径张冠李戴等）并回写进对应 PR。两个盘点纠错：超级电容 5 月已上线（误记待写，重复产物已弃）；推理芯片是唯一漏网稿（#156 补齐）。可复用方法论：先全量脚本扫+分层深读抽样；加粗数字三问（谁发布/哪年/实际还是预测）；映射稀缺赛道按「公告级别分级」（研发/送样/中试/量产）写；agent 教学口令必须进禁词表。合并提示：llms-full.txt 各分支均改，后合并者重跑 npm run llms。
