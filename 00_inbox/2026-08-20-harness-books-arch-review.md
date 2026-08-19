@@ -5,13 +5,13 @@ agent: grok
 source: harness-reference INDEX/MAP + distilled aab/mashu/hb1 + mashu ch25 原文
 date: 2026-08-20
 tags: [inbox, architecture-review, harness, ai-agent-book, mashu]
-status: draft
+status: superseded
 ---
 
 # 从 harness 书目抽象 Agent 架构评审
 
-> 原始产出，待提炼进 10_knowledge/。服务于「代码地图能否升级成审架构」。
-> 读取日期：2026-08-20。下列主张只来自已精读或当场打开的原文；马书 41 份「仅见标题」未进入结论。
+> **已被取代。** 权威收口见 harness-reference `DESIGN.md`（分支 `docs/harness-arch-review`）；精读校正见 `2026-08-20-mashu-arch-review-close-read.md`。本文 Q1 把马书原则一写成了「约束全进代码」，与 ch25.1 原文定义相反。
+> 原始产出，服务于「代码地图能否升级成审架构」。读取日期：2026-08-20。
 
 ## 对象边界（先于清单）
 
