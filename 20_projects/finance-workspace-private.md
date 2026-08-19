@@ -150,6 +150,7 @@ per-user 不是进程级；`runtime_backend_readiness` 这个全局探针看不�
 
 ## 交接记录
 > 存量正文偏长（棘轮不动）。**新交接严格一行**，正文写本仓 `docs/handoffs/`；preflight 只注入本节之前 + 末尾 8 行。
+- 2026-08-19 · grok · **轨道 A live 通过**（#227 docs，未合）：8792=`441c60f2` SPT 原题重放 `run_20260819_152316_348138` 放行正文、结构 completed；估值 `152635` 仍 fail-closed。**B 可链切**。一周 telemetry / A3 不结案。正文 `docs/verification/2026-08-19-gate-partial-release-live.md`。
 - 2026-08-19 · claude · **门禁拆叠杀**（用户决策：门禁只设最关键证据）：G7 类型白名单改剔除式、G11 放行名单纳入类型缺口、prime_quote/news 改可选；财务锚地板/伪造哈希硬门不动。PR #224 squash 合入 main=`441c60f2`，8792 已按 R-24 切新快照 `finance-workspace-441c60f27cc2`（三读数+ready 全绿，旧快照 `a7e2d74f` 留作回滚锚）；5604P/16F 与干净 main 一致=零回归。live 原题重放归下一个 agent（清单见 handoff）。模式进 BUILD.md 候选 9。正文 `docs/handoffs/inflight/fix-gate-partial-release.md`。
 - 2026-08-19 · claude · **depth-gap 收口派单**（#226）：发现 spec R4（分支）与 main 副本分叉（R4 勘误 vs 第六轮/隔夜新闻 live 记录各占一边）→ R5 收敛只认 main、spec 分支收编删除；E4 `feat/p1e4-next-watch-consume` 已推带交接（树更名 `~/fwp-wt-p1e4-next-watch`，定向 50P 收据在案）；五轨道派单 `docs/handoffs/2026-08-19-depth-gap-execution-dispatch.md`（A 门禁 live 验证 / B E4 收口 / C E2 / D E1+E3 / E 消融，判据指针化防两处漂移）。#224 部署补账进 `inflight/main.md`：三读+ready+grounded 探针+备份 post224；探针 degrade=1 经旧快照 sidecar A/B 归因=判官暂态（R-06 形状）+发明阈值闸，非 #224 回归。
 - 2026-08-19 · grok · 视角叙事契约权威改为 **Gitea #222**（`fa58f4b4`）。脏树 `feat/reading-rules-baseline-batch1` 上未跟踪 spec 已删；旧「待审阅」指针作废。未切 8792。正文 `docs/handoffs/inflight/fix-perspective-narrative-contract.md`。
