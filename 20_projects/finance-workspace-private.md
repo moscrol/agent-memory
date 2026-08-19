@@ -150,6 +150,7 @@ per-user 不是进程级；`runtime_backend_readiness` 这个全局探针看不�
 
 ## 交接记录
 > 存量正文偏长（棘轮不动）。**新交接严格一行**，正文写本仓 `docs/handoffs/`；preflight 只注入本节之前 + 末尾 8 行。
+- 2026-08-20 · grok · **#262 已合并链切 8792** `be7c1e7e`（ask 正门 PR1–PR3）。回滚锚 `3f7966411f3d`。长电 `032317` 独立判官 `correlated_judge=false/passed`；液冷 `032014` 空稿跳过判官（公开 null）+ 修复稿未结转。报告 `~/.finance-runtime/live-probe-traceability/20260820-be7c1e7e-triage-report.md`。
 - 2026-08-20 · grok · **8792 已切独立 Grok 判官** `3f796641`（#259/#260/#261）。启动器 `LLM_JUDGE_BACKEND=grok-cli` + 钉 `LLM_JUDGE_GROK_BIN`。回滚锚 `30f98d732c78`。readiness 仍红：DuckDB 08-18 vs 快照 08-19，与本次无关。正门 spec 可施工未开工。
 - 2026-08-20 · grok · **08-19 全量复盘质检 FAIL**。18:30 S7 不换名；PRIMARY=`sync-sw-l1-daily` 两次 300s timeout；staging 其余 same-day 表有 08-19；`public-assets` 步当晚真跑了（524s）但 `dragon_summary`/`regulation` API timeout，cross-day 仍会断档。20:40 finalize 停在生产 same-day rc=2。无 `复盘/daily/2026-08-19/`。生产仍 08-18，`l2-paused.flag` 还在。正文 `docs/handoffs/2026-08-18-daily-full-review-recovery.md` 08-19 质检节。
 - 2026-08-19 · grok · **#245 质检收尾**（协议到位；字面缺口见 closeout）。定向 335 passed @ `20260819T143910Z-9a6cd3ea`。正文 `docs/verification/2026-08-19-workbench-runtime-hardening-closeout.md`。
