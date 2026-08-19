@@ -150,6 +150,7 @@ per-user 不是进程级；`runtime_backend_readiness` 这个全局探针看不�
 
 ## 交接记录
 > 存量正文偏长（棘轮不动）。**新交接严格一行**，正文写本仓 `docs/handoffs/`；preflight 只注入本节之前 + 末尾 8 行。
+- 2026-08-19 · grok · **W4 车道组合表**（`feat/lane-composition-rules` @ `64c4f257`，干净树 `/Users/a77/fwp-wt-lane-composition-rules`，未 push 未合）：overnight 专用 if 迁入 `LANE_COMPOSITION_RULES` 第一条；第二条美联储/FOMC/非农/CPI同比 ∧ A股/板块/推演，overlay 只追加 news/web（mandatory=False）。正文 `docs/handoffs/inflight/feat-lane-composition-rules.md`。
 - 2026-08-19 · grok · **轨道 B 打回**（#229，未合）：E4 sidecar 两发真 `theme_track`，正文有四态/TTL/下期关注，但 parse 只认 markdown 次行 bullet → `track_next_watch` 零入账。A #227「B 可链切」不覆盖本刀。8792 仍 `441c60f2`。正文 `docs/verification/2026-08-19-p1e4-next-watch-live.md`。
 - 2026-08-19 · grok · **轨道 A live 通过**（#227 docs，未合）：8792=`441c60f2` SPT 原题重放 `run_20260819_152316_348138` 放行正文、结构 completed；估值 `152635` 仍 fail-closed。**B 可链切**。一周 telemetry / A3 不结案。正文 `docs/verification/2026-08-19-gate-partial-release-live.md`。
 - 2026-08-19 · claude · **门禁拆叠杀**（用户决策：门禁只设最关键证据）：G7 类型白名单改剔除式、G11 放行名单纳入类型缺口、prime_quote/news 改可选；财务锚地板/伪造哈希硬门不动。PR #224 squash 合入 main=`441c60f2`，8792 已按 R-24 切新快照 `finance-workspace-441c60f27cc2`（三读数+ready 全绿，旧快照 `a7e2d74f` 留作回滚锚）；5604P/16F 与干净 main 一致=零回归。live 原题重放归下一个 agent（清单见 handoff）。模式进 BUILD.md 候选 9。正文 `docs/handoffs/inflight/fix-gate-partial-release.md`。

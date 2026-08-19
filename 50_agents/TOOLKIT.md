@@ -35,6 +35,7 @@
 | `agent-memory/scripts/graph_audit.py` | 能力图谱防漂移（`finance-agent-capability-graph` 的 exit-code 门） | 231 |
 | `agent-memory/scripts/vault_lint.py` | vault 质检门（把维护任务硬化成 exit code） | 179 |
 | `scripts/check_unread_fields.py` | **字段契约棘轮**：属性写了但全仓没人读。2026-08-12 那七例「契约与交付不符」里有三例是这个形状（`tel.degraded`/`recall_desc`/`fallback_reason` 记了从没往模型传）。存量 40 文件/100 字段免检，只拦新增 | 219 |
+| `finance/scripts/audit_deploy_ledger.py` | **部署切换账本对账**：ledger 最后 startup/switch 行 vs `/api/health` 的 `source_revision`，不一致 exit 1。防「8792 切了没人记」（a7e2d74f）。`check` 可挂夜间回检；测试 mock HTTP，别打 8792 | — |
 | `harness-reference/scripts/verify_sources.py` | 原文 sha256 与 manifest 一致性（已变异验证：追加一字节 → exit 1） | 62 |
 
 > ⚠ 门禁的通病见 [[gate-assertion-granularity]]：**只钉文件名的审计保不住符号**，
