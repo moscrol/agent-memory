@@ -150,6 +150,7 @@ per-user 不是进程级；`runtime_backend_readiness` 这个全局探针看不�
 
 ## 交接记录
 > 存量正文偏长（棘轮不动）。**新交接严格一行**，正文写本仓 `docs/handoffs/`；preflight 只注入本节之前 + 末尾 8 行。
+- 2026-08-19 · grok · 视角叙事契约权威改为 **Gitea #222**（`fa58f4b4`）。脏树 `feat/reading-rules-baseline-batch1` 上未跟踪 spec 已删；旧「待审阅」指针作废。未切 8792。正文 `docs/handoffs/inflight/fix-perspective-narrative-contract.md`。
 - 2026-08-19 · grok · **#217 已合** `gitea/main` `02be2ca1`（只拣 `1df6844d` + 两条夹具）。树 `/Users/a77/fwp-wt-l2-pause-main`。未切 8792，主仓脏树没动，`l2-paused.flag` 留着。明晚 18:30 看 public-assets 步。正文 `docs/handoffs/2026-08-18-daily-full-review-recovery.md`。
 - 2026-08-19 · grok · **08-18 全量复盘补跑质检 PASS**。数据/换名/报告/L2 挂账属实；18:30 败因是 cross-day 不是锁；成功 S7 没跑到 public-assets 步（CLI 回补后 clone）。已由干净树拣提交合 **#217**。正文 `docs/handoffs/2026-08-18-daily-full-review-recovery.md` 轮次记录。
 - 2026-08-19 · grok · 残差检索下限已开 **Gitea #215**（`d36f43e2`，rebase 到 `ed494a8d`，mergeable）。树 `/Users/a77/fwp-wt-residual-prime`。未合、未切 8792。正文 `docs/handoffs/2026-08-19-residual-retrieval-prime.md`。
