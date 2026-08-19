@@ -54,6 +54,7 @@ related: ["[[finance-workspace-private]]", "[[finance-research-site]]", "[[finan
 
 ## 交接记录
 
+- 2026-08-19 · devin · 全量复盘 batch replay 经验（明细 wiki/log.md #5380；分支 `feature/batch-replay-20260819` @ `f24e938a` 已推 gitea 未合）：①批量生成的「脚本自报 N 篇」≠「磁盘 N 个文件」——APFS 大小写不敏感使 `drmos`(4源) 被 `DRMOS`(7源) 静默覆盖，且 `os.path.exists` 对两个键都返回 True，唯一抓法是批后做**生成数↔落盘数对账**（按大小写/NFC 折叠分组定位撞名键）。②主题名含 `/` 会落成目录而非文件，属底数脏名问题，渲染批不修底数。③6-12 批发酵复盘从未入 main（index 里 wikilink 悬空）——**index 悬空链接可作为「产物未入库」的检测信号**；生成报告入 git 是本仓常规（serenity-alpha 系列 347 文件在库），本批起发酵复盘正式入库。
 - 2026-08-18 · grok · fact_status 升层已开 Gitea PR **!26**（`disclosure/fact-status-evidence-index` @ `1e41daa3`，mergeable）。`query_relations.py evidence --fact-status planned` 可查意向。未合。配对读侧：金融仓 Gitea **#204**（radar 意向不进 delta）。
 - 2026-08-18 · grok · 钉死三轴：`evidence_layer`=出身，`fact_status`=落地，`confidence`=映射残差。不要把意向塞进 confidence。实现：Gitea 分支 `disclosure/fact-status-evidence-index` @ `e3cf843b`（工作树 `/Users/a77/worktrees/kb-fact-status`），ADR `docs/adr/0001-fact-status-not-confidence.md`。planned 进 evidence_index、不升暴露、不自动 L3；存量不回填。未推、未合 main。L2/L3 编号对齐另开。
 - 2026-08-14 · grok · leftover 收口：#349/#350 已合。**可复用**：①披露日以巨潮 `announcementTime` 为准，文首第一日期会错；②目录与正文同名要 TOC 跳过；③`chain_layer` 用 `midstream_manufacturing`/`upstream_materials`；④洗 entity `tickers` 必须同步 `entity_exposures.codes` + `concept_graph.companies[].code`；⑤旧页 `protected_sections` 会留下 F10「待补充」关键数据，要手补年报数字；⑥同日第二份 raw 快照 tag 加后缀，勿撞 `raw-<dir>-YYYYMMDD`。raw 还原：`python3 scripts/fetch_raw_snapshots.py --tag raw-cninfo-baseline-20260814-leftover`。wave6 在飞，未碰。
