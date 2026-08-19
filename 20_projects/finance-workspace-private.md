@@ -150,7 +150,8 @@ per-user 不是进程级；`runtime_backend_readiness` 这个全局探针看不�
 
 ## 交接记录
 > 存量正文偏长（棘轮不动）。**新交接严格一行**，正文写本仓 `docs/handoffs/`；preflight 只注入本节之前 + 末尾 8 行。
-- 2026-08-19 · grok · **08-18 全量复盘补跑质检 PASS**。数据/换名/报告/L2 挂账属实；18:30 败因是 cross-day 不是锁；成功 S7 没跑到 public-assets 步（CLI 回补后 clone）。分支 `fix/l2-pause-switch-public-assets` @ `1df6844d` 落后 main 518、未推、未开 PR。建议干净树只拣 `1df6844d` 再合。正文 `docs/handoffs/2026-08-18-daily-full-review-recovery.md` 轮次记录。
+- 2026-08-19 · grok · **#217 已合** `gitea/main` `02be2ca1`（只拣 `1df6844d` + 两条夹具）。树 `/Users/a77/fwp-wt-l2-pause-main`。未切 8792，主仓脏树没动，`l2-paused.flag` 留着。明晚 18:30 看 public-assets 步。正文 `docs/handoffs/2026-08-18-daily-full-review-recovery.md`。
+- 2026-08-19 · grok · **08-18 全量复盘补跑质检 PASS**。数据/换名/报告/L2 挂账属实；18:30 败因是 cross-day 不是锁；成功 S7 没跑到 public-assets 步（CLI 回补后 clone）。已由干净树拣提交合 **#217**。正文 `docs/handoffs/2026-08-18-daily-full-review-recovery.md` 轮次记录。
 - 2026-08-19 · grok · 残差检索下限已开 **Gitea #215**（`d36f43e2`，rebase 到 `ed494a8d`，mergeable）。树 `/Users/a77/fwp-wt-residual-prime`。未合、未切 8792。正文 `docs/handoffs/2026-08-19-residual-retrieval-prime.md`。
 - 2026-08-18 · grok · theme-radar 读 `fact_status`：意向不进 delta。Gitea **#204** `fix/radar-fact-status-not-delta` @ `49bfdc6e`（树 `/Users/a77/fwp-wt-radar-fact-status`），mergeable。未合、未切 8792。配对 KB !26。
 - 2026-08-18 · devin · **08-18 全量复盘补跑完成（22:04）**。三因连环：duckdb 撞锁（PID 62525）→ S7 两轮重跑；`run_review_sync.py` 丢 public-assets 步致 7 张 fact 断档 08-14，已按救援快照 `12512daa` 原样装回并用 CLI 补 08-17~18；L2 鉴权未恢复按用户指示停抓，新增 `L2_PAUSED` 开关（`state/l2-paused.flag`，删文件即恢复，欠账 ≥08-08 待回补）。已提交 `1df6844d`（检阅：18:30 败因实为 cross-day，锁是另案；成功 S7 未跑到 public-assets 步）。正文 `docs/handoffs/2026-08-18-daily-full-review-recovery.md`。
