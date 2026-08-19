@@ -150,7 +150,7 @@ per-user 不是进程级；`runtime_backend_readiness` 这个全局探针看不�
 
 ## 交接记录
 > 存量正文偏长（棘轮不动）。**新交接严格一行**，正文写本仓 `docs/handoffs/`；preflight 只注入本节之前 + 末尾 8 行。
-- 2026-08-19 · grok · 残差检索下限：授权三件套 + `prime_*` 窄槽。树 `/Users/a77/fwp-wt-residual-prime` 分支 `feat/residual-retrieval-prime`。未 commit、未切 8792。正文 `docs/handoffs/2026-08-19-residual-retrieval-prime.md`。
+- 2026-08-19 · grok · 残差检索下限已开 **Gitea #215**（`d36f43e2`，rebase 到 `ed494a8d`，mergeable）。树 `/Users/a77/fwp-wt-residual-prime`。未合、未切 8792。正文 `docs/handoffs/2026-08-19-residual-retrieval-prime.md`。
 - 2026-08-18 · grok · theme-radar 读 `fact_status`：意向不进 delta。Gitea **#204** `fix/radar-fact-status-not-delta` @ `49bfdc6e`（树 `/Users/a77/fwp-wt-radar-fact-status`），mergeable。未合、未切 8792。配对 KB !26。
 - 2026-08-18 · devin · **08-18 全量复盘补跑完成（22:04）**。三因连环：duckdb 撞锁（PID 62525）→ S7 两轮重跑；`run_review_sync.py` 丢 public-assets 步致 7 张 fact 断档 08-14，已按救援快照 `12512daa` 原样装回并用 CLI 补 08-17~18；L2 鉴权未恢复按用户指示停抓，新增 `L2_PAUSED` 开关（`state/l2-paused.flag`，删文件即恢复，欠账 ≥08-08 待回补）。**未提交**：check 脚本/夜跑两副本/flag 共 4 处改动停在 main 工作树。正文 `docs/handoffs/2026-08-18-daily-full-review-recovery.md`。
 - 2026-08-14b · grok · **#345/#346/#347 已合 origin/main，未切 8792**。完工快照 `docs/handoffs/2026-08-14-{smoke-gap-anchor,l3-evidence-title-only,tool-observability}.md`。`branch_tool` 仅单测；知识卡 [[../10_knowledge/misaligned-field-looks-plausible]] 已合。
