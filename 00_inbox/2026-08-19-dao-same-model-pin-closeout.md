@@ -58,6 +58,18 @@ Dao Flow 已重启：pid **7785** 听 `127.0.0.1:8955`。`grok-session-proxy.py`
 - 不要再执行旧交接的 L1 退役或关 ay/terra
 
 ## 未做
-- Cockpit 侧车（82076）仍直打 ay Fake-IP
 - L3 关 cloudflared / trycloudflare
 - 24h 弹窗观察
+
+## Cockpit 空烧已收（2026-08-19 09:51）
+用户改口：Cockpit 也不许空烧。
+
+已做：
+- `launchctl bootout` 并停用 `com.cockpit.codex-auth-watchdog`（原每 5min 探 `/v1/models`、每 15min 打 `gpt-5.6-sol` ping，失败会 `open -a Cockpit Tools`）。plist 停在 `~/Library/LaunchAgents/com.cockpit.codex-auth-watchdog.plist.bak-idle-pin-20260819-0950`
+- `~/.antigravity_cockpit/codex_local_access.json` `enabled=false`
+- 侧车 `config.json` 去掉 55 条 `x.ailzd.com` 上游（留 1 条 fenno；备份 `*.bak-idle-pin-20260819-0950`）
+- 退出 Cockpit Tools / cliproxy；`:57244` 已关
+
+质检：60s / 134 次 lsof，ay/terra Fake-IP **0 命中**，Cockpit 未拉起。Dao `:8955`、`grok-session-proxy` `:18765` 未动。
+
+再开 Cockpit 可能从账号池重生侧车。要空烧继续为零：别开 Cockpit，也别把 watchdog plist 移回去。Dao 的 `cockpit-codex`（`:8080`）本来就没在听，Terra 同模型链少这一备渠。
