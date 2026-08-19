@@ -49,7 +49,7 @@ npm run build
 |---|---|---|---|
 | 0812-0813 128 篇批量集成 | cursor | 完成 | #157 已合 main；#158 pr-checks 防 llms 冲突；#15 关闭不采用 wechat-adapt |
 | 工作流路径对齐 a77 | cursor | 完成 | #159 已合；禁 git add .；仓内 docs/content-matrix；RAW_DIR 回退 |
-| 一日一篇：0816 电子特气 → 0818 钛合金 → 0819 ASIC芯片+激光雷达（当日双篇），队列工具 `scripts/publish-queue.mjs` | devin | done | 0819 双篇已上线（104 篇基线），明日 #33 superconductor |
+| 一日一篇：0816 电子特气 → 0818 钛合金 → 0819 ASIC芯片+激光雷达（当日双篇），队列工具 `scripts/publish-queue.mjs` | devin | done | 0819 双篇已上线（104 篇基线），明日 #33 superconductor；用户已确认恢复一天一篇，当日加推仅限明确要求 |
 
 ## 交接记录
 - 2026-08-19（晚）· devin · **一日一篇第 4 篇（激光雷达）当日加推**：用户反馈 ASIC 公众号稿昨日已自行发表，要求再推一篇——同日第二篇走同一全链：#32 lidar 恢复+redate 0819 → validate 104/104 + lint 0 warn + build 124 页 → merge main + llms 104 篇基线（c9e1b34）+ push gitea + deploy（1f10e3b4）+ 线上 200 + indexnow 200。**排版 html 本次新生成**（此前三份为预生成/复用）：`/Users/a77/公众号/激光雷达-公众号排版.html`（25.6KB），1:1 对齐 ASIC 模板样式（h2 蓝下划线/要点框/卡片框/数字标蓝/FAQ h3/延伸阅读 h3），核验全过：10 处核心数据计数 md=html、Q1-Q5 齐全、敏感词零命中、尾部要件 3/3；html 只落本机不进 git。明日 #33 superconductor。
