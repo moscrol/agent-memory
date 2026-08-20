@@ -150,6 +150,7 @@ per-user 不是进程级；`runtime_backend_readiness` 这个全局探针看不�
 
 ## 交接记录
 > 存量正文偏长（棘轮不动）。**新交接严格一行**，正文写本仓 `docs/handoffs/`；preflight 只注入本节之前 + 末尾 8 行。
+- 2026-08-20 · grok · **双盲答卷夜跑退役**。launchd finalize（`~/.local/bin/nightly_full_review.sh`）不再跑 recheck/auto_verdict；仓内源与 runtime 副本同步拆线。脚本仍留 `scripts/`，可手动。未 commit（脏树 `feat/reading-rules-baseline-batch1`）。
 - 2026-08-20 · grok · **飞书 IM 入口退役（方案 A，未合）** 树 `/Users/a77/fwp-wt-retire-feishu-im` 分支 `chore/retire-feishu-im`：`feishu-bot` / `run()` exit 2 不连 WebSocket、不读凭证。与 Bitable 写入退役是两件事。未 commit。
 - 2026-08-20 · grok · **#262 已合并链切 8792** `be7c1e7e`（ask 正门 PR1–PR3）。回滚锚 `3f7966411f3d`。长电 `032317` 独立判官 `correlated_judge=false/passed`；液冷 `032014` 空稿跳过判官（公开 null）+ 修复稿未结转。报告 `~/.finance-runtime/live-probe-traceability/20260820-be7c1e7e-triage-report.md`。
 - 2026-08-20 · grok · **8792 已切独立 Grok 判官** `3f796641`（#259/#260/#261）。启动器 `LLM_JUDGE_BACKEND=grok-cli` + 钉 `LLM_JUDGE_GROK_BIN`。回滚锚 `30f98d732c78`。readiness 仍红：DuckDB 08-18 vs 快照 08-19，与本次无关。正门 spec 可施工未开工。
