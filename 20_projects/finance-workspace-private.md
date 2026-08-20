@@ -150,6 +150,7 @@ per-user 不是进程级；`runtime_backend_readiness` 这个全局探针看不�
 
 ## 交接记录
 > 存量正文偏长（棘轮不动）。**新交接严格一行**，正文写本仓 `docs/handoffs/`；preflight 只注入本节之前 + 末尾 8 行。
+- 2026-08-20 · grok · **双盲夜跑拆线已提交** `2e20e580` 分支 `chore/retire-dual-blind-nightly`（树 `/Users/a77/fwp-wt-retire-dual-blind`，基线 `gitea/main`）。未 push、未合。08-19 补洞质检 PASS。正文 `docs/handoffs/2026-08-20-daily-full-review-0819-repair.md`。
 - 2026-08-20 · grok · **#265 已合** `gitea/main=b58a7a9b`。质检：4 文件 / cherry+1；定向 9P；SessionStart 注入合入行；全量 5777P/16F=ceiling 夹具（本 PR 未改）。未切 8792。harness-reference 零件走 #4（#3 因基线过期关闭）。
 - 2026-08-20 · grok · **#264 已合** `gitea/main=db9569b9`（产品门拓扑 + AskOptions 数据块只走 `enabled_providers`）。树 `/Users/a77/fwp-wt-product-door-depth`。定向 315 @ `fa65ead3`。不切 8792。图谱暂钉 `docs/agent-product-door.md@gitea/main`。
 - 2026-08-20 · grok · **08-19 复盘补洞质检 PASS + 收口**。独立复跑 same-day/cross-day 绿；生产 max=08-19；申万 31 行 `prev_close`（amount 占位 08-18）；dragon_summary 74 只；双盲已从夜跑拆掉。未 commit。正文 `docs/handoffs/2026-08-20-daily-full-review-0819-repair.md`。
