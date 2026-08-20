@@ -150,6 +150,7 @@ per-user 不是进程级；`runtime_backend_readiness` 这个全局探针看不�
 
 ## 交接记录
 > 存量正文偏长（棘轮不动）。**新交接严格一行**，正文写本仓 `docs/handoffs/`；preflight 只注入本节之前 + 末尾 8 行。
+- 2026-08-20 · grok · **8792 已切 `c6af3ec25c54`**（含 #276 整窗 50s）。回滚 `b58a7a9b`。长电 `timeout_asked=50`。正文 `docs/handoffs/2026-08-20-8792-c6af3ec2.md`。
 - 2026-08-20 · grok · **判官首发整窗 50s 已合** Gitea #276 `cce84cf2`（#269+#272+#276）。未切 8792（仍 `b58a7a9b`）。正文 `docs/handoffs/2026-08-20-judge-first-attempt-50.md`。
 - 2026-08-20 · grok · **#275 已合** `gitea/main=c6af3ec2`。剩余预算 <15s 时 `kb_rag.retrieve()` 改走 BM25。树 `.worktrees/fix-retrieval-tier-remaining-budget`。未切 8792。正文 `docs/superpowers/specs/2026-08-20-retrieval-tier-by-remaining-budget-design.md`。
 - 2026-08-20 · grok · **#265 已合且 8792 已切** `b58a7a9b`。快照 `finance-workspace-b58a7a9b9f1a`；回滚 `be7c1e7eac81`。三读+readiness 过；长电探针 completed，判官 unavailable（内容未降级）。正文 `docs/handoffs/2026-08-20-worktree-board.md`。
