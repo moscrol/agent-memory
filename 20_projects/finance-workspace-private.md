@@ -150,7 +150,7 @@ per-user 不是进程级；`runtime_backend_readiness` 这个全局探针看不�
 
 ## 交接记录
 > 存量正文偏长（棘轮不动）。**新交接严格一行**，正文写本仓 `docs/handoffs/`；preflight 只注入本节之前 + 末尾 8 行。
-- 2026-08-20 · grok · **Worktree 合入看板已提交** `616983d4`（树 `/Users/a77/fwp-wt-worktree-board`，`feat/worktree-board`，未推）。拆了 37 棵干净 leftover；脏树/生产快照未动。零件进 `~/harness-reference/KIT.md`（那边在别人的 `docs/misaligned-field-candidate` 上，未提交）。
+- 2026-08-20 · grok · **Worktree 看板 Gitea #265** `ffad3f00`（rebase 到 `gitea/main=a97bfd57`，mergeable，未合、不切 8792）。树 `/Users/a77/fwp-wt-worktree-board`。拆 37 干净 leftover + 2 棵仅 venv 符号链接。KIT 零件在 harness-reference `docs/worktree-board-part` `4f9b46f`。
 - 2026-08-20 · grok · **产品门拓扑 + 收 AskOptions 数据块开关**（树 `/Users/a77/fwp-wt-product-door-depth`，`refactor/ask-block-flags`）。正文 `docs/agent-product-door.md`；块开关只留 `enabled_providers`。未合未推。
 - 2026-08-20 · grok · **08-19 复盘补洞质检 PASS + 收口**。独立复跑 same-day/cross-day 绿；生产 max=08-19；申万 31 行 `prev_close`（amount 占位 08-18）；dragon_summary 74 只；双盲已从夜跑拆掉。未 commit。正文 `docs/handoffs/2026-08-20-daily-full-review-0819-repair.md`。
 - 2026-08-20 · grok · **双盲答卷夜跑退役**。launchd finalize（`~/.local/bin/nightly_full_review.sh`）不再跑 recheck/auto_verdict；仓内源与 runtime 副本同步拆线。脚本仍留 `scripts/`，可手动。未 commit（脏树 `feat/reading-rules-baseline-batch1`）。
