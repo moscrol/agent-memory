@@ -151,8 +151,9 @@ per-user 不是进程级；`runtime_backend_readiness` 这个全局探针看不�
 ## 交接记录
 > 存量正文偏长（棘轮不动）。**新交接严格一行**，正文写本仓 `docs/handoffs/`；preflight 只注入本节之前 + 末尾 8 行。
 - 2026-08-20 · grok · **双盲夜跑拆线已提交** `2e20e580` 分支 `chore/retire-dual-blind-nightly`（树 `/Users/a77/fwp-wt-retire-dual-blind`，基线 `gitea/main`）。未 push、未合。08-19 补洞质检 PASS。正文 `docs/handoffs/2026-08-20-daily-full-review-0819-repair.md`。
-- 2026-08-20 · grok · **#265 已合** `gitea/main=b58a7a9b`。质检：4 文件 / cherry+1；定向 9P；SessionStart 注入合入行；全量 5777P/16F=ceiling 夹具（本 PR 未改）。未切 8792。harness-reference 零件走 #4（#3 因基线过期关闭）。
-- 2026-08-20 · grok · **#264 已合** `gitea/main=db9569b9`（产品门拓扑 + AskOptions 数据块只走 `enabled_providers`）。树 `/Users/a77/fwp-wt-product-door-depth`。定向 315 @ `fa65ead3`。不切 8792。图谱暂钉 `docs/agent-product-door.md@gitea/main`。
+- 2026-08-20 · grok · **#265 已合且 8792 已切** `b58a7a9b`。快照 `finance-workspace-b58a7a9b9f1a`；回滚 `be7c1e7eac81`。三读+readiness 过；长电探针 completed，判官 unavailable（内容未降级）。正文 `docs/handoffs/2026-08-20-worktree-board.md`。
+- 2026-08-20 · grok · **8792 已切 `b58a7a9b9f1a`**（含 #264/#266/#265）。回滚 `be7c1e7eac81`。readiness 13/13；长电复跑 degrade=0。收据 `20260820-post-b58a7a9b-changdian.json`。
+- 2026-08-20 · grok · **#264 已合** `gitea/main=db9569b9`（产品门拓扑 + AskOptions 数据块只走 `enabled_providers`）。树 `/Users/a77/fwp-wt-product-door-depth`。定向 315 @ `fa65ead3`。图谱暂钉 `docs/agent-product-door.md@gitea/main`。
 - 2026-08-20 · grok · **08-19 复盘补洞质检 PASS + 收口**。独立复跑 same-day/cross-day 绿；生产 max=08-19；申万 31 行 `prev_close`（amount 占位 08-18）；dragon_summary 74 只；双盲已从夜跑拆掉。未 commit。正文 `docs/handoffs/2026-08-20-daily-full-review-0819-repair.md`。
 - 2026-08-20 · grok · **双盲答卷夜跑退役**。launchd finalize（`~/.local/bin/nightly_full_review.sh`）不再跑 recheck/auto_verdict；仓内源与 runtime 副本同步拆线。脚本仍留 `scripts/`，可手动。未 commit（脏树 `feat/reading-rules-baseline-batch1`）。
 - 2026-08-20 · grok · **飞书 IM 入口退役（方案 A，未合）** 树 `/Users/a77/fwp-wt-retire-feishu-im` 分支 `chore/retire-feishu-im`：`feishu-bot` / `run()` exit 2 不连 WebSocket、不读凭证。与 Bitable 写入退役是两件事。未 commit。
