@@ -56,6 +56,7 @@ related: ["[[finhot]]", "[[finance-workspace-private]]"]
 - 产品：[[finhot]] · [[finance-workspace-private]]
 
 ## 交接记录
+- 2026-08-20 · cursor · 吸纳 [emilkowalski/skills](https://github.com/emilkowalski/skills) 11 个技能到 vidio（分支 `feat/emilkowalski-skills`，树 `~/vidio-gitea-main`）。安装命令：`npx skills add emilkowalski/skills --skill '*' --agent claude-code --agent cursor --agent codex -y`。`skills-lock.json` 里 `emil-design-eng` / `animation-vocabulary` 从 uitripled 转抄改挂官方源。成片默认链路 `emil-design-eng` → `animate` → `review-animations`；HyperFrames 只负责渲染。未合未推。
 - 2026-08-15 · cursor · GitHub 按不解封：日常远程改本机 Gitea。`gitea/main`=`70f67ef`（#10 后内容快照）。本机 `ops/short-video` 不是日常基线。
 - 2026-07-10 · grok · 建 MOC；沉淀 hooks/skills/算法假设到 vidio/ops/knowledge
 - 2026-07-10 · grok · 用户确认：情绪+屏幕、产业偶插、弃旧开新；更新排期与 strategy
