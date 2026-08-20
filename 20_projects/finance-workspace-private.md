@@ -597,4 +597,6 @@ per-user 不是进程级；`runtime_backend_readiness` 这个全局探针看不�
   - **修复方案**：改读 `evidence_index.json` 的 `items`（证据关系台账，运行时检索的唯一消费源），按 `source_quality` 分组统计各线最新 `source_date`，**完全不使用文件 mtime**。支持 `--watch-lanes` 自定义监控线（默认公告 + 卖方），缺 `source_date` 或格式错误记为 `unknown` 不参与 max。
   - **验收测试**（`scripts/test_kb_freshness_fix.py`，三个场景全通过）：① 构造 30 天前的 `source_date`、文件 mtime 是今天 → 仍报 30 天前（证明 mtime 不影响）；② 公告线今天、卖方线 11 天前 → 分别报告（证明分线隔离）；③ 混入空日期/格式错误/缺字段 → 正确忽略无效数据。
   - **可迁移原则**（值得提炼到 `10_knowledge/`）：① **监控门禁不能依赖 mtime**——任何批量改写（frontmatter 修正、format 重排、git 操作）都会刷新 mtime，把真实断更掩盖；② **分线监控比全局最大值更精确**——多条数据管线的新鲜度应独立报告，避免活跃线掩盖断流线；③ **监控应读取运行时消费的数据结构**——本例中 `evidence_index.json` 是检索层唯一读取的证据索引，比扫描 `sources/*.md` 更可靠（文件可能存在但未入索引）。
-  - **关联工作（C2/C3 在途）**：RAG 索引增量更新进行中（8349 块待更新，用 `.rag_index.new` 旁路建避免撕裂读）；微信抓取��道需用户登录解锁（新通道 wechat-download-api:5050 活着但 `articles=0`，需扫码登录 `http://127.0.0.1:5050/login.html`，登录后原料到位仍需人工四问复核逐日处理 11 天积压）。
+  - **关联工作（C2/C3 在途）**：RAG 索引增量更新进行中（8349 块待更新，用 `.rag_index.new` 旁路建避免撕裂读）；微信抓取通道需用户登录解锁（新通道 wechat-download-api:5050 活着但 `articles=0`，需扫码登录 `http://127.0.0.1:5050/login.html`，登录后原料到位仍需人工四问复核逐日处理 11 天积压）。
+
+- 2026-08-21 · cursor · **公开答案质量 P1（Q1/Q3）离线落地**：干净树 `/Users/a77/fwp-wt-answer-hygiene-p1` @ `fix/episode-answer-hygiene-p1`（从 `gitea/main@48369a31` 长出）。`episode_answer_hygiene.py`：未尝试不得写成未命中（判据 `directional_news` 不是 `news_search`；`future_of_cutoff`/截断算尝试过）；语义 repair 残稿 withhold，回退「修前稿 − 判官点名句」。账本 `R-20260820-09/10` 离线已绿，live 未跑不得 confirmed。Q2 补枪仍 `-11` 未做。未合 main、未切 8792。
