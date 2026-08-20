@@ -56,7 +56,8 @@ related: ["[[finhot]]", "[[finance-workspace-private]]"]
 - 产品：[[finhot]] · [[finance-workspace-private]]
 
 ## 交接记录
-- 2026-08-20 · cursor · 吸纳 [emilkowalski/skills](https://github.com/emilkowalski/skills) 11 个技能到 vidio（分支 `feat/emilkowalski-skills`，树 `~/vidio-gitea-main`）。安装命令：`npx skills add emilkowalski/skills --skill '*' --agent claude-code --agent cursor --agent codex -y`。`skills-lock.json` 里 `emil-design-eng` / `animation-vocabulary` 从 uitripled 转抄改挂官方源。成片默认链路 `emil-design-eng` → `animate` → `review-animations`；HyperFrames 只负责渲染。未合未推。
+- 2026-08-20 · cursor · 按锁恢复技能到 `~/vidio-gitea-main`：官方 `experimental_install` 因中文名/缺 SKILL.md 中途失败；改为按源仓 shallow clone 拷入 `.agents/skills/`。锁内 88/88 已有 `SKILL.md`。仓内补回三件（从未进 git）：`vibe-director`、`promo-film-pipeline`、`openmontage-adapter`。三方约 171MB 且 SKILL.md 哈希对不上 lock（上游 HEAD 已漂），不要整树 `git add .agents/skills`。`vendor/openmontage` 未克隆。成片须在 vidio 仓开对话。
+- 2026-08-20 · cursor · 吸纳 [emilkowalski/skills](https://github.com/emilkowalski/skills) 11 个技能到 vidio（分支 `feat/emilkowalski-skills`，提交 `a84c0ec` 已推 Gitea）。`emil-design-eng` / `animation-vocabulary` 改挂官方源。未合 main。
 - 2026-08-15 · cursor · GitHub 按不解封：日常远程改本机 Gitea。`gitea/main`=`70f67ef`（#10 后内容快照）。本机 `ops/short-video` 不是日常基线。
 - 2026-07-10 · grok · 建 MOC；沉淀 hooks/skills/算法假设到 vidio/ops/knowledge
 - 2026-07-10 · grok · 用户确认：情绪+屏幕、产业偶插、弃旧开新；更新排期与 strategy
