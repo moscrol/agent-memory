@@ -151,7 +151,7 @@ per-user 不是进程级；`runtime_backend_readiness` 这个全局探针看不�
 ## 交接记录
 > 存量正文偏长（棘轮不动）。**新交接严格一行**，正文写本仓 `docs/handoffs/`；preflight 只注入本节之前 + 末尾 8 行。
 - 2026-08-20 · grok · **判官首发整窗 50s 已合** Gitea #276 `cce84cf2`（#269+#272+#276）。未切 8792（仍 `b58a7a9b`）。正文 `docs/handoffs/2026-08-20-judge-first-attempt-50.md`。
-- 2026-08-20 · grok · **剩余预算选检索档** Gitea [#275](http://127.0.0.1:3300/a77/finance-workspace-private/pulls/275) `fix/retrieval-tier-remaining-budget` @ `bf488b36`（已并入当时 `gitea/main`，树 `.worktrees/fix-retrieval-tier-remaining-budget`）。`retrieve()` 剩 <15s 改走 BM25。未合。正文 `docs/superpowers/specs/2026-08-20-retrieval-tier-by-remaining-budget-design.md`。
+- 2026-08-20 · grok · **#275 已合** `gitea/main=c6af3ec2`。剩余预算 <15s 时 `kb_rag.retrieve()` 改走 BM25。树 `.worktrees/fix-retrieval-tier-remaining-budget`。未切 8792。正文 `docs/superpowers/specs/2026-08-20-retrieval-tier-by-remaining-budget-design.md`。
 - 2026-08-20 · grok · **#265 已合且 8792 已切** `b58a7a9b`。快照 `finance-workspace-b58a7a9b9f1a`；回滚 `be7c1e7eac81`。三读+readiness 过；长电探针 completed，判官 unavailable（内容未降级）。正文 `docs/handoffs/2026-08-20-worktree-board.md`。
 - 2026-08-20 · grok · **双盲夜跑拆线已提交** `2e20e580` 分支 `chore/retire-dual-blind-nightly`（树 `/Users/a77/fwp-wt-retire-dual-blind`，基线 `gitea/main`）。未 push、未合。08-19 补洞质检 PASS。正文 `docs/handoffs/2026-08-20-daily-full-review-0819-repair.md`。
 - 2026-08-20 · grok · **8792 已切 `b58a7a9b9f1a`**（#264/#266/#265）。回滚 `be7c1e7eac81`。readiness 13/13；长电首发判官 unavailable，复跑 `run_20260820_111627_705033` degrade=0。收据 `20260820-post-b58a7a9b-changdian.json`。
