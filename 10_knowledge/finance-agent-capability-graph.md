@@ -39,7 +39,7 @@ graph TD
     CLI --> Eval["answer-score / agent-eval<br/>回答评分与样本沉淀"]
     CLI --> Checkpoint["checkpoint<br/>可证伪假设回检"]
     CLI --> Dream["dream-* / subconscious<br/>夜间消化与潜意识 buffer"]
-    CLI --> Bot["feishu-bot / serve<br/>飞书与本地服务"]
+    CLI --> Serve["serve<br/>本地 Web GUI"]
 
     Ask --> Planner["answer_orchestrator<br/>问题类型、深度、证据计划、质检门槛"]
     Planner --> Preflight["forecast_preflight<br/>正式复盘前查漏门"]
@@ -168,6 +168,7 @@ flowchart LR
 | 节点 | 所在仓库 | 主要路径 | 作用 |
 |---|---|---|---|
 | CLI 总入口 | finance | `intelligence/cli.py` | 聚合 ask、daily、theme、l3、foresight、checkpoint、dream 等命令 |
+| 飞书 IM 入口（已退役） | finance | `intelligence/cli.py::cmd_feishu_bot`、`intelligence/chat/feishu_bot.py::run` | shim：stderr 说明后 exit 2，不连 WebSocket。问答走 ask / Workbench Episode |
 | 问答入口 | finance | `intelligence/services/ask.py` | 多源检索、模块 fan-out、compose 入口 |
 | 多轮对话 | finance | `intelligence/services/ask_chat.py` | 首轮检索后复用证据做追问 |
 | 自主工具 Agent | finance | `intelligence/runtime/agent.py` | LLM 自主决定调用只读检索工具 |
@@ -217,6 +218,7 @@ flowchart LR
 
 ## 变更记录
 
+- 2026-08-20 · grok · 飞书 IM（`feishu-bot`）入口退役：总览从「feishu-bot / serve」改成只留 `serve`；节点清单加退役行，钉 `cmd_feishu_bot` / `feishu_bot.run` 为 exit-2 shim。与飞书 Bitable 写入退役是两件事。
 - 2026-08-20 · grok · 节点清单加「本地代码地图门面」：`scripts/code_map.py::main@feat/code-map-facade`。编码 agent 的 query/ask 正门，不进 intelligence.cli，不把 CRG 社区名当模块。当前金融仓工作树还在别的分支，写成在途行；合进默认树后再去掉 `@branch`。
 - 2026-08-06 · claude · **`memory_lookup` 在途行按规则提升为常规行**：`fix/headless-tool-correlation-observability` 已合并 main（merge `52bbf2d6`）并删除分支，两个 `@branch` spec 去掉后缀，catalog 从 11 项变 12 项。**顺带记一个门禁的反向盲区**：上一条修的是「图谱说有、main 没有」发绿光；这次是「图谱说在途、main 已有」——`graph_audit.py` 把在途行标 `UNVERIFIED` 跳过，同样 exit 0。**两个方向都漏，说明 `@branch` 行需要一条到期检查**：分支已合并或已删除时应报红，而不是继续跳过。
 - 2026-08-05 · claude · **修一次真实漂移 + 把门禁的断言粒度补齐**。漂移：`memory_lookup` / `relevant_memory_records` 两行写成 main 的现状，实际只存在于未合并分支 `fix/headless-tool-correlation-observability`（该分支 catalog 12 项，main 11 项）；已改写为 `@branch` 在途行。**门禁盲区（根因）**：旧 `graph_audit.py` 只校验路径存在，而 `episode_tools.py` 在 main 上确实在，所以漂移期间 exit 0 —— 门禁的断言粒度比它声称保护的东西粗一档。已加 `::symbol` / `@branch` 两级 spec 与 revision 自述（旧版从不说自己审的是哪个分支，读者默认按 main 读，而工作树长期停在特性分支）。
