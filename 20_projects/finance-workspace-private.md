@@ -148,8 +148,7 @@ per-user 不是进程级；`runtime_backend_readiness` 这个全局探针看不�
 **另一处双轨要注意**：8792 的 `FORESIGHT_USERS_DIR=/Users/a77/.local/share/finance-workbench/users`，
 而 CLI/回检走 `~/.zshrc` 里的 `/Users/a77/agent-memory/.foresight`——**两套用户台账不是同一份**。
 
-## 交接记录
-> 存量正文偏长（棘轮不动）。**新交接严格一行**，正文写本仓 `docs/handoffs/`；preflight 只注入本节之前 + 末尾 8 行。
+- 2026-08-20 · grok · **判官证据投影契约 C1–C4 已落地未合**。树 `/Users/a77/fwp-wt-judge-projection` 分支 `fix/judge-evidence-projection-contract`。账本 `R-20260820-03/04/05`（01/02 已占用）。第 7 例 grok-cli 重放 hung → `not_run`。正文 `docs/handoffs/2026-08-20-judge-evidence-projection.md`。
 - 2026-08-20 · grok · **8792 已切 `c6af3ec25c54`**（含 #276 整窗 50s）。回滚 `b58a7a9b`。长电 `timeout_asked=50`。正文 `docs/handoffs/2026-08-20-8792-c6af3ec2.md`。
 - 2026-08-20 · grok · **判官首发整窗 50s 已合** Gitea #276 `cce84cf2`（#269+#272+#276）。未切 8792（仍 `b58a7a9b`）。正文 `docs/handoffs/2026-08-20-judge-first-attempt-50.md`。
 - 2026-08-20 · grok · **#275 已合** `gitea/main=c6af3ec2`。剩余预算 <15s 时 `kb_rag.retrieve()` 改走 BM25。树 `.worktrees/fix-retrieval-tier-remaining-budget`。未切 8792。正文 `docs/superpowers/specs/2026-08-20-retrieval-tier-by-remaining-budget-design.md`。

@@ -33,6 +33,12 @@ related: ["[[contract-vs-delivery-mismatch]]", "[[agent-tool-design-principles]]
 先断言「events 被截断」被证伪（sequence 连续 1..N）；
 再断言「错误率算不出来」也被证伪（traces 里有，只是写错栏）。
 
+## 实例（2026-08-20 判官投影）
+
+压判官 payload 时把 `title` 和 `content_hash` 归成一类「内部标识」删掉。新闻正文只活在 `title`（`detail` 是「日期 媒体」），判官于是否证「注册表无公司名与金额」——卡片上明明有许继电气 / 12.45。覆盖率审计看见字段还在卡片上，发绿。同一投影还在 bound 子集上另编密排 E 号：密排 E4 可以是写手 E9。
+
+修法同一条：按「是不是判定依据」分类，不按「像不像元数据」分类；id 只许一个发放点。
+
 ## 四个让它难被发现的性质
 
 1. **有数比没数更危险**——缺失会逼你换源；错位让你用错的数做决策
@@ -45,6 +51,8 @@ related: ["[[contract-vs-delivery-mismatch]]", "[[agent-tool-design-principles]]
 - **单一归一化口径**，运行时与审计脚本共用同一个函数，不另立第二份映射。
   本轮是 `provider_observability.provider_trace_tool_name()`，
   `scripts/audit_episode_tool_outcomes.py` 读它，不自己猜。
+  判官证据投影读 `evidence_ordinal_table()`，不自己 `E{len(registry)+1}`。
+- 压给判定器的字段按「是不是判定依据」分类，不按「像不像内部标识」分类。
 - 审计脚本归位成 0 档只读工具，不要留在 `tmp/` 循环里——下一轮排查还会手搓，还会再踩同一套错位。
 - 发现「某个仪表读数为 0 / 100%」时，先问：**这是真的没有，还是写进了另一栏？**
   对照同一事实在失败路径上的字段；两条路径不一致就是本条，不是「偶发空值」。
