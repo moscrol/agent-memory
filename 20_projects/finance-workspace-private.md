@@ -620,3 +620,4 @@ per-user 不是进程级；`runtime_backend_readiness` 这个全局探针看不�
 - 2026-08-23 · cursor · **SPT 周报回填收口（50 篇）+ 判读基线 #343 未合**：画像在 `linxiaoqi5111`（rsync 到 default），未翻 `perspective_mode`、未升格进 `reading_baseline`。#343 git 可合，但 r2 与 `gitea/main` 同 4 红，未合。→ `docs/handoffs/2026-08-23-sptfei-weekly-backfill.md`
 - 2026-08-23 · cursor · **8792+8796 已切解耦层 `95c644be`**（含判读基线 + 开关板 + 其中/其路由 + mixed 判官）。树 `docs/capability-switchboard` 已在 `gitea/main` 上 rebase（SHA 未变）。回滚 8792：`finance-workspace-a3fb3304bfb6`。未合 main。
 - 2026-08-23 · cursor · **8792/8796 拆开对照：8792=`gitea/main@3ac070a2`（含 #345），8796=解耦 `4a35944e`（干净 detached 快照）**。临时口 8800/8801/8804/8805 已关，8802 未动。回滚锚仍是 `1c52e19f9957`（未删）。解耦未合 git main。回滚步骤：`~/.finance-runtime/cutover-20260823-8792-8796.md`。
+- 2026-08-23 · cursor · **agent 直调落痕**：干净树 `/Users/a77/fwp-wt-agent-trace` @ `feat/agent-adhoc-trace`。`scripts/agent_trace.py` 写出与 Workbench 同构的 run，用户名默认 `agent-adhoc`，根必须显式。未提交。→ `docs/handoffs/inflight/feat-agent-adhoc-trace.md`
