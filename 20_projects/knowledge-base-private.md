@@ -54,6 +54,8 @@ related: ["[[finance-workspace-private]]", "[[finance-research-site]]", "[[finan
 
 ## 交接记录
 
+- 2026-08-23 · devin · 本会话**无实质改动**——devin 全部工作在 finance-research-site（超导 #33 上线 + 公众号 html，已回写该仓台账）。复核 KB 工作树：脏区（`fix/rss-l3-auto-promote` @ `f4f5bfc0` + 38 个未跟踪 raw 产物 + manifest/access_log 分叉）与 2026-08-22 claude 审计记录完全一致，无人新增改动，下一个接手者不必重审。
+
 - 2026-08-22 · claude · 状态审计，**KB 无代码改动**。结论：①本地分支 `fix/rss-l3-auto-promote` @ `f4f5bfc0` 是**重复分支可弃**——同一改动已在 `gitea/main` 的 `13e92633`（5 文件 /+734/-11，`git diff` 两 commit 涉及路径为空），主检出树落后 main 6 提交；②未提交的 54 项里有个陷阱：**7 个 cninfo-baseline JSON 在本分支是被跟踪的、main 上已迁出**（raw 迁 Release 后 main 跟踪数=0），所以 `git switch main` 会被 git 拦下（要删这 7 个的本地改动）——**「把检出树切到 main」不是无损操作**，别当收尾顺手做。其余为 38 个未跟踪 raw 产物（不该提交，raw 走 `publish_raw_snapshots.py` 打 Release）+ 2 个**分叉的 append-only 日志**：`manifest.jsonl`（工作树 1186 = 共同祖先 1073 + 本地 113；main 另有 3 条 `disc-20260815-000{1,2,3}`，无 archive_id 撞号，并集 1189）、`access_log.jsonl`（main 侧未动，可直接带过去）。manifest 的 113 条本地追加属**未消费的夜跑披露批次**，收编要走 disclosure-archive 消费流程（定 L3 升格），不是清理动作。直接提交会重演 `f19187fb` 被年报写入冲掉旧条目那次。**可复用**：判「本地分支是否已被 main 收录」不能看提交号或提交信息（cherry-pick 后 SHA 变、message 常一模一样），要么 `git patch-id --stable` 对拍，要么 `git diff <本地> <main> -- <该 commit 涉及的路径>` 看是否为空——后者更稳，patch-id 对 merge/空补丁会返回空值误导。
 - 2026-08-22 · grok · **发索引改走本机 Gitea**。Gitea **!31 已合**，`gitea/main` @ `4c33bb5f`。`publish`/`fetch` 认 `gitea` remote → `127.0.0.1:3300`；token 用 keychain `gitea-local`。!26 未合。今日资产：`rag-index-20260822` + `rag-index-full-latest`（pre）。
 - 2026-08-22 · grok · 收尾已合 Gitea !28 L3 cron、!30 IMA 分诊、!29 贵金属 L1、!27 晨汇 8/17–20；`gitea/main` @ `6130e1ac`。!26 fact_status 未合。夜跑脚本走工作树 `ima-queue-auto-triage`，数据仍写活库 wiki。
