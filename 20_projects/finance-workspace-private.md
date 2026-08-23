@@ -89,6 +89,7 @@ DuckDB → detect_turning_points.py / backtest_sector.py → 信号+板块边际
 | Workbench 显式视角切换 | devin | done | [PR #205](https://github.com/linxiaoqi5111-del/finance-workspace-private/pull/205)：数据中立 / 单一 KOL / 多视角并列，消息级持久化、用户隔离与独立 BM25 观点召回；CI 全绿，待用户决定合并 |
 | delta package 契约强化（manifest v1 / 多维校验 / 安全解压 / 原子回滚 / data-quality CI）| devin | doing | PR #179 待 review/merge，尚未合并；后续单独做历史债务清洗与环境 blueprint |
 | 忠实度 / 历史重放验收 | devin → 用户审定 | doing | #197→#201 已合并；a77 固定 runtime `ea86010c` 与 20:05 daily-agent、20:30 PIT、20:45 acceptance LaunchAgent 已上线，等待 7/13–7/17 前向产物及 claim-level Gold 双审；`decision_eligible=false` |
+| Code Map 请求 Loop 导航页 | codex | done（分支未合） | `codex/code-map-request-loop`：tracked steering + TDD 为 `3475995b`；最终全量地图绑定 `7dbe216b`，五个 L0–L4 锚点结构/叙事双层可达；未 push、未合 main。 |
 
 ## 🚦 Agent Runtime 线路（2026-08-05 用户决策，跑之前必读）
 
@@ -623,3 +624,4 @@ per-user 不是进程级；`runtime_backend_readiness` 这个全局探针看不�
 - 2026-08-23 · cursor · **agent 直调落痕**：干净树 `/Users/a77/fwp-wt-agent-trace` @ `feat/agent-adhoc-trace`。`scripts/agent_trace.py` 写出与 Workbench 同构的 run，用户名默认 `agent-adhoc`，根必须显式。未提交。→ `docs/handoffs/inflight/feat-agent-adhoc-trace.md`
 - 2026-08-23 · cursor · **P0 已合 #346；8792=`8688545b`，8796 对齐后切 `76ee1e89`（解耦不合 main）**。四臂未开跑。入口 `~/.finance-runtime/four-arm-ready-20260823.md`。8820 已关，8802 未动。#343 仍开。→ `docs/handoffs/2026-08-23-p0-align-8796-cutover.md`
 - 2026-08-24 · cursor · **盘面题组件包 spec v2**（核稿三洞已改定，未实施）。PR https://github.com/moscrol/finance/pull/1 分支 `docs/market-watch-component-first`。判别变量仍是「开口前四袋齐」。落点改成 owner 分叉前跑包（不降级 daily-review）；显式日 `trade_date = ?`；C1 原题是旁路，P0 休市题是「2026-07-25 今天市场怎么样」。方法论回写 BUILD 模式 5：换执行者先盘点腾空椅。禁止在脏树改 runtime。
+- 2026-08-24 · codex · **Code Map 新增 Agent 请求 Loop narrative**：只改 tracked steering + 回归测试，不改 runtime/generator；纯文档提交后增量 build 会留下旧图 SHA，故设计与计划改为 `build --full --postprocess full`；分支 `codex/code-map-request-loop@7dbe216b` 未 push/未合 main → `docs/superpowers/specs/2026-08-24-code-map-request-loop-narrative-design.md`
