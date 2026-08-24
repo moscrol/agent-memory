@@ -149,7 +149,7 @@ per-user 不是进程级；`runtime_backend_readiness` 这个全局探针看不�
 **另一处双轨要注意**：8792 的 `FORESIGHT_USERS_DIR=/Users/a77/.local/share/finance-workbench/users`，
 而 CLI/回检走 `~/.zshrc` 里的 `/Users/a77/agent-memory/.foresight`——**两套用户台账不是同一份**。
 
-- 2026-08-24 · grok · **#352 已合且 8792/8796 同切 `af71f048`**。回滚 8792=`8688545b9104`；8796 是 LaunchAgent，启动器写死 `runtime_tree`。正文 `docs/handoffs/2026-08-24-market-watch-352-cutover.md`。
+- 2026-08-24 · grok · **#352 已合；8792=`af71f048`（main）。8796 误切同 SHA 已拨回 `76ee1e89`（解耦树）**。用户纠偏：合 main ≠ 两港对齐。#353 收据已合 `b07259c0`。`R-09` refuted。实施树已拆。正文 `docs/handoffs/2026-08-24-market-watch-352-cutover.md`。
 - 2026-08-20 · grok · **判官证据投影契约 C1–C4 已落地未合**。树 `/Users/a77/fwp-wt-judge-projection` 分支 `fix/judge-evidence-projection-contract`。账本 `R-20260820-03/04/05`（01/02 已占用）。第 7 例 grok-cli 重放 hung → `not_run`。正文 `docs/handoffs/2026-08-20-judge-evidence-projection.md`。
 - 2026-08-20 · grok · **8792 已切 `c6af3ec25c54`**（含 #276 整窗 50s）。回滚 `b58a7a9b`。长电 `timeout_asked=50`。正文 `docs/handoffs/2026-08-20-8792-c6af3ec2.md`。
 - 2026-08-20 · grok · **判官首发整窗 50s 已合** Gitea #276 `cce84cf2`（#269+#272+#276）。未切 8792（仍 `b58a7a9b`）。正文 `docs/handoffs/2026-08-20-judge-first-attempt-50.md`。
@@ -628,3 +628,4 @@ per-user 不是进程级；`runtime_backend_readiness` 这个全局探针看不�
 - 2026-08-24 · codex · **Code Map 请求路径纠偏收口**：用户指出旧 L0–L4 + Door/Structure/Narrative 矩阵会把三条并行产品路径误画成一条。分支 `codex/code-map-request-loop@acf7af05` 改为“Agent 产品入口与运行路径”；内部符号继续只归 Structure；generator 现在按配置对账 `wiki/doors/`，会删除过期 `agent-request-loop.md`。最终 full map ready：18,325 nodes / 196,048 edges / 1,033 flows / 10 communities；未 push、未合 main → `docs/superpowers/specs/2026-08-24-code-map-request-loop-narrative-design.md`
 - 2026-08-24 · cursor · **D4 开关板从今日 main 抽出，不搬超集树**：`/Users/a77/fwp-wt-capability-switchboard-main` @ `feat/capability-switchboard`（基线 `gitea/main@3fc47e91`）。只加新文件 + `dual_red_counts` 最小 `faces()`；`reading-baseline` 标 `pending-other-branch`。生产不 import `capability_switchboard`。未提交、未合、未切端口。台账 `R-20260824-11`。禁止 `git checkout 76ee1e89 --` 已漂路径。→ `docs/handoffs/inflight/feat-capability-switchboard.md`
 - 2026-08-24 · cursor · **D2 结案**：W2 `R-20260821-08` confirmed（指数×科技 8792 打上 `chain_mapping` optional +【结构缺口】）。W1 `R-20260821-07` 仍欠 `marker_loss>0`（「质检降级」≠ 删格）。零产品代码。→ `docs/verification/2026-08-24-d2-w1-w2-natural-sample.md`
+- 2026-08-24 · grok · **#353 已合 `b07259c0`；8796 拨回解耦树；实施副本已拆**。8792=`af71f048` / 8796=`76ee1e89`。`R-20260824-09` refuted。树 `fwp-wt-market-watch-component-first` 与 `fwp-wt-mwcf-cutover-docs` 已 `worktree remove`。spec 树 `fwp-wt-market-watch-component-first-spec` 仍在。#343 未合。
