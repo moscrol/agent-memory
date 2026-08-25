@@ -149,6 +149,7 @@ per-user 不是进程级；`runtime_backend_readiness` 这个全局探针看不�
 **另一处双轨要注意**：8792 的 `FORESIGHT_USERS_DIR=/Users/a77/.local/share/finance-workbench/users`，
 而 CLI/回检走 `~/.zshrc` 里的 `/Users/a77/agent-memory/.foresight`——**两套用户台账不是同一份**。
 
+- 2026-08-26 · devin · **盘中 L2 边车设计稿 v1.1：两扇门已拍 A1+B1**。树 `/Users/a77/fwp-wt-intraday-l2-sidecar` @ `89df4124` 已推 gitea（`docs/intraday-l2-sidecar`，4 提交）。P0 探针 `scripts/moneyflow/probe_intraday_write.py` 已落地（ruff 绿），`--check-only` 独立复现 **Code 516 鉴权失败**——CH 凭证自 08-08 失效、08-18 挂账未恢复，P0 被鉴权挡住而非链路问题。⚠ 解释器坑：`.venv-workbench` 缺 `clickhouse_driver`，探针须用 `/opt/homebrew/bin/python3`。待办：77 恢复鉴权 → 交易日 10:00–14:30 跑 P0 出收据 → 开 `feat/intraday-l2-sidecar` 做 P1（A1 形态）。正文 `docs/superpowers/specs/2026-08-26-intraday-l2-sidecar-design.md`。
 - 2026-08-24 · grok · **#352 已合；8792=`af71f048`（main）。8796 误切同 SHA 已拨回 `76ee1e89`（解耦树）**。用户纠偏：合 main ≠ 两港对齐。#353 收据已合 `b07259c0`。`R-09` refuted。实施树已拆。正文 `docs/handoffs/2026-08-24-market-watch-352-cutover.md`。
 - 2026-08-20 · grok · **判官证据投影契约 C1–C4 已落地未合**。树 `/Users/a77/fwp-wt-judge-projection` 分支 `fix/judge-evidence-projection-contract`。账本 `R-20260820-03/04/05`（01/02 已占用）。第 7 例 grok-cli 重放 hung → `not_run`。正文 `docs/handoffs/2026-08-20-judge-evidence-projection.md`。
 - 2026-08-20 · grok · **8792 已切 `c6af3ec25c54`**（含 #276 整窗 50s）。回滚 `b58a7a9b`。长电 `timeout_asked=50`。正文 `docs/handoffs/2026-08-20-8792-c6af3ec2.md`。
