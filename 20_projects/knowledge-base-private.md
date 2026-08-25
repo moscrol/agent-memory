@@ -51,9 +51,11 @@ related: ["[[finance-workspace-private]]", "[[finance-research-site]]", "[[finan
 | r3 年报 128+60 家接到当前 main | grok | done | #340（wave1-2 128 家 #4225–#4352 + wave3 60 家 #4355–#4414）已合 main `ae88c5cb`、#341 cninfo 迁出已合，CI 全绿；合前全树质检 0 丢失。 |
 | leftover 年报尾巴 21 家 + 图谱 ticker | grok | done | #349（`#4475`–`#4555`，含 wave5 60 家）+#350 已合 `1afd676f`。raw 下一份 Release `raw-cninfo-baseline-20260814-leftover`（4049 文件）。明细 `wiki/log.md`。 |
 | r3 wave6 60 家年报 | grok | done | #352 已合 `ef468134`，`#4560`–`#4677`。wave7 抽取进行中（千红制药→天润工业）。 |
+| 全A实体页缺口（非ST） | cursor | doing | 不重跑年报脏尾巴。工作树 `/Users/a77/kb-wt-ashare-coverage-gap` @ `baseline/ashare-coverage-gap` `472d87b7`；队列 2288，已写入 10 家，pending 2278。未推、未合。 |
 
 ## 交接记录
 
+- 2026-08-25 · cursor · 覆盖率对账后选 **F10 补缺页**，不碰年报 leftover。干净树 `kb-wt-ashare-coverage-gap`，`gitea/main` 切开。`mootdx` 改按需导入；默认角色去掉「材料供应商」（否则银行变 `upstream_materials`）；东财 industry 被掐时读巨潮 `所属行业`。已写入 10 家，队列 pending 2278。**可复用**：有实体页 ≠ 覆盖全 A；年报尾巴是抽数不合格不是漏扫。
 - 2026-08-23 · devin · 本会话**无实质改动**——devin 全部工作在 finance-research-site（超导 #33 上线 + 公众号 html，已回写该仓台账）。复核 KB 工作树：脏区（`fix/rss-l3-auto-promote` @ `f4f5bfc0` + 38 个未跟踪 raw 产物 + manifest/access_log 分叉）与 2026-08-22 claude 审计记录完全一致，无人新增改动，下一个接手者不必重审。
 
 - 2026-08-22 · claude · 状态审计，**KB 无代码改动**。结论：①本地分支 `fix/rss-l3-auto-promote` @ `f4f5bfc0` 是**重复分支可弃**——同一改动已在 `gitea/main` 的 `13e92633`（5 文件 /+734/-11，`git diff` 两 commit 涉及路径为空），主检出树落后 main 6 提交；②未提交的 54 项里有个陷阱：**7 个 cninfo-baseline JSON 在本分支是被跟踪的、main 上已迁出**（raw 迁 Release 后 main 跟踪数=0），所以 `git switch main` 会被 git 拦下（要删这 7 个的本地改动）——**「把检出树切到 main」不是无损操作**，别当收尾顺手做。其余为 38 个未跟踪 raw 产物（不该提交，raw 走 `publish_raw_snapshots.py` 打 Release）+ 2 个**分叉的 append-only 日志**：`manifest.jsonl`（工作树 1186 = 共同祖先 1073 + 本地 113；main 另有 3 条 `disc-20260815-000{1,2,3}`，无 archive_id 撞号，并集 1189）、`access_log.jsonl`（main 侧未动，可直接带过去）。manifest 的 113 条本地追加属**未消费的夜跑披露批次**，收编要走 disclosure-archive 消费流程（定 L3 升格），不是清理动作。直接提交会重演 `f19187fb` 被年报写入冲掉旧条目那次。**可复用**：判「本地分支是否已被 main 收录」不能看提交号或提交信息（cherry-pick 后 SHA 变、message 常一模一样），要么 `git patch-id --stable` 对拍，要么 `git diff <本地> <main> -- <该 commit 涉及的路径>` 看是否为空——后者更稳，patch-id 对 merge/空补丁会返回空值误导。
