@@ -54,8 +54,10 @@ related: ["[[finhot]]", "[[finance-workspace-private]]"]
 ## 相关知识
 - 项目内全文：vidio `ops/knowledge/README.md`、`ops/douyin/launch-plan.md`
 - 产品：[[finhot]] · [[finance-workspace-private]]
+- 成片封面：[[../10_knowledge/opening-frame-is-the-cover]]
 
 ## 交接记录
+- 2026-08-26 · cursor · Foresight 投资人片定稿在桌面 `foresight-investor-promo.mp4`（72s，开幕即字标）；旁路 PNG 不算封面。失败形状 → [[../10_knowledge/opening-frame-is-the-cover]]。字标不进 library。
 - 2026-08-21 · cursor · 创作 copilot 网页入口落在同一棵树：studio 默认「创作」页，`POST /api/create` 按 `lane-map.json` 认形态（认不出 fail closed）。picture 盘点后无创作能力可吸纳（只剩测试截图），不引用。对象是通用成片，不是自有产品宣传。未提交。
 - 2026-08-21 · cursor · 工作区 Copilot 控制面收口（A）：干净树 `/Users/a77/vidio-wt-constitution` 分支 `fix/constitution-lane-whitelist`（基线 `a84c0ec`）。`AGENTS.md` 为唯一宪法；`.claude/CLAUDE.md` 降为入口指针（旧 Industry 7View 主线删掉）。车道白名单真本源 `.agents/skills/vibe-director/lane-map.json`（8 条，`unknown_form=fail_closed`），生成表进导演技能与 `lane-map.md`；`studio/server.mjs` 读 JSON 不再手写 LANES。门禁 `python3 scripts/check_lane_map.py`（已变异验证：写回 `const LANES = [` 会红）。顺手把从未入库的三件自有技能纳入这棵树：`vibe-director` / `promo-film-pipeline` / `openmontage-adapter`。未提交未推；`~/vidio-gitea-main` 脏树未碰。
 - 2026-08-20 · cursor · 按锁恢复技能到 `~/vidio-gitea-main`：官方 `experimental_install` 因中文名/缺 SKILL.md 中途失败；改为按源仓 shallow clone 拷入 `.agents/skills/`。锁内 88/88 已有 `SKILL.md`。仓内补回三件（从未进 git）：`vibe-director`、`promo-film-pipeline`、`openmontage-adapter`。三方约 171MB 且 SKILL.md 哈希对不上 lock（上游 HEAD 已漂），不要整树 `git add .agents/skills`。`vendor/openmontage` 未克隆。成片须在 vidio 仓开对话。
