@@ -51,11 +51,11 @@ related: ["[[finance-workspace-private]]", "[[finance-research-site]]", "[[finan
 | r3 年报 128+60 家接到当前 main | grok | done | #340（wave1-2 128 家 #4225–#4352 + wave3 60 家 #4355–#4414）已合 main `ae88c5cb`、#341 cninfo 迁出已合，CI 全绿；合前全树质检 0 丢失。 |
 | leftover 年报尾巴 21 家 + 图谱 ticker | grok | done | #349（`#4475`–`#4555`，含 wave5 60 家）+#350 已合 `1afd676f`。raw 下一份 Release `raw-cninfo-baseline-20260814-leftover`（4049 文件）。明细 `wiki/log.md`。 |
 | r3 wave6 60 家年报 | grok | done | #352 已合 `ef468134`，`#4560`–`#4677`。wave7 抽取进行中（千红制药→天润工业）。 |
-| 全A实体页缺口（非ST） | cursor | doing | 改走巨潮年报。脏树 `kb-wt-ashare-coverage-gap` 未提交勿动。wave29 干净树 `/Users/a77/kb-wt-annual-wave29-0826`，20 家 `#5439–#5460` 待推。下一批从华电新能 600930。 |
+| 全A实体页缺口（非ST） | cursor | doing | 改走巨潮年报。脏树 `kb-wt-ashare-coverage-gap` 未提交勿动。wave29 [!51](http://127.0.0.1:3300/a77/knowledge-base-private/pulls/51) `#5439–#5460`，base=`merge/queue-36-50-0826`，未合。下一批从华电新能 600930 另开树。 |
 
 ## 交接记录
 
-- 2026-08-26 · cursor · **全 A 缺页 wave29 年报 L2**：树 `/Users/a77/kb-wt-annual-wave29-0826`，分支 `baseline/ashare-wave29-0826`，base=`merge/queue-36-50-0826`。20 家 `#5439–#5460`（梅雁吉祥→雪天盐业）。抽数修了图轴年份、人民币千元。未合。脏树未动。下一批从华电新能 600930 另开树。
+- 2026-08-26 · cursor · **全 A 缺页 wave29 年报 L2**：[Gitea !51](http://127.0.0.1:3300/a77/knowledge-base-private/pulls/51)，树 `/Users/a77/kb-wt-annual-wave29-0826`，base=`merge/queue-36-50-0826`。20 家 `#5439–#5460`（梅雁吉祥→雪天盐业）。抽数修了图轴年份、人民币千元。未合。脏树未动。下一批从华电新能 600930 另开树。
 - 2026-08-26 · cursor · **!36–!50 已在干净树串行合完，待你快进推 Gitea main**。树 `/Users/a77/kb-wt-merge-0826`，分支 `merge/queue-36-50-0826` @ `2bc9ae53`（已推 gitea）。基线 `669d3207`，可 ff。顺序：!36 → !40 → !38 → !39 → !37 → !41 → !42 → !43 → !44…!50，最后一提交重拼 `wiki/index.md`（解析器曾把 Sources 灌成副本、Entities 增量丢失）并 `--repair-meta`。门禁绿：pytest 258、`ingest check --strict-vocab` 0 错、体积闸、log-id、index I1/I2、quality_gate 无回归。本机 hook 拦了 `git push gitea HEAD:main`，需要你在终端跑这一条；推上去后 Gitea 会把 !36–!50 标成 merged。活库 `fix/rss-l3-auto-promote` 未动。!26 未合。
 - 2026-08-26 · cursor · **复盘队列缺页年报 L2（剩余 5 家）**：[Gitea !50](http://127.0.0.1:3300/a77/knowledge-base-private/pulls/50) `#5434–#5438`，树 `/Users/a77/kb-wt-queue-tail-0826`。新建 [[安泰集团]] 600408、[[星网锐捷]] 002396、[[海通发展]] 603162、[[融捷股份]] 002192、[[青山纸业]] 600103。安泰主力已是型钢；海通是干散货。宇树仍跳过。未合。独立于 !43–!49。
 - 2026-08-26 · cursor · **复盘队列缺页年报 L2（8/19–8/25 混批）**：[Gitea !49](http://127.0.0.1:3300/a77/knowledge-base-private/pulls/49) `#5429–#5433`，树 `/Users/a77/kb-wt-queue-mix-0826`。新建 [[共达电声]] 002655、[[国光电器]] 002045、[[华绿生物]] 300970、[[华锦股份]] 000059、[[双一科技]] 300690。华锦是炼化不是油气开采；双一年报无机器人分部。未合。独立于 !43–!48。
