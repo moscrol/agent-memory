@@ -55,7 +55,9 @@ related: ["[[finance-workspace-private]]", "[[finance-research-site]]", "[[finan
 
 ## 交接记录
 
-- 2026-08-25 · cursor · **IMA DeepDive 入库路径固化**：统一为 Copilot 15章 → raw md → `build_ima_concept_ingest_queue.py` → 人工 ingest-plan → writer。规范只在 `skills/concept-ingest/`（`references/ima-deepdive-extract.md` + `ima-deepdive-prompt.md`）。Codex `~/.codex/skills/concept-ingest` 改为指针，不再维护 Desktop 旧路径第二份流程。夜跑 `today_do_ima` 分诊仍是第三条路，不写概念页。
+- 2026-08-26 · cursor · **IMA DeepDive 管家落地（取代人工 plan）**：干净树 `/Users/a77/kb-wt-ima-deepdive-auto` @ `feat/ima-deepdive-auto`。入口 `skills/concept-ingest/scripts/run_ima_deepdive.py`：剥 CoT → 15章门 → 入库桥 → fail-closed 自审 → `--apply` 才 writer。用户不审 plan。铅锌已在该树 wiki 试写（伞页 + 5 家 curated_research；盛达拟收购进 watchlist）。未推、未合、未写活库主检出树。夜跑自动选题未做。
+
+- 2026-08-25 · cursor · **IMA DeepDive 入库路径固化**：统一为 Copilot 15章 → raw md → `build_ima_concept_ingest_queue.py` → 人工 ingest-plan → writer。规范只在 `skills/concept-ingest/`（`references/ima-deepdive-extract.md` + `ima-deepdive-prompt.md`）。Codex `~/.codex/skills/concept-ingest` 改为指针，不再维护 Desktop 旧路径第二份流程。夜跑 `today_do_ima` 分诊仍是第三条路，不写概念页。 **（次日已被管家自审取代「人工 plan」那一环）**
 
 - 2026-08-25 · cursor · **纠偏**：缺页走巨潮年报，不建 F10 薄页。Cursor 无 MCP 时 `hisAnnouncement`+官方 orgId=同效；披露日只认 `announcementTime`。已撤 10 家 F10 薄页，按年报格式写入 5 家。**可复用**：已有 Baseline 区不会被年报覆盖，薄页会把关键数据卡在「待补充」；折行「净利润」和银行「百万元」要在抽数层处理，不能当没数 skip。
 - 2026-08-25 · cursor · 覆盖率对账后曾误选 **F10 补缺页**（已作废）。干净树 `kb-wt-ashare-coverage-gap`，`gitea/main` 切开。**可复用**：有实体页 ≠ 覆盖全 A；年报尾巴是抽数不合格不是漏扫。
