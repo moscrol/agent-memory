@@ -55,7 +55,7 @@ related: ["[[finance-workspace-private]]", "[[finance-research-site]]", "[[finan
 
 ## 交接记录
 
-- 2026-08-26 · cursor · **IMA DeepDive 管家 + 铅锌入库**：Gitea [!36](http://127.0.0.1:3300/a77/knowledge-base-private/pulls/36) 代码（`feat/ima-deepdive-auto`）；[!37](http://127.0.0.1:3300/a77/knowledge-base-private/pulls/37) 铅锌正文（`ingest/leadzinc-deepdive-0826`，log `#5403`）。建议先合 !36 再合 !37。未合、未写活库主检出树。08-25 复盘 IMA 5 条全被分诊挡下（伞页/已有卡/光纤撞车）；真漏在光纤光缆/人形机器人 disclosure。
+- 2026-08-26 · cursor · **IMA DeepDive 管家 + 铅锌入库 + 8/25 disclosure**：Gitea [!36](http://127.0.0.1:3300/a77/knowledge-base-private/pulls/36) 代码；[!37](http://127.0.0.1:3300/a77/knowledge-base-private/pulls/37) 铅锌正文（log `#5403`）；[!38](http://127.0.0.1:3300/a77/knowledge-base-private/pulls/38) 光纤/机器人 disclosure（`disclosure/fiber-robot-0825` @ `1af8f17c`）。先 !36 再 !37；!38 独立。未合、未写活库。08-25 IMA 5 条全挡；真漏 scout 234 条、白名单 0；中天 MPO 中标 archive-only（`disc-20260826-0001`），拓斯达光电并购错主题。两张工单仍 received。
 
 - 2026-08-25 · cursor · **IMA DeepDive 入库路径固化**：统一为 Copilot 15章 → raw md → `build_ima_concept_ingest_queue.py` → 人工 ingest-plan → writer。规范只在 `skills/concept-ingest/`（`references/ima-deepdive-extract.md` + `ima-deepdive-prompt.md`）。Codex `~/.codex/skills/concept-ingest` 改为指针，不再维护 Desktop 旧路径第二份流程。夜跑 `today_do_ima` 分诊仍是第三条路，不写概念页。 **（次日已被管家自审取代「人工 plan」那一环）**
 
