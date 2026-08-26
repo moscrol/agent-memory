@@ -51,10 +51,11 @@ related: ["[[finance-workspace-private]]", "[[finance-research-site]]", "[[finan
 | r3 年报 128+60 家接到当前 main | grok | done | #340（wave1-2 128 家 #4225–#4352 + wave3 60 家 #4355–#4414）已合 main `ae88c5cb`、#341 cninfo 迁出已合，CI 全绿；合前全树质检 0 丢失。 |
 | leftover 年报尾巴 21 家 + 图谱 ticker | grok | done | #349（`#4475`–`#4555`，含 wave5 60 家）+#350 已合 `1afd676f`。raw 下一份 Release `raw-cninfo-baseline-20260814-leftover`（4049 文件）。明细 `wiki/log.md`。 |
 | r3 wave6 60 家年报 | grok | done | #352 已合 `ef468134`，`#4560`–`#4677`。wave7 抽取进行中（千红制药→天润工业）。 |
-| 全A实体页缺口（非ST） | cursor | doing | 改走巨潮年报。脏树勿动。wave29 [!51](http://127.0.0.1:3300/a77/knowledge-base-private/pulls/51) + wave30 [!52](http://127.0.0.1:3300/a77/knowledge-base-private/pulls/52) `#5461–#5480`。先合 !51 再合 !52。下一批从九州通 600998 另开树。 |
+| 全A实体页缺口（非ST） | cursor | doing | 改走巨潮年报。脏树勿动。wave31 树 `/Users/a77/kb-wt-annual-wave31-0826`，`#5481–#5500`，PR 叠 !52。先合 !51→!52→本波。下一批从宏盛华源 601096 另开树。 |
 
 ## 交接记录
 
+- 2026-08-26 · cursor · **全 A 缺页 wave31 抽数**：折行净利要把同比%丢掉（福元 `-3.95`）；亿元叙述只扫主表，避开「累计/期间」（中信十四五）；沪市银行锚「第二章 财务摘要」+ 百万元（渝农商行）。无独立概念页就挂已有 canonical，不新建伞页。批次明细 `wiki/log.md` `#5481`–`#5500`。
 - 2026-08-26 · cursor · **全 A 缺页 wave30 年报 L2**：[Gitea !52](http://127.0.0.1:3300/a77/knowledge-base-private/pulls/52)，树 `/Users/a77/kb-wt-annual-wave30-0826`，base=`baseline/ashare-wave29-0826`（!51）。20 家 `#5461–#5480`（华电新能→贵广网络）。未合。下一批从九州通 600998 另开树。
 - 2026-08-26 · cursor · **全 A 缺页 wave29 年报 L2**：[Gitea !51](http://127.0.0.1:3300/a77/knowledge-base-private/pulls/51)，树 `/Users/a77/kb-wt-annual-wave29-0826`，base=`merge/queue-36-50-0826`。20 家 `#5439–#5460`（梅雁吉祥→雪天盐业）。抽数修了图轴年份、人民币千元。未合。脏树未动。下一批从华电新能 600930 另开树。
 - 2026-08-26 · cursor · **!36–!50 已在干净树串行合完，待你快进推 Gitea main**。树 `/Users/a77/kb-wt-merge-0826`，分支 `merge/queue-36-50-0826` @ `2bc9ae53`（已推 gitea）。基线 `669d3207`，可 ff。顺序：!36 → !40 → !38 → !39 → !37 → !41 → !42 → !43 → !44…!50，最后一提交重拼 `wiki/index.md`（解析器曾把 Sources 灌成副本、Entities 增量丢失）并 `--repair-meta`。门禁绿：pytest 258、`ingest check --strict-vocab` 0 错、体积闸、log-id、index I1/I2、quality_gate 无回归。本机 hook 拦了 `git push gitea HEAD:main`，需要你在终端跑这一条；推上去后 Gitea 会把 !36–!50 标成 merged。活库 `fix/rss-l3-auto-promote` 未动。!26 未合。
