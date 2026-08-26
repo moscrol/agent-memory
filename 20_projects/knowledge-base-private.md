@@ -51,10 +51,11 @@ related: ["[[finance-workspace-private]]", "[[finance-research-site]]", "[[finan
 | r3 年报 128+60 家接到当前 main | grok | done | #340（wave1-2 128 家 #4225–#4352 + wave3 60 家 #4355–#4414）已合 main `ae88c5cb`、#341 cninfo 迁出已合，CI 全绿；合前全树质检 0 丢失。 |
 | leftover 年报尾巴 21 家 + 图谱 ticker | grok | done | #349（`#4475`–`#4555`，含 wave5 60 家）+#350 已合 `1afd676f`。raw 下一份 Release `raw-cninfo-baseline-20260814-leftover`（4049 文件）。明细 `wiki/log.md`。 |
 | r3 wave6 60 家年报 | grok | done | #352 已合 `ef468134`，`#4560`–`#4677`。wave7 抽取进行中（千红制药→天润工业）。 |
-| 全A实体页缺口（非ST） | cursor | doing | 改走巨潮年报。脏树勿动。wave32 [!54](http://127.0.0.1:3300/a77/knowledge-base-private/pulls/54) `#5501–#5528`。先合 !51→!54。下一批从吉鑫科技 601218 另开树。 |
+| 全A实体页缺口（非ST） | cursor | doing | 改走巨潮年报。脏树勿动。wave33 [!55](http://127.0.0.1:3300/a77/knowledge-base-private/pulls/55) `#5529–#5548`。先合 !51→!55。下一批从衢州东峰 601515 另开树。 |
 
 ## 交接记录
 
+- 2026-08-26 · cursor · **全 A 缺页 wave33 年报 L2**：树 `/Users/a77/kb-wt-annual-wave33-0826`，base=`baseline/ashare-wave32-0826`（!54）。20 家 `#5529–#5548`（吉鑫科技→工商银行）。交行净利括注、工行财务数据锚、农行 2.2.1。人保勿重 parse。未合。下一批从衢州东峰 601515 另开树。
 - 2026-08-26 · cursor · **全 A 缺页 wave32 年报 L2**：[Gitea !54](http://127.0.0.1:3300/a77/knowledge-base-private/pulls/54)，树 `/Users/a77/kb-wt-annual-wave32-0826`，base=`baseline/ashare-wave31-0826`（!53）。20 家 `#5501–#5528`（宏盛华源→君正集团）。常熟银行「单位 : 千元」=116.19 亿。未合。下一批从吉鑫科技 601218 另开树。
 - 2026-08-26 · cursor · **IMA 三题材齐 + 个股卡万邦/义翘已落，上纬在抓**：存储/CPO/人形机器人三棵树未提交。个股树 `/Users/a77/kb-wt-ima-stock-0826`：`[[万邦医药_301520_最新逻辑卡_20260826]]`（乌龙+赛德盛 vs 主业下滑）；`[[义翘神州_301047_最新逻辑卡_20260826]]`（业绩反转已兑现 vs AI4S 无订单，8 月情绪透支）。上纬新材 launchd `com.a77.ima-stock-shangwei-0826`。点名八只里中际/三安/飞测/中瓷已有 6 月卡，真缺还剩中国石化。活库/金融仓未动。
 - 2026-08-26 · cursor · **全 A 缺页 wave31 抽数**：折行净利要把同比%丢掉（福元 `-3.95`）；亿元叙述只扫主表，避开「累计/期间」（中信十四五）；沪市银行锚「第二章 财务摘要」+ 百万元（渝农商行）。无独立概念页就挂已有 canonical，不新建伞页。批次明细 `wiki/log.md` `#5481`–`#5500`。
