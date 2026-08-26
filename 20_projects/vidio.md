@@ -57,7 +57,8 @@ related: ["[[finhot]]", "[[finance-workspace-private]]"]
 - 成片封面：[[../10_knowledge/opening-frame-is-the-cover]]
 
 ## 交接记录
-- 2026-08-26 · cursor · 开幕门禁已合 Gitea `main`=`5453bb2`（#1 快进）。封面图文只接独立 5:2；成片开幕留本片车道；`scripts/check_opening_frame.py` 抽 `质检/t0.png`；`pin_opening.py` 只作已渲补救。合完已拆工作树 `vidio-wt-opening-frame-gate` 与本地枝 `fix/opening-frame-gate`。未推 GitHub `origin`。constitution / emilkowalski 脏树仍有未入库导演技能（与 main 不一致，不是副本），合那些枝时会对同一批文件。
+- 2026-08-26 · cursor · constitution 收口改在干净树 `/Users/a77/vidio-wt-constitution-r2` 枝 `fix/constitution-lane-whitelist-r2` @ `63ab599`（基线 `5453bb2`）。`lane-map.json` 真本源 + `check_lane_map.py` + studio `loadLaneMap` / `POST /api/create`；成片开幕词不进封面图文。未推未合。旧脏树 `vidio-wt-constitution` / `vidio-gitea-main` 未改。emilkowalski 仍在 `feat/emilkowalski-skills`，未并入本枝。
+- 2026-08-26 · cursor · 开幕门禁已合 Gitea `main`=`5453bb2`（#1 快进）。封面图文只接独立 5:2；成片开幕留本片车道。合完已拆 `vidio-wt-opening-frame-gate`。
 - 2026-08-26 · cursor · Foresight 投资人片定稿在桌面 `foresight-investor-promo.mp4`（72s，开幕即字标）；旁路 PNG 不算封面。失败形状 → [[../10_knowledge/opening-frame-is-the-cover]]。字标不进 library。
 - 2026-08-21 · cursor · 创作 copilot 网页入口落在同一棵树：studio 默认「创作」页，`POST /api/create` 按 `lane-map.json` 认形态（认不出 fail closed）。picture 盘点后无创作能力可吸纳（只剩测试截图），不引用。对象是通用成片，不是自有产品宣传。未提交。
 - 2026-08-21 · cursor · 工作区 Copilot 控制面收口（A）：干净树 `/Users/a77/vidio-wt-constitution` 分支 `fix/constitution-lane-whitelist`（基线 `a84c0ec`）。`AGENTS.md` 为唯一宪法；`.claude/CLAUDE.md` 降为入口指针（旧 Industry 7View 主线删掉）。车道白名单真本源 `.agents/skills/vibe-director/lane-map.json`（8 条，`unknown_form=fail_closed`），生成表进导演技能与 `lane-map.md`；`studio/server.mjs` 读 JSON 不再手写 LANES。门禁 `python3 scripts/check_lane_map.py`（已变异验证：写回 `const LANES = [` 会红）。顺手把从未入库的三件自有技能纳入这棵树：`vibe-director` / `promo-film-pipeline` / `openmontage-adapter`。未提交未推；`~/vidio-gitea-main` 脏树未碰。
