@@ -55,6 +55,7 @@ related: ["[[finance-workspace-private]]", "[[finance-research-site]]", "[[finan
 
 ## 交接记录
 
+- 2026-08-26 · cursor · **8/19 涤纶队列缺页 L2**：[!43](http://127.0.0.1:3300/a77/knowledge-base-private/pulls/43) `#5405`，树 `/Users/a77/kb-wt-baseline-hengyi-0819`。新建 [[恒逸石化]] 000703、[[苏州龙杰]] 603332（F10/AkShare，related/medium）；`concepts/恒逸石化` 误建占位改指向实体。未合。IMA 逻辑卡仍等 Copilot 挂页，先做天富龙。
 - 2026-08-26 · cursor · **IMA DeepDive 管家 + 铅锌 + 8/25 disclosure**：Gitea [!36](http://127.0.0.1:3300/a77/knowledge-base-private/pulls/36) 代码（`af31a800`：IMA 页未挂上 fail closed，不 submit 空等）；[!37](http://127.0.0.1:3300/a77/knowledge-base-private/pulls/37) 铅锌；[!38](http://127.0.0.1:3300/a77/knowledge-base-private/pulls/38)–[!40](http://127.0.0.1:3300/a77/knowledge-base-private/pulls/40) disclosure。先 !36 再 !37。未合。本机 `pageConnected=false`，08-25 也无该蒸的窄题材，不真抓 IMA。
 - 2026-08-26 · cursor · **8.25 前复盘队列回补**：管家扫 8/13–8/24。真漏是 8/18 Mini LED 族（[!41](http://127.0.0.1:3300/a77/knowledge-base-private/pulls/41) `#5402`）和 8/19 涤纶（[!42](http://127.0.0.1:3300/a77/knowledge-base-private/pulls/42) `#5404`）；IMA 仍未挂页，用现成研报升薄 L1。石油改挂 `MEGA_UMBRELLA`（!36 `e72e33a4`）。8/13 IMA 已有 #5357；找公告 8/17–8/24 已在 8/25 消费。未合。
 
