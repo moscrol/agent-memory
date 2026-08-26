@@ -55,6 +55,7 @@ related: ["[[finance-workspace-private]]", "[[finance-research-site]]", "[[finan
 
 ## 交接记录
 
+- 2026-08-26 · cursor · **复盘队列缺页年报 L2（8/18 化工+海目星）**：[Gitea !45](http://127.0.0.1:3300/a77/knowledge-base-private/pulls/45) `#5409–#5413`，树 `/Users/a77/kb-wt-queue-chem-0826`。新建 [[上纬新材]] 688585、[[瑞丰高材]] 300243、[[金牛化工]] 600722、[[艾艾精工]] 603580、[[海目星]] 688559。自动抽数错单位/掉负号已手核。未合。独立于 !43/!44。
 - 2026-08-26 · cursor · **复盘队列缺页年报 L2（黄金簇）**：[Gitea !44](http://127.0.0.1:3300/a77/knowledge-base-private/pulls/44) `#5406–#5408`，树 `/Users/a77/kb-wt-queue-gold-0826`。新建 [[四川黄金]] 001337、[[招金黄金]] 000506、[[湖南白银]] 002716（巨潮 2025 年报；关键数据填实）。未合。独立于 !43。其余约 30 家队列缺页未做。IMA 仍等 Copilot 挂页。
 - 2026-08-26 · cursor · **8/19 涤纶队列缺页 L2**：[!43](http://127.0.0.1:3300/a77/knowledge-base-private/pulls/43) `#5405`，树 `/Users/a77/kb-wt-baseline-hengyi-0819`。新建 [[恒逸石化]] 000703、[[苏州龙杰]] 603332（F10/AkShare，related/medium）；`concepts/恒逸石化` 误建占位改指向实体。未合。IMA 逻辑卡仍等 Copilot 挂页，先做天富龙。
 - 2026-08-26 · cursor · **IMA DeepDive 管家 + 铅锌 + 8/25 disclosure**：Gitea [!36](http://127.0.0.1:3300/a77/knowledge-base-private/pulls/36) 代码（`af31a800`：IMA 页未挂上 fail closed，不 submit 空等）；[!37](http://127.0.0.1:3300/a77/knowledge-base-private/pulls/37) 铅锌；[!38](http://127.0.0.1:3300/a77/knowledge-base-private/pulls/38)–[!40](http://127.0.0.1:3300/a77/knowledge-base-private/pulls/40) disclosure。先 !36 再 !37。未合。本机 `pageConnected=false`，08-25 也无该蒸的窄题材，不真抓 IMA。
