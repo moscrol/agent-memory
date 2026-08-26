@@ -55,7 +55,7 @@ related: ["[[finance-workspace-private]]", "[[finance-research-site]]", "[[finan
 
 ## 交接记录
 
-- 2026-08-26 · cursor · **IMA DeepDive 管家落地（取代人工 plan）**：干净树 `/Users/a77/kb-wt-ima-deepdive-auto` @ `feat/ima-deepdive-auto`。入口 `skills/concept-ingest/scripts/run_ima_deepdive.py`：剥 CoT → 15章门 → 入库桥 → fail-closed 自审 → `--apply` 才 writer。用户不审 plan。铅锌已在该树 wiki 试写（伞页 + 5 家 curated_research；盛达拟收购进 watchlist）。未推、未合、未写活库主检出树。夜跑自动选题未做。
+- 2026-08-26 · cursor · **IMA DeepDive 管家 + 铅锌入库**：Gitea [!36](http://127.0.0.1:3300/a77/knowledge-base-private/pulls/36) 代码（`feat/ima-deepdive-auto` @ `bd15a4c4`）；[!37](http://127.0.0.1:3300/a77/knowledge-base-private/pulls/37) 铅锌正文（`ingest/leadzinc-deepdive-0826` @ `e4cd733a`，log `#5403`）。建议先合 !36 再合 !37。未合、未写活库主检出树。夜跑自动选题未做。
 
 - 2026-08-25 · cursor · **IMA DeepDive 入库路径固化**：统一为 Copilot 15章 → raw md → `build_ima_concept_ingest_queue.py` → 人工 ingest-plan → writer。规范只在 `skills/concept-ingest/`（`references/ima-deepdive-extract.md` + `ima-deepdive-prompt.md`）。Codex `~/.codex/skills/concept-ingest` 改为指针，不再维护 Desktop 旧路径第二份流程。夜跑 `today_do_ima` 分诊仍是第三条路，不写概念页。 **（次日已被管家自审取代「人工 plan」那一环）**
 
