@@ -57,6 +57,7 @@ related: ["[[finhot]]", "[[finance-workspace-private]]"]
 - 成片封面：[[../10_knowledge/opening-frame-is-the-cover]]
 
 ## 交接记录
+- 2026-08-26 · cursor · baoyu-skills 只炼图组「风格×布局」进同一棵树：`card-series-catalog.yaml` + `check_card_series.py`。cute/post-to/五维封面/danger API 不收。未推未合。
 - 2026-08-26 · cursor · Punk-Skill 有用件收进 `/Users/a77/vidio-wt-beautiful-ui` 枝 `feat/absorb-beautiful-ui`：8 个风格带 META 锚点、`cover-prompt-blueprint.md`、`scripts/compile_cover_prompt.py`（prompt-only）、对话入口 `ops/skills/cover-brief/SKILL.md`。不整仓安装、不进 lock、`punk-avatar` 不收。未推未合。
 - 2026-08-26 · cursor · constitution 收口改在干净树 `/Users/a77/vidio-wt-constitution-r2` 枝 `fix/constitution-lane-whitelist-r2` @ `63ab599`（基线 `5453bb2`）。`lane-map.json` 真本源 + `check_lane_map.py` + studio `loadLaneMap` / `POST /api/create`；成片开幕词不进封面图文。未推未合。旧脏树 `vidio-wt-constitution` / `vidio-gitea-main` 未改。emilkowalski 仍在 `feat/emilkowalski-skills`，未并入本枝。
 - 2026-08-26 · cursor · 开幕门禁已合 Gitea `main`=`5453bb2`（#1 快进）。封面图文只接独立 5:2；成片开幕留本片车道。合完已拆 `vidio-wt-opening-frame-gate`。
