@@ -51,10 +51,11 @@ related: ["[[finance-workspace-private]]", "[[finance-research-site]]", "[[finan
 | r3 年报 128+60 家接到当前 main | grok | done | #340（wave1-2 128 家 #4225–#4352 + wave3 60 家 #4355–#4414）已合 main `ae88c5cb`、#341 cninfo 迁出已合，CI 全绿；合前全树质检 0 丢失。 |
 | leftover 年报尾巴 21 家 + 图谱 ticker | grok | done | #349（`#4475`–`#4555`，含 wave5 60 家）+#350 已合 `1afd676f`。raw 下一份 Release `raw-cninfo-baseline-20260814-leftover`（4049 文件）。明细 `wiki/log.md`。 |
 | r3 wave6 60 家年报 | grok | done | #352 已合 `ef468134`，`#4560`–`#4677`。wave7 抽取进行中（千红制药→天润工业）。 |
-| 全A实体页缺口（非ST） | cursor | doing | 改走巨潮年报。脏树勿动。wave38 树 `/Users/a77/kb-wt-annual-wave38-0826` 叠 !59。20 家云南能投→青岛金王，拉取中。先合 !51→!59。 |
+| 全A实体页缺口（非ST） | cursor | doing | 改走巨潮年报。脏树勿动。wave38 [!60](http://127.0.0.1:3300/a77/knowledge-base-private/pulls/60) 已关账。下一批从海翔药业 002099 另开干净树。先合 !51→!59，再合 !60。 |
 
 ## 交接记录
 
+- 2026-08-27 · cursor · **全 A 缺页 wave38 年报 L2**：[Gitea !60](http://127.0.0.1:3300/a77/knowledge-base-private/pulls/60)，树 `/Users/a77/kb-wt-annual-wave38-0826`，base=`baseline/ashare-wave37-0826`（!59）。20 家写库 `#5629–#5648`（云南能投→青岛金王）。云南能投挂风电/化工、广东建工挂基建、江苏国泰挂纺织服装+出口贸易。未合。下一批从海翔药业 002099 另开树。
 - 2026-08-27 · cursor · **全 A 缺页 wave37 年报 L2**：[Gitea !59](http://127.0.0.1:3300/a77/knowledge-base-private/pulls/59)，树 `/Users/a77/kb-wt-annual-wave37-0826`，base=`baseline/ashare-wave36-0826`（!58）。19 家写库 `#5610–#5628`（华邦健康→同洲电子；国光电器 skip `#5430`）。世荣拒亚克力、同洲挂电力设备、传化挂物流+化工。未合。下一批从云南能投 002053 另开树。
 - 2026-08-27 · cursor · **全 A 缺页 wave36 年报 L2**：[Gitea !58](http://127.0.0.1:3300/a77/knowledge-base-private/pulls/58)，树 `/Users/a77/kb-wt-annual-wave36-0826`，base=`baseline/ashare-wave35-0826`（!57）。20 家 `#5590–#5609`（辽港股份→伟星股份）。中行无独立会计数据段回退 combined、银河折行归母、丰林亏损 -1.28 亿、浙商银行改用「已成为一家…优质商业银行」。未合。下一批从华邦健康 002004 另开树。
 - 2026-08-27 · cursor · **全 A 缺页 wave35 年报 L2**：[Gitea !57](http://127.0.0.1:3300/a77/knowledge-base-private/pulls/57)，树 `/Users/a77/kb-wt-annual-wave35-0826`，base=`baseline/ashare-wave34-0826`（!56）。20 家 `#5570–#5589`（风范股份→浙商证券）。光大证券净利不再吃利润总额行、中石油百万元营收、美凯龙减值年。未合。下一批从辽港股份 601880 另开树。
