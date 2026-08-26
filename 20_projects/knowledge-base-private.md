@@ -55,6 +55,7 @@ related: ["[[finance-workspace-private]]", "[[finance-research-site]]", "[[finan
 
 ## 交接记录
 
+- 2026-08-26 · cursor · **!36–!50 已在干净树串行合完，待你快进推 Gitea main**。树 `/Users/a77/kb-wt-merge-0826`，分支 `merge/queue-36-50-0826` @ `2bc9ae53`（已推 gitea）。基线 `669d3207`，可 ff。顺序：!36 → !40 → !38 → !39 → !37 → !41 → !42 → !43 → !44…!50，最后一提交重拼 `wiki/index.md`（解析器曾把 Sources 灌成副本、Entities 增量丢失）并 `--repair-meta`。门禁绿：pytest 258、`ingest check --strict-vocab` 0 错、体积闸、log-id、index I1/I2、quality_gate 无回归。本机 hook 拦了 `git push gitea HEAD:main`，需要你在终端跑这一条；推上去后 Gitea 会把 !36–!50 标成 merged。活库 `fix/rss-l3-auto-promote` 未动。!26 未合。
 - 2026-08-26 · cursor · **复盘队列缺页年报 L2（剩余 5 家）**：[Gitea !50](http://127.0.0.1:3300/a77/knowledge-base-private/pulls/50) `#5434–#5438`，树 `/Users/a77/kb-wt-queue-tail-0826`。新建 [[安泰集团]] 600408、[[星网锐捷]] 002396、[[海通发展]] 603162、[[融捷股份]] 002192、[[青山纸业]] 600103。安泰主力已是型钢；海通是干散货。宇树仍跳过。未合。独立于 !43–!49。
 - 2026-08-26 · cursor · **复盘队列缺页年报 L2（8/19–8/25 混批）**：[Gitea !49](http://127.0.0.1:3300/a77/knowledge-base-private/pulls/49) `#5429–#5433`，树 `/Users/a77/kb-wt-queue-mix-0826`。新建 [[共达电声]] 002655、[[国光电器]] 002045、[[华绿生物]] 300970、[[华锦股份]] 000059、[[双一科技]] 300690。华锦是炼化不是油气开采；双一年报无机器人分部。未合。独立于 !43–!48。
 - 2026-08-26 · cursor · **复盘队列缺页年报 L2（剩余医药+恒邦）**：[Gitea !48](http://127.0.0.1:3300/a77/knowledge-base-private/pulls/48) `#5424–#5428`，树 `/Users/a77/kb-wt-queue-pharma-0826`。新建 [[陇神戎发]] 300534、[[百花医药]] 600721、[[北陆药业]] 300016、[[康希诺]] 688185、[[恒邦股份]] 002237。陇神折行曾读成行业统计 24870 亿，已手核 8.87 亿。未合。独立于 !43–!47。
