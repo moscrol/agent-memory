@@ -55,7 +55,7 @@ related: ["[[finance-workspace-private]]", "[[finance-research-site]]", "[[finan
 
 ## 交接记录
 
-- 2026-08-26 · cursor · **IMA DeepDive 管家 + 铅锌 + 8/25 两张 disclosure**：Gitea [!36](http://127.0.0.1:3300/a77/knowledge-base-private/pulls/36) 代码；[!37](http://127.0.0.1:3300/a77/knowledge-base-private/pulls/37) 铅锌；[!38](http://127.0.0.1:3300/a77/knowledge-base-private/pulls/38) 光纤/机器人；[!39](http://127.0.0.1:3300/a77/knowledge-base-private/pulls/39) 通用设备改挂液冷温控（`disclosure/equip-0825` @ `983f1321`）。先 !36 再 !37；!38/!39 独立。未合、未写活库。!39：177 条白名单 0；申菱基地 `0002`、同飞定增 `0003` 均 planned；私募无名单不扫；不建通用设备页。
+- 2026-08-26 · cursor · **IMA DeepDive 管家 + 铅锌 + 8/25 disclosure**：Gitea [!36](http://127.0.0.1:3300/a77/knowledge-base-private/pulls/36) 代码；[!37](http://127.0.0.1:3300/a77/knowledge-base-private/pulls/37) 铅锌；[!38](http://127.0.0.1:3300/a77/knowledge-base-private/pulls/38) 光纤/机器人；[!39](http://127.0.0.1:3300/a77/knowledge-base-private/pulls/39) 通用设备→液冷温控；[!40](http://127.0.0.1:3300/a77/knowledge-base-private/pulls/40) 数据中心残差英维克/寒武纪（`disclosure/invic-0825` @ `d155f63b`）。先 !36 再 !37；disclosure 独立。未合、未写活库。!40：印尼履约保函未点名液冷/客户，不归档；寒武纪无数据中心硬公告。08-25 数据中心五家公告侧已扫完。
 
 - 2026-08-25 · cursor · **IMA DeepDive 入库路径固化**：统一为 Copilot 15章 → raw md → `build_ima_concept_ingest_queue.py` → 人工 ingest-plan → writer。规范只在 `skills/concept-ingest/`（`references/ima-deepdive-extract.md` + `ima-deepdive-prompt.md`）。Codex `~/.codex/skills/concept-ingest` 改为指针，不再维护 Desktop 旧路径第二份流程。夜跑 `today_do_ima` 分诊仍是第三条路，不写概念页。 **（次日已被管家自审取代「人工 plan」那一环）**
 
