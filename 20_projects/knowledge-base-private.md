@@ -51,10 +51,11 @@ related: ["[[finance-workspace-private]]", "[[finance-research-site]]", "[[finan
 | r3 年报 128+60 家接到当前 main | grok | done | #340（wave1-2 128 家 #4225–#4352 + wave3 60 家 #4355–#4414）已合 main `ae88c5cb`、#341 cninfo 迁出已合，CI 全绿；合前全树质检 0 丢失。 |
 | leftover 年报尾巴 21 家 + 图谱 ticker | grok | done | #349（`#4475`–`#4555`，含 wave5 60 家）+#350 已合 `1afd676f`。raw 下一份 Release `raw-cninfo-baseline-20260814-leftover`（4049 文件）。明细 `wiki/log.md`。 |
 | r3 wave6 60 家年报 | grok | done | #352 已合 `ef468134`，`#4560`–`#4677`。wave7 抽取进行中（千红制药→天润工业）。 |
-| 全A实体页缺口（非ST） | cursor | doing | 改走巨潮年报。脏树勿动。wave31 [!53](http://127.0.0.1:3300/a77/knowledge-base-private/pulls/53) `#5481–#5500`。先合 !51→!52→!53。下一批从宏盛华源 601096 另开树。 |
+| 全A实体页缺口（非ST） | cursor | doing | 改走巨潮年报。脏树勿动。wave32 [!54](http://127.0.0.1:3300/a77/knowledge-base-private/pulls/54) `#5501–#5528`。先合 !51→!54。下一批从吉鑫科技 601218 另开树。 |
 
 ## 交接记录
 
+- 2026-08-26 · cursor · **全 A 缺页 wave32 年报 L2**：[Gitea !54](http://127.0.0.1:3300/a77/knowledge-base-private/pulls/54)，树 `/Users/a77/kb-wt-annual-wave32-0826`，base=`baseline/ashare-wave31-0826`（!53）。20 家 `#5501–#5528`（宏盛华源→君正集团）。常熟银行「单位 : 千元」=116.19 亿。未合。下一批从吉鑫科技 601218 另开树。
 - 2026-08-26 · cursor · **IMA DeepDive 存储芯片 / CPO 已落地，人形机器人在抓**：存储 `/Users/a77/kb-wt-ima-cunchu-0826` `ingest/storage-chip-deepdive-0826`；CPO `/Users/a77/kb-wt-ima-cpo-0826` `ingest/cpo-deepdive-0826`（4.48 万字 / 15 章，管家只写 CPO + 华工/锐捷/天孚，未建新概念页）。路径=刷新 token → `/tmp/ima-direct-ask-h2.cjs` → `run_ima_deepdive.py --from-markdown --apply`。人形机器人树 `/Users/a77/kb-wt-ima-renxing-0826`，launchd `com.a77.ima-renxing-0826`，状态 `/tmp/ima-renxing-pipeline.status.json`。三树均未提交。活库/金融仓未动。个股逻辑卡仍排这三支之后。
 - 2026-08-26 · cursor · **全 A 缺页 wave31 抽数**：折行净利要把同比%丢掉（福元 `-3.95`）；亿元叙述只扫主表，避开「累计/期间」（中信十四五）；沪市银行锚「第二章 财务摘要」+ 百万元（渝农商行）。无独立概念页就挂已有 canonical，不新建伞页。批次明细 `wiki/log.md` `#5481`–`#5500`。
 - 2026-08-26 · cursor · **全 A 缺页 wave30 年报 L2**：[Gitea !52](http://127.0.0.1:3300/a77/knowledge-base-private/pulls/52)，树 `/Users/a77/kb-wt-annual-wave30-0826`，base=`baseline/ashare-wave29-0826`（!51）。20 家 `#5461–#5480`（华电新能→贵广网络）。未合。下一批从九州通 600998 另开树。
