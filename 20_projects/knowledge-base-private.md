@@ -55,7 +55,7 @@ related: ["[[finance-workspace-private]]", "[[finance-research-site]]", "[[finan
 
 ## 交接记录
 
-- 2026-08-27 · cursor · **全 A 缺页 wave72 年报 L2**：树 `/Users/a77/kb-wt-annual-wave72-0826`，base=`baseline/ashare-wave71-0826`（!93）。19 家写库 `#6311–#6329`（经纬辉开→佐力药业）；沃森 skip `#5418`。18/19 有主营构成。index 补 wave71+72。未合。下一批从东软载波 300183 另开树。
+- 2026-08-27 · cursor · **全 A 缺页 wave72 年报 L2**：[Gitea !95](http://127.0.0.1:3300/a77/knowledge-base-private/pulls/95)，树 `/Users/a77/kb-wt-annual-wave72-0826`，base=`baseline/ashare-wave71-0826`（!93）。19 家写库 `#6311–#6329`（经纬辉开→佐力药业）；沃森 skip `#5418`。18/19 有主营构成。index 补 wave71+72。未合。下一批从东软载波 300183 另开树。
 - 2026-08-27 · cursor · **全 A 缺页 wave71 年报 L2**：[Gitea !93](http://127.0.0.1:3300/a77/knowledge-base-private/pulls/93)，树 `/Users/a77/kb-wt-annual-wave71-0826`，base=`baseline/ashare-wave70-0826`（!92，含构成回填 `f5b43036`）。20 家写库 `#6291–#6310`（金龙机电→万讯自控）。16/20 有主营构成；海新/科新/建新/华仁无表。未合。下一批从经纬辉开 300120 另开树。
 - 2026-08-27 · cursor · **wave70 构成回填**：康德莱穿刺护理入表并升医疗器械 core/high；恒润不再挂算力行业；爱尔医疗服务 / 莱美医药生物 core/high。未新开 log ID。!92 补 index。wave71 已从金龙机电开写。
 - 2026-08-27 · cursor · **全 A 缺页 wave70 年报 L2**：[Gitea !92](http://127.0.0.1:3300/a77/knowledge-base-private/pulls/92)，树 `/Users/a77/kb-wt-annual-wave70-0826`，base=`baseline/ashare-wave69-0826`（!91）。18 家写库 `#6273–#6290`（泉峰汽车→阳普医疗）；安科 `#5416` / 北陆 `#5426` skip。15/18 有主营构成。未合。下一批从金龙机电 300032 另开树。
