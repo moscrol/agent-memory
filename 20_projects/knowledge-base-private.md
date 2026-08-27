@@ -55,6 +55,7 @@ related: ["[[finance-workspace-private]]", "[[finance-research-site]]", "[[finan
 
 ## 交接记录
 
+- 2026-08-27 · cursor · **全 A 缺页 wave54 年报 L2**：[Gitea !76](http://127.0.0.1:3300/a77/knowledge-base-private/pulls/76)，树 `/Users/a77/kb-wt-annual-wave54-0826`，base=`baseline/ashare-wave53-0826`（!75）。19 家写库 `#5965–#5983`（和远气体→劲旅环境）；嘉立创 skip（巨潮无 FY2025）。青岛食品 5.45亿，劲旅挂环保。未合。下一批从海安集团 001233 另开树；惠康科技/华润新能源无 FY2025。
 - 2026-08-27 · cursor · **全 A 缺页 wave53 年报 L2**：[Gitea !75](http://127.0.0.1:3300/a77/knowledge-base-private/pulls/75)，树 `/Users/a77/kb-wt-annual-wave53-0826`，base=`baseline/ashare-wave52-0826`（!74）。20 家写库 `#5945–#5964`（金奥博→锐明技术）。金奥博挂民爆、蒙娜丽莎挂建材、宏川挂物流、新兴挂军工+航空航天。华西 46.15亿。未合。下一批从和远气体 002971 另开树。
 - 2026-08-27 · cursor · **IMA 个股逻辑卡 40 家重跑**：树 `/Users/a77/kb-wt-ima-stock-0826`。第一轮 21 成（#5453–#5473）。兰卫#5476 齐；键凯残卡已撤。现 launchd `com.a77.ima-stock-queue-0827f`（12 章齐才落盘），状态 `/tmp/ima-stock-queue-0827f.status.json`。未提交。活库/金融仓未动。
 - 2026-08-27 · cursor · **全 A 缺页 wave52 年报 L2**：[Gitea !74](http://127.0.0.1:3300/a77/knowledge-base-private/pulls/74)，树 `/Users/a77/kb-wt-annual-wave52-0826`，base=`baseline/ashare-wave51-0826`（!73）。19 家写库 `#5926–#5944`（盐津铺子→集泰股份）；弘宇股份 skip（扫描件）。未合。下一批从金奥博 002917 另开树。
