@@ -51,10 +51,11 @@ related: ["[[finance-workspace-private]]", "[[finance-research-site]]", "[[finan
 | r3 年报 128+60 家接到当前 main | grok | done | #340（wave1-2 128 家 #4225–#4352 + wave3 60 家 #4355–#4414）已合 main `ae88c5cb`、#341 cninfo 迁出已合，CI 全绿；合前全树质检 0 丢失。 |
 | leftover 年报尾巴 21 家 + 图谱 ticker | grok | done | #349（`#4475`–`#4555`，含 wave5 60 家）+#350 已合 `1afd676f`。raw 下一份 Release `raw-cninfo-baseline-20260814-leftover`（4049 文件）。明细 `wiki/log.md`。 |
 | r3 wave6 60 家年报 | grok | done | #352 已合 `ef468134`，`#4560`–`#4677`。wave7 抽取进行中（千红制药→天润工业）。 |
-| 全A实体页缺口（非ST） | cursor | doing | 改走巨潮年报。脏树勿动。wave47 [!69](http://127.0.0.1:3300/a77/knowledge-base-private/pulls/69) 已关账。下一批从申科股份 002633 另开干净树；共达电声 skip `#5429`。先合 !51→!69。 |
+| 全A实体页缺口（非ST） | cursor | doing | 改走巨潮年报。脏树勿动。wave48 [!70](http://127.0.0.1:3300/a77/knowledge-base-private/pulls/70) 已关账。下一批从顺威股份 002676 另开干净树；湖南白银 skip `#5408`。先合 !51→!70。 |
 
 ## 交接记录
 
+- 2026-08-27 · cursor · **全 A 缺页 wave48 年报 L2**：[Gitea !70](http://127.0.0.1:3300/a77/knowledge-base-private/pulls/70)，树 `/Users/a77/kb-wt-annual-wave48-0826`，base=`baseline/ashare-wave47-0826`（!69）。19 家写库 `#5848–#5866`（申科股份→东诚药业）；共达电声 skip `#5429`。跨境通挂跨境电商，博彦挂 IT服务+软件，利君挂专用设备+航空航天。未合。下一批从顺威股份 002676 另开树；湖南白银 skip `#5408`。
 - 2026-08-27 · cursor · **全 A 缺页 wave47 年报 L2**：[Gitea !69](http://127.0.0.1:3300/a77/knowledge-base-private/pulls/69)，树 `/Users/a77/kb-wt-annual-wave47-0826`，base=`baseline/ashare-wave46-0826`（!68）。20 家写库 `#5828–#5847`（益盛药业→德尔未来）。皓宸挂医疗服务、光启挂军工+航空航天、德尔未来剥石墨烯。未合。下一批从申科股份 002633 另开树；共达电声 skip `#5429`。
 - 2026-08-27 · cursor · **全 A 缺页 wave46 年报 L2**：[Gitea !68](http://127.0.0.1:3300/a77/knowledge-base-private/pulls/68)，树 `/Users/a77/kb-wt-annual-wave46-0826`，base=`baseline/ashare-wave45-0826`（!67）。20 家写库 `#5788–#5827`（蓝丰生化→天沃科技）。金财互联挂专用设备、光正挂医疗服务、三七挂游戏。未合。下一批从益盛药业 002566 另开树。
 - 2026-08-27 · cursor · **全 A 缺页 wave45 年报 L2**：[Gitea !67](http://127.0.0.1:3300/a77/knowledge-base-private/pulls/67)，树 `/Users/a77/kb-wt-annual-wave45-0826`，base=`baseline/ashare-wave44-0826`（!66）。20 家写库 `#5768–#5787`（华软科技→天汽模）。华软挂化工不挂软件，广田净利 -1.33 亿，恒基达鑫挂物流。未合。下一批从天汽模 002510 之后另开树。
