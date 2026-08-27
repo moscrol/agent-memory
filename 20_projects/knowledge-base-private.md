@@ -55,6 +55,7 @@ related: ["[[finance-workspace-private]]", "[[finance-research-site]]", "[[finan
 
 ## 交接记录
 
+- 2026-08-27 · cursor · **全 A 缺页 wave68 年报 L2**：[Gitea !90](http://127.0.0.1:3300/a77/knowledge-base-private/pulls/90)，树 `/Users/a77/kb-wt-annual-wave68-0826`，base=`baseline/ashare-wave67-0826`（!89，含构成回填 `bd406309`）。20 家写库 `#6233–#6252`（诚意药业→吉祥航空）。18/20 有主营构成；顾家/太平鸟 raw 无表。未合。下一批从元祖股份 603886 另开树。
 - 2026-08-27 · cursor · **全 A 缺页 wave67 年报 L2**：[Gitea !89](http://127.0.0.1:3300/a77/knowledge-base-private/pulls/89)，树 `/Users/a77/kb-wt-annual-wave67-0826`，base=`baseline/ashare-wave66-0826`（!88）。20 家写库 `#6213–#6232`（东方环宇→丰山集团）。FORCE 后 18/20 有干净主营构成；天安/常青 raw 无表。国晟剥园林。未合。下一批从诚意药业 603811 另开树。
 - 2026-08-27 · cursor · **全 A 缺页 wave66 年报 L2**：[Gitea !88](http://127.0.0.1:3300/a77/knowledge-base-private/pulls/88)，树 `/Users/a77/kb-wt-annual-wave66-0826`，base=`baseline/ashare-wave65-0826`（!87，含构成回填 `7461c4c7`）。20 家写库 `#6193–#6212`（中曼石油→德宏股份）。19/20 有主营构成；艾迪精密无表。未合。下一批从东方环宇 603706 另开树。
 - 2026-08-27 · cursor · **全 A 缺页 wave65 年报 L2**：[Gitea !87](http://127.0.0.1:3300/a77/knowledge-base-private/pulls/87)，树 `/Users/a77/kb-wt-annual-wave65-0826`，base=`baseline/ashare-wave64-0826`（!86）。19 家写库 `#6174–#6192`（神马电力→君禾股份）。后补主营构成 16/19。艾艾精工 skip `#5412`。未合。下一批从中曼石油 603619 另开树并叠入构成回填。
