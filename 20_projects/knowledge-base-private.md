@@ -51,10 +51,13 @@ related: ["[[finance-workspace-private]]", "[[finance-research-site]]", "[[finan
 | r3 年报 128+60 家接到当前 main | grok | done | #340（wave1-2 128 家 #4225–#4352 + wave3 60 家 #4355–#4414）已合 main `ae88c5cb`、#341 cninfo 迁出已合，CI 全绿；合前全树质检 0 丢失。 |
 | leftover 年报尾巴 21 家 + 图谱 ticker | grok | done | #349（`#4475`–`#4555`，含 wave5 60 家）+#350 已合 `1afd676f`。raw 下一份 Release `raw-cninfo-baseline-20260814-leftover`（4049 文件）。明细 `wiki/log.md`。 |
 | r3 wave6 60 家年报 | grok | done | #352 已合 `ef468134`，`#4560`–`#4677`。wave7 抽取进行中（千红制药→天润工业）。 |
-| 全A实体页缺口（非ST） | cursor | doing | 改走巨潮年报。脏树勿动。wave43 [!65](http://127.0.0.1:3300/a77/knowledge-base-private/pulls/65) 已关账。下一批从天原股份 002386 另开干净树（星网锐捷 skip `#5435`）。先合 !51→!64，再合 !65。 |
+| 全A实体页缺口（非ST） | cursor | doing | 改走巨潮年报。脏树勿动。wave44 [!66](http://127.0.0.1:3300/a77/knowledge-base-private/pulls/66) 已关账。下一批从华软科技 002453 另开干净树。先合 !51→!65，再合 !66。 |
 
 ## 交接记录
 
+- 2026-08-27 · cursor · **IMA 个股逻辑卡 40 家重跑**：树 `/Users/a77/kb-wt-ima-stock-0826`。第一轮 21 成（海目星#5453→康泰#5473）后康希诺 SSE 超时，refresh 连坐 40 家。现 launchd `com.a77.ima-stock-queue-0827b`，状态 `/tmp/ima-stock-queue-0827b.status.json`。未提交。活库/金融仓未动。
+- 2026-08-27 · cursor · **全 A 缺页 wave44 年报 L2**：[Gitea !66](http://127.0.0.1:3300/a77/knowledge-base-private/pulls/66)，树 `/Users/a77/kb-wt-annual-wave44-0826`，base=`baseline/ashare-wave43-0826`（!65）。19 家写库 `#5749–#5767`（天原股份→长高电气）；星网锐捷 skip `#5435`。中南文化挂压力容器、省广挂数字营销、海普瑞挂 CDMO。未合。下一批从华软科技 002453 另开树。
+- 2026-08-27 · cursor · **全 A 缺页 wave44 年报 L2**：[Gitea !66](http://127.0.0.1:3300/a77/knowledge-base-private/pulls/66)，树 `/Users/a77/kb-wt-annual-wave44-0826`，base=`baseline/ashare-wave43-0826`（!65）。19 家写库 `#5749–#5767`（天原股份→长高电气）；星网锐捷 skip `#5435`。广联达挂软件，高德挂军工，中南挂压力容器。未合。下一批从华软科技 002453 另开树。
 - 2026-08-27 · cursor · **全 A 缺页 wave43 年报 L2**：[Gitea !65](http://127.0.0.1:3300/a77/knowledge-base-private/pulls/65)，树 `/Users/a77/kb-wt-annual-wave43-0826`，base=`baseline/ashare-wave42-0826`（!64）。20 家写库 `#5729–#5748`（富安娜→合众思壮）。宏桥 1567.21 亿/178.64 亿，赛象挂专用设备，永安挂化工。未合。下一批从天原股份 002386 另开树；星网锐捷 skip `#5435`。
 - 2026-08-27 · cursor · **全 A 缺页 wave42 年报 L2**：[Gitea !64](http://127.0.0.1:3300/a77/knowledge-base-private/pulls/64)，树 `/Users/a77/kb-wt-annual-wave42-0826`，base=`baseline/ashare-wave41-0826`（!63）。20 家写库 `#5707–#5728`（电科网安→理工能科）；电科/华明并行写库各多占一号。电科挂信息安全、雨虹挂建材+涂料、东方新能挂光伏。未合。下一批从富安娜 002327 另开树。
 - 2026-08-27 · cursor · **全 A 缺页 wave41 年报 L2**：[Gitea !63](http://127.0.0.1:3300/a77/knowledge-base-private/pulls/63)，树 `/Users/a77/kb-wt-annual-wave41-0826`，base=`baseline/ashare-wave40-0826`（!62）。19 家写库 `#5688–#5706`（大立科技→恩华药业）；恒邦股份 skip `#5428`。江南营收 99.82 亿、东华挂化工、莱士挂生物制品。未合。下一批从电科网安 002268 另开树。
