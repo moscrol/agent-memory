@@ -342,7 +342,8 @@ Knevo 是一个 **LLM function-calling 多 Agent 投研系统**：主 agent 负�
 - **召回自评四问**（任一"否"触发改写补搜）：①正反两面都有命中？②命中产业链关系？（没有→graph_context 补）③30 天内有命中？（没有→finance_news(days=30) 补）④≥3 条独立来源？——检索是「发射→自评→定向补搜」的闭环而非一次性动作。
   - ⚠️ **「独立来源」按 item 计数会被刷满**：2026-08-28 逐点复核确认，风远库存在同分钟写入、五信号骨架完全同一套、confidence 不同的两条独立 item（`fmr-0ebe0c5d` / `fmr-0397a6a7`）。**去重看 `updatedAt` 是否精确到分钟相同，别只靠文本相似度**——这两条详略差异足以骗过紧阈值。同一缺陷影响 §3.2.1 的「独立记忆 ≥2」。见 [[knevo-engineering-probes-2026-08-07]] §13.17.5(e)。
 - **语义向量检索，非纯关键词**：`finance_memory_query` 接受自然语言 query，结果按 **「相关度 + 重要性」混合排序**（skill 原文）。措辞不同但语义相近的 query（聚酰亚胺/PI膜/瑞华泰）返回结果高度重叠 → 底层是 embedding 语义匹配。
-- **大概率是混合检索（hybrid）**：dense embedding + sparse/keyword 双路召回再融合排序（RAG 标准做法）。tags/title 参与加权但非主召回路径。
+- **混合检索（hybrid）—— 2026-08-28 由 [推断] 升 [实测]**：dense embedding + sparse/keyword 双路召回再融合排序。证据：`query="__core__"`（语义上无信号的哨兵串）精确召回 11 条且全部带该 tag、零假阳性，dense 路给不出这种精度；对照 `query="核心"` 走语义路，10 条里仅 2 条带该 tag。**tags 确实参与召回**（不只是加权）。
+  - 但 sparse 路**不是 boolean 过滤器**：同一次查询未触 `limit` 上限仍漏掉了带 `__core__` 的 `fmr-1eb684e0`，说明它是参与融合排序的一路评分。要枚举某标签全集须按 `kinds` 分片多查再并集。见 [[knevo-engineering-probes-2026-08-07]] §13.17.7。
 - **`days` 参数做时间衰减**：只返回 N 天内更新的记录。长期框架问题不设（宽窗口），查"最近催化"设 `days=30/90` 排除陈旧噪音。
 - **`ownership` 字段区分来源**：`personal`（用户笔记，当观点基线）vs `shared`（共享库，当研究线索）分开处理，不把共享洞察冒充用户判断。
 
