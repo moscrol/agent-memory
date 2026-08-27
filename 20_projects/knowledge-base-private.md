@@ -51,10 +51,11 @@ related: ["[[finance-workspace-private]]", "[[finance-research-site]]", "[[finan
 | r3 年报 128+60 家接到当前 main | grok | done | #340（wave1-2 128 家 #4225–#4352 + wave3 60 家 #4355–#4414）已合 main `ae88c5cb`、#341 cninfo 迁出已合，CI 全绿；合前全树质检 0 丢失。 |
 | leftover 年报尾巴 21 家 + 图谱 ticker | grok | done | #349（`#4475`–`#4555`，含 wave5 60 家）+#350 已合 `1afd676f`。raw 下一份 Release `raw-cninfo-baseline-20260814-leftover`（4049 文件）。明细 `wiki/log.md`。 |
 | r3 wave6 60 家年报 | grok | done | #352 已合 `ef468134`，`#4560`–`#4677`。wave7 抽取进行中（千红制药→天润工业）。 |
-| 全A实体页缺口（非ST） | cursor | doing | 改走巨潮年报。脏树勿动。wave66 [!88](http://127.0.0.1:3300/a77/knowledge-base-private/pulls/88) 已关账 20/20。下一批东方环宇 603706。先合 !51→!88。 |
+| 全A实体页缺口（非ST） | cursor | doing | 改走巨潮年报。脏树勿动。wave67 [!89](http://127.0.0.1:3300/a77/knowledge-base-private/pulls/89) 已关账 20/20。下一批诚意药业 603811。先合 !51→!89。 |
 
 ## 交接记录
 
+- 2026-08-27 · cursor · **全 A 缺页 wave67 年报 L2**：[Gitea !89](http://127.0.0.1:3300/a77/knowledge-base-private/pulls/89)，树 `/Users/a77/kb-wt-annual-wave67-0826`，base=`baseline/ashare-wave66-0826`（!88）。20 家写库 `#6213–#6232`（东方环宇→丰山集团）。19/20 有主营构成；天安新材无表。未合。下一批从诚意药业 603811 另开树。
 - 2026-08-27 · cursor · **全 A 缺页 wave66 年报 L2**：[Gitea !88](http://127.0.0.1:3300/a77/knowledge-base-private/pulls/88)，树 `/Users/a77/kb-wt-annual-wave66-0826`，base=`baseline/ashare-wave65-0826`（!87，含构成回填 `7461c4c7`）。20 家写库 `#6193–#6212`（中曼石油→德宏股份）。19/20 有主营构成；艾迪精密无表。未合。下一批从东方环宇 603706 另开树。
 - 2026-08-27 · cursor · **全 A 缺页 wave65 年报 L2**：[Gitea !87](http://127.0.0.1:3300/a77/knowledge-base-private/pulls/87)，树 `/Users/a77/kb-wt-annual-wave65-0826`，base=`baseline/ashare-wave64-0826`（!86）。19 家写库 `#6174–#6192`（神马电力→君禾股份）。后补主营构成 16/19。艾艾精工 skip `#5412`。未合。下一批从中曼石油 603619 另开树并叠入构成回填。
 - 2026-08-27 · cursor · **全 A 缺页 wave64 年报 L2**：[Gitea !86](http://127.0.0.1:3300/a77/knowledge-base-private/pulls/86)，树 `/Users/a77/kb-wt-annual-wave64-0826`，base=`baseline/ashare-wave63-0826`（!85）。17 家写库 `#6157–#6173`（力聚热能→爱玛科技）。后补主营构成 13/17。未合。下一批从神马电力 603530 另开树并带构成管线。
