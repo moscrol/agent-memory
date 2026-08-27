@@ -51,10 +51,11 @@ related: ["[[finance-workspace-private]]", "[[finance-research-site]]", "[[finan
 | r3 年报 128+60 家接到当前 main | grok | done | #340（wave1-2 128 家 #4225–#4352 + wave3 60 家 #4355–#4414）已合 main `ae88c5cb`、#341 cninfo 迁出已合，CI 全绿；合前全树质检 0 丢失。 |
 | leftover 年报尾巴 21 家 + 图谱 ticker | grok | done | #349（`#4475`–`#4555`，含 wave5 60 家）+#350 已合 `1afd676f`。raw 下一份 Release `raw-cninfo-baseline-20260814-leftover`（4049 文件）。明细 `wiki/log.md`。 |
 | r3 wave6 60 家年报 | grok | done | #352 已合 `ef468134`，`#4560`–`#4677`。wave7 抽取进行中（千红制药→天润工业）。 |
-| 全A实体页缺口（非ST） | cursor | doing | 改走巨潮年报。脏树勿动。wave79 已关 [!102](http://127.0.0.1:3300/a77/knowledge-base-private/pulls/102) `#6447–#6464`，构成回填已补。下一批美联新材 300586。年报栈先合 !51→!93→!95→!96→!97→!98→!99→!100→!101→!102（!94 是无关 harness）。 |
+| 全A实体页缺口（非ST） | cursor | doing | 改走巨潮年报。脏树勿动。wave80 已关 [!103](http://127.0.0.1:3300/a77/knowledge-base-private/pulls/103) `#6465–#6483`。下一批沪宁股份 300669。年报栈先合 !51→!93→!95→!96→!97→!98→!99→!100→!101→!102→!103（!94 是无关 harness）。 |
 
 ## 交接记录
 
+- 2026-08-28 · cursor · **全 A 缺页 wave80 年报 L2**：[Gitea !103](http://127.0.0.1:3300/a77/knowledge-base-private/pulls/103)，树 `/Users/a77/kb-wt-annual-wave80-0826`，base=`baseline/ashare-wave79-0826`（!102，含构成回填）。19 家写库 `#6465–#6483`（美联新材→杰恩股份）；康泰 `#5417` skip。未合。下一批从沪宁股份 300669 另开树。
 - 2026-08-28 · cursor · **全 A 缺页 wave79 年报 L2**：[Gitea !102](http://127.0.0.1:3300/a77/knowledge-base-private/pulls/102)，树 `/Users/a77/kb-wt-annual-wave79-0826`，base=`baseline/ashare-wave78-0826`（!101，含构成回填）。18 家写库 `#6447–#6464`（幸福蓝海→奥联电子）；陇神 `#5424` / 蜀道扫描件 skip。18/18 有主营构成。未合。下一批从美联新材 300586 另开树。
 - 2026-08-28 · cursor · **全 A 缺页 wave78 年报 L2**：[Gitea !101](http://127.0.0.1:3300/a77/knowledge-base-private/pulls/101)，树 `/Users/a77/kb-wt-annual-wave78-0826`，base=`baseline/ashare-wave77-0826`（!100）。20 家写库 `#6427–#6446`（厚普股份→博思软件）。17/20 有主营构成；金冠/世名/博思无表。index 补 wave74–78。未合。下一批从幸福蓝海 300528 另开树。
 - 2026-08-28 · cursor · **全 A 缺页 wave77 年报 L2**：[Gitea !100](http://127.0.0.1:3300/a77/knowledge-base-private/pulls/100)，树 `/Users/a77/kb-wt-annual-wave77-0826`，base=`baseline/ashare-wave76-0826`（!99）。20 家写库 `#6407–#6426`（迦南科技→中密控股）。13/20 有主营构成。未合。下一批从厚普股份 300471 另开树。
