@@ -51,11 +51,11 @@ related: ["[[finance-workspace-private]]", "[[finance-research-site]]", "[[finan
 | r3 年报 128+60 家接到当前 main | grok | done | #340（wave1-2 128 家 #4225–#4352 + wave3 60 家 #4355–#4414）已合 main `ae88c5cb`、#341 cninfo 迁出已合，CI 全绿；合前全树质检 0 丢失。 |
 | leftover 年报尾巴 21 家 + 图谱 ticker | grok | done | #349（`#4475`–`#4555`，含 wave5 60 家）+#350 已合 `1afd676f`。raw 下一份 Release `raw-cninfo-baseline-20260814-leftover`（4049 文件）。明细 `wiki/log.md`。 |
 | r3 wave6 60 家年报 | grok | done | #352 已合 `ef468134`，`#4560`–`#4677`。wave7 抽取进行中（千红制药→天润工业）。 |
-| 全A实体页缺口（非ST） | cursor | doing | 改走巨潮年报。脏树勿动。wave69 写库 20/20 `#6253–#6272`，待推叠 !90。下一批恒润股份 603985。先合 !51→!90。 |
+| 全A实体页缺口（非ST） | cursor | doing | 改走巨潮年报。脏树勿动。wave69 已关 [!91](http://127.0.0.1:3300/a77/knowledge-base-private/pulls/91) `#6253–#6272`。下一批泉峰汽车 603982（安科/北陆 skip）。先合 !51→!91。 |
 
 ## 交接记录
 
-- 2026-08-27 · cursor · **全 A 缺页 wave69 年报 L2**：树 `/Users/a77/kb-wt-annual-wave69-0826`，base=`baseline/ashare-wave68-0826`（!90，含构成回填 `5f9ce2df`）。20 家写库 `#6253–#6272`（元祖股份→吉华集团）。19/20 有主营构成；金桥无表。未合。下一批从恒润股份 603985 另开树。
+- 2026-08-27 · cursor · **全 A 缺页 wave69 年报 L2**：[Gitea !91](http://127.0.0.1:3300/a77/knowledge-base-private/pulls/91)，树 `/Users/a77/kb-wt-annual-wave69-0826`，base=`baseline/ashare-wave68-0826`（!90，含构成回填 `5f9ce2df`）。20 家写库 `#6253–#6272`（元祖股份→吉华集团）。19/20 有主营构成；金桥无表。田中精机去掉误挂 603919。未合。下一批从泉峰汽车 603982 另开树；安科生物 #5416 / 北陆药业 #5426 skip。
 - 2026-08-27 · cursor · **wave68 构成回填**：糕点例外 + 电力设备别名，FORCE 后桃李食品饮料、华荣/白云电力设备 core/high。未新开 log ID。下一批元祖股份 603886，树 `/Users/a77/kb-wt-annual-wave69-0826`。
 - 2026-08-27 · cursor · **全 A 缺页 wave68 年报 L2**：[Gitea !90](http://127.0.0.1:3300/a77/knowledge-base-private/pulls/90)，树 `/Users/a77/kb-wt-annual-wave68-0826`，base=`baseline/ashare-wave67-0826`（!89，含构成回填 `bd406309`）。20 家写库 `#6233–#6252`（诚意药业→吉祥航空）。18/20 有主营构成；顾家/太平鸟 raw 无表。未合。下一批从元祖股份 603886 另开树。
 - 2026-08-27 · cursor · **全 A 缺页 wave67 年报 L2**：[Gitea !89](http://127.0.0.1:3300/a77/knowledge-base-private/pulls/89)，树 `/Users/a77/kb-wt-annual-wave67-0826`，base=`baseline/ashare-wave66-0826`（!88）。20 家写库 `#6213–#6232`（东方环宇→丰山集团）。FORCE 后 18/20 有干净主营构成；天安/常青 raw 无表。国晟剥园林。未合。下一批从诚意药业 603811 另开树。
