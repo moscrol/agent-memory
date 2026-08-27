@@ -56,9 +56,9 @@ status: draft
 
 ### 三阶段路线
 
-**Phase A（2026-08-27 本轮，已执行）**
+**Phase A（2026-08-27 本轮，已执行并合入）**
 - 本盘点文档落 inbox。
-- finance 仓分支 `docs/macro-map-and-code-map-refresh`（待用户确认合并）：AGENTS.md 宏观理解路由表 + `scripts/install_code_map_refresh.py`（launchd 夜间 stale→build）。
+- finance 仓 PR #469 已合 main（`61dd5f79`，用户确认）：AGENTS.md 宏观理解路由表 + `scripts/install_code_map_refresh.py`（launchd 夜间 stale→build）+ registry 存量漂移顺手修。合并等价检查读数见 `docs/handoffs/2026-08-27-code-map-refresh-and-macro-map.md`。
 
 **Phase B（下一步大活，另开工）：第二领域真实移植（n=1→n=2）**
 
@@ -76,6 +76,31 @@ status: draft
 触发条件写死：**n≥2 且移植实验空表「哪一步重复到值得自动化」非空**。届时才做：脚手架/复刻器（形态到时候按空表定，可能是生成器、可能只是一个 checklist skill）+ 解决「跨项目版本管理」缺口（同一零件多仓副本的同步通知）。触发条件不满足前动手 = 违反自家 BUILD.md 缺口节的边界。
 
 这条触发纪律与 fde-os 的产品化四问**同构**（三客户撞同一缺口才配进平台 ↔ 零件被 ≥2 个领域真实要过才配抽包）；到 Phase C 裁决时可直接套四问表，不必新发明判据。
+
+## 判题 4：新领域 agent 的形态——沉淀成 copilot，还是在通用 agent 里调组件（2026-08-27 用户追问）
+
+**裁决：不是二选一，是先后。copilot 是某些约束出现后的结果，不是起点。** 金融 agent 自己的成长史就是模板：先在 Claude Code 里以「仓库 + 契约 + skills + 门禁」形态跑了很久，Workbench/Episode runtime（copilot 形态）是后来被真实约束逼出来的。
+
+两种形态的本质差别是 **DESIGN-stack 第一问「谁拥有循环」**（≈ library vs framework 的控制反转）：
+
+| | 通用 agent 里调组件 | 自建 copilot（runtime 拥有循环） |
+|---|---|---|
+| 循环归谁 | Claude/Codex/Cursor 的 harness | 自己的 runtime（如 episode loop） |
+| 约束怎么落 | 提示词 + exit-code 门禁（pre-commit/CI/CLI） | 代码里 fail-closed（预算 settle、判官、证据编号、披露义务） |
+| 够用条件 | 单用户、人在环、会话制、错误代价可控 | —— |
+| 成本 | 近零（symlink skills + 抄零件） | P1–P2 整层（loop/恢复/trace/部署身份） |
+
+**升级成 copilot 的触发信号（马书判据：行为指导放 prompt，结构性承诺放代码）——出现任何一条再动手，且只把出现的那层长出来：**
+1. 有约束**必须** fail-closed 在代码里，提示词到达率不够（例：答案必须过判官才能发布、预算耗尽要优雅降级不是硬失败）；
+2. 要给**别人**用（多用户、UI、会话合同 run_id/配额）；
+3. 需要**可重放审计**的 trace（收据、台账、事后归因）；
+4. agent 循环本身要**无人值守**跑（不是 launchd 定时脚本那种，是循环内自主决策的）。
+
+三变量与形态的映射（`harness-bootstrap` A 步采访的正是这个）：错误代价高 → 约束进代码的压力大；可验证性强 → 值得建 P3 量具（两种形态都能建，组件打分器方法论不依赖 copilot）；生命周期长 → 资产会积累，厚底座才回本。三变量都低（如 vidio）→ 通用 agent 里调组件就是终态，不必升级。
+
+**警告**：金融仓的 runtime（`episode protocol`、`GLMAgentRuntime` 等）是**组合根**，BUILD 明说不当零件搬；新领域若真要 copilot 化，按 DESIGN-stack 六层重新长，抄的是形状不是代码。
+
+对 FDE 岗位的映射：这个决策框架本身就是 FDE 现场的核心判断（给客户装独立 copilot，还是把组件嵌进客户既有栈），面试可直接讲。
 
 ## 待办指针（不在本轮范围，记下防丢）
 
