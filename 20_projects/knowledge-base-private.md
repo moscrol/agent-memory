@@ -51,10 +51,11 @@ related: ["[[finance-workspace-private]]", "[[finance-research-site]]", "[[finan
 | r3 年报 128+60 家接到当前 main | grok | done | #340（wave1-2 128 家 #4225–#4352 + wave3 60 家 #4355–#4414）已合 main `ae88c5cb`、#341 cninfo 迁出已合，CI 全绿；合前全树质检 0 丢失。 |
 | leftover 年报尾巴 21 家 + 图谱 ticker | grok | done | #349（`#4475`–`#4555`，含 wave5 60 家）+#350 已合 `1afd676f`。raw 下一份 Release `raw-cninfo-baseline-20260814-leftover`（4049 文件）。明细 `wiki/log.md`。 |
 | r3 wave6 60 家年报 | grok | done | #352 已合 `ef468134`，`#4560`–`#4677`。wave7 抽取进行中（千红制药→天润工业）。 |
-| 全A实体页缺口（非ST） | cursor | doing | 改走巨潮年报。脏树勿动。wave63 [!85](http://127.0.0.1:3300/a77/knowledge-base-private/pulls/85) 已关账。下一批从力聚热能 603391 另开干净树。先合 !51→!85。 |
+| 全A实体页缺口（非ST） | cursor | doing | 改走巨潮年报。脏树勿动。wave64 [!86](http://127.0.0.1:3300/a77/knowledge-base-private/pulls/86) 已关账。下一批从神马电力 603530 另开干净树。先合 !51→!86。 |
 
 ## 交接记录
 
+- 2026-08-27 · cursor · **全 A 缺页 wave64 年报 L2**：[Gitea !86](http://127.0.0.1:3300/a77/knowledge-base-private/pulls/86)，树 `/Users/a77/kb-wt-annual-wave64-0826`，base=`baseline/ashare-wave63-0826`（!85）。17 家写库 `#6157–#6173`（力聚热能→爱玛科技）。长裕/嘉德利/津富士达无 FY2025。未合。下一批从神马电力 603530 另开树。
 - 2026-08-27 · cursor · **全 A 缺页 wave63 年报 L2**：[Gitea !85](http://127.0.0.1:3300/a77/knowledge-base-private/pulls/85)，树 `/Users/a77/kb-wt-annual-wave63-0826`，base=`baseline/ashare-wave62-0826`（!84）。20 家写库 `#6137–#6156`（福蓉科技→亚振家居）。苏州龙杰叠 F10。未合。下一批从力聚热能 603391 另开树；长裕/嘉德利/津富士达无 FY2025。
 - 2026-08-27 · cursor · **全 A 缺页 wave62 年报 L2**：[Gitea !84](http://127.0.0.1:3300/a77/knowledge-base-private/pulls/84)，树 `/Users/a77/kb-wt-annual-wave62-0826`，base=`baseline/ashare-wave61-0826`（!83）。19 家写库 `#6118–#6136`（金帝股份→我乐家居）；埃泰克 skip。福鞍 12.76亿，海南华铁挂融资租赁，超讯挂数据中心。未合。下一批从福蓉科技 603327 另开树。
 - 2026-08-27 · cursor · **全 A 缺页 wave61 年报 L2**：[Gitea !83](http://127.0.0.1:3300/a77/knowledge-base-private/pulls/83)，树 `/Users/a77/kb-wt-annual-wave61-0826`，base=`baseline/ashare-wave60-0826`（!82）。20 家写库 `#6098–#6117`（公牛集团→技源集团）。公牛挂电力设备，璞源双主业，大参林挂医药零售。未合。下一批从金帝股份 603270 另开树。
