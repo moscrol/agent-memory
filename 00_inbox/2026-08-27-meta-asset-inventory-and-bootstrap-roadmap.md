@@ -10,7 +10,7 @@ status: draft
 
 # 元资产盘点与自举复刻路线图
 
-> 回答三个判题：① 代码行数多时（实测本仓 425K 行 Python / 3133 个跟踪文件）现有 loop 图 + code map 够不够支撑宏观理解；② harness / agent-run / 组件打分机（FDE 产品化判据，2026-08-27 用户纠偏后钉准）/ trace diff 这批 meta-skill 是否可复用；③ 「以金融 agent 为原型自举复刻其他 agent」怎么落地。
+> 回答三个判题：① 代码行数多时（实测本仓 425K 行 Python / 3133 个跟踪文件）现有 loop 图 + code map 够不够支撑宏观理解；② harness / agent-run / 组件打分器（= 质量消融评测台 `run_quality_ablation.py`，两轮用户纠偏后钉准）/ trace diff 这批 meta-skill 是否可复用；③ 「以金融 agent 为原型自举复刻其他 agent」怎么落地——这项自举能力同时是用户适配 FDE 岗位的职业资产。
 > 本文只做裁决 + 指针，不抄 BUILD/KIT 清单（单一真本源纪律）。
 
 ## 判题 1：宏观理解——不是「loop 图 + code map」两件，实际已有五层地图 [实测]
@@ -39,8 +39,9 @@ status: draft
 | `harness-bootstrap` / `harness-architecture-review` | symlink → `~/arts-gitea-main/skills/`；判据 SSOT 是 harness-reference 三件套（gitea/main 已全部收口：DESIGN.md 顺序轴 2026-08-20 + DESIGN-stack.md + BUILD.md + TOOLKIT.md）| **可复用**。移植新领域时零件按 BUILD「移植要改什么」逐条换词表 |
 | `agent-run-triage` | symlink → `~/projects/agent-run-triage-skill/skills/`，自述 Harness 无关 | **可复用** |
 | `agent-run-review` | `~/.claude/skills/agent-run-review/` 本地实体目录，未迁共享仓 | **待迁**（见待办） |
-| 组件打分机（FDE 产品化判据）[纠偏 2026-08-27] | fde-os 仓 `skills/fde-productization-four-questions/`（四问：≥3 客户共性 / 泛化经济性 / 非工程师可用 / 现场创造力余地，全过才进平台）+ `skills/fde-reflux-to-product/`（回流日志 solo/common 标签 → 组件抽取 → 产品资产）；蒸馏稿 `fde-os/distilled/fde-deep-read.md`（随体系自 harness-reference 迁走，不留双源）；本 vault 只有读书索引 `10_knowledge/fde-guidance-book-reading-index.md` | **可复用，已在独立仓**——fde-os（2026-08-14 迁出，31 skill）就是 KIT 第四层「岗位操作系统」，天生跨项目。它与 BUILD「模式须 ≥2 零件验证才晋级」、本文 Phase C 触发条件是**同一个形状**：重复度达标才准入 |
-| 接口深浅判据（初稿曾把它误认成上一行） | 通用形状在 `codebase-design` skill（已共享）；金融仓特化在 `docs/agent-product-door.md`（门/引擎/组装/积木四层，不混着打分）| 形状可复用。与上一行是**两台不同的打分机**：上行判「组件要不要晋级为共享资产」（准入向），本行判「接口做得深不深」（质量向） |
+| **组件打分器（质量消融评测台）**[经两轮纠偏钉准 2026-08-27：初判深模块判据 → 误判 FDE 产品化 → 实为本行] | finance 仓 `scripts/run_quality_ablation.py`（默认盒基线臂 vs 每颗组件一个关断臂，关断用**真实生产旋钮** env/flag 不经开关板；真 LLM 答案 + **独立盲评**五维 rubric /20，输出组件边际贡献；judge 解析失败记 unscored 不编造）+ `scripts/rejudge_quality_ablation.py`（判官断链只补 judge 不重跑 ask，聚合 `aggregate_components()` 单一真本源）；方差纪律：gated 子集当噪声底、\|Δ\|≳2.4/20 才算信号（`10_knowledge/eval-harness-variance-governance.md` + 项目 MOC 2026-08-27 条）；live 打在 8796 解耦树 sidecar | **方法论完全可迁移**（消融 = 通用手法，「结构层拧得动吗」与「质量层关了差几分」两份读数分开是 DESIGN P4 的标准落法）；**rig 半特化**：三颗旋钮、rubric 维度、题集是金融仓的，换领域逐项换。已在 main |
+| 接口深浅判据（另一台打分，勿混） | 通用形状在 `codebase-design` skill（已共享）；金融仓特化在 `docs/agent-product-door.md`（门/引擎/组装/积木四层，不混着打分）| 形状可复用。与上一行正交：上行量「组件对答案质量的边际贡献」（消融向），本行评「接口设计深不深」（设计向） |
+| fde-os 岗位层（31 skill + `distilled/fde-deep-read.md`；本 vault 读书索引 `10_knowledge/fde-guidance-book-reading-index.md`）| 独立仓（2026-08-14 迁出），KIT 第四层「岗位操作系统」| **可复用，天生跨项目**。定位澄清（2026-08-27）：它不是组件打分器；它是用户 FDE 职业目标的操作系统——**整套自举能力（三件套 + meta-skill + 本路线图）就是用户适配 FDE 岗位的作品集资产**，fde-os 的产品化四问与 Phase C 触发条件同构（见下） |
 | `divergence-distill`（trace diff）| finance 仓 `.claude/skills/divergence-distill/`，六个沉淀池全绑金融仓（reading_baseline / experience_cards / record-correction CLI / _PENDING_RULES / 视角差分 / 知识库证据层）| **部分复用**：分类判别式（控制面前置、可证伪测试、双用户测试）可带走；池子是领域件，换领域要先建对应池。BUILD.md 已自标「候选模式 n=1，第二实例出现才升格模式」 |
 
 原理（可迁移）：复用有三种形态，成本与漂移风险递增——**① 指针复用**（symlink/子模块指向 SSOT，改一处全端生效，本机已用）→ **② 移植复用**（读源码抄过去 + 换词表，BUILD.md 每条零件写明「移植要改什么」就是为这形态服务）→ **③ 生成复用**（脚手架/模板生成，只有重复次数证明了才值得建，否则维护模板本身成为新负担）。跳过 ② 直接建 ③ 是 premature abstraction 的组织版。
@@ -48,6 +49,8 @@ status: draft
 ## 判题 3：自举复刻 agent——方向成立，顺序必须尊重已立的纪律
 
 「自举」（bootstrapping）类比：编译器界先用旧工具造出能编译自己的编译器，再脱离旧工具。对应到这里：**用金融 agent 沉淀的三件套（设计/搭建/审计）+ harness-bootstrap 流程，去立第二个领域 agent；第二个立起来的过程反过来验证并磨利三件套本身**——这就是自举回路。
+
+用户定位（2026-08-27 口述）：这项自举能力**本身就是适配 FDE 岗位的职业资产**——FDE 的核心动作恰是「带着可复用组件进新领域、快速立起能交付价值的系统」，与本路线图 Phase B 的移植试点是同一个动作；做完的每次移植都是面试可讲的现场案例。
 
 但 BUILD.md 缺口节已写死两条边界 [实测]：「没有脚手架命令，n=1 先不做」「没有跨项目版本管理」。`harness-bootstrap` D 步专门留了「移植实验空表」（抄了哪些 / 改了哪 / 卡在哪 / 哪步重复到值得自动化），等第一次真实跨领域移植来填。**复刻器不是先造框架，而是先攒第二个实例。**
 
