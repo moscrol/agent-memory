@@ -51,10 +51,11 @@ related: ["[[finance-workspace-private]]", "[[finance-research-site]]", "[[finan
 | r3 年报 128+60 家接到当前 main | grok | done | #340（wave1-2 128 家 #4225–#4352 + wave3 60 家 #4355–#4414）已合 main `ae88c5cb`、#341 cninfo 迁出已合，CI 全绿；合前全树质检 0 丢失。 |
 | leftover 年报尾巴 21 家 + 图谱 ticker | grok | done | #349（`#4475`–`#4555`，含 wave5 60 家）+#350 已合 `1afd676f`。raw 下一份 Release `raw-cninfo-baseline-20260814-leftover`（4049 文件）。明细 `wiki/log.md`。 |
 | r3 wave6 60 家年报 | grok | done | #352 已合 `ef468134`，`#4560`–`#4677`。wave7 抽取进行中（千红制药→天润工业）。 |
-| 全A实体页缺口（非ST） | cursor | doing | 改走巨潮年报。脏树勿动。wave44 [!66](http://127.0.0.1:3300/a77/knowledge-base-private/pulls/66) 已关账。下一批从华软科技 002453 另开干净树。先合 !51→!65，再合 !66。 |
+| 全A实体页缺口（非ST） | cursor | doing | 改走巨潮年报。脏树勿动。wave45 [!67](http://127.0.0.1:3300/a77/knowledge-base-private/pulls/67) 已关账。下一批从蓝丰生化 002513 另开干净树。先合 !51→!67。 |
 
 ## 交接记录
 
+- 2026-08-27 · cursor · **全 A 缺页 wave45 年报 L2**：[Gitea !67](http://127.0.0.1:3300/a77/knowledge-base-private/pulls/67)，树 `/Users/a77/kb-wt-annual-wave45-0826`，base=`baseline/ashare-wave44-0826`（!66）。20 家写库 `#5768–#5787`（华软科技→天汽模）。华软挂化工不挂软件，广田净利 -1.33 亿，恒基达鑫挂物流。未合。下一批从天汽模 002510 之后另开树。
 - 2026-08-27 · cursor · **IMA 个股逻辑卡 40 家重跑**：树 `/Users/a77/kb-wt-ima-stock-0826`。第一轮 21 成（海目星#5453→康泰#5473）后康希诺 SSE 超时，refresh 连坐 40 家。现 launchd `com.a77.ima-stock-queue-0827b`，状态 `/tmp/ima-stock-queue-0827b.status.json`。未提交。活库/金融仓未动。
 - 2026-08-27 · cursor · **全 A 缺页 wave44 年报 L2**：[Gitea !66](http://127.0.0.1:3300/a77/knowledge-base-private/pulls/66)，树 `/Users/a77/kb-wt-annual-wave44-0826`，base=`baseline/ashare-wave43-0826`（!65）。19 家写库 `#5749–#5767`（天原股份→长高电气）；星网锐捷 skip `#5435`。中南文化挂压力容器、省广挂数字营销、海普瑞挂 CDMO。未合。下一批从华软科技 002453 另开树。
 - 2026-08-27 · cursor · **全 A 缺页 wave44 年报 L2**：[Gitea !66](http://127.0.0.1:3300/a77/knowledge-base-private/pulls/66)，树 `/Users/a77/kb-wt-annual-wave44-0826`，base=`baseline/ashare-wave43-0826`（!65）。19 家写库 `#5749–#5767`（天原股份→长高电气）；星网锐捷 skip `#5435`。广联达挂软件，高德挂军工，中南挂压力容器。未合。下一批从华软科技 002453 另开树。
