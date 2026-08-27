@@ -55,6 +55,7 @@ related: ["[[finance-workspace-private]]", "[[finance-research-site]]", "[[finan
 
 ## 交接记录
 
+- 2026-08-28 · cursor · **全 A 缺页 wave79 年报 L2**：[Gitea !102](http://127.0.0.1:3300/a77/knowledge-base-private/pulls/102)，树 `/Users/a77/kb-wt-annual-wave79-0826`，base=`baseline/ashare-wave78-0826`（!101，含构成回填）。18 家写库 `#6447–#6464`（幸福蓝海→奥联电子）；陇神 `#5424` / 蜀道扫描件 skip。18/18 有主营构成。未合。下一批从美联新材 300586 另开树。
 - 2026-08-28 · cursor · **全 A 缺页 wave78 年报 L2**：[Gitea !101](http://127.0.0.1:3300/a77/knowledge-base-private/pulls/101)，树 `/Users/a77/kb-wt-annual-wave78-0826`，base=`baseline/ashare-wave77-0826`（!100）。20 家写库 `#6427–#6446`（厚普股份→博思软件）。17/20 有主营构成；金冠/世名/博思无表。index 补 wave74–78。未合。下一批从幸福蓝海 300528 另开树。
 - 2026-08-28 · cursor · **全 A 缺页 wave77 年报 L2**：[Gitea !100](http://127.0.0.1:3300/a77/knowledge-base-private/pulls/100)，树 `/Users/a77/kb-wt-annual-wave77-0826`，base=`baseline/ashare-wave76-0826`（!99）。20 家写库 `#6407–#6426`（迦南科技→中密控股）。13/20 有主营构成。未合。下一批从厚普股份 300471 另开树。
 - 2026-08-28 · cursor · **全 A 缺页 wave76 年报 L2**：[Gitea !99](http://127.0.0.1:3300/a77/knowledge-base-private/pulls/99)，树 `/Users/a77/kb-wt-annual-wave76-0826`，base=`baseline/ashare-wave75-0826`（!98）。18 家写库 `#6389–#6406`（蒙草生态→金盾股份）；博腾 `#5415` / 博济 `#5420` skip。12/18 有主营构成。未合。下一批从迦南科技 300412 另开树。
