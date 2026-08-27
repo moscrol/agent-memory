@@ -51,10 +51,11 @@ related: ["[[finance-workspace-private]]", "[[finance-research-site]]", "[[finan
 | r3 年报 128+60 家接到当前 main | grok | done | #340（wave1-2 128 家 #4225–#4352 + wave3 60 家 #4355–#4414）已合 main `ae88c5cb`、#341 cninfo 迁出已合，CI 全绿；合前全树质检 0 丢失。 |
 | leftover 年报尾巴 21 家 + 图谱 ticker | grok | done | #349（`#4475`–`#4555`，含 wave5 60 家）+#350 已合 `1afd676f`。raw 下一份 Release `raw-cninfo-baseline-20260814-leftover`（4049 文件）。明细 `wiki/log.md`。 |
 | r3 wave6 60 家年报 | grok | done | #352 已合 `ef468134`，`#4560`–`#4677`。wave7 抽取进行中（千红制药→天润工业）。 |
-| 全A实体页缺口（非ST） | cursor | doing | 改走巨潮年报。脏树勿动。wave76 已关 [!99](http://127.0.0.1:3300/a77/knowledge-base-private/pulls/99) `#6389–#6406`。下一批迦南科技 300412。年报栈先合 !51→!93→!95→!96→!97→!98→!99（!94 是无关 harness）。 |
+| 全A实体页缺口（非ST） | cursor | doing | 改走巨潮年报。脏树勿动。wave77 已关 [!100](http://127.0.0.1:3300/a77/knowledge-base-private/pulls/100) `#6407–#6426`。下一批厚普股份 300471。年报栈先合 !51→!93→!95→!96→!97→!98→!99→!100（!94 是无关 harness）。 |
 
 ## 交接记录
 
+- 2026-08-28 · cursor · **全 A 缺页 wave77 年报 L2**：[Gitea !100](http://127.0.0.1:3300/a77/knowledge-base-private/pulls/100)，树 `/Users/a77/kb-wt-annual-wave77-0826`，base=`baseline/ashare-wave76-0826`（!99）。20 家写库 `#6407–#6426`（迦南科技→中密控股）。13/20 有主营构成。未合。下一批从厚普股份 300471 另开树。
 - 2026-08-28 · cursor · **全 A 缺页 wave76 年报 L2**：[Gitea !99](http://127.0.0.1:3300/a77/knowledge-base-private/pulls/99)，树 `/Users/a77/kb-wt-annual-wave76-0826`，base=`baseline/ashare-wave75-0826`（!98）。18 家写库 `#6389–#6406`（蒙草生态→金盾股份）；博腾 `#5415` / 博济 `#5420` skip。12/18 有主营构成。未合。下一批从迦南科技 300412 另开树。
 - 2026-08-28 · cursor · **全 A 缺页 wave75 年报 L2**：[Gitea !98](http://127.0.0.1:3300/a77/knowledge-base-private/pulls/98)，树 `/Users/a77/kb-wt-annual-wave75-0826`，base=`baseline/ashare-wave74-0826`（!97）。20 家写库 `#6369–#6388`（富春股份→东华测试）。18/20 有主营构成；戴维/迪森无表。未合。下一批从蒙草生态 300355 另开树。
 - 2026-08-28 · cursor · **全 A 缺页 wave74 年报 L2**：[Gitea !97](http://127.0.0.1:3300/a77/knowledge-base-private/pulls/97)，树 `/Users/a77/kb-wt-annual-wave74-0826`，base=`baseline/ashare-wave73-0826`（!96）。19 家写库 `#6350–#6368`（宝莱特→博雅生物）；瑞丰 skip `#5410`。15/19 有主营构成；佳创/华宇/金明/温州无表。未合。下一批从富春股份 300299 另开树。
