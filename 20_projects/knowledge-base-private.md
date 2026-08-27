@@ -51,10 +51,11 @@ related: ["[[finance-workspace-private]]", "[[finance-research-site]]", "[[finan
 | r3 年报 128+60 家接到当前 main | grok | done | #340（wave1-2 128 家 #4225–#4352 + wave3 60 家 #4355–#4414）已合 main `ae88c5cb`、#341 cninfo 迁出已合，CI 全绿；合前全树质检 0 丢失。 |
 | leftover 年报尾巴 21 家 + 图谱 ticker | grok | done | #349（`#4475`–`#4555`，含 wave5 60 家）+#350 已合 `1afd676f`。raw 下一份 Release `raw-cninfo-baseline-20260814-leftover`（4049 文件）。明细 `wiki/log.md`。 |
 | r3 wave6 60 家年报 | grok | done | #352 已合 `ef468134`，`#4560`–`#4677`。wave7 抽取进行中（千红制药→天润工业）。 |
-| 全A实体页缺口（非ST） | cursor | doing | 改走巨潮年报。脏树勿动。wave54 [!76](http://127.0.0.1:3300/a77/knowledge-base-private/pulls/76) 已关账。下一批从海安集团 001233 另开干净树。先合 !51→!76。 |
+| 全A实体页缺口（非ST） | cursor | doing | 改走巨潮年报。脏树勿动。wave55 [!77](http://127.0.0.1:3300/a77/knowledge-base-private/pulls/77) 已关账。下一批从箭牌家居 001322 另开干净树。先合 !51→!77。 |
 
 ## 交接记录
 
+- 2026-08-27 · cursor · **全 A 缺页 wave55 年报 L2**：[Gitea !77](http://127.0.0.1:3300/a77/knowledge-base-private/pulls/77)，树 `/Users/a77/kb-wt-annual-wave55-0826`，base=`baseline/ashare-wave54-0826`（!76）。18 家写库 `#5984–#6001`（海安集团→福恩股份）；惠康科技、华润新能源 skip。海安挂轮胎，弘业 2.88亿，立新挂风电+光伏。未合。下一批从箭牌家居 001322 另开树；天海电子/惠科股份无 FY2025。
 - 2026-08-27 · cursor · **全 A 缺页 wave54 年报 L2**：[Gitea !76](http://127.0.0.1:3300/a77/knowledge-base-private/pulls/76)，树 `/Users/a77/kb-wt-annual-wave54-0826`，base=`baseline/ashare-wave53-0826`（!75）。19 家写库 `#5965–#5983`（和远气体→劲旅环境）；嘉立创 skip（巨潮无 FY2025）。青岛食品 5.45亿，劲旅挂环保。未合。下一批从海安集团 001233 另开树；惠康科技/华润新能源无 FY2025。
 - 2026-08-27 · cursor · **全 A 缺页 wave53 年报 L2**：[Gitea !75](http://127.0.0.1:3300/a77/knowledge-base-private/pulls/75)，树 `/Users/a77/kb-wt-annual-wave53-0826`，base=`baseline/ashare-wave52-0826`（!74）。20 家写库 `#5945–#5964`（金奥博→锐明技术）。金奥博挂民爆、蒙娜丽莎挂建材、宏川挂物流、新兴挂军工+航空航天。华西 46.15亿。未合。下一批从和远气体 002971 另开树。
 - 2026-08-27 · cursor · **IMA 个股逻辑卡 40 家重跑**：树 `/Users/a77/kb-wt-ima-stock-0826`。第一轮 21 成（#5453–#5473）。兰卫#5476 齐；键凯残卡已撤。现 launchd `com.a77.ima-stock-queue-0827f`（12 章齐才落盘），状态 `/tmp/ima-stock-queue-0827f.status.json`。未提交。活库/金融仓未动。
