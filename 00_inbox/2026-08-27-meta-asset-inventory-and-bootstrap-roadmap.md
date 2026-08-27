@@ -10,7 +10,7 @@ status: draft
 
 # 元资产盘点与自举复刻路线图
 
-> 回答三个判题：① 代码行数多时（实测本仓 425K 行 Python / 3133 个跟踪文件）现有 loop 图 + code map 够不够支撑宏观理解；② harness / agent-run / 组件打分（深模块判据）/ trace diff 这批 meta-skill 是否可复用；③ 「以金融 agent 为原型自举复刻其他 agent」怎么落地。
+> 回答三个判题：① 代码行数多时（实测本仓 425K 行 Python / 3133 个跟踪文件）现有 loop 图 + code map 够不够支撑宏观理解；② harness / agent-run / 组件打分机（FDE 产品化判据，2026-08-27 用户纠偏后钉准）/ trace diff 这批 meta-skill 是否可复用；③ 「以金融 agent 为原型自举复刻其他 agent」怎么落地。
 > 本文只做裁决 + 指针，不抄 BUILD/KIT 清单（单一真本源纪律）。
 
 ## 判题 1：宏观理解——不是「loop 图 + code map」两件，实际已有五层地图 [实测]
@@ -39,7 +39,8 @@ status: draft
 | `harness-bootstrap` / `harness-architecture-review` | symlink → `~/arts-gitea-main/skills/`；判据 SSOT 是 harness-reference 三件套（gitea/main 已全部收口：DESIGN.md 顺序轴 2026-08-20 + DESIGN-stack.md + BUILD.md + TOOLKIT.md）| **可复用**。移植新领域时零件按 BUILD「移植要改什么」逐条换词表 |
 | `agent-run-triage` | symlink → `~/projects/agent-run-triage-skill/skills/`，自述 Harness 无关 | **可复用** |
 | `agent-run-review` | `~/.claude/skills/agent-run-review/` 本地实体目录，未迁共享仓 | **待迁**（见待办） |
-| 组件打分（深模块判据） | 通用形状在 `codebase-design` skill（已共享）；金融仓特化在 `docs/agent-product-door.md`（门/引擎/组装/积木四层，不混着打分）| **形状可复用**；「四层分类再打分」这个判据换领域仍成立，特化页要按新领域重写 |
+| 组件打分机（FDE 产品化判据）[纠偏 2026-08-27] | fde-os 仓 `skills/fde-productization-four-questions/`（四问：≥3 客户共性 / 泛化经济性 / 非工程师可用 / 现场创造力余地，全过才进平台）+ `skills/fde-reflux-to-product/`（回流日志 solo/common 标签 → 组件抽取 → 产品资产）；蒸馏稿 `fde-os/distilled/fde-deep-read.md`（随体系自 harness-reference 迁走，不留双源）；本 vault 只有读书索引 `10_knowledge/fde-guidance-book-reading-index.md` | **可复用，已在独立仓**——fde-os（2026-08-14 迁出，31 skill）就是 KIT 第四层「岗位操作系统」，天生跨项目。它与 BUILD「模式须 ≥2 零件验证才晋级」、本文 Phase C 触发条件是**同一个形状**：重复度达标才准入 |
+| 接口深浅判据（初稿曾把它误认成上一行） | 通用形状在 `codebase-design` skill（已共享）；金融仓特化在 `docs/agent-product-door.md`（门/引擎/组装/积木四层，不混着打分）| 形状可复用。与上一行是**两台不同的打分机**：上行判「组件要不要晋级为共享资产」（准入向），本行判「接口做得深不深」（质量向） |
 | `divergence-distill`（trace diff）| finance 仓 `.claude/skills/divergence-distill/`，六个沉淀池全绑金融仓（reading_baseline / experience_cards / record-correction CLI / _PENDING_RULES / 视角差分 / 知识库证据层）| **部分复用**：分类判别式（控制面前置、可证伪测试、双用户测试）可带走；池子是领域件，换领域要先建对应池。BUILD.md 已自标「候选模式 n=1，第二实例出现才升格模式」 |
 
 原理（可迁移）：复用有三种形态，成本与漂移风险递增——**① 指针复用**（symlink/子模块指向 SSOT，改一处全端生效，本机已用）→ **② 移植复用**（读源码抄过去 + 换词表，BUILD.md 每条零件写明「移植要改什么」就是为这形态服务）→ **③ 生成复用**（脚手架/模板生成，只有重复次数证明了才值得建，否则维护模板本身成为新负担）。跳过 ② 直接建 ③ 是 premature abstraction 的组织版。
@@ -70,6 +71,8 @@ status: draft
 **Phase C（条件触发，不排期）：自举工具化**
 
 触发条件写死：**n≥2 且移植实验空表「哪一步重复到值得自动化」非空**。届时才做：脚手架/复刻器（形态到时候按空表定，可能是生成器、可能只是一个 checklist skill）+ 解决「跨项目版本管理」缺口（同一零件多仓副本的同步通知）。触发条件不满足前动手 = 违反自家 BUILD.md 缺口节的边界。
+
+这条触发纪律与 fde-os 的产品化四问**同构**（三客户撞同一缺口才配进平台 ↔ 零件被 ≥2 个领域真实要过才配抽包）；到 Phase C 裁决时可直接套四问表，不必新发明判据。
 
 ## 待办指针（不在本轮范围，记下防丢）
 
