@@ -51,10 +51,11 @@ related: ["[[finance-workspace-private]]", "[[finance-research-site]]", "[[finan
 | r3 年报 128+60 家接到当前 main | grok | done | #340（wave1-2 128 家 #4225–#4352 + wave3 60 家 #4355–#4414）已合 main `ae88c5cb`、#341 cninfo 迁出已合，CI 全绿；合前全树质检 0 丢失。 |
 | leftover 年报尾巴 21 家 + 图谱 ticker | grok | done | #349（`#4475`–`#4555`，含 wave5 60 家）+#350 已合 `1afd676f`。raw 下一份 Release `raw-cninfo-baseline-20260814-leftover`（4049 文件）。明细 `wiki/log.md`。 |
 | r3 wave6 60 家年报 | grok | done | #352 已合 `ef468134`，`#4560`–`#4677`。wave7 抽取进行中（千红制药→天润工业）。 |
-| 全A实体页缺口（非ST） | cursor | doing | 改走巨潮年报。脏树勿动。wave51 [!73](http://127.0.0.1:3300/a77/knowledge-base-private/pulls/73) 已关账。下一批从盐津铺子 002847 另开干净树。先合 !51→!73。 |
+| 全A实体页缺口（非ST） | cursor | doing | 改走巨潮年报。脏树勿动。wave52 [!74](http://127.0.0.1:3300/a77/knowledge-base-private/pulls/74) 已关账。下一批从金奥博 002917 另开干净树。先合 !51→!74。 |
 
 ## 交接记录
 
+- 2026-08-27 · cursor · **全 A 缺页 wave52 年报 L2**：[Gitea !74](http://127.0.0.1:3300/a77/knowledge-base-private/pulls/74)，树 `/Users/a77/kb-wt-annual-wave52-0826`，base=`baseline/ashare-wave51-0826`（!73）。19 家写库 `#5926–#5944`（盐津铺子→集泰股份）；弘宇股份 skip（扫描件）。未合。下一批从金奥博 002917 另开树。
 - 2026-08-27 · cursor · **全 A 缺页 wave51 年报 L2**：[Gitea !73](http://127.0.0.1:3300/a77/knowledge-base-private/pulls/73)，树 `/Users/a77/kb-wt-annual-wave51-0826`，base=`baseline/ashare-wave50-0826`（!72）。20 家写库 `#5906–#5925`（罗欣药业→华统股份）。帝欧挂建材，天顺挂物流，张家港行挂银行，吉宏挂跨境电商+包装。未合。下一批从盐津铺子 002847 另开树。
 - 2026-08-27 · cursor · **全 A 缺页 wave50 年报 L2**：[Gitea !72](http://127.0.0.1:3300/a77/knowledge-base-private/pulls/72)，树 `/Users/a77/kb-wt-annual-wave50-0826`，base=`baseline/ashare-wave49-0826`（!71）。20 家写库 `#5886–#5905`（物产金轮→坚朗五金）。物产金轮挂不锈钢+专用设备，国光挂农药，凯龙挂民爆+化肥。未合。下一批从 002791 之后另开树。
 - 2026-08-27 · cursor · **全 A 缺页 wave49 年报 L2**：[Gitea !71](http://127.0.0.1:3300/a77/knowledge-base-private/pulls/71)，树 `/Users/a77/kb-wt-annual-wave49-0826`，base=`baseline/ashare-wave48-0826`（!70）。19 家写库 `#5867–#5885`（顺威股份→金一文化）；湖南白银 skip `#5408`。顺威挂家电、美亚光电挂色选机+医疗器械、金一剥软件。未合。下一批从物产金轮 002722 另开树。
