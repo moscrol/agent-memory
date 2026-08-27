@@ -55,6 +55,7 @@ related: ["[[finance-workspace-private]]", "[[finance-research-site]]", "[[finan
 
 ## 交接记录
 
+- 2026-08-27 · cursor · **全 A 缺页 wave63 年报 L2**：[Gitea !85](http://127.0.0.1:3300/a77/knowledge-base-private/pulls/85)，树 `/Users/a77/kb-wt-annual-wave63-0826`，base=`baseline/ashare-wave62-0826`（!84）。20 家写库 `#6137–#6156`（福蓉科技→亚振家居）。苏州龙杰叠 F10。未合。下一批从力聚热能 603391 另开树；长裕/嘉德利/津富士达无 FY2025。
 - 2026-08-27 · cursor · **全 A 缺页 wave62 年报 L2**：[Gitea !84](http://127.0.0.1:3300/a77/knowledge-base-private/pulls/84)，树 `/Users/a77/kb-wt-annual-wave62-0826`，base=`baseline/ashare-wave61-0826`（!83）。19 家写库 `#6118–#6136`（金帝股份→我乐家居）；埃泰克 skip。福鞍 12.76亿，海南华铁挂融资租赁，超讯挂数据中心。未合。下一批从福蓉科技 603327 另开树。
 - 2026-08-27 · cursor · **全 A 缺页 wave61 年报 L2**：[Gitea !83](http://127.0.0.1:3300/a77/knowledge-base-private/pulls/83)，树 `/Users/a77/kb-wt-annual-wave61-0826`，base=`baseline/ashare-wave60-0826`（!82）。20 家写库 `#6098–#6117`（公牛集团→技源集团）。公牛挂电力设备，璞源双主业，大参林挂医药零售。未合。下一批从金帝股份 603270 另开树。
 - 2026-08-27 · cursor · **全 A 缺页 wave60 年报 L2**：[Gitea !82](http://127.0.0.1:3300/a77/knowledge-base-private/pulls/82)，树 `/Users/a77/kb-wt-annual-wave60-0826`，base=`baseline/ashare-wave59-0826`（!81）。19 家写库 `#6079–#6097`（天目湖→中力股份）；海通发展 skip `#5436`。后补上交所分产品情况表：16/19 有主营构成，暴露按分部升 core/high。未合。覆盖已到 wave62；下一批从福蓉科技 603327 另开树。
