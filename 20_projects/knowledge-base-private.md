@@ -51,10 +51,11 @@ related: ["[[finance-workspace-private]]", "[[finance-research-site]]", "[[finan
 | r3 年报 128+60 家接到当前 main | grok | done | #340（wave1-2 128 家 #4225–#4352 + wave3 60 家 #4355–#4414）已合 main `ae88c5cb`、#341 cninfo 迁出已合，CI 全绿；合前全树质检 0 丢失。 |
 | leftover 年报尾巴 21 家 + 图谱 ticker | grok | done | #349（`#4475`–`#4555`，含 wave5 60 家）+#350 已合 `1afd676f`。raw 下一份 Release `raw-cninfo-baseline-20260814-leftover`（4049 文件）。明细 `wiki/log.md`。 |
 | r3 wave6 60 家年报 | grok | done | #352 已合 `ef468134`，`#4560`–`#4677`。wave7 抽取进行中（千红制药→天润工业）。 |
-| 全A实体页缺口（非ST） | cursor | doing | 改走巨潮年报。脏树勿动。wave82 已关 [!105](http://127.0.0.1:3300/a77/knowledge-base-private/pulls/105) `#6503–#6521`。下一批米奥会展 300795。年报栈先合 !51→!93→!95→!96→!97→!98→!99→!100→!101→!102→!103→!104→!105（!94 是无关 harness）。 |
+| 全A实体页缺口（非ST） | cursor | doing | 改走巨潮年报。脏树未动。wave83 已关 `#6522–#6541`（米奥会展→金丹科技），[Gitea !106](http://127.0.0.1:3300/a77/knowledge-base-private/pulls/106)。下一批金现代 300830。年报栈先合 !51→!93→!95→!96→!97→!98→!99→!100→!101→!102→!103→!104→!105→!106（!94 是无关 harness）。 |
 
 ## 交接记录
 
+- 2026-08-28 · cursor · **全 A 缺页 wave83 年报 L2**：[Gitea !106](http://127.0.0.1:3300/a77/knowledge-base-private/pulls/106)，树 `/Users/a77/kb-wt-annual-wave83-0826`，base=`baseline/ashare-wave82-0826`（!105）。20 家写库 `#6522–#6541`（米奥会展→金丹科技）。11/20 有主营构成。未合。下一批从金现代 300830 另开树。
 - 2026-08-28 · cursor · **全 A 缺页 wave82 年报 L2**：[Gitea !105](http://127.0.0.1:3300/a77/knowledge-base-private/pulls/105)，树 `/Users/a77/kb-wt-annual-wave82-0826`，base=`baseline/ashare-wave81-0826`（!104）。19 家写库 `#6503–#6521`（光弘科技→壹网壹创）；石药创新 `#5419` skip。未合。下一批从米奥会展 300795 另开树。
 - 2026-08-28 · cursor · **全 A 缺页 wave81 年报 L2**：[Gitea !104](http://127.0.0.1:3300/a77/knowledge-base-private/pulls/104)，树 `/Users/a77/kb-wt-annual-wave81-0826`，base=`baseline/ashare-wave80-0826`（!103，含行业回填）。19 家写库 `#6484–#6502`（沪宁股份→设研院）；双一 `#5433` skip。16/19 有主营构成。未合。下一批从光弘科技 300735 另开树。
 - 2026-08-28 · cursor · **全 A 缺页 wave80 年报 L2**：[Gitea !103](http://127.0.0.1:3300/a77/knowledge-base-private/pulls/103)，树 `/Users/a77/kb-wt-annual-wave80-0826`，base=`baseline/ashare-wave79-0826`（!102，含构成回填）。19 家写库 `#6465–#6483`（美联新材→杰恩股份）；康泰 `#5417` skip。未合。下一批从沪宁股份 300669 另开树。
