@@ -60,9 +60,11 @@ status: draft
 - 本盘点文档落 inbox。
 - finance 仓 PR #469 已合 main（`61dd5f79`，用户确认）：AGENTS.md 宏观理解路由表 + `scripts/install_code_map_refresh.py`（launchd 夜间 stale→build）+ registry 存量漂移顺手修。合并等价检查读数见 `docs/handoffs/2026-08-27-code-map-refresh-and-macro-map.md`。
 
-**Phase B（下一步大活，另开工）：第二领域真实移植（n=1→n=2）**
+**Phase B：第二领域真实移植（n=1→n=2）——近端试点已执行（2026-08-27 深夜）**
 
-流程：`harness-bootstrap` 采访三变量 → P0–P6 厚度 → 按失败形状挑零件 → 真实移植 2–3 个零件 → **填 BUILD.md 移植实验空表** → 回写 KIT。试点候选对比：
+知识库仓 PR #94（`harness/session-facts-and-receipts`）待用户确认合并：装骨架报告 + **移植实验表首行真数据**在 kb 仓 `docs/superpowers/specs/2026-08-27-harness-bootstrap-report.md`。要点：三变量=中高/强/年级；P0/P3/P6 厚、P1 刻意薄、P2 升级全配、P4/P5 以后再做（触发条件已写死）；移植四件（session_facts 全配升级、conftest 收据、check_test_receipt、test-environment.json）；全量 543P/0F ×2、收据链正负双向实测。**移植事故已如实入表**：在错树上误判「脚本缺失」覆盖了 2026-08-12 减配版、误删活的 stale 段，第二提交恢复——教训「跨树断言 X 不存在前先 `git log --all -- <path>`」。「值得自动化」当前=尚无（两处换词表是领域判断），脚手架继续冻结。
+
+流程（供第三领域复用）：`harness-bootstrap` 采访三变量 → P0–P6 厚度 → 按失败形状挑零件 → 真实移植 2–3 个零件 → **填移植实验表** → 回写 KIT。试点候选对比：
 
 | 候选 | 三变量预判 | 试点信息量 | 建议 |
 |---|---|---|---|
@@ -105,7 +107,7 @@ status: draft
 ## 待办指针（不在本轮范围，记下防丢）
 
 - [ ] `agent-run-review` 迁入共享 skill 仓（与 agent-run-triage 同仓或 arts 仓），symlink 双端。
-- [ ] harness-reference `KIT.md`/`BUILD.md` 回写「code map 夜间刷新」一行——本地树 2026-08-27 有他人在途改动（BUILD/KIT/PLAYBOOK/TOOLKIT 四份带 M，分支 docs/constraint-three-sieves），等收口后补，或另开干净 worktree。
+- [ ] harness-reference `KIT.md`/`BUILD.md` 回写——本地树 2026-08-27 深夜仍在途（BUILD/KIT/PLAYBOOK/TOOLKIT 四份带 M，分支 docs/constraint-three-sieves），等收口后补两条（内容已备好，直接贴）：① BUILD「会话骨架」备注 code map 夜间刷新零件（finance `scripts/install_code_map_refresh.py`）；② BUILD 缺口节「没有脚手架命令…目前 n=1，先不做」更新为「n=2 已发生（2026-08-27 kb 移植，PR #94），移植实验表首行见 kb `docs/superpowers/specs/2026-08-27-harness-bootstrap-report.md`，『值得自动化』=尚无，脚手架继续冻结」。
 - [ ] Phase B 开工时先跑 `git -C ~/harness-reference show gitea/main:DESIGN.md` 拿顺序轴 SSOT，勿读脏工作树。
 
 ## 成立条件
