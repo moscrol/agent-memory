@@ -55,6 +55,8 @@ related: ["[[finance-workspace-private]]", "[[finance-research-site]]", "[[finan
 
 ## 交接记录
 
+- 2026-08-28 · cursor · **theme-backfill 复核 P1**：树 `/Users/a77/kb-wt-theme-backfill-review-0828`，`theme-radar/backfill-review-0828`。`#6825`（避开 #6823/#6824）。08-26/27 复核 18 条终态；[[工业金属]] L1 子集卡；纵切片原 P1 四题材 ready；创新药 quality 清零。明细 `wiki/raw/theme-radar/2026-08-28-backfill-review-handoff.md`。未合。
+- 2026-08-28 · cursor · **disclosure 归档治理 P1-P2**：树 `/Users/a77/kb-wt-disclosure-archive-0813-0828`，`disclosure/archive-0813-0828` @ `6b14d2c8`。219 条 RSS md + 7 sidecar；P0 感光干膜三条闭环（久日/广信官方年报间接证据，飞凯查无）；减肥药 review-queue 三条终态、未 apply。转入 19 条游标 `wiki/raw/disclosures/batches/kb-ingest-leave-cursor-20260828.md`。未推未合。活库 `main` 未动。
 - 2026-08-28 · cursor · **IMA DeepDive 切片 P2**：树 `/Users/a77/kb-wt-ima-slice-0828`，`theme-radar/ima-slice-0828`。#6824 原料药占位升 L1（与 #2 的 #6823 医药错开）。减肥药/贵金属 skip-已入库。CRO 队列关账。590→517。数字货币 IMA OFFLINE。交接 `docs/handoffs/2026-08-28-ima-slice.md`。未合。
 - 2026-08-28 · cursor · **跨仓 kb-ingest 队列消化**：树 `/Users/a77/kb-wt-queue-drain-0828`，分支 `theme-radar/kb-queue-drain-0828`，`#6823`。08-26/27/28 共 27 条已终态；[[医药]] 占位升 L1；乡村振兴过宽不建。转出 22 条给 #5。未合。
 - 2026-08-28 · cursor · **晨汇/卖方断更诊断（金融仓 P3，未补档）**：晨汇 `wiki/briefings/` 停 08-20（`#5400`），卖方 `wiki/raw/sellside/` 停 08-17 手贴（`#5366`）。自动源：RSSHub 空、FinHot `items-all` total=0、wechat2rss 死、download-api articles=0。缺档不编造。台账地图在金融仓 `docs/learning/ledger-map.md`。
