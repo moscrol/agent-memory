@@ -55,6 +55,7 @@ related: ["[[finance-workspace-private]]", "[[finance-research-site]]", "[[finan
 
 ## 交接记录
 
+- 2026-08-29 · cursor · **欠账残余 #2/#5/#3 orphan**：复核只看活库路径。#2 已 `kb-queue-receive --date 2026-08-26` 落到活库并 mark 三批；#5 归档在 `disclosure/archive-0813-0828`，活库 disclosures 工作区已清；#3 orphan 重建后 14 条，P2 四家 batch06。经验：工单写活库路径时，只在工作树关账会被判未动。
 - 2026-08-28 · cursor · **theme-backfill 复核 P1**：树 `/Users/a77/kb-wt-theme-backfill-review-0828`，`theme-radar/backfill-review-0828`。`#6825`（避开 #6823/#6824）。08-26/27 复核 18 条终态；[[工业金属]] L1 子集卡；纵切片原 P1 四题材 ready；创新药 quality 清零。明细 `wiki/raw/theme-radar/2026-08-28-backfill-review-handoff.md`。未合。
 - 2026-08-28 · cursor · **disclosure 归档治理 P1-P2**：树 `/Users/a77/kb-wt-disclosure-archive-0813-0828`，`disclosure/archive-0813-0828` @ `6b14d2c8`。219 条 RSS md + 7 sidecar；P0 感光干膜三条闭环（久日/广信官方年报间接证据，飞凯查无）；减肥药 review-queue 三条终态、未 apply。转入 19 条游标 `wiki/raw/disclosures/batches/kb-ingest-leave-cursor-20260828.md`。未推未合。活库 `main` 未动。
 - 2026-08-28 · cursor · **IMA DeepDive 切片 P2**：树 `/Users/a77/kb-wt-ima-slice-0828`，`theme-radar/ima-slice-0828`。#6824 原料药占位升 L1（与 #2 的 #6823 医药错开）。减肥药/贵金属 skip-已入库。CRO 队列关账。590→517。数字货币 IMA OFFLINE。交接 `docs/handoffs/2026-08-28-ima-slice.md`。未合。
