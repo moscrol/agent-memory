@@ -51,10 +51,11 @@ related: ["[[finance-workspace-private]]", "[[finance-research-site]]", "[[finan
 | r3 年报 128+60 家接到当前 main | grok | done | #340（wave1-2 128 家 #4225–#4352 + wave3 60 家 #4355–#4414）已合 main `ae88c5cb`、#341 cninfo 迁出已合，CI 全绿；合前全树质检 0 丢失。 |
 | leftover 年报尾巴 21 家 + 图谱 ticker | grok | done | #349（`#4475`–`#4555`，含 wave5 60 家）+#350 已合 `1afd676f`。raw 下一份 Release `raw-cninfo-baseline-20260814-leftover`（4049 文件）。明细 `wiki/log.md`。 |
 | r3 wave6 60 家年报 | grok | done | #352 已合 `ef468134`，`#4560`–`#4677`。wave7 抽取进行中（千红制药→天润工业）。 |
-| 全A实体页缺口（非ST） | cursor | doing | 改走巨潮年报。脏树未动。wave93 [!116](http://127.0.0.1:3300/a77/knowledge-base-private/pulls/116) `#6724–#6743`（科捷智能→高测股份）。下一批兰剑智能 688557。年报栈先合 !51→!93→!95→!96→!97→!98→!99→!100→!101→!102→!103→!104→!105→!106→!107→!108→!109→!110→!111→!112→!113→!114→!115→!116（!94 是无关 harness）。 |
+| 全A实体页缺口（非ST） | cursor | doing | 改走巨潮年报。脏树未动。wave94 [!117](http://127.0.0.1:3300/a77/knowledge-base-private/pulls/117) `#6744–#6763`（兰剑智能→罗普特；海目星 `#5413`、上纬 `#5409` skip）。下一批安凯微 688620。年报栈先合 !51→!93→!95→!96→!97→!98→!99→!100→!101→!102→!103→!104→!105→!106→!107→!108→!109→!110→!111→!112→!113→!114→!115→!116→!117（!94 是无关 harness）。 |
 
 ## 交接记录
 
+- 2026-08-28 · cursor · **全 A 缺页 wave94 年报 L2**：[Gitea !117](http://127.0.0.1:3300/a77/knowledge-base-private/pulls/117)，树 `/Users/a77/kb-wt-annual-wave94-0826`，base=`baseline/ashare-wave93-0826`（!116）。20 家写库 `#6744–#6763`（兰剑智能→罗普特）；海目星 `#5413`、上纬新材 `#5409` skip。未合。下一批从安凯微 688620 另开树。
 - 2026-08-28 · cursor · **全 A 缺页 wave93 年报 L2**：[Gitea !116](http://127.0.0.1:3300/a77/knowledge-base-private/pulls/116)，树 `/Users/a77/kb-wt-annual-wave93-0826`，base=`baseline/ashare-wave92-0826`（!115）。20 家写库 `#6724–#6743`（科捷智能→高测股份）。国科只挂军工；科威尔只挂检测设备。未合。下一批从兰剑智能 688557 另开树。
 - 2026-08-28 · cursor · **全 A 缺页 wave92 年报 L2**：[Gitea !115](http://127.0.0.1:3300/a77/knowledge-base-private/pulls/115)，树 `/Users/a77/kb-wt-annual-wave92-0826`，base=`baseline/ashare-wave91-0826`（!114）。20 家写库 `#6704–#6723`（普源精电→诺诚健华）；键凯 `#5422` skip。未合。下一批从科捷智能 688455 另开树。
 - 2026-08-28 · cursor · **全 A 缺页 wave91 年报 L2**：[Gitea !114](http://127.0.0.1:3300/a77/knowledge-base-private/pulls/114)，树 `/Users/a77/kb-wt-annual-wave91-0826`，base=`baseline/ashare-wave90-0826`（!113）。20 家写库 `#6684–#6703`（华秦科技→三生国健）。东方生物 9.47 亿 / -5.74 亿。未合。下一批从普源精电 688337 另开树（跳过键凯 `#5422`）。
