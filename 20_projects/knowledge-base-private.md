@@ -51,10 +51,11 @@ related: ["[[finance-workspace-private]]", "[[finance-research-site]]", "[[finan
 | r3 年报 128+60 家接到当前 main | grok | done | #340（wave1-2 128 家 #4225–#4352 + wave3 60 家 #4355–#4414）已合 main `ae88c5cb`、#341 cninfo 迁出已合，CI 全绿；合前全树质检 0 丢失。 |
 | leftover 年报尾巴 21 家 + 图谱 ticker | grok | done | #349（`#4475`–`#4555`，含 wave5 60 家）+#350 已合 `1afd676f`。raw 下一份 Release `raw-cninfo-baseline-20260814-leftover`（4049 文件）。明细 `wiki/log.md`。 |
 | r3 wave6 60 家年报 | grok | done | #352 已合 `ef468134`，`#4560`–`#4677`。wave7 抽取进行中（千红制药→天润工业）。 |
-| 全A实体页缺口（非ST） | cursor | doing | 改走巨潮年报。脏树未动。wave96 [!120](http://127.0.0.1:3300/a77/knowledge-base-private/pulls/120) `#6784–#6803`（爱科赛博→江苏博云；视涯/臻宝/泰诺/有研/泰金/国仪无 FY2025 skip）。下一批嘉益股份 301004。年报栈先合 !51→!93→!95→…→!118→!120（!94 是无关 harness）。 |
+| 全A实体页缺口（非ST） | cursor | doing | 改走巨潮年报。脏树未动。wave97 [!124](http://127.0.0.1:3300/a77/knowledge-base-private/pulls/124) `#6804–#6822`（嘉益股份→大地海洋；义翘神州 `#5414` skip）。本轮按用户要求停，不开 wave98。年报栈先合 !51→!93→!95→…→!120→!124（!94 是无关 harness；!119/!121–!123 不在此栈）。 |
 
 ## 交接记录
 
+- 2026-08-28 · cursor · **全 A 缺页 wave97 年报 L2**：[Gitea !124](http://127.0.0.1:3300/a77/knowledge-base-private/pulls/124)，树 `/Users/a77/kb-wt-annual-wave97-0826`，base=`baseline/ashare-wave96-0826`（!120）。19 家写库 `#6804–#6822`（嘉益股份→大地海洋）；义翘神州 `#5414` skip。未合。按用户要求停，下一批多瑞医药 301075 先不另开树。
 - 2026-08-28 · cursor · **全 A 缺页 wave96 年报 L2**：[Gitea !120](http://127.0.0.1:3300/a77/knowledge-base-private/pulls/120)，树 `/Users/a77/kb-wt-annual-wave96-0826`，base=`baseline/ashare-wave95-0826`（!118）。20 家写库 `#6784–#6803`（爱科赛博→江苏博云）；视涯/臻宝/泰诺/有研/泰金/国仪无 FY2025 skip。未合。下一批从嘉益股份 301004 另开树。
 - 2026-08-28 · cursor · **全 A 缺页 wave95 年报 L2**：[Gitea !118](http://127.0.0.1:3300/a77/knowledge-base-private/pulls/118)，树 `/Users/a77/kb-wt-annual-wave95-0826`，base=`baseline/ashare-wave94-0826`（!117）。20 家写库 `#6764–#6783`（安凯微→北芯生命）；长进光子 688635 无 FY2025 skip。未合。下一批从爱科赛博 688719 另开树。
 - 2026-08-28 · cursor · **全 A 缺页 wave94 年报 L2**：[Gitea !117](http://127.0.0.1:3300/a77/knowledge-base-private/pulls/117)，树 `/Users/a77/kb-wt-annual-wave94-0826`，base=`baseline/ashare-wave93-0826`（!116）。20 家写库 `#6744–#6763`（兰剑智能→罗普特）；海目星 `#5413`、上纬新材 `#5409` skip。未合。下一批从安凯微 688620 另开树。
