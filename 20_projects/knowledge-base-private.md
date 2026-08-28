@@ -55,6 +55,8 @@ related: ["[[finance-workspace-private]]", "[[finance-research-site]]", "[[finan
 
 ## 交接记录
 
+- 2026-08-28 · cursor · **跨仓 kb-ingest 队列消化**：树 `/Users/a77/kb-wt-queue-drain-0828`，分支 `theme-radar/kb-queue-drain-0828`，`#6823`。08-26/27/28 共 27 条已终态；[[医药]] 占位升 L1；乡村振兴过宽不建。转出 22 条给 #5。未合。
+- 2026-08-28 · cursor · **晨汇/卖方断更诊断（金融仓 P3，未补档）**：晨汇 `wiki/briefings/` 停 08-20（`#5400`），卖方 `wiki/raw/sellside/` 停 08-17 手贴（`#5366`）。自动源：RSSHub 空、FinHot `items-all` total=0、wechat2rss 死、download-api articles=0。缺档不编造。台账地图在金融仓 `docs/learning/ledger-map.md`。
 - 2026-08-28 · cursor · **全 A 缺页 wave97 年报 L2**：[Gitea !124](http://127.0.0.1:3300/a77/knowledge-base-private/pulls/124)，树 `/Users/a77/kb-wt-annual-wave97-0826`，base=`baseline/ashare-wave96-0826`（!120）。19 家写库 `#6804–#6822`（嘉益股份→大地海洋）；义翘神州 `#5414` skip。未合。按用户要求停，下一批多瑞医药 301075 先不另开树。
 - 2026-08-28 · cursor · **全 A 缺页 wave96 年报 L2**：[Gitea !120](http://127.0.0.1:3300/a77/knowledge-base-private/pulls/120)，树 `/Users/a77/kb-wt-annual-wave96-0826`，base=`baseline/ashare-wave95-0826`（!118）。20 家写库 `#6784–#6803`（爱科赛博→江苏博云）；视涯/臻宝/泰诺/有研/泰金/国仪无 FY2025 skip。未合。下一批从嘉益股份 301004 另开树。
 - 2026-08-28 · cursor · **全 A 缺页 wave95 年报 L2**：[Gitea !118](http://127.0.0.1:3300/a77/knowledge-base-private/pulls/118)，树 `/Users/a77/kb-wt-annual-wave95-0826`，base=`baseline/ashare-wave94-0826`（!117）。20 家写库 `#6764–#6783`（安凯微→北芯生命）；长进光子 688635 无 FY2025 skip。未合。下一批从爱科赛博 688719 另开树。
