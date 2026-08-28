@@ -51,10 +51,11 @@ related: ["[[finance-workspace-private]]", "[[finance-research-site]]", "[[finan
 | r3 年报 128+60 家接到当前 main | grok | done | #340（wave1-2 128 家 #4225–#4352 + wave3 60 家 #4355–#4414）已合 main `ae88c5cb`、#341 cninfo 迁出已合，CI 全绿；合前全树质检 0 丢失。 |
 | leftover 年报尾巴 21 家 + 图谱 ticker | grok | done | #349（`#4475`–`#4555`，含 wave5 60 家）+#350 已合 `1afd676f`。raw 下一份 Release `raw-cninfo-baseline-20260814-leftover`（4049 文件）。明细 `wiki/log.md`。 |
 | r3 wave6 60 家年报 | grok | done | #352 已合 `ef468134`，`#4560`–`#4677`。wave7 抽取进行中（千红制药→天润工业）。 |
-| 全A实体页缺口（非ST） | cursor | doing | 改走巨潮年报。脏树未动。wave90 [!113](http://127.0.0.1:3300/a77/knowledge-base-private/pulls/113) `#6664–#6683`（前沿生物→精进电动）。下一批华秦科技 688281。年报栈先合 !51→!93→!95→!96→!97→!98→!99→!100→!101→!102→!103→!104→!105→!106→!107→!108→!109→!110→!111→!112→!113（!94 是无关 harness）。 |
+| 全A实体页缺口（非ST） | cursor | doing | 改走巨潮年报。脏树未动。wave91 [!114](http://127.0.0.1:3300/a77/knowledge-base-private/pulls/114) `#6684–#6703`（华秦科技→三生国健）。下一批普源精电 688337。年报栈先合 !51→!93→!95→!96→!97→!98→!99→!100→!101→!102→!103→!104→!105→!106→!107→!108→!109→!110→!111→!112→!113→!114（!94 是无关 harness）。 |
 
 ## 交接记录
 
+- 2026-08-28 · cursor · **全 A 缺页 wave91 年报 L2**：[Gitea !114](http://127.0.0.1:3300/a77/knowledge-base-private/pulls/114)，树 `/Users/a77/kb-wt-annual-wave91-0826`，base=`baseline/ashare-wave90-0826`（!113）。20 家写库 `#6684–#6703`（华秦科技→三生国健）。东方生物 9.47 亿 / -5.74 亿。未合。下一批从普源精电 688337 另开树（跳过键凯 `#5422`）。
 - 2026-08-28 · cursor · **全 A 缺页 wave90 年报 L2**：[Gitea !113](http://127.0.0.1:3300/a77/knowledge-base-private/pulls/113)，树 `/Users/a77/kb-wt-annual-wave90-0826`，base=`baseline/ashare-wave89-0826`（!112）。20 家写库 `#6664–#6683`（前沿生物→精进电动）。精进电动净利 1.50 亿。未合。下一批从华秦科技 688281 另开树。
 - 2026-08-28 · cursor · **全 A 缺页 wave89 年报 L2**：[Gitea !112](http://127.0.0.1:3300/a77/knowledge-base-private/pulls/112)，树 `/Users/a77/kb-wt-annual-wave89-0826`，base=`baseline/ashare-wave88-0826`（!111）。20 家写库 `#6643–#6662`（晶华微→江苏北人）；步科页 `#6663`。跳过科兴/近岸/康希诺。未合。下一批从前沿生物 688221 另开树。
 - 2026-08-28 · cursor · **全 A 缺页 wave88 年报 L2**：[Gitea !111](http://127.0.0.1:3300/a77/knowledge-base-private/pulls/111)，树 `/Users/a77/kb-wt-annual-wave88-0826`，base=`baseline/ashare-wave87-0826`（!110）。20 家写库 `#6623–#6642`（爱博医疗→东来技术）。京源手剥系统集成、灿瑞产品改智能传感器芯片。9/20 有产品构成。未合。下一批从晶华微 688130 另开树。
