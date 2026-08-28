@@ -150,6 +150,7 @@ per-user 不是进程级；`runtime_backend_readiness` 这个全局探针看不�
 **另一处双轨要注意**：8792 的 `FORESIGHT_USERS_DIR=/Users/a77/.local/share/finance-workbench/users`，
 而 CLI/回检走 `~/.zshrc` 里的 `/Users/a77/agent-memory/.foresight`——**两套用户台账不是同一份**。
 
+- 2026-08-28 · grok · **风远 SPT 收口 + 画像整表回写棘轮**。生产画像 20 篇/medium（用户空间，不进 git）；六槽再生方法论已蒸进，不必再探针。代码枝 `fix/perspective-profile-ratchet` 树 `/Users/a77/.finance-runtime/finance-workspace-profile-ratchet`：`_save_profile` 长度/`article_count` 只减不增。未 push、未合、未切 8792。正文 `docs/handoffs/2026-08-28-fengyuan-spt-closeout.md`。
 - 2026-08-28 · grok · **经验卡 `promoted_to_code` 退役注入 + Alpha 向导**。分支 `feat/promoted-to-code` @ `b6648f60`（未 push、未合、未切 8792）。13 张方法论卡不再注入；纠偏 4/6/7 留下。正文 `docs/handoffs/2026-08-28-promoted-to-code.md`。
 - 2026-08-26 · devin · **盘中 L2 边车设计稿 v1.1：两扇门已拍 A1+B1**。树 `/Users/a77/fwp-wt-intraday-l2-sidecar` @ `89df4124` 已推 gitea（`docs/intraday-l2-sidecar`，4 提交）。P0 探针 `scripts/moneyflow/probe_intraday_write.py` 已落地（ruff 绿），`--check-only` 独立复现 **Code 516 鉴权失败**——CH 凭证自 08-08 失效、08-18 挂账未恢复，P0 被鉴权挡住而非链路问题。⚠ 解释器坑：`.venv-workbench` 缺 `clickhouse_driver`，探针须用 `/opt/homebrew/bin/python3`。待办：77 恢复鉴权 → 交易日 10:00–14:30 跑 P0 出收据 → 开 `feat/intraday-l2-sidecar` 做 P1（A1 形态）。正文 `docs/superpowers/specs/2026-08-26-intraday-l2-sidecar-design.md`。
 - 2026-08-24 · grok · **#352 已合；8792=`af71f048`（main）。8796 误切同 SHA 已拨回 `76ee1e89`（解耦树）**。用户纠偏：合 main ≠ 两港对齐。#353 收据已合 `b07259c0`。`R-09` refuted。实施树已拆。正文 `docs/handoffs/2026-08-24-market-watch-352-cutover.md`。
