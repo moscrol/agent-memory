@@ -55,6 +55,7 @@ related: ["[[finance-workspace-private]]", "[[finance-research-site]]", "[[finan
 
 ## 交接记录
 
+- 2026-08-28 · cursor · **全 A 缺页 wave90 年报 L2**：[Gitea !113](http://127.0.0.1:3300/a77/knowledge-base-private/pulls/113)，树 `/Users/a77/kb-wt-annual-wave90-0826`，base=`baseline/ashare-wave89-0826`（!112）。20 家写库 `#6664–#6683`（前沿生物→精进电动）。精进电动净利 1.50 亿。未合。下一批从华秦科技 688281 另开树。
 - 2026-08-28 · cursor · **全 A 缺页 wave89 年报 L2**：[Gitea !112](http://127.0.0.1:3300/a77/knowledge-base-private/pulls/112)，树 `/Users/a77/kb-wt-annual-wave89-0826`，base=`baseline/ashare-wave88-0826`（!111）。20 家写库 `#6643–#6662`（晶华微→江苏北人）；步科页 `#6663`。跳过科兴/近岸/康希诺。未合。下一批从前沿生物 688221 另开树。
 - 2026-08-28 · cursor · **全 A 缺页 wave88 年报 L2**：[Gitea !111](http://127.0.0.1:3300/a77/knowledge-base-private/pulls/111)，树 `/Users/a77/kb-wt-annual-wave88-0826`，base=`baseline/ashare-wave87-0826`（!110）。20 家写库 `#6623–#6642`（爱博医疗→东来技术）。京源手剥系统集成、灿瑞产品改智能传感器芯片。9/20 有产品构成。未合。下一批从晶华微 688130 另开树。
 - 2026-08-28 · cursor · **全 A 缺页 wave87 年报 L2**：[Gitea !110](http://127.0.0.1:3300/a77/knowledge-base-private/pulls/110)，树 `/Users/a77/kb-wt-annual-wave87-0826`，base=`baseline/ashare-wave86-0826`（!109）。20 家写库 `#6603–#6622`（华利集团→必易微）。金龙鱼净利 31.53亿。13/20 有产品构成。未合。下一批从爱博医疗 688050 另开树。
