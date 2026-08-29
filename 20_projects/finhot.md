@@ -40,7 +40,7 @@ pnpm run build:web
 ## 关键信息 / 关联
 - 富集所用的微信源经 wechat2rss / RSSHub 提供（Mac 上有 RSSHub localhost:1200、wechat2rss）。
 - 与 [[finance-research-site]] 同属金融内容矩阵，但定位不同：FinHot 是**阅读器/信息流**，site 是**研究文章网站**。
-- **自动抓取已暂停（2026-08-29，原因：没有消费者）**：`com.finhot.devweb`（本机 :2233 调度抓取/富集/部署）、`com.finhot.wechat-download-api-sync`、`com.finhot.monitor` 已 `launchctl disable`。哨兵文件 `~/.finhot-pause-auto-fetch`。公网站点停在最后一次 Cloudflare 快照。未停：`com.finhot.cninfo-fetch`（KB L3 18:00 渔网，nightly-report/scout 仍在消费）、微信 API（已 `SKIP_BACKGROUND_TASKS=1`）、embed、cninfo 静态 feed 服务。恢复步骤见哨兵文件。
+- **自动抓取已暂停（2026-08-29，用户确认：巨潮不停，雪球和微信公众号停）**：`com.finhot.devweb`（:2233，含雪球 Playwright 调度）、`com.finhot.wechat-download-api`（:5050）、`com.finhot.wechat-download-api-sync`、`com.finhot.monitor` 已 disable。哨兵 `~/.finhot-pause-auto-fetch`。巨潮保持：`com.finhot.cninfo-fetch` 18:00 + `com.kb.cninfo-feed` :8787。
 
 ## 任务看板
 | 任务 | 负责 | 状态 | 备注 |
@@ -48,7 +48,7 @@ pnpm run build:web
 | cninfo-rss L3 准入收紧（标题二次校验 + 组合规则 + 纠正分类码） | devin | done | PR #92 |
 
 ## 交接记录
-- 2026-08-29 · grok · **自动抓取暂停**：用户确认目前没有消费者。已 disable + bootout `com.finhot.devweb` / `com.finhot.wechat-download-api-sync` / `com.finhot.monitor`；:2233 已停。`finhot-devweb.sh` 见 `~/.finhot-pause-auto-fetch` 则不启动调度器。未动 KB 侧 `com.finhot.cninfo-fetch`。恢复：删哨兵文件后 enable + bootstrap 上述三个 LaunchAgent。
+- 2026-08-29 · grok · **自动抓取暂停（修订）**：用户确认巨潮不停，雪球和微信公众号停。已 disable `com.finhot.devweb`（雪球跟 destweb 调度走）、`com.finhot.wechat-download-api`（:5050 已停）、`com.finhot.wechat-download-api-sync`、`com.finhot.monitor`。`com.finhot.cninfo-fetch` 18:00 与 `com.kb.cninfo-feed` 仍在。哨兵 `~/.finhot-pause-auto-fetch`。
 
 - 2026-08-06 · codex · **GEO 主题知识入口（功能分支 `feature/finhot-geo-hubs`）**：在 `apps/desktop/plugins/vite/geo-topics.ts` 新增 8 个稳定主题 slug 和纯函数关键词匹配，要求至少 3 条精选证据、每页最多 20 条、按质量分/时间确定性排序；`rss-proxy.ts` 从同一 `selectedEntries` 快照生成 `/topics`、主题详情、`/about`、`/methodology`、`/sources`、`llms-full.txt`，扩展 `llms.txt`/sitemap，并加入开发服务器镜像路由。来源页只展示安全的站点 URL，不输出 RSS/query token；不复制第三方全文。验证：GEO 单测 4/4、定向 ESLint 通过、`pnpm run build:web` 成功，HTTP 冒烟验证 trust pages/llms/sitemap 200；本地缓存没有达到 3 条证据的主题，主题索引正确不生成空详情页。全仓 `typecheck` 仍被既有 `@follow/atoms` 与 Jotai `RESET` 类型不兼容阻断；全仓 `lint:fix` 被未跟踪 `.venv` 第三方 Python 文件的 6 个 `no-console` 错误阻断；全量 test 被主包锁定的 `vitest@3.2.4` 虚拟路径缺失阻断。设计/计划提交 `bf76f31`，功能提交 `279f9e5`，已推送到远端，禁止直接合并 main 或部署线上。
 - 2026-08-06 · codex · **公网快照稳定性修复与恢复**：在 `fix/finhot-ops-health`（commit `2097e28`）加入空快照部署保护（raw entries 有数据但过门槛条目为 0 时拒绝部署，`FINHOT_ALLOW_EMPTY_PUBLIC_DEPLOY=1` 才允许）、快照/富集健康文件、refresh 富集错误回传与监控公开快照检查。一次有界 refresh 证实 AI provider 返回 HTTP 402，未把余额问题误判成采集代码故障。Cloudflare Pages 已回滚到已知正常部署，线上 `/api/public/items-all.json` 当前 175 条；监控为 `degraded`，只有微信上游 `ret=200013/freq control` 无缓存文章，WeChat poller 本机 launchd 已运行，禁止批量重试。分支已推送，未合并 main。
