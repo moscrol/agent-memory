@@ -14,7 +14,9 @@ related: ["[[feature-lifecycle]]", "[[../50_agents/devin]]"]
 每次 agent 在某个项目仓库完成任务后，先判断本次产出应该沉淀到哪一层。Agent Memory 负责承接**项目级决策**和**稳定方法论**；单次问答评分、用户纠偏、样本级经验优先进入项目自己的学习层，避免把聊天流水塞进项目交接记录。
 
 ## 适用场景
-在 `linxiaoqi5111-del` 的任意项目仓库（`finhot` / `finance-workspace-private` / `knowledge-base-private` / `finance-research-site` …）完成一次有项目级产出的任务后，例如开了 PR、改了配置、跑通了流程、排查了问题、改变了数据管线或架构约定。
+在 `linxiaoqi5111-del` 的任意项目仓库（`finhot` / `finance-workspace-private` / `knowledge-base-private` / `finance-research-site` …）**本窗完成一次有项目级产出的任务后**，例如开了 PR、改了配置、跑通了流程、排查了问题、改变了数据管线或架构约定。
+
+先回答、后判断。问答、身份、只读解释不进入本规程。开窗时已经在工作树上的脏文件（别人的在途、ingest 产物）也不是本窗任务——Stop hook 只拦本窗相对 SessionStart 快照的新增改动。
 
 不适合写入项目交接记录的情况：
 - 单次问答打分、一次用户纠偏、一条回答样本。
@@ -106,7 +108,9 @@ SessionStart 已明确把它切出注入）。
    `chore(memory): <repo> 回写 <一句话任务>`，push 到 `main`。
 
 ## Stop Hook 放行
-如果 hook 因为代码/配置改动拦截，但你已经确认本次只需要写项目学习层、或确实没有项目级 Agent Memory 价值，可以按 hook 提示在 repo 根目录写入 `.git/agent-memory/writeback-ok` 的状态戳。本状态戳只对当前 git 状态有效；下一次改动会重新要求判断。
+SessionStart 会写下 `$(git rev-parse --git-dir)/agent-memory/session-start-state`。Stop hook 拿它和当前 git 状态比：没快照或状态没变 → 放行；只有本窗新增了代码/配置级改动才拦截。
+
+如果 hook 因为本窗的代码/配置改动拦截，但你已经确认本次只需要写项目学习层、或确实没有项目级 Agent Memory 价值，可以按 hook 提示写入同一 `git-dir` 下的 `writeback-ok` 状态戳。本状态戳只对当前 git 状态有效；下一次改动会重新要求判断。
 
 ## 红线
 - 不写任何密钥/token 到 vault（PAT、CC_REMOTE_EXEC_TOKEN 等一律不落库）。
