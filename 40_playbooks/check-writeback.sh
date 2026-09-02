@@ -21,6 +21,7 @@ V="$repo_root/.agent-memory"
 stamp_dir="$git_dir/agent-memory"
 stamp="$stamp_dir/writeback-ok"
 snap="$stamp_dir/session-start-state"
+snap_files="$stamp_dir/session-start-files"
 
 state_key() {
   # Status names alone miss "already dirty, then edited again".
@@ -39,9 +40,54 @@ state_key() {
   } | cksum | awk '{print $1 ":" $2}'
 }
 
+list_file_fps() {
+  python3 - "$repo_root" <<'PY'
+import os, subprocess, sys
+
+root = sys.argv[1]
+
+def zsplit(data):
+    return [p.decode() for p in data.split(b"\0") if p]
+
+paths = []
+cmds = (
+    ["ls-files", "-m", "-o", "--exclude-standard", "-z"],
+    ["diff", "--cached", "--name-only", "-z"],
+)
+for args in cmds:
+    try:
+        paths.extend(zsplit(subprocess.check_output(
+            ["git", "-C", root, *args], stderr=subprocess.DEVNULL
+        )))
+    except subprocess.CalledProcessError:
+        pass
+try:
+    paths.extend(zsplit(subprocess.check_output(
+        ["git", "-C", root, "diff", "--name-only", "-z", "@{u}..HEAD"],
+        stderr=subprocess.DEVNULL,
+    )))
+except subprocess.CalledProcessError:
+    pass
+
+seen = []
+for path in paths:
+    if path not in seen:
+        seen.append(path)
+
+for path in seen:
+    full = os.path.join(root, path)
+    try:
+        st = os.lstat(full)
+        print(f"{path}\t{st.st_mtime_ns} {st.st_size}")
+    except OSError:
+        print(f"{path}\tmissing")
+PY
+}
+
 write_snapshot() {
   mkdir -p "$stamp_dir"
   state_key > "$snap"
+  list_file_fps > "$snap_files"
 }
 
 if [ "${1:-}" = "snapshot" ]; then
@@ -57,6 +103,7 @@ fi
 if [ "${1:-}" = "ack" ]; then
   mkdir -p "$stamp_dir"
   state_key > "$stamp"
+  write_snapshot
   exit 0
 fi
 
@@ -94,14 +141,43 @@ if [ -f "$note" ] && [ -n "$(find "$note" -mmin -10 2>/dev/null)" ]; then
   exit 0
 fi
 
-changed="$( { git -C "$repo_root" status --porcelain 2>/dev/null | sed 's/^...//; s/^.* -> //'; \
-             git -C "$repo_root" diff --name-only '@{u}..HEAD' 2>/dev/null; } | sort -u )"
+# Only files this window added or edited count. Leftover dirt is ignored.
+now_files="$stamp_dir/session-now-files"
+list_file_fps > "$now_files"
+if [ -f "$snap_files" ]; then
+  changed="$(python3 - "$snap_files" "$now_files" <<'PY'
+import sys
+start = {}
+with open(sys.argv[1], encoding="utf-8") as fh:
+    for line in fh:
+        line = line.rstrip("\n")
+        if not line or "\t" not in line:
+            continue
+        path, fp = line.split("\t", 1)
+        start[path] = fp
+with open(sys.argv[2], encoding="utf-8") as fh:
+    for line in fh:
+        line = line.rstrip("\n")
+        if not line or "\t" not in line:
+            continue
+        path, fp = line.split("\t", 1)
+        if start.get(path) != fp:
+            print(path)
+PY
+)"
+else
+  changed="$( { git -C "$repo_root" status --porcelain 2>/dev/null | sed 's/^...//; s/^.* -> //'; \
+               git -C "$repo_root" diff --name-only '@{u}..HEAD' 2>/dev/null; } | sort -u )"
+fi
+
 if [ -n "$changed" ]; then
   data_re='(^|/)data/|(^|/)wiki/raw/|(^|/)market_feature_store/exports/|\.(parquet|duckdb|db|sqlite|csv|tsv|jsonl|ndjson|arrow|feather|xlsx|h5|pkl)$'
   non_data="$(printf '%s\n' "$changed" | grep -Ev "$data_re" || true)"
   if [ -z "$non_data" ]; then
     exit 0
   fi
+else
+  exit 0
 fi
 
 ack_cmd="$V/40_playbooks/check-writeback.sh ack"

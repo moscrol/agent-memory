@@ -50,15 +50,25 @@ if [ -n "$out" ]; then
   exit 1
 fi
 
-# new snapshot, only ingest data → allow
+# leftover code remains; only ingest data added → allow
 run snapshot
 mkdir -p "$tmp/wiki/raw/x"
 printf 'ingest\n' > "$tmp/wiki/raw/x/note.md"
 out="$(run </dev/null || true)"
 if [ -n "$out" ]; then
-  echo "FAIL: wiki/raw only should allow, got: $out" >&2
+  echo "FAIL: leftover code + new wiki/raw should allow, got: $out" >&2
   exit 1
 fi
+
+# editing a leftover code file after snapshot → block
+run snapshot
+printf 'edited-again\n' >> "$tmp/app.py"
+out="$(run </dev/null || true)"
+case "$out" in
+  *'"decision":"block"'*) ;;
+  *) echo "FAIL: editing leftover .py after snapshot should block, got: $out" >&2; exit 1 ;;
+esac
+run ack
 
 # remind prints the positive rule
 remind="$(run remind)"
