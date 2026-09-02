@@ -5,6 +5,7 @@
 #   check-writeback.sh           # Stop hook (reads stdin)
 #   check-writeback.sh snapshot  # SessionStart: record current git state
 #   check-writeback.sh remind    # print the session writeback reminder
+#   check-writeback.sh ack       # mark current git state as writeback-ok
 set -u
 
 repo_root="$(git rev-parse --show-toplevel 2>/dev/null)" || exit 0
@@ -22,10 +23,19 @@ stamp="$stamp_dir/writeback-ok"
 snap="$stamp_dir/session-start-state"
 
 state_key() {
+  # Status names alone miss "already dirty, then edited again".
+  # Hash HEAD + porcelain + patch + untracked mtime/size.
   {
     git -C "$repo_root" rev-parse HEAD 2>/dev/null || true
     git -C "$repo_root" status --porcelain=v1 2>/dev/null || true
+    git -C "$repo_root" diff 2>/dev/null || true
+    git -C "$repo_root" diff --cached 2>/dev/null || true
     git -C "$repo_root" diff --name-only '@{u}..HEAD' 2>/dev/null || true
+    (
+      cd "$repo_root" || exit 0
+      git ls-files --others --exclude-standard -z 2>/dev/null \
+        | perl -0 -ne 'chomp; next unless length; @s=stat $_; print "$s[9] $s[7] $_\n" if @s'
+    )
   } | cksum | awk '{print $1 ":" $2}'
 }
 
@@ -41,6 +51,12 @@ fi
 
 if [ "${1:-}" = "remind" ]; then
   echo "本窗完成了项目级任务之后，再按 $V/40_playbooks/devin-writeback.md 判断沉淀。问答、身份、只读排查不回写；开窗时已有的脏文件不是本窗任务。"
+  exit 0
+fi
+
+if [ "${1:-}" = "ack" ]; then
+  mkdir -p "$stamp_dir"
+  state_key > "$stamp"
   exit 0
 fi
 
@@ -88,8 +104,7 @@ if [ -n "$changed" ]; then
   fi
 fi
 
-ack_cmd="mkdir -p \"$stamp_dir\" && { git -C \"$repo_root\" rev-parse HEAD 2>/dev/null || true; git -C \"$repo_root\" status --porcelain=v1 2>/dev/null || true; git -C \"$repo_root\" diff --name-only '@{u}..HEAD' 2>/dev/null || true; } | cksum | awk '{print \$1 \":\" \$2}' > \"$stamp\""
-
+ack_cmd="$V/40_playbooks/check-writeback.sh ack"
 reason="本窗在 $repo 新增了代码/配置级改动，但还没完成记忆分层处理。请先判断沉淀层级：1) 项目级代码、配置、流程、架构、数据管线决策 → 按 .agent-memory/40_playbooks/devin-writeback.md 追加到 .agent-memory/20_projects/$repo.md 的「交接记录」；2) 稳定且可跨任务复用的方法论 → 提炼进 .agent-memory/10_knowledge/；3) 单次问答评分、用户纠偏、经验样本 → 写入项目内学习层（如 experience_cards.jsonl / corrections.jsonl），不要塞进项目交接记录。问答/身份/只读排查、以及开窗时已有的脏文件，都不回写。若本次已写入学习层或确认无需项目级 agent-memory 回写，请运行：$ack_cmd"
 printf '{"decision":"block","reason":%s}\n' "$(printf '%s' "$reason" | python3 -c 'import json,sys;print(json.dumps(sys.stdin.read()))')"
 exit 0

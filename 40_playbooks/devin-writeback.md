@@ -110,7 +110,7 @@ SessionStart 已明确把它切出注入）。
 ## Stop Hook 放行
 SessionStart 会写下 `$(git rev-parse --git-dir)/agent-memory/session-start-state`。Stop hook 拿它和当前 git 状态比：没快照或状态没变 → 放行；只有本窗新增了代码/配置级改动才拦截。
 
-如果 hook 因为本窗的代码/配置改动拦截，但你已经确认本次只需要写项目学习层、或确实没有项目级 Agent Memory 价值，可以按 hook 提示写入同一 `git-dir` 下的 `writeback-ok` 状态戳。本状态戳只对当前 git 状态有效；下一次改动会重新要求判断。
+如果 hook 因为本窗的代码/配置改动拦截，但你已经确认本次只需要写项目学习层、或确实没有项目级 Agent Memory 价值，在该仓根目录运行 `40_playbooks/check-writeback.sh ack`（vault 路径）。本状态戳只对当前 git 状态有效；下一次改动会重新要求判断。
 
 ## 红线
 - 不写任何密钥/token 到 vault（PAT、CC_REMOTE_EXEC_TOKEN 等一律不落库）。
