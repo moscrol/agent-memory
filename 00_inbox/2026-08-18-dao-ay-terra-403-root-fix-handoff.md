@@ -1,3 +1,13 @@
+---
+title: "[交接] Dao 渠道 ay/terra 403 循环 · 根治方案待执行（已被 08-19 同模型钉死取代）"
+type: inbox
+agent: devin
+source: Devin 会话 MJ 2026-08-18 深夜诊断交接（未动配置）；执行方案已由 2026-08-19-dao-same-model-pin-closeout.md 取代
+date: 2026-08-18
+tags: [inbox, handoff, dao, provider, superseded]
+status: superseded
+---
+
 # [交接] Dao 渠道 ay/terra 403 循环 · 根治方案待执行
 
 > **2026-08-19 已取代执行方案**：用户改口保留 ay/terra，改为同模型钉死。收尾见 `2026-08-19-dao-same-model-pin-closeout.md`。本文诊断仍有效，**不要再执行下方 L1 退役 / 关 provider**。

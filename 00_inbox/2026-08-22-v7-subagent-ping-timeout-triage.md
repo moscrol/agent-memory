@@ -1,3 +1,13 @@
+---
+title: V7 传感器工作单子代理 PING 超时分诊——根因未确认，僵死分 A/B 两型
+type: inbox
+agent: claude
+source: agent-run-triage skill 对 subagent run dc7242cd 的 trace-first 分诊（Claude Code 会话，2026-08-22；冻结 transcript 70 事件 + git/收据/终端文件取证）
+date: 2026-08-22
+tags: [inbox, triage, subagent, timeout, ipc, finance-workspace-private]
+status: draft
+---
+
 # Agent Run Triage Report
 
 ## Verdict

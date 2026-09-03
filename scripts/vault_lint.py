@@ -53,7 +53,7 @@ TYPE_DIRS = {
     "tutor-note": "70_tutor",
 }
 # agent 固定取值（frontmatter-spec）。all/any 用于面向所有/任意 agent 的约定与 playbook。
-AGENT_VALUES = {"devin", "codex", "grok", "claude", "human", "all", "any"}
+AGENT_VALUES = {"devin", "codex", "cursor", "grok", "claude", "human", "all", "any"}
 DATE_RE = re.compile(r"^\d{4}-\d{2}-\d{2}$")
 WIKILINK_RE = re.compile(r"\[\[([^\]|#]+)(?:[|#][^\]]*)?\]\]")
 CODE_RE = re.compile(r"```.*?```|`[^`\n]*`", re.DOTALL)

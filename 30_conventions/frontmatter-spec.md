@@ -17,7 +17,7 @@ tags: [convention, spec, core]
 |---|---|---|---|
 | `title` | ✅ | 人类可读标题 | `finhot 数据回填流程` |
 | `type` | ✅ | 笔记类型，见下表 | `knowledge` |
-| `agent` | ✅ | 创建/最后更新者；面向所有/任意 agent 的约定或 playbook 可用 `all` / `any` | `devin` / `codex` / `grok` / `claude` / `human` / `all` / `any` |
+| `agent` | ✅ | 创建/最后更新者（按**工具**记：Cursor 里跑的不论底座模型都记 `cursor`，Claude Code 记 `claude`）；面向所有/任意 agent 的约定或 playbook 可用 `all` / `any` | `devin` / `codex` / `cursor` / `grok` / `claude` / `human` / `all` / `any` |
 | `source` | ✅ | 信息来源（URL / 工具 / 对话 / 推断） | `https://...` / `grok-search` |
 | `date` | ✅ | 创建或更新日期 (YYYY-MM-DD) | `2026-06-28` |
 | `tags` | ✅ | 标签数组，便于检索 | `[finhot, data, pipeline]` |
@@ -44,7 +44,7 @@ tags: [convention, spec, core]
 - 日期统一 `YYYY-MM-DD`。
 - **`type` 只能取上表里的值**，`vault_lint.py` 对表外的值直接 ERROR（2026-08-05 起）。
   在此之前查表落空是静默放行的，`type: reading-queue` 就是这么混进 `10_knowledge/` 的。
-- `agent` 用小写固定值，方便聚合"谁写了什么"。**表外的值 `vault_lint.py` 直接 ERROR**（2026-08-12 起，与 `type` 同一条 fail-closed 纪律——此前只查有没有、不查是什么）。
+- `agent` 用小写固定值，方便聚合"谁写了什么"。**表外的值 `vault_lint.py` 直接 ERROR**（2026-08-12 起，与 `type` 同一条 fail-closed 纪律——此前只查有没有、不查是什么）。`cursor` 2026-09-03 入表：此前两篇 Cursor 会话写的笔记只能在「写 `cursor` 被 lint 拦」和「写 `claude` 撒谎」之间选，表要跟着真实写入者走，lint 才有资格 fail-closed。
 - `verified` 状态表示有人/某 Agent 核实过，可被下游放心引用；`draft` 表示待核实。
 - `70_tutor/` 必须先按 `tutor` skill（手动触发：`@tutor` 或 `@session-tutor`；自然语言“session tutor”也可）帮助用户理解，再给候选摘要；只有用户明确批准后才能写文件。
 - 用户批准表示内容可以落库，不自动等于事实已核验；仍有待核点时保留 `status: draft`。

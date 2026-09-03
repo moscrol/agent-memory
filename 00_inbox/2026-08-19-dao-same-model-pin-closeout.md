@@ -1,3 +1,13 @@
+---
+title: "[收尾] Dao 同模型钉死已执行 · ay/terra 保留"
+type: inbox
+agent: grok
+source: Cursor Grok 会话 2026-08-19 01:54（已改配置并对照活读数）；取代 2026-08-18-dao-ay-terra-403-root-fix-handoff.md 的 L1 退役方案
+date: 2026-08-19
+tags: [inbox, handoff, dao, provider, closeout]
+status: draft
+---
+
 # [收尾] Dao 同模型钉死已执行 · ay/terra 保留
 
 > 交接自：Cursor Grok · 2026-08-19 01:54 · **已改配置并对照活读数**

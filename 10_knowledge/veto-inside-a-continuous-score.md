@@ -1,7 +1,7 @@
 ---
 title: 一票否决不折进连续分——否决是阶跃函数，会把二值判断的抖动放大成分数抖动
 type: knowledge
-agent: claude
+agent: cursor
 source: finance-workspace-private 2026-08-31 rubric v2→v3 方差实测（commit 10018c3c，收据 ~/.finance-runtime/rubric-variance-ab.json）+ 2026-09-03 弃权率一等读数（docs/verification/2026-09-03-abstain-rate-baseline-offline.md）
 date: 2026-09-03
 tags: [knowledge, eval, llm-judge, ablation, failure-shape, methodology, core]
