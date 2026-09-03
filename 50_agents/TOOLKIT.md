@@ -1,7 +1,7 @@
 > **来源镜像**：canonical 在 `harness-reference/TOOLKIT.md`（`linxiaoqi5111-del/harness-reference` main）。
-> 本文件供云端 Agent / agent-memory 拉取使用；改内容请改 harness-reference 后同步。
-> pinned_sha256: 5ea14ede3d42f3a8f4e1b4c7a246558a46fe5c3a23309ee4a39721646cc4092b
-> pinned_at: 2026-08-14
+> 本文件供云端 Agent / agent-memory 拉取使用；改内容请改 harness-reference 后同步（`python3 scripts/sync_toolkit_mirror.py`）。
+> pinned_sha256: 31818f9a7f440632f55f07dbb2998ff5aa46122c5eb1f3fedea8594a23511935
+> pinned_at: 2026-09-03
 
 # 审查工具包
 
@@ -35,11 +35,41 @@
 | `agent-memory/scripts/graph_audit.py` | 能力图谱防漂移（`finance-agent-capability-graph` 的 exit-code 门） | 231 |
 | `agent-memory/scripts/vault_lint.py` | vault 质检门（把维护任务硬化成 exit code） | 179 |
 | `scripts/check_unread_fields.py` | **字段契约棘轮**：属性写了但全仓没人读。2026-08-12 那七例「契约与交付不符」里有三例是这个形状（`tel.degraded`/`recall_desc`/`fallback_reason` 记了从没往模型传）。存量 40 文件/100 字段免检，只拦新增 | 219 |
-| `finance/scripts/audit_deploy_ledger.py` | **部署切换账本对账**：ledger 最后 startup/switch 行 vs `/api/health` 的 `source_revision`，不一致 exit 1。防「8792 切了没人记」（a7e2d74f）。`check` 可挂夜间回检；测试 mock HTTP，别打 8792 | 156 |
+| `finance/scripts/audit_deploy_ledger.py` | **部署切换账本对账**：ledger 最后 startup/switch 行 vs `/api/health` 的 `source_revision`，不一致 exit 1。防「切了没人记」。`check` 可挂夜间回检；测试 mock HTTP，别打生产端口 | 160 |
 | `harness-reference/scripts/verify_sources.py` | 原文 sha256 与 manifest 一致性（已变异验证：追加一字节 → exit 1） | 62 |
 
 > ⚠ 门禁的通病见 [[gate-assertion-granularity]]：**只钉文件名的审计保不住符号**，
 > `exit 0` 必须自述它对哪个 revision 成立。
+
+### A+. 参数化契约符合性套件（0 档；2026-08-29 入库）
+
+参照实现：`finance/intelligence/tests/conformance/`（运行时后端缝，4+1 实现 × 8 不变量，
+43 pass / 3 skip / 1 xfail）与 `finance/intelligence/tests/conformance_tools/`（工具注册表缝，
+12 工具 × 7 不变量，83 pass）。分支 `test/runtime-conformance-suite` / `test/conformance-seam-census`。
+
+**失败形状**：行为**静默缺席**——链路上游照跑、下游机制不在场，消融实验与覆盖率审计都看不见
+（实例：codex 档判官照跑、修复静默跳过，`_resume_for_gap` 对无 resume 的 session 返回 None 零收据；
+2026-06-22 sector 空壳回填也是同族：行数与覆盖率全绿、值是空的）。散装单测各测各的，
+没有一张「实现 × 不变量」的对照面，缺席只能靠人读代码发现。
+
+**关键设计**（三件分离，缺一件就退化）：
+1. **参数表**（一套夹具 × N 实现，`pytest.mark.parametrize` 逐实现跑同一场景脚本，
+   每个实现一个 driver 把场景翻译成自己的输入形状）；
+2. **能力声明表**（每实现逐不变量声明 `SUPPORTED / REDUCED / UNSUPPORTED_EXPLICIT /
+   UNSUPPORTED_DECLARED / NOT_APPLICABLE`，非 SUPPORTED 构造器强制带代码出处理由；
+   **「声明不支持」必须显式**——上游照跑而下游缺席的，要求运行时收据，静默跳过判红；
+   机制整体不在场的，声明表即显式化，断言只防「加了机制不改声明」）；
+3. **棘轮 baseline**（存量红登记带原因与日期 → strict xfail；红不在表 → fail；
+   绿在表 → XPASS 报错逼清账；只许缩不许涨；**阳性对照入 baseline** 证明套件有牙）。
+
+**收录判据（资产的一半）**：一条缝 ≥2 个实现、且实现各自独立演化，才值得建套件；
+N=1 的登记「不够格及原因」防后人重发现（技能桥刻意单开是设计约束不是缝）。
+「实现」要数装配面：工具缝的 12 个 runner 契约由注册表单点强制（默认面全绿是如实），
+真正的漂移入口在生产装配换 schema/parse——套件钉注册表层，装配一致性交 pre-commit 门禁。
+
+**移植要改什么**：backends/参数表与夹具替身按目标仓重写（每实现找它的注入缝：
+模型客户端 / SDK runner / CLI command runner / 脚本动作）；判据与三件结构不变；
+声明表初值从一次零成本核查表抄，执行中以代码为准回写核查表。
 
 ---
 
@@ -107,6 +137,55 @@
 | `intelligence/eval/presentation_diversity.py` | 反模板度量（结构相似度，**顾问性不是阻断门**） | 105 |
 | `intelligence/eval/gold_review.py` + `scripts/gold_review_workbench.py` | 人工 Gold 评审，**不自动批准候选** | 817 / 336 |
 | `scripts/research_judge.py` / `scripts/dual_blind_*.{py,sh}` | 双盲对照与判定 | — |
+| `intelligence/eval/abstention.py` + `scripts/offline_abstain_baseline.py` | 弃权分类器（`evidence_gap` / `unsupported` / `judge_blocked` / `deadline_exhausted` / `other`）与逐题 `abstained` 字段；离线从已有产物回溯基线，零配额（见 D++） | 298 / 159 |
+
+---
+
+### D+. 消融三护具（消融/评测开跑前的卫生条件；2026-08-29 收口）
+
+没带护具的消融会产出**反向决策**：本仓「市场态知识注入门控」的立项依据是一次 Δ=-2.0
+的消融读数，后来查明门控自上线起一次都没触发过（钥匙在半路被翻译、永远到不了锁孔），
+那个读数测的是一个没生效的开关——纯噪声（2026-08-27）。三件护具，开跑前逐项过：
+
+1. **装上了证明（wiring proof）**：消融判定前，必须先有「组件在实验臂真实生效」的
+   结构性证据——生效值断言或 live wiring 探针（08-28 H2 消融的五环绿：plan→control→
+   context→prompt 渲染逐环取证）。⚠ artifact 里没有 ≠ prompt 里没有，wiring 证明要
+   另做，不能拿产物缺席当证据。判据：能指出「关掉它，哪一行可观测输出会变」。
+2. **噪声底（null pair）**：实验里塞一组「两臂本该完全相同」的样本（同码两臂、或
+   题集里门控覆盖不到的子集），其 Δ 真值必为 0，量出来的波动就是判官+run 方差。
+   实测两例：gated 子集 n=6 → sd 2.67/20 分、n=5 门槛 |Δ|>2.4（08-27）；同码两臂
+   38 题 → 见过题门槛 0.110、未见题 0.056，且 85–89% 的题 Δ 恰为 0、一动整题翻面
+   ——**聚合均值可判，单题结论不可判**（08-27 四臂）。代价只是牺牲一个臂的对照语义，
+   与信号臂共享方差，免费。低于噪声底的 Δ 一律不许写进结论。
+3. **变异测试（mutation）**：判分器/门禁自身先变异验证再上岗——改坏一处，它必须红。
+   两次实战：抽数正则「千分位在前」的有序交替在 26531.66 上先吃 265 就宣告成功，
+   真值永远匹配不上（读代码看不出，变异抓的）；判分器 v2 把「显式拒绝未来数据」的
+   诚实披露判成泄漏，也是变异 C 抓的。操作纪律见 B 档「三条量具陷阱」3/4/5 条
+   （变异先确认落盘、删整句不改一半、量具必须覆盖被改的那一步）。
+
+顺序即依赖：wiring 不过，噪声底和 Δ 都无意义；判分器没过变异，所有分数作废。
+
+---
+
+### D++. 弃权率是一等读数，与均分并列（2026-09-03 入库）
+
+**失败形状**：一个 100% 弃权的系统零错误、分数不难看、产品价值为零——finance 四臂 38 题
+读数里组件臂 11.1 分背后是未见题 10/10 全弃权。均分把「答错」和「不答」搅在一起，
+消融 Δ 读不出砍掉的是哪一个。
+
+三条纪律（`run_quality_ablation.py` 的 `aggregate_components()` 为聚合单一真本源）：
+
+1. **不折进总分**：弃权是一票否决式二值量，不折进连续分。报告两个数一起念——
+   「均分 X / 弃权率 Y%」，单念任一个都不许。
+2. **弃权要分类**：判官不可用扣稿（`judge_blocked`）是协变量，不是模型弃权——
+   08-27 回溯基线里生产臂 8 弃里 7 道是它，模型自弃只有 1 道。重跑前先看
+   `judge_unavailable_count`，否则把判官故障读成产品退化。
+3. **二值量方差更抖**：噪声底（两臂同码样本）现算门槛，不套连续分的 |Δ| 门槛。
+
+**量具覆盖警告**（实测踩过）：消融壳走的是 legacy `cli ask` 管线，不经 episode 链——
+改 episode 链的刀在这台量具上读不到。「我改的这一步，量具走不走得到」先问再跑
+（B 档陷阱 5 同条）。基线收据：finance
+`docs/verification/2026-09-03-abstain-rate-baseline-offline.md`。
 
 ---
 
@@ -125,6 +204,7 @@
 | `scripts/replay_operator_routing.py` | 用真实历史提问回放 operator 路由判别 | 359 |
 | `scripts/verify_l2_recovery_artifacts.py` | L2 恢复产物只读审计 | 216 |
 | `scripts/loop_health_report.py` | 把散在两仓的评估/沉淀/入库信号聚合成一页周报 | 205 |
+| `finance/scripts/audit_ceiling_sensors.py` | **封上限四形状常驻计量**：扫 runs 窗，聚合 A 引了没绑 / B 契约不可满足 / C 破坏发生 / D 预取名漏网。缺 `projection_cited_unbound_count` 报「不可判」不报 0。B/C 非零 exit 1，可挂夜检。金标：E4 `run_20260821_171744_929436` 报 C+A 不可判；B 臂 `run_20260821_164659_624916` 干净 | 395 |
 
 ---
 
