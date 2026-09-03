@@ -109,16 +109,26 @@ if [ "$BRANCH" != "$SYNC_BRANCH" ]; then
   exit 0
 fi
 
-# 2) pull remote with rebase; abort cleanly on conflict (leave for manual fix)
-if ! git -c user.name="$NAME" -c user.email="$EMAIL" pull --rebase --autostash origin main; then
-  echo "$(ts) [err] pull/rebase failed (conflict?) -- aborting, needs manual resolution"
+# 远端取自仓库自己的约定 remote.pushDefault（30_conventions/preferences.md，2026-08-15 起
+# 日常远程是本机 Gitea），不再写死 origin。实测（2026-09-03）：GitHub origin 自 08-14 封禁后
+# 一直 404，本脚本每 3 分钟收到 "Repository not found"，[err] 行却写着 "(conflict?)"——
+# 把死远端读成了冲突，出错原因从没进过 out.log；gitea/main 停在 08-28，本地 main 攒到
+# 81 个未推提交才被人发现。教训同上面那段：「同步在跑」与「内容到了远端」不是一件事，
+# 而且错误文案若替 git 猜原因，猜错的那次就是最贵的那次。
+REMOTE="$(git config --get remote.pushDefault || echo origin)"
+
+# 2) pull remote with rebase; abort cleanly on failure (leave for manual fix).
+#    失败时把 git 自己的 stderr 打进日志，不再替它归因。
+if ! pull_out="$(git -c user.name="$NAME" -c user.email="$EMAIL" pull --rebase --autostash "$REMOTE" main 2>&1)"; then
+  echo "$(ts) [err] pull/rebase from '$REMOTE' failed -- aborting, needs manual resolution:"
+  printf '%s\n' "$pull_out" | tail -n 5 | sed "s/^/$(ts) [err]   /"
   git rebase --abort 2>/dev/null
   exit 1
 fi
 
 # 3) push if we have unpushed commits
-if [ -n "$(git log origin/main..HEAD --oneline 2>/dev/null)" ]; then
-  if git push origin main; then
+if [ -n "$(git log "$REMOTE/main..HEAD" --oneline 2>/dev/null)" ]; then
+  if git push "$REMOTE" main; then
     echo "$(ts) [push] pushed local commits"
   else
     echo "$(ts) [err] push failed"
