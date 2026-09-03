@@ -1,6 +1,6 @@
 > **来源镜像**：canonical 在 `harness-reference/TOOLKIT.md`（`linxiaoqi5111-del/harness-reference` main）。
 > 本文件供云端 Agent / agent-memory 拉取使用；改内容请改 harness-reference 后同步（`python3 scripts/sync_toolkit_mirror.py`）。
-> pinned_sha256: 31818f9a7f440632f55f07dbb2998ff5aa46122c5eb1f3fedea8594a23511935
+> pinned_sha256: cc0e05c04f94d282ad00664acd0ed24b1fd9333ae79f24edfe89accc138ce7a0
 > pinned_at: 2026-09-03
 
 # 审查工具包
@@ -25,18 +25,19 @@
 | `pytest.ini` | **本身就是门禁**：`norecursedirs` 钉死收集面。不设它，主树 `tmp/` 下 4 个历史 clone 的同名包会撞成 `1031 errors during collection`，一条测试都跑不了 | — |
 | `intelligence/tests/` + `tests/` | 294 个测试文件 | — |
 | `scripts/layer_audit.py` | **领域层不得依赖 loop 底座** —— [[harness-layer-split]] 那条原则的可执行版 | 344 |
-| `scripts/check_agent_workspace_facts.py` | 提交时把「你在哪棵树、用哪个解释器」摆到 agent 眼前 | 131 |
-| `scripts/check_db_lock.py` | 复盘前置闸门：DuckDB 是否被占锁/残留进程，快速失败 | 62 |
-| `scripts/check_rag_readiness.py` | 问答前 RAG 就绪自检：向量层能不能当证据用 | 114 |
-| `scripts/check_kb_freshness.py` | 知识库证据断更监控，超阈值告警 | 89 |
-| `scripts/check_market_snapshot_contract.py` | 快照数据契约 | 26 |
+| `scripts/check_agent_workspace_facts.py` | 提交时把「你在哪棵树、用哪个解释器」摆到 agent 眼前 | 196 |
+| `scripts/check_db_lock.py` | 复盘前置闸门：DuckDB 是否被占锁/残留进程，快速失败 | 91 |
+| `scripts/check_rag_readiness.py` | 问答前 RAG 就绪自检：向量层能不能当证据用 | 150 |
+| `scripts/check_kb_freshness.py` | 知识库证据断更监控，超阈值告警 | 149 |
+| `scripts/check_market_snapshot_contract.py` | 快照数据契约 | 68 |
 | `scripts/validate_marketing_contracts.py` | 只读校验 `docs/marketing/` 数据契约 | 142 |
 | `scripts/validate_agent_cases_grounding.py` | 用例 grounding 校验 | 166 |
 | `agent-memory/scripts/graph_audit.py` | 能力图谱防漂移（`finance-agent-capability-graph` 的 exit-code 门） | 231 |
-| `agent-memory/scripts/vault_lint.py` | vault 质检门（把维护任务硬化成 exit code） | 179 |
-| `scripts/check_unread_fields.py` | **字段契约棘轮**：属性写了但全仓没人读。2026-08-12 那七例「契约与交付不符」里有三例是这个形状（`tel.degraded`/`recall_desc`/`fallback_reason` 记了从没往模型传）。存量 40 文件/100 字段免检，只拦新增 | 219 |
+| `agent-memory/scripts/vault_lint.py` | vault 质检门（把维护任务硬化成 exit code） | 271 |
+| `scripts/check_unread_fields.py` | **字段契约棘轮**：属性写了但全仓没人读。2026-08-12 那七例「契约与交付不符」里有三例是这个形状（`tel.degraded`/`recall_desc`/`fallback_reason` 记了从没往模型传）。存量 40 文件/100 字段免检，只拦新增 | 236 |
 | `finance/scripts/audit_deploy_ledger.py` | **部署切换账本对账**：ledger 最后 startup/switch 行 vs `/api/health` 的 `source_revision`，不一致 exit 1。防「切了没人记」。`check` 可挂夜间回检；测试 mock HTTP，别打生产端口 | 160 |
-| `harness-reference/scripts/verify_sources.py` | 原文 sha256 与 manifest 一致性（已变异验证：追加一字节 → exit 1） | 62 |
+| `harness-reference/scripts/verify_sources.py` | 原文 sha256 与 manifest 一致性（已变异验证：追加一字节 → exit 1） | 72 |
+| `harness-reference/scripts/check_refs.py` | **三件套跨仓引用核对**：引用的 finance / vault 文件在不在、写死的行数对不对（沉淀纪律 5 的 exit-code 化）。**读姊妹仓的 `gitea/main` 不读工作树**（首版读工作树，上岗一小时就把别人未提交的 142→280 行改动报成 kit 漂移——「树是脏的」这条危险对量具同样成立）。缺失 exit 1；漂移默认只报、`--fix` 一键改口、`--strict` 变红。2026-09-03 首跑：227 条引用里 28 处行数已漂、2 个脚本已被 finance 归档仍当活的列着。已变异验证：路径改坏 → exit 1，行数改坏 → 报漂移 | 324 |
 
 > ⚠ 门禁的通病见 [[gate-assertion-granularity]]：**只钉文件名的审计保不住符号**，
 > `exit 0` 必须自述它对哪个 revision 成立。
@@ -79,13 +80,13 @@ N=1 的登记「不够格及原因」防后人重发现（技能桥刻意单开�
 |---|---|---|---|
 | **变异验证**（手法，非脚本） | 改坏被测逻辑，确认测试真的会红。不做这步，你可能写了一条永远绿的测试 | 0 | — |
 | **活性检查**（手法，非脚本） | 改动路径这次有没有被执行到。没执行到 = 无效样本 | 0 | — |
-| `intelligence/eval/normalize_harness_trace.py` | 把异构 harness 事件归一成共享的**九步 L1 profile** —— 喂给 `agent-run-triage` skill | 0 | 1029 |
+| `intelligence/eval/normalize_harness_trace.py` | 把异构 harness 事件归一成共享的**九步 L1 profile** —— 喂给 `agent-run-triage` skill | 0 | 1052 |
 | `agent-run-triage` skill | trace-first 事后分诊，定位第一次出错的 step/span，输出 Evidence→Finding→Path | 0 | — |
-| `scripts/run_episode_seam_ladder.py` **offline**（`OFFLINE_PROVIDER="scripted"`） | 整条 episode 装配跑不跑得通 | **0** | 1684 |
+| `scripts/run_episode_seam_ladder.py` **offline**（`OFFLINE_PROVIDER="scripted"`） | 整条 episode 装配跑不跑得通 | **0** | 1695 |
 | `scripts/baseline_diff.py` **`--mode diff`** | **失败归属**：失败集合按测试 ID 与基线对照，报 新增/消失/共有。只有「新增」是本轮责任 —— 计数相等 ≠ 同一批失败（修好 3 条、引入 3 条，总数不变） | 0 | 357 |
 | `scripts/baseline_diff.py` **`--mode probe`** | **「零行为变更」的证伪器**：把 HEAD 改动的测试搬到未改动的基线树上跑。因**断言**变红 ⇒ 同一输入两棵树行为不同，当场证伪；ImportError 单列为「新符号」，不算证据 | 0 | 同上 |
 | `scripts/probe_tool.py` | **单个工具的试验场**：多久、返回什么、空结果什么样。独立 120s 预算、默认 `--repeat 2`（本仓检索链有一次性预热成本）。⚠ **路由用 stub、不调模型**——测不了「模型会不会正确构造参数」 | 低 | 356 |
-| `scripts/probe_tool_arguments.py` | **模型构造参数的合法率**：给定 schema，模型写出的参数能不能过校验。走生产 registry + prompt builder，校验停在 `_compile_query`（纯 SQL 构造、不碰 DB），所以配额只花在「让模型写一次参数」上。`--follow-up N` 把**生产会发的拒绝消息**喂回去测自愈率；`--dry-run` 零配额验管道 | 低 | 631 |
+| `scripts/probe_tool_arguments.py` | **模型构造参数的合法率**：给定 schema，模型写出的参数能不能过校验。走生产 registry + prompt builder，校验停在 `_compile_query`（纯 SQL 构造、不碰 DB），所以配额只花在「让模型写一次参数」上。`--follow-up N` 把**生产会发的拒绝消息**喂回去测自愈率；`--dry-run` 零配额验管道 | 低 | 807 |
 | `scripts/probe_provider_latency.py` | 中转延迟、稳定性、token 上限行为（episode 量级） | 低 | 276 |
 | `scripts/diagnose_compose_monotony.py` | 扫近 N 个 run 统计降级原因 + D 块重合度 | 0 | 215 |
 | `scripts/check_db_lock.py` / `check_rag_readiness.py` | 排除环境假红（见下方"三条量具陷阱"） | 0 | — |
@@ -114,11 +115,11 @@ N=1 的登记「不够格及原因」防后人重发现（技能桥刻意单开�
 
 | 工具 | 判定什么 | 行数 |
 |---|---|---|
-| `scripts/run_episode_seam_ladder.py` **live** | 一道真实市场问题跑完增量装配的 Episode。收据落 `~/.finance-runtime/seam-ladder/` | 1684 |
+| `scripts/run_episode_seam_ladder.py` **live** | 一道真实市场问题跑完增量装配的 Episode。收据落 `~/.finance-runtime/seam-ladder/` | 1695 |
 | `scripts/run_agent_episode_ab.py` | bare / current / continuous-episode 三臂隔离对照 —— **消融实验的执行器** | 676 |
-| `scripts/run_agent_runtime_benchmark.py` | 冻结用例跑不同 AgentRuntime 后端 | 1942 |
-| `intelligence/eval/runtime_backend_benchmark.py` | provider-neutral 结果契约 | 757 |
-| `scripts/smoke_workbench_self_use.py` | 脱敏的端到端 Workbench 对话冒烟 | 1184 |
+| `scripts/run_agent_runtime_benchmark.py` | 冻结用例跑不同 AgentRuntime 后端 | 1989 |
+| `intelligence/eval/runtime_backend_benchmark.py` | provider-neutral 结果契约 | 785 |
+| `scripts/smoke_workbench_self_use.py` | 脱敏的端到端 Workbench 对话冒烟 | 1247 |
 | `scripts/semantic_acceptance.py` | 三道代表性长尾题重放 | 380 |
 
 ---
@@ -127,8 +128,8 @@ N=1 的登记「不够格及原因」防后人重发现（技能桥刻意单开�
 
 | 工具 | 判定什么 | 行数 |
 |---|---|---|
-| `intelligence/eval/acceptance.py` | 28 题验收台账（**进度只从这里生成，不从记忆里写**） | 884 |
-| `intelligence/eval/acceptance_verdict.py` | fail-closed 判定 | 1046 |
+| `intelligence/eval/acceptance.py` | 28 题验收台账（**进度只从这里生成，不从记忆里写**） | 1505 |
+| `intelligence/eval/acceptance_verdict.py` | fail-closed 判定 | 1163 |
 | `intelligence/eval/acceptance_diff.py` | **逐题对比两次运行**，报「28 题里哪几题变了」，不报一个混合分数 ← 方差治理的可执行版 | 203 |
 | `intelligence/eval/acceptance_axes.py` | 交付/信息/可信度三轴确定性投影 | 117 |
 | `intelligence/eval/acceptance_comparison.py` / `_observations.py` / `_runs.py` | 完整性绑定的对比 / sidecar / run 目录 | 352 / 549 / 116 |
@@ -175,7 +176,8 @@ N=1 的登记「不够格及原因」防后人重发现（技能桥刻意单开�
 
 三条纪律（`run_quality_ablation.py` 的 `aggregate_components()` 为聚合单一真本源）：
 
-1. **不折进总分**：弃权是一票否决式二值量，不折进连续分。报告两个数一起念——
+1. **不折进总分**：弃权是一票否决式二值量，不折进连续分（教训出处 vault
+   [[veto-inside-a-continuous-score]]：08-31 rubric v2 把否决塞进 `truth_boundary`，方差反而变大）。报告两个数一起念——
    「均分 X / 弃权率 Y%」，单念任一个都不许。
 2. **弃权要分类**：判官不可用扣稿（`judge_blocked`）是协变量，不是模型弃权——
    08-27 回溯基线里生产臂 8 弃里 7 道是它，模型自弃只有 1 道。重跑前先看
@@ -196,15 +198,15 @@ N=1 的登记「不够格及原因」防后人重发现（技能桥刻意单开�
 | 工具 | 判定什么 | 行数 |
 |---|---|---|
 | `intelligence/eval/capability_monotonicity.py` | **约束有没有让 agent 变得更没能力**。确定性、无副作用、不调 LLM 也不调 runtime | **899** |
-| `intelligence/eval/synthesis_health.py` | 合成健康度**四态**：`full_pass` / `released_unverified` / `template_fallback` / `not_synthesized`。旧产物计入 `unknown` 而非默认算好 | 346 |
-| `scripts/scan_grounded_composer_runs.py` | 离线扫 shadow 产物，报**删除率 / 假绿 / 必需输出存活** | 133 |
+| `intelligence/eval/synthesis_health.py` | 合成健康度**四态**：`full_pass` / `released_unverified` / `template_fallback` / `not_synthesized`。旧产物计入 `unknown` 而非默认算好 | 351 |
+| `scripts/archive/scan_grounded_composer_runs.py` | 离线扫 shadow 产物，报**删除率 / 假绿 / 必需输出存活**。⚠ finance 2026-08-20 以「全仓零引用」归档（`git mv`，可移回），列出不等于在用 | 133 |
 | `scripts/reconcile_tool_outputs.py` | 对账历史 run：实际 fulfilled 的 `output_id` 及绑它的工具 | 710 |
 | `intelligence/eval/grounded_replay.py` | **冻结输入重放**：读已完成 run 的产物，重建生产 `AnswerSpec`，复用生产 registry/prompt builder，跳过检索 | 808 |
 | `intelligence/eval/fidelity_replay.py` + `scripts/fidelity_replay_eval.py` | 确定性保真与严格 PIT 重放 | 1144 / 224 |
 | `scripts/replay_operator_routing.py` | 用真实历史提问回放 operator 路由判别 | 359 |
-| `scripts/verify_l2_recovery_artifacts.py` | L2 恢复产物只读审计 | 216 |
+| `scripts/archive/verify_l2_recovery_artifacts.py` | L2 恢复产物只读审计。⚠ 同上，2026-08-20 归档 | 219 |
 | `scripts/loop_health_report.py` | 把散在两仓的评估/沉淀/入库信号聚合成一页周报 | 205 |
-| `finance/scripts/audit_ceiling_sensors.py` | **封上限四形状常驻计量**：扫 runs 窗，聚合 A 引了没绑 / B 契约不可满足 / C 破坏发生 / D 预取名漏网。缺 `projection_cited_unbound_count` 报「不可判」不报 0。B/C 非零 exit 1，可挂夜检。金标：E4 `run_20260821_171744_929436` 报 C+A 不可判；B 臂 `run_20260821_164659_624916` 干净 | 395 |
+| `finance/scripts/audit_ceiling_sensors.py` | **封上限四形状常驻计量**：扫 runs 窗，聚合 A 引了没绑 / B 契约不可满足 / C 破坏发生 / D 预取名漏网。缺 `projection_cited_unbound_count` 报「不可判」不报 0。B/C 非零 exit 1，可挂夜检。金标：E4 `run_20260821_171744_929436` 报 C+A 不可判；B 臂 `run_20260821_164659_624916` 干净 | 688 |
 
 ---
 
@@ -225,6 +227,7 @@ N=1 的登记「不够格及原因」防后人重发现（技能桥刻意单开�
 | 工具 | 判定什么 |
 |---|---|
 | `harness-reference/scripts/verify_sources.py` | 原文与 manifest 的 sha256 |
+| `harness-reference/scripts/check_refs.py` | 三件套引用的跨仓文件存在性 + 行数（`--fix` 改口；姊妹仓按 `gitea/main` 读，`--worktree` 才读工作树）；仓内引用归上面两件与 `check_topics.py` |
 | `harness-reference/scripts/restore_sources.sh` | 按 pin 的 commit 稀疏恢复三本书 |
 | `grep -n 关键词 INDEX.md` → `grep -rn sources/ upstream/` → **Read 整章** | 检索三步，不做向量化 |
 
