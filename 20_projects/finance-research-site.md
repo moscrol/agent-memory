@@ -49,7 +49,7 @@ npm run build
 |---|---|---|---|
 | 0812-0813 128 篇批量集成 | cursor | 完成 | #157 已合 main；#158 pr-checks 防 llms 冲突；#15 关闭不采用 wechat-adapt |
 | 工作流路径对齐 a77 | cursor | 完成 | #159 已合；禁 git add .；仓内 docs/content-matrix；RAW_DIR 回退 |
-| 一日一篇（自动管线 0903 起投运） | devin | done | 明晚 21:00 自动推 stablecoin；管线 ~/公众号/pipeline（launchd com.a77.publish-daily），草稿箱 Playwright 需登录态有效；队列外红线不豁免 |
+| 一日一篇（自动管线） | devin | done | 2026-09-04 稳定币 已上线，下一篇 solid-state-transformer；管线 ~/公众号/pipeline |
 
 ## 交接记录
 - 2026-09-03（晚）· devin · **逐日发布自动管线投运**：用户指令「每天定时推一篇+出 html+复制到公众号草稿箱」。brainstorming 三问定案（全自动上线/浏览器自动化进草稿箱/晚9点跑次次通知），方案 A（本机 launchd+独立管线仓+Playwright）获批。建成 `~/公众号/pipeline/`（独立 git 仓，12 commits）：9 个幂等 step（预检/选稿/恢复/验证/构建/发布/HTML/草稿箱/通知）+ run_daily 断点续跑 + DRY_RUN 模式。核心件：md2wechat.mjs 确定性转换器（根除手写 HTML 乱码）+ check_html_conformance.mjs 6 项硬门禁（数据一致性 md=html 逐 token、h2=12、FAQ Q1-Q5、尾部三件套、U+FFFD=0、敏感词=0，fail-closed 不过不进草稿箱）+ cover.mjs 封面卡（900×383）。验收：折叠屏自动版 vs 手工版对照（数据零丢失、h2/表格一致；h3/金句密度差为人工加工项，用户确认接受自动版）；stablecoin DRY_RUN 全链 9 步全绿+清理回 db6aa02。launchd com.a77.publish-daily 已加载（每日 21:00，caffeinate 防睡眠）；红线豁免已写入网站仓 CLAUDE.md/AGENTS.md（61e4bf9，仅限 restore 队列分支）。踩坑记录：`$SLUG（` 全角括号被 bash 并入变量名→\${VAR}；`if ! cmd` 吃掉退出码→`|| { rc=$?; }`；范围连字符 59%-61% 与负号同形→校验器统一不捕负号；--login 被参数校验提前拦截→登录模式前置。草稿箱当晚实弹验证成功（用户指令「存到草稿箱其他我自己修改」）：折叠屏草稿已入草稿箱（标题+正文+自动封面全过，492e758 按诊断重写交互——微信新版编辑器 #title 是隐藏 textarea、标题是可见 contenteditable、正文是主页面 ce 注入、无 iframe；失败自动截图）。分工定型：机器推草稿箱→用户人工润色后发布。首航：明晚 21:00 自动推 stablecoin。
