@@ -92,6 +92,7 @@ DuckDB → detect_turning_points.py / backtest_sector.py → 信号+板块边际
 | delta package 契约强化（manifest v1 / 多维校验 / 安全解压 / 原子回滚 / data-quality CI）| devin | doing | PR #179 待 review/merge，尚未合并；后续单独做历史债务清洗与环境 blueprint |
 | 忠实度 / 历史重放验收 | devin → 用户审定 | doing | #197→#201 已合并；a77 固定 runtime `ea86010c` 与 20:05 daily-agent、20:30 PIT、20:45 acceptance LaunchAgent 已上线，等待 7/13–7/17 前向产物及 claim-level Gold 双审；`decision_eligible=false` |
 | Code Map 产品入口与运行路径导航 | codex | done（分支未合） | `codex/code-map-request-loop@acf7af05`：撤销误导性的 L0–L4 单链与强制视图矩阵，改按真实产品入口组织 Narrative；full build 会回收过期页；18,325 nodes / 196,048 edges / 1,033 flows / 10 communities；40 passed + 3 个既有 skip；未 push、未合 main。 |
+| G-05 `market_stage` 两套写法归一 | codex | done（分支未合） | `fix/g05-market-stage-normalize@cf060a43`：标签层统一去掉末尾「阶段」别名，`LABEL_VERSION` 升 v3；主库不改，旁路库已重建并复跑四条第五刀规则。验收正文：`docs/verification/2026-09-06-g05-market-stage.md` |
 
 ## 🚦 Agent Runtime 线路（2026-08-05 用户决策，跑之前必读）
 
@@ -683,3 +684,4 @@ per-user 不是进程级；`runtime_backend_readiness` 这个全局探针看不�
 - 2026-08-25 · grok · **#387 已合并且 8792 已切 `1c1a0067058d`**（用户明示提交合并切端口；回滚=`3eb0abf3fa57`，锚 `~/.finance-runtime/cutover-20260825k-rollback-8792.txt`）。全量 6450P/0F、frontend 绿、readiness 13/13、账本对齐。切后冻结题探针 `run_20260825_155459_372046`：`question_type=disclosure_scan` / subject=医药、科技，金标准 7 码全在公开稿，不是空壳；`disclosure_scan_pack_partial` 因回购页帽。未动 8796/8802。正文 `~/.finance-runtime/cutover-20260825k-8792.md`。
 - 2026-08-25 · grok · **板块个股利好公告扫描包 spec 升 v1.1（核稿点头 A，未实施）**：live 题「医药和科技板块有哪些个股有比较利好的公告」被题材研究吃掉后交空壳。方案锁定新题型 `disclosure_scan` + 宇宙∩巨潮∩分层，P0 纯包渲染。核稿补四条：每词 ≤3 页、整包 ≤45s 超时 `partial`；宇宙 `max(trade_date) WHERE trade_date <= as_of`、CI 禁连生产库；增持档 + unclassified 必进 `excluded`；`RouteRow.capabilities=()` 且 `compose=False`。残差写手挪 P1。未开实施树、未切端口。→ `docs/superpowers/specs/2026-08-25-sector-disclosure-scan-design.md`；方法论 `[[deterministic-prefetch-llm-residual]]`
 - 2026-08-25 · grok · **披露扫描包 P0 已落干净树，随后经 #3
+- 2026-09-06 · codex · **G-05 `market_stage` 归一完成**：标签层 canonical projection + `LABEL_VERSION` v3，旁路库重建后四条第五刀规则整体结论保持；分支 `fix/g05-market-stage-normalize@cf060a43`，验收 `docs/verification/2026-09-06-g05-market-stage.md`。
