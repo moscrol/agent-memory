@@ -169,6 +169,7 @@ flowchart LR
 
 | 节点 | 所在仓库 | 主要路径 | 作用 |
 |---|---|---|---|
+| 方法验证实验（在途） | finance | `scripts/method_validation.py::cmd_history@feat/method-validation-loop`、`scripts/method_validation.py::cmd_capture@feat/method-validation-loop`、`scripts/method_validation.py::cmd_recheck@feat/method-validation-loop`、`intelligence/services/method_validation/store.py::read_record@feat/method-validation-loop` | 固定方法协议→同日三组历史对照→当日冻结成员→后五日回检；同日幂等、实际时间门、不可覆盖摘要与旧档可读。只读标签旁路，独立研究台账；当前 research_only、禁决策/晋升，不接 runtime 或旧 lifecycle。代码 e41ef60b，240 项相关回归通过，未合 main；R-20260908-05。 |
 | CLI 总入口 | finance | `intelligence/cli.py` | 聚合 ask、daily、theme、l3、foresight、checkpoint、dream 等命令 |
 | 飞书 IM 入口（已退役） | finance | `intelligence/cli.py::cmd_feishu_bot`、`intelligence/chat/feishu_bot.py::run` | shim：stderr 说明后 exit 2，不连 WebSocket。问答走 ask / Workbench Episode |
 | 问答入口 | finance | `intelligence/services/ask.py` | 多源检索、模块 fan-out、compose 入口 |
