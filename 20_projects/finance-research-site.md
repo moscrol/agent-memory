@@ -49,7 +49,7 @@ npm run build
 |---|---|---|---|
 | 0812-0813 128 篇批量集成 | cursor | 完成 | #157 已合 main；#158 pr-checks 防 llms 冲突；#15 关闭不采用 wechat-adapt |
 | 工作流路径对齐 a77 | cursor | 完成 | #159 已合；禁 git add .；仓内 docs/content-matrix；RAW_DIR 回退 |
-| 一日一篇（自动管线） | devin | done | 2026-09-06 制冷剂 已上线，下一篇 gpu；管线 ~/公众号/pipeline |
+| 一日一篇（自动管线） | devin | done | 2026-09-07 GPU 已上线，下一篇 advanced-packaging；管线 ~/公众号/pipeline |
 
 ## 交接记录
 - 2026-09-06（晚）· devin · **SIGPIPE 竞态误判修复 + 制冷剂草稿补落**：用户问「今天自动推送+落草稿做了吗」。排查：21:00 launchd 准时触发，00–04 全过，05 步 wrangler 明明 Deployed 成功却判 FAIL——根因 `cmd | tee | grep -q` 三连管：grep -q 首行命中即退出，上游 tee/wrangler 收 SIGPIPE(141)，`pipefail` 把成功部署判成失败（**竞态**：输出越长越易撞，09-04 输出短侥幸逃过，09-05/09-06 连续两天同死法）。**修法（pipeline d66e4d0）**：命令替换先拿完整输出与真实 rc（`OUT=$(cmd 2>&1) || die`），再 `grep <<<"$OUT"`——保留 wrangler 真失败检出，无竞态；03 lint 同款一并修；01 步 BSD sed 不认 `\s` 致标题带前导空格，改 `[[:space:]]`。当天补救：制冷剂适配稿重排石英砂支（h3=23/表1/金句框6，数字全量保留，站点仓 b2ac40b）→ 06 CONFORMANCE PASS（md=html=104）→ 07 首跑 NEED_LOGIN，`--login` 扫码恢复后 DRAFT_SAVED → 08 等价动作（通知+看板+done=2026-09-06，防跨午夜错账），05 修复后实弹重跑全绿（llms 基线 41b84d4 已推 gitea）。教训：① `grep -q` 在 `set -o pipefail` 长输出管道里是竞态炸弹（可迁移：任何「成功判据靠 grep 输出」的管道都该用命令替换捕获）；② 过午夜补跑禁用 `$TODAY`（会把明天的文章提前发），只能逐 step 补。**遗留**：09-05 固态变压器草稿缺口（当天 05 死后无人补 06/07，适配稿 796bcf0 已就绪可补）；非交互 shell 推 gitea 需 `-c credential.helper=store`。下一篇 #39 gpu。
