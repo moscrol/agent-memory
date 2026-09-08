@@ -154,6 +154,8 @@ per-user 不是进程级；`runtime_backend_readiness` 这个全局探针看不�
 
 ## 交接记录
 
+- 2026-09-09 · codex · 历史发现研究实施已保存于 `codex/feat-historical-discovery@5c980d79`（1101项相关测试）；真实验收仍有工具回退配对与合法case引用误拒，用户要求停止并交接，下一位先修后低并发复验 → `/Users/a77/fwp-wt-historical-discovery/docs/handoffs/inflight/codex-feat-historical-discovery.md`。
+
 - 2026-09-09 · codex · 历史发现研究 spec：用户明确先事后发现特征、再用多段历史同类和失败反例检验；优先 S0→S1/S2 自主复盘与历史检索。正文与状态见 `/Users/a77/fwp-wt-historical-discovery-spec/docs/handoffs/inflight/codex-docs-historical-discovery-spec.md`；本轮仅设计。
 
 - 2026-09-08 · codex · 第一条方法验证应用 `feat/method-validation-loop@e41ef60b`：240项相关回归通过，三组历史416日仅2共同完整日、保留描述性负结果；前向起点09-10，未合main/未自动采样；交接 `/Users/a77/fwp-wt-method-validation-loop/docs/handoffs/inflight/feat-method-validation-loop.md`。
