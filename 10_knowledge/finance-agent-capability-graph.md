@@ -209,6 +209,7 @@ flowchart LR
 | 图谱防漂移审计 | agent-memory | `scripts/graph_audit.py` | 校验本页节点清单路径是否仍存在 |
 | Agent 工具目录 | finance | `intelligence/services/research_tool_registry.py::_DEFAULT_TOOL_METADATA` | agent 可见工具的 catalog 与授权 spec 装配。**条目数用 AST 数，别抄任何写死的数字**（2026-08-06 实测 main 上 12 项） |
 | Episode 工具面 | finance | `intelligence/services/episode_tools.py` | 组装 market/financial/mainline/l3/finance_query/evidence_search，按 `allowed_capabilities` 逐个 gate |
+| 历史发现与条件比较（在途） | finance | `intelligence/services/historical_research/query.py::HistoryQuery@codex/feat-historical-discovery`、`intelligence/services/historical_research/episode.py::HistorySession@codex/feat-historical-discovery`、`intelligence/services/historical_research/methodology.py::prepare_methodology_candidate@codex/feat-historical-discovery` | Workbench 历史意图复用 finance_query 授权与既有 Episode：精确板块/个股日轴联立、版本化内置特征、相似召回、条件全集四格与缺失/未到期分组；RunStore 不可覆盖原件及同会话假设修订保留反例。方法桥接仅 private candidate 草稿，无自动登记/评价/认证；结果 research_only。代码和真实运行验收状态见本分支历史发现 implementation handoff，尚未替换生产服务。 |
 | Agent 检索工具 | finance | `intelligence/services/agent_research.py` | kb/web/news 默认工具 + `build_graph_tools` 的 graph_lookup/evidence_lookup |
 | 技能桥 | finance | `intelligence/services/skill_tools.py` | 白名单 skill 调用；只读/无外呼红线下当前仅注册 serenity-alpha |
 | 用户记忆读取 | finance | `intelligence/services/user_memory.py::memory_block_for_query` | planner 侧注入渲染好的 M 块。签名是 `(query, theme, entity, ...)`，底层 `_query_terms` 直接吃上游 LLM 已抽好的题材/实体——**动手补中文分词前先确认这两个可选参数是不是没传** |
