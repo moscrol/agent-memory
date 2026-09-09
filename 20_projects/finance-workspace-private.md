@@ -154,6 +154,8 @@ per-user 不是进程级；`runtime_backend_readiness` 这个全局探针看不�
 
 ## 交接记录
 
+- 2026-09-09 · codex · 能力优先升级已拆为10张建设/接续单+1张独立评测单（负责人：分别派发的执行agent）；接手 [任务包](/Users/a77/fwp-wt-capability-upgrade-plan/docs/superpowers/plans/2026-09-09-capability-upgrade/INDEX.md)，决策与验证边界见 [交接](/Users/a77/fwp-wt-capability-upgrade-plan/docs/handoffs/inflight/codex-docs-capability-upgrade-plan.md)。
+
 - 2026-09-09 · codex · 历史发现研究实施已保存于 `codex/feat-historical-discovery@5c980d79`（1101项相关测试）；真实验收仍有工具回退配对与合法case引用误拒，用户要求停止并交接，下一位先修后低并发复验 → `/Users/a77/fwp-wt-historical-discovery/docs/handoffs/inflight/codex-feat-historical-discovery.md`。
 
 - 2026-09-09 · codex · 历史发现研究 spec：用户明确先事后发现特征、再用多段历史同类和失败反例检验；优先 S0→S1/S2 自主复盘与历史检索。正文与状态见 `/Users/a77/fwp-wt-historical-discovery-spec/docs/handoffs/inflight/codex-docs-historical-discovery-spec.md`；本轮仅设计。
