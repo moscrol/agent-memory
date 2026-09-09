@@ -154,6 +154,7 @@ per-user 不是进程级；`runtime_backend_readiness` 这个全局探针看不�
 
 ## 交接记录
 
+- 2026-09-09 · claude · **能力升级任务包 03（Wiki 研究地图）知识库实现已验、待 06 集成**：知识库仓 `feat/research-map-03` @ `842c98ad1`（树 `/Users/a77/kb-wt-research-map-03`，未推未合）；真库 6 题验收 6/6、基线三命令 0/6。金融侧只交 [graph_lookup 接入合同](/Users/a77/fwp-wt-capability-upgrade-plan/docs/superpowers/plans/2026-09-09-capability-upgrade/03-graph-lookup-adapter-contract.md)，代码未动。进度 [progress/03.md](/Users/a77/fwp-wt-capability-upgrade-plan/docs/superpowers/plans/2026-09-09-capability-upgrade/progress/03.md)、范围外发现 [blocked/03.md](/Users/a77/fwp-wt-capability-upgrade-plan/docs/superpowers/plans/2026-09-09-capability-upgrade/blocked/03.md)（KB main 上 size gate 与 quality_gate 基线已红，会挡 KB 所有 PR）。
 - 2026-09-09 · codex · 能力优先升级已拆为10张建设/接续单+1张独立评测单（负责人：分别派发的执行agent）；接手 [任务包](/Users/a77/fwp-wt-capability-upgrade-plan/docs/superpowers/plans/2026-09-09-capability-upgrade/INDEX.md)，决策与验证边界见 [交接](/Users/a77/fwp-wt-capability-upgrade-plan/docs/handoffs/inflight/codex-docs-capability-upgrade-plan.md)。
 
 - 2026-09-09 · codex · 历史发现研究实施已保存于 `codex/feat-historical-discovery@5c980d79`（1101项相关测试）；真实验收仍有工具回退配对与合法case引用误拒，用户要求停止并交接，下一位先修后低并发复验 → `/Users/a77/fwp-wt-historical-discovery/docs/handoffs/inflight/codex-feat-historical-discovery.md`。
