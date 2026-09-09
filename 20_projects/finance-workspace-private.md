@@ -154,6 +154,8 @@ per-user 不是进程级；`runtime_backend_readiness` 这个全局探针看不�
 
 ## 交接记录
 
+- 2026-09-09 · codex · 落整包集成与连续研究验收 spec（接续现有单，工程/上线/前向分列）→ [执行规格](/Users/a77/fwp-wt-capability-integration-spec/docs/superpowers/specs/2026-09-09-capability-integration-and-live-research-design.md)。
+
 - 2026-09-09 · claude · **能力升级任务包 10（排序与情景）第一刀已提交 `feat/ranking-scenarios-10@444e520e`、已推 Gitea、未合 main**：排序表达契约（固定表头矩阵/改判条件表/竞争解释/机械再排序）+ 改判条件进 checkpoints；第一轮真实差分候选臂收据缺件=0（1473 字 vs 基线 812 字无结构），完整配对批跑等共享网关冷却（~21:05 自动跑）；两处运行环境故障（判官 1.0.24 sandbox、网关无退避）已定位记 blocked → `/Users/a77/fwp-wt-ranking-scenarios-10/docs/handoffs/inflight/feat-ranking-scenarios-10.md`
 - 2026-09-09 · claude · **能力升级任务包 07（方法飞轮接线）已合 main（PR #692 → `794cc3e5`，连带合入 `feat/method-validation-loop`）**：固定双红协议收据接到日常——立场按收据派生（历史演练 / 真实前向分列、六类回检分类、采用 / 降低 / 排除梯子）、有信号 D0 登记 checkpoint（`method_observation`）并由夜间 recheck 经 resolver 走原协议结算、`memory_lookup` / `[M]` / 日报段消费同一份摘要；真实读数：历史演练 2 个共同日、两差值为负 → 降低权重；16 个信号日被 8 个 `.TI` 板块 NULL 标签挡住 → 归 08；真实前向起点 09-10，Workbench 真实对话验收被网关 cooldown 挡住待续跑 → 交接 `docs/handoffs/inflight/feat-cap07-method-flywheel.md`、交付说明 `docs/verification/2026-09-09-method-flywheel-cap07.md`。
 - 2026-09-09 · claude · **能力升级任务包 08（问题驱动补数）真实验收已完成，`feat/demand-driven-data-requests@e62e09c3` 已推 gitea、未合 main**：全链「问题→请求→补齐→恢复」隔离实测通过（QA 数字级差量 -3.87%/最低 6/27；请求被 5 消费者复用；重放收敛 pending=0）；真实验收抓出并修复三缺陷（恢复失败可重试 resume_attempt / 事件日历宽容带+applied_limit 防自注册环 / CLI 回执域跟 --runs-dir），另记两条范围外（引擎 A 库路径只认 FINANCE_WS——假数据根解法进 memory；sw_l1 writer 历史窗被实时快照覆写）→ `/Users/a77/fwp-wt-demand-driven-data/docs/handoffs/inflight/feat-demand-driven-data-requests.md`
