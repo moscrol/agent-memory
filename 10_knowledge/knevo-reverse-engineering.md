@@ -13,7 +13,9 @@ related: ["[[finance-answer-orchestrator]]", "[[multi-agent-memory-system-design
 
 > 目的：拆解 Knevo（AI 投研 Agent）的架构、数据源、记忆与反馈机制，用于优化我们自己的 agent。
 > 状态：持续更新。信息来源为公开使用文档 + 用户与 Knevo 的实际对话截取 + Knevo 自述配置。
-> 最近更新：2026-07-08（回写 `60_dialogues/`（仅 Mac 本地，不入 git）的 26 篇双盲探针语料——路由/技能/记忆/输出各章从定性推断升级为量化规则+行为验证；原始证据见 60_dialogues/knevo/ 各篇）
+> 最近更新：2026-09-10（新增 [[knevo-reverse-session-2026-09-10]]——数据加工层自述、明确否认传统 GraphRAG、**无强制质检门**这一架构差距的自曝、数据源权威度分层表；其中"北向净流入已 2024-08 停发，任何源都补不了"一条经 AKShare 实测交叉验证为真，已撤回本仓此前"用 AKShare 北向函数补数据缺口"的建议）
+>
+> 2026-07-08（回写 `60_dialogues/`（仅 Mac 本地，不入 git）的 26 篇双盲探针语料——路由/技能/记忆/输出各章从定性推断升级为量化规则+行为验证；原始证据见 60_dialogues/knevo/ 各篇）
 >
 > **证据分级标注约定**（全文统一）：
 > - **[自述]** = Knevo 主动描述"我怎么做的"，可能被美化/sanitize，可信度中。
@@ -203,6 +205,7 @@ Knevo 是一个 **LLM function-calling 多 Agent 投研系统**：主 agent 负�
 - 历史K线/回测：datasvc `days=N` → ftshare `stock-ohlcs` → ifind
 - 估值 PE/PB：ifind `days=30`（history 含 pe_ttm/pb_lf）→ mx-finance
 - 龙虎榜/资金异动：datasvc 个股全景 `finance_instrument` flow 段
+- **⚠️ 北向资金净流入：2026-09-10 Knevo 自述 + 本仓 AKShare 实测交叉验证——该数字 2024-08 起交易所已停止公开发布，不是某个 provider 的覆盖缺口，换哪个数据源都补不了。详见 [[knevo-reverse-session-2026-09-10]] §5。**
 
 ### 2.2 财务报表
 - 三表：ftshare dataset `stock-income / stock-balance / stock-cashflow`，披露后数小时入库
