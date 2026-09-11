@@ -154,6 +154,8 @@ per-user 不是进程级；`runtime_backend_readiness` 这个全局探针看不�
 
 ## 交接记录
 
+- 2026-09-11 · claude · **Knevo 回灌清单审校 + 第一档全部落地并合入 main**（PR #718 代码 / #719 坑点文档入库 / #722 清单与蒸馏语料 / #723 收口）：审出清单第一档前提错误——「AB-002 漏拥挤度」不是能力缺口，D6 拥挤度块比那份 miss 答案早一天进仓，真因是词面门控拦下排序题式、且只放宽门控仍出空块（无题材名→题材解析为空），两层都补才到执行点；量测另推翻了自己提的 L3（按日去重前后拥挤度读数完全相同，代码不改）。可迁移原则：**「我们没有 X」要分「不存在／没接线／接了线但到不了执行点」三层**。
+
 - 2026-09-09 · codex · 落整包集成与连续研究验收 spec（接续现有单，工程/上线/前向分列）→ [执行规格](/Users/a77/fwp-wt-capability-integration-spec/docs/superpowers/specs/2026-09-09-capability-integration-and-live-research-design.md)。
 
 - 2026-09-09 · claude · **能力升级任务包 10（排序与情景）第一刀已提交 `feat/ranking-scenarios-10@444e520e`、已推 Gitea、未合 main**：排序表达契约（固定表头矩阵/改判条件表/竞争解释/机械再排序）+ 改判条件进 checkpoints；第一轮真实差分候选臂收据缺件=0（1473 字 vs 基线 812 字无结构），完整配对批跑等共享网关冷却（~21:05 自动跑）；两处运行环境故障（判官 1.0.24 sandbox、网关无退避）已定位记 blocked → `/Users/a77/fwp-wt-ranking-scenarios-10/docs/handoffs/inflight/feat-ranking-scenarios-10.md`
