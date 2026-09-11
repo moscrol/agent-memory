@@ -154,6 +154,8 @@ per-user 不是进程级；`runtime_backend_readiness` 这个全局探针看不�
 
 ## 交接记录
 
+- 2026-09-11 · claude · **Knevo q17 回灌第二档：R4/R5 按复核笔记收窄后落地 + R7 小范围试用**（分支 `feat/knevo-r4r5-absorption`，未合 main）→ [交接](/Users/a77/fwp-wt-knevo-r45/docs/handoffs/inflight/feat-knevo-r4r5-absorption.md)。可迁移原则：**表达契约治不了取数缺口**——R4 的真增量在材料侧（`evidence_window` 只按相关性砍窗口、不认识反证，重复转述稿能把唯一一条弱源反证挤出去），不在再加一段文案要求；**共享同一批底层数据的指标不能独立计票**（R5 那「六项满足四项」里价格响应/资金/拥挤度都是成交数据，投票等于把一个信号数三遍）。
+
 - 2026-09-11 · claude · **Knevo 回灌清单审校 + 第一档全部落地并合入 main**（PR #718 代码 / #719 坑点文档入库 / #722 清单与蒸馏语料 / #723 收口）：审出清单第一档前提错误——「AB-002 漏拥挤度」不是能力缺口，D6 拥挤度块比那份 miss 答案早一天进仓，真因是词面门控拦下排序题式、且只放宽门控仍出空块（无题材名→题材解析为空），两层都补才到执行点；量测另推翻了自己提的 L3（按日去重前后拥挤度读数完全相同，代码不改）。可迁移原则：**「我们没有 X」要分「不存在／没接线／接了线但到不了执行点」三层**。
 
 - 2026-09-09 · codex · 落整包集成与连续研究验收 spec（接续现有单，工程/上线/前向分列）→ [执行规格](/Users/a77/fwp-wt-capability-integration-spec/docs/superpowers/specs/2026-09-09-capability-integration-and-live-research-design.md)。
