@@ -759,3 +759,5 @@ per-user 不是进程级；`runtime_backend_readiness` 这个全局探针看不�
 
 - 2026-09-13 · codex · 探针 a294a72e 质检：规范轴0项、需求轴2项P2（网络异常退出合同、ID配对测试漏检）；原7例与Ruff绿，本地HTTP和内存变异确证。交接：docs/qc-workbench-probe-a294a72e@8cee0bd3 的 docs/handoffs/inflight/docs-qc-workbench-probe-a294a72e.md；报告 /Users/a77/.finance-runtime/reviews/workbench-probe-a294a72e-20260913/review.md。
 - 2026-09-13 · codex · 探针fd40b55b复审：ID位置锁关闭，传输合同仍有错误正文读取/IncompleteRead两项P2；交接docs/qc-workbench-probe-fd40b55b，报告 /Users/a77/.finance-runtime/reviews/workbench-probe-fd40b55b-20260913/review.md；同变异前后比较原则补入[[mutation-test-before-claiming-silent]]。
+
+- 2026-09-13 · codex · 探针1b68dcd3/61b2c2d1复审通过：两处传输P2关闭（17测试+21 HTTP场景）；变异数字更正0→1、2→3；报告 ~/.finance-runtime/reviews/workbench-probe-1b68dcd3-20260913/review.md，交接分支 docs/qc-workbench-probe-1b68dcd3。
