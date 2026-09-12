@@ -154,6 +154,8 @@ per-user 不是进程级；`runtime_backend_readiness` 这个全局探针看不�
 
 ## 交接记录
 
+- 2026-09-12 · codex · `29b07912` 独立质检接续：全量绿成立，三项待修，未放行；报告 `281972cb` → [交接](/Users/a77/fwp-wt-qc-method-29b07912/docs/handoffs/inflight/docs-qc-method-29b07912.md)；通用原则 [[atomic-name-claim-is-not-complete-publication]]。
+
 - 2026-09-12 · claude · **#738 复核四缺口修复**（用户暂缓合入并指出四条，全部复现后修在源头，全量 9413P/0F）：写入层删除运行记录导致误晋升（**「采用最新」≠「删除旧的」**，取最新是读取层的事）/ 认证只比收据彼此的版本、升版后旧证据不失效（**要拿当前生效版本做绝对比对**）/ River 绑定层未同步三值逻辑（同名同版本两条路径给出不同真值且无人报错）/ report 按文件名字典序取错最近收据。另核实出 **#671 升 v4 时欠下的迁移债**：在跑的前向协议绑定 v3、库 v4、代码 v5，`study._meta` 版本门现在就拒，09-10 起在途回检已断而 `status` 看不出来——迁移方案已写未执行。用户纠正一处引用：`gap_policy` 的 `skip` 是**天**维度,不是成员排除授权。
 - 2026-09-12 · claude · **四个 PR 集成合入（#674/#597/#735/#736，集成树 9406P/0F，落地 main 逐字节一致）+ 走通 OPT-10 闭环历史验证半边并抓到两个真缺陷**（工单 #49，PR #738）→ [交接](/Users/a77/fwp-wt-closed-loop/docs/handoffs/inflight/feat-method-closed-loop.md)。可迁移原则：**合取式标签别把「任一输入缺失」传播成 NULL**——已知条件足以判假时就判假,否则下游「不知道就不判」的保守纪律会把整批作废(双红 18 个信号日只剩 2 天可配对,修后 5 天);**`declared_stage` 这类新维度进来时,要同步检查产物的命名键**(收据按 `<date>.json` 命名,同日三段互相覆盖,三段链只能靠跨三天跑建起来)。实证:`limit_heat_rank_jump_3d` 在 holdout 段 BH adjusted_p=5.9e-17 却被块 bootstrap 判 not_distinguishable——**BH 管多重检验,管不了样本相关性**。
 - 2026-09-11 · claude · **推进顺序第一步「历史版本 + 认证」三刀 + 四个在途分支对齐主干**：#42 两刀（认证 + 经验卡门接统一认证，PR #681 用户已合）、#47 OPT-01 第二刀（冻结快照当内容版本源，PR #735）、#48 OPT-05 第一刀（日期块重采样 + 保守合成 + 跨窗 purge，PR #736）；情景树 #674 / 回放引擎 #597 前向合并 gitea/main@5907c9f6 重验推送。真库首批 discovery 收据：dual_red 85 事件仅 15 交易日→依赖门 insufficient。交接各在 `docs/handoffs/inflight/feat-{opt01-content-versioning,methodology-correlated-samples,scenario-tree-v0}.md` 与 `feat-historical-replay-engine.md`。可迁移原则：**回答「当时看到的是哪个值」= 对当时的冻结库跑今天的读取面**（不建版本表、不写第二份重建逻辑）；**独立单元 = 日期块而不是事件数**（同日共振复制不出统计力量，refuted 同样要依赖感知那道门）。
