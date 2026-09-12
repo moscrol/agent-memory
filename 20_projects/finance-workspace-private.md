@@ -154,6 +154,8 @@ per-user 不是进程级；`runtime_backend_readiness` 这个全局探针看不�
 
 ## 交接记录
 
+- 2026-09-12 · pi · PR #741 @ f680a2e6 复核（`81c6272d`）：数值变异已抓红，新整树原件成立，技术通过待用户授权 → [审查交接](/private/tmp/pr741-f680a2e6-qc/finance-workspace-private/docs/handoffs/inflight/docs-qc-pr741-f680a2e6.md)。
+
 - 2026-09-12 · pi · PR #741 独立质检（`d4025c97`）：门禁原件成立，留组名删数值仍79P、源交接过时，建议补后授权 → [审查交接](/private/tmp/pr741-qc/finance-workspace-private/docs/handoffs/inflight/docs-qc-pr741-8922e30c.md)。
 
 - 2026-09-12 · pi · `7f9d7ce1` 收尾复审（审查 `7e66c8e8`）：9450原件成立，④失败未停、回归拒绝缺断言、registry基线同红；不放行 → [交接](/private/tmp/method-review-7f9d7ce1-pi/docs/handoffs/inflight/docs-review-method-7f9d7ce1.md)。
