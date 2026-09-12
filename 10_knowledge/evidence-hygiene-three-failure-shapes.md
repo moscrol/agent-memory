@@ -1,9 +1,9 @@
 ---
 title: 证据卫生：三个反复出现的失败形状
 type: knowledge
-agent: devin
+agent: codex
 source: finance-workspace-private 会话 2026-08-10（同一轮内三个形状各犯 2-3 次，共 8 次）
-date: 2026-08-10
+date: 2026-09-12
 tags: [knowledge, methodology, verification, gate, provenance, core]
 status: verified
 related: ["[[../20_projects/finance-workspace-private]]", "[[eval-harness-variance-governance]]", "[[agent-system-closed-loop-first-principles]]", "[[gate-assertion-granularity]]"]
@@ -48,6 +48,15 @@ ImportError（只说明新增了 API，不构成行为证据）与断言级差�
 
 **凡引用测试计数当证据，必须同时写明解释器路径。** 同一棵树同一时刻，宿主
 python3 得 71 failed、项目 venv 得 14 failed。不写解释器的计数不可复核。
+
+
+### 补充：核对真正执行和读取的对象（2026-09-12）
+
+主测试进程的解释器相同，不能推出子进程解释器相同。一次受控复现中，只把虚拟环境 bin 前置 PATH，沙箱探针就从通过变成启动失败；它通过 PATH 选中的 venv 入口位于禁止范围，子进程 exit 71、stderr 明确为 execvp 被拒绝。这个实验支持“解释器选择足以触发失败”，不支持把缺少当时 stderr 的所有历史失败追认成同一根因，更不能替另一条间歇测试定因。
+
+把选择过程和实际对象一并留证：父/子解释器、解析后的真实路径、参数、退出码及有界 stdout/stderr。先用环境单变量锁住失败，再通过参数化回归验证修复；不要先按“全量/单跑”的外观推断污染或负载。扫描器同理：工作目录和提交号相同也不足以说明扫描目标正确，还须核对脚本最终解析出的根目录。按同级固定仓名扫描的工具，在任意命名的 worktree 内可能读到另一棵主树；正确命名的隔离检出可在不修改检查器的情况下验证目标提交，旧误扫读数仍保留。
+
+实现与决策：[2026-09-12 清障快照](/Users/a77/fwp-wt-instruction-gate-clearance/docs/handoffs/2026-09-12-instruction-gate-clearance.md)；原始对照：[质检报告](/Users/a77/.finance-runtime/reviews/gate-matrix-b2d40776-qc-ma8n0z52/report.md)。回归已进入现有测试；该案例不另造通用工具。
 
 ---
 

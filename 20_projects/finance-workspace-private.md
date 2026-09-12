@@ -154,6 +154,8 @@ per-user 不是进程级；`runtime_backend_readiness` 这个全局探针看不�
 
 ## 交接记录
 
+- 2026-09-12 · codex · 指令迁移清障：冻结候选、保留子进程证据 → [交接](/Users/a77/fwp-wt-instruction-gate-clearance/docs/handoffs/inflight/fix-instruction-gate-clearance.md)；原则补入 [[evidence-hygiene-three-failure-shapes]]。
+
 - 2026-09-12 · codex · `29b07912` 独立质检接续：全量绿成立，三项待修，未放行；报告 `281972cb` → [交接](/Users/a77/fwp-wt-qc-method-29b07912/docs/handoffs/inflight/docs-qc-method-29b07912.md)；通用原则 [[atomic-name-claim-is-not-complete-publication]]。
 
 - 2026-09-12 · claude · **#738 复核四缺口修复**（用户暂缓合入并指出四条，全部复现后修在源头，全量 9413P/0F）：写入层删除运行记录导致误晋升（**「采用最新」≠「删除旧的」**，取最新是读取层的事）/ 认证只比收据彼此的版本、升版后旧证据不失效（**要拿当前生效版本做绝对比对**）/ River 绑定层未同步三值逻辑（同名同版本两条路径给出不同真值且无人报错）/ report 按文件名字典序取错最近收据。另核实出 **#671 升 v4 时欠下的迁移债**：在跑的前向协议绑定 v3、库 v4、代码 v5，`study._meta` 版本门现在就拒，09-10 起在途回检已断而 `status` 看不出来——迁移方案已写未执行。用户纠正一处引用：`gap_policy` 的 `skip` 是**天**维度,不是成员排除授权。
