@@ -751,3 +751,5 @@ per-user 不是进程级；`runtime_backend_readiness` 这个全局探针看不�
 - 2026-09-10 · claude · **I2 接线（feat/capability-i2，能力集成 spec §3 I2）三刀已提交，live 验收卡双网关**：`b2b6e619`（B05-1 控制器把对话块传进 build_task_frame，规则层 Q07/C3#1/C3#2/R5 解锁）→ `330c2094`（03 graph_lookup mode 路由 package/view/trace/compare/scope/legacy，全只读不走 CLI、KB access_log 行数不变实测）→ `3bcf9841`（材料身份超窗恢复分层：对话块截断自述标记区分「没材料」与「材料超窗」，后者专属澄清提示重贴；重贴原文按内容哈希重建同一 material_id；+跨 240 字表格边界验收钉，02 按行分片+每片带表头机制成立、不放宽上限）。全量 7697P/0F（收据 20260910T040601Z）。**在途**：graph_lookup mode 真实对话验收——8820 已就位（本树代码、判官已修），但 8080 502/503 + cockpit 57244 503 auth_unavailable（09-10 11:52–12:09 四轮探针），按踢醒等 2×200。恢复条件与验收命令在 `docs/handoffs/inflight/feat-capability-i2.md`。
 
 - 2026-09-13 · codex · PR #742@b54fdf6a 质检：原仓根/交接两项 P2 关闭，新增记忆钩子改名 clone 误选别项目笔记 P2；建议修后重验，未合并。证据与执行指令：/Users/a77/.finance-runtime/reviews/pr742-b54fdf6a-20260913/review.md。
+
+- 2026-09-13 · codex · PR #742@3d9c3102 复审：原记忆钩子 P2 关闭，Standards/Spec 均无新增发现；证据与后续合并门禁指引：/Users/a77/.finance-runtime/reviews/pr742-3d9c3102-20260913/review.md。
