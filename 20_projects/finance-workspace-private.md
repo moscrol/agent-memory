@@ -154,6 +154,8 @@ per-user 不是进程级；`runtime_backend_readiness` 这个全局探针看不�
 
 ## 交接记录
 
+- 2026-09-12 · pi · `779b6ee2` 独立复审：收据与代码边界通过，迁移核对两处待修（审查 `fcd4813e`）→ [交接](/private/tmp/method-review-779b6ee2-pi/docs/handoffs/inflight/docs-review-method-779b6ee2.md)。
+
 - 2026-09-12 · pi · 两份汇报联合复核（文档提交 `6baf5d91`）：旧方法尖两个反例已在本地新尖修好、PR 尚未更新；同步分支 L2 失败路径与装机验收未闭环，不放行 → [审查交接](/private/tmp/two-branch-audit-rhBrSA/report/docs/handoffs/inflight/docs-review-method-sync-0912.md)。
 
 - 2026-09-12 · codex · 指令迁移清障：冻结候选、保留子进程证据 → [交接](/Users/a77/fwp-wt-instruction-gate-clearance/docs/handoffs/inflight/fix-instruction-gate-clearance.md)；原则补入 [[evidence-hygiene-three-failure-shapes]]。
