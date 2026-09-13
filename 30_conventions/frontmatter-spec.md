@@ -30,14 +30,27 @@ tags: [convention, spec, core]
 
 | type | 放在哪 | 含义 |
 |---|---|---|
-| `inbox` | `00_inbox/` | 原始产出，未整理 |
-| `knowledge` | `10_knowledge/` | 已提炼的事实/结论 |
-| `project` | `20_projects/` | 项目 MOC / 任务状态 |
+| `inbox` | `00_inbox/` | 原始产出，未整理（短期，>14 天未提炼会被 lint WARN） |
+| `material` | `05_materials/` | **外部输入资料**（文章、案例、摘录）：别人说了什么。长期留存 |
+| `knowledge` | `10_knowledge/` | 已提炼的事实/结论：我以后能再用什么 |
+| `project` | `20_projects/` | 项目 MOC / 任务状态：我现在准备怎么做 |
 | `convention` | `30_conventions/` | 跨 Agent 约定 |
 | `playbook` | `40_playbooks/` | 可复用工作流 |
 | `agent-card` | `50_agents/` | Agent 接入约定卡 |
 | `dialogue` | `60_dialogues/` | 用户与外部 AI 的原始对话记录（蒸馏语料） |
 | `tutor-note` | `70_tutor/` | 经用户检阅批准的科普 / 原理学习资产 |
+
+### `material` 专属字段（可选，建议填）
+
+| 字段 | 说明 |
+|---|---|
+| `source_url` | 原文链接；无链接则写来源工具 |
+| `author` | 原作者 / 机构（**不要与 `agent` 混淆**：`agent` 是写入者，`author` 是内容作者） |
+| `stance` | `author-view`（作者观点）/ `ai-distilled`（AI 提炼）/ `hypothesis`（待验证假设）/ `evidenced`（有实际证据的经验） |
+| `refined_into` | 已提炼成的知识笔记双链，如 `["[[compare-subscription-pricing]]"]`；未提炼则留空 |
+
+> **自动归档不等于自动认定为真。** `material` 是"别人说的"，默认 `stance: author-view`；
+> `ai-distilled` 与 `hypothesis` 都必须能被下游区分出来，不得当作已验证结论引用。
 
 ## 校验要点
 

@@ -8,6 +8,8 @@
    **不在取值表里的 type 直接 ERROR**——2026-08-05 前是 `TYPE_DIRS.get()` 返回 None
    然后静默放行，`type: reading-queue` 就这么混了进来。认不出来的值必须 fail closed，
    否则「写错 type」和「type 正确」在门禁眼里长得一样；
+   `material`（05_materials，外部资料层）2026-09-13 入表——收集来的外部输入
+   与提炼后的知识分开存放，前者回答「别人说了什么」，后者回答「我以后能再用什么」；
 2b. agent 取值合法（frontmatter-spec 的固定值表，2026-08-12 起）——
    此前只查「有没有」不查「是什么」，`all` / `any` 就这么用了一个半月才被
    收编进规范。与 type 同一条纪律：认不出来的值 fail closed；
@@ -44,6 +46,7 @@ VAULT = Path(__file__).resolve().parents[1]
 REQUIRED_FIELDS = ("title", "type", "agent", "source", "date", "tags")
 TYPE_DIRS = {
     "inbox": "00_inbox",
+    "material": "05_materials",
     "knowledge": "10_knowledge",
     "project": "20_projects",
     "convention": "30_conventions",
