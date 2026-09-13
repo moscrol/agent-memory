@@ -26,6 +26,7 @@ related: ["[[finhot]]", "[[finance-workspace-private]]"]
 | 承诺台账 | `/Users/a77/foresight/docs/commitments.md` |
 | 营销与销售产物 | `/Users/a77/foresight/gtm/` |
 | 对外口径闸门 | `/Users/a77/foresight/scripts/assert_published.sh` |
+| **商业建议与路线**（建议，非决策） | `/Users/a77/foresight/docs/advisory/`；门禁与规则在 `venture-advisor` skill |
 | BP 与路演材料 | `/Users/a77/Desktop/01-Foresight-BP与路演/` |
 | 产品代码 | `finance-workspace-private`（未迁移） |
 | 内容执行系统 | `content-ops` 仓库 |
@@ -53,3 +54,5 @@ related: ["[[finhot]]", "[[finance-workspace-private]]"]
 ## 交接记录
 
 （一行一条：`YYYY-MM-DD · <agent> · <一句话>`）
+
+- 2026-09-13 · claude · 建创业顾问回路：`venture-advisor` skill（输出八段契约 + 披露门禁 + 边用边攒沉淀规则）落 `~/.claude/skills/`；开张用例「一人事业 vs 融资路线」落 foresight 仓 `docs/advisory/2026-09-13-one-person-vs-vc-route.md`，门禁通过、变异验证 6/6。核心发现：`offer.yaml` 的 `unit_economics` 无创始人工时列，131–153 人属现金约束口径，**结构上回答不了路线题**；且该区间推导过程未在文件内给出，无法复核。判据已沉淀 [[../10_knowledge/solo-breakeven-needs-founder-hours-column]]。未改 offer.yaml / decisions.md / commitments.md。
