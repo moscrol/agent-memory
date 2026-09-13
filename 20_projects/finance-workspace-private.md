@@ -154,6 +154,8 @@ per-user 不是进程级；`runtime_backend_readiness` 这个全局探针看不�
 
 ## 交接记录
 
+- 2026-09-14 · pi · 四轨第七轮QC：原三钉通过，05执行实例费用/失败豁免/诊断投影三缺口退修（7f472df4）→ [交接](/private/tmp/research-evolution-r7-qc-OISCbk/report/docs/handoffs/inflight/docs-qc-research-evolution-round7.md)；方法 [[state-transition-identity-must-survive-dedup]]。
+
 - 2026-09-14 · pi · E2 v5复审：完整正文/来源分级认可，歧义回full/逐轴继承/撤回断言待补（bbaa85de）→ [交接](/private/tmp/e2-v5-qc-0913/docs/handoffs/inflight/docs-qc-e2-v5-0913.md)；方法 [[evidence-hygiene-three-failure-shapes]]。
 
 - 2026-09-13 · pi · L2 main-tip独立核验通过；E2 v4三元组认可，引用边界/旧答来源角色/完整正文待补（b4fb8d62）→ [交接](/private/tmp/l2-e2-v4-qc-0913/docs/handoffs/inflight/docs-qc-l2-e2-v4-0913.md)。

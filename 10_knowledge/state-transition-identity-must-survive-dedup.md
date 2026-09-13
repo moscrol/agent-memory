@@ -33,3 +33,13 @@ source: finance-workspace-private 第五轮研究进化 QC，d83a0c48
 同轮另证：把费用缺口只修在无 run 分支，`attempts` 非空后的逐尝试聚合仍可能让工具费核销模型费。检查目标维度要贯穿所有分支，不能在入口提前返回并假设下游已兜底。
 
 可执行反例：finance 分支 `docs/qc-research-evolution-round6` 下 `docs/verification/research-evolution-round6/`；本地耐久证据 `~/.finance-runtime/reviews/research-evolution-round6-qc-20260913/`。
+
+## 覆盖还必须保留执行实例轴，诊断还必须穿过输出层
+
+第七轮（`a9bfb977`）实测：任务内聚合组件集合仍不够。同任务第一次成功执行账齐，第二次只挂工具费，任务级 writer/review 被第一次代签，逐 attempt 缺口又被“任意费用”核销，缺模型账依然报完整已知成本。全失败早退同样不能托付给这条薄核验：失败终态不证明模型调用没发生。
+
+可迁移检查：覆盖集合至少按实体 × 执行实例 × 类别建模；粗粒度账单只能凭明确 coverage_scope 覆盖子集合，不能仅因归属同一实体就抵消其它执行的缺项。失败分支需阶段/用量证据，既不凭终态豁免，也不强要未发生阶段的账。
+
+同轮还发现：内部补 `uncovered_components`，公开 metric 却投影成 `{id, reason}`，新字段全部丢失。回归必须断言公开序列化产物，而不是仅检查 helper 局部变量。字段“写了有人读”的静态门禁不足以证明用户能看到它。
+
+反例已落 `docs/qc-research-evolution-round7` 的 `docs/verification/research-evolution-round7/`，不是仅存对话的手法；跨领域通用 lint 暂不造，适用组件与覆盖集合需领域证据解释。
