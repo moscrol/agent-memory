@@ -226,7 +226,11 @@ def main() -> int:
                 f"（{'/'.join(TYPE_DIRS)}），见 30_conventions/frontmatter-spec.md"
             )
         expected_dir = TYPE_DIRS.get(note_type)
-        if expected_dir and rel.parts[0] != expected_dir:
+        # 根层导览页（首页.md）豁免「type↔目录」这一项，但**不豁免** frontmatter 与死链检查：
+        # 首页是滚动更新的导航页，必须放在 vault 根才能在 Obsidian 里当入口用，
+        # 而它又大量使用双链，整文件跳过会丢掉死链这道最有价值的检查（2026-09-13）。
+        is_root_page = len(rel.parts) == 1
+        if expected_dir and not is_root_page and rel.parts[0] != expected_dir:
             errors.append(f"{rel}: type={note_type} 应放在 {expected_dir}/")
 
         # 知识过期：verified 笔记超过 stale_after 天未复核

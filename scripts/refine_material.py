@@ -210,6 +210,29 @@ def cmd_promote(rel: str, to: str) -> int:
     return 0
 
 
+def _parse_link_list(raw: str) -> list[str]:
+    """解析 refined_into / related 这类值，归一成笔记名列表。
+
+    容忍历史写法：`[["[[a]]"]]`、`[[[a]]]`、`["[[a]]", "[[b]]"]`。
+    """
+    if not raw or raw in ("[]", ""):
+        return []
+    inner = raw.strip()
+    if inner.startswith("[") and inner.endswith("]"):
+        inner = inner[1:-1]
+    out: list[str] = []
+    for part in inner.split(","):
+        s = part.strip().strip('"').strip("'").strip()
+        s = s.strip("[]")
+        if s:
+            out.append(s)
+    return out
+
+
+def _render_link_list(names: list[str]) -> str:
+    return "[" + ", ".join(f'"[[{n}]]"' for n in names) + "]"
+
+
 def cmd_link(material_rel: str, knowledge_rel: str) -> int:
     mat = (VAULT / material_rel).resolve()
     kno = (VAULT / knowledge_rel).resolve()
@@ -219,22 +242,19 @@ def cmd_link(material_rel: str, knowledge_rel: str) -> int:
             return 1
 
     fields, _, body = split_note(mat)
-    link = f"[[{kno.stem}]]"
-    raw = fields.get("refined_into", "")
-    if link in raw:
-        print(f"已存在该关联，未重复写入：{material_rel} → {link}")
+    names = _parse_link_list(fields.get("refined_into", ""))
+    if kno.stem in names:
+        print(f"已存在该关联，未重复写入：{material_rel} → [[{kno.stem}]]")
         return 0
-    if raw in ("", "[]"):
-        fields["refined_into"] = f"[{link}]"
-    else:
-        fields["refined_into"] = raw.rstrip("]") + f", {link}]" if raw.endswith("]") else f"[{link}]"
+    names.append(kno.stem)
+    fields["refined_into"] = _render_link_list(names)
 
     try:
         mat.write_text(render_note(fields, body.lstrip("\n"), ORDER), encoding="utf-8")
     except OSError as e:
         print(f"写入失败，未改动：{e}")
         return 1
-    print(f"已登记关联：{material_rel} → {link}")
+    print(f"已登记关联：{material_rel} → [[{kno.stem}]]")
     return 0
 
 
