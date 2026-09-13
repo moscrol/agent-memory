@@ -783,3 +783,5 @@ per-user 不是进程级；`runtime_backend_readiness` 这个全局探针看不�
 - 2026-09-13 · codex · 研究进化01–05执行审查：模块387P但独立反例13项（规范3/需求10），待各owner返修；06用户确认另派。报告 /Users/a77/.finance-runtime/reviews/research-evolution-20260913/review.md；未改实现或合并。
 
 - 2026-09-13 · codex · 研究进化01–05返修质检：原13反例绿、428+117P，扩大边界仍8项（规范2/需求6）；交接 docs/qc-research-evolution-repair-0913@f50ce52e，报告 ~/.finance-runtime/reviews/research-evolution-repair-qc-20260913/review.md。
+
+- 2026-09-13 · codex · 研究进化06@4e95c20b审查：原63P，规范3/规格10项需返修；交接docs/qc-research-evolution-06-0913，报告 ~/.finance-runtime/reviews/research-evolution-06-qc-20260913/review.md。
