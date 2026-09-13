@@ -154,6 +154,8 @@ per-user 不是进程级；`runtime_backend_readiness` 这个全局探针看不�
 
 ## 交接记录
 
+- 2026-09-13 · pi · daily-swap 87be884b两项文档更正通过（3e1d3d61）；候选待授权 → [交接](/tmp/daily-swap-qc-87be884b/docs/handoffs/inflight/docs-qc-daily-swap-87be884b.md)。
+
 - 2026-09-13 · pi · daily-swap ac7e3087质检（b3df1582）：75+19P；父提交单测被写成全量、合并范围旧数待更正；建议授权完整候选，红灯不自动豁免 → [交接](/tmp/daily-swap-qc-ac7e3087/docs/handoffs/inflight/docs-qc-daily-swap-ac7e3087.md)。
 
 - 2026-09-13 · pi · L2回填54248fa3审查：数据与临时重放通过、全量9550P；空库报成功/计数单位/缺失截断三个P2暂缓合并（79e85661）→ [交接](/Users/a77/.finance-runtime/reviews/l2-pct-chg-54248fa3/tree/docs/handoffs/inflight/docs-qc-l2-pct-chg-54248fa3.md)。
