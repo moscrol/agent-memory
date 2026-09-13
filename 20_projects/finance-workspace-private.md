@@ -154,6 +154,8 @@ per-user 不是进程级；`runtime_backend_readiness` 这个全局探针看不�
 
 ## 交接记录
 
+- 2026-09-14 · pi · E2 v7 暂不放行（2P1+1P2，abd03989）→ `docs/handoffs/inflight/docs-qc-e2-v7-4308db47.md`；方法：[[permission-intersection-requires-complete-candidates]]。
+
 - 2026-09-14 · pi · Round-8 附加修复原反例通过，新增生命周期身份折叠 / 收据 OR 覆盖两个相邻 P1，05 暂不放行 → `docs/qc-research-evolution-round8-addendum@e4d29ef6`，`docs/handoffs/inflight/docs-qc-research-evolution-round8-addendum.md`。
 
 - 2026-09-14 · pi · hithink十三轮P1关闭，最新main组合门禁待补（5c86c31e）→ [交接](/Users/a77/.finance-runtime/reviews/hithink-efb274b8-qc/tree/docs/handoffs/inflight/docs-qc-hithink-efb274b8.md)。
