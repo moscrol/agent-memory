@@ -775,3 +775,5 @@ per-user 不是进程级；`runtime_backend_readiness` 这个全局探针看不�
 - 2026-09-13 · codex · 探针fd40b55b复审：ID位置锁关闭，传输合同仍有错误正文读取/IncompleteRead两项P2；交接docs/qc-workbench-probe-fd40b55b，报告 /Users/a77/.finance-runtime/reviews/workbench-probe-fd40b55b-20260913/review.md；同变异前后比较原则补入[[mutation-test-before-claiming-silent]]。
 
 - 2026-09-13 · codex · 探针1b68dcd3/61b2c2d1复审通过：两处传输P2关闭（17测试+21 HTTP场景）；变异数字更正0→1、2→3；报告 ~/.finance-runtime/reviews/workbench-probe-1b68dcd3-20260913/review.md，交接分支 docs/qc-workbench-probe-1b68dcd3。
+
+- 2026-09-13 · codex · 研究进化01–05执行审查：模块387P但独立反例13项（规范3/需求10），待各owner返修；06用户确认另派。报告 /Users/a77/.finance-runtime/reviews/research-evolution-20260913/review.md；未改实现或合并。
