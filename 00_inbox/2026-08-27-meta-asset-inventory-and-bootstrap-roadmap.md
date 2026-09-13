@@ -6,6 +6,7 @@ source: "用户提问（宏观理解是否足够 / meta-skill 能否复用 / 自
 date: 2026-08-27
 tags: [inbox, meta-assets, bootstrap, harness, code-map, reuse, roadmap]
 status: draft
+refined_into: ["[[three-forms-of-reuse-pointer-port-generate]]"]
 ---
 
 # 元资产盘点与自举复刻路线图

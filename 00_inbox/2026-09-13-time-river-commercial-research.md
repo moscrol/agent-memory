@@ -6,6 +6,7 @@ source: 用户 2026-09-13 终局与商业闭环提问；本地 BP/spec；AlphaSe
 date: 2026-09-13
 tags: [inbox, finance-agent, commercial-strategy, time-river, research]
 status: draft
+refined_into: ["[[entry-ticket-is-not-a-moat]]", "[[personal-accumulation-is-not-network-effect]]", "[[solo-breakeven-needs-founder-hours-column]]"]
 ---
 
 # 时间长河投研 Agent 的商业机会与资本路线核验
