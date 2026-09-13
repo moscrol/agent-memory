@@ -156,7 +156,7 @@ per-user 不是进程级；`runtime_backend_readiness` 这个全局探针看不�
 
 - 2026-09-13 · claude · 研究进化 02 排序轨 engineering_complete：五组确定性排序 + 同证据合并 + 分钟预算，56 测试与红→绿证伪收据，01 在途真 assess() 产物零改动流过；未 push/未合 → [交接](/Users/a77/fwp-wt-research-priority-0913/docs/handoffs/inflight/feat-research-priority.md) · [快照](/Users/a77/fwp-wt-research-priority-0913/docs/handoffs/2026-09-13-research-priority-02.md)
 
-- 2026-09-13 · claude · 研究进化 04 个人研究流程诊断 engineering_complete：五类检查 / 分母 / 一题练习 / 旧台账只读适配，50 测试绿，存量数据大面积 unknown 是数据现状（代码 fea6ef98，docs a6395c82，分支 feat/research-diagnostics-04）→ [交接](/Users/a77/fwp-wt-research-diagnostics-04/docs/handoffs/inflight/feat-research-diagnostics-04.md)。
+- 2026-09-13 · claude · 研究进化 04 个人研究流程诊断 engineering_complete：五类检查 / 分母 / 一题练习 / 旧台账只读适配，50 测试绿，存量数据大面积 unknown 是数据现状（代码 4d457d7a，docs b5cee17a，分支 feat/research-diagnostics-04）→ [交接](/Users/a77/fwp-wt-research-diagnostics-04/docs/handoffs/inflight/feat-research-diagnostics-04.md)。
 
 - 2026-09-13 · codex · 后续优化六份spec已交付：五轨独占业务、06统一集成，工程与真实效果分列 → [总入口](/Users/a77/fwp-wt-river-next-specs-0913/docs/superpowers/specs/2026-09-13-research-evolution/README.md)（规格提交194241dd）。
 
