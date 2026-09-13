@@ -154,6 +154,8 @@ per-user 不是进程级；`runtime_backend_readiness` 这个全局探针看不�
 
 ## 交接记录
 
+- 2026-09-14 · pi · 302132 准备数据认可，普通日更发布入口/预期空派生处置两P1待修（6878ee58）→ [交接](/private/tmp/302132-prep-qc-742c3ff5/docs/handoffs/inflight/docs-qc-302132-prep-742c3ff5.md)。
+
 - 2026-09-14 · pi · 05@95a4efea 原两钉关闭，收据候选筛选/组件覆盖两处P1退修（342fd6cd）→ `docs/handoffs/inflight/docs-qc-research-evolution-95a4efea.md`。
 
 - 2026-09-14 · pi · RE06@957e83f4 第四轮质检退修（3P1+1P2，证据 4b09d38a）→ `docs/handoffs/inflight/docs-qc-re06-957e83f4.md`；方法 [[state-transition-identity-must-survive-dedup]]。
