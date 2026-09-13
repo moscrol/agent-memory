@@ -154,6 +154,8 @@ per-user 不是进程级；`runtime_backend_readiness` 这个全局探针看不�
 
 ## 交接记录
 
+- 2026-09-13 · pi · L2 main-tip独立核验通过；E2 v4三元组认可，引用边界/旧答来源角色/完整正文待补（b4fb8d62）→ [交接](/private/tmp/l2-e2-v4-qc-0913/docs/handoffs/inflight/docs-qc-l2-e2-v4-0913.md)。
+
 - 2026-09-13 · pi · hithink十二轮QC：数据重放通过，Git错误误放行/报告兜底两项退修（63f377da）→ [交接](/Users/a77/.finance-runtime/reviews/hithink-48242bd4-qc/tree/docs/handoffs/inflight/docs-qc-hithink-48242bd4.md)；方法 [[evidence-hygiene-three-failure-shapes]]。
 
 - 2026-09-13 · pi · L2合并条件复核通过；E2 v3原件/副本身份与边界槽关闭，三处设计合同待补（e985ab7e）→ [交接](/tmp/l2-e2-v3-qc-0913/docs/handoffs/inflight/docs-qc-l2-e2-v3-0913.md)。
