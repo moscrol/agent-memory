@@ -154,6 +154,8 @@ per-user 不是进程级；`runtime_backend_readiness` 这个全局探针看不�
 
 ## 交接记录
 
+- 2026-09-13 · pi · L2合并条件复核通过；E2 v3原件/副本身份与边界槽关闭，三处设计合同待补（e985ab7e）→ [交接](/tmp/l2-e2-v3-qc-0913/docs/handoffs/inflight/docs-qc-l2-e2-v3-0913.md)。
+
 - 2026-09-13 · pi · 四轨第六轮QC：旧钉全绿，新增J11/J12/PV10三阻断（41e42851）→ [交接](/private/tmp/research-evolution-r6-qc-fgmhNt/report/docs/handoffs/inflight/docs-qc-research-evolution-round6.md)；方法 [[state-transition-identity-must-survive-dedup]]。
 
 - 2026-09-13 · pi · L2四叶复验通过待授权；E2 v2六项契约/证据缺口退修（1f91343a）→ [交接](/tmp/l2-e2-v2-qc-0913/docs/handoffs/inflight/docs-qc-l2-e2-v2-0913.md)。
