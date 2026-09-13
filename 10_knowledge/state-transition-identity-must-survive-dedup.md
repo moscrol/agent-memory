@@ -22,6 +22,8 @@ source: finance-workspace-private 第五轮研究进化 QC，d83a0c48
 
 同类覆盖错误：账单里“任意费用存在”只能证明存在一笔费用，不能证明同任务其他费用类别完整。缺口应按目标维度（任务×类别×覆盖范围）消解，不能用全局存在性替代覆盖证明。
 
+2026-09-14 05@95a4efea 复核再证：**共享谓词不等于共享完整校验**。measure/summarize 共用身份匹配函数，前者却遍历含 `selected=False` 的审计全集，后者只遍历有效项；追加被排除的细账竟把收据 incomplete→valid。前者还以任意费用核销执行，后者逐组件检查，工具费仍能在收据中掩盖模型缺账。审查应同时对齐候选资格、身份、覆盖维度及每个公开输出；变量叫 selected 不证明内容已筛选。反例已工具化于 finance `docs/qc-research-evolution-95a4efea@342fd6cd` 的 `scripts/review_probes/check_product_value_selection.py`。
+
 证据及可执行反例：`/private/tmp/research-evolution-r5-qc-Dmm5xA/report/docs/verification/research-evolution-round5/`。通用件暂沉淀为审查手法而非统一 lint：状态等价和账单覆盖含领域语义；具体反例已落仓可机械重放。未改脏的 harness-reference。
 
 ## A→B→A：内容身份不等于历史节点身份

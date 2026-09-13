@@ -154,6 +154,8 @@ per-user 不是进程级；`runtime_backend_readiness` 这个全局探针看不�
 
 ## 交接记录
 
+- 2026-09-14 · pi · 05@95a4efea 原两钉关闭，收据候选筛选/组件覆盖两处P1退修（342fd6cd）→ `docs/handoffs/inflight/docs-qc-research-evolution-95a4efea.md`。
+
 - 2026-09-14 · pi · RE06@957e83f4 第四轮质检退修（3P1+1P2，证据 4b09d38a）→ `docs/handoffs/inflight/docs-qc-re06-957e83f4.md`；方法 [[state-transition-identity-must-survive-dedup]]。
 
 - 2026-09-14 · pi · hithink生产换库只读复核通过；回补先按消费窗口及端点写范围定界 → `docs/qc-prod-repair-958f49c9@315ff05f`，[交接](/private/tmp/prod-repair-qc-958f49c9/docs/handoffs/inflight/docs-qc-prod-repair-958f49c9.md)。
