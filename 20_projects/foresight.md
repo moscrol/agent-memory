@@ -40,7 +40,7 @@ related: ["[[finhot]]", "[[finance-workspace-private]]"]
 
 ## 未决问题
 
-- [ ] content-ops 登记的 `finance_agent` 与 Foresight 是同一产品吗？（名称与定位已漂移）
+- [x] ~~content-ops 登记的 `finance_agent` 与 Foresight 是同一产品吗？~~ → **是同一产品**（2026-09-13 用户口头确认）。待办：content-ops 登记名与 `foresight/docs/decisions.md` 尚未回写，招募稿 §3 待确认问题 1 可据此关闭
 - [ ] 产品仓库是否入 Gitea 为 `a77/foresight`；代码是否迁移
 - [ ] `commitments.md` 中 3 条"待分类"条目：是承诺还是申请陈述
 - [ ] 招募草稿的 5 个待确认问题
