@@ -3,7 +3,7 @@ title: 证据卫生：三个反复出现的失败形状
 type: knowledge
 agent: codex
 source: finance-workspace-private 会话 2026-08-10（同一轮内三个形状各犯 2-3 次，共 8 次）
-date: 2026-09-12
+date: 2026-09-13
 tags: [knowledge, methodology, verification, gate, provenance, core]
 status: verified
 related: ["[[../20_projects/finance-workspace-private]]", "[[eval-harness-variance-governance]]", "[[agent-system-closed-loop-first-principles]]", "[[gate-assertion-granularity]]"]
@@ -49,6 +49,12 @@ ImportError（只说明新增了 API，不构成行为证据）与断言级差�
 **凡引用测试计数当证据，必须同时写明解释器路径。** 同一棵树同一时刻，宿主
 python3 得 71 failed、项目 venv 得 14 failed。不写解释器的计数不可复核。
 
+
+### 补充：审计计数要声明单位并闭合分母（2026-09-13）
+
+更新按行生效、循环按去重实体计数时，`updated` 可能只是实体数，不是改动行数。一次 L2 修复审查中，真实数据全部对账通过，但收据 `updated + null` 比目标行数少了 339；差额恰好是同一股票跨榜单重复的行。**数据正确与收据可对账是两个独立断言。** 分开记录 `target_rows / matched_rows / null_rows / distinct_entities / changed_rows`，验证 `matched_rows + null_rows = target_rows`；明细可以在界面截断，审计原件必须完整或指向完整工件。同理，零目标的空跑不得仅凭 exit 0 标记修复 complete；至少验路径真实存在与目标集合非空。
+
+证据：[L2 工具审查](/Users/a77/.finance-runtime/reviews/l2-pct-chg-54248fa3/tree/docs/handoffs/2026-09-13-l2-pct-chg-54248fa3-qc.md)。修复门禁由实现方补，本轮留了显式复现断言；没有把特定表名的脚本包装成通用工具。
 
 ### 补充：核对真正执行和读取的对象（2026-09-12）
 
