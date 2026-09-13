@@ -154,7 +154,7 @@ per-user 不是进程级；`runtime_backend_readiness` 这个全局探针看不�
 
 ## 交接记录
 
-- 2026-09-13 · claude · 研究进化 03 方法验证与真实前向概率实验 engineering_complete：六函数服务（冻结 / D0 登记 / 到期结算 / 评分 / 读收据 / 曝光）+ 不可覆盖 repository + eval 二桶消融适配器；89 测试绿、6 处变异各至少 1 红、四组回归 117、全量 8432 绿；无真实前向样本，一律 pending；未 push / 未合 main（代码 e38d6a63，分支 feat/research-validation-03）→ [交接](/Users/a77/fwp-wt-research-validation-03/docs/handoffs/inflight/feat-research-validation-03.md)、[快照](/Users/a77/fwp-wt-research-validation-03/docs/handoffs/2026-09-13-research-validation-03.md)
+- 2026-09-13 · claude · 研究进化 03 方法验证与真实前向概率实验 engineering_complete：六函数服务（冻结 / D0 登记 / 到期结算 / 评分 / 读收据 / 曝光）+ 不可覆盖 repository + eval 二桶消融适配器；89 测试绿、6 处变异各至少 1 红、四组回归 117、全量 8432 绿；无真实前向样本，一律 pending；未 push / 未合 main（代码 e38d6a63 + 49197160，分支 feat/research-validation-03）→ [交接](/Users/a77/fwp-wt-research-validation-03/docs/handoffs/inflight/feat-research-validation-03.md)、[快照](/Users/a77/fwp-wt-research-validation-03/docs/handoffs/2026-09-13-research-validation-03.md)
 
 - 2026-09-13 · claude · 研究进化 05 用户价值测量 engineering_complete：事件合同 + validate_event / measure_pair / summarize 纯函数 + 只读 RunStore 证据解析 + 离线 CLI + 四周试点材料与 06 接线合同；100 测试绿、全量 9640 绿，synthetic 夹具只进 synthetic_check，真人 pending / 商业 unstarted（提交 3604bd23，分支 feat/research-evolution-05-product-value，未 push/未合）→ [交接](/Users/a77/fwp-wt-research-evolution-05/docs/handoffs/inflight/feat-research-evolution-05-product-value.md) · [06 接线合同](/Users/a77/fwp-wt-research-evolution-05/docs/research-pilots/research-evolution/06-integration-contract.md)
 
