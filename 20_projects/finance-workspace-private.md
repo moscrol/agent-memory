@@ -154,6 +154,8 @@ per-user 不是进程级；`runtime_backend_readiness` 这个全局探针看不�
 
 ## 交接记录
 
+- 2026-09-13 · pi · L2回填54248fa3审查：数据与临时重放通过、全量9550P；空库报成功/计数单位/缺失截断三个P2暂缓合并（79e85661）→ [交接](/Users/a77/.finance-runtime/reviews/l2-pct-chg-54248fa3/tree/docs/handoffs/inflight/docs-qc-l2-pct-chg-54248fa3.md)。
+
 - 2026-09-13 · pi · 四轨返修第三轮审查（346P；原8例通过、新5边界仍阻签，`2ad30436`）→ [交接](/tmp/research-evolution-round3-qc/report/docs/handoffs/inflight/docs-qc-research-evolution-round3.md)。
 
 - 2026-09-13 · pi · daily-swap 七轮 QC（e8ad314b）：原修补通过，新增「已见旧库消失却 bootstrap」P2；门禁不可外推合并 → [交接](/tmp/daily-swap-qc-dfb6ce87/docs/handoffs/inflight/docs-qc-daily-swap-dfb6ce87.md)。
