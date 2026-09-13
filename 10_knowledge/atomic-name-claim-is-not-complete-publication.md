@@ -59,6 +59,14 @@ related: ["[[finance-workspace-private]]"]
 
 行为边界测试能保存可重复反例，但不会因注释重新声称「已闭合」自动变红。**行为证据不是措辞门禁。** 三条正向安全断言在所审代码均红，报告/探针：`/tmp/daily-swap-qc-7c89ca81/docs/handoffs/2026-09-13-daily-swap-round6-qc.md`、`scripts/review_daily_swap_races.py`（审查提交 e15379f5）。
 
+## 补充：已见对象的消失，不能重解释成首次初始化（2026-09-13）
+
+七轮审查在 dfb6ce87 的首次只读探针成功返回后删除临时旧库；后续独立 `exists()` 得 False，编排重新选择 bootstrap，发布只含新一天的数据并报成功。旧版同红。旧文件由外部删除，不是发布原语覆盖；错误在于**丢掉已观察的 existing 前提，把生命周期中的消失解释成从未存在**。
+
+可迁移原则：初始 existing/absent 决策一旦形成应贯穿本轮；已观察为 existing 后的缺失走拒绝/显式恢复，不静默初始化。修的是阶段之间的状态传递，不是再在发布前加 stat，也不能承诺知道首次观察之前发生过什么。适用于数据库、配置、账本与缓存刷新；是否允许自动恢复须由调用方明确授权。
+
+证据：`/tmp/daily-swap-qc-dfb6ce87/docs/handoffs/2026-09-13-daily-swap-round7-qc.md`，探针 `scripts/review_daily_swap_round7.py`，审查提交 `e8ad314b`（8P/1F，两绿仅是旧 IO 出口的 characterization）。
+
 ## 依据
 
 - 报告：`/Users/a77/fwp-wt-qc-method-29b07912/docs/handoffs/2026-09-12-method-closed-loop-29b07912-review.md`。

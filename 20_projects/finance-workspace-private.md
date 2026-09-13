@@ -154,6 +154,8 @@ per-user 不是进程级；`runtime_backend_readiness` 这个全局探针看不�
 
 ## 交接记录
 
+- 2026-09-13 · pi · daily-swap 七轮 QC（e8ad314b）：原修补通过，新增「已见旧库消失却 bootstrap」P2；门禁不可外推合并 → [交接](/tmp/daily-swap-qc-dfb6ce87/docs/handoffs/inflight/docs-qc-daily-swap-dfb6ce87.md)。
+
 - 2026-09-13 · pi · daily-swap 六轮 QC（e15379f5）：57P；仍有删除异常逃逸、首次建库吞已提交数据，暂不放行 → [交接](/tmp/daily-swap-qc-7c89ca81/docs/handoffs/inflight/docs-qc-daily-swap-7c89ca81.md)；方法补入 [[atomic-name-claim-is-not-complete-publication]]。
 
 - 2026-09-13 · claude · 研究进化 03 方法验证与真实前向概率实验 engineering_complete：六函数服务（冻结 / D0 登记 / 到期结算 / 评分 / 读收据 / 曝光）+ 不可覆盖 repository + eval 二桶消融适配器；89 测试绿、6 处变异各至少 1 红、四组回归 117、全量 8432 绿；无真实前向样本，一律 pending；未 push / 未合 main（代码 e38d6a63 + 49197160，分支 feat/research-validation-03）→ [交接](/Users/a77/fwp-wt-research-validation-03/docs/handoffs/inflight/feat-research-validation-03.md)、[快照](/Users/a77/fwp-wt-research-validation-03/docs/handoffs/2026-09-13-research-validation-03.md)
