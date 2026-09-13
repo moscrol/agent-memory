@@ -154,6 +154,8 @@ per-user 不是进程级；`runtime_backend_readiness` 这个全局探针看不�
 
 ## 交接记录
 
+- 2026-09-13 · pi · 四轨返修第三轮审查（346P；原8例通过、新5边界仍阻签，`2ad30436`）→ [交接](/tmp/research-evolution-round3-qc/report/docs/handoffs/inflight/docs-qc-research-evolution-round3.md)。
+
 - 2026-09-13 · pi · daily-swap 七轮 QC（e8ad314b）：原修补通过，新增「已见旧库消失却 bootstrap」P2；门禁不可外推合并 → [交接](/tmp/daily-swap-qc-dfb6ce87/docs/handoffs/inflight/docs-qc-daily-swap-dfb6ce87.md)。
 
 - 2026-09-13 · pi · daily-swap 六轮 QC（e15379f5）：57P；仍有删除异常逃逸、首次建库吞已提交数据，暂不放行 → [交接](/tmp/daily-swap-qc-7c89ca81/docs/handoffs/inflight/docs-qc-daily-swap-7c89ca81.md)；方法补入 [[atomic-name-claim-is-not-complete-publication]]。
