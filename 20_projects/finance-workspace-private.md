@@ -154,6 +154,8 @@ per-user 不是进程级；`runtime_backend_readiness` 这个全局探针看不�
 
 ## 交接记录
 
+- 2026-09-13 · codex · 后续优化六份spec已交付：五轨独占业务、06统一集成，工程与真实效果分列 → [总入口](/Users/a77/fwp-wt-river-next-specs-0913/docs/superpowers/specs/2026-09-13-research-evolution/README.md)（规格提交194241dd）。
+
 - 2026-09-13 · pi · 同花顺 `9d73f01a` 三轮 QC：原两修补通过，克隆基线/并发 staging 两项 P1 仍阻断（审查 `c7696acb`）→ [交接](/Users/a77/.finance-runtime/reviews/hithink-9d73f01a-qc/tree/docs/handoffs/inflight/docs-qc-hithink-9d73f01a.md)；通用原则补入 [[atomic-name-claim-is-not-complete-publication]]。
 
 - 2026-09-13 · codex · 8792完成项质检：部署收据成立，材料路由/边界、混合模型归属与L2涨幅阻断整包验收 → [质检报告](/Users/a77/fwp-wt-qc-8792-completed-0913/docs/learning/knevo-distill/recheck/2026-09-12-t23-nogrok/QC-2026-09-13.md)。
