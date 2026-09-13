@@ -154,6 +154,8 @@ per-user 不是进程级；`runtime_backend_readiness` 这个全局探针看不�
 
 ## 交接记录
 
+- 2026-09-13 · codex · 8792完成项质检：部署收据成立，材料路由/边界、混合模型归属与L2涨幅阻断整包验收 → [质检报告](/Users/a77/fwp-wt-qc-8792-completed-0913/docs/learning/knevo-distill/recheck/2026-09-12-t23-nogrok/QC-2026-09-13.md)。
+
 - 2026-09-13 · Codex · 同花顺09-11修复cd7f6fa9质检：数据对账与克隆换库通过，路径闸/来源消费/派生/新增票断言/备份仍需补；原施工树未改 → [质检交接](/Users/a77/.finance-runtime/reviews/hithink-cd7f6fa9-20260913/tree/docs/handoffs/inflight/codex-qc-hithink-cd7f6fa9.md)（f6474687）。
 
 - 2026-09-13 · pi · `600f2aa9` 质检（`433951ed`）：干净全量7002P，T2止血通过；探针错轮/失败报成功、旧枝部署回退风险待补 → [审查交接](/Users/a77/fwp-wt-qc-route-600f2aa9/docs/handoffs/inflight/docs-qc-route-gate-600f2aa9.md)。
