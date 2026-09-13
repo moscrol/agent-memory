@@ -10,7 +10,12 @@
 #   scripts/recall.sh --tag business-model   # 按标签筛
 #   scripts/recall.sh --list                 # 列出全部判据标题
 #
-# 搜索面：10_knowledge/（判据）+ 05_materials/（外部资料原文）
+# 搜索面三层，缺一层就答不全：
+#   10_knowledge/   判据——以后能再用什么
+#   05_materials/   资料——别人说了什么
+#   30_conventions/ 约束与约定——在什么前提下经营 / 怎么协作
+#
+# （2026-09-14 补第三层：建完当天就发现查不到刚落的经营约束卡。）
 #
 # **一条都没命中时会明确打印「库内无依据」——那是合法结果。**
 # 照实说，不要用模型先验补一个听起来有道理的答案。
@@ -18,7 +23,7 @@
 set -uo pipefail
 
 VAULT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
-DIRS=("${VAULT}/10_knowledge" "${VAULT}/05_materials")
+DIRS=("${VAULT}/10_knowledge" "${VAULT}/05_materials" "${VAULT}/30_conventions")
 
 usage() { sed -n '2,18p' "$0" | sed 's/^# \{0,1\}//'; exit "${1:-0}"; }
 
