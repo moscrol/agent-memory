@@ -49,7 +49,7 @@ npm run build
 |---|---|---|---|
 | 0812-0813 128 篇批量集成 | cursor | 完成 | #157 已合 main；#158 pr-checks 防 llms 冲突；#15 关闭不采用 wechat-adapt |
 | 工作流路径对齐 a77 | cursor | 完成 | #159 已合；禁 git add .；仓内 docs/content-matrix；RAW_DIR 回退 |
-| 一日一篇（自动管线） | devin | done | 2026-09-10 稀土 已上线，下一篇 uranium；管线 ~/公众号/pipeline |
+| 一日一篇（自动管线） | devin | done | 2026-09-13 一体化压铸 已上线，下一篇 tbm；管线 ~/公众号/pipeline |
 
 ## 交接记录
 - 2026-09-11（凌晨）· devin · **9/10 稀土篇部署卡死修复+适配稿重排过闸；草稿箱待扫码**：用户问「今天推送了吗/草稿箱存了吗」。排查：21:00 launchd 准时触发，00–04 全绿，05 步 `npx wrangler deploy` 从 21:00 死等 2.5h+（0% CPU 停在 registry 连接；npx 每晚现装新版 wrangler 在 9/8、9/9 日志均有迹）——网络通道挂起+无超时=整链挂死；merge 其实已完成，故线上 404、06/07/08 没跑（草稿箱断更第 3 天，9/8、9/9 是样式门禁拦的）。修法：①wrangler 钉进**流水线仓** devDependencies 4.40.0（依赖放使用方同层；网站仓 main 只收文章类约定不破），05 改 `$PL/node_modules/.bin/wrangler`+`timeout 300`+健康检查 `--max-time 30`（pipeline a7778e3；launchd PATH 含 /opt/homebrew/bin 已核实）。②稀土适配稿按 GPU de9d14f 先例重排：h3 6→15（三句话/三重优势/价格业绩冷水编号化）+管制三部曲速查表（数字全取原文，金样本 161=161）+两处结论转引用块，门禁 9/9 PASS（站点仓 16d6f50），三副本同步。③断点续跑（**勿重跑 run_daily**：merge 已进 main，重跑会把 9/11 uranium 提前选出双发；护栏=sget slug==rare-earth+工作区白名单）05→06 全绿，线上 200 复核、gitea 同步 0。**遗留**：07 卡 NEED_LOGIN，凌晨 4 轮扫码窗全 LOGIN_TIMEOUT（人在回路唯一步骤，机器不可代扫）；已备 `pipeline/wizard_draft_login.sh`（扫码成功自动续跑 07/08），用户在场跑一下即闭环；done 未写、state 未动，今晚 21:00 会自动选下一篇 uranium（h3=5/表=0/引用=2，**必挂样式门禁，白天需提前重排**）。可复用：`npx` 在自动化/CI 里是「每次现拉依赖」反模式，工具一律钉版本进仓+超时兜底。
