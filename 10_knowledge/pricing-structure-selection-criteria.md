@@ -6,7 +6,7 @@ source: 提炼自 05_materials/订阅制与按次收费的适用条件对比.md�
 date: 2026-09-13
 tags: [knowledge, pricing, business-model, framework]
 status: draft
-related: ["[[订阅制与按次收费的适用条件对比]]", "[[foresight]]"]
+related: ["[[订阅制与按次收费的适用条件对比]]", "[[pricing-models-and-value-metric]]", "[[van-westendorp-price-sensitivity]]", "[[foresight]]"]
 ---
 
 # 定价结构选择判据
@@ -50,3 +50,5 @@ related: ["[[订阅制与按次收费的适用条件对比]]", "[[foresight]]"]
 
 - 来源资料：[[订阅制与按次收费的适用条件对比]]（stance: author-view）
 - 待验证：需要在真实付费样本上检验，当前**无样本**
+- **上游**（先定计价单位再定收费形态）与七种模型细分：[[pricing-models-and-value-metric]]
+- **上面「无付费样本时只能生成假设」的一个具体破法**：[[van-westendorp-price-sensitivity]]（问意向价格，仍不等于真实付费）
