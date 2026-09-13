@@ -137,6 +137,16 @@ python3 得 71 failed、项目 venv 得 14 failed。不写解释器的计数不�
 
 ---
 
+### 补充：检查器失败不是检查通过；报告兜底要脱离失败介质（2026-09-13）
+
+`stdout == ""` 只有在子进程成功退出后才有「没有违规」的含义。真实反例：干净 HEAD 下放一个未跟踪文件，用损坏的临时 `GIT_INDEX_FILE` 让 `git status --porcelain` exit 128、stdout 空；门禁忽略 rc，仍记录 `tree_clean=true`，完整数据对账 22 项 PASS、exit 0。**被测业务正常不能弥补前置检查器没有执行成功。** Git/扫描器/权限探针等 helper 必须先核 rc，再解释内容；异常需包含命令、rc 与有界 stderr。
+
+同轮另一反例：输出目录创建失败，顶层捕获后仍往那个目录写 FAIL，二次异常发生在打印 JSON 之前，只留下 traceback。fallback（备用路径）必须独立于原失败介质：主报告 → 独立仓外临时路径 → 尽力向 stderr 输出结构化 JSON，最终保持非零退出；不承诺所有介质失效时仍一定有磁盘文件。
+
+证据与可复现探针：[hithink 48242bd4 独立审查](/Users/a77/.finance-runtime/reviews/hithink-48242bd4-qc/tree/docs/handoffs/2026-09-13-hithink-48242bd4-qc.md)，提交 `63f377da`。诊断脚本已入审查分支，生产修补交实现方；这是用户只授权审查的边界，不以方法笔记代替回归修复。
+
+---
+
 ## 给存量代码加约束：棘轮，不是一次性清理
 
 三个形状之外的一条独立收获。
