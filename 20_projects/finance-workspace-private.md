@@ -154,6 +154,8 @@ per-user 不是进程级；`runtime_backend_readiness` 这个全局探针看不�
 
 ## 交接记录
 
+- 2026-09-14 · pi · RE06 第六轮 c8536482 复审退修（2P1+1P2，证据63bc2ea1）→ `/private/tmp/re06-qc-c8536482/docs/handoffs/inflight/docs-qc-re06-c8536482.md`；方法 [[state-transition-identity-must-survive-dedup]]。
+
 - 2026-09-14 · pi · 05收尾92608c84复核可交06，2P3交接一致性意见（41233043）→ `/private/tmp/research-evolution-closeout-92608c84/docs/handoffs/inflight/docs-qc-research-evolution-closeout-92608c84.md`。
 
 - 2026-09-14 · pi · E2 v9原两项关闭，续轮复核漏项1P1退修（e3781a25）→ `/private/tmp/e2-v9-qc-d3c6e516/docs/handoffs/inflight/docs-qc-e2-v9-d3c6e516.md`；方法 [[permission-intersection-requires-complete-candidates]]。
