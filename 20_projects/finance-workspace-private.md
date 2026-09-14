@@ -154,6 +154,8 @@ per-user 不是进程级；`runtime_backend_readiness` 这个全局探针看不�
 
 ## 交接记录
 
+- 2026-09-14 · Codex · RE06第八轮 fdb5f91d：X1可关闭，X2来源未就绪取消/读取失败两反例退修；审查 af237ee1 → `/Users/a77/.finance-runtime/reviews/re06-round8-fdb5f91d/docs/handoffs/inflight/codex-review-re06-round8-fdb5f91d.md`。
+
 - 2026-09-14 · pi · 302132第六轮5b0cd87e退修1P1+2P2（595a9acd）→ `/private/tmp/backfill-302132-qc-5b0cd87e/docs/handoffs/inflight/docs-qc-backfill-302132-5b0cd87e.md`；方法 [[evidence-hygiene-three-failure-shapes]]。
 
 - 2026-09-14 · pi · E2 P1 24a79124退修4P1级+3P2级（e85198dd）→ `/private/tmp/e2-p1-qc-24a79124/docs/handoffs/inflight/docs-qc-e2-p1-24a79124.md`；方法 [[permission-intersection-requires-complete-candidates]]。
