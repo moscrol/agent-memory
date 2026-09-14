@@ -49,7 +49,7 @@ related: ["[[value-creation-vs-value-capture]]", "[[pricing-structure-selection-
 
 ## 与项目的关系（推测）
 
-对 [[foresight]]：**现在不能做这个测试**——付费用户为 0（`../offer.yaml` `status: draft`，无生效报价）。
+对 [[foresight]]：**现在不能做这个测试**——付费用户为 0（`foresight/docs/offer.yaml` `status: draft`，无生效报价；2026-09-14 复核路径，原记为 `../offer.yaml` 有误）。
 
 但替代问法可以现在答，而答案不乐观：第二选择是**笔记软件 + 自律**，接近免费；"为什么不自己做"的答案取决于自律有多难。
 
@@ -59,3 +59,4 @@ related: ["[[value-creation-vs-value-capture]]", "[[pricing-structure-selection-
 
 - 抽象版：[[value-creation-vs-value-capture]]
 - 结构选择：[[pricing-structure-selection-criteria]]（先有结构，才谈定价权）
+- 方向而非存在：[[moat-must-widen-not-just-exist]]（本条测护城河**在不在**，那条测它**这季度在往哪走**）

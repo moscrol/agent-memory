@@ -6,7 +6,7 @@ source: 巴菲特/芒格反复表述的原则（"we look for one-foot hurdles"�
 date: 2026-09-14
 tags: [knowledge, business-model, buffett, munger, first-principles, mvp, general]
 status: draft
-related: ["[[circle-of-competence-verified-vs-unverified]]", "[[value-creation-vs-value-capture]]", "[[foresight]]"]
+related: ["[[circle-of-competence-verified-vs-unverified]]", "[[invert-ask-how-it-dies]]", "[[value-creation-vs-value-capture]]", "[[foresight]]"]
 ---
 
 # 找一英尺的栏杆
@@ -59,3 +59,4 @@ related: ["[[circle-of-competence-verified-vs-unverified]]", "[[value-creation-v
 ## 参考
 
 - 配套：[[circle-of-competence-verified-vs-unverified]]（跨哪个栏杆取决于你站在圈内还是圈外）
+- 怎么发现自己已经在跨七英尺：[[invert-ask-how-it-dies]]——"系统很完美但没人付钱"属于**当期无痛**的死法，不会自己报警

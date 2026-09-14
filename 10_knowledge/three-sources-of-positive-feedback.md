@@ -6,7 +6,7 @@ source: 商业分析通用原理（非某人独有主张）；2026-09-14 整理�
 date: 2026-09-14
 tags: [knowledge, business-model, first-principles, moat, network-effect, general]
 status: draft
-related: ["[[personal-accumulation-is-not-network-effect]]", "[[entry-ticket-is-not-a-moat]]", "[[value-creation-vs-value-capture]]", "[[foresight]]"]
+related: ["[[personal-accumulation-is-not-network-effect]]", "[[entry-ticket-is-not-a-moat]]", "[[moat-must-widen-not-just-exist]]", "[[value-creation-vs-value-capture]]", "[[foresight]]"]
 ---
 
 # 正反馈的三种来源
@@ -67,3 +67,4 @@ related: ["[[personal-accumulation-is-not-network-effect]]", "[[entry-ticket-is-
 
 - 否定式配套：[[personal-accumulation-is-not-network-effect]]
 - 壁垒可检验化：[[entry-ticket-is-not-a-moat]]
+- **方向而非存在**：[[moat-must-widen-not-just-exist]]——本条判定"是哪一种正反馈"，那条判定"它这季度在变宽还是变窄"，并给上面第 2 条（下一次真的调用）配了读数
