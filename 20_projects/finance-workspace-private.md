@@ -155,6 +155,8 @@ per-user 不是进程级；`runtime_backend_readiness` 这个全局探针看不�
 
 ## 交接记录
 
+- 2026-09-14 · claude · 判官身份与校准有效性 Task 1–5 完成，代码 7117125e / 文档 87845e09，全量 9766/0 + 四门反证见红→还原全绿，未调真实判官 → `docs/handoffs/inflight/codex-judge-calibration-validity.md`；[[verification-tools-can-be-silent-on-the-defect]]、[[count-render-outlets-by-body-text-not-call-sites]]。
+
 - 2026-09-14 · pi · E2 P3c b4ba6fb5/收据c942fcd1，消费者先绑读取上限，独立审查仍阻塞 → `docs/handoffs/inflight/fix-e2-boundary-closeout.md`；[[gate-covers-only-its-return-value]]。
 
 - 2026-09-14 · pi · E2 P3b本地读取上限8ea6c5c1、收据812b4d46，独立QC 503待复核 → `docs/handoffs/inflight/fix-e2-boundary-closeout.md`；[[denied-io-tests-must-count-attempts]]。
