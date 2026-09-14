@@ -154,6 +154,8 @@ per-user 不是进程级；`runtime_backend_readiness` 这个全局探针看不�
 
 ## 交接记录
 
+- 2026-09-14 · pi · E2 v8原反例关闭，引导块保护/A轴歧义1P1+1P2待修（8a0f56d1）→ `/private/tmp/e2-v8-qc-723bf50e/docs/handoffs/inflight/docs-qc-e2-v8-723bf50e.md`；方法 [[permission-intersection-requires-complete-candidates]]。
+
 - 2026-09-14 · pi · 05 Round-9 原两P1关闭；无run收据P1/组件投影P2待修（证据2a826be9，交接b3c631b9）→ `/private/tmp/research-evolution-r9-qc/docs/handoffs/inflight/docs-qc-research-evolution-round9.md`。
 
 - 2026-09-14 · pi · RE06@ecd90a3c 第五轮退修：请求/成果身份四P1，全量三红分诊（证据 796ab435）→ `/private/tmp/re06-qc-ecd90a3c/docs/handoffs/inflight/docs-qc-re06-ecd90a3c.md`；方法补充 [[state-transition-identity-must-survive-dedup]]。
