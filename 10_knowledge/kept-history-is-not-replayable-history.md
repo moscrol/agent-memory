@@ -22,7 +22,7 @@ related: ["[[state-transition-identity-must-survive-dedup]]", "[[schema-epoch-wh
 2. **内容端**：这条记录的**内容版本本身被冻结**，而不只是时间戳不动
 3. **读取端**：能问「截至 T 时刻，这条是什么状态、什么内容」，而不只是「现在是什么」
 
-任何一件缺席，系统都会停在**「看起来有审计能力、实际返回今天的值」**这个状态上。
+任何一件缺席，都不能据此宣称完整的历史重放能力。**如实返回缺口或降档**仍是正确行为；危险的是把今天的值冒充成当时已知的值。
 
 最常见的伪装是第 2 条：**时间戳不更新 ≠ 内容被冻结**。保留首次写入时间、同时允许内容列被覆盖，等于让后来修订的值**带着当时的时间戳通过时点检查**——这是历史泄漏，不是历史保存。
 
@@ -69,11 +69,15 @@ related: ["[[state-transition-identity-must-survive-dedup]]", "[[schema-epoch-wh
 [实测 2026-09-14，`finance-workspace-private@gitea/main:1fef3d27`]
 
 - **river 问二的完整现场**：工单 #43（`07857c80`）撤掉 `LEAST(updated_at, 名单快照 captured_at)`——台账 `captured_at` 证明的是**名单版本**、不证明行情内容，于是 T 日 1% 被 T+7 修订成 9% 的那一行会被标 strict 并返回 9%。而工单 #27 的 `recorded_at = COALESCE(<table>.recorded_at, excluded.recorded_at)`「已有就不动」**单独不充分**（内容列照常被覆盖），且该写法自其唯一一次提交 `575136b9` 起就存在，**不是后来才失效的**。问二的正解是工单 #47：`slice_river(frozen_snapshot_root=...)` + `river_frozen.connect_frozen`，已在 main。
-- **同一函数里两种失败、两种待遇**（`river.py:898-903`）：封印校验失败 → **抛错不回退**（fail-closed）；无 ≤ cutoff 快照 → **如实回落当前库**（fail-open）。后者正是会静默返回今天数据的那一种；`content_source` 记录了读的哪个源，但**缺版本要不要降 `pit_grade` 尚未定**。
-- **默认不选版**：不传 `frozen_snapshot_root` 时行为与此前逐字节相同；覆盖 14 张骨干表，其余表与实体别名读当前库。所以现状是**「能力已有、契约未定」**，不是「已解决」。
+- **同一函数里两种失败、两种待遇**（`river.py:898-903, 945-978`）：封印校验失败 → **抛错不回退**；无 ≤ cutoff 快照，或最近快照早于 `as_of` → **回落当前库并在 `content_source.reason` 留痕**。回落后仍过既有时点门，不能称作静默放行：当前内容的 `updated_at <= C` 仍是当时已知的充分证据；`updated_at > C` 或缺失时，普通读取降为 `trade_date_only`，`require_strict=True` 则滤除这些对象，被滤空的轨返回 `Gap(reason="pit_filtered")`（`river.py:174-192, 854-878, 1030-1031`）。**无冻结版本不等于必须整片降档**，还要看当前行是否能证明当时已知。
+- **默认不选版、能力范围有限**：不传 `frozen_snapshot_root` 时沿用当前库读取和上述时点门；传入后只对 `SNAPSHOT_TABLES` 覆盖集取冻结内容（该 revision 为 14 张骨干表），集内未拍到的表保持空，不偷读当前值；集外表与实体别名仍读当前库，`content_source.config_tables=live` 声明此边界。#47 是**日频 PIT**，不区分同日盘中多个版本，也不承诺全表历史冻结；`river_window` / `anchor_windows` 在该 revision 尚未接版本源。应逐项陈述这些已定边界，不能概括成「缺版本的等级契约未定」或「所有历史问题已解决」。
 - **经验卡 / `memory_status` 同病**：`memory_status` 已过问一（归档/撤销/恢复都追加事件，源码解释了为什么不能改历史）；经验卡尚未接入该协议；**两者读取端都只算最新状态、无按时点查询——问三未过**。
 
 一条**存在性观察，不作有效性证据**：Mem0 在 2026-04 换代时，把 LLM 决策的 ADD/UPDATE/DELETE 整体换成 ADD-only。这只证明有主流项目做了这个选择；其 README 同批列了实体关联、多信号检索、时间排序等多项改动，分数又来自含专有优化的托管版，**没有消融，不能把涨分归因到取消覆盖**。
+
+## 订正记录
+
+- 2026-09-14 · codex · 保留 claude 原文的三层判据；据固定 `finance-workspace-private@1fef3d27` 的 `river.py::RiverSlice.pit_grade`、`_enforce_cutoff`、`slice_river`，以及 `river_frozen.py` 和工单 #47，撤销「无快照回落就是 fail-open / 静默返回今天数据、缺版本降档契约未定」的判断。回落是否可 strict 取决于内容时点证据；补记日频、覆盖集与尚未接线的区间读取边界。
 
 ## 参考
 
