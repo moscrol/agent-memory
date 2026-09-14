@@ -62,6 +62,25 @@ WIKILINK_RE = re.compile(r"\[\[([^\]|#]+)(?:[|#][^\]]*)?\]\]")
 CODE_RE = re.compile(r"```.*?```|`[^`\n]*`", re.DOTALL)
 INBOX_MAX_AGE_DAYS = 14
 KNOWLEDGE_STALE_DAYS = 90
+# 10_knowledge 认识论棘轮（2026-09-14 起）：新知识笔记必须声明 stance。
+#
+# 事由：`stance` 原本是 material 专属字段（frontmatter-spec「material 专属字段」表），
+# 于是「这是通用原理 / 待验证假设 / AI 提炼 / 有实测证据」在 10_knowledge 层没有
+# 字段可放，只能写进正文——实测 8 篇各自即兴写成第 14 行的 `> **性质：xxx**`，
+# 词表还混着 `hypothesis` / `通用原理` / `[推断]` / `ai-distilled` 四套写法。
+# 散文里的标记不能筛、不能查、不能被下游区分，而 recall.sh 的引用纪律恰恰要求
+# 「谁说的 + 适用条件 + 当前符不符合」。这是**资料层比判据层更严**的倒挂：
+# _templates/material.md 有「适用条件 / 失效条件」，knowledge-note.md 没有。
+# 棘轮只管新笔记，存量 74 篇不动（与「项目笔记体积」同一条棘轮纪律）。
+KNOWLEDGE_STANCE_RATCHET = "2026-09-14"
+STANCE_VALUES = {"principle", "author-view", "ai-distilled", "hypothesis", "evidenced"}
+# agent 缺失的历史豁免：2026-09-14 前的笔记缺 agent 只 WARN，不拦截。
+#
+# 事由：4 篇 2026-09-09~13 的 finance QC 笔记缺 agent，写入者已不可考——git author
+# 是同一个人，但那几天 claude / codex / cursor 都在往这个 vault 写。provenance 字段
+# 的唯一用途就是聚合「谁写了什么」，**填一个猜测值等于把它变成噪声，比缺着更坏**。
+# 注意豁免范围：只豁免「缺」，不豁免「值不合法」；只豁免棘轮日之前，新笔记照常 ERROR。
+AGENT_REQUIRED_FROM = "2026-09-14"
 PROJECT_NOTE_WARN_BYTES = 80 * 1024
 PINNED_SHA_RE = re.compile(r"^> pinned_sha256: ([0-9a-f]{64})\s*$", re.M)
 PINNED_LINE_RE = re.compile(r"^> pinned_")
@@ -196,12 +215,24 @@ def main() -> int:
             errors.append(f"{rel}: 缺少 frontmatter")
             continue
 
+        date_val = fm.get("date", "")
+        date_iso = date_val.strip('"')
+        dated_before_agent_ratchet = bool(DATE_RE.match(date_iso)) and date_iso < AGENT_REQUIRED_FROM
+
         for field in REQUIRED_FIELDS:
-            if not fm.get(field):
+            if fm.get(field):
+                continue
+            # 棘轮前的存量缺 agent 降为 WARN——见 AGENT_REQUIRED_FROM 处的事由。
+            # 日期缺失或格式坏时不豁免：认不出日期就当它是新的，fail closed。
+            if field == "agent" and dated_before_agent_ratchet:
+                warns.append(
+                    f"{rel}: 缺 agent（{date_iso} < {AGENT_REQUIRED_FROM} 存量豁免）——"
+                    "如果还记得是谁写的就补上，不记得别猜"
+                )
+            else:
                 errors.append(f"{rel}: frontmatter 缺字段 {field}")
 
-        date_val = fm.get("date", "")
-        if date_val and not DATE_RE.match(date_val.strip('"')):
+        if date_val and not DATE_RE.match(date_iso):
             errors.append(f"{rel}: date 格式应为 YYYY-MM-DD，实际 {date_val}")
 
         last_verified = fm.get("last_verified", "").strip('"')
@@ -232,6 +263,21 @@ def main() -> int:
         is_root_page = len(rel.parts) == 1
         if expected_dir and not is_root_page and rel.parts[0] != expected_dir:
             errors.append(f"{rel}: type={note_type} 应放在 {expected_dir}/")
+
+        # 认识论棘轮：棘轮日起的新知识笔记必须声明 stance——见 KNOWLEDGE_STANCE_RATCHET 处的事由。
+        if rel.parts[0] == "10_knowledge" and DATE_RE.match(date_iso) and date_iso >= KNOWLEDGE_STANCE_RATCHET:
+            stance = fm.get("stance", "").strip('"')
+            if not stance:
+                errors.append(
+                    f"{rel}: 缺 stance（{KNOWLEDGE_STANCE_RATCHET} 起的新知识笔记必填，"
+                    f"取值 {'/'.join(sorted(STANCE_VALUES))}）——"
+                    "别把「谁的主张」和「已验证结论」写成同一种东西"
+                )
+            elif stance not in STANCE_VALUES:
+                errors.append(
+                    f"{rel}: stance={stance} 不在取值表里（{'/'.join(sorted(STANCE_VALUES))}），"
+                    "见 30_conventions/frontmatter-spec.md"
+                )
 
         # 知识过期：verified 笔记超过 stale_after 天未复核
         if rel.parts[0] == "10_knowledge" and fm.get("status") == "verified":
