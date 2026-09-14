@@ -3,6 +3,12 @@
 
 检查项（对应 30_conventions/maintenance.md 写入检查清单）：
 
+0. **空文件**：任何 `.md` 被写成空/纯空白即 ERROR。这一项**跑在 SKIP_PATHS 之前**，
+   因为「文件是不是空的」与「它是不是一篇合规笔记」无关；只豁免运行时台账
+   （`.foresight/`、`可证伪点回检/`）。2026-09-04 一次批量内容丢失把 4 个文件写成
+   0~1 字节、auto-sync 两秒后连提交带推送，`70_tutor/README.md` 空了十天无人知——
+   旧检查看不见它，是因为 should_skip 按 basename 匹配，"README.md" 跳过的是
+   全库任意目录下的 README，而不只是本意的根层导览页；
 1. frontmatter 完整性：title / type / agent / source / date / tags 必填；
 1b. **缺 agent 的历史豁免**：`date` 早于 2026-09-14 的存量笔记缺 `agent` 降为 WARN。
    4 篇 09-09~13 的 finance QC 笔记写入者已不可考，而 provenance 字段填猜测值
@@ -116,6 +122,18 @@ SKIP_PATHS = {
     "README.md",
     "TOOLKIT.md",
 }
+# 空文件检查（第 0 项）唯一豁免的路径：机器逐 run 写出来的台账。
+# 只排这两个，不复用 SKIP_PATHS——因为 SKIP_PATHS 存在的理由是「这些文件本就
+# 没有 frontmatter / 是外仓镜像」，而「文件是不是空的」跟它是不是一篇合规笔记无关，
+# **空文件在任何一类里都不是有意为之**。
+#
+# 2026-09-04 12:54 实测：一次批量内容丢失把 6 个文件写成纯删除（4 个到 0~1 字节），
+# auto-sync 在 2 秒后连提交带推送，而其中 `70_tutor/README.md` 被清成 0 字节整整
+# 十天没有任何机制报过一声——因为 should_skip 是按 **basename** 匹配的，
+# SKIP_PATHS 里的 "README.md" 跳过的是全库任意目录下的 README，而 docstring
+# 写的是「README.md 导览页」（本意只指根层那一个）。
+# 把空文件检查提到 should_skip 之前，这个盲区不必改 SKIP_PATHS 就关上了。
+RUNTIME_LEDGERS = {".foresight", "可证伪点回检"}
 
 
 def parse_frontmatter(text: str) -> dict[str, str] | None:
@@ -206,9 +224,19 @@ def main() -> int:
 
     for path in md_files:
         rel = path.relative_to(VAULT)
+        text = path.read_text(encoding="utf-8", errors="replace")
+
+        # 0) 空文件。**跑在 should_skip 之前**——见 RUNTIME_LEDGERS 处的事由。
+        if not text.strip() and rel.parts[0] not in RUNTIME_LEDGERS:
+            errors.append(
+                f"{rel}: 文件是空的（{len(text.encode())} 字节）。"
+                "内容通常还在 git 里：先 `git log --follow -- <路径>` 找最后一个非空版本，"
+                "再 `git show <sha>:<路径> > <路径>` 取回，别当新笔记重写"
+            )
+            continue
+
         if should_skip(path):
             continue
-        text = path.read_text(encoding="utf-8", errors="replace")
 
         # 双链死链（跳过代码块/行内代码里的示例链）
         prose = CODE_RE.sub("", text)

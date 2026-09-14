@@ -72,6 +72,28 @@ EXCLUDES=(
 # one (not even versioned).  Losing an edit is worse than carrying an extra
 # local commit, so the snapshot is unconditional and only the remote is gated.
 if [ -n "$(git status --porcelain -- "${EXCLUDES[@]}")" ]; then
+  # 截断告警。**不拦提交，只喊一声**——拦提交会重蹈上面那段修过的错
+  # （不提交=编辑没被版本化，比多一个本地提交贵）。内容本来就还在 HEAD 里，
+  # 真正的损失从来不是内容，是没人知道。
+  #
+  # 实测事故 2026-09-04 12:54:42：一次批量内容丢失把 6 个文件写成纯删除
+  # （`70_tutor/README.md` → 0 字节，另三个 → 单个 \n），本脚本 **2 秒后
+  # 连提交带推送**（12:54:42 [commit] / 12:54:44 [push]）。日志显示同步全程正常，
+  # 12:00–12:51 每 3 分钟一次 [ok]——所以这不是同步卡死，是**忠实地把磁盘现状
+  # 放大成了共享历史**。四个文件里两个是判据笔记、一个是 sync_toolkit_mirror.py
+  # （它一死 TOOLKIT 镜像立刻漂，把 vault_lint 刷红，真信号又被埋进红灯里）。
+  # 十天后才被发现。被清掉的那两条笔记之一，标题正是「超时即杀是放大器」。
+  emptied="$(git diff --name-only HEAD -- "${EXCLUDES[@]}" 2>/dev/null | while read -r f; do
+    [ -f "$f" ] || continue
+    [ -n "$(tr -d '[:space:]' < "$f" 2>/dev/null)" ] && continue          # 现在非空白 → 正常
+    git cat-file -e "HEAD:$f" 2>/dev/null || continue                     # HEAD 里没有 → 新文件
+    [ -z "$(git show "HEAD:$f" 2>/dev/null | tr -d '[:space:]')" ] && continue  # 本来就是空的
+    echo "$f"
+  done)"
+  if [ -n "$emptied" ]; then
+    echo "$(ts) [warn] 被追踪文件变成空白，内容仍在 HEAD：git checkout HEAD -- <路径>"
+    printf '%s\n' "$emptied" | sed "s|^|$(ts) [warn]   |"
+  fi
   git add -A -- "${EXCLUDES[@]}"
   if git -c user.name="$NAME" -c user.email="$EMAIL" commit -q -m "auto-sync: local edits $(ts)"; then
     echo "$(ts) [commit] local edits committed on '$BRANCH'"
