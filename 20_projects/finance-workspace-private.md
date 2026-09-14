@@ -154,6 +154,8 @@ per-user 不是进程级；`runtime_backend_readiness` 这个全局探针看不�
 
 ## 交接记录
 
+- 2026-09-14 · pi · E2 v10 ec54ef55设计通过，续轮复核P1关闭（b397764f）→ `/private/tmp/e2-v10-qc-ec54ef55/docs/handoffs/inflight/docs-qc-e2-v10-ec54ef55.md`。
+
 - 2026-09-14 · Codex · 工单53第四轮复审735d4164：T3范围内，规范2/需求2项P2待修 → `/private/tmp/extraction-qc-f43b89c6/docs/handoffs/inflight/codex-review-extraction-f43b89c6.md`；方法 [[state-transition-identity-must-survive-dedup]]。
 
 - 2026-09-14 · pi · RE06 第六轮 c8536482 复审退修（2P1+1P2，证据63bc2ea1）→ `/private/tmp/re06-qc-c8536482/docs/handoffs/inflight/docs-qc-re06-c8536482.md`；方法 [[state-transition-identity-must-survive-dedup]]。
