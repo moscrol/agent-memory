@@ -155,6 +155,8 @@ per-user 不是进程级；`runtime_backend_readiness` 这个全局探针看不�
 
 ## 交接记录
 
+- 2026-09-15 · coding agent · #50日报生成双根 `0f6c2810`，保留外置用户态、独立副本变异与冻结全量通过，未部署 → `docs/handoffs/inflight/fix-generation-stage-code-root.md`。
+
 - 2026-09-15 · claude · **时间长河：认知演变的载体 + 投影契约**。`1ee6a881` 补 G-02 契约后半（`hardness`/`expired_at`/`superseded_by` + `slice` 第三条过滤 + `HARDNESS_RANK` 下沉）；`f8fc5e5b` 新定 spec §4.4 区间 / **§4.5 上下文投影（此前从无定义，投影只吃单点不是论证结果）** / §4.6 事件锚点，核心决定「**区间投影按变化选不按天铺**」，一等公民是 `river_derive` 的 `transition`/`first_event`。全量 9629/0、五门变异各自见红、指针门禁双向承重。**未填值**（填值会改 `projection_hash`）；**回检 verdict 仍不给河上对象标 `expired_at`**——推翻的载体有了、触发没接上 → `docs/handoffs/inflight/feat-river-correction-hardness.md`；[[mutation-test-needs-a-committed-restore-point]]。
 
 - 2026-09-15 · claude · 判官校准有效性**同题双轨**：用户裁决 codex 轨作数，feat 轨作废留接替指针 `19ae9973`；三处待裁决只剩 `identity_state` 三态跨层无一致性断言（P1）在 codex 轨成立并已移交，stream 身份缺口与噪声底 codex 轨已解 → `docs/handoffs/inflight/feat-judge-calibration-validity.md`；[[cross-branch-handoff-is-invisible-to-same-topic-tracks]]。
