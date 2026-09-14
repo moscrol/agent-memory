@@ -32,6 +32,8 @@ source: finance-workspace-private 第五轮研究进化 QC，d83a0c48
 
 可迁移检查：至少覆盖 A→B、A→B→A；断言最终状态之外，还验替代关系无环、先后次序正确、旧动作是否应继承。内容去重键与历史 occurrence 身份应分开论证，不能靠覆盖字典值修复身份设计。若选 occurrence 身份，应由稳定转折事实派生，不塞每次扫描时间破坏幂等。
 
+2026-09-14 工单53第三轮复审（候选642c3f5d）在用户草稿再次证实：同尝试A→B→A第三次返回版本1成功，latest及实际带读收据却仍选B。另两个可迁移断点：复用旧产物时，来源产物ID与当前动作尝试ID必须分别保留；显式ID和自动认领出的ID必须经过同一完成收据分支。四条CLI反例已落 finance `codex/review-extraction-642c3f5d` 的 `docs/verification/extraction-642c3f5d/test_review_contracts.py`，当前4F；报告同目录。没有把领域身份等价判断做成通用静态lint。
+
 同轮另证：把费用缺口只修在无 run 分支，`attempts` 非空后的逐尝试聚合仍可能让工具费核销模型费。检查目标维度要贯穿所有分支，不能在入口提前返回并假设下游已兜底。
 
 可执行反例：finance 分支 `docs/qc-research-evolution-round6` 下 `docs/verification/research-evolution-round6/`；本地耐久证据 `~/.finance-runtime/reviews/research-evolution-round6-qc-20260913/`。
