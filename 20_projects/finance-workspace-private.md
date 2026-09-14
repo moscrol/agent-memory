@@ -827,3 +827,5 @@ per-user 不是进程级；`runtime_backend_readiness` 这个全局探针看不�
 - 2026-09-13 · codex · 研究进化06@4e95c20b审查：原63P，规范3/规格10项需返修；交接docs/qc-research-evolution-06-0913，报告 ~/.finance-runtime/reviews/research-evolution-06-qc-20260913/review.md。
 
 - 2026-09-14 · codex · 工单 #53@b42dc9bf 质检需返修（规范4/需求10，定向154P）；报告 ~/.finance-runtime/reviews/extraction-first-p0-b42dc9bf-20260914/review.md，交接 codex/qc-extraction-first-p0-b42dc9bf@e7f6e8b7。
+
+- 2026-09-14 · codex · 工单 #53@caba87c7 返修复审：新收据可信、200P；仍规范2/需求4项P2，交接 codex/qc-extraction-caba87c7 的 docs/handoffs/2026-09-14-extraction-caba87c7-review.md。
