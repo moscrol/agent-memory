@@ -185,6 +185,7 @@ flowchart LR
 | L3 运行时证据 | finance | `intelligence/services/l3_evidence.py` | 公告、互动易、问询函运行时补查 |
 | L3 入库候选 | finance | `intelligence/services/l3_ingest.py` | 把官方证据解析成候选 payload 或 source note |
 | daily-agent | finance | `intelligence/workflows/daily_agent.py` | 生成每日候选、research_queue、kb-ingest-queue |
+| 日报计划契约对齐（在途） | finance | `market_feature_store/consumption_registry.py::resolve_plan@fix/local-plan-gate-alignment`、`intelligence/workflows/daily_review.py::DailyReviewOptions@fix/local-plan-gate-alignment`、`market_feature_store/quality.py::check_daily@fix/local-plan-gate-alignment` | 显式参数 > REVIEW_SYNC_PLAN > full；auto 按目标交易日解析，两道门及 HTML 内部门显式传实际计划；local 仍豁免题材资金面板，不改口径。旧 daily-update 不支持 local/cheap，实际选中时拒绝而非偷跑 full。代码 4fbc8c42，针对性144P，删传参变异9F；全量9654P/2F（沙箱探针基线同红），未合未部署，生成代码根仍按工单#50另验。 |
 | 复盘台账 | finance | `docs/learning/forecast-review-ledger/` | 保存假设原文、验证、人类指正 |
 | 经验卡 | finance | `intelligence/services/experience_cards.py::load_cards` | 低分回答/纠偏压缩成下次提示规则；`promotion=promoted_to_code` 与 `invalidated` 一样跳过注入（已固化进管线，避免重复供给） |
 | 可证伪点 | finance | `intelligence/services/checkpoints.py` | 登记、回检、校准历史判断。2026-09-06 起记录带 `object_type ∈ {judgment, agent_judgment, observation_script}`；存量记录只从确定的 `source` 反推，其余进 `unknown_legacy` 单独一格，**不折进 judgment**（一个默认值把三种来源合成一种，胜率面板就再也分不开） |

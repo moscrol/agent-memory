@@ -155,6 +155,8 @@ per-user 不是进程级；`runtime_backend_readiness` 这个全局探针看不�
 
 ## 交接记录
 
+- 2026-09-14 · coding agent · local 日报计划契约修复 `4fbc8c42`，保持资金口径、拒绝旧同步偷跑 full；未部署 → `docs/handoffs/inflight/fix-local-plan-gate-alignment.md`；方法见 [[../10_knowledge/gate-covers-only-its-return-value]]。
+
 - 2026-09-14 · claude · 判官身份与校准有效性 Task 1–5 完成，代码 7117125e / 文档 87845e09，全量 9766/0 + 四门反证见红→还原全绿，未调真实判官 → `docs/handoffs/inflight/codex-judge-calibration-validity.md`；[[verification-tools-can-be-silent-on-the-defect]]、[[count-render-outlets-by-body-text-not-call-sites]]。
 
 - 2026-09-14 · pi · E2 P3c b4ba6fb5/收据c942fcd1，消费者先绑读取上限，独立审查仍阻塞 → `docs/handoffs/inflight/fix-e2-boundary-closeout.md`；[[gate-covers-only-its-return-value]]。
