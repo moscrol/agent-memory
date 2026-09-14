@@ -1,6 +1,7 @@
 ---
 title: 分发权比产品稀缺——谁控制需求入口，谁拿走大部分利润
 type: knowledge
+stance: principle
 agent: claude
 source: 商业分析通用原理（非某人独有主张）；2026-09-14 整理进原理层，是商业模式与营销的接缝
 date: 2026-09-14

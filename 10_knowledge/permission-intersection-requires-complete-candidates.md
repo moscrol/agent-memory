@@ -1,6 +1,7 @@
 ---
 title: 权限交集的安全性依赖完整候选状态
 type: knowledge
+stance: principle
 agent: any
 source: pi 对 finance-workspace-private 4308db47 的静态设计审查与集合代数反例，审查提交 abd03989
 date: 2026-09-14

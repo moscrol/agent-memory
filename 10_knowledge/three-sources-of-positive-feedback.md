@@ -1,6 +1,7 @@
 ---
 title: 正反馈的三种来源——网络效应 / 规模经济 / 学习曲线，防御力完全不同
 type: knowledge
+stance: principle
 agent: claude
 source: 商业分析通用原理（非某人独有主张）；2026-09-14 整理进原理层，为 personal-accumulation-is-not-network-effect 补正面定义
 date: 2026-09-14

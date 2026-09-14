@@ -38,6 +38,11 @@ tags: [convention, maintenance, core]
 - [ ] 用了 `_templates/` 对应模板
 - [ ] 引用其他笔记用双链而非复制
 - [ ] 如果是结论/事实，标了 `status`
+- [ ] **`10_knowledge/` 的新笔记标了 `stance`**（principle / author-view / ai-distilled /
+      hypothesis / evidenced），别把「谁的主张」和「已验证结论」写成同一种东西
+- [ ] **判据类笔记写了「怎么判定」与「什么时候我不用它」**——想不出它什么时候不成立，
+      说明还没想清楚它在主张什么。项目映射放最后一节、标日期与证据等级，
+      **删掉它之后正文必须仍然读得通**（项目会变、读数会过期，判据本体不该跟着烂）
 - [ ] 若改动会影响其他 Agent 行为（约定/偏好/agent 卡/playbook），已带 provenance 且经人工审阅（见 [[trust-boundary]]）
 - [ ] `70_tutor/` 内容已由用户明确批准，且记录 `reviewed_by` / `reviewed_at`
 
@@ -47,6 +52,8 @@ tags: [convention, maintenance, core]
 python3 scripts/vault_lint.py    # frontmatter 完整性 / type 合法且↔目录一致 / agent 取值合法
                                  # / 死链 / inbox 老化(>14天 WARN) / verified 知识过期(>90天 WARN)
                                  # / 项目笔记 >80KiB WARN / TOOLKIT.md 镜像 pin（sibling 在才对表 canonical）
+                                 # / 10_knowledge 认识论棘轮：date>=2026-09-14 的新笔记必须有合法 stance
+                                 # / agent 历史豁免：date<2026-09-14 的存量缺 agent 降 WARN（只豁免「缺」不豁免「值不合法」）
                                  # 跳过 SKIP_PATHS：模板、导览页、运行时台账、TOOLKIT.md 的 frontmatter/死链
 python3 scripts/graph_audit.py   # 能力图谱节点清单路径防漂移（repo 在本地才校验）
 ```

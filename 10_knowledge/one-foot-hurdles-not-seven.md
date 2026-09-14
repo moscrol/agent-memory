@@ -1,6 +1,7 @@
 ---
 title: 找一英尺的栏杆，不要跨七英尺的
 type: knowledge
+stance: ai-distilled
 agent: claude
 source: 巴菲特/芒格反复表述的原则（"we look for one-foot hurdles"；避开需要极高聪明才能做好的生意）。2026-09-14 整理，增量在判定方法与项目映射
 date: 2026-09-14

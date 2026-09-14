@@ -1,6 +1,7 @@
 ---
 title: 反过来想——别问怎么成功，问最可能怎么死
 type: knowledge
+stance: ai-distilled
 agent: claude
 source: 芒格反复表述的 "Invert, always invert"（转引自雅可比；他的说法是"我只想知道我会死在哪儿，这样我就永远不去那儿"）。2026-09-14 整理，增量在**把死法按当期痛感分类**与触发器设计
 date: 2026-09-14

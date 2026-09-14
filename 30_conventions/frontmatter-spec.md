@@ -46,11 +46,33 @@ tags: [convention, spec, core]
 |---|---|
 | `source_url` | 原文链接；无链接则写来源工具 |
 | `author` | 原作者 / 机构（**不要与 `agent` 混淆**：`agent` 是写入者，`author` 是内容作者） |
-| `stance` | `author-view`（作者观点）/ `ai-distilled`（AI 提炼）/ `hypothesis`（待验证假设）/ `evidenced`（有实际证据的经验） |
+| `stance` | 见下方「认识论标记」一节 |
 | `refined_into` | 已提炼成的知识笔记双链，如 `["[[compare-subscription-pricing]]"]`；未提炼则留空 |
 
 > **自动归档不等于自动认定为真。** `material` 是"别人说的"，默认 `stance: author-view`；
 > `ai-distilled` 与 `hypothesis` 都必须能被下游区分出来，不得当作已验证结论引用。
+
+## `stance`——认识论标记（`material` 与 `knowledge` 共用）
+
+| 值 | 含义 |
+|---|---|
+| `principle` | **通用原理**，非某人独有主张，广泛成立 |
+| `author-view` | 某人的主张（如巴菲特/芒格原话），未经独立验证 |
+| `ai-distilled` | AI 提炼，源为作者观点——**原则是别人的，判定方法是提炼的** |
+| `hypothesis` | 待验证假设，含 n=1 归纳 |
+| `evidenced` | 有实测证据的经验 |
+
+**`10_knowledge/` 中 `date` 不早于 2026-09-14 的笔记必填**（`vault_lint.py` 检查项 6b，
+存量 74 篇按棘轮不动）。
+
+> **为什么判据层也要它。** 此前 `stance` 只是 `material` 专属，于是"这是通用原理还是
+> 待验证假设"在 `10_knowledge` 没有字段可放，只能写进正文——实测 8 篇各自即兴写成
+> `> **性质：xxx**`，词表混着 `hypothesis` / `通用原理` / `[推断]` / `ai-distilled` 四套。
+> **散文里的标记不能筛、不能查、不能被下游区分**，而 `recall.sh` 的引用纪律恰恰要求
+> 「谁说的 + 适用条件 + 当前符不符合」。
+>
+> 这修的是一处倒挂：资料层（别人说了什么）本来就有 `stance` 与
+> `_templates/material.md` 的「适用条件 / 失效条件」，**而真正拿去给建议的判据层两样都没有**。
 
 ## 校验要点
 

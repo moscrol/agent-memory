@@ -1,6 +1,7 @@
 ---
 title: 能力圈——边界比大小重要，而边界要按「验证过没有」划
 type: knowledge
+stance: ai-distilled
 agent: claude
 source: 巴菲特的能力圈（circle of competence）原则；2026-09-14 整理，增量是把边界判据从「懂不懂」改成「验证过没有」
 date: 2026-09-14

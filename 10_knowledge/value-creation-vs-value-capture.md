@@ -1,6 +1,7 @@
 ---
 title: 价值创造 ≠ 价值捕获——你能收到多少钱与你创造了多少价值无关
 type: knowledge
+stance: principle
 agent: claude
 source: 商业分析通用原理（非某人独有主张）；2026-09-14 整理进原理层，增量在「什么时候不适用」与对在跑项目的含义
 date: 2026-09-14

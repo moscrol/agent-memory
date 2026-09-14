@@ -4,6 +4,10 @@
 检查项（对应 30_conventions/maintenance.md 写入检查清单）：
 
 1. frontmatter 完整性：title / type / agent / source / date / tags 必填；
+1b. **缺 agent 的历史豁免**：`date` 早于 2026-09-14 的存量笔记缺 `agent` 降为 WARN。
+   4 篇 09-09~13 的 finance QC 笔记写入者已不可考，而 provenance 字段填猜测值
+   比缺着更坏——它唯一的用途就是聚合「谁写了什么」。只豁免「缺」不豁免「值不合法」，
+   日期缺失或格式坏时不豁免（认不出日期就当它是新的）；
 2. type 合法且 ↔ 目录一致（frontmatter-spec 的 type 取值表）；
    **不在取值表里的 type 直接 ERROR**——2026-08-05 前是 `TYPE_DIRS.get()` 返回 None
    然后静默放行，`type: reading-queue` 就这么混了进来。认不出来的值必须 fail closed，
@@ -19,6 +23,11 @@
 6. 知识过期：`10_knowledge/` 中 `status: verified` 的笔记，若 `last_verified`
    （缺省回退到 `date`）超过 `stale_after` 天（缺省 90）未复核，降为 WARN，
    提醒复核后刷新 `last_verified` 或把 status 改回 draft。
+6b. **认识论棘轮**：`10_knowledge/` 中 `date` 不早于 2026-09-14 的笔记必须声明
+   `stance`（principle / author-view / ai-distilled / hypothesis / evidenced）。
+   此前这件事只能写进正文，实测 8 篇各自即兴写成 `> **性质：xxx**`、四套词表混用；
+   散文里的标记不能筛也不能查，而 recall.sh 的引用纪律要求「谁说的 + 适用条件」。
+   存量 74 篇按棘轮不动；
 7. 项目笔记体积：`20_projects/` 单文件超过 80KiB 降为 WARN（交接记录应一行，
    正文在 repo 的 docs/handoffs/；存量按棘轮可不动，但不要继续往里堆）。
 8. TOOLKIT.md 镜像钉扎：文件头 `pinned_sha256` 必须等于「去掉 pinned_* 行后」

@@ -1,6 +1,7 @@
 ---
 title: 「不能证明 A」不等于「不能说」——防自欺的内部纪律会封存你最强的对外证据
 type: knowledge
+stance: hypothesis
 agent: claude
 source: 2026-09-14 投资人视角评 Foresight 时发现：validation.md B 段把创始人自用记录标为「不能用于支撑产品有效」，对内正确，但那恰好是对外最强的信任证据
 date: 2026-09-14

@@ -1,6 +1,7 @@
 ---
 title: 谁付钱 / 谁使用 / 谁决策——三者分离时，产品和销售是两件事
 type: knowledge
+stance: principle
 agent: claude
 source: 商业分析通用原理（非某人独有主张）；2026-09-14 整理进原理层
 date: 2026-09-14

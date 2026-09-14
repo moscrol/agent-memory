@@ -1,6 +1,7 @@
 ---
 title: 现金流时序决定你能不能自筹——先收钱和先付钱是两种公司
 type: knowledge
+stance: principle
 agent: claude
 source: 商业分析通用原理（非某人独有主张）；2026-09-14 整理进原理层
 date: 2026-09-14

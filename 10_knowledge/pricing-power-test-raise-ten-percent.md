@@ -1,6 +1,7 @@
 ---
 title: 定价权测试——能不能在不做任何改进的前提下涨价 10%
 type: knowledge
+stance: ai-distilled
 agent: claude
 source: 巴菲特判断生意质量的核心问法（喜诗糖果之后反复讲：好生意是能涨价而不流失客户的生意）；2026-09-14 整理
 date: 2026-09-14
