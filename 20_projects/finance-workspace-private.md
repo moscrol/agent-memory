@@ -154,6 +154,8 @@ per-user 不是进程级；`runtime_backend_readiness` 这个全局探针看不�
 
 ## 交接记录
 
+- 2026-09-14 · pi · E2 P1 24a79124退修4P1级+3P2级（e85198dd）→ `/private/tmp/e2-p1-qc-24a79124/docs/handoffs/inflight/docs-qc-e2-p1-24a79124.md`；方法 [[permission-intersection-requires-complete-candidates]]。
+
 - 2026-09-14 · pi · RE06第七轮9266407f退修2P1（08cd3d21）→ `/private/tmp/re06-qc-9266407f/docs/handoffs/inflight/docs-qc-re06-9266407f.md`；方法 [[state-transition-identity-must-survive-dedup]]。
 
 - 2026-09-14 · pi · E2 v10 ec54ef55设计通过，续轮复核P1关闭（b397764f）→ `/private/tmp/e2-v10-qc-ec54ef55/docs/handoffs/inflight/docs-qc-e2-v10-ec54ef55.md`。
