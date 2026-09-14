@@ -44,6 +44,8 @@ source: finance-workspace-private 第五轮研究进化 QC，d83a0c48
 
 同轮还发现：内部补 `uncovered_components`，公开 metric 却投影成 `{id, reason}`，新字段全部丢失。回归必须断言公开序列化产物，而不是仅检查 helper 局部变量。字段“写了有人读”的静态门禁不足以证明用户能看到它。
 
+2026-09-14 Round-9（05@cee71963）补证：生产者新增单数 `component`，投影只透传旧的复数 `uncovered_components`，精确缺项再次丢失；互换两执行各自缺的组件，原始收据不同而公开 unknown 相同。可迁移探针：保持总量与缺项并集不变，只交换实体/执行归属，公共诊断必须能区分补救动作。此外，共享逐执行规则未覆盖无执行实例的任务分支，旧分支仍仅在汇总检查；共享合同审查要枚举全部分支，而非只核对新 helper 的两个调用点。脚本：finance `docs/qc-research-evolution-round9@2a826be9` 的 `scripts/review_probes/check_product_value_task_receipt.py`。
+
 反例已落 `docs/qc-research-evolution-round7` 的 `docs/verification/research-evolution-round7/`，不是仅存对话的手法；跨领域通用 lint 暂不造，适用组件与覆盖集合需领域证据解释。
 
 ## 因果身份须贯穿消息接受、成果检索与重放
