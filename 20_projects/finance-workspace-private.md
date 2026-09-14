@@ -154,6 +154,8 @@ per-user 不是进程级；`runtime_backend_readiness` 这个全局探针看不�
 
 ## 交接记录
 
+- 2026-09-14 · codex · 修正历史取回执行依据，B 两判据补边界，C 判官校准方案待实施 → [交接](/Users/a77/fwp-wt-judge-calibration-plan/docs/handoffs/inflight/codex-judge-calibration-plan.md)；[[kept-history-is-not-replayable-history]]、[[exclusion-must-name-its-denominator]]。
+
 - 2026-09-14 · pi · E2 P1v2 8bd55b26退修3P1级+3P2级（3ab65b5e）→ `/private/tmp/e2-p1v2-qc-8bd55b26/docs/handoffs/inflight/docs-qc-e2-p1v2-8bd55b26.md`；方法 [[permission-intersection-requires-complete-candidates]]。
 
 - 2026-09-14 · Codex · RE06第八轮 fdb5f91d：X1可关闭，X2来源未就绪取消/读取失败两反例退修；审查 af237ee1 → `/Users/a77/.finance-runtime/reviews/re06-round8-fdb5f91d/docs/handoffs/inflight/codex-review-re06-round8-fdb5f91d.md`。
