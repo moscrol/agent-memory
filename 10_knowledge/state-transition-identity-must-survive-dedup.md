@@ -3,6 +3,7 @@ title: 状态转折必须穿过身份与去重层
 type: knowledge
 status: verified
 date: 2026-09-13
+tags: [knowledge, state-machine, identity, dedup, coverage, failure-shape, qc]
 source: finance-workspace-private 第五轮研究进化 QC，d83a0c48
 ---
 

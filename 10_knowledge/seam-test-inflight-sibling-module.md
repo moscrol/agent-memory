@@ -28,4 +28,4 @@ source: finance-workspace-private feat/research-priority（研究进化 02 消�
 - 消费方的合同层要按「宽进」写：日期与时刻都收、字符串枚举归一、忽略未知键——这样上游真产物才可能零改动通过；严进只会把差异推迟到联测。
 - 冻结产物必须标 synthetic（输入是合成的），不得据此宣称任何用户效果。
 
-相关：`intelligence/tests/fixtures/research_evolution/02/from_01_inflight_assess_report_synthetic.json`；[[checker-producer-contract-is-where-the-bugs-live]]。
+相关：`intelligence/tests/fixtures/research_evolution/02/from_01_inflight_assess_report_synthetic.json`；待写 `checker-producer-contract-is-where-the-bugs-live` —— 2026-09-14 核：该名在 git 全 history 里从未存在过，是作者预留的坑位而非改名，写出来后改回双链。
