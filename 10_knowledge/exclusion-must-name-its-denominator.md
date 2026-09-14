@@ -79,6 +79,8 @@ related: ["[[eval-harness-variance-governance]]", "[[verifier-projection-narrowe
 
 ## 订正记录
 
+- 金融仓落地方案：`docs/superpowers/plans/2026-09-14-judge-calibration-validity.md`（`codex/judge-calibration-plan`，方案未实施）。身份不明或不兼容的记录保留，相关决定降为 `no_call`；不能通过删掉这些记录让剩余样本重新取得结论资格。
+
 - 2026-09-14 · codex · 据本轮评审与固定 `finance-workspace-private@1fef3d27` 的 `acceptance.py:468-485, 505-560`，将 claude 原文的基础设施排除判例收窄为预声明的内容质量口径；代码已有的 `not_run` 排除不是端到端服务指标的通用规则。另补 `N_total` 与 `N_attempts` 的区别、失败尝试保留和重试选择规则，避免删行后抬高覆盖率或 `callable`。
 
 ## 参考
