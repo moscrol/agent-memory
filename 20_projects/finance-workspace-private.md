@@ -155,6 +155,8 @@ per-user 不是进程级；`runtime_backend_readiness` 这个全局探针看不�
 
 ## 交接记录
 
+- 2026-09-15 · claude · **时间长河 G-02 契约后半落地**：`hardness`/`expired_at`/`superseded_by` 载体 + `slice` 第三条过滤 `(expired_at is null or expired_at > C)` + `HARDNESS_RANK` 下沉到 river（投影层删本地副本），`1ee6a881`；全量 9628/0 收据七项过、三门变异各自见红。**只加载体未给任何 track 填值**——填值会改 `projection_hash` → `docs/handoffs/inflight/feat-river-correction-hardness.md`；[[mutation-test-needs-a-committed-restore-point]]。
+
 - 2026-09-15 · claude · 判官校准有效性**同题双轨**：用户裁决 codex 轨作数，feat 轨作废留接替指针 `19ae9973`；三处待裁决只剩 `identity_state` 三态跨层无一致性断言（P1）在 codex 轨成立并已移交，stream 身份缺口与噪声底 codex 轨已解 → `docs/handoffs/inflight/feat-judge-calibration-validity.md`；[[cross-branch-handoff-is-invisible-to-same-topic-tracks]]。
 
 - 2026-09-15 · pi · E2 P3bc独立报告收口、P3d先验读取前移1f6ebc5d待QC → `docs/handoffs/inflight/fix-e2-boundary-closeout.md`；[[evidence-hygiene-three-failure-shapes]]、[[gate-covers-only-its-return-value]]。
