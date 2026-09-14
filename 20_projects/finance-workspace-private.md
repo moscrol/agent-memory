@@ -155,6 +155,8 @@ per-user 不是进程级；`runtime_backend_readiness` 这个全局探针看不�
 
 ## 交接记录
 
+- 2026-09-15 · claude · 判官校准有效性**同题双轨**：用户裁决 codex 轨作数，feat 轨作废留接替指针 `19ae9973`；三处待裁决只剩 `identity_state` 三态跨层无一致性断言（P1）在 codex 轨成立并已移交，stream 身份缺口与噪声底 codex 轨已解 → `docs/handoffs/inflight/feat-judge-calibration-validity.md`；[[cross-branch-handoff-is-invisible-to-same-topic-tracks]]。
+
 - 2026-09-15 · pi · E2 P3bc独立报告收口、P3d先验读取前移1f6ebc5d待QC → `docs/handoffs/inflight/fix-e2-boundary-closeout.md`；[[evidence-hygiene-three-failure-shapes]]、[[gate-covers-only-its-return-value]]。
 
 - 2026-09-14 · coding agent · local 日报计划契约修复 `4fbc8c42`，保持资金口径、拒绝旧同步偷跑 full；未部署 → `docs/handoffs/inflight/fix-local-plan-gate-alignment.md`；方法见 [[../10_knowledge/gate-covers-only-its-return-value]]。
