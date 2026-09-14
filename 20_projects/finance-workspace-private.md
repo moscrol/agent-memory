@@ -154,6 +154,8 @@ per-user 不是进程级；`runtime_backend_readiness` 这个全局探针看不�
 
 ## 交接记录
 
+- 2026-09-14 · pi · 302132 执行审查：现有产物 15/15，2P1+3P2 退修（5f31290d）→ `/private/tmp/backfill-302132-qc-1b936486/docs/handoffs/inflight/docs-qc-backfill-302132-1b936486.md`；方法 [[evidence-hygiene-three-failure-shapes]]。
+
 - 2026-09-14 · pi · 提取前置b916091e原六反例/19变异通过，确认身份/选版/终态3P2退修（9caca4c6）→ `/private/tmp/extraction-qc-b916091e/docs/handoffs/inflight/docs-qc-extraction-b916091e.md`；方法 [[state-transition-identity-must-survive-dedup]]。
 
 - 2026-09-14 · Codex · 工单53第三轮复审：证据有效，规范2/需求3项P2待修 → `/private/tmp/extraction-qc-642c3f5d/docs/handoffs/inflight/codex-review-extraction-642c3f5d.md`；方法 [[state-transition-identity-must-survive-dedup]]。
