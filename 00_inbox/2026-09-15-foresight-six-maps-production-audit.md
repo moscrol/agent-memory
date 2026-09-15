@@ -126,7 +126,7 @@ status: draft
 - 记忆库已有自动同步：草稿由 d1222f8d、初轮图谱修订由 ca556a33、后续证据校准由 942ff7fa 自动提交；不是本助手执行了合并/部署。收尾不把此前的「未提交」状态照抄为当前事实，也不覆盖 finance 默认树中他人的 HEAD.md 交接。
 - **图谱路径/符号门通过**：固定干净 Finance `1bcb1ebc` / KB `8a413cde5`，初跑 exit 1 的两条退役 IM 旧路径已修，完整复跑 **exit 0**（64 节点行/132 断言，无 STALE、无 UNVERIFIED；51 MERGED、30 PENDING）。PENDING 指指定其他分支相对本 checkout 的状态，不是未进全仓 main 的统一结论。只证明路径/符号存在，不校验作用列语义、真实接线或效果。[完整图谱日志][graph-log]
 - **全 vault 格式门仍未通过**：普通与 `--strict` 完整复跑均 **exit 1：15 errors / 16 warnings**，本轮改动的快照/能力图/foresight 项目笔记无对应诊断。报错来自其他笔记死链、frontmatter、stance 与 TOOLKIT 镜像；未代修他人存量。不能称整库 lint 通过，也不把全库红隐去。[完整质量收据][quality]
-- 本文 33 条来源链接的 Git 对象/本地文件已检查存在，Markdown 引用无悬空；`git diff --check` exit 0。这只是引用可达/空白检查，不把未读原始 run 追认为已复验。
+- 本文来源链接的 Git 对象/本地文件已检查存在，Markdown 引用无悬空；`git diff --check` exit 0。这只是引用可达/空白检查，不把未读原始 run 追认为已复验。
 
 [door]: http://127.0.0.1:3300/a77/finance-workspace-private/src/commit/1bcb1ebc6a5b411752cacf30b801769711beb677/docs/agent-product-door.md
 [graph]: file:///Users/a77/agent-memory/10_knowledge/finance-agent-capability-graph.md
