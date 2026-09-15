@@ -157,6 +157,8 @@ per-user 不是进程级；`runtime_backend_readiness` 这个全局探针看不�
 
 ## 交接记录
 
+- 2026-09-15 · pi · E2 P3 注入面全收口：P3h 确定性旁路 50687c0b + 四组九类对账（含 reading_baseline 定性）+ registry 机械 resync e37ada9b；四叶等价 CI 全绿 @851e7886（pytest 9937P/0F、前端 76P、e2e 15P、registry 四 check+crosswalk 全 0），合并窗口待用户决策 → `docs/handoffs/2026-09-15-e2-p3-injection-surface-audit.md`。
+
 - 2026-09-15 · claude · 个股预演40317d78同日补齐验收：全量9834P+12变异全红+前端/registry；独立QC改k3（pi/mirasim-kimi）出首份报告——无P0/P1/P2、两条P3待修；零污染按事前指纹归因核验 → `docs/handoffs/2026-09-15-hithink-stock-preview.md` 批次2段。
 
 - 2026-09-15 · pi · E2 P3h 收口确定性旁路 50687c0b（约束轮禁入无合同意识的引擎B：adapter不让路+掉落总闸，state_unavailable按材料语境分界防误伤普通续轮；两防线变异正交20红/2红） → `docs/handoffs/2026-09-15-e2-p3h-contract-blind-pipeline-gate.md`。
