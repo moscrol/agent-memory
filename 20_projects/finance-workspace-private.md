@@ -157,6 +157,8 @@ per-user 不是进程级；`runtime_backend_readiness` 这个全局探针看不�
 
 ## 交接记录
 
+- 2026-09-15 · pi · E2 P3f2 收口提交 e1fc53a7（已知缺失基底送达 controller 澄清+材料链保持）；P3g 收口 f05d0681（澄清回答恢复重验：pending 挂载/编译器重编译/装配层待澄清收窄，四真实入口 bug，变异三层各有承重针） → `docs/handoffs/2026-09-15-e2-p3g-pending-clarification-recovery.md`；[[../10_knowledge/weakref-registry-tests-need-unique-ids]]。
+
 - 2026-09-15 · claude · 同花顺个股标准化只读预演40317d78（显式股票分母/纯现金除息/Decimal固定上下文，缺口不猜）；仅定向277P干净收据，全量/变异/独立QC未跑 → `docs/handoffs/2026-09-15-hithink-stock-preview.md`。
 
 - 2026-09-15 · pi · 同花顺采集版本c85d0101及作者验证归档3bba5b4e；指定批次不暗回退、请求完成不授予发布资格 → `docs/handoffs/2026-09-15-hithink-sector-capture-audit.md`；[[../10_knowledge/source-switch-coverage-must-be-reconciled-first]]。
