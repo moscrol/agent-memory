@@ -71,6 +71,7 @@ DuckDB → detect_turning_points.py / backtest_sector.py → 信号+板块边际
 ## 任务看板
 | 任务 | 负责 | 状态 | 备注 |
 |---|---|---|---|
+| #50 日报生成双根边界返修 | pi | doing | 387028b8作者侧复验通过，待独立复核；下一步见 `docs/handoffs/inflight/fix-generation-root-boundary-guards.md`。 |
 | E2边界与RE06最短收尾 | pi | doing | P3b/P3c+返修@301dcd9e独立通过（仅限本片），dcd57d60归档原失败/修正版；P3d@1f6ebc5d阻止四类先验提前读取，干净定向210P/全仓9797P、四处删闸均4F/12P，待独立QC。D1/P2/P3a此前通过，余P3–P7见inflight。RE06 I14另线未闭环；未合未部署。 |
 | 🟡 kb_search 拿不到证据（`hits=0`）——按页新鲜度两张 PR 待合 | claude | 待用户合并 | [实测 2026-09-03] **交接里「需重建索引，另立单」是错的，重建救不回来**。两个独立缺陷：①`index_freshness` 是 KB 侧**整库** verdict（manifest 一个指纹），下游 `kb_rag.retrieve(require_fresh=True)` 逐条丢弃 → 一页变了全批丢光；实测 14412 个入索引文件只有 37 个受影响（**0.26%**），99.74% 逐字节没变的页被连坐。②热路径 `scripts/rag_query_worker.py`（**在本仓不在 KB 仓**）预热时算一次整库 verdict 就**冻住**，`rag update` 跑完不重启 worker 照样标 stale；它用的还是 `stale_report`（KB 早收敛掉的第二套判据，不判 chunk_profile 与年龄）。分支：本仓 `fix/rag-worker-page-freshness`（26 条绿 + `intelligence/tests` 6860 passed，`test_dream_mine.py` 5 红是宿主预存、干净检出可复现）、KB 仓 `fix/rag-page-level-freshness`（218 条绿）；两张**可独立合并、顺序无关**（worker 侧对旧 KB 检出自动回落）。各 4 个变异证伪过。真索引实测：修前 12 条命中全 stale，修后 11 fresh/1 stale。树 `/Users/a77/fwp-wt-worker-freshness`。**用户 09-03 拍：先都不合。** 另修 `kb_rag.py` 那句「post-commit 会自动重建索引」——该钩子当时已死，是假话 |
 | 🟡 市值容量顶比值回测（个股成交额/流通市值的见顶比值规律） | cursor → 待排 | 立项 | [2026-08-26 用户确认] 出处：user_framework 问卷第八层研究 TODO（07-03 提出后搁置）。方案：取历次行情加权涨幅靠前个股的见顶日，回查成交额/流通市值比值分布找见顶区间规律。产出＝B 类数字标定（标定前不得写进画像/基线当硬判据）。数据：fact_stock_daily＋流通市值（iFinD/AKShare 补）。按实验台账纪律执行（输入窗口/假设/数据完整性/后验/结论状态/下一步） |
@@ -155,6 +156,7 @@ per-user 不是进程级；`runtime_backend_readiness` 这个全局探针看不�
 
 ## 交接记录
 
+- 2026-09-15 · pi · #50三项P2返修 `387028b8`（同一解析结果、最终路径守卫），作者复验通过待独立复核 → `docs/handoffs/inflight/fix-generation-root-boundary-guards.md`；通用教训见 [[../10_knowledge/gate-covers-only-its-return-value]]。
 - 2026-09-15 · coding agent · #50日报生成双根 `0f6c2810`，保留外置用户态、独立副本变异与冻结全量通过，未部署 → `docs/handoffs/inflight/fix-generation-stage-code-root.md`。
 
 - 2026-09-15 · claude · **时间长河：认知演变的载体 + 投影契约**。`1ee6a881` 补 G-02 契约后半（`hardness`/`expired_at`/`superseded_by` + `slice` 第三条过滤 + `HARDNESS_RANK` 下沉）；`f8fc5e5b` 新定 spec §4.4 区间 / **§4.5 上下文投影（此前从无定义，投影只吃单点不是论证结果）** / §4.6 事件锚点，核心决定「**区间投影按变化选不按天铺**」，一等公民是 `river_derive` 的 `transition`/`first_event`。全量 9629/0、五门变异各自见红、指针门禁双向承重。**未填值**（填值会改 `projection_hash`）；**回检 verdict 仍不给河上对象标 `expired_at`**——推翻的载体有了、触发没接上 → `docs/handoffs/inflight/feat-river-correction-hardness.md`；[[mutation-test-needs-a-committed-restore-point]]。
