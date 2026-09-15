@@ -157,6 +157,8 @@ per-user 不是进程级；`runtime_backend_readiness` 这个全局探针看不�
 
 ## 交接记录
 
+- 2026-09-15 · claude · 个股预演40317d78同日补齐验收：全量9834P+12变异全红+前端/registry；独立QC改k3（pi/mirasim-kimi）出首份报告——无P0/P1/P2、两条P3待修；零污染按事前指纹归因核验 → `docs/handoffs/2026-09-15-hithink-stock-preview.md` 批次2段。
+
 - 2026-09-15 · pi · E2 P3h 收口确定性旁路 50687c0b（约束轮禁入无合同意识的引擎B：adapter不让路+掉落总闸，state_unavailable按材料语境分界防误伤普通续轮；两防线变异正交20红/2红） → `docs/handoffs/2026-09-15-e2-p3h-contract-blind-pipeline-gate.md`。
 
 - 2026-09-15 · claude · 工单 #53 第五轮收口完成待复审：链重放到 gitea/main@1fef3d27（分支 fix/extraction-first-closeout）、V1/V2 修复、变异 runner 入仓 31/31 RED→GREEN、全叶门禁绿、差量 +150 点名、20 条审查探针被测树 20/20（QC 快照内 10 红已归因为旧代码红）→ `docs/handoffs/inflight/fix-extraction-first-closeout.md`，收据 `docs/verification/2026-09-14-extraction-first-p0.md` §1.2/§3.5/§4/§6。
