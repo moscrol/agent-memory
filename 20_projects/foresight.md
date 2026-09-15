@@ -11,7 +11,7 @@ related: ["[[finhot]]", "[[finance-workspace-private]]"]
 
 # Foresight
 
-和你协同进化的 A 股投研 Agent。终局定位是**个人研究校准系统**，不是荐股 App，也不是回答型 Agent。
+和你协同进化的 A 股投研 Agent。当前叙事以 `foresight/docs/product.md` version 2 与 `decisions.md` D-008 为准：研究主干＋可选个人校准；本索引不另维护终局口径。
 
 本页只是**项目入口与索引**。产品事实不在本 vault——避免出现第二套口径。
 
@@ -54,6 +54,8 @@ related: ["[[finhot]]", "[[finance-workspace-private]]"]
 ## 交接记录
 
 （一行一条：`YYYY-MM-DD · <agent> · <一句话>`）
+
+- 2026-09-15 · codex · 用户授权材料校准已交付 product v2 / 口播 v2.3 / PPT v4 / BP v1.4（BP分支提交 f80733b8，未合）；验证分母同步为研究全体＋自愿校准子组，人工目视/真人计时/真实界面脱敏彩排未做，完整交接 `~/foresight/docs/handoffs/inflight/feat-advisory-loop.md`。
 
 - 2026-09-15 · codex · 六图/固定版本/生产审计：研究 Agent 是主干，校准为可选复利层；正式材料未改，分层证据与限制见 [[2026-09-15-foresight-six-maps-production-audit]]。
 
