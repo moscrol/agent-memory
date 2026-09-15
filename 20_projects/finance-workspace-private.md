@@ -917,3 +917,4 @@ per-user 不是进程级；`runtime_backend_readiness` 这个全局探针看不�
 
 - 2026-09-14 · codex · 工单 #53@caba87c7 返修复审：新收据可信、200P；仍规范2/需求4项P2，交接 codex/qc-extraction-caba87c7 的 docs/handoffs/2026-09-14-extraction-caba87c7-review.md。
 - 2026-09-15 · claude · G-04 题材词表统一落地（canonical 七段 tsv-v1、tsc-v0 退役为派生物、对照集 131 样本待创始人标注）+ 终局 spec 验收集 9–16 对账（6 条钉死、12/15 补直接负例）；分支 feat/theme-stage-vocab-g04@7a91ed25 已推未合，全量 9650P/0F，交接 docs/handoffs/inflight/feat-theme-stage-vocab-g04.md。
+- 2026-09-15 · claude · 解封三条卡住的 PR：#673（G-04 词表统一，v6 收口+真库 30/30+9630P）、#592（#24 checkpoint rule_id/偏差目录，四处冲突解，9670P）、#593（#23 判官 token 记账，ledger-map 三行全留，9666P）——三条都是「已实施、卡在前向合并」而非待派；另开 #746（验收集 9–16 对账+anchor/投影门禁补测）。四条均 mergeable、等合并授权。
