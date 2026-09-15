@@ -164,7 +164,7 @@ per-user 不是进程级；`runtime_backend_readiness` 这个全局探针看不�
 
 - 2026-09-15 · pi · E2 P3h 收口确定性旁路 50687c0b（约束轮禁入无合同意识的引擎B：adapter不让路+掉落总闸，state_unavailable按材料语境分界防误伤普通续轮；两防线变异正交20红/2红） → `docs/handoffs/2026-09-15-e2-p3h-contract-blind-pipeline-gate.md`。
 
-- 2026-09-15 · claude · 工单 #53 第五轮收口完成待复审：链重放到 gitea/main@1fef3d27（分支 fix/extraction-first-closeout）、V1/V2 修复、变异 runner 入仓 31/31 RED→GREEN、全叶门禁绿、差量 +150 点名、20 条审查探针被测树 20/20（QC 快照内 10 红已归因为旧代码红）→ `docs/handoffs/inflight/fix-extraction-first-closeout.md`，收据 `docs/verification/2026-09-14-extraction-first-p0.md` §1.2/§3.5/§4/§6。
+- 2026-09-15 · claude · 工单 #53 第五、六轮收口完成待用户确认合并（分支 fix/extraction-first-closeout，对 gitea/main@1fef3d27 可快进 0 冲突）：独立复审实测 3 项已返修（F1 遗留确认行无 action_event 致去重失明并重复登记回检点 / F2 导出丢非记录行 / F3 空白行不计数），变异 31→35 全 RED→GREEN（runner 在 M10 上 fail-closed，四条旧锚点已重锚），顶端全量 9783P/0F 收据绑定、差量 +166 点名，全叶门禁绿 → `docs/handoffs/inflight/fix-extraction-first-closeout.md`，收据 `docs/verification/2026-09-14-extraction-first-p0.md` §3.6/§4/§6.1/§6.4；[[../10_knowledge/…]] 可迁移教训见交接「决策」段。
 
 - 2026-09-15 · pi · E2 P3f2 收口提交 e1fc53a7（已知缺失基底送达 controller 澄清+材料链保持）；P3g 收口 f05d0681（澄清回答恢复重验：pending 挂载/编译器重编译/装配层待澄清收窄，四真实入口 bug，变异三层各有承重针） → `docs/handoffs/2026-09-15-e2-p3g-pending-clarification-recovery.md`；[[../10_knowledge/weakref-registry-tests-need-unique-ids]]。
 
