@@ -157,6 +157,8 @@ per-user 不是进程级；`runtime_backend_readiness` 这个全局探针看不�
 
 ## 交接记录
 
+- 2026-09-15 · claude · 同花顺个股标准化只读预演40317d78（显式股票分母/纯现金除息/Decimal固定上下文，缺口不猜）；仅定向277P干净收据，全量/变异/独立QC未跑 → `docs/handoffs/2026-09-15-hithink-stock-preview.md`。
+
 - 2026-09-15 · pi · 同花顺采集版本c85d0101及作者验证归档3bba5b4e；指定批次不暗回退、请求完成不授予发布资格 → `docs/handoffs/2026-09-15-hithink-sector-capture-audit.md`；[[../10_knowledge/source-switch-coverage-must-be-reconciled-first]]。
 
 - 2026-09-15 · pi · 用户纠正独立审查可关闭（04834c55d72b），撤销误设等待门槛，保留未审查事实 → `docs/handoffs/inflight/fix-e2-boundary-closeout.md`。
