@@ -157,6 +157,8 @@ per-user 不是进程级；`runtime_backend_readiness` 这个全局探针看不�
 
 ## 交接记录
 
+- 2026-09-16 · pi · 授权批次收口与最终主干门禁归档，补消息可见性屏障回归；未切生产，人工/成本待办保留 → `docs/verification/2026-09-16-release-merge.md` / PR #748 comment4608；原则 [[terminal-signal-scope-and-projection-waits]]。
+
 - 2026-09-15 · pi · #592冲突及四叶门禁收口、#673共享v6库安全发布并记非零漂移，人工/生产观察不代填；收口PR #747（叠#592），未合main/未切8792 → `docs/handoffs/inflight/fix-release-gate-closeout.md`。
 
 - 2026-09-15 · pi · E2 P3 注入面全收口：P3h 确定性旁路 50687c0b + 四组九类对账（含 reading_baseline 定性）+ registry 机械 resync e37ada9b；四叶等价 CI 全绿 @851e7886（pytest 9937P/0F、前端 76P、e2e 15P、registry 四 check+crosswalk 全 0），合并窗口待用户决策 → `docs/handoffs/2026-09-15-e2-p3-injection-surface-audit.md`。
