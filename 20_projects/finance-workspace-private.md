@@ -71,7 +71,7 @@ DuckDB → detect_turning_points.py / backtest_sector.py → 信号+板块边际
 ## 任务看板
 | 任务 | 负责 | 状态 | 备注 |
 |---|---|---|---|
-| 同花顺复盘分步接线与新池验算 | pi | doing | 代码dcee18f2作者验证完成，交接/证据fdbe5dad；独立QC、canonical投影与真实产物待验。见 `docs/handoffs/inflight/fix-hithink-review-wiring.md`。 |
+| 同花顺复盘分步接线与新池验算 | pi | doing | 采集版本代码c85d0101、作者验证/证据归档3bba5b4e；请求完成≠供应商全集。独立QC额度/服务阻塞，跨仓registry/环境差异及canonical投影/真实产物待验；未部署。见 `docs/handoffs/inflight/fix-hithink-review-wiring.md`。 |
 | #50 日报生成双根边界返修 | pi | doing | 387028b8作者侧复验通过，待独立复核；下一步见 `docs/handoffs/inflight/fix-generation-root-boundary-guards.md`。 |
 | E2边界与RE06最短收尾 | pi | doing | P3b/c返修、P3d、P3e独立通过仅各小片，P3f清空历史撤回。P3f1 a819ecde作者固定249P/0禁止，独立QC首次并发限制；用户分别授权第二/三次有界新上下文均首响应overloaded，0工具/无测试/无报告/IO未测，无自动重试。第二次af50a26c归档13/13、第三次7f2f48ca归档11/11完整；用户随后纠正独立审查可关闭，本轮关闭（04834c55d72b），撤销93ad74a8等待前置；直接继续下一小片，不冒称独立通过。模型历史/可信继承/正文交付及余P3–P7未完；RE06另线，不外推状态。见docs/handoffs/inflight/fix-e2-boundary-closeout.md。 |
 | 🟡 kb_search 拿不到证据（`hits=0`）——按页新鲜度两张 PR 待合 | claude | 待用户合并 | [实测 2026-09-03] **交接里「需重建索引，另立单」是错的，重建救不回来**。两个独立缺陷：①`index_freshness` 是 KB 侧**整库** verdict（manifest 一个指纹），下游 `kb_rag.retrieve(require_fresh=True)` 逐条丢弃 → 一页变了全批丢光；实测 14412 个入索引文件只有 37 个受影响（**0.26%**），99.74% 逐字节没变的页被连坐。②热路径 `scripts/rag_query_worker.py`（**在本仓不在 KB 仓**）预热时算一次整库 verdict 就**冻住**，`rag update` 跑完不重启 worker 照样标 stale；它用的还是 `stale_report`（KB 早收敛掉的第二套判据，不判 chunk_profile 与年龄）。分支：本仓 `fix/rag-worker-page-freshness`（26 条绿 + `intelligence/tests` 6860 passed，`test_dream_mine.py` 5 红是宿主预存、干净检出可复现）、KB 仓 `fix/rag-page-level-freshness`（218 条绿）；两张**可独立合并、顺序无关**（worker 侧对旧 KB 检出自动回落）。各 4 个变异证伪过。真索引实测：修前 12 条命中全 stale，修后 11 fresh/1 stale。树 `/Users/a77/fwp-wt-worker-freshness`。**用户 09-03 拍：先都不合。** 另修 `kb_rag.py` 那句「post-commit 会自动重建索引」——该钩子当时已死，是假话 |
@@ -156,6 +156,8 @@ per-user 不是进程级；`runtime_backend_readiness` 这个全局探针看不�
 而 CLI/回检走 `~/.zshrc` 里的 `/Users/a77/agent-memory/.foresight`——**两套用户台账不是同一份**。
 
 ## 交接记录
+
+- 2026-09-15 · pi · 同花顺采集版本c85d0101及作者验证归档3bba5b4e；指定批次不暗回退、请求完成不授予发布资格 → `docs/handoffs/2026-09-15-hithink-sector-capture-audit.md`；[[../10_knowledge/source-switch-coverage-must-be-reconciled-first]]。
 
 - 2026-09-15 · pi · 用户纠正独立审查可关闭（04834c55d72b），撤销误设等待门槛，保留未审查事实 → `docs/handoffs/inflight/fix-e2-boundary-closeout.md`。
 
