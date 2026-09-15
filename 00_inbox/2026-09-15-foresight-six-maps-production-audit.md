@@ -123,9 +123,10 @@ status: draft
 ### 维护动作与质量门
 
 - 只维护记忆层：本快照、canonical 能力图谱的已核状态，以及项目笔记的一行指针；正式 `product.md`、演讲/PPT/BP、金融实现与运行配置未改。
-- 记忆库已有自动同步：草稿已由 d1222f8d、初轮图谱修订由 ca556a33 自动提交；不是本助手执行了合并/部署。后续增量以收尾 Git 状态为准。
-- `graph_audit.py` 固定干净 Finance/KB 对象初跑 exit 1，定位两条退役 IM 旧路径；已用实际 CLI parser/退役 README 修正。最终退出结果记录在本节后续收尾行，不用截断输出或 PENDING 冒充通过。
-- `vault_lint --strict` 早前输出被截断且报存量问题；完整收尾复跑与本次文件定位另列，不修不相关存量笔记。路径/格式绿也不代签产品效果。
+- 记忆库已有自动同步：草稿由 d1222f8d、初轮图谱修订由 ca556a33、后续证据校准由 942ff7fa 自动提交；不是本助手执行了合并/部署。收尾不把此前的「未提交」状态照抄为当前事实，也不覆盖 finance 默认树中他人的 HEAD.md 交接。
+- **图谱路径/符号门通过**：固定干净 Finance `1bcb1ebc` / KB `8a413cde5`，初跑 exit 1 的两条退役 IM 旧路径已修，完整复跑 **exit 0**（64 节点行/132 断言，无 STALE、无 UNVERIFIED；51 MERGED、30 PENDING）。PENDING 指指定其他分支相对本 checkout 的状态，不是未进全仓 main 的统一结论。只证明路径/符号存在，不校验作用列语义、真实接线或效果。[完整图谱日志][graph-log]
+- **全 vault 格式门仍未通过**：普通与 `--strict` 完整复跑均 **exit 1：15 errors / 16 warnings**，本轮改动的快照/能力图/foresight 项目笔记无对应诊断。报错来自其他笔记死链、frontmatter、stance 与 TOOLKIT 镜像；未代修他人存量。不能称整库 lint 通过，也不把全库红隐去。[完整质量收据][quality]
+- 本文 33 条来源链接的 Git 对象/本地文件已检查存在，Markdown 引用无悬空；`git diff --check` exit 0。这只是引用可达/空白检查，不把未读原始 run 追认为已复验。
 
 [door]: http://127.0.0.1:3300/a77/finance-workspace-private/src/commit/1bcb1ebc6a5b411752cacf30b801769711beb677/docs/agent-product-door.md
 [graph]: file:///Users/a77/agent-memory/10_knowledge/finance-agent-capability-graph.md
@@ -160,3 +161,5 @@ status: draft
 [nightly]: file:///Users/a77/.finance-runtime/foresight-six-maps-audit-20260915/nightly-20260915-summary.json
 [sync-log]: file:///Users/a77/.finance-runtime/foresight-six-maps-audit-20260915/sync-finalize-20260915.log
 [method-log]: file:///Users/a77/.finance-runtime/foresight-six-maps-audit-20260915/method-daily-20260914-15.log
+[graph-log]: file:///Users/a77/.finance-runtime/foresight-six-maps-audit-20260915/graph-audit-pinned-final.log
+[quality]: file:///Users/a77/.finance-runtime/foresight-six-maps-audit-20260915/quality-gates.json
