@@ -157,6 +157,9 @@ per-user 不是进程级；`runtime_backend_readiness` 这个全局探针看不�
 
 ## 交接记录
 
+- 2026-09-16 · claude · 研究进化六工作流（01 判断维护 / 02 研究排序 / 03 方法与概率验证 / 04 个人诊断 / 05 用户价值 / 06 Workbench 集成）一次合入 main（PR #750 → `6e23dd57`）：接手 I11 同意门修复（撤回 research/logging 后自用测量停、研究照跑），第九轮独立复核 20 探针放行，含 E2 #752 的新 main 上四叶全绿（10952P/0F、e2e 31/2sk）；Q2「复核完成需面板显式确认」按用户委托依批次 README §1 默认接受，可翻案 → `docs/verification/2026-09-16-re06-i11-consent-gate.md` / `docs/verification/re06-50074c76/REVIEW.md`；遗留 I14（`fix/re06-visibility-timing` 需 rebase）、F2 前端同意控制未交付、写读折叠函数两份待抽共用。
+- 2026-09-16 · claude · 合并队列收口：#53 extraction-first P0 六轮收口合入（PR #753，随修 `compliance_gate` 裸六位代码嵌在投影哈希里的误伤）、#51 生产侧收口 #740、母本 15 句判读起草 v0（PR #751，full 4 / partial 10 / none 1，13 条疑问等创始人逐句裁决）、INDEX #25/#53 改 ✅（#755）、PR #597 关闭留指针；BP 分支因作者同时在推进（v1.5）从批次剔除 → 教训 [[batch-only-idle-branches-check-last-commit-time]]；8792 由另一 session 切至 `ec241975`（不含 #750）。
+
 - 2026-09-16 · pi · 路演确认8分钟主讲＋7分钟问答，另出白底PPT v4.1并核对正文/备注/布局不变，旧v4保留；仍待目视和真人计时 → `docs/handoffs/inflight/docs-bp-v1.3-roadshow-align.md`（a371ab9c）。
 
 - 2026-09-16 · pi · 授权批次收口与最终主干门禁归档，补消息可见性屏障回归；未切生产，人工/成本待办保留 → `docs/verification/2026-09-16-release-merge.md` / PR #748 comment4608；原则 [[terminal-signal-scope-and-projection-waits]]。
