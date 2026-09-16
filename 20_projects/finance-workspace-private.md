@@ -157,7 +157,7 @@ per-user 不是进程级；`runtime_backend_readiness` 这个全局探针看不�
 
 ## 交接记录
 
-- 2026-09-16 · pi · E-008 实际工具菜单投影 ef1d56f5（不把授权冒充调用/可用），复核 E-009 与 C 线清单；方法补入 [[contract-vs-delivery-mismatch]] → `docs/handoffs/inflight/fix-audit-followup-0916.md`。
+- 2026-09-16 · pi/claude · E-008 实际工具菜单投影 ef1d56f5（不把授权冒充调用/可用；PR #760 已开、四叶全绿、待用户确认合并），复核 E-009 与 C 线清单；方法补入 [[contract-vs-delivery-mismatch]] → `docs/handoffs/inflight/fix-audit-followup-0916.md`。
 
 - 2026-09-16 · claude · **Knevo 资料全量炼化对账与收口**：三支 knevo 文档分支合入 main（PR #749 → `8bb20aa9`，门禁 9750P/0F @`4d6c5697`），PR #685 关闭留指针，六棵已合工作树与十二条分支清理；AB-003 回检判 miss 并起草 W4「暂停 B 线」建议（Knevo 侧干净样本 0）；absorption-plan 新增第四档给 q13–q18 逐条表态；44 轮原文轮 28–36 拼进 [[../10_knowledge/knevo-reverse-engineering]] §3B.2。方法归位 [[../10_knowledge/distillation-provenance-audit]]（血统对账六步法）。**三处矛盾待创始人裁决**（风远与 finmemory 包含关系 / `finance_memory_write` 直写 vs 提案权 / 主 agent 是否二次压缩）→ [交接](/Users/a77/fwp-wt-knevo-closeout-0916/docs/handoffs/inflight/docs-knevo-distill-closeout-0916.md) · 全景 README §九
 - 2026-09-16 · claude · 研究进化六工作流（01 判断维护 / 02 研究排序 / 03 方法与概率验证 / 04 个人诊断 / 05 用户价值 / 06 Workbench 集成）一次合入 main（PR #750 → `6e23dd57`）：接手 I11 同意门修复（撤回 research/logging 后自用测量停、研究照跑），第九轮独立复核 20 探针放行，含 E2 #752 的新 main 上四叶全绿（10952P/0F、e2e 31/2sk）；Q2「复核完成需面板显式确认」按用户委托依批次 README §1 默认接受，可翻案 → `docs/verification/2026-09-16-re06-i11-consent-gate.md` / `docs/verification/re06-50074c76/REVIEW.md`；遗留 I14（`fix/re06-visibility-timing` 需 rebase）、F2 前端同意控制未交付、写读折叠函数两份待抽共用。
