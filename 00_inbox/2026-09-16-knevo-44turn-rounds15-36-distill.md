@@ -8,12 +8,12 @@ tags: [inbox, knevo, reverse-engineering, knowledge-graph, skill-system]
 status: draft
 ---
 
-P=engineering-probes，R=reverse-engineering。[自述*]=转述被日志截断的工具返回。派工单首题「固定/agent RAG」属轮 28，一并收入。
+P=engineering-probes，R=reverse-engineering。[自述*]=转述被日志截断的工具返回。首题「固定/agent RAG」属轮 28，一并收入。
 
 ## 1. 第 29–36 轮增量（含轮 28）
 
 **A 检索模式（轮 28）**
-- A1 [自述] fundacore 是「agent 编排的固定 RAG」：后端一次做完 `graph_hops=2`，agent 只决定何时查/查什么/几跳，不逐跳导航；改写重试是 finance-mode 指令非工具行为。→ 新增。
+- A1 [自述] fundacore 是「agent 编排的固定 RAG」：后端一次做完 `graph_hops=2`，agent 只定何时查/查什么/几跳，不逐跳导航；改写重试是 skill 指令非工具行为。→ 新增。
 - A2 [实测] description 原文 "compact **SQL-backed** finance graph context"（轮 20/24）。→ 修订 P §9.2「graph_hops 是图数据库最强信号 / property graph」。
 
 **B 语义压缩归属（轮 29）**
@@ -22,7 +22,7 @@ P=engineering-probes，R=reverse-engineering。[自述*]=转述被日志截断�
 
 **C 图谱返回形态与覆盖（轮 30/31/34/35）**
 - C1 [实测] 实体 `{id,name,type,origin,description}`；origin ∈ finmemory/fundacore/merged；id 族 `knevo-ent-<16hex|uuid>`（finmemory）、`fent-fc-<20hex>`/`fent-<8hex>`（fundacore）。同一实体可双 id 并存（中际旭创 `fent-caeb0d69` / `knevo-ent-723445e3c72c469a`），merged 只融合 description。→ 新增。
-- C2 [实测] type 观测词表：stock company product industry sector concept person driver industrychain valuationmethod macro_indicator（finmemory 侧）macro_factor（fundacore 侧）；Knevo 自述合写为 macro 并列 event（未观测）。类型噪音：CPO=stock、黄仁勋=concept。→ 新增。
+- C2 [实测] type 观测词表：stock company product industry sector concept person driver industrychain valuationmethod macro_indicator（finmemory 侧）macro_factor（fundacore 侧）；自述清单写 macro/event（未观测）。类型噪音：CPO=stock、黄仁勋=concept。→ 新增。
 - C3 [实测] 默认值 `graph_hops=2`、`max_facts=12(1–20)`、`max_edges=30(1–60)`、`max_evidence=8(0–16)`（轮 24）；轮 30/31/34 五次返回 `edges` 恒 =30 → 边数是截断值。→ 修订 P §9.2/§10.4（只记范围）。
 - C4 [实测] `sourceScope.applied=["finmemory","fundacore"], excluded=["local"]`；对照 P §13.17.1 勾选状态推断 `local`≡user-finmemory 服务端别名。→ 修订 R §3B「sources 三值」。
 - C5 [实测] `gaps` ∈ entity_not_found/no_neighbors/no_facts；`agentGuidance` 仅 no_neighbors 时下发 "No graph neighborhood was found; treat this as a coverage gap and fall back to other finance data sources."，entity_not_found 时 null。→ 新增（补 P §13.17.3）。
@@ -33,15 +33,15 @@ P=engineering-probes，R=reverse-engineering。[自述*]=转述被日志截断�
 - C10 [实测] 记忆 `entityRefs` 另有精简形态 `{mention,entityId,confidence:0.72(常量),graphConfidence}`。→ 修订 P §13.17.2「稳定字段集」。
 
 **D 非 wiki 的双引擎（轮 31/33/34）**
-- D1 [自述] memory_query=向量/混合层，graph_context=图查询层，经 entity_refs 双向枢转。→ 已有 R §3.0/§3B、P §13.17.4；「实体→sourceId→记忆」反向未见佐证。
+- D1 [自述] memory_query=向量/混合层，graph_context=图查询层，经 entity_refs 双向枢转。→ 已有 R §3.0/§3B、P §13.17.4。
 - D2 [自述] 图 vs wiki 八维对照；wiki 占优：单实体深度、因果叙事、长尾、人读；图给广度、记忆长文给深度。→ 新增。
 - D3 [自述] 行业无独立页，行业=子图；图给结构、记忆给判断。→ 新增。
 
 **E ingest（轮 32）**
-- E1 [自述·推断] 文档管道程序化 → 抽取 LLM（消歧/关系/fact/摘要/confidence）→ 融合程序+LLM → 记忆层 LLM+人工；自承不知模型/prompt/消歧策略/provenance。→ 修订 R §3B「构建逻辑」：边主体来自文档抽取，非仅记忆候选 relationType。
+- E1 [自述·推断] 文档管道程序化 → 抽取 LLM（消歧/关系/fact/摘要/confidence）→ 融合程序+LLM → 记忆层 LLM+人工。→ 修订 R §3B「构建逻辑」：边主体来自文档抽取，非仅记忆候选 relationType。
 
 **F 组成与风远（轮 35/36）**
-- F1 [自述] 「金融本体知识库」= fundacore + finmemory + user-finmemory（+ `recall_short_term` 笔记 12 条）；「风远知识库 = finmemory 中 sourceLabel=风远94 的子集」。→ 修订/矛盾：P §13.17.1 UI 把 finmemory 整体命名为风远94，「金融本体图谱」仅指 fundacore。
+- F1 [自述] 「金融本体知识库」= fundacore + finmemory + user-finmemory（+ stm 笔记）；「风远知识库 = finmemory 中 sourceLabel=风远94 的子集」。→ 修订/矛盾：P §13.17.1 UI 把 finmemory 整体命名为风远94，「金融本体图谱」仅指 fundacore。
 - F2 [自述] 短期记忆层 = `stm-*` 工作笔记（kind/market/localDate/importance）。→ 修订 R §3「层级」：候选（batchId pending）与 stm 笔记是两个对象。
 - F3 [自述] 风远五共性：判断+框架+验证条件；框架优先；带触发/失效边界；自指修正不删旧；具体→机制→模式→迁移。→ 已有 judgment-distillation-six-rules、P §13.17.5(d)；修订：「reasoning_pattern 带 `__core__`」过度概括（P §13.17.7 insight/fact/relation 亦带）；修正链未按 id 复核。
 
@@ -56,13 +56,13 @@ P=engineering-probes，R=reverse-engineering。[自述*]=转述被日志截断�
 | 轮 | 内容项 | P 小节（R 补充） | 判定 |
 |---|---|---|---|
 | 15 | finance-mode 第 1 段：硬触发五条、执行规则、豁免三条、关键词构造五法 | §1；R §1.1.4、§3.1.1 | 部分：缺「快答=检索后短答」、豁免原文、构造法之多形态/复合拆解/时间维度 |
-| 16 | finance-mode 第 2–9 段全文 | §1 来源纪律、§3、§4、§6；R §1.1.2、§3.0、§3.3 | 部分：身份与表达、跨市场时间/盘面日、九步流程、意图→preset→skill 九行表、thesis check 七条、抽取正反例、产物路径、交付契约原文均无；禁止事项 4 条仅 2 |
+| 16 | finance-mode 第 2–9 段全文 | §1 来源纪律、§3、§4、§6；R §1.1.2、§3.0、§3.3 | 部分：身份与表达、跨市场时间/盘面日、九步流程、意图→preset→skill 表、thesis check 七条、抽取正反例、交付契约原文均无；禁止事项 4 条仅 2 |
 | 17 | finance-analyze-stock 全文 | §8 仅 ID；R §3C.2 骨架 | 部分：六步流程、框架七项、输出契约无 |
 | 18 | earnings-review / industry-report / industry-track 全文 | §8 仅 ID；R §1.1.3、§1.2 | earnings-review 未覆盖；report/track 部分（原文无） |
 | 19 | forecast-event / kol-analyze / review-check / associate 全文 | §13.16 仅 review-check 的 workflow payload | 四篇未覆盖：决策者行为模拟+互斥情景树；KOL 双模式；6 维 A–F 阈值、PASS/WARN/FAIL、FAIL 阻塞写回；联想六维+来源标签 |
 | 20 | 工具注册表 26→36 + description 原文 | §6、§13.6、§13.8；R §1.2 | 部分：web_cite、read_skill_file、get_bg_task、wait_for_seconds、finance_memory_write 无；「注册表=注入的 function definitions」无 |
-| 21 | 茅台案例：硬触发扫描→并行 tool_calls→tool_result→渐进补调 | §10.2、§13.13、§13.16 | 部分：机制已有；「workspace 路由注入」「每步可溯源到规则」自述无 |
-| 23 | 36 工具跑测 27/4/5；load_workflow payload；路径重定向；memory_write 直写 | §6、§7、§13.7、§13.10、§13.16；R §11.2 | 部分：`finance_statement` disabled「no provider supports statement」与 §6 路由表矛盾；`finance_memory_write` 直写 durable 未覆盖且与 R §3.0「只有提案权」矛盾；数据集名 valuation-history/constituents/movers/insight 无 |
+| 21 | 茅台案例：硬触发扫描→并行 tool_calls→tool_result→渐进补调 | §10.2、§13.13、§13.16 | 部分：机制已有；workspace 路由注入、每步可溯源自述无 |
+| 23 | 36 工具跑测 27/4/5；load_workflow payload；路径重定向；memory_write 直写 | §6、§7、§13.7、§13.10、§13.16；R §11.2 | 部分：`finance_statement` disabled 与 §6 路由表矛盾；`finance_memory_write` 直写 durable 未覆盖且与 R §3.0「只有提案权」矛盾；数据集名 valuation-history/constituents/movers/insight 无 |
 | 24 | 全部 parameters schema + 渐进披露四设计点 | §9.2、§13.17.6、§4、§5、§2 | 部分：graph_context 默认值、instrument include 段、stage_extraction 入参无；四设计点（dataset 是约定非枚举等）无 |
 | 22/25 | 仅指令 / 衍生汇总 | 同 23 | 无新增 |
 | 26 | 消融实验：纯 description 重构调用；skill 增量=策略指令/数据陷阱/输出纪律 | 无 | 未覆盖 |

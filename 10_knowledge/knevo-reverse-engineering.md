@@ -436,6 +436,25 @@ Knevo 是一个 **LLM function-calling 多 Agent 投研系统**：主 agent 负�
 4. **第一跳（客户）靠研报/web 补**：客户占比数据（字节 32%/阿里 22%/腾讯 9%）来自研报，非图谱 → **第一跳客户关系图谱覆盖弱，靠 gangtise/web 补**。
 - **结论**：图谱能走 2 跳但**深度不均**——竞对边（`competes_with`，头部实体）覆盖好且带数值 facts；客户/供应边覆盖弱，需研报/web 补。印证 3B"覆盖偏头部、细粒度关系缺失、查不到转 web"。它没伪造图谱关系，缺的部分明确用研报来源标注。
 
+### 3B.2 2026-08-08 会话：图谱与知识库结构自述（2026-09-16 拼接）
+
+来源 `60_dialogues/knevo/2026-08-08-工具编排与step上限-44轮原文.md` 轮 28–36；逐条对账与第 15–28 轮的重叠审计表见 [[knevo-44turn-rounds15-36-distill-2026-09-16]]。[自述*] = Knevo 转述被日志截断的工具返回，原 JSON 不可见。
+
+- **检索模式**（轮 28，[自述]）：agent 编排的固定 RAG，后端一次做完 `graph_hops=2`，agent 只定何时查 / 查什么 / 几跳，不逐跳导航；改写重试是 skill 指令不是工具行为。description 自称 "compact **SQL-backed** finance graph context"（轮 24，[实测]），与 [[knevo-engineering-probes-2026-08-07]] §9.2 的 property graph 推断相抵，**待裁决**。
+- **实体对象**（轮 30/31，[实测]）：`{id,name,type,origin,description}`；origin ∈ finmemory / fundacore / merged；id 两族 `knevo-ent-*`（finmemory）与 `fent-fc-*` / `fent-*`（fundacore）；同名实体可双 id 并存，merged 只融合 description。
+- **type 观测词表**（[实测]）：stock company product industry sector concept person driver industrychain valuationmethod macro_indicator macro_factor；类型噪音常见（CPO=stock、黄仁勋=concept）。
+- **边类型**（轮 30/33/34，[自述*]）：competes_with supplies customer_of generates part_of belongs_to impacts exposed_to drives complements uses_method same_sector related_to upstream_of substitutes constrains affects_demand；可带量化限定（supplies 50%+、impacts 领先 1–2 季度）；research_meta 级边可无 evidence。旧表里的 supplies_to / strategic_partner 本轮未见。
+- **默认截断**（[实测]）：graph_hops 2 / max_facts 12 (1–20) / max_edges 30 (1–60) / max_evidence 8 (0–16)；五次返回 `edges` 恒为 30，**边数是截断值不是覆盖值**。
+- **scope 与 gaps**（[实测]）：`sourceScope.applied=["finmemory","fundacore"], excluded=["local"]`，`local` 按 UI 勾选状态推断 ≡ user-finmemory 的服务端别名（待裁决）；`gaps` ∈ entity_not_found / no_neighbors / no_facts，`agentGuidance` 只在 no_neighbors 时下发，entity_not_found 时为 null。
+- **facts / evidence 形态**（轮 32/35，[自述*]）：facts 挂实体，类型 observation / insight / event；evidence `{sourceTitle, sourceId:"source:md|pdf:<slug>:<hash>", section, chunkIndex, contentPreview}`。
+- **实体解析置信三档**（[实测]）：0.98 exact / 0.72 partial / 0.35 create_candidate（entityId null）；代码与通名消歧粗（300308 → Share Capital）。记忆 `entityRefs` 另有精简形态 `{mention, entityId, confidence:0.72（常量）, graphConfidence}`。
+- **覆盖快照 2026-08-08**（[实测]）：AI / 半导体 34–37 实体、光通信 26–32 最密；新能源 9/8 边、能源大宗 15/16 浅；白酒、政策 / 制裁 entity_not_found；宏观仅 CPI 孤点、人物孤点。
+- **ingest**（轮 32，[自述·推断]）：文档管道程序化 → 抽取 LLM（消歧 / 关系 / fact / 摘要 / confidence）→ 融合程序 + LLM → 记忆层 LLM + 人工；**边的主体来自文档抽取**，不只是记忆候选的 relationType（修订上文「构建逻辑」）。
+- **非 wiki 的双引擎**（轮 31/33/34，[自述]）：memory_query 是向量 / 混合层，graph_context 是图查询层，经 entity_refs 双向枢转；图 vs wiki 八维对照里 wiki 占优的是单实体深度、因果叙事、长尾与人读，图给广度、记忆长文给深度；行业无独立页，**行业 = 子图**。
+- **组成与风远**（轮 35/36，[自述]）：「金融本体知识库」= fundacore + finmemory + user-finmemory + `stm-*` 工作笔记；「风远知识库 = finmemory 中 sourceLabel=风远94 的子集」，与 §13.17.1 的 UI 定义（finmemory 整体叫风远94共享数据库）相抵，**待裁决**。短期记忆层的候选（batchId pending）与 stm 笔记是两个对象（修订 §3「层级」）。
+
+**本轮改写既有结论的三处，尚未裁决、原文未改**：① 风远与 finmemory 的包含关系（上）；② `finance_memory_write` 在轮 23 [实测] 直写 durable 记忆 `fmr-8a0513d6` → user-finmemory，无审核闸门——§3.0「agent 对 user-finmemory 只有提案权」应改为「提案制是 skill 纪律，不是 harness 限制」；③ 轮 29 说主 agent 只串联多份 emit、不二次压缩，与 §1.1 表「主线程汇总 = 提炼核心结论」相抵。
+
 ---
 
 ## 3C. 报告生成方法论 + 防幻觉（Knevo 自述，最高价值）
