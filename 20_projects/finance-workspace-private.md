@@ -157,6 +157,7 @@ per-user 不是进程级；`runtime_backend_readiness` 这个全局探针看不�
 而 CLI/回检走 `~/.zshrc` 里的 `/Users/a77/agent-memory/.foresight`——**两套用户台账不是同一份**。
 
 ## 交接记录
+- 2026-09-17 · claude · E2 材料修复轮反馈链：尾次拒绝原因/判官逐句理由过桥、格式错误带坐标、修复轮重述冻结成稿格式、判官新增 contradicted 合法形状；真实 run 从 invalid_repair_finish 变 completed，但判官无效 tool call 仍会让用户空手；全仓 11318P，未合未部署 → WIP #770 / `docs/handoffs/2026-09-17-repair-round-feedback-and-contradiction-shape.md`；方法 [[retry-must-carry-the-last-rejection]]。
 - 2026-09-17 · codex · 09-16 缺数根因：09-15 会话看旧树误判 local 不存在，将两个任务改 auto；14/15 自建同步已成功，纠正「先恢复复盘会登录」建议，未改生产 → `docs/l2-deploy-0916@9b77537f` 的 `docs/handoffs/2026-09-17-review-plan-regression-diagnosis.md`。
 - 2026-09-16 · codex · #773 定向部署至独立 L2 快照 d433b907，115P；真实任务因当日日线缺失被正确拦截，8792 未切换 → `docs/l2-deploy-0916@7df566b3` 的 `docs/handoffs/2026-09-16-l2-scoped-deployment.md`。
 - 2026-09-16 · codex · 路演 v4.4 / BP v1.7：观测面方法壁垒、人的思考主动权、心流长期愿景与机构条件试点；十二页/422 秒估算、BP 八页/22 项定向通过；材料 `1dbda20a` 未合 → `fwp-wt-bp-v13/docs/handoffs/2026-09-16-roadshow-v44-thinking-flow.md`，成品桌面 v4.4 目录，旧 v4.3 保留。
