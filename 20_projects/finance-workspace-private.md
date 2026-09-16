@@ -71,6 +71,7 @@ DuckDB → detect_turning_points.py / backtest_sector.py → 信号+板块边际
 ## 任务看板
 | 任务 | 负责 | 状态 | 备注 |
 |---|---|---|---|
+| E2 P5/P6 整合与真实材料交付 | codex | blocked | WIP #770；单份渲染/Markdown/私有坐标/逐句锚点回执已实现，nonfactual 语义漏判与协议稳定性仍阻塞 D6/P7；未合未部署。见 `docs/handoffs/inflight/fix-e2-material-closeout.md`。 |
 | 同花顺复盘分步接线与新池验算 | pi | doing | 采集版本代码c85d0101、作者验证/证据归档3bba5b4e；请求完成≠供应商全集。独立QC额度/服务阻塞，跨仓registry/环境差异及canonical投影/真实产物待验；未部署。见 `docs/handoffs/inflight/fix-hithink-review-wiring.md`。 |
 | #50 日报生成双根边界返修 | pi | doing | 387028b8作者侧复验通过，待独立复核；下一步见 `docs/handoffs/inflight/fix-generation-root-boundary-guards.md`。 |
 | E2边界与RE06最短收尾 | pi | doing | P3b/c返修、P3d、P3e独立通过仅各小片，P3f清空历史撤回。P3f1 a819ecde作者固定249P/0禁止，独立QC首次并发限制；用户分别授权第二/三次有界新上下文均首响应overloaded，0工具/无测试/无报告/IO未测，无自动重试。第二次af50a26c归档13/13、第三次7f2f48ca归档11/11完整；用户随后纠正独立审查可关闭，本轮关闭（04834c55d72b），撤销93ad74a8等待前置；直接继续下一小片，不冒称独立通过。模型历史/可信继承/正文交付及余P3–P7未完；RE06另线，不外推状态。见docs/handoffs/inflight/fix-e2-boundary-closeout.md。 |
@@ -156,6 +157,7 @@ per-user 不是进程级；`runtime_backend_readiness` 这个全局探针看不�
 而 CLI/回检走 `~/.zshrc` 里的 `/Users/a77/agent-memory/.foresight`——**两套用户台账不是同一份**。
 
 ## 交接记录
+- 2026-09-16 · codex · E2 单份渲染、逐句可核对凭据与有界真实复验，仍有语义反证、未合未部署 → WIP #770 / `docs/handoffs/2026-09-16-e2-claim-rendering-and-judge-receipts.md`；方法 [[contract-vs-delivery-mismatch]]。
 - 2026-09-16 · claude · **队列清零 + 切 8792→`db2963d4`**：用户「按最佳方案处理」→ #596 赚钱效应翻 live（冻结阈值+定期重校准 80.9%，PR 基座先由已合分支改指 main 再合）、#759 E2 P5 接管做独立复核（1596P 基线，两处修复各变异 1 红，消费者三处对得上）后合入；四叶+registry 全绿（pytest 11136P/0F），切换三项验证过，GLM 写手第二个 grounded 样本 165.5s。开着的 PR 归零；salvage 分支保留待认领；#596 日报效果等下次夜跑 → `docs/handoffs/2026-09-16-8792-switch-db2963d4.md`
 - 2026-09-16 · codex · E2 P5/P6 整合与真实续轮修复，固定代码全仓11200P；live仍阻塞、未合未部署 → WIP PR #770 / `docs/handoffs/inflight/fix-e2-material-closeout.md`；方法 [[contract-vs-delivery-mismatch]]。
 - 2026-09-16 · claude · **存量优化批量上线 + 切 8792→`a26cec4d`**：14 张 PR 合入（5c 备 6 张 + 冲突解 6 张 #561/#659/#556/#672/#590/#458 + I14 收口 #765 + #764），#517 按用户「判官不开」关闭留指针（决定录 correction 台账），批次门禁两轮抓两红（#458 撞号→R-20260916-01/02/03 改号 #766；#659×守则测试跨 PR 相撞→#767），终局四叶+registry 全绿（pytest 11119P/0F）。18:44 起写手已是真智谱 glm-5.3-flash 直连（launcher 他改），切后 grounded §4 过（135.8s，首个 GLM 生产样本）+ 菜单投影 8 条。8080 网关 19:04 起钥匙层 401（两把钥匙全拒）；20:1x 按用户「用 glm-5.3-flash 跑」把兜底也搬智谱 glm-5.3（同钥匙换型号保链长 2），**写手栈与 8080 解耦**，修 sub2api 只剩影响 pi 等其他消费者；地雷：launcher 启动预检仍 curl 8080 /health；主树 32 个无主未提交件封存 `salvage/main-tree-20260916`；#596 翻 live 与 #759 留驻 → `docs/handoffs/2026-09-16-8792-switch-a26cec4d.md`
@@ -938,3 +940,4 @@ per-user 不是进程级；`runtime_backend_readiness` 这个全局探针看不�
 - 2026-09-15 · claude · G-04 题材词表统一落地（canonical 七段 tsv-v1、tsc-v0 退役为派生物、对照集 131 样本待创始人标注）+ 终局 spec 验收集 9–16 对账（6 条钉死、12/15 补直接负例）；分支 feat/theme-stage-vocab-g04@7a91ed25 已推未合，全量 9650P/0F，交接 docs/handoffs/inflight/feat-theme-stage-vocab-g04.md。
 - 2026-09-15 · claude · 解封三条卡住的 PR：#673（G-04 词表统一，v6 收口+真库 30/30+9630P）、#592（#24 checkpoint rule_id/偏差目录，四处冲突解，9670P）、#593（#23 判官 token 记账，ledger-map 三行全留，9666P）——三条都是「已实施、卡在前向合并」而非待派；另开 #746（验收集 9–16 对账+anchor/投影门禁补测）。四条均 mergeable、等合并授权。
 - 2026-09-16 · claude · **E2 P6（D6）第一片已落分支待合**：`feat/e2-p6-conditioned-input@d17ebc27`（文档头 `d2098243`，基线 `gitea/main@32bff514`，对 `0758a423` merge-tree 0 冲突）——material_only 逐句 `binding.claims` 材料锚点（只证身份不证蕴含）+ `MaterialGrounding` 冻结目录 + 纯度按 data_scope 条件化（`io_effect` 由 registry 盖章）+ 判官删句连带撤绑定（否则公开稿重验自造 BLOCK 违规、input-only rewrite 被否直接 degraded）。干净树 11006P/0F（收据 `20260916T070950Z-d17ebc27.json`，`--expect-revision` exit 0）；离线判官、作者自验、前端/e2e 未跑；无编号 material_only 被拒后仍不进修复（P4 边界）。交接 `docs/handoffs/inflight/feat-e2-p6-conditioned-input.md`，快照 `docs/handoffs/2026-09-16-e2-p6-material-grounding.md`。
+- 2026-09-16 · claude · **主树无主改动封存补全 + 两簇生产代码搬正**：`salvage/main-tree-20260916` 补封未跟踪源码（08de2b00，首笔只封 tracked 漏了 cli 引用的模块）；查实主树 `scripts/moneyflow/` 是每晚 20:40 真在跑的 L2 生产代码（装机启动器从 $DATA_ROOT 执行，`ops_pipeline_run_daily.source=baidu-share:xianyu-l2-7z`），主树一文件未动；搬正两单 PR #773（L2 闲鱼日包文件源，11141P/0F）与 #772（题材资金面板，11163P/0F），merge-tree 互相干净，等用户审；文档 / BP / 技能重构等旧稿不搬（主干已有更新版或被 bp-v1.3 分支取代） → `docs/handoffs/2026-09-16-main-tree-salvage-port.md`（在 #773 分支）
