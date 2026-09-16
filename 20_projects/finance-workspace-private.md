@@ -157,6 +157,7 @@ per-user 不是进程级；`runtime_backend_readiness` 这个全局探针看不�
 而 CLI/回检走 `~/.zshrc` 里的 `/Users/a77/agent-memory/.foresight`——**两套用户台账不是同一份**。
 
 ## 交接记录
+- 2026-09-16 · codex · #773 坏包假完成与相对解释器返修，17个回归、四片全绿，未部署 → `fix/l2-file-source-qc@8bcb88e3` 的 `docs/handoffs/2026-09-16-pr773-file-source-qc-fix.md`；方法 [[gate-covers-only-its-return-value]]。
 - 2026-09-16 · codex · Knevo 五类纪律双引擎接线，575P/0F；风远已有生产写入仅复核，未合未部署 → PR #774 / `docs/handoffs/inflight/feat-knevo-absorption-closeout.md`。
 - 2026-09-16 · codex · BP v1.6 同步路演 v4.3：创始人首轮资深测评、社区后续体验传播、协同进化设计与九十天；财务不改，20 项定向通过、PDF 8 页，提交 `3e50cc1c` 未合 → `fwp-wt-bp-v13/docs/handoffs/2026-09-16-bp-v16-founder-review-community.md`；成品并入桌面 v4.3 交付目录。
 - 2026-09-16 · codex · 机制表示诊断 `R-20260916-04` 已执行：GLM/low共12答卷、0失败；下一证据两组6/6、反证集合逐条1/6机制2/6，均未漏关键反证，无优势结论；未提交/未合/未部署 → `~/fwp-wt-mechanism-pilot/docs/handoffs/inflight/feat-mechanism-research-pilot.md`（实测报告有指针）。
