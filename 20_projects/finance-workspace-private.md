@@ -156,6 +156,7 @@ per-user 不是进程级；`runtime_backend_readiness` 这个全局探针看不�
 而 CLI/回检走 `~/.zshrc` 里的 `/Users/a77/agent-memory/.foresight`——**两套用户台账不是同一份**。
 
 ## 交接记录
+- 2026-09-16 · claude · **开放 PR 盘点收尾批次**：#744 QC 六条返修完成+前向合并+四叶全绿（尖 `c5bf588a`，正文 `docs/handoffs/inflight/docs-workorders-index-hole.md`）；#678/#679 留指针关闭（#678 设计稿摘出为新 PR #762）；#517/#550/#569/#660/#730 前向合并解冲突+定向绿+已推送重开验收（解法逐张在 PR 评论）；#458/#556/#561/#590/#596/#659/#672 六张代码冲突逐张判定留评论（#561 建议最优先：代码与生产库漂移）。全部未合 main，合并等用户拍。
 
 - 2026-09-16 · pi/claude · E-008 实际工具菜单投影：PR #760 合入 main `0758a423`、真值化 #761 `43330ef2`、8792 已切（四叶 10963P/0F @快照，readiness/health/账本全过；grounded 探针因网关 502/503 未过留待办）；失败 run 上菜单句三处互证可见；17 时追加：GLM 经 fomo 判不可用（载荷形状半活），临时 BYOK grok-4.6 写手（内存态）上 grounded §4 通过 + 成功序列首个真实样本（#763 `d9bb278a`）。复核 E-009 与 C 线清单；方法 [[contract-vs-delivery-mismatch]] → `docs/handoffs/2026-09-16-8792-switch-0758a423.md`。
 
