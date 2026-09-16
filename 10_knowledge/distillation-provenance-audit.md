@@ -6,7 +6,8 @@ source: 2026-09-16 Knevo 资料盘点会话（finance-workspace-private，PR #74
 date: 2026-09-16
 tags: [knowledge, distillation, provenance, audit, method]
 status: verified
-related: ["[[knevo-reverse-engineering]]", "[[knevo-44turn-rounds15-36-distill-2026-09-16]]", "[[agent-toolkit-triad-design-build-audit]]"]
+stance: evidenced
+related: ["[[knevo-reverse-engineering]]", "[[knevo-44turn-rounds15-36-distill-2026-09-16]]", "[[knevo-engineering-probes-2026-08-07]]"]
 ---
 
 # 炼化对账：用「可追溯引用」判定一份原料有没有被蒸馏

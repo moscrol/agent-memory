@@ -6,6 +6,7 @@ source: "60_dialogues/knevo/2026-08-08-工具编排与step上限-44轮原文.md 
 date: 2026-09-16
 tags: [knevo, reverse-engineering, knowledge-graph, skill-system, distillation-ledger]
 status: draft
+stance: ai-distilled
 related: ["[[knevo-reverse-engineering]]", "[[knevo-engineering-probes-2026-08-07]]", "[[judgment-distillation-six-rules]]"]
 ---
 
