@@ -237,7 +237,7 @@ flowchart LR
 | 产业证据/定价状态二分（在途，Knevo q17 Q4 回灌 / R5 收窄版） | finance | `intelligence/services/pricing_split.py::parse_pricing_split_intent@gitea/main`、`intelligence/services/pricing_split.py::pricing_split_receipt@gitea/main`、`intelligence/services/market_midterm.py::is_pricing_state_query@gitea/main` | 「逻辑变强了」和「价格已反映多少」两问分答，允许同时成立。**先接线后契约**（R1a 教训）：`is_pricing_state_query` 成为 D6 门控第三个放宽口（前两个是视角模式、方向排序题式），「液冷还能追吗」这类不带中期词的问句这才拿得到拥挤度分位；R1a 的负例逐条有测试钉着仍关闭。契约禁令：不投票式判定（六项里那六项共享同一批成交数据）、拥挤度用相对分位、融资余额/龙虎榜不读成投资者意图、**无事前预期源时只报价格状态**（`event_pricing.reaction.CONSENSUS_GAP` 至今 `not_wired`，上涨本身不是共识证据）。缺件与禁令命中只进收据 `pricing_split`。**「我们只有覆盖密度单维」这句不成立**——sellside-coverage-cross 早已四问，别据此再造一遍 |
 | 参与者约束检索步骤（在途试用，Knevo q17 Q6 回灌） | finance | `intelligence/services/research_task_planner.py::detect_decision_surface@gitea/main` | 政策审批/招标采购/扩产投资类问句先问「谁有决定权 → 他的公开约束 → 有哪几种可行动作 → 哪份公告或条款能区分」，再谈财务传导。只接管 forecast/relation/comparison 没接走的问句，**小范围试用**，试出效果再考虑并进 event_forecast 支。查不到公开依据保持为假设，不补内部动机 |
 
-| 专项研究纪律（在途，Knevo 15-28 轮增量） | finance | `intelligence/services/research_workflow_guidance.py::workflow_guidance@feat/knevo-absorption-closeout` | 财报、事件推演、观点审查、事实核对、历史类比五类既有题型共用规则，经 Episode 动态输入与 ask 合成投递；保留材料范围和工具授权。旧 ask 信封专项意图不被通用分类覆盖，显式 override 优先。生成指令而非语义审稿器，不自动写画像/记忆；开关 FINANCE_RESEARCH_WORKFLOW_GUIDANCE=0。575 项相关回归，未部署或证明模型质量增益。 |
+| 专项研究纪律（Knevo 15-28 轮增量，已合 main `c67413c7`，默认工作树未更新） | finance | `intelligence/services/research_workflow_guidance.py::workflow_guidance@gitea/main` | 财报、事件推演、观点审查、事实核对、历史类比五类既有题型共用规则，经 Episode 动态输入与 ask 合成投递；保留材料范围和工具授权。旧 ask 信封专项意图不被通用分类覆盖，显式 override 优先。生成指令而非语义审稿器，不自动写画像/记忆；开关 FINANCE_RESEARCH_WORKFLOW_GUIDANCE=0。575 项相关回归，未部署或证明模型质量增益。 |
 
 ## 更新规则
 
@@ -251,6 +251,7 @@ flowchart LR
 
 ## 变更记录
 
+- 2026-09-17 · claude · 「专项研究纪律」**PR #774 合入 main → `c67413c7`**（用户确认后 API 合并，远端分支已删，本地分支/工作树已清）。在途行提升为常规行，符号改 `@gitea/main`。合前在合并预演 `47adcfe9` 上全量 11395/0（收据八项全过）、vitest 107、e2e 34/2、ruff 与 registry 五项 0；代码复核无路由 / 工具 / 权限扩张。未部署。
 - 2026-09-17 · claude · 「判官身份与校准有效性」**PR #775 合入 main → `0ab15e9b`**（Gitea API 合并，远端分支已删，本地分支/工作树已清）。在途行提升为常规行，符号改 `@gitea/main`（默认工作树 `b4a35fa2` 是 L2 运维覆盖层，未更新，audit 会给 PENDING 备注而非红）。合并前独立 QC：收据八项全过、ruff / registry 五项 0、变异反证复现（12 红 / 16 红 → 225 绿）、代码复核无 fail-open → `docs/handoffs/2026-09-16-judge-calibration-main-integration.md` §0。仍未调真实判官。
 - 2026-09-16 · claude · 「判官身份与校准有效性」在途行追平主干：`7117125e` → **`26f18e99`**（两次合并 `ffb0d281` / `26f18e99`），PR **#775** open 未合。冲突在 `llm_refine.py` / `grok_cli_judge.py`：主干的 **token 计费**与本枝的**调用身份证据**都写 `LLMCallRecord`——两边都保，不新开账本，且把 `records_for_call()` 与 `summary()` 收口成唯一投影 `_record_to_dict`（原本两个出口各自投影，会漂）；删 `GrokCliResponse`，元数据并入 `GrokCliText` 以保 `str` 子类契约。落实移交的 P1：`identity_state` 三态下沉到无依赖模块 `intelligence/call_identity.py`，服务层/评测层/脚本共用，新增 `test_call_identity_contract.py` 钉住两条传输 × 两个读取出口一致。**定位是防漂移，没有证据说它此前放行过未知身份**。变异反证：服务层误标身份→3 红、评测层常量拼错→3 红，还原 270 项全绿。四叶对 `26f18e99` 重跑：pytest **11359P/0F**、vitest **107P**、e2e **34P/2S**、registry 五项 exit 0（收据 `20260916T152203Z-26f18e99.json` 七项全过）。**旧读数不迁移到新代码态**。仍**未调真实判官**，结论仍只覆盖 legacy CLI ask。
 - 2026-09-16 · claude · 加一条**在途行**「材料逐事实锚点与条件化纯度（E2 P6/D6）」（分支 `feat/e2-p6-conditioned-input@d17ebc27`，未合 main）：binding.claims 合同 + `MaterialGrounding` 冻结目录 + 按 data_scope 条件化纯度 + 判官删句连带撤绑定；P5 `feat/e2-p5-cross-turn-inheritance` 与之只在 `episode_factory.py` 有文件级重叠。合进默认树后去掉 `@branch`。
