@@ -1,12 +1,15 @@
 ---
-title: "Knevo 44 轮原文第 15–36 轮蒸馏草稿（图谱/知识库结构 + skill/工具重叠审计）"
-type: inbox
+title: "Knevo 44 轮原文第 15–36 轮蒸馏对账（图谱/知识库结构增量 + skill/工具重叠审计）"
+type: knowledge
 agent: claude
 source: "60_dialogues/knevo/2026-08-08-工具编排与step上限-44轮原文.md 第 15–36 轮，对照 knevo-engineering-probes-2026-08-07 与 knevo-reverse-engineering"
 date: 2026-09-16
-tags: [inbox, knevo, reverse-engineering, knowledge-graph, skill-system]
+tags: [knevo, reverse-engineering, knowledge-graph, skill-system, distillation-ledger]
 status: draft
+related: ["[[knevo-reverse-engineering]]", "[[knevo-engineering-probes-2026-08-07]]", "[[judgment-distillation-six-rules]]"]
 ---
+
+> 2026-09-16 归位：子代理起草于 00_inbox，§1 的新增/修订项已拼进 [[knevo-reverse-engineering]] §3B.2；本文保留全表与 §2 重叠审计表（8 项未覆盖 = 下次蒸馏第 15–28 轮的待办），§4 三处矛盾**待用户裁决**，既有文档原文未改。
 
 P=engineering-probes，R=reverse-engineering。[自述*]=转述被日志截断的工具返回。首题「固定/agent RAG」属轮 28，一并收入。
 
