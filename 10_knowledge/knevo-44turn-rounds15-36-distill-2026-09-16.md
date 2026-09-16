@@ -12,6 +12,8 @@ related: ["[[knevo-reverse-engineering]]", "[[knevo-engineering-probes-2026-08-0
 
 > 2026-09-16 归位：子代理起草于 00_inbox，§1 的新增/修订项已拼进 [[knevo-reverse-engineering]] §3B.2；本文保留全表与 §2 重叠审计表（8 项未覆盖 = 下次蒸馏第 15–28 轮的待办），§4 三处矛盾**待用户裁决**，既有文档原文未改。
 
+> 同日后续：finance 分支 `feat/knevo-absorption-closeout` 的 `ae86336c` 已对 §2 八项逐项处置，五类专项研究纪律接入两条引擎；具体去留与未验证边界见该分支 `docs/learning/knevo-distill/workflow-absorption-2026-09-16.md`。这不将 §4 矛盾改成已裁决，不将提示词接线改成模型效果验收。生产风远画像已有另一会话的四批写入，本轮只读核验，不重复 ingest。
+
 P=engineering-probes，R=reverse-engineering。[自述*]=转述被日志截断的工具返回。首题「固定/agent RAG」属轮 28，一并收入。
 
 ## 1. 第 29–36 轮增量（含轮 28）

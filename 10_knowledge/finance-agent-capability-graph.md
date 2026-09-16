@@ -237,6 +237,8 @@ flowchart LR
 | 产业证据/定价状态二分（在途，Knevo q17 Q4 回灌 / R5 收窄版） | finance | `intelligence/services/pricing_split.py::parse_pricing_split_intent@gitea/main`、`intelligence/services/pricing_split.py::pricing_split_receipt@gitea/main`、`intelligence/services/market_midterm.py::is_pricing_state_query@gitea/main` | 「逻辑变强了」和「价格已反映多少」两问分答，允许同时成立。**先接线后契约**（R1a 教训）：`is_pricing_state_query` 成为 D6 门控第三个放宽口（前两个是视角模式、方向排序题式），「液冷还能追吗」这类不带中期词的问句这才拿得到拥挤度分位；R1a 的负例逐条有测试钉着仍关闭。契约禁令：不投票式判定（六项里那六项共享同一批成交数据）、拥挤度用相对分位、融资余额/龙虎榜不读成投资者意图、**无事前预期源时只报价格状态**（`event_pricing.reaction.CONSENSUS_GAP` 至今 `not_wired`，上涨本身不是共识证据）。缺件与禁令命中只进收据 `pricing_split`。**「我们只有覆盖密度单维」这句不成立**——sellside-coverage-cross 早已四问，别据此再造一遍 |
 | 参与者约束检索步骤（在途试用，Knevo q17 Q6 回灌） | finance | `intelligence/services/research_task_planner.py::detect_decision_surface@gitea/main` | 政策审批/招标采购/扩产投资类问句先问「谁有决定权 → 他的公开约束 → 有哪几种可行动作 → 哪份公告或条款能区分」，再谈财务传导。只接管 forecast/relation/comparison 没接走的问句，**小范围试用**，试出效果再考虑并进 event_forecast 支。查不到公开依据保持为假设，不补内部动机 |
 
+| 专项研究纪律（在途，Knevo 15-28 轮增量） | finance | `intelligence/services/research_workflow_guidance.py::workflow_guidance@feat/knevo-absorption-closeout` | 财报、事件推演、观点审查、事实核对、历史类比五类既有题型共用规则，经 Episode 动态输入与 ask 合成投递；保留材料范围和工具授权。旧 ask 信封专项意图不被通用分类覆盖，显式 override 优先。生成指令而非语义审稿器，不自动写画像/记忆；开关 FINANCE_RESEARCH_WORKFLOW_GUIDANCE=0。575 项相关回归，未部署或证明模型质量增益。 |
+
 ## 更新规则
 
 新增能力时按以下顺序补：
