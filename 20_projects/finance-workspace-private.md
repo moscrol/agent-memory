@@ -157,6 +157,7 @@ per-user 不是进程级；`runtime_backend_readiness` 这个全局探针看不�
 而 CLI/回检走 `~/.zshrc` 里的 `/Users/a77/agent-memory/.foresight`——**两套用户台账不是同一份**。
 
 ## 交接记录
+- 2026-09-16 · codex · 路演 v4.3 按用户所选 v4.0 十二页口播主线交付，464 秒仅估算；PPT/PDF/离线HTML、提词与答疑已生成，机械检查通过，未做视觉目检/真人计时 → `~/Desktop/01-Foresight-BP与路演/Foresight-路演-v4.3-口播主线-2026-09-16/.build/交接.md`；旧目录与仓内 v5 稿不覆盖。
 - 2026-09-16 · codex · E2 单份渲染、逐句可核对凭据与有界真实复验，仍有语义反证、未合未部署 → WIP #770 / `docs/handoffs/2026-09-16-e2-claim-rendering-and-judge-receipts.md`；方法 [[contract-vs-delivery-mismatch]]。
 - 2026-09-16 · claude · **队列清零 + 切 8792→`db2963d4`**：用户「按最佳方案处理」→ #596 赚钱效应翻 live（冻结阈值+定期重校准 80.9%，PR 基座先由已合分支改指 main 再合）、#759 E2 P5 接管做独立复核（1596P 基线，两处修复各变异 1 红，消费者三处对得上）后合入；四叶+registry 全绿（pytest 11136P/0F），切换三项验证过，GLM 写手第二个 grounded 样本 165.5s。开着的 PR 归零；salvage 分支保留待认领；#596 日报效果等下次夜跑 → `docs/handoffs/2026-09-16-8792-switch-db2963d4.md`
 - 2026-09-16 · codex · E2 P5/P6 整合与真实续轮修复，固定代码全仓11200P；live仍阻塞、未合未部署 → WIP PR #770 / `docs/handoffs/inflight/fix-e2-material-closeout.md`；方法 [[contract-vs-delivery-mismatch]]。
