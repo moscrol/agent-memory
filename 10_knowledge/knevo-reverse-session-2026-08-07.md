@@ -5,8 +5,14 @@ agent: devin
 source: Knevo 产品会话实测台账（2026-08-07 积分消耗 + 工程挖掘）
 date: 2026-08-07
 tags: [knevo, reverse-engineering, sub-agent, skill-system, credits-burn]
-status: in-progress
+status: verified
 ---
+
+> 收口（2026-09-16）：文末「待整理」两条读回项不再单独执行——次日 2026-08-08 的 44 轮会话
+> 重新要到了 finance-mode 与各专项 skill 全文（第 15–20 轮）及架构自述（第 1–14、21–28 轮），
+> 原文已整卷导出到 `60_dialogues/knevo/2026-08-08-工具编排与step上限-44轮原文.md`；
+> 工程细节以 [[knevo-engineering-probes-2026-08-07]] §1–§10 为准。产业链报告落在 Knevo
+> workspace，未导出，也不打算导出（是它的产物不是方法论）。
 
 # Knevo 逆向 Session 2026-08-07
 
