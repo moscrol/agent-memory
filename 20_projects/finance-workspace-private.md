@@ -157,6 +157,7 @@ per-user 不是进程级；`runtime_backend_readiness` 这个全局探针看不�
 而 CLI/回检走 `~/.zshrc` 里的 `/Users/a77/agent-memory/.foresight`——**两套用户台账不是同一份**。
 
 ## 交接记录
+- 2026-09-16 · codex · 机制表示诊断首片 `R-20260916-04`：量具已验、协议已冻；无模型配置，0答卷，效果待测，未提交/未合/未部署 → `~/fwp-wt-mechanism-pilot/docs/handoffs/inflight/feat-mechanism-research-pilot.md`。
 - 2026-09-16 · codex · #773 独立质检四片全绿但发现残缺日包误报完成(P1)、相对解释器切目录失效(P2)，阻止合并，未动生产 → PR #773 comment-4860 / `docs/verification/pr773-70811c7d/REVIEW.md`（审查证据 `96b10ad2`）。
 - 2026-09-16 · codex · 路演 v4.3 按用户所选 v4.0 十二页口播主线交付，464 秒仅估算；PPT/PDF/离线HTML、提词与答疑已生成，机械检查通过，未做视觉目检/真人计时 → `~/Desktop/01-Foresight-BP与路演/Foresight-路演-v4.3-口播主线-2026-09-16/.build/交接.md`；旧目录与仓内 v5 稿不覆盖。
 - 2026-09-16 · codex · E2 单份渲染、逐句可核对凭据与有界真实复验，仍有语义反证、未合未部署 → WIP #770 / `docs/handoffs/2026-09-16-e2-claim-rendering-and-judge-receipts.md`；方法 [[contract-vs-delivery-mismatch]]。
