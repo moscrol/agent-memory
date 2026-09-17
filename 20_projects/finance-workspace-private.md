@@ -72,6 +72,7 @@ DuckDB → detect_turning_points.py / backtest_sector.py → 信号+板块边际
 | 任务 | 负责 | 状态 | 备注 |
 |---|---|---|---|
 | E27引用数字门修复 | pi | done | 代码2841ce66，冻结样本与干净Python全量已验；真入口/四叶准入另验，未合未部署 → `fwp-wt-citation-numeric-gate-0917/docs/handoffs/inflight/fix-citation-numeric-gate-0917.md`。 |
+| 8792 三类边界工程返修 | pi | done | 代码6f9df75a，正式回归/原QC及固定提交四叶通过；未push/合main/部署，无修复版真模型验收 → `fwp-wt-8792-readiness-fixes/docs/handoffs/inflight/fix-8792-readiness-boundaries.md`。 |
 | 8792 上线后独立质检 | pi | done | 审查提交7d253451；三类边界拒收、未改生产，修复与准入见 `fwp-wt-qc-8792-readiness-0917/docs/handoffs/inflight/docs-qc-8792-readiness-0917.md`。 |
 | 磁盘保守清理 | pi | done | 两轮5.4→28.3→36.7GiB；第二轮清再生缓存/安装包/闲置Docker构建产物及29棵可恢复临时树，保留聊天/生产/在途。最新收据 `fwp-wt-qc-8792-readiness-0917/docs/handoffs/2026-09-17-system-disk-cleanup.md`（0170b6cc）。 |
 | E2 P5/P6 整合与真实材料交付 | codex | blocked | WIP #770；单份渲染/Markdown/私有坐标/逐句锚点回执已实现，nonfactual 语义漏判与协议稳定性仍阻塞 D6/P7；未合未部署。见 `docs/handoffs/inflight/fix-e2-material-closeout.md`。 |
@@ -160,6 +161,7 @@ per-user 不是进程级；`runtime_backend_readiness` 这个全局探针看不�
 而 CLI/回检走 `~/.zshrc` 里的 `/Users/a77/agent-memory/.foresight`——**两套用户台账不是同一份**。
 
 ## 交接记录
+- 2026-09-17 · pi · 三类边界返修6f9df75a：关系判定替代词面共现，四叶通过不外推已上线 → `docs/handoffs/2026-09-17-8792-readiness-boundary-fixes.md`（修复树）。
 - 2026-09-17 · pi · E27引用与数量两端隔离，保留真实阈值门；离线修复2841ce66 → `docs/handoffs/2026-09-17-citation-numeric-gate.md`（修复树）。
 - 2026-09-17 · pi · 整盘低风险清理：再增约8.4GiB，29棵旧临时树留版本/元数据且抽验恢复 → `docs/handoffs/2026-09-17-system-disk-cleanup.md`（审查树0170b6cc）。
 - 2026-09-17 · pi · 授权清理旧测试/同日中间备份/同哈希数据库副本，保留恢复映射 → `docs/handoffs/2026-09-17-disk-cleanup.md`（审查树3f259337）。
