@@ -71,6 +71,7 @@ DuckDB → detect_turning_points.py / backtest_sector.py → 信号+板块边际
 ## 任务看板
 | 任务 | 负责 | 状态 | 备注 |
 |---|---|---|---|
+| 市场—板块—个股历史过程研究 | pi | doing | WIP #783，候选代码506e1e23四叶通过；真模型连续四题与新算子独立验算待做，未部署 → `fwp-wt-history-market-anatomy/docs/handoffs/inflight/feat-history-market-anatomy.md`。 |
 | 09-16/17 local夜跑恢复 | pi | done | 生产数据/报告/L2/快照已验；配置恢复local，仅指数模块最小部署。生成根正式部署、方法协议迁移另办；`fwp-wt-nightly-review-0917/docs/handoffs/inflight/fix-nightly-review-0917.md`。 |
 | E27引用数字门修复 | pi | done | 代码2841ce66，冻结样本与干净Python全量已验；真入口/四叶准入另验，未合未部署 → `fwp-wt-citation-numeric-gate-0917/docs/handoffs/inflight/fix-citation-numeric-gate-0917.md`。 |
 | 8792 三类边界工程返修 | pi | done | 代码6f9df75a，正式回归/原QC及固定提交四叶通过；未push/合main/部署，无修复版真模型验收 → `fwp-wt-8792-readiness-fixes/docs/handoffs/inflight/fix-8792-readiness-boundaries.md`。 |
@@ -162,6 +163,7 @@ per-user 不是进程级；`runtime_backend_readiness` 这个全局探针看不�
 而 CLI/回检走 `~/.zshrc` 里的 `/Users/a77/agent-memory/.foresight`——**两套用户台账不是同一份**。
 
 ## 交接记录
+- 2026-09-17 · pi · 历史日线过程候选506e1e23：复用现门与主库，峰值/接力不冒充预测因果 → WIP #783 / `docs/handoffs/2026-09-17-history-market-anatomy.md`（候选树）。
 - 2026-09-17 · pi · 两日local复盘恢复，成功凭证随底行情变化须重算 → `fwp-wt-nightly-review-0917/docs/handoffs/2026-09-17-local-review-recovery.md`；方法 [[gate-covers-only-its-return-value]]。
 - 2026-09-17 · pi · 三类边界返修6f9df75a：关系判定替代词面共现，四叶通过不外推已上线 → `docs/handoffs/2026-09-17-8792-readiness-boundary-fixes.md`（修复树）。
 - 2026-09-17 · pi · E27引用与数量两端隔离，保留真实阈值门；离线修复2841ce66 → `docs/handoffs/2026-09-17-citation-numeric-gate.md`（修复树）。
