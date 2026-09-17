@@ -72,6 +72,7 @@ DuckDB → detect_turning_points.py / backtest_sector.py → 信号+板块边际
 | 任务 | 负责 | 状态 | 备注 |
 |---|---|---|---|
 | 8792 上线后独立质检 | pi | done | 审查提交7d253451；三类边界拒收、未改生产，修复与准入见 `fwp-wt-qc-8792-readiness-0917/docs/handoffs/inflight/docs-qc-8792-readiness-0917.md`。 |
+| 磁盘保守清理 | pi | done | 经授权清17项，净增约22.9GiB、剩28.3GiB；未动生产/回滚/工作树。收据见 `fwp-wt-qc-8792-readiness-0917/docs/handoffs/2026-09-17-disk-cleanup.md`（3f259337）。 |
 | E2 P5/P6 整合与真实材料交付 | codex | blocked | WIP #770；单份渲染/Markdown/私有坐标/逐句锚点回执已实现，nonfactual 语义漏判与协议稳定性仍阻塞 D6/P7；未合未部署。见 `docs/handoffs/inflight/fix-e2-material-closeout.md`。 |
 | 同花顺复盘分步接线与新池验算 | pi | doing | 采集版本代码c85d0101、作者验证/证据归档3bba5b4e；请求完成≠供应商全集。独立QC额度/服务阻塞，跨仓registry/环境差异及canonical投影/真实产物待验；未部署。见 `docs/handoffs/inflight/fix-hithink-review-wiring.md`。 |
 | #50 日报生成双根边界返修 | pi | doing | 387028b8作者侧复验通过，待独立复核；下一步见 `docs/handoffs/inflight/fix-generation-root-boundary-guards.md`。 |
@@ -158,6 +159,7 @@ per-user 不是进程级；`runtime_backend_readiness` 这个全局探针看不�
 而 CLI/回检走 `~/.zshrc` 里的 `/Users/a77/agent-memory/.foresight`——**两套用户台账不是同一份**。
 
 ## 交接记录
+- 2026-09-17 · pi · 授权清理旧测试/同日中间备份/同哈希数据库副本，保留恢复映射 → `docs/handoffs/2026-09-17-disk-cleanup.md`（审查树3f259337）。
 - 2026-09-17 · pi · 8792独立质检：拒签全部完成，固定三类边界反例、保留隔离小规模测试路径 → `fwp-wt-qc-8792-readiness-0917@7d253451` / `docs/handoffs/2026-09-17-8792-readiness-qc.md`。
 - 2026-09-17 · claude · PR #781（#55 确定性判官门模式）+ #779（研究意图边界）合入并切 8792 `ce009718 → bf662e9310ff`：门禁跑在 `merge-tree` 造的预演树 `b094abf9`（其树与合并后 main 逐字节相同）四叶全绿（11435P/0F、ruff 0、vitest 107、e2e 34P/2S、registry 五项 0），health 三读 + readiness 13 项 + 账本 check/homes + grounded 探针 193s completed 全过；**判官开关未翻**（`ASK_SEMANTIC_JUDGE` 未设、实读 `judge_mode=llm`，翻 off 等用户确认）→ PR #782 / `~/.finance-runtime/cutover-20260917b-bf662e93-8792.md`；方法 [[infra-failure-report-may-hide-partial-success]]（Gitea 合并 API 返 500 但 main 已前进）。
 - 2026-09-17 · claude · E2 材料修复轮反馈链：尾次拒绝原因/判官逐句理由过桥、格式错误带坐标、修复轮重述冻结成稿格式、判官新增 contradicted 合法形状；真实 run 从 invalid_repair_finish 变 completed，但判官无效 tool call 仍会让用户空手（21 次探针 run 出现 3 次，均 correlated_judge）。**QC 复核**发现扫描器只认一种送达、把任何 invalid_action 当终局拒收 → `04d3c397` 按 code 置位 + 补发通道计入清零，两条 loop 二次 resume 回归、修前六条全红；forward-merge gitea/main 后 `df74042c` 四叶全绿（11586P / 前端 107P / e2e 34P / registry 过，收据 `20260917T021523Z-df74042c.json` 八项可采信），head `b1c1c29f` 已推，未合未部署 → WIP #770 / `docs/handoffs/2026-09-17-repair-round-feedback-and-contradiction-shape.md`；方法 [[retry-must-carry-the-last-rejection]]（已补「清零集合含自身通道、置位按失败类别」）。
