@@ -72,7 +72,7 @@ DuckDB → detect_turning_points.py / backtest_sector.py → 信号+板块边际
 | 任务 | 负责 | 状态 | 备注 |
 |---|---|---|---|
 | 市场—板块—个股历史过程研究 | pi | doing | WIP #783，候选代码506e1e23四叶通过；真模型连续四题与新算子独立验算待做，未部署 → `fwp-wt-history-market-anatomy/docs/handoffs/inflight/feat-history-market-anatomy.md`。 |
-| 09-16/17 local夜跑恢复 | pi | done | 生产数据/报告/L2/快照已验；配置恢复local，仅指数模块最小部署。生成根正式部署、方法协议迁移另办；`fwp-wt-nightly-review-0917/docs/handoffs/inflight/fix-nightly-review-0917.md`。 |
+| 09-16/17 local夜跑恢复 | pi | done | 生产数据/报告/L2/快照已验；配置恢复local，仅指数模块最小部署。生成根后续部署见#50行，方法协议迁移另办；`fwp-wt-nightly-review-0917/docs/handoffs/inflight/fix-nightly-review-0917.md`。 |
 | 8792边界组合候选 | pi | done | 3faf64fb收敛三类边界+引用数字隔离，补限定语与重复扫描；固定提交四叶/七类反证通过。未push/合main/部署，真实模型任务待验 → `fwp-wt-8792-boundary-integration/docs/handoffs/inflight/fix-8792-boundary-integration.md`。 |
 | E27引用数字门修复 | pi | done | 代码2841ce66，冻结样本与干净Python全量已验；真入口/四叶准入另验，未合未部署 → `fwp-wt-citation-numeric-gate-0917/docs/handoffs/inflight/fix-citation-numeric-gate-0917.md`。 |
 | 8792 三类边界工程返修 | pi | done | 代码6f9df75a，正式回归/原QC及固定提交四叶通过；未push/合main/部署，无修复版真模型验收 → `fwp-wt-8792-readiness-fixes/docs/handoffs/inflight/fix-8792-readiness-boundaries.md`。 |
@@ -80,7 +80,7 @@ DuckDB → detect_turning_points.py / backtest_sector.py → 信号+板块边际
 | 磁盘保守清理 | pi | done | 两轮5.4→28.3→36.7GiB；第二轮清再生缓存/安装包/闲置Docker构建产物及29棵可恢复临时树，保留聊天/生产/在途。最新收据 `fwp-wt-qc-8792-readiness-0917/docs/handoffs/2026-09-17-system-disk-cleanup.md`（0170b6cc）。 |
 | E2 P5/P6 整合与真实材料交付 | codex | blocked | WIP #770；单份渲染/Markdown/私有坐标/逐句锚点回执已实现，nonfactual 语义漏判与协议稳定性仍阻塞 D6/P7；未合未部署。见 `docs/handoffs/inflight/fix-e2-material-closeout.md`。 |
 | 同花顺复盘分步接线与新池验算 | pi | doing | 采集版本代码c85d0101、作者验证/证据归档3bba5b4e；请求完成≠供应商全集。独立QC额度/服务阻塞，跨仓registry/环境差异及canonical投影/真实产物待验；未部署。见 `docs/handoffs/inflight/fix-hithink-review-wiring.md`。 |
-| #50 日报生成双根边界返修 | pi | doing | 387028b8作者侧复验通过，待独立复核；下一步见 `docs/handoffs/inflight/fix-generation-root-boundary-guards.md`。 |
+| #50 日报生成双根部署 | pi | done | 2fa28a4f最小wrapper接线+387028b8完整冻结根已装机，真实launchd主动触发19步PASS；保留L2，方法capture仍拒绝。下一夜自动触发/源码合流四叶另验 → `fwp-wt-nightly-generation-deploy-0917/docs/handoffs/inflight/fix-nightly-generation-deploy-0917.md`。 |
 | E2边界与RE06最短收尾 | pi | doing | P3b/c返修、P3d、P3e独立通过仅各小片，P3f清空历史撤回。P3f1 a819ecde作者固定249P/0禁止，独立QC首次并发限制；用户分别授权第二/三次有界新上下文均首响应overloaded，0工具/无测试/无报告/IO未测，无自动重试。第二次af50a26c归档13/13、第三次7f2f48ca归档11/11完整；用户随后纠正独立审查可关闭，本轮关闭（04834c55d72b），撤销93ad74a8等待前置；直接继续下一小片，不冒称独立通过。模型历史/可信继承/正文交付及余P3–P7未完；RE06另线，不外推状态。见docs/handoffs/inflight/fix-e2-boundary-closeout.md。 |
 | 🟡 kb_search 拿不到证据（`hits=0`）——按页新鲜度两张 PR 待合 | claude | 待用户合并 | [实测 2026-09-03] **交接里「需重建索引，另立单」是错的，重建救不回来**。两个独立缺陷：①`index_freshness` 是 KB 侧**整库** verdict（manifest 一个指纹），下游 `kb_rag.retrieve(require_fresh=True)` 逐条丢弃 → 一页变了全批丢光；实测 14412 个入索引文件只有 37 个受影响（**0.26%**），99.74% 逐字节没变的页被连坐。②热路径 `scripts/rag_query_worker.py`（**在本仓不在 KB 仓**）预热时算一次整库 verdict 就**冻住**，`rag update` 跑完不重启 worker 照样标 stale；它用的还是 `stale_report`（KB 早收敛掉的第二套判据，不判 chunk_profile 与年龄）。分支：本仓 `fix/rag-worker-page-freshness`（26 条绿 + `intelligence/tests` 6860 passed，`test_dream_mine.py` 5 红是宿主预存、干净检出可复现）、KB 仓 `fix/rag-page-level-freshness`（218 条绿）；两张**可独立合并、顺序无关**（worker 侧对旧 KB 检出自动回落）。各 4 个变异证伪过。真索引实测：修前 12 条命中全 stale，修后 11 fresh/1 stale。树 `/Users/a77/fwp-wt-worker-freshness`。**用户 09-03 拍：先都不合。** 另修 `kb_rag.py` 那句「post-commit 会自动重建索引」——该钩子当时已死，是假话 |
 | 🟡 市值容量顶比值回测（个股成交额/流通市值的见顶比值规律） | cursor → 待排 | 立项 | [2026-08-26 用户确认] 出处：user_framework 问卷第八层研究 TODO（07-03 提出后搁置）。方案：取历次行情加权涨幅靠前个股的见顶日，回查成交额/流通市值比值分布找见顶区间规律。产出＝B 类数字标定（标定前不得写进画像/基线当硬判据）。数据：fact_stock_daily＋流通市值（iFinD/AKShare 补）。按实验台账纪律执行（输入窗口/假设/数据完整性/后验/结论状态/下一步） |
@@ -166,6 +166,7 @@ per-user 不是进程级；`runtime_backend_readiness` 这个全局探针看不�
 ## 交接记录
 - 2026-09-17 · pi · 边界组合3faf64fb：新revision重验、限定语按归属不按共现、扫描次数锁性能 → `fwp-wt-8792-boundary-integration/docs/handoffs/2026-09-17-8792-boundary-integration.md`。
 - 2026-09-17 · pi · 历史日线过程候选506e1e23：复用现门与主库，峰值/接力不冒充预测因果 → WIP #783 / `docs/handoffs/2026-09-17-history-market-anatomy.md`（候选树）。
+- 2026-09-17 · pi · 生成根最小装机并真实launchd验收，L2不回退 → `fwp-wt-nightly-generation-deploy-0917/docs/handoffs/2026-09-17-nightly-generation-deployment.md`。
 - 2026-09-17 · pi · 两日local复盘恢复，成功凭证随底行情变化须重算 → `fwp-wt-nightly-review-0917/docs/handoffs/2026-09-17-local-review-recovery.md`；方法 [[gate-covers-only-its-return-value]]。
 - 2026-09-17 · pi · 三类边界返修6f9df75a：关系判定替代词面共现，四叶通过不外推已上线 → `docs/handoffs/2026-09-17-8792-readiness-boundary-fixes.md`（修复树）。
 - 2026-09-17 · pi · E27引用与数量两端隔离，保留真实阈值门；离线修复2841ce66 → `docs/handoffs/2026-09-17-citation-numeric-gate.md`（修复树）。
