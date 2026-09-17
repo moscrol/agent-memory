@@ -182,6 +182,7 @@ flowchart LR
 | 问答编排器 | finance | `intelligence/services/answer_orchestrator.py` | 问题类型、深度、视角、证据计划、质检门槛 |
 | 正式复盘查漏门 | finance | `intelligence/services/forecast_preflight.py` | daily-agent 缺口未补齐时暂停正式复盘 |
 | 回答质量层 | finance | `intelligence/services/answer_quality.py` | 输出前自审、叙事组织、影子用户反驳 |
+| 数字条件门引用隔离（在途修复） | finance | `intelligence/services/episode_protocol.py::strip_evidence_ordinals@fix/citation-numeric-gate-0917` | `2841ce66`：答案与证据数量提取共用协议引用语法，E27不再充当阈值或数值依据；原文引用、表外引用门及真实新阈值校验不变。冻结8792样本只移除第20句引用误报，24/25原判保持；37个新增例、干净全量11472P及两类变异已验，不代签语义正确性。未跑修复版真入口/前端/E2E/完整registry，未合未部署；见 `docs/handoffs/inflight/fix-citation-numeric-gate-0917.md`。 |
 | LLM 融合层 | finance | `intelligence/services/llm_refine.py` | compose、二次反驳/重写、provider 兼容 |
 | L3 运行时证据 | finance | `intelligence/services/l3_evidence.py` | 公告、互动易、问询函运行时补查 |
 | L3 入库候选 | finance | `intelligence/services/l3_ingest.py` | 把官方证据解析成候选 payload 或 source note |
@@ -251,6 +252,8 @@ flowchart LR
 5. **避免事实污染**：项目经验、问答打分和用户纠偏写项目学习层；公司/题材事实写知识库；项目级流程变化写 agent-memory。
 
 ## 变更记录
+
+- 2026-09-17 · pi · 数字条件门修复单列在途节点：引用编号与业务量两端隔离，保留原文与真实阈值保护；符号钉`fix/citation-numeric-gate-0917@2841ce66`，仅离线验过，不写成8792已修复。
 
 - 2026-09-17 · claude · 用户决策「不用 LLM 判官」（承接 09-12 撤独立 Grok 判官）→ 工单 #55（INDEX 已合，PR #780）+ 实现分支 `feat/no-llm-judge-mode` 在途行。依据 09-12 起 24 个生产 run：判官 repaired 9 / unavailable 8 / passed 3。Knevo 本身无生成时判官（决策追踪 → 市场验证 → 用户归因）。
 - 2026-09-17 · claude · 「专项研究纪律」**PR #774 合入 main → `c67413c7`**（用户确认后 API 合并，远端分支已删，本地分支/工作树已清）。在途行提升为常规行，符号改 `@gitea/main`。合前在合并预演 `47adcfe9` 上全量 11395/0（收据八项全过）、vitest 107、e2e 34/2、ruff 与 registry 五项 0；代码复核无路由 / 工具 / 权限扩张。未部署。
