@@ -80,7 +80,7 @@ DuckDB → detect_turning_points.py / backtest_sector.py → 信号+板块边际
 | 市场—板块—个股历史过程研究 | pi | blocked | WIP #783，f9可信历史用途贯通提示/修复/收据/登记；672abcc5修测试任务回收，冻结四叶11579P与历史19项、三夹具删join反证通过，742df6f3归档保留f9全量红。未重跑真模型，最近fbd8四题仍失败；同窗/启动特征及控制组/主动原件消费待修，未合未部署 → `fwp-wt-history-market-anatomy/docs/handoffs/inflight/feat-history-market-anatomy.md`。 |
 | 09-16/17 local夜跑恢复 | pi | done | 生产数据/报告/L2/快照已验；配置恢复local，仅指数模块最小部署。生成根后续部署见#50行，方法协议迁移另办；`fwp-wt-nightly-review-0917/docs/handoffs/inflight/fix-nightly-review-0917.md`。 |
 | R5财报与计算交付 / R6验收 | pi | blocked | dfd7b4ff工程与自然验收分账；R6已按授权固定四题首发，整体未过，不翻旧R3。比较口径、正文/产物一致性及完整性提示返修见下一行，未验新自然模型；未push/合main/部署 → `fwp-wt-8792-financial-r6/docs/handoffs/inflight/baseline-8792-financial-r6.md`。 |
-| R6财务原件离线返修 | pi | blocked | d06dc1e8接49fd发布片，a31交付片已在；终态≠发布≠研究完成，金融正常/恢复的partial正文引用及补修债跨存储/API保留。固定12198P/86S/2X、前端115P/E2E34P2S，五套撤保护分账通过；非答案保留/RAG/runtime整枝合流。宿主旧KB registry红保留，固定三仓五项过；无本候选新live/独立QC，旧R6/R3仍0/4，未push/合main/部署 → `fwp-wt-8792-financial-r6-repair/docs/handoffs/inflight/fix-8792-financial-r6-repair.md`。 |
+| R6财务原件离线返修 | pi | blocked | d8d6196b仅再接20939 RAG分帧，保金融代码身份/私有pycache换代；a31交付/49fd发布已在，partial正文引用及补修债不变。固定12220P/86S/2X、前端115P/E2E34P2S，RAG九组与原四套过；发布首并发基线180秒超时未归因，后诊断150P及一次限定串行八组通过不翻案，不能签无保留全绿/可合入。宿主registry红，固定三仓五项过；非整枝保稿/runtime合流，旧R6/R3仍0/4，新live0/独立QC未跑，未push/合main/部署 → `fwp-wt-8792-financial-r6-repair/docs/handoffs/inflight/fix-8792-financial-r6-repair.md`。 |
 | 8792边界组合候选 | pi | blocked | R4 97ca716b离线修指代/跨表达阈值/清单边界/日期角色，干净工程11852P、前端107P/E2E34P2S/16类反证；无新live。R3固定c481四首题仍0/4 not_passed；选期/截止/缺基线与TTL冲突未签。8792未切，未push/合main/部署 → `fwp-wt-8792-boundary-integration/docs/handoffs/inflight/fix-8792-boundary-integration.md`。 |
 | E27引用数字门修复 | pi | done | 代码2841ce66，冻结样本与干净Python全量已验；真入口/四叶准入另验，未合未部署 → `fwp-wt-citation-numeric-gate-0917/docs/handoffs/inflight/fix-citation-numeric-gate-0917.md`。 |
 | 8792 三类边界工程返修 | pi | done | 代码6f9df75a，正式回归/原QC及固定提交四叶通过；未push/合main/部署，无修复版真模型验收 → `fwp-wt-8792-readiness-fixes/docs/handoffs/inflight/fix-8792-readiness-boundaries.md`。 |
@@ -176,6 +176,8 @@ per-user 不是进程级；`runtime_backend_readiness` 这个全局探针看不�
 而 CLI/回检走 `~/.zshrc` 里的 `/Users/a77/agent-memory/.foresight`——**两套用户台账不是同一份**。
 
 ## 交接记录
+
+- 2026-09-19 · pi · 金融d8d6196b仅接RAG分帧并保代码身份，发布首超时未归因不以串行绿翻案 → `fwp-wt-8792-financial-r6-repair/docs/handoffs/2026-09-19-8792-financial-rag-integration.md`；方法 [[../10_knowledge/contract-vs-delivery-mismatch]]。
 
 - 2026-09-19 · coding-agent · 双仓精确main前后验收，代码合入与生产解锁/部署分账 → [#786](http://127.0.0.1:3300/a77/finance-workspace-private/pulls/786) / `docs/handoffs/2026-09-19-kb-v4-merge-acceptance.md`。
 
