@@ -67,6 +67,10 @@ related: ["[[finance-workspace-private]]", "[[agent-tool-design-principles]]"]
 - 发现异主并发写入就阻断提升并协调，不杀别人的进程、不把基线改成新值“恢复绿”。
 - 冻结代码、冻结资料、独立索引与消费者切换分开：发现并发时可保留已做的隔离计算，
   但不能据此声称生产受保护或检索已恢复。
+- **进程归属也不能从模板猜**：同日曾把shell的 `__CURSOR_SANDBOX_ENV_RESTORE` 当作Cursor
+  身份，用户纠正后沿父链查明实际是Grok Bot local-exec-daemon。先核PID/启动时间/可执行文件
+  与父链，再请人协调；不要让用户去关没开的应用。更正及可回滚文件防写收据见金融仓
+  `docs/handoffs/2026-09-18-kb-index-writer-coordination.md`。
 
 ## 迁移点
 

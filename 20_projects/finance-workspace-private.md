@@ -72,7 +72,7 @@ DuckDB → detect_turning_points.py / backtest_sector.py → 信号+板块边际
 | 任务 | 负责 | 状态 | 备注 |
 |---|---|---|---|
 | A股研究数据链 | pi | blocked | a31b572f结果准入/有限正文检查/同会话续修与引用保留已提交；固定工程11635P、13组新撤保护通过；旧默认35组兼容复跑完成。零新自然模型会话，整体回答质量仍未过；8907已停、8792未动 → `fwp-wt-research-data-readiness/docs/handoffs/inflight/feat-research-data-readiness.md`。 |
-| KB双索引部署 | coding-agent | blocked | 普通迁移副本已验、全文与固定候选门禁在跑；发现另会话direct publish改写生产，待协调写者。三post-*仍维护暂停、8792未切 → `fwp-wt-kb-dual-index-deploy/docs/handoffs/inflight/fix-kb-dual-index-deploy.md`。 |
+| KB双索引部署 | coding-agent | blocked | 用户授权协调后查明原写者为Grok Bot且已完成（纠正Cursor归因）；本机双索引24文件防写、读取已验。固定d95d后端11486P/前端107P，E2E3红；全文副本迁移中、未切8792，不再等用户协调 → `fwp-wt-kb-dual-index-deploy/docs/handoffs/inflight/fix-kb-dual-index-deploy.md`。 |
 | KB过滤回执消费 | coding-agent | done | 代码验收收口见 `docs/handoffs/2026-09-18-kb-retrieval-merge-acceptance.md`；部署/索引迁移未执行，生产仍bf662e93；合入身份以PR#784/看板为准。 |
 | runtime 行为合同修复 | pi | doing | 根预算快照610dcbeb接续P0/子存储/恢复确认：身份与捕获前缀不丢，17新变异/旧三组兼容复验及固定四叶通过；仍非跨进程driver，授权/证据/消息、单写者及未知效果对账待补。首轮provenance红根因未明；无真实质量/独立复核、未合未部署 → `fwp-wt-runtime-contracts-0918/docs/handoffs/inflight/fix-runtime-contracts-0918.md`。 |
 | pi/dsh runtime 炼化审计 | pi | done | 固定生产bf662e93，三反例确认保存失败/压缩回读/截断调用边界；未改runtime、未合未部署。报告与探针e251d30a，交接c5576ef4 → `baseline/runtime-absorption-audit-0918:docs/handoffs/2026-09-18-pi-dsh-runtime-absorption-audit.md`。 |
@@ -175,6 +175,8 @@ per-user 不是进程级；`runtime_backend_readiness` 这个全局探针看不�
 而 CLI/回检走 `~/.zshrc` 里的 `/Users/a77/agent-memory/.foresight`——**两套用户台账不是同一份**。
 
 ## 交接记录
+
+- 2026-09-18 · coding-agent · 接管索引维护、纠正Cursor归因，防写保读已验；E2E3红不切服务 → `fwp-wt-kb-dual-index-deploy/docs/handoffs/2026-09-18-kb-index-writer-coordination.md`。
 
 - 2026-09-18 · pi · GLM一次隔离验收失败，原件定位历史查询拒绝→进展JSON崩溃；已有局部修复仅离线验证、不重发 → `fwp-wt-research-answer-preservation/docs/handoffs/2026-09-18-finish-candidate-glm-live.md`。
 
