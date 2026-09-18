@@ -80,7 +80,7 @@ DuckDB → detect_turning_points.py / backtest_sector.py → 信号+板块边际
 | 市场—板块—个股历史过程研究 | pi | blocked | WIP #783，f9可信历史用途贯通提示/修复/收据/登记；672abcc5修测试任务回收，冻结四叶11579P与历史19项、三夹具删join反证通过，742df6f3归档保留f9全量红。未重跑真模型，最近fbd8四题仍失败；同窗/启动特征及控制组/主动原件消费待修，未合未部署 → `fwp-wt-history-market-anatomy/docs/handoffs/inflight/feat-history-market-anatomy.md`。 |
 | 09-16/17 local夜跑恢复 | pi | done | 生产数据/报告/L2/快照已验；配置恢复local，仅指数模块最小部署。生成根后续部署见#50行，方法协议迁移另办；`fwp-wt-nightly-review-0917/docs/handoffs/inflight/fix-nightly-review-0917.md`。 |
 | R5财报与计算交付 / R6验收 | pi | blocked | dfd7b4ff工程与自然验收分账；R6已按授权固定四题首发，整体未过，不翻旧R3。比较口径、正文/产物一致性及完整性提示返修见下一行，未验新自然模型；未push/合main/部署 → `fwp-wt-8792-financial-r6/docs/handoffs/inflight/baseline-8792-financial-r6.md`。 |
-| R6财务原件离线返修 | pi | blocked | 15527aad有限算术/期间/报告交付门与删错补修责任已提交；固定作者工程12055P、前端107P/E2E34P2S、13撤保护及默认35组兼容。宿主旧KB注册表红保留，固定三仓复验通过。原件只读非新验收，旧R6/R3仍0/4；未合a31最终投影、未push/合main/部署 → `fwp-wt-8792-financial-r6-repair/docs/handoffs/inflight/fix-8792-financial-r6-repair.md`。 |
+| R6财务原件离线返修 | pi | blocked | d9657215已移入a31交付片，补最终投影/异常恢复、合格引用及拒句账接缝；非整枝数据链/答案保留/runtime合流。固定12180P/86S/2X、前端107P/E2E34P2S，四套撤保护分账通过。宿主旧KB注册表红保留，固定三仓五项通过；无新live/独立QC，旧R6/R3仍0/4，未push/合main/部署 → `fwp-wt-8792-financial-r6-repair/docs/handoffs/inflight/fix-8792-financial-r6-repair.md`。 |
 | 8792边界组合候选 | pi | blocked | R4 97ca716b离线修指代/跨表达阈值/清单边界/日期角色，干净工程11852P、前端107P/E2E34P2S/16类反证；无新live。R3固定c481四首题仍0/4 not_passed；选期/截止/缺基线与TTL冲突未签。8792未切，未push/合main/部署 → `fwp-wt-8792-boundary-integration/docs/handoffs/inflight/fix-8792-boundary-integration.md`。 |
 | E27引用数字门修复 | pi | done | 代码2841ce66，冻结样本与干净Python全量已验；真入口/四叶准入另验，未合未部署 → `fwp-wt-citation-numeric-gate-0917/docs/handoffs/inflight/fix-citation-numeric-gate-0917.md`。 |
 | 8792 三类边界工程返修 | pi | done | 代码6f9df75a，正式回归/原QC及固定提交四叶通过；未push/合main/部署，无修复版真模型验收 → `fwp-wt-8792-readiness-fixes/docs/handoffs/inflight/fix-8792-readiness-boundaries.md`。 |
@@ -176,6 +176,8 @@ per-user 不是进程级；`runtime_backend_readiness` 这个全局探针看不�
 而 CLI/回检走 `~/.zshrc` 里的 `/Users/a77/agent-memory/.foresight`——**两套用户台账不是同一份**。
 
 ## 交接记录
+
+- 2026-09-18 · pi · R6与交付片d9657215组合验证，后置恢复须复查且不丢前置拒因 → `fwp-wt-8792-financial-r6-repair/docs/handoffs/2026-09-18-8792-financial-delivery-integration.md`；方法 [[../10_knowledge/gate-covers-only-its-return-value]]。
 
 - 2026-09-18 · pi · Mapping/终态发布已修，RAG缓冲读取红灯阻新live，不重跑刷绿 → `fwp-wt-research-answer-preservation/docs/handoffs/2026-09-18-publication-repair-blocked.md`；方法 [[../10_knowledge/contract-vs-delivery-mismatch]]。
 
