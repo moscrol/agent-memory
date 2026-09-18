@@ -47,6 +47,14 @@ A 已完成不能自动证明 B 的投影已可见；等待条件应与随后要
 
 finance候选672abcc5已在quota/credits/admission三夹具固化，缺join变异三处红；原序诊断前缀未再观察到逃逸、未插桩四叶通过。只认证该路径，不是全仓所有并发资源的完整审计；原失败及收据见项目 `docs/verification/history-market-anatomy/672abcc5/acceptance.md`。
 
+## 交付投影的读序与同会话代际
+
+[2026-09-19 实测] 终态仲裁必须允许取消赢，但报告仍可能稍后落盘。不能直接后移仲裁，也不能让UI在completed时停止刷新。单进程执行器可先观察writer活性，再读run/artifacts，投影“仍在交付”；反过来先读工件、后看writer，会把旧快照配上已完成活性。事件流还须排空尾部，再发最终终态。该方案不自动适用于多worker/崩溃恢复。
+
+会话ID保护只防换会话，防不了同会话下一轮被上一轮迟到快照覆盖。新提交也递增代际号，旧加载只有代际仍相符才可应用。用可控响应和事件屏障复现两种竞态，保留取消/失败不等慢worker的合同；源码与提交内静态构建物一起验，build令固定树变脏即拒签。
+
+本轮金融e9/058实现交付与构建物，99原样复用672夹具回收补丁；旧全量1F保留，新受控旧夹具/删join三处断言红、最终未插桩11491P及其他叶子通过。只读检索探针非答案验收；见 `fwp-wt-kb-dual-index-deploy/docs/handoffs/2026-09-19-kb-v4-delivery-acceptance.md`。保护已在正式回归，不另造等待框架。
+
 ## 与项目的关系
 
 [2026-09-16 实测] finance的run claim先于message revise是既有明确契约；三轮测试只等run导致pending。293ff71b只修测试同步，新增屏障回归。禁用消息等待1F，正确版定向7P；不是生产性能结论。详细证据见项目 `docs/handoffs/2026-09-16-release-merge-message-wait.md` 与PR #748。

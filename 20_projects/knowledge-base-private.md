@@ -39,7 +39,7 @@ related: ["[[finance-workspace-private]]", "[[finance-research-site]]", "[[finan
 ## 任务看板
 | 任务 | 负责 | 状态 | 备注 |
 |---|---|---|---|
-| 双索引生产迁移 | coding-agent | blocked | 用户已授权协调；原Grok Bot publisher已完成（非Cursor），双目录+24文件uchg防写、查询可读，3个post-*仍暂停。全文staging未完、金融E2E3红；不等用户关应用，正文/冲突未改 → 金融树 `fwp-wt-kb-dual-index-deploy/docs/handoffs/inflight/fix-kb-dual-index-deploy.md`。 |
+| 双索引生产迁移 | coding-agent | blocked | 23b解析器/v4候选837P；四篇原文不改而恢复覆盖，新双索引未解释缺口0、各14页冲突隔离。金融99整批绿、真实消费者14例接线通过，非答案验收；受保护维护链/合并确认仍待，防写保留/8792未切 → `kb-wt-rag-frontmatter-body/docs/handoffs/inflight/fix-rag-frontmatter-body.md`。 |
 | Agent 检索可靠性 | coding-agent | done | 代码验收收口见 `docs/handoffs/2026-09-18-retrieval-merge-acceptance.md`；正文冲突仍隔离、生产迁移未做；合入身份以PR#151/看板为准。 |
 | RAG P0：page_id 消歧 + freshness 单一事实源 | cursor | done | 代码在 main（#304/#305 git merge）；闸门修复 #306 待合；索引 v1→v3 update 进行中 |
 | Top-30 P0 纵切片首批闭环 | devin | done | PR #258（堆叠 #257），明细见 wiki/log.md #2880 |
@@ -56,6 +56,8 @@ related: ["[[finance-workspace-private]]", "[[finance-research-site]]", "[[finan
 | 全A实体页缺口（非ST） | cursor | doing | 改走巨潮年报。脏树未动。wave97 [!124](http://127.0.0.1:3300/a77/knowledge-base-private/pulls/124) `#6804–#6822`（嘉益股份→大地海洋；义翘神州 `#5414` skip）。本轮按用户要求停，不开 wave98。年报栈先合 !51→!93→!95→…→!120→!124（!94 是无关 harness；!119/!121–!123 不在此栈）。 |
 
 ## 交接记录
+
+- 2026-09-19 · coding-agent · 页头保正文与v4副本验收，源分母不随parser缩减；仍未生产切换 → `kb-wt-rag-frontmatter-body/docs/handoffs/2026-09-19-rag-frontmatter-v4-acceptance.md`；方法 [[evidence-hygiene-three-failure-shapes]]。
 
 - 2026-09-18 · coding-agent · 写者归属纠正为Grok Bot，旧发布已完成；安装可回滚本机防写，未动服务/远端资产 → 金融仓 `docs/handoffs/2026-09-18-kb-index-writer-coordination.md`。
 

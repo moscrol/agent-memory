@@ -72,7 +72,7 @@ DuckDB → detect_turning_points.py / backtest_sector.py → 信号+板块边际
 | 任务 | 负责 | 状态 | 备注 |
 |---|---|---|---|
 | A股研究数据链 | pi | blocked | a31b572f结果准入/有限正文检查/同会话续修与引用保留已提交；固定工程11635P、13组新撤保护通过；旧默认35组兼容复跑完成。零新自然模型会话，整体回答质量仍未过；8907已停、8792未动 → `fwp-wt-research-data-readiness/docs/handoffs/inflight/feat-research-data-readiness.md`。 |
-| KB双索引部署 | coding-agent | blocked | 用户授权协调后查明原写者为Grok Bot且已完成（纠正Cursor归因）；本机双索引24文件防写、读取已验。固定d95d后端11486P/前端107P，E2E3红；全文副本迁移中、未切8792，不再等用户协调 → `fwp-wt-kb-dual-index-deploy/docs/handoffs/inflight/fix-kb-dual-index-deploy.md`。 |
+| KB双索引部署 | coding-agent | blocked | 固定99候选11491P/前端110P/E2E34P2S/KB837P整批绿；v4覆盖闭合、真BGE双索引14例接线通过，14页冲突仍隔离。旧失败窗口保留；长期受保护维护链及合并确认未就绪，8792未切、防写不解除 → `fwp-wt-kb-dual-index-deploy/docs/handoffs/inflight/fix-kb-dual-index-deploy.md`。 |
 | KB过滤回执消费 | coding-agent | done | 代码验收收口见 `docs/handoffs/2026-09-18-kb-retrieval-merge-acceptance.md`；部署/索引迁移未执行，生产仍bf662e93；合入身份以PR#784/看板为准。 |
 | runtime 行为合同修复 | pi | doing | 授权快照576d4764/6b70e540接续预算前置：完整当前授权精确重验，升档先保存且不抹执行位置；22新变异、旧四组及固定四叶11687P通过。首冻11F夹具修正/真前缀首红保留；仍非跨进程driver，入口身份/证据消息/单写者/未知效果对账待补。无真实质量/独立复核、未合未部署 → `fwp-wt-runtime-contracts-0918/docs/handoffs/inflight/fix-runtime-contracts-0918.md`。 |
 | pi/dsh runtime 炼化审计 | pi | done | 固定生产bf662e93，三反例确认保存失败/压缩回读/截断调用边界；未改runtime、未合未部署。报告与探针e251d30a，交接c5576ef4 → `baseline/runtime-absorption-audit-0918:docs/handoffs/2026-09-18-pi-dsh-runtime-absorption-audit.md`。 |
@@ -176,6 +176,8 @@ per-user 不是进程级；`runtime_backend_readiness` 这个全局探针看不�
 而 CLI/回检走 `~/.zshrc` 里的 `/Users/a77/agent-memory/.foresight`——**两套用户台账不是同一份**。
 
 ## 交接记录
+
+- 2026-09-19 · coding-agent · v4覆盖/交付修复与固定候选验过，生产与质量不代签 → `fwp-wt-kb-dual-index-deploy/docs/handoffs/2026-09-19-kb-v4-delivery-acceptance.md`；方法 [[terminal-signal-scope-and-projection-waits]]、[[evidence-hygiene-three-failure-shapes]]。
 
 - 2026-09-18 · pi · R6与交付片d9657215组合验证，后置恢复须复查且不丢前置拒因 → `fwp-wt-8792-financial-r6-repair/docs/handoffs/2026-09-18-8792-financial-delivery-integration.md`；方法 [[../10_knowledge/gate-covers-only-its-return-value]]。
 
