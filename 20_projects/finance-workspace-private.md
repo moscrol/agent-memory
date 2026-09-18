@@ -71,7 +71,7 @@ DuckDB → detect_turning_points.py / backtest_sector.py → 信号+板块边际
 ## 任务看板
 | 任务 | 负责 | 状态 | 备注 |
 |---|---|---|---|
-| A股研究数据链 | pi | blocked | d77383ac固定工程通过，真实取数到六期计算已核；公告否定推断、计算结果展示/正文数值仍未过。8907已停，8792未动 → `fwp-wt-research-data-readiness/docs/handoffs/inflight/feat-research-data-readiness.md`。 |
+| A股研究数据链 | pi | blocked | a31b572f结果准入/有限正文检查/同会话续修与引用保留已提交；固定工程11635P、13组新撤保护及旧默认35组通过。零新自然模型会话，整体回答质量仍未过；8907已停、8792未动 → `fwp-wt-research-data-readiness/docs/handoffs/inflight/feat-research-data-readiness.md`。 |
 | KB过滤回执消费 | coding-agent | done | 代码验收收口见 `docs/handoffs/2026-09-18-kb-retrieval-merge-acceptance.md`；部署/索引迁移未执行，生产仍bf662e93；合入身份以PR#784/看板为准。 |
 | runtime 行为合同修复 | pi | doing | P0、子存储7f6b201d及恢复确认371b0ef7各固定四叶/撤保护通过；不是跨进程driver，预算/证据现场及P1余项/P2待补。首轮provenance红根因未明；无真实质量/独立复核、未合未部署 → `fwp-wt-runtime-contracts-0918/docs/handoffs/inflight/fix-runtime-contracts-0918.md`。 |
 | pi/dsh runtime 炼化审计 | pi | done | 固定生产bf662e93，三反例确认保存失败/压缩回读/截断调用边界；未改runtime、未合未部署。报告与探针e251d30a，交接c5576ef4 → `baseline/runtime-absorption-audit-0918:docs/handoffs/2026-09-18-pi-dsh-runtime-absorption-audit.md`。 |
@@ -179,6 +179,7 @@ per-user 不是进程级；`runtime_backend_readiness` 这个全局探针看不�
 - 2026-09-18 · pi · R6固定候选真实验收收口：计算产物、正文、实际登记分账，不以局部绿签整题 → `fwp-wt-8792-financial-r6/docs/handoffs/2026-09-18-8792-financial-live-r6.md`；方法 [[contract-vs-delivery-mismatch]]。
 - 2026-09-18 · pi · R5财报/计算合同dfd7b4ff工程通过、无新live；预算不足不取消交付义务 → `fwp-wt-8792-financial-contracts-r5/docs/handoffs/2026-09-18-8792-financial-contracts-r5.md`；方法 [[contract-vs-delivery-mismatch]]。
 - 2026-09-18 · pi · 数据消费与答案正确分层验收，不以工程绿代签交付 → `fwp-wt-research-data-readiness/docs/handoffs/2026-09-18-research-data-readiness.md`；方法 [[contract-vs-delivery-mismatch]]。
+- 2026-09-18 · pi · 计算准入、局部续修与最终投影补闸，工程验收不倒签自然效果 → `fwp-wt-research-data-readiness/docs/handoffs/2026-09-18-research-delivery-guards.md`。
 
 - 2026-09-18 · coding-agent · KB实际过滤回执与暖worker加载身份收口，四叶通过但不外推生产/效果 → `docs/handoffs/2026-09-18-kb-filter-receipt.md`。
 
