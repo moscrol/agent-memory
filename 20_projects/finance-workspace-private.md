@@ -74,7 +74,7 @@ DuckDB → detect_turning_points.py / backtest_sector.py → 信号+板块边际
 | 研究答案保留 | pi | blocked | 5f3b5b59干净工程通过；一次真会话保留已准入稿且诚实rejected/partial，但准入前两稿仍丢失，整体not_passed；8848已停/8792未动，未合未部署 → `fwp-wt-research-answer-preservation/docs/handoffs/inflight/feat-research-answer-preservation.md`。 |
 | 市场—板块—个股历史过程研究 | pi | blocked | WIP #783，fbd8f2a6四叶通过；真模型同会话四题已跑但整组失败（漏参恢复/接力解释/特征比较），第二实现算术零error仍有skip，未合未部署 → `fwp-wt-history-market-anatomy/docs/handoffs/inflight/feat-history-market-anatomy.md`。 |
 | 09-16/17 local夜跑恢复 | pi | done | 生产数据/报告/L2/快照已验；配置恢复local，仅指数模块最小部署。生成根后续部署见#50行，方法协议迁移另办；`fwp-wt-nightly-review-0917/docs/handoffs/inflight/fix-nightly-review-0917.md`。 |
-| 8792边界组合候选 | pi | blocked | 9655b16d修F3只读参数记账/F1章节边界及核验后补全，干净工程全过11677P＋前端/E2E/8类反证；旧3faf四题not_passed不变，新代码未真实模型复验。8828已停，未push/合main/部署 → `fwp-wt-8792-boundary-integration/docs/handoffs/inflight/fix-8792-boundary-integration.md`。 |
+| 8792边界组合候选 | pi | blocked | 9655工程通过；固定c481（业务同9655）四题真实复验4 run completed但整题0/4、not_passed：F2缺材料误路由、F3表格坏阈值、清单提示/登记矛盾及选期/时点待修。三个退出0写、阳性真写1条；8828已停/8792未切，未push/合main/部署 → `fwp-wt-8792-boundary-integration/docs/handoffs/inflight/fix-8792-boundary-integration.md`。 |
 | E27引用数字门修复 | pi | done | 代码2841ce66，冻结样本与干净Python全量已验；真入口/四叶准入另验，未合未部署 → `fwp-wt-citation-numeric-gate-0917/docs/handoffs/inflight/fix-citation-numeric-gate-0917.md`。 |
 | 8792 三类边界工程返修 | pi | done | 代码6f9df75a，正式回归/原QC及固定提交四叶通过；未push/合main/部署，无修复版真模型验收 → `fwp-wt-8792-readiness-fixes/docs/handoffs/inflight/fix-8792-readiness-boundaries.md`。 |
 | 8792 上线后独立质检 | pi | done | 审查提交7d253451；三类边界拒收、未改生产，修复与准入见 `fwp-wt-qc-8792-readiness-0917/docs/handoffs/inflight/docs-qc-8792-readiness-0917.md`。 |
@@ -165,6 +165,7 @@ per-user 不是进程级；`runtime_backend_readiness` 这个全局探针看不�
 而 CLI/回检走 `~/.zshrc` 里的 `/Users/a77/agent-memory/.foresight`——**两套用户台账不是同一份**。
 
 ## 交接记录
+- 2026-09-18 · pi · 修复版四题真实复验仍未过；不以completed代签正文/副作用，保留失败不重采样 → `fwp-wt-8792-boundary-integration/docs/handoffs/2026-09-18-8792-boundary-retest.md`；方法 [[contract-vs-delivery-mismatch]]。
 - 2026-09-18 · pi · 分离正文交付与核验，真会话反证准入前仍丢稿，不以末端绿报完成 → `fwp-wt-research-answer-preservation/docs/handoffs/2026-09-18-research-answer-preservation.md`；方法 [[gate-covers-only-its-return-value]]。
 - 2026-09-18 · pi · 局部失败保留旧核验稿、缺件同轮修复后复验；9655工程通过但不翻旧live判决 → `fwp-wt-8792-boundary-integration/docs/handoffs/2026-09-18-8792-local-failure-repairs.md`；方法 [[contract-vs-delivery-mismatch]]。
 - 2026-09-18 · pi · 历史研究fbd8f2a6修权限/截止/冻结参数，工程绿但真实四题拒收，保留失败与算术边界 → `fwp-wt-history-market-anatomy/docs/handoffs/2026-09-18-history-market-anatomy-live.md`。
