@@ -75,7 +75,7 @@ DuckDB → detect_turning_points.py / backtest_sector.py → 信号+板块边际
 | KB过滤回执消费 | coding-agent | done | 代码验收收口见 `docs/handoffs/2026-09-18-kb-retrieval-merge-acceptance.md`；部署/索引迁移未执行，生产仍bf662e93；合入身份以PR#784/看板为准。 |
 | runtime 行为合同修复 | pi | doing | 根预算快照610dcbeb接续P0/子存储/恢复确认：身份与捕获前缀不丢，17新变异/旧三组兼容复验及固定四叶通过；仍非跨进程driver，授权/证据/消息、单写者及未知效果对账待补。首轮provenance红根因未明；无真实质量/独立复核、未合未部署 → `fwp-wt-runtime-contracts-0918/docs/handoffs/inflight/fix-runtime-contracts-0918.md`。 |
 | pi/dsh runtime 炼化审计 | pi | done | 固定生产bf662e93，三反例确认保存失败/压缩回读/截断调用边界；未改runtime、未合未部署。报告与探针e251d30a，交接c5576ef4 → `baseline/runtime-absorption-audit-0918:docs/handoffs/2026-09-18-pi-dsh-runtime-absorption-audit.md`。 |
-| 研究答案保留 | pi | blocked | 35ee8a5c工程/原件回放通过；09-18用户授权新版live，当前Keychain搜索范围未找到指定gpt-5.6-sol凭据，0题/0模型调用/0服务启动，未换GLM。原live仍not_passed、新live not_run；跨进程恢复未接、未push/合main/部署、8792未切 → `fwp-wt-research-answer-preservation/docs/handoffs/inflight/feat-research-answer-preservation.md`。 |
+| 研究答案保留 | pi | doing | 35ee8a5c工程/原件回放通过；09-18用户纠正可沿已授权GLM验收，撤销“必须等GPT Keychain”前置（旧查询事实保留）。原run实际glm-5.3-flash，现役health同模型ready但不证明新调用成功。新题/模型调用/服务启动仍0，原live not_passed、新live not_run；未push/合main/部署、8792未切 → `fwp-wt-research-answer-preservation/docs/handoffs/inflight/feat-research-answer-preservation.md`。 |
 | 市场—板块—个股历史过程研究 | pi | blocked | WIP #783，f9可信历史用途贯通提示/修复/收据/登记；672abcc5修测试任务回收，冻结四叶11579P与历史19项、三夹具删join反证通过，742df6f3归档保留f9全量红。未重跑真模型，最近fbd8四题仍失败；同窗/启动特征及控制组/主动原件消费待修，未合未部署 → `fwp-wt-history-market-anatomy/docs/handoffs/inflight/feat-history-market-anatomy.md`。 |
 | 09-16/17 local夜跑恢复 | pi | done | 生产数据/报告/L2/快照已验；配置恢复local，仅指数模块最小部署。生成根后续部署见#50行，方法协议迁移另办；`fwp-wt-nightly-review-0917/docs/handoffs/inflight/fix-nightly-review-0917.md`。 |
 | R5财报与计算交付 / R6验收 | pi | blocked | dfd7b4ff工程与自然验收分账；R6已按授权固定四题首发，整体未过，不翻旧R3。比较口径、正文/产物一致性及完整性提示仍待修；未push/合main/部署 → `fwp-wt-8792-financial-r6/docs/handoffs/inflight/baseline-8792-financial-r6.md`。 |
@@ -111,11 +111,15 @@ DuckDB → detect_turning_points.py / backtest_sector.py → 信号+板块边际
 | Code Map 产品入口与运行路径导航 | codex | done（分支未合） | `codex/code-map-request-loop@acf7af05`：撤销误导性的 L0–L4 单链与强制视图矩阵，改按真实产品入口组织 Narrative；full build 会回收过期页；18,325 nodes / 196,048 edges / 1,033 flows / 10 communities；40 passed + 3 个既有 skip；未 push、未合 main。 |
 | G-05 `market_stage` 两套写法归一 | codex | done（分支未合） | `fix/g05-market-stage-normalize@cf060a43`：标签层统一去掉末尾「阶段」别名，`LABEL_VERSION` 升 v3；主库不改，旁路库已重建并复跑四条第五刀规则。验收正文：`docs/verification/2026-09-06-g05-market-stage.md` |
 
-## 🚦 Agent Runtime 线路（2026-08-05 用户决策，跑之前必读）
+## 🚦 Agent Runtime 线路（2026-09-18 校准，跑之前必读）
+
+**当前模型前提：GLM 可以用于真实验收，不要求先恢复 GPT Keychain。** 09-16用户已要求“用 glm-5.3-flash 跑”，主写手直连智谱、兜底glm-5.3；来源 `docs/handoffs/2026-09-16-8792-switch-a26cec4d.md`。09-18用户再次纠正：研究答案保留验收可沿此路线；该线旧run实际为zhipu/glm-5.3-flash，当前8792 health也报同模型ready。health不等于新请求成功，验收仍需固定实际模型与兜底规则；不输出密钥，不把一种模型凭据缺失外推为全局阻塞。纠偏详情 `fwp-wt-research-answer-preservation/docs/handoffs/2026-09-18-live-model-selection-correction.md`。
+
+### 历史快照：2026-08-05（以下配置、可跑模型表和切换步骤不是当前执行指令）
 
 **两个轴是正交的，别压成一条线**（2026-08-05 用户纠正我的原始框架）：
 
-- **模型轴：已定** —— 用 `gpt-5.6-sol`，走 Keychain。**GLM 模型退役。**
+- **模型轴：当时选定** —— `gpt-5.6-sol` / Keychain，当时的“GLM退役”已被09-16较新授权覆盖，不能继续作为禁用GLM的前置。
 - **执行壳轴：未定** —— 自建 Continuous vs Agent SDK，**等九题 A/B 出数字再定**。
   「不用 GLM 的 model」**不等于**「直接改用 sdk 壳」。2026-07-25 同模型盲评是
   Continuous **195** / SDK **175**（6 维 0-4 分），SDK 只赢在协议稳定性（4→0）与
@@ -171,6 +175,7 @@ per-user 不是进程级；`runtime_backend_readiness` 这个全局探针看不�
 
 ## 交接记录
 
+- 2026-09-18 · pi · 定位原session并撤销过期GPT-only前置，沿已授权GLM准备验收、未新增live → `fwp-wt-research-answer-preservation/docs/handoffs/2026-09-18-live-model-selection-correction.md`。
 - 2026-09-18 · pi · 根预算快照610dcbeb：余额/授予身份/原捕获位置共同保存，超时不退调用槽；17新变异及四叶通过但未开放续跑 → `fwp-wt-runtime-contracts-0918/docs/handoffs/2026-09-18-runtime-root-budget-snapshot.md`。
 
 - 2026-09-18 · pi · 历史用途贯通与测试后台回收工程通过，不倒签真实四题 → `fwp-wt-history-market-anatomy/docs/handoffs/2026-09-18-history-expression-and-fixture-lifetime.md`；方法 [[contract-vs-delivery-mismatch]]、[[terminal-signal-scope-and-projection-waits]]。
