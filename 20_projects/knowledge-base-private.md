@@ -39,7 +39,7 @@ related: ["[[finance-workspace-private]]", "[[finance-research-site]]", "[[finan
 ## 任务看板
 | 任务 | 负责 | 状态 | 备注 |
 |---|---|---|---|
-| 双索引生产迁移 | coding-agent | blocked | 23b解析器/v4候选837P；四篇原文不改而恢复覆盖，新双索引未解释缺口0、各14页冲突隔离。金融99整批绿、真实消费者14例接线通过，非答案验收；受保护维护链/合并确认仍待，防写保留/8792未切 → `kb-wt-rag-frontmatter-body/docs/handoffs/inflight/fix-rag-frontmatter-body.md`。 |
+| 双索引生产迁移 | coding-agent | blocked | 用户合并确认已落实，KB精确main前后837P及质量守卫全绿；配对金融整批与最终提交真实消费者14例通过，仅签接线/过滤。维护链与生产操作授权仍待，各14页冲突隔离，防写保留/8792未切；合入身份见PR#153/金融#786及看板 → `docs/handoffs/2026-09-19-rag-v4-merge-acceptance.md`（收尾树 `~/.finance-runtime/kb-v4-merge-20260919/closeout/knowledge-base-private`）。 |
 | Agent 检索可靠性 | coding-agent | done | 代码验收收口见 `docs/handoffs/2026-09-18-retrieval-merge-acceptance.md`；正文冲突仍隔离、生产迁移未做；合入身份以PR#151/看板为准。 |
 | RAG P0：page_id 消歧 + freshness 单一事实源 | cursor | done | 代码在 main（#304/#305 git merge）；闸门修复 #306 待合；索引 v1→v3 update 进行中 |
 | Top-30 P0 纵切片首批闭环 | devin | done | PR #258（堆叠 #257），明细见 wiki/log.md #2880 |
@@ -56,6 +56,8 @@ related: ["[[finance-workspace-private]]", "[[finance-research-site]]", "[[finan
 | 全A实体页缺口（非ST） | cursor | doing | 改走巨潮年报。脏树未动。wave97 [!124](http://127.0.0.1:3300/a77/knowledge-base-private/pulls/124) `#6804–#6822`（嘉益股份→大地海洋；义翘神州 `#5414` skip）。本轮按用户要求停，不开 wave98。年报栈先合 !51→!93→!95→…→!120→!124（!94 是无关 harness；!119/!121–!123 不在此栈）。 |
 
 ## 交接记录
+
+- 2026-09-19 · coding-agent · v4合并验收与生产边界分开，原文不改、14页隔离仍保留 → [#153](http://127.0.0.1:3300/a77/knowledge-base-private/pulls/153) / `docs/handoffs/2026-09-19-rag-v4-merge-acceptance.md`。
 
 - 2026-09-19 · coding-agent · 页头保正文与v4副本验收，源分母不随parser缩减；仍未生产切换 → `kb-wt-rag-frontmatter-body/docs/handoffs/2026-09-19-rag-frontmatter-v4-acceptance.md`；方法 [[evidence-hygiene-three-failure-shapes]]。
 
