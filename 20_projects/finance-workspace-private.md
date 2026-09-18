@@ -72,7 +72,7 @@ DuckDB → detect_turning_points.py / backtest_sector.py → 信号+板块边际
 | 任务 | 负责 | 状态 | 备注 |
 |---|---|---|---|
 | A股研究数据链 | pi | blocked | d77383ac固定工程通过，真实取数到六期计算已核；公告否定推断、计算结果展示/正文数值仍未过。8907已停，8792未动 → `fwp-wt-research-data-readiness/docs/handoffs/inflight/feat-research-data-readiness.md`。 |
-| KB过滤回执消费 | coding-agent | doing | `fix/kb-filter-receipt@698555e2`四叶通过；实际过滤/扩读范围/暖worker代码身份已验，未推未合未部署；生产索引迁移另行，见在途交接。 |
+| KB过滤回执消费 | coding-agent | done | 代码验收收口见 `docs/handoffs/2026-09-18-kb-retrieval-merge-acceptance.md`；部署/索引迁移未执行，生产仍bf662e93；合入身份以PR#784/看板为准。 |
 | runtime 行为合同修复 | pi | doing | P0固定48823062四叶与13变异通过；P1/P2未完，无真实质量/独立复核、未合未部署 → `fwp-wt-runtime-contracts-0918/docs/handoffs/inflight/fix-runtime-contracts-0918.md`。 |
 | pi/dsh runtime 炼化审计 | pi | done | 固定生产bf662e93，三反例确认保存失败/压缩回读/截断调用边界；未改runtime、未合未部署。报告与探针e251d30a，交接c5576ef4 → `baseline/runtime-absorption-audit-0918:docs/handoffs/2026-09-18-pi-dsh-runtime-absorption-audit.md`。 |
 | 研究答案保留 | pi | blocked | 5f3b5b59干净工程通过；一次真会话保留已准入稿且诚实rejected/partial，但准入前两稿仍丢失，整体not_passed；8848已停/8792未动，未合未部署 → `fwp-wt-research-answer-preservation/docs/handoffs/inflight/feat-research-answer-preservation.md`。 |
@@ -170,6 +170,8 @@ per-user 不是进程级；`runtime_backend_readiness` 这个全局探针看不�
 而 CLI/回检走 `~/.zshrc` 里的 `/Users/a77/agent-memory/.foresight`——**两套用户台账不是同一份**。
 
 ## 交接记录
+
+- 2026-09-18 · coding-agent · 两仓合并验收与registry漏同步收口，部署另办 → `docs/handoffs/2026-09-18-kb-retrieval-merge-acceptance.md`。
 
 - 2026-09-18 · pi · R5财报/计算合同dfd7b4ff工程通过、无新live；预算不足不取消交付义务 → `fwp-wt-8792-financial-contracts-r5/docs/handoffs/2026-09-18-8792-financial-contracts-r5.md`；方法 [[contract-vs-delivery-mismatch]]。
 - 2026-09-18 · pi · 数据消费与答案正确分层验收，不以工程绿代签交付 → `fwp-wt-research-data-readiness/docs/handoffs/2026-09-18-research-data-readiness.md`；方法 [[contract-vs-delivery-mismatch]]。
