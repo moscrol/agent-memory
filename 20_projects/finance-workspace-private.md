@@ -71,12 +71,14 @@ DuckDB → detect_turning_points.py / backtest_sector.py → 信号+板块边际
 ## 任务看板
 | 任务 | 负责 | 状态 | 备注 |
 |---|---|---|---|
+| A股研究数据链 | pi | blocked | d77383ac固定工程通过，真实取数到六期计算已核；公告否定推断、计算结果展示/正文数值仍未过。8907已停，8792未动 → `fwp-wt-research-data-readiness/docs/handoffs/inflight/feat-research-data-readiness.md`。 |
 | KB过滤回执消费 | coding-agent | doing | `fix/kb-filter-receipt@698555e2`四叶通过；实际过滤/扩读范围/暖worker代码身份已验，未推未合未部署；生产索引迁移另行，见在途交接。 |
 | runtime 行为合同修复 | pi | doing | P0固定48823062四叶与13变异通过；P1/P2未完，无真实质量/独立复核、未合未部署 → `fwp-wt-runtime-contracts-0918/docs/handoffs/inflight/fix-runtime-contracts-0918.md`。 |
 | pi/dsh runtime 炼化审计 | pi | done | 固定生产bf662e93，三反例确认保存失败/压缩回读/截断调用边界；未改runtime、未合未部署。报告与探针e251d30a，交接c5576ef4 → `baseline/runtime-absorption-audit-0918:docs/handoffs/2026-09-18-pi-dsh-runtime-absorption-audit.md`。 |
 | 研究答案保留 | pi | blocked | 5f3b5b59干净工程通过；一次真会话保留已准入稿且诚实rejected/partial，但准入前两稿仍丢失，整体not_passed；8848已停/8792未动，未合未部署 → `fwp-wt-research-answer-preservation/docs/handoffs/inflight/feat-research-answer-preservation.md`。 |
 | 市场—板块—个股历史过程研究 | pi | blocked | WIP #783，ba281381接力状态/日数/原因同卡，旧原件只读兼容；固定四叶11566P与7+4变异通过、1528e917归档已推。仅工程/脚本送达证据，未重跑真模型，最近fbd8四题仍失败；同窗/启动特征/主动原件消费待修，未合未部署 → `fwp-wt-history-market-anatomy/docs/handoffs/inflight/feat-history-market-anatomy.md`。 |
 | 09-16/17 local夜跑恢复 | pi | done | 生产数据/报告/L2/快照已验；配置恢复local，仅指数模块最小部署。生成根后续部署见#50行，方法协议迁移另办；`fwp-wt-nightly-review-0917/docs/handoffs/inflight/fix-nightly-review-0917.md`。 |
+| R5财报与计算交付 | pi | blocked | dfd7b4ff干净工程11929P、前端107P/E2E34P2S、14+16组反证通过；未新增自然复验，R3仍0/4。预算不足不取消必答，产物指标不由标题认证；未push/合main/部署 → `fwp-wt-8792-financial-contracts-r5/docs/handoffs/inflight/fix-8792-financial-contracts-r5.md`。 |
 | 8792边界组合候选 | pi | blocked | R4 97ca716b离线修指代/跨表达阈值/清单边界/日期角色，干净工程11852P、前端107P/E2E34P2S/16类反证；无新live。R3固定c481四首题仍0/4 not_passed；选期/截止/缺基线与TTL冲突未签。8792未切，未push/合main/部署 → `fwp-wt-8792-boundary-integration/docs/handoffs/inflight/fix-8792-boundary-integration.md`。 |
 | E27引用数字门修复 | pi | done | 代码2841ce66，冻结样本与干净Python全量已验；真入口/四叶准入另验，未合未部署 → `fwp-wt-citation-numeric-gate-0917/docs/handoffs/inflight/fix-citation-numeric-gate-0917.md`。 |
 | 8792 三类边界工程返修 | pi | done | 代码6f9df75a，正式回归/原QC及固定提交四叶通过；未push/合main/部署，无修复版真模型验收 → `fwp-wt-8792-readiness-fixes/docs/handoffs/inflight/fix-8792-readiness-boundaries.md`。 |
@@ -168,6 +170,9 @@ per-user 不是进程级；`runtime_backend_readiness` 这个全局探针看不�
 而 CLI/回检走 `~/.zshrc` 里的 `/Users/a77/agent-memory/.foresight`——**两套用户台账不是同一份**。
 
 ## 交接记录
+
+- 2026-09-18 · pi · R5财报/计算合同dfd7b4ff工程通过、无新live；预算不足不取消交付义务 → `fwp-wt-8792-financial-contracts-r5/docs/handoffs/2026-09-18-8792-financial-contracts-r5.md`；方法 [[contract-vs-delivery-mismatch]]。
+- 2026-09-18 · pi · 数据消费与答案正确分层验收，不以工程绿代签交付 → `fwp-wt-research-data-readiness/docs/handoffs/2026-09-18-research-data-readiness.md`；方法 [[contract-vs-delivery-mismatch]]。
 
 - 2026-09-18 · coding-agent · KB实际过滤回执与暖worker加载身份收口，四叶通过但不外推生产/效果 → `docs/handoffs/2026-09-18-kb-filter-receipt.md`。
 

@@ -50,7 +50,7 @@ related: ["[[finhot]]", "[[finance-workspace-private]]"]
 | 前 7 条可拍脚本 | grok | todo | 等昵称或直接开工 |
 | face-hook 素材规范 + 试渲染 | both | todo | kit + 情绪段 |
 | 发布后复盘闭环 | both | todo | reviews/ |
-| 运营—制作可靠交接 | pi | doing | 两仓 `fix/reliable-production-handoff` 已提交；待审，不代表技能/真片就绪 |
+| 运营—制作可靠交接 | pi | doing | 两仓复查修复已提交；motion 来源/指纹检查通过，待人确认主线与真实样片 |
 
 ## 相关知识
 - 项目内全文：vidio `ops/knowledge/README.md`、`ops/douyin/launch-plan.md`
@@ -59,6 +59,7 @@ related: ["[[finhot]]", "[[finance-workspace-private]]"]
 - 版本绑定与成功裁决：[[../10_knowledge/gate-covers-only-its-return-value]]
 
 ## 交接记录
+- 2026-09-18 · pi · 复查补规则形状/隐私旁路、截图实物与渲染不覆盖，按精确源恢复 motion；技能就绪不代签审片 → 两仓 `docs/handoffs/2026-09-18-review-hardening.md`（content-ops `cdc49db` / vidio `0d7af51`）。
 - 2026-09-18 · pi · 运营门禁/版本交接与 Studio 可靠性分两仓落地；单份协议、机器与人审分开 → 两仓 `docs/handoffs/inflight/fix-reliable-production-handoff.md`。
 - 2026-08-26 · cursor · P3 下一篇协议落在 `/Users/a77/vidio-wt-beautiful-ui`：`next-move-protocol.md` + `recommend_next_draft.py`。创作者中心贴数/点名只读，不爬、不代发。n 小于 3 只能 hold_plan；n 小于 10 不许 L4。未推未合。
 - 2026-08-26 · cursor · baoyu-skills 只炼图组「风格×布局」进同一棵树：`card-series-catalog.yaml` + `check_card_series.py`。cute/post-to/五维封面/danger API 不收。未推未合。
