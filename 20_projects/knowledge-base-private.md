@@ -39,6 +39,7 @@ related: ["[[finance-workspace-private]]", "[[finance-research-site]]", "[[finan
 ## 任务看板
 | 任务 | 负责 | 状态 | 备注 |
 |---|---|---|---|
+| Agent 检索可靠性 | coding-agent | blocked | `fix/agent-retrieval-reliability` 实现 `b62c58cb5`；已有断链门禁红，未推未合，详见在途交接。 |
 | RAG P0：page_id 消歧 + freshness 单一事实源 | cursor | done | 代码在 main（#304/#305 git merge）；闸门修复 #306 待合；索引 v1→v3 update 进行中 |
 | Top-30 P0 纵切片首批闭环 | devin | done | PR #258（堆叠 #257），明细见 wiki/log.md #2880 |
 | Top-N 主题纵切片 planner | devin | done | PR #256（堆叠 #255），见 [[demand-first-theme-vertical-slice]] |
@@ -54,6 +55,8 @@ related: ["[[finance-workspace-private]]", "[[finance-research-site]]", "[[finan
 | 全A实体页缺口（非ST） | cursor | doing | 改走巨潮年报。脏树未动。wave97 [!124](http://127.0.0.1:3300/a77/knowledge-base-private/pulls/124) `#6804–#6822`（嘉益股份→大地海洋；义翘神州 `#5414` skip）。本轮按用户要求停，不开 wave98。年报栈先合 !51→!93→!95→…→!120→!124（!94 是无关 harness；!119/!121–!123 不在此栈）。 |
 
 ## 交接记录
+
+- 2026-09-18 · coding-agent · 检索可信性修复；保留冲突隔离负结果，门禁红不合；共享hook副作用归 [[script-identity-binding-location-is-not-identity]] → `docs/handoffs/inflight/fix-agent-retrieval-reliability.md`。
 
 - 2026-09-09 · claude · **题材研究地图（金融仓能力升级任务包 03）已合 main**：[!146](http://127.0.0.1:3300/a77/knowledge-base-private/pulls/146) → `0f7ce1dfd`；前置 [!147](http://127.0.0.1:3300/a77/knowledge-base-private/pulls/147) → `38adb7cca` 把 main 上两道红门禁修绿（`quality_audit.find_overlimit_raw` 只审 iFinD 载荷、`[[乡村振兴]]` 去链接 3 处、`evidence_index` cap 抬到 28481407、quality baseline 收紧）。入口 `query_relations.py research-map package|view|trace|compare|refresh|diff|scope|acceptance`，实现 `skills/lib/research_map/` + `rag/research_scope.py`，派生视图 `wiki/relations/research_map.db`。合并后 main 复核：四道门禁全绿、pytest 519 passed、6 题验收 exit 0。工作树与分支已清；主检出本地 `main` 仍停 `af2f708ef`。正文：金融仓 `docs/superpowers/plans/2026-09-09-capability-upgrade/{progress,blocked}/03.md`；Workbench 接入合同 `03-graph-lookup-adapter-contract.md` 归 06。
 - 2026-09-03 · claude · **RAG 新鲜度改按页判 + post-commit 自动重建复活**：树 `/Users/a77/kb-wt-page-freshness`，分支 `fix/rag-page-level-freshness`（已推 gitea，**未合**，用户拍先都不合）。①`freshness_report` 是**整库**结论（manifest 一个指纹），下游金融仓 `require_fresh` 逐条丢弃 → 一页变了全批丢光。实测 14412 个入索引文件只有 35 改 + 2 增 = **0.26%**，99.74% 逐字节没变的页被连坐（交接原写「1%/分母 20497」是 `git diff wiki/` 数的，`include_raw=False`，`raw/`、`log.md` 不进索引）。新增 `RagStore.page_freshness`：`chunk_profile`/年龄两道整库门原样保留，只把内容层收窄到每页，参照系是 `file_stat_cache.jsonl` 里建索引期的 sha256；拿不到参照系一律 unknown 绝不发 fresh；按页那层不走 mtime 快路径。真索引实测：修前 12 条命中全 stale，修后 11 fresh/1 stale。218 条测试绿 + 4 个变异各自证伪。②`--stale-policy fail` 同步只对整库级原因拒答。③**post-commit 自动重建 08-22 起五次没跑完**，09-01 那次被 SIGKILL（EXIT trap 没跑）留下 `/tmp/kb_rag_update.lock`，之后每次提交静默 `mkdir` 失败退出。锁已清，钩子实测恢复（`exit=0`，08-19 以来第一条）。**根因量到了：`rag update` peak memory footprint 9.0 GB**（`/usr/bin/time -l`，机器 16G 但 swap 常年 22/23.5G 满），headroom 不够就被杀——所以它是间歇性的，不是坏了。一份跑通的新索引在 `/tmp/rag_index_probe`（169033 chunk），用户拍先不换生产。
