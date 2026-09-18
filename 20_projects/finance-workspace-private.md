@@ -73,7 +73,7 @@ DuckDB → detect_turning_points.py / backtest_sector.py → 信号+板块边际
 |---|---|---|---|
 | A股研究数据链 | pi | blocked | d77383ac固定工程通过，真实取数到六期计算已核；公告否定推断、计算结果展示/正文数值仍未过。8907已停，8792未动 → `fwp-wt-research-data-readiness/docs/handoffs/inflight/feat-research-data-readiness.md`。 |
 | KB过滤回执消费 | coding-agent | done | 代码验收收口见 `docs/handoffs/2026-09-18-kb-retrieval-merge-acceptance.md`；部署/索引迁移未执行，生产仍bf662e93；合入身份以PR#784/看板为准。 |
-| runtime 行为合同修复 | pi | doing | P0固定48823062四叶与13变异通过；P1/P2未完，无真实质量/独立复核、未合未部署 → `fwp-wt-runtime-contracts-0918/docs/handoffs/inflight/fix-runtime-contracts-0918.md`。 |
+| runtime 行为合同修复 | pi | doing | P0、子存储7f6b201d及恢复确认371b0ef7各固定四叶/撤保护通过；不是跨进程driver，预算/证据现场及P1余项/P2待补。首轮provenance红根因未明；无真实质量/独立复核、未合未部署 → `fwp-wt-runtime-contracts-0918/docs/handoffs/inflight/fix-runtime-contracts-0918.md`。 |
 | pi/dsh runtime 炼化审计 | pi | done | 固定生产bf662e93，三反例确认保存失败/压缩回读/截断调用边界；未改runtime、未合未部署。报告与探针e251d30a，交接c5576ef4 → `baseline/runtime-absorption-audit-0918:docs/handoffs/2026-09-18-pi-dsh-runtime-absorption-audit.md`。 |
 | 研究答案保留 | pi | blocked | 35ee8a5c准入前候选/恢复承接工程通过，原件离线保四段；原live仍not_passed，无新live。跨进程候选恢复未接；未push/合main/部署、8792未切 → `fwp-wt-research-answer-preservation/docs/handoffs/inflight/feat-research-answer-preservation.md`。 |
 | 市场—板块—个股历史过程研究 | pi | blocked | WIP #783，ba281381接力状态/日数/原因同卡，旧原件只读兼容；固定四叶11566P与7+4变异通过、1528e917归档已推。仅工程/脚本送达证据，未重跑真模型，最近fbd8四题仍失败；同窗/启动特征/主动原件消费待修，未合未部署 → `fwp-wt-history-market-anatomy/docs/handoffs/inflight/feat-history-market-anatomy.md`。 |
@@ -182,6 +182,7 @@ per-user 不是进程级；`runtime_backend_readiness` 这个全局探针看不�
 - 2026-09-18 · coding-agent · KB实际过滤回执与暖worker加载身份收口，四叶通过但不外推生产/效果 → `docs/handoffs/2026-09-18-kb-filter-receipt.md`。
 
 - 2026-09-18 · pi · runtime P0保存失败/截断合同工程通过，后续不借绿收据冒充恢复能力 → `fix/runtime-contracts-0918:docs/handoffs/2026-09-18-runtime-contracts-p0.md`。
+- 2026-09-18 · pi · 子存储与恢复确认前置片工程通过，保存/送达/续跑分账 → `fix/runtime-contracts-0918:docs/handoffs/2026-09-18-runtime-restore-confirmation.md`（含P1a指针）。
 - 2026-09-18 · pi · ba281381接力限定条件同卡、旧原件不迁移，工程绿不翻真模型拒收 → `fwp-wt-history-market-anatomy/docs/handoffs/2026-09-18-history-succession-delivery.md`；方法 [[verifier-projection-narrower-than-model-world]]。
 - 2026-09-18 · pi · 历史诊断返修58b78542工程通过，诊断分型不豁免事实门，真实四题仍拒收 → `fwp-wt-history-market-anatomy/docs/handoffs/2026-09-18-history-diagnostic-repair.md`；方法 [[retry-must-carry-the-last-rejection]]。
 - 2026-09-18 · pi · 源码核验三轮runtime吸收，先补OPT-08与接缝反例、不叠框架 → `baseline/runtime-absorption-audit-0918:docs/handoffs/2026-09-18-pi-dsh-runtime-absorption-audit.md`（e251d30a/c5576ef4）。
