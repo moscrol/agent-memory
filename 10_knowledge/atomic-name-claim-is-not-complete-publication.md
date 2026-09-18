@@ -67,6 +67,21 @@ related: ["[[finance-workspace-private]]"]
 
 证据：`/tmp/daily-swap-qc-dfb6ce87/docs/handoffs/2026-09-13-daily-swap-round7-qc.md`，探针 `scripts/review_daily_swap_round7.py`，审查提交 `e8ad314b`（8P/1F，两绿仅是旧 IO 出口的 characterization）。
 
+## 补充：任务终态、发布证明和业务完整性是三件事（2026-09-19）
+
+会话运行先争得完成/取消的终态，再写消息、报告，最后写发布事件。把终态后移会破坏
+取消仲裁；给读者加 sleep 只是赌写盘速度。较小修复是沿既有最终消息事件建立可见性屏障：
+核同用户/run/conversation/message/role/status，看到事件后再重读产物列表。否则即使
+事件真实，也可能给之前读到的半成品快照贴 published。SSE 两次读取间出现的最终事件
+还要排空后才收口；报告文件已存在本身不是完成凭据。
+
+金融组合候选 `d06dc1e8` 从已提交 `49fd8d72` 仅移发布片。正式回归用线程事件固定报告前
+及最后事件前窗口，真实 API/存储承接核验后的正常及恢复投影：安全正文/引用不丢，
+报告仍 partial；published 只证明该写序已走完，不把局部删错债务洗成业务成功。
+八项撤保护分别红、恢复绿，入口复用 `run_extraction_mutations.py --suite publication`。
+前端单独检查，不借后端成绩代签；永久缺事件仍 pending，不证明跨进程恢复。
+这是既有回归和运行器扩展，不另造发布框架，适用于批处理任务、报告生成和流式产物。
+
 ## 依据
 
 - 报告：`/Users/a77/fwp-wt-qc-method-29b07912/docs/handoffs/2026-09-12-method-closed-loop-29b07912-review.md`。
