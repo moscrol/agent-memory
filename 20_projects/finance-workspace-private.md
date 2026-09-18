@@ -74,7 +74,7 @@ DuckDB → detect_turning_points.py / backtest_sector.py → 信号+板块边际
 | A股研究数据链 | pi | blocked | a31b572f结果准入/有限正文检查/同会话续修与引用保留已提交；固定工程11635P、13组新撤保护通过；旧默认35组兼容复跑完成。零新自然模型会话，整体回答质量仍未过；8907已停、8792未动 → `fwp-wt-research-data-readiness/docs/handoffs/inflight/feat-research-data-readiness.md`。 |
 | KB双索引部署 | coding-agent | blocked | 用户授权协调后查明原写者为Grok Bot且已完成（纠正Cursor归因）；本机双索引24文件防写、读取已验。固定d95d后端11486P/前端107P，E2E3红；全文副本迁移中、未切8792，不再等用户协调 → `fwp-wt-kb-dual-index-deploy/docs/handoffs/inflight/fix-kb-dual-index-deploy.md`。 |
 | KB过滤回执消费 | coding-agent | done | 代码验收收口见 `docs/handoffs/2026-09-18-kb-retrieval-merge-acceptance.md`；部署/索引迁移未执行，生产仍bf662e93；合入身份以PR#784/看板为准。 |
-| runtime 行为合同修复 | pi | doing | 根预算快照610dcbeb接续P0/子存储/恢复确认：身份与捕获前缀不丢，17新变异/旧三组兼容复验及固定四叶通过；仍非跨进程driver，授权/证据/消息、单写者及未知效果对账待补。首轮provenance红根因未明；无真实质量/独立复核、未合未部署 → `fwp-wt-runtime-contracts-0918/docs/handoffs/inflight/fix-runtime-contracts-0918.md`。 |
+| runtime 行为合同修复 | pi | doing | 授权快照576d4764/6b70e540接续预算前置：完整当前授权精确重验，升档先保存且不抹执行位置；22新变异、旧四组及固定四叶11687P通过。首冻11F夹具修正/真前缀首红保留；仍非跨进程driver，入口身份/证据消息/单写者/未知效果对账待补。无真实质量/独立复核、未合未部署 → `fwp-wt-runtime-contracts-0918/docs/handoffs/inflight/fix-runtime-contracts-0918.md`。 |
 | pi/dsh runtime 炼化审计 | pi | done | 固定生产bf662e93，三反例确认保存失败/压缩回读/截断调用边界；未改runtime、未合未部署。报告与探针e251d30a，交接c5576ef4 → `baseline/runtime-absorption-audit-0918:docs/handoffs/2026-09-18-pi-dsh-runtime-absorption-audit.md`。 |
 | 研究答案保留 | pi | blocked | 35ee8a5c隔离首发1/零重发：GLM实际3轮响应，但历史查询缺end被拒后进展JSON崩溃，无答案，新旧live均not_passed。原件离线复现，邻枝已有Mapping修复可正常反馈/保44证据，待小片整合；8849已停，8792未动，未push/合main/部署 → `fwp-wt-research-answer-preservation/docs/handoffs/inflight/feat-research-answer-preservation.md`。 |
 | 市场—板块—个股历史过程研究 | pi | blocked | WIP #783，f9可信历史用途贯通提示/修复/收据/登记；672abcc5修测试任务回收，冻结四叶11579P与历史19项、三夹具删join反证通过，742df6f3归档保留f9全量红。未重跑真模型，最近fbd8四题仍失败；同窗/启动特征及控制组/主动原件消费待修，未合未部署 → `fwp-wt-history-market-anatomy/docs/handoffs/inflight/feat-history-market-anatomy.md`。 |
@@ -854,6 +854,8 @@ per-user 不是进程级；`runtime_backend_readiness` 这个全局探针看不�
 - 2026-09-16 · claude · E2 P4（D5）精确提交收口：`fix/e2-delivery-closeout` 上 P4 提交被全树 view() 门禁抓红→`9a98f4fc` 修（两处再出口经 view 并登记）→`1f24a6ef` 补四条变异反例→`31786fb9` 文档头；四叶等价 CI 绿、28/28 删保护变异红；用户确认后前向合并 gitea/main（`f89742eb`，合并头四叶再绿）→ **PR #752 已合并**（merge `693043a5`），远端分支已删，未切 8792。正文 `docs/handoffs/2026-09-16-e2-delivery-p4-verification.md`，在途 `docs/handoffs/inflight/fix-e2-delivery-closeout.md`
 - 2026-09-16 · claude · **8792 已切 `6e23dd57`**（含 #752 E2 P4、#753、#750）：快照树四叶绿（pytest 10952P/0F、e2e 31P、frontend/registry 0），readiness/health 三读全对，deploy-ledger check ok、homes 旧家 45 行已并入，Gitea 备份 gitea-20260916-post754.tar.gz；grounded 探针因 Sub2API 上游 502/503/429 未过，待网关恢复重跑。记录 `docs/handoffs/2026-09-16-8792-switch-6e23dd57.md`（PR #757）。下一片：E2 P5 跨轮继承（分支 `feat/e2-p5-cross-turn-inheritance`）
 - 2026-09-16 · claude · E2 **P5（D7）跨轮逐轴继承**已完工待审：`feat/e2-p5-cross-turn-inheritance` → **PR #759（开着，合并等确认）**。把 A7 五格压到真实 run_turn→decide_turn→Episode，修两处真缺陷（同值重申前提标注不幂等、上一轮题级标注在本轮渲染成裸题号）；四叶绿（pytest 10963P/0F、frontend 94P、e2e 31P、registry 五条 0），删保护变异 3/3 红。正文 `docs/handoffs/2026-09-16-e2-p5-cross-turn-inheritance.md`。下一片 P6（D6 条件化纯度 + 材料锚点 + 历史句排除），收口点 `build_episode_input`
+
+- 2026-09-18 · pi · 授权快照6b70e540：重验许可不抹执行位置，22变异/四叶通过但不开放跨进程续跑 → `fwp-wt-runtime-contracts-0918/docs/handoffs/2026-09-18-runtime-authorization-snapshot.md`。
 
 ## 2026-07-18 PR #268 验证
 - #268（orphan marker 归一化）已合并，main CI 全绿（PR 上的 workbench-check failure 为 corepack 下载 pnpm 的网络抖动，与代码无关）。
