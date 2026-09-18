@@ -12,7 +12,7 @@ status: active
 
 ## 概述
 - 位置：`~/insurance-copilot`，独立于投研仓；入口与存储边界读该仓 `README.md`。
-- 用户明确目标：帮助客户分析家庭资产配置，不推销，不将分析当保险销售入口；现有服务记录/跟进底座可复用，家庭配置分析核心尚未实现。人工确认、不自动联络。
+- 用户明确目标：帮助客户分析家庭资产配置，不推销，不将分析当保险销售入口。已有服务底座与可复算的固定虚构报告，正式客户分析引擎未建；状态以应用仓README/交接为准。人工确认、不自动联络。
 - 用户确认杭州、高净值目标及本人二级市场经验，关系来源为投资圈与滑雪朋友；自述具备正式展业条件，公司对个人工具/AI的许可仍未确认。详见应用仓定位文档；不将朋友自动标为客户或高净值。
 - 客户数据不进入本 vault；这里仅存项目索引。
 
@@ -30,3 +30,4 @@ status: active
 - 2026-09-18 · pi · 并行服务事项、交付确认与旧库安全升级 → `~/insurance-copilot/docs/handoffs/2026-09-18-service-lifecycle.md`；复用判据 [[async-preview-revocation-needs-response-version]]。
 - 2026-09-18 · pi · 杭州投资圈/滑雪圈定位与展业自述落文档，不更改数据许可开关 → `~/insurance-copilot/docs/handoffs/2026-09-18-hangzhou-service-positioning.md`。
 - 2026-09-18 · pi · 用户纠正为家庭资产配置分析，取代前条的保险服务切入口路线；仅改定位、未增分析模块 → `~/insurance-copilot/docs/handoffs/2026-09-18-household-allocation-correction.md`。
+- 2026-09-18 · pi · 固定虚构家庭报告、复算/浏览器检查与空白模板，待用户确认交付价值 → `~/insurance-copilot/docs/handoffs/2026-09-18-household-example.md`。
