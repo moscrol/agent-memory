@@ -39,6 +39,7 @@ related: ["[[finance-workspace-private]]", "[[finance-research-site]]", "[[finan
 ## 任务看板
 | 任务 | 负责 | 状态 | 备注 |
 |---|---|---|---|
+| 双索引生产迁移 | coding-agent | blocked | 独立副本迁移，3个post-*维护暂停；direct publish仍改写生产，待用户协调写者，不恢复旧hook。正文/冲突未改 → 金融树 `fwp-wt-kb-dual-index-deploy/docs/handoffs/inflight/fix-kb-dual-index-deploy.md`。 |
 | Agent 检索可靠性 | coding-agent | done | 代码验收收口见 `docs/handoffs/2026-09-18-retrieval-merge-acceptance.md`；正文冲突仍隔离、生产迁移未做；合入身份以PR#151/看板为准。 |
 | RAG P0：page_id 消歧 + freshness 单一事实源 | cursor | done | 代码在 main（#304/#305 git merge）；闸门修复 #306 待合；索引 v1→v3 update 进行中 |
 | Top-30 P0 纵切片首批闭环 | devin | done | PR #258（堆叠 #257），明细见 wiki/log.md #2880 |
@@ -55,6 +56,8 @@ related: ["[[finance-workspace-private]]", "[[finance-research-site]]", "[[finan
 | 全A实体页缺口（非ST） | cursor | doing | 改走巨潮年报。脏树未动。wave97 [!124](http://127.0.0.1:3300/a77/knowledge-base-private/pulls/124) `#6804–#6822`（嘉益股份→大地海洋；义翘神州 `#5414` skip）。本轮按用户要求停，不开 wave98。年报栈先合 !51→!93→!95→…→!120→!124（!94 是无关 harness；!119/!121–!123 不在此栈）。 |
 
 ## 交接记录
+
+- 2026-09-18 · coding-agent · 迁移副本与钩子暂停已落地，direct publisher并发阻断上线；教训见 [[script-identity-binding-location-is-not-identity]] → 金融仓 `docs/handoffs/2026-09-18-kb-dual-index-deploy-blocked.md`。
 
 - 2026-09-18 · coding-agent · 两仓隔离验收完成，实际生产边界保留 → `docs/handoffs/2026-09-18-retrieval-merge-acceptance.md`。
 
