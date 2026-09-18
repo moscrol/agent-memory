@@ -13,7 +13,7 @@ status: active
 ## 概述
 - 位置：`~/insurance-copilot`，独立于投研仓；入口与存储边界读该仓 `README.md`。
 - 目标：承载全流程长期客户服务与未尽责任，辅助准备交付物；人工确认、不自动联络。
-- 用户确认中国内地、高净值目标人群及本人二级市场经验；公司许可未确认。现版无模型外呼、单人本地，不是友邦官方系统。
+- 用户确认杭州、高净值目标及本人二级市场经验，关系来源为投资圈与滑雪朋友；自述具备正式展业条件，公司对个人工具/AI的许可仍未确认。详见应用仓定位文档；不将朋友自动标为客户或高净值。
 - 客户数据不进入本 vault；这里仅存项目索引。
 
 ## 关键决策
@@ -28,3 +28,4 @@ status: active
 - 2026-09-18 · pi · 独立本地工作台与 skill，暂不接模型 → `~/insurance-copilot/docs/handoffs/inflight/feat-local-client-workbench.md`。
 - 2026-09-18 · pi · 内地高净值方向与二级市场经验落访谈工作包，保持筹备状态 → `~/insurance-copilot/docs/handoffs/2026-09-18-mainland-family-positioning.md`。
 - 2026-09-18 · pi · 并行服务事项、交付确认与旧库安全升级 → `~/insurance-copilot/docs/handoffs/2026-09-18-service-lifecycle.md`；复用判据 [[async-preview-revocation-needs-response-version]]。
+- 2026-09-18 · pi · 杭州投资圈/滑雪圈定位与展业自述落文档，不更改数据许可开关 → `~/insurance-copilot/docs/handoffs/2026-09-18-hangzhou-service-positioning.md`。
