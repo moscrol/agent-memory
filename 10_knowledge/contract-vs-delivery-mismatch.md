@@ -229,9 +229,17 @@ Workbench先claim完成/取消归属，再写消息和多个产物。消费方�
 
 入口：finance分支 `feat/research-answer-preservation` 的
 `docs/handoffs/2026-09-18-publication-repair-blocked.md`；RAG量具
-`scripts/review_probes/replay_rag_buffered_late_response.py`（18c7c7fc）。正式全量仍红，量具exit0
-只表示缺陷复现，不是工程或金融验收通过。可迁移量具已入仓；共享harness-reference当时脏且领先，
-未覆盖其在途KIT/TOOLKIT，后续干净时再登记引用。
+`scripts/review_probes/replay_rag_buffered_late_response.py`（18c7c7fc当时只诊断、正式全量红）。
+09-19续修20939b18：stdout由非阻塞字节读取＋显式换行缓存单独消费，先排缓存整行再等内核；
+半行UTF-8不提前解码，旧响应不续deadline，暖首次放弃保半行、新进程清状态。六撤保护均被测出，
+干净工程通过；量具增`--expect repaired`，默认仍期待旧失败，反向期待必须红。可迁移回归/量具
+已入仓；共享harness-reference的BUILD.md仍有他人在途改动，未覆盖。
+
+**行为发生不等于机制启用**：同轮一次自然GLM最终交付，却在首稿包含未转义换行时
+candidate=None/retained=0，仅模型自发重写保住正文。不能拿最终看似一致反推保稿机制已生效。
+验证需看机制激活信号并撤保护，而不是只比末端成品。这也适用于缓存命中、兜底、幂等和安全过滤。
+同源判官passed仍漏掉原证据8误写12、终点收益推断区间无跌等；语义质检与传输完成分别记账。
+详见finance分支`docs/handoffs/2026-09-19-rag-framing-and-glm-live.md`，旧失败不改判。
 
 ## 修的时候两条纪律
 
