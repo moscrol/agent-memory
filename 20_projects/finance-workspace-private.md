@@ -71,6 +71,7 @@ DuckDB → detect_turning_points.py / backtest_sector.py → 信号+板块边际
 ## 任务看板
 | 任务 | 负责 | 状态 | 备注 |
 |---|---|---|---|
+| runtime 行为合同修复 | pi | doing | P0固定48823062四叶与13变异通过；P1/P2未完，无真实质量/独立复核、未合未部署 → `fwp-wt-runtime-contracts-0918/docs/handoffs/inflight/fix-runtime-contracts-0918.md`。 |
 | pi/dsh runtime 炼化审计 | pi | done | 固定生产bf662e93，三反例确认保存失败/压缩回读/截断调用边界；未改runtime、未合未部署。报告与探针e251d30a，交接c5576ef4 → `baseline/runtime-absorption-audit-0918:docs/handoffs/2026-09-18-pi-dsh-runtime-absorption-audit.md`。 |
 | 研究答案保留 | pi | blocked | 5f3b5b59干净工程通过；一次真会话保留已准入稿且诚实rejected/partial，但准入前两稿仍丢失，整体not_passed；8848已停/8792未动，未合未部署 → `fwp-wt-research-answer-preservation/docs/handoffs/inflight/feat-research-answer-preservation.md`。 |
 | 市场—板块—个股历史过程研究 | pi | blocked | WIP #783，ba281381接力状态/日数/原因同卡，旧原件只读兼容；固定四叶11566P与7+4变异通过、1528e917归档已推。仅工程/脚本送达证据，未重跑真模型，最近fbd8四题仍失败；同窗/启动特征/主动原件消费待修，未合未部署 → `fwp-wt-history-market-anatomy/docs/handoffs/inflight/feat-history-market-anatomy.md`。 |
@@ -166,6 +167,8 @@ per-user 不是进程级；`runtime_backend_readiness` 这个全局探针看不�
 而 CLI/回检走 `~/.zshrc` 里的 `/Users/a77/agent-memory/.foresight`——**两套用户台账不是同一份**。
 
 ## 交接记录
+
+- 2026-09-18 · pi · runtime P0保存失败/截断合同工程通过，后续不借绿收据冒充恢复能力 → `fix/runtime-contracts-0918:docs/handoffs/2026-09-18-runtime-contracts-p0.md`。
 - 2026-09-18 · pi · ba281381接力限定条件同卡、旧原件不迁移，工程绿不翻真模型拒收 → `fwp-wt-history-market-anatomy/docs/handoffs/2026-09-18-history-succession-delivery.md`；方法 [[verifier-projection-narrower-than-model-world]]。
 - 2026-09-18 · pi · 历史诊断返修58b78542工程通过，诊断分型不豁免事实门，真实四题仍拒收 → `fwp-wt-history-market-anatomy/docs/handoffs/2026-09-18-history-diagnostic-repair.md`；方法 [[retry-must-carry-the-last-rejection]]。
 - 2026-09-18 · pi · 源码核验三轮runtime吸收，先补OPT-08与接缝反例、不叠框架 → `baseline/runtime-absorption-audit-0918:docs/handoffs/2026-09-18-pi-dsh-runtime-absorption-audit.md`（e251d30a/c5576ef4）。
