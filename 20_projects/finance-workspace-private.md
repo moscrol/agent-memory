@@ -71,6 +71,7 @@ DuckDB → detect_turning_points.py / backtest_sector.py → 信号+板块边际
 ## 任务看板
 | 任务 | 负责 | 状态 | 备注 |
 |---|---|---|---|
+| pi/dsh runtime 炼化审计 | pi | done | 固定生产bf662e93，三反例确认保存失败/压缩回读/截断调用边界；未改runtime、未合未部署。报告与探针e251d30a，交接c5576ef4 → `baseline/runtime-absorption-audit-0918:docs/handoffs/2026-09-18-pi-dsh-runtime-absorption-audit.md`。 |
 | 研究答案保留 | pi | blocked | 5f3b5b59干净工程通过；一次真会话保留已准入稿且诚实rejected/partial，但准入前两稿仍丢失，整体not_passed；8848已停/8792未动，未合未部署 → `fwp-wt-research-answer-preservation/docs/handoffs/inflight/feat-research-answer-preservation.md`。 |
 | 市场—板块—个股历史过程研究 | pi | blocked | WIP #783，fbd8f2a6四叶通过；真模型同会话四题已跑但整组失败（漏参恢复/接力解释/特征比较），第二实现算术零error仍有skip，未合未部署 → `fwp-wt-history-market-anatomy/docs/handoffs/inflight/feat-history-market-anatomy.md`。 |
 | 09-16/17 local夜跑恢复 | pi | done | 生产数据/报告/L2/快照已验；配置恢复local，仅指数模块最小部署。生成根后续部署见#50行，方法协议迁移另办；`fwp-wt-nightly-review-0917/docs/handoffs/inflight/fix-nightly-review-0917.md`。 |
@@ -165,6 +166,7 @@ per-user 不是进程级；`runtime_backend_readiness` 这个全局探针看不�
 而 CLI/回检走 `~/.zshrc` 里的 `/Users/a77/agent-memory/.foresight`——**两套用户台账不是同一份**。
 
 ## 交接记录
+- 2026-09-18 · pi · 源码核验三轮runtime吸收，先补OPT-08与接缝反例、不叠框架 → `baseline/runtime-absorption-audit-0918:docs/handoffs/2026-09-18-pi-dsh-runtime-absorption-audit.md`（e251d30a/c5576ef4）。
 - 2026-09-18 · pi · R4离线边界返修97ca工程通过，不倒签R3失败；角色先于词序、跨表达同判据 → `fwp-wt-8792-boundary-integration/docs/handoffs/2026-09-18-8792-boundary-r4.md`；方法 [[contract-vs-delivery-mismatch]]。
 - 2026-09-18 · pi · 修复版四题真实复验仍未过；不以completed代签正文/副作用，保留失败不重采样 → `fwp-wt-8792-boundary-integration/docs/handoffs/2026-09-18-8792-boundary-retest.md`；方法 [[contract-vs-delivery-mismatch]]。
 - 2026-09-18 · pi · 分离正文交付与核验，真会话反证准入前仍丢稿，不以末端绿报完成 → `fwp-wt-research-answer-preservation/docs/handoffs/2026-09-18-research-answer-preservation.md`；方法 [[gate-covers-only-its-return-value]]。
