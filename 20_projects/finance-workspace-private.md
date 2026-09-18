@@ -76,7 +76,7 @@ DuckDB → detect_turning_points.py / backtest_sector.py → 信号+板块边际
 | KB过滤回执消费 | coding-agent | done | 代码验收收口见 `docs/handoffs/2026-09-18-kb-retrieval-merge-acceptance.md`；部署/索引迁移未执行，生产仍bf662e93；合入身份以PR#784/看板为准。 |
 | runtime 行为合同修复 | pi | doing | 根预算快照610dcbeb接续P0/子存储/恢复确认：身份与捕获前缀不丢，17新变异/旧三组兼容复验及固定四叶通过；仍非跨进程driver，授权/证据/消息、单写者及未知效果对账待补。首轮provenance红根因未明；无真实质量/独立复核、未合未部署 → `fwp-wt-runtime-contracts-0918/docs/handoffs/inflight/fix-runtime-contracts-0918.md`。 |
 | pi/dsh runtime 炼化审计 | pi | done | 固定生产bf662e93，三反例确认保存失败/压缩回读/截断调用边界；未改runtime、未合未部署。报告与探针e251d30a，交接c5576ef4 → `baseline/runtime-absorption-audit-0918:docs/handoffs/2026-09-18-pi-dsh-runtime-absorption-audit.md`。 |
-| 研究答案保留 | pi | doing | 35ee8a5c工程/原件回放通过；09-18用户纠正可沿已授权GLM验收，撤销“必须等GPT Keychain”前置（旧查询事实保留）。原run实际glm-5.3-flash，现役health同模型ready但不证明新调用成功。新题/模型调用/服务启动仍0，原live not_passed、新live not_run；未push/合main/部署、8792未切 → `fwp-wt-research-answer-preservation/docs/handoffs/inflight/feat-research-answer-preservation.md`。 |
+| 研究答案保留 | pi | blocked | 35ee8a5c隔离首发1/零重发：GLM实际3轮响应，但历史查询缺end被拒后进展JSON崩溃，无答案，新旧live均not_passed。原件离线复现，邻枝已有Mapping修复可正常反馈/保44证据，待小片整合；8849已停，8792未动，未push/合main/部署 → `fwp-wt-research-answer-preservation/docs/handoffs/inflight/feat-research-answer-preservation.md`。 |
 | 市场—板块—个股历史过程研究 | pi | blocked | WIP #783，f9可信历史用途贯通提示/修复/收据/登记；672abcc5修测试任务回收，冻结四叶11579P与历史19项、三夹具删join反证通过，742df6f3归档保留f9全量红。未重跑真模型，最近fbd8四题仍失败；同窗/启动特征及控制组/主动原件消费待修，未合未部署 → `fwp-wt-history-market-anatomy/docs/handoffs/inflight/feat-history-market-anatomy.md`。 |
 | 09-16/17 local夜跑恢复 | pi | done | 生产数据/报告/L2/快照已验；配置恢复local，仅指数模块最小部署。生成根后续部署见#50行，方法协议迁移另办；`fwp-wt-nightly-review-0917/docs/handoffs/inflight/fix-nightly-review-0917.md`。 |
 | R5财报与计算交付 / R6验收 | pi | blocked | dfd7b4ff工程与自然验收分账；R6已按授权固定四题首发，整体未过，不翻旧R3。比较口径、正文/产物一致性及完整性提示仍待修；未push/合main/部署 → `fwp-wt-8792-financial-r6/docs/handoffs/inflight/baseline-8792-financial-r6.md`。 |
@@ -114,7 +114,7 @@ DuckDB → detect_turning_points.py / backtest_sector.py → 信号+板块边际
 
 ## 🚦 Agent Runtime 线路（2026-09-18 校准，跑之前必读）
 
-**当前模型前提：GLM 可以用于真实验收，不要求先恢复 GPT Keychain。** 09-16用户已要求“用 glm-5.3-flash 跑”，主写手直连智谱、兜底glm-5.3；来源 `docs/handoffs/2026-09-16-8792-switch-a26cec4d.md`。09-18用户再次纠正：研究答案保留验收可沿此路线；该线旧run实际为zhipu/glm-5.3-flash，当前8792 health也报同模型ready。health不等于新请求成功，验收仍需固定实际模型与兜底规则；不输出密钥，不把一种模型凭据缺失外推为全局阻塞。纠偏详情 `fwp-wt-research-answer-preservation/docs/handoffs/2026-09-18-live-model-selection-correction.md`。
+**当前模型前提：GLM 可以用于真实验收，不要求先恢复 GPT Keychain。** 09-16用户已要求“用 glm-5.3-flash 跑”，主写手直连智谱、兜底glm-5.3；来源 `docs/handoffs/2026-09-16-8792-switch-a26cec4d.md`。09-18用户再次纠正：研究答案保留验收可沿此路线；该线旧run实际为zhipu/glm-5.3-flash，09-18晚隔离35ee8a5c的新run也已记录3轮同模型响应，但因本地进展记账异常未交付答案（一次首发零重发）。模型连通不等于交付通过；后续验收仍固定实际模型/兜底/预算，不输出密钥，不把一种模型凭据缺失外推为全局阻塞。纠偏详情 `fwp-wt-research-answer-preservation/docs/handoffs/2026-09-18-live-model-selection-correction.md`。
 
 ### 历史快照：2026-08-05（以下配置、可跑模型表和切换步骤不是当前执行指令）
 
@@ -175,6 +175,8 @@ per-user 不是进程级；`runtime_backend_readiness` 这个全局探针看不�
 而 CLI/回检走 `~/.zshrc` 里的 `/Users/a77/agent-memory/.foresight`——**两套用户台账不是同一份**。
 
 ## 交接记录
+
+- 2026-09-18 · pi · GLM一次隔离验收失败，原件定位历史查询拒绝→进展JSON崩溃；已有局部修复仅离线验证、不重发 → `fwp-wt-research-answer-preservation/docs/handoffs/2026-09-18-finish-candidate-glm-live.md`。
 
 - 2026-09-18 · coding-agent · 双索引隔离迁移与部署接线；并发发布阻断切换，未动8792 → `fwp-wt-kb-dual-index-deploy/docs/handoffs/2026-09-18-kb-dual-index-deploy-blocked.md`。
 
