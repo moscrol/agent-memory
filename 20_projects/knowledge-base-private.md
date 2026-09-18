@@ -39,7 +39,7 @@ related: ["[[finance-workspace-private]]", "[[finance-research-site]]", "[[finan
 ## 任务看板
 | 任务 | 负责 | 状态 | 备注 |
 |---|---|---|---|
-| Agent 检索可靠性 | coding-agent | blocked | `fix/agent-retrieval-reliability` 实现 `b62c58cb5`；已有断链门禁红，未推未合，详见在途交接。 |
+| Agent 检索可靠性 | coding-agent | doing | `b62c58cb5` + 导航`1f614b694`：820P、门禁回原基线；金融回执候选已验。正文冲突仍隔离，生产迁移未做，未推未合未部署；详见在途交接。 |
 | RAG P0：page_id 消歧 + freshness 单一事实源 | cursor | done | 代码在 main（#304/#305 git merge）；闸门修复 #306 待合；索引 v1→v3 update 进行中 |
 | Top-30 P0 纵切片首批闭环 | devin | done | PR #258（堆叠 #257），明细见 wiki/log.md #2880 |
 | Top-N 主题纵切片 planner | devin | done | PR #256（堆叠 #255），见 [[demand-first-theme-vertical-slice]] |
@@ -55,6 +55,8 @@ related: ["[[finance-workspace-private]]", "[[finance-research-site]]", "[[finan
 | 全A实体页缺口（非ST） | cursor | doing | 改走巨潮年报。脏树未动。wave97 [!124](http://127.0.0.1:3300/a77/knowledge-base-private/pulls/124) `#6804–#6822`（嘉益股份→大地海洋；义翘神州 `#5414` skip）。本轮按用户要求停，不开 wave98。年报栈先合 !51→!93→!95→…→!120→!124（!94 是无关 harness；!119/!121–!123 不在此栈）。 |
 
 ## 交接记录
+
+- 2026-09-18 · coding-agent · 导航49处回基线、跨仓回执验证通过；正文混入仅追溯不洗白，生产待迁移 → `docs/handoffs/2026-09-18-retrieval-phase2-navigation.md`。
 
 - 2026-09-18 · coding-agent · 检索可信性修复；保留冲突隔离负结果，门禁红不合；共享hook副作用归 [[script-identity-binding-location-is-not-identity]] → `docs/handoffs/inflight/fix-agent-retrieval-reliability.md`。
 

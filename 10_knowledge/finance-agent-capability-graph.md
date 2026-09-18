@@ -208,6 +208,8 @@ flowchart LR
 | 知识库接收任务包 | knowledge | `scripts/kb_ingest_queue.py` | 接收金融 repo 的跨仓 JSON 队列 |
 | 关系查询 | knowledge | `scripts/query_relations.py` | 安全查询 relations 大 JSON |
 | RAG 检索 | knowledge | `scripts/rag_index.py`、`scripts/rag_build_full.py` | 结构索引、全文索引、BM25/向量/rerank |
+| 检索可信性与双索引健康（候选，未部署） | knowledge | `skills/lib/rag/evidence.py::matches_filters@fix/agent-retrieval-reliability`、`skills/lib/rag/agent.py::get_page@fix/agent-retrieval-reliability`、`skills/lib/rag/health.py@fix/agent-retrieval-reliability` | b62c58cb5提供明确等级/硬度/来源/可得日过滤、整页冲突隔离、索引块续读与只读health；1f614b694修49处导航，干净820P、质量无回归但有历史债务。生产元数据/全文迁移未做；隔离导致42题BM25排名下降，未宣称质量提升。 |
+| KB过滤回执消费与加载身份（候选，未部署） | finance | `intelligence/services/kb_filter_receipt.py::parse_receipt@fix/kb-filter-receipt`、`intelligence/services/kb_code_identity.py::code_identity@fix/kb-filter-receipt`、`intelligence/services/kb_rag.py::retrieve@fix/kb-filter-receipt` | 698555e2：有过滤须验实际封套和逐条元数据，不删约束兼容；已验证范围禁本地扩读/stale替换，新回执结果不走无源状态的缓存。负能力与worker绑定代码内容，查询中变化弃响应；仍需不可变发布+重启。干净11481P、前端107P、E2E34P2S、registry通过；真实跨仓hash夹具非生产BGE/研究效果验收，未给所有问句自动加as_of。 |
 | Theme Radar 报告 | knowledge | `skills/theme-radar-reports/` | scan、replay、migrate 三类报告 |
 | 概念入库 | knowledge | `skills/concept-ingest/` | 新概念与概念增量 |
 | 公司边际变化 | knowledge | `skills/entity-delta-ingest/` | 公司 delta、graph_only、exposure_only |
@@ -257,6 +259,8 @@ flowchart LR
 5. **避免事实污染**：项目经验、问答打分和用户纠偏写项目学习层；公司/题材事实写知识库；项目级流程变化写 agent-memory。
 
 ## 变更记录
+
+- 2026-09-18 · coding-agent · 新增KB可信性与金融回执两条候选，代码/加载身份和证据范围分别核验；工程通过不替生产迁移或排名质量，方法回写 [[gate-covers-only-its-return-value]]。
 
 - 2026-09-18 · pi · 新增研究答案保留候选节点，路径钉分支；准入后保留实测有效但准入前丢稿仍在，工程绿不改整体not_passed；方法 [[gate-covers-only-its-return-value]]。
 

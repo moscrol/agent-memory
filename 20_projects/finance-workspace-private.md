@@ -71,6 +71,7 @@ DuckDB → detect_turning_points.py / backtest_sector.py → 信号+板块边际
 ## 任务看板
 | 任务 | 负责 | 状态 | 备注 |
 |---|---|---|---|
+| KB过滤回执消费 | coding-agent | doing | `fix/kb-filter-receipt@698555e2`四叶通过；实际过滤/扩读范围/暖worker代码身份已验，未推未合未部署；生产索引迁移另行，见在途交接。 |
 | runtime 行为合同修复 | pi | doing | P0固定48823062四叶与13变异通过；P1/P2未完，无真实质量/独立复核、未合未部署 → `fwp-wt-runtime-contracts-0918/docs/handoffs/inflight/fix-runtime-contracts-0918.md`。 |
 | pi/dsh runtime 炼化审计 | pi | done | 固定生产bf662e93，三反例确认保存失败/压缩回读/截断调用边界；未改runtime、未合未部署。报告与探针e251d30a，交接c5576ef4 → `baseline/runtime-absorption-audit-0918:docs/handoffs/2026-09-18-pi-dsh-runtime-absorption-audit.md`。 |
 | 研究答案保留 | pi | blocked | 5f3b5b59干净工程通过；一次真会话保留已准入稿且诚实rejected/partial，但准入前两稿仍丢失，整体not_passed；8848已停/8792未动，未合未部署 → `fwp-wt-research-answer-preservation/docs/handoffs/inflight/feat-research-answer-preservation.md`。 |
@@ -167,6 +168,8 @@ per-user 不是进程级；`runtime_backend_readiness` 这个全局探针看不�
 而 CLI/回检走 `~/.zshrc` 里的 `/Users/a77/agent-memory/.foresight`——**两套用户台账不是同一份**。
 
 ## 交接记录
+
+- 2026-09-18 · coding-agent · KB实际过滤回执与暖worker加载身份收口，四叶通过但不外推生产/效果 → `docs/handoffs/2026-09-18-kb-filter-receipt.md`。
 
 - 2026-09-18 · pi · runtime P0保存失败/截断合同工程通过，后续不借绿收据冒充恢复能力 → `fix/runtime-contracts-0918:docs/handoffs/2026-09-18-runtime-contracts-p0.md`。
 - 2026-09-18 · pi · ba281381接力限定条件同卡、旧原件不迁移，工程绿不翻真模型拒收 → `fwp-wt-history-market-anatomy/docs/handoffs/2026-09-18-history-succession-delivery.md`；方法 [[verifier-projection-narrower-than-model-world]]。
