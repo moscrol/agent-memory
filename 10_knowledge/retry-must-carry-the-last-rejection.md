@@ -65,6 +65,14 @@ related: ["[[contract-vs-delivery-mismatch]]", "[[agent-control-plane-five-invar
 
 离线 11318 项全绿只证明「没打碎别的」；**证明修好的是那条真实 run 的事件序列**。
 
+## 内容门不能把纠错理由一起吞掉（2026-09-18补充）
+
+finance 历史研究实录中，`stage_day` 被模型放进 metrics，校验器已生成「应为 dimension」的重试提示，但严格日期门看见 `evidence=[]` 就把整段观察替换为「未取得有日期材料」。拒绝理由在源头存在，仍没到达执行者。
+
+候选 `a05b3483` 将可信程序诊断与事实分型：字段角色/超时/取消等由受审定生产者构造 `ToolDiagnostic`，经过白名单和标识符清洗，在事实过滤后交付；不生成可引用证据、不扩日期授权。**不能以错误状态或空证据直接豁免整段文字，也不能将原始外部异常改贴“诊断”后放行。** 混合结果只保留范围内事实和可信诊断，不恢复被过滤的原 prose。
+
+这适用于日期、权限、租户隔离、隐私等内容门：同时测「该挡的仍挡」和「执行者能收到修复坐标」。本次临时数据库的脚本化真实 Episode 已验证拒绝→送达→改参→成功取数，四个进程内变异能被抓住；**没有因此复验真模型，原四题业务失败结论不变**。项目证据看 finance 分支的 `tests/test_history_tool_diagnostics.py`、`tests/test_history_argument_repair.py` 和 `scripts/review_probes/history_diagnostic_mutations.py`，不是通用过滤器已获全面认证。
+
 ## 边界
 
 这条规则解决「执行者听不见」，不解决「裁判不稳定」。同一次复验里，
