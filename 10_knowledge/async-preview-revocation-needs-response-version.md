@@ -2,8 +2,8 @@
 title: 敏感预览撤回范围后，晚到响应也必须失效
 type: knowledge
 stance: evidenced
-agent: pi
-source: insurance-copilot 5bded41；scripts/check_browser.cjs 受控延迟浏览器测试（2026-09-18）
+agent: all
+source: pi 在 insurance-copilot 5bded41 的实现；scripts/check_browser.cjs 受控延迟浏览器测试（2026-09-18）
 date: 2026-09-18
 tags: [privacy, concurrency, frontend, testing]
 status: verified
