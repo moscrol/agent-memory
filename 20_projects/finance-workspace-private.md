@@ -73,7 +73,7 @@ DuckDB → detect_turning_points.py / backtest_sector.py → 信号+板块边际
 |---|---|---|---|
 | 市场—板块—个股历史过程研究 | pi | doing | WIP #783，候选代码506e1e23四叶通过；真模型连续四题与新算子独立验算待做，未部署 → `fwp-wt-history-market-anatomy/docs/handoffs/inflight/feat-history-market-anatomy.md`。 |
 | 09-16/17 local夜跑恢复 | pi | done | 生产数据/报告/L2/快照已验；配置恢复local，仅指数模块最小部署。生成根后续部署见#50行，方法协议迁移另办；`fwp-wt-nightly-review-0917/docs/handoffs/inflight/fix-nightly-review-0917.md`。 |
-| 8792边界组合候选 | pi | done | 3faf64fb收敛三类边界+引用数字隔离，补限定语与重复扫描；固定提交四叶/七类反证通过。未push/合main/部署，真实模型任务待验 → `fwp-wt-8792-boundary-integration/docs/handoffs/inflight/fix-8792-boundary-integration.md`。 |
+| 8792边界组合候选 | pi | blocked | 3faf64fb工程四叶/七类反证通过；09-18四次隔离真会话3交付/1失败，F3序列化中断、删阈值后清单残缺，整体验收未通过；8828已停，未push/合main/部署 → `fwp-wt-8792-boundary-integration/docs/handoffs/inflight/fix-8792-boundary-integration.md`。 |
 | E27引用数字门修复 | pi | done | 代码2841ce66，冻结样本与干净Python全量已验；真入口/四叶准入另验，未合未部署 → `fwp-wt-citation-numeric-gate-0917/docs/handoffs/inflight/fix-citation-numeric-gate-0917.md`。 |
 | 8792 三类边界工程返修 | pi | done | 代码6f9df75a，正式回归/原QC及固定提交四叶通过；未push/合main/部署，无修复版真模型验收 → `fwp-wt-8792-readiness-fixes/docs/handoffs/inflight/fix-8792-readiness-boundaries.md`。 |
 | 8792 上线后独立质检 | pi | done | 审查提交7d253451；三类边界拒收、未改生产，修复与准入见 `fwp-wt-qc-8792-readiness-0917/docs/handoffs/inflight/docs-qc-8792-readiness-0917.md`。 |
@@ -164,6 +164,7 @@ per-user 不是进程级；`runtime_backend_readiness` 这个全局探针看不�
 而 CLI/回检走 `~/.zshrc` 里的 `/Users/a77/agent-memory/.foresight`——**两套用户台账不是同一份**。
 
 ## 交接记录
+- 2026-09-18 · pi · 3faf四题真实会话保留失败、不重采样；整体验收未过，生产未切 → `fwp-wt-8792-boundary-integration/docs/handoffs/2026-09-18-8792-boundary-live-acceptance.md`。
 - 2026-09-17 · pi · 边界组合3faf64fb：新revision重验、限定语按归属不按共现、扫描次数锁性能 → `fwp-wt-8792-boundary-integration/docs/handoffs/2026-09-17-8792-boundary-integration.md`。
 - 2026-09-17 · pi · 历史日线过程候选506e1e23：复用现门与主库，峰值/接力不冒充预测因果 → WIP #783 / `docs/handoffs/2026-09-17-history-market-anatomy.md`（候选树）。
 - 2026-09-17 · pi · 生成根最小装机并真实launchd验收，L2不回退 → `fwp-wt-nightly-generation-deploy-0917/docs/handoffs/2026-09-17-nightly-generation-deployment.md`。
