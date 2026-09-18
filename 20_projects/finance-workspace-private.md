@@ -76,7 +76,7 @@ DuckDB → detect_turning_points.py / backtest_sector.py → 信号+板块边际
 | KB过滤回执消费 | coding-agent | done | 代码验收收口见 `docs/handoffs/2026-09-18-kb-retrieval-merge-acceptance.md`；部署/索引迁移未执行，生产仍bf662e93；合入身份以PR#784/看板为准。 |
 | runtime 行为合同修复 | pi | doing | 授权快照576d4764/6b70e540接续预算前置：完整当前授权精确重验，升档先保存且不抹执行位置；22新变异、旧四组及固定四叶11687P通过。首冻11F夹具修正/真前缀首红保留；仍非跨进程driver，入口身份/证据消息/单写者/未知效果对账待补。无真实质量/独立复核、未合未部署 → `fwp-wt-runtime-contracts-0918/docs/handoffs/inflight/fix-runtime-contracts-0918.md`。 |
 | pi/dsh runtime 炼化审计 | pi | done | 固定生产bf662e93，三反例确认保存失败/压缩回读/截断调用边界；未改runtime、未合未部署。报告与探针e251d30a，交接c5576ef4 → `baseline/runtime-absorption-audit-0918:docs/handoffs/2026-09-18-pi-dsh-runtime-absorption-audit.md`。 |
-| 研究答案保留 | pi | blocked | 35ee8a5c隔离首发1/零重发：GLM实际3轮响应，但历史查询缺end被拒后进展JSON崩溃，无答案，新旧live均not_passed。原件离线复现，邻枝已有Mapping修复可正常反馈/保44证据，待小片整合；8849已停，8792未动，未push/合main/部署 → `fwp-wt-research-answer-preservation/docs/handoffs/inflight/feat-research-answer-preservation.md`。 |
+| 研究答案保留 | pi | blocked | Mapping365627fd已纳入，发布竞争49fd8d72＋静态产物7a9380bd已修；干净全量11686P/1F，前端115P/E2E34P2S。新红为RAG双响应预读误超时，18c7c7fc量具确定复现、未修生产读取。修复版live0次，旧两次仍not_passed；隔离服务全停/8792未动，未push/合main/部署 → `fwp-wt-research-answer-preservation/docs/handoffs/inflight/feat-research-answer-preservation.md`。 |
 | 市场—板块—个股历史过程研究 | pi | blocked | WIP #783，f9可信历史用途贯通提示/修复/收据/登记；672abcc5修测试任务回收，冻结四叶11579P与历史19项、三夹具删join反证通过，742df6f3归档保留f9全量红。未重跑真模型，最近fbd8四题仍失败；同窗/启动特征及控制组/主动原件消费待修，未合未部署 → `fwp-wt-history-market-anatomy/docs/handoffs/inflight/feat-history-market-anatomy.md`。 |
 | 09-16/17 local夜跑恢复 | pi | done | 生产数据/报告/L2/快照已验；配置恢复local，仅指数模块最小部署。生成根后续部署见#50行，方法协议迁移另办；`fwp-wt-nightly-review-0917/docs/handoffs/inflight/fix-nightly-review-0917.md`。 |
 | R5财报与计算交付 / R6验收 | pi | blocked | dfd7b4ff工程与自然验收分账；R6已按授权固定四题首发，整体未过，不翻旧R3。比较口径、正文/产物一致性及完整性提示返修见下一行，未验新自然模型；未push/合main/部署 → `fwp-wt-8792-financial-r6/docs/handoffs/inflight/baseline-8792-financial-r6.md`。 |
@@ -176,6 +176,8 @@ per-user 不是进程级；`runtime_backend_readiness` 这个全局探针看不�
 而 CLI/回检走 `~/.zshrc` 里的 `/Users/a77/agent-memory/.foresight`——**两套用户台账不是同一份**。
 
 ## 交接记录
+
+- 2026-09-18 · pi · Mapping/终态发布已修，RAG缓冲读取红灯阻新live，不重跑刷绿 → `fwp-wt-research-answer-preservation/docs/handoffs/2026-09-18-publication-repair-blocked.md`；方法 [[../10_knowledge/contract-vs-delivery-mismatch]]。
 
 - 2026-09-18 · pi · R6有限返修15527aad，删错不等于完成、旧0/4不翻案 → `fwp-wt-8792-financial-r6-repair/docs/handoffs/inflight/fix-8792-financial-r6-repair.md`；方法 [[../10_knowledge/gate-covers-only-its-return-value]]。
 
