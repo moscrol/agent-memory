@@ -18,10 +18,10 @@ related: ["[[finhot]]", "[[finance-workspace-private]]"]
 - **负责**：human 拍发 · grok 策略/脚本/复盘
 
 ## 架构决策（重要）
-- **不新开 Obsidian vault**。长期记忆继续用本 vault；项目 SSOT 在 `vidio/ops/`。
+- **不新开 Obsidian vault**。长期记忆继续用本 vault；当前制作入口为 vidio `AGENTS.md`/vibe-director，账号发布与事实边界归 content-ops，旧 `vidio/ops/` 留作历史资料。
 - 详见仓内：`ops/knowledge/obsidian-decision.md`
 
-## 项目内 SSOT 路径（vidio）
+## 历史运营路径（vidio）
 | 路径 | 内容 |
 |------|------|
 | `ops/knowledge/` | 钩子 playbook、冷启动假设、skill 目录、流水线 |
@@ -50,13 +50,16 @@ related: ["[[finhot]]", "[[finance-workspace-private]]"]
 | 前 7 条可拍脚本 | grok | todo | 等昵称或直接开工 |
 | face-hook 素材规范 + 试渲染 | both | todo | kit + 情绪段 |
 | 发布后复盘闭环 | both | todo | reviews/ |
+| 运营—制作可靠交接 | pi | doing | 两仓 `fix/reliable-production-handoff` 已提交；待审，不代表技能/真片就绪 |
 
 ## 相关知识
 - 项目内全文：vidio `ops/knowledge/README.md`、`ops/douyin/launch-plan.md`
 - 产品：[[finhot]] · [[finance-workspace-private]]
 - 成片封面：[[../10_knowledge/opening-frame-is-the-cover]]
+- 版本绑定与成功裁决：[[../10_knowledge/gate-covers-only-its-return-value]]
 
 ## 交接记录
+- 2026-09-18 · pi · 运营门禁/版本交接与 Studio 可靠性分两仓落地；单份协议、机器与人审分开 → 两仓 `docs/handoffs/inflight/fix-reliable-production-handoff.md`。
 - 2026-08-26 · cursor · P3 下一篇协议落在 `/Users/a77/vidio-wt-beautiful-ui`：`next-move-protocol.md` + `recommend_next_draft.py`。创作者中心贴数/点名只读，不爬、不代发。n 小于 3 只能 hold_plan；n 小于 10 不许 L4。未推未合。
 - 2026-08-26 · cursor · baoyu-skills 只炼图组「风格×布局」进同一棵树：`card-series-catalog.yaml` + `check_card_series.py`。cute/post-to/五维封面/danger API 不收。未推未合。
 - 2026-08-26 · cursor · Punk-Skill 有用件收进 `/Users/a77/vidio-wt-beautiful-ui` 枝 `feat/absorb-beautiful-ui`：8 个风格带 META 锚点、`cover-prompt-blueprint.md`、`scripts/compile_cover_prompt.py`（prompt-only）、对话入口 `ops/skills/cover-brief/SKILL.md`。不整仓安装、不进 lock、`punk-avatar` 不收。未推未合。
