@@ -73,7 +73,7 @@ DuckDB → detect_turning_points.py / backtest_sector.py → 信号+板块边际
 |---|---|---|---|
 | A股研究数据链 | pi | blocked | a31b572f结果准入/有限正文检查/同会话续修与引用保留已提交；固定工程11635P、13组新撤保护通过；旧默认35组兼容复跑完成。零新自然模型会话，整体回答质量仍未过；8907已停、8792未动 → `fwp-wt-research-data-readiness/docs/handoffs/inflight/feat-research-data-readiness.md`。 |
 | KB过滤回执消费 | coding-agent | done | 代码验收收口见 `docs/handoffs/2026-09-18-kb-retrieval-merge-acceptance.md`；部署/索引迁移未执行，生产仍bf662e93；合入身份以PR#784/看板为准。 |
-| runtime 行为合同修复 | pi | doing | P0、子存储7f6b201d及恢复确认371b0ef7各固定四叶/撤保护通过；不是跨进程driver，预算/证据现场及P1余项/P2待补。首轮provenance红根因未明；无真实质量/独立复核、未合未部署 → `fwp-wt-runtime-contracts-0918/docs/handoffs/inflight/fix-runtime-contracts-0918.md`。 |
+| runtime 行为合同修复 | pi | doing | 根预算快照610dcbeb接续P0/子存储/恢复确认：身份与捕获前缀不丢，17新变异/旧三组兼容复验及固定四叶通过；仍非跨进程driver，授权/证据/消息、单写者及未知效果对账待补。首轮provenance红根因未明；无真实质量/独立复核、未合未部署 → `fwp-wt-runtime-contracts-0918/docs/handoffs/inflight/fix-runtime-contracts-0918.md`。 |
 | pi/dsh runtime 炼化审计 | pi | done | 固定生产bf662e93，三反例确认保存失败/压缩回读/截断调用边界；未改runtime、未合未部署。报告与探针e251d30a，交接c5576ef4 → `baseline/runtime-absorption-audit-0918:docs/handoffs/2026-09-18-pi-dsh-runtime-absorption-audit.md`。 |
 | 研究答案保留 | pi | blocked | 35ee8a5c工程/原件回放通过；09-18用户授权新版live，当前Keychain搜索范围未找到指定gpt-5.6-sol凭据，0题/0模型调用/0服务启动，未换GLM。原live仍not_passed、新live not_run；跨进程恢复未接、未push/合main/部署、8792未切 → `fwp-wt-research-answer-preservation/docs/handoffs/inflight/feat-research-answer-preservation.md`。 |
 | 市场—板块—个股历史过程研究 | pi | blocked | WIP #783，f9可信历史用途贯通提示/修复/收据/登记；672abcc5修测试任务回收，冻结四叶11579P与历史19项、三夹具删join反证通过，742df6f3归档保留f9全量红。未重跑真模型，最近fbd8四题仍失败；同窗/启动特征及控制组/主动原件消费待修，未合未部署 → `fwp-wt-history-market-anatomy/docs/handoffs/inflight/feat-history-market-anatomy.md`。 |
@@ -170,6 +170,8 @@ per-user 不是进程级；`runtime_backend_readiness` 这个全局探针看不�
 而 CLI/回检走 `~/.zshrc` 里的 `/Users/a77/agent-memory/.foresight`——**两套用户台账不是同一份**。
 
 ## 交接记录
+
+- 2026-09-18 · pi · 根预算快照610dcbeb：余额/授予身份/原捕获位置共同保存，超时不退调用槽；17新变异及四叶通过但未开放续跑 → `fwp-wt-runtime-contracts-0918/docs/handoffs/2026-09-18-runtime-root-budget-snapshot.md`。
 
 - 2026-09-18 · pi · 历史用途贯通与测试后台回收工程通过，不倒签真实四题 → `fwp-wt-history-market-anatomy/docs/handoffs/2026-09-18-history-expression-and-fixture-lifetime.md`；方法 [[contract-vs-delivery-mismatch]]、[[terminal-signal-scope-and-projection-waits]]。
 - 2026-09-18 · pi · 新版live停于Keychain凭据前置（0提交、不换模型）→ `fwp-wt-research-answer-preservation/docs/handoffs/2026-09-18-finish-candidate-live-preflight.md`。
