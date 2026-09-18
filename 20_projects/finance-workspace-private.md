@@ -78,7 +78,7 @@ DuckDB → detect_turning_points.py / backtest_sector.py → 信号+板块边际
 | 研究答案保留 | pi | blocked | 35ee8a5c准入前候选/恢复承接工程通过，原件离线保四段；原live仍not_passed，无新live。跨进程候选恢复未接；未push/合main/部署、8792未切 → `fwp-wt-research-answer-preservation/docs/handoffs/inflight/feat-research-answer-preservation.md`。 |
 | 市场—板块—个股历史过程研究 | pi | blocked | WIP #783，ba281381接力状态/日数/原因同卡，旧原件只读兼容；固定四叶11566P与7+4变异通过、1528e917归档已推。仅工程/脚本送达证据，未重跑真模型，最近fbd8四题仍失败；同窗/启动特征/主动原件消费待修，未合未部署 → `fwp-wt-history-market-anatomy/docs/handoffs/inflight/feat-history-market-anatomy.md`。 |
 | 09-16/17 local夜跑恢复 | pi | done | 生产数据/报告/L2/快照已验；配置恢复local，仅指数模块最小部署。生成根后续部署见#50行，方法协议迁移另办；`fwp-wt-nightly-review-0917/docs/handoffs/inflight/fix-nightly-review-0917.md`。 |
-| R5财报与计算交付 | pi | blocked | dfd7b4ff干净工程11929P、前端107P/E2E34P2S、14+16组反证通过；未新增自然复验，R3仍0/4。预算不足不取消必答，产物指标不由标题认证；未push/合main/部署 → `fwp-wt-8792-financial-contracts-r5/docs/handoffs/inflight/fix-8792-financial-contracts-r5.md`。 |
+| R5财报与计算交付 / R6验收 | pi | blocked | dfd7b4ff工程与自然验收分账；R6已按授权固定四题首发，整体未过，不翻旧R3。比较口径、正文/产物一致性及完整性提示仍待修；未push/合main/部署 → `fwp-wt-8792-financial-r6/docs/handoffs/inflight/baseline-8792-financial-r6.md`。 |
 | 8792边界组合候选 | pi | blocked | R4 97ca716b离线修指代/跨表达阈值/清单边界/日期角色，干净工程11852P、前端107P/E2E34P2S/16类反证；无新live。R3固定c481四首题仍0/4 not_passed；选期/截止/缺基线与TTL冲突未签。8792未切，未push/合main/部署 → `fwp-wt-8792-boundary-integration/docs/handoffs/inflight/fix-8792-boundary-integration.md`。 |
 | E27引用数字门修复 | pi | done | 代码2841ce66，冻结样本与干净Python全量已验；真入口/四叶准入另验，未合未部署 → `fwp-wt-citation-numeric-gate-0917/docs/handoffs/inflight/fix-citation-numeric-gate-0917.md`。 |
 | 8792 三类边界工程返修 | pi | done | 代码6f9df75a，正式回归/原QC及固定提交四叶通过；未push/合main/部署，无修复版真模型验收 → `fwp-wt-8792-readiness-fixes/docs/handoffs/inflight/fix-8792-readiness-boundaries.md`。 |
@@ -175,6 +175,7 @@ per-user 不是进程级；`runtime_backend_readiness` 这个全局探针看不�
 
 - 2026-09-18 · coding-agent · 两仓合并验收与registry漏同步收口，部署另办 → `docs/handoffs/2026-09-18-kb-retrieval-merge-acceptance.md`。
 
+- 2026-09-18 · pi · R6固定候选真实验收收口：计算产物、正文、实际登记分账，不以局部绿签整题 → `fwp-wt-8792-financial-r6/docs/handoffs/2026-09-18-8792-financial-live-r6.md`；方法 [[contract-vs-delivery-mismatch]]。
 - 2026-09-18 · pi · R5财报/计算合同dfd7b4ff工程通过、无新live；预算不足不取消交付义务 → `fwp-wt-8792-financial-contracts-r5/docs/handoffs/2026-09-18-8792-financial-contracts-r5.md`；方法 [[contract-vs-delivery-mismatch]]。
 - 2026-09-18 · pi · 数据消费与答案正确分层验收，不以工程绿代签交付 → `fwp-wt-research-data-readiness/docs/handoffs/2026-09-18-research-data-readiness.md`；方法 [[contract-vs-delivery-mismatch]]。
 
