@@ -76,7 +76,7 @@ DuckDB → detect_turning_points.py / backtest_sector.py → 信号+板块边际
 | runtime 行为合同修复 | pi | doing | P0、子存储7f6b201d及恢复确认371b0ef7各固定四叶/撤保护通过；不是跨进程driver，预算/证据现场及P1余项/P2待补。首轮provenance红根因未明；无真实质量/独立复核、未合未部署 → `fwp-wt-runtime-contracts-0918/docs/handoffs/inflight/fix-runtime-contracts-0918.md`。 |
 | pi/dsh runtime 炼化审计 | pi | done | 固定生产bf662e93，三反例确认保存失败/压缩回读/截断调用边界；未改runtime、未合未部署。报告与探针e251d30a，交接c5576ef4 → `baseline/runtime-absorption-audit-0918:docs/handoffs/2026-09-18-pi-dsh-runtime-absorption-audit.md`。 |
 | 研究答案保留 | pi | blocked | 35ee8a5c工程/原件回放通过；09-18用户授权新版live，当前Keychain搜索范围未找到指定gpt-5.6-sol凭据，0题/0模型调用/0服务启动，未换GLM。原live仍not_passed、新live not_run；跨进程恢复未接、未push/合main/部署、8792未切 → `fwp-wt-research-answer-preservation/docs/handoffs/inflight/feat-research-answer-preservation.md`。 |
-| 市场—板块—个股历史过程研究 | pi | blocked | WIP #783，ba281381接力状态/日数/原因同卡，旧原件只读兼容；固定四叶11566P与7+4变异通过、1528e917归档已推。仅工程/脚本送达证据，未重跑真模型，最近fbd8四题仍失败；同窗/启动特征/主动原件消费待修，未合未部署 → `fwp-wt-history-market-anatomy/docs/handoffs/inflight/feat-history-market-anatomy.md`。 |
+| 市场—板块—个股历史过程研究 | pi | blocked | WIP #783，f9可信历史用途贯通提示/修复/收据/登记；672abcc5修测试任务回收，冻结四叶11579P与历史19项、三夹具删join反证通过，742df6f3归档保留f9全量红。未重跑真模型，最近fbd8四题仍失败；同窗/启动特征及控制组/主动原件消费待修，未合未部署 → `fwp-wt-history-market-anatomy/docs/handoffs/inflight/feat-history-market-anatomy.md`。 |
 | 09-16/17 local夜跑恢复 | pi | done | 生产数据/报告/L2/快照已验；配置恢复local，仅指数模块最小部署。生成根后续部署见#50行，方法协议迁移另办；`fwp-wt-nightly-review-0917/docs/handoffs/inflight/fix-nightly-review-0917.md`。 |
 | R5财报与计算交付 / R6验收 | pi | blocked | dfd7b4ff工程与自然验收分账；R6已按授权固定四题首发，整体未过，不翻旧R3。比较口径、正文/产物一致性及完整性提示仍待修；未push/合main/部署 → `fwp-wt-8792-financial-r6/docs/handoffs/inflight/baseline-8792-financial-r6.md`。 |
 | 8792边界组合候选 | pi | blocked | R4 97ca716b离线修指代/跨表达阈值/清单边界/日期角色，干净工程11852P、前端107P/E2E34P2S/16类反证；无新live。R3固定c481四首题仍0/4 not_passed；选期/截止/缺基线与TTL冲突未签。8792未切，未push/合main/部署 → `fwp-wt-8792-boundary-integration/docs/handoffs/inflight/fix-8792-boundary-integration.md`。 |
@@ -171,6 +171,7 @@ per-user 不是进程级；`runtime_backend_readiness` 这个全局探针看不�
 
 ## 交接记录
 
+- 2026-09-18 · pi · 历史用途贯通与测试后台回收工程通过，不倒签真实四题 → `fwp-wt-history-market-anatomy/docs/handoffs/2026-09-18-history-expression-and-fixture-lifetime.md`；方法 [[contract-vs-delivery-mismatch]]、[[terminal-signal-scope-and-projection-waits]]。
 - 2026-09-18 · pi · 新版live停于Keychain凭据前置（0提交、不换模型）→ `fwp-wt-research-answer-preservation/docs/handoffs/2026-09-18-finish-candidate-live-preflight.md`。
 - 2026-09-18 · pi · 准入前保稿与认证分账，35ee8a5c工程/原件回放通过但不改旧live失败 → `fwp-wt-research-answer-preservation/docs/handoffs/2026-09-18-finish-candidate-preservation.md`；方法 [[gate-covers-only-its-return-value]]。
 
