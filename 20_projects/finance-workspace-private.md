@@ -73,7 +73,7 @@ DuckDB → detect_turning_points.py / backtest_sector.py → 信号+板块边际
 |---|---|---|---|
 | 09-19 分支收口 / T3 合流QC | coding-agent | blocked | 业务仍d46c2c3b；新只读量具52f6dee7/留证81cbbec7已推。原量具6/4/16P，本窗新比率反例4P10F（五输入×两模式失败，两控制过），尚未修业务；补全公告4P4F另计。ARL-0005首600秒超时后，用户继续授权同请求一次1200秒/$6补审，1189.272秒返回CR但check_manifest无效/authority none（61必需只对上26，漏35）；未再调用/补裁决。旧三份有效CR与0004无效PASS保留。d46全量12173P与旧固定三仓收据不移签新tip；本窗机械预检1301P/46变异非独立批准。自然金融会话0、旧not_passed不翻案，未合/部署/改生产。331原件留证；下一步原q线先修确认反例，不重复求绿 → `fwp-q-research-data-readiness/docs/handoffs/inflight/q-research-data-readiness.md`。 |
 | A股研究数据链 | pi | blocked | a31b572f结果准入/有限正文检查/同会话续修与引用保留已提交；固定工程11635P、13组新撤保护通过；旧默认35组兼容复跑完成。零新自然模型会话，整体回答质量仍未过；8907已停、8792未动 → `fwp-wt-research-data-readiness/docs/handoffs/inflight/feat-research-data-readiness.md`。 |
-| KB双索引部署 | coding-agent | blocked | 本轮代码+文档合并验收已收尾，最终文档身份另获前后完整绿收据，代码main真实消费者14例只签接线/过滤。生产阶段仍blocked：维护链实现/故障恢复与操作授权待，14页隔离、防写保留、8792未切；身份看PR/看板，收据见[#787最终裁决](http://127.0.0.1:3300/a77/finance-workspace-private/pulls/787#issuecomment-4979) → `docs/handoffs/2026-09-19-kb-v4-merge-acceptance.md`。 |
+| KB双索引部署 | coding-agent | blocked | 本轮代码+文档合并验收已收尾，最终文档身份另获前后完整绿收据，代码main真实消费者14例只签接线/过滤。生产阶段仍blocked：维护链源码与离线恢复验收已完成（KB #155待合）；生产操作授权与整机验收待，14页隔离、防写保留、8792未切；身份看PR/看板，收据见[#787最终裁决](http://127.0.0.1:3300/a77/finance-workspace-private/pulls/787#issuecomment-4979) → `docs/handoffs/2026-09-19-kb-v4-merge-acceptance.md`。 |
 | KB过滤回执消费 | coding-agent | done | 代码验收收口见 `docs/handoffs/2026-09-18-kb-retrieval-merge-acceptance.md`；部署/索引迁移未执行，生产仍bf662e93；合入身份以PR#784/看板为准。 |
 | runtime 行为合同修复 | pi | doing | 授权快照576d4764/6b70e540接续预算前置：完整当前授权精确重验，升档先保存且不抹执行位置；22新变异、旧四组及固定四叶11687P通过。首冻11F夹具修正/真前缀首红保留；仍非跨进程driver，入口身份/证据消息/单写者/未知效果对账待补。无真实质量/独立复核、未合未部署 → `fwp-wt-runtime-contracts-0918/docs/handoffs/inflight/fix-runtime-contracts-0918.md`。 |
 | pi/dsh runtime 炼化审计 | pi | done | 固定生产bf662e93，三反例确认保存失败/压缩回读/截断调用边界；未改runtime、未合未部署。报告与探针e251d30a，交接c5576ef4 → `baseline/runtime-absorption-audit-0918:docs/handoffs/2026-09-18-pi-dsh-runtime-absorption-audit.md`。 |
@@ -177,6 +177,8 @@ per-user 不是进程级；`runtime_backend_readiness` 这个全局探针看不�
 而 CLI/回检走 `~/.zshrc` 里的 `/Users/a77/agent-memory/.foresight`——**两套用户台账不是同一份**。
 
 ## 交接记录
+
+- 2026-09-20 · codex · 执行保全与串行合流，生产和待认领工作树保留 → [执行交接](/Users/a77/fwp-wt-open-work-spec/docs/handoffs/2026-09-20-open-work-execution.md)。
 
 - 2026-09-20 · claude-code · 在途工作总盘点：313树/57未合分支/约30条未推/8792=bf662e93/publish-daily预检失败/生成根跑未合入387028b8；冲突矩阵+合并顺序+10项裁决 → [#789](http://127.0.0.1:3300/a77/finance-workspace-private/pulls/789) / `docs/superpowers/specs/2026-09-20-open-work-consolidation-spec.md`。
 

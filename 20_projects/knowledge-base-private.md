@@ -39,7 +39,7 @@ related: ["[[finance-workspace-private]]", "[[finance-research-site]]", "[[finan
 ## 任务看板
 | 任务 | 负责 | 状态 | 备注 |
 |---|---|---|---|
-| 双索引生产迁移 | coding-agent | blocked | 本轮代码/文档验收已收尾，KB最终文档身份另获前后837P/质量守卫全绿，配对金融完整门禁通过；代码main真实14例只签接线/过滤。生产阶段仍blocked：维护链/授权待，各14页冲突隔离，防写保留、8792未切。身份看[#154](http://127.0.0.1:3300/a77/knowledge-base-private/pulls/154)/看板，最终收据见金融[#787裁决](http://127.0.0.1:3300/a77/finance-workspace-private/pulls/787#issuecomment-4979) → `docs/handoffs/2026-09-19-rag-v4-merge-acceptance.md`。 |
+| 双索引生产迁移 | coding-agent | blocked | 本轮代码/文档验收已收尾，KB最终文档身份另获前后837P/质量守卫全绿，配对金融完整门禁通过；代码main真实14例只签接线/过滤。生产阶段仍blocked：维护链源码与离线验收已完成（#155待合），生产操作授权与整机验收待，各14页冲突隔离，防写保留、8792未切。身份看[#154](http://127.0.0.1:3300/a77/knowledge-base-private/pulls/154)/看板，最终收据见金融[#787裁决](http://127.0.0.1:3300/a77/finance-workspace-private/pulls/787#issuecomment-4979) → `docs/handoffs/2026-09-19-rag-v4-merge-acceptance.md`。 |
 | Agent 检索可靠性 | coding-agent | done | 代码验收收口见 `docs/handoffs/2026-09-18-retrieval-merge-acceptance.md`；正文冲突仍隔离、生产迁移未做；合入身份以PR#151/看板为准。 |
 | RAG P0：page_id 消歧 + freshness 单一事实源 | cursor | done | 代码在 main（#304/#305 git merge）；闸门修复 #306 待合；索引 v1→v3 update 进行中 |
 | Top-30 P0 纵切片首批闭环 | devin | done | PR #258（堆叠 #257），明细见 wiki/log.md #2880 |
@@ -56,6 +56,8 @@ related: ["[[finance-workspace-private]]", "[[finance-research-site]]", "[[finan
 | 全A实体页缺口（非ST） | cursor | doing | 改走巨潮年报。脏树未动。wave97 [!124](http://127.0.0.1:3300/a77/knowledge-base-private/pulls/124) `#6804–#6822`（嘉益股份→大地海洋；义翘神州 `#5414` skip）。本轮按用户要求停，不开 wave98。年报栈先合 !51→!93→!95→…→!120→!124（!94 是无关 harness；!119/!121–!123 不在此栈）。 |
 
 ## 交接记录
+
+- 2026-09-20 · codex · 维护链按整代审批/单指针消费交付，生产保护保留 → [KB #155](http://127.0.0.1:3300/a77/knowledge-base-private/pulls/155)。
 
 - 2026-09-19 · coding-agent · v4合并验收与生产边界分开，原文不改、14页隔离仍保留 → [#153](http://127.0.0.1:3300/a77/knowledge-base-private/pulls/153) / `docs/handoffs/2026-09-19-rag-v4-merge-acceptance.md`。
 - 2026-09-19 · coding-agent · 最终文档身份单独验，原字节证据外置封存、不改提交求收据闭合 → [#154](http://127.0.0.1:3300/a77/knowledge-base-private/pulls/154) / 金融[#787最终裁决](http://127.0.0.1:3300/a77/finance-workspace-private/pulls/787#issuecomment-4979)。
