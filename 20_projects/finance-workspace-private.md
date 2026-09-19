@@ -178,6 +178,8 @@ per-user 不是进程级；`runtime_backend_readiness` 这个全局探针看不�
 
 ## 交接记录
 
+- 2026-09-20 · claude-code · 在途工作总盘点：313树/57未合分支/约30条未推/8792=bf662e93/publish-daily预检失败/生成根跑未合入387028b8；冲突矩阵+合并顺序+10项裁决 → [#789](http://127.0.0.1:3300/a77/finance-workspace-private/pulls/789) / `docs/superpowers/specs/2026-09-20-open-work-consolidation-spec.md`。
+
 - 2026-09-19 · claude-code · T3五类残余反例已修（业务6fb37a6e）：同一量具4P10F→14P0F，冻结全量12259P、52变异、三仓registry绿，无外审调用仍停合 → `fwp-q-research-data-readiness/docs/handoffs/2026-09-19-t3-residue-repair.md`；方法 [[../10_knowledge/contract-vs-delivery-mismatch]]。
 
 - 2026-09-19 · coding-agent · T3有界补审清单不符无效；新量具4P10F，52f/81c留证停合 → `fwp-q-research-data-readiness/docs/handoffs/2026-09-19-t3-boundary-review-retry.md`；方法 [[../10_knowledge/contract-vs-delivery-mismatch]]。
