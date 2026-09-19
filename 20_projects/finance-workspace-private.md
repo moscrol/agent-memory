@@ -71,7 +71,7 @@ DuckDB → detect_turning_points.py / backtest_sector.py → 信号+板块边际
 ## 任务看板
 | 任务 | 负责 | 状态 | 备注 |
 |---|---|---|---|
-| 09-19 分支收口 / T3 合流QC | coding-agent | blocked | 原q线两轮返修，业务79dba348/留证tip58f38d89已推。79既有完整门11912P/前端110P/E2E34P2S/三仓registry及28变异过；三轮有效外审均CHANGES_REQUIRED，不再是超时无裁决。“待核对，实际为1.587”绕过真公开出口，原样四例0P/4F，尚未修；58仅复验旧六例6P/新四例全红，无58全量收据。自然金融会话0、旧not_passed不翻案；不合main/部署，生产与他人树未动 → `fwp-q-research-data-readiness/docs/handoffs/inflight/q-research-data-readiness.md`。 |
+| 09-19 分支收口 / T3 合流QC | coding-agent | blocked | 原q线续修业务746b716f/留证tipd402a563已推。746既有全量11988P、前端110P/E2E34P2S/三仓registry/36变异过；原保真6P、占位四例4P。ARL-0004首调本地Prompt too long，补试总PASS却5项必需PARTIAL，原门禁拒为INVALID_VERDICT/authority none，非有效外审通过；旧三份CR未覆盖。新边界探针4P12F：三类新误报（序号/千分位/的邻期）+三类既有漏检（单位/分号）；d402仅复验6P/4P/4P12F，无新tip全量。自然金融会话0、旧not_passed不翻案；未合/未部署，生产与他人树未动 → `fwp-q-research-data-readiness/docs/handoffs/inflight/q-research-data-readiness.md`。 |
 | A股研究数据链 | pi | blocked | a31b572f结果准入/有限正文检查/同会话续修与引用保留已提交；固定工程11635P、13组新撤保护通过；旧默认35组兼容复跑完成。零新自然模型会话，整体回答质量仍未过；8907已停、8792未动 → `fwp-wt-research-data-readiness/docs/handoffs/inflight/feat-research-data-readiness.md`。 |
 | KB双索引部署 | coding-agent | blocked | 本轮代码+文档合并验收已收尾，最终文档身份另获前后完整绿收据，代码main真实消费者14例只签接线/过滤。生产阶段仍blocked：维护链实现/故障恢复与操作授权待，14页隔离、防写保留、8792未切；身份看PR/看板，收据见[#787最终裁决](http://127.0.0.1:3300/a77/finance-workspace-private/pulls/787#issuecomment-4979) → `docs/handoffs/2026-09-19-kb-v4-merge-acceptance.md`。 |
 | KB过滤回执消费 | coding-agent | done | 代码验收收口见 `docs/handoffs/2026-09-18-kb-retrieval-merge-acceptance.md`；部署/索引迁移未执行，生产仍bf662e93；合入身份以PR#784/看板为准。 |
@@ -177,6 +177,8 @@ per-user 不是进程级；`runtime_backend_readiness` 这个全局探针看不�
 而 CLI/回检走 `~/.zshrc` 里的 `/Users/a77/agent-memory/.foresight`——**两套用户台账不是同一份**。
 
 ## 交接记录
+
+- 2026-09-19 · coding-agent · T3值槽续检746/留证d402已推；原四例绿，外审裁决无效且新边界4P12F，仍停合 → `fwp-q-research-data-readiness/docs/handoffs/2026-09-19-t3-ratio-scope-review.md`；方法 [[../10_knowledge/contract-vs-delivery-mismatch]]。
 
 - 2026-09-19 · coding-agent · T3两轮返修/三份CHANGES_REQUIRED及占位绕过留红，58f38d89已推停合 → `fwp-q-research-data-readiness/docs/handoffs/2026-09-19-t3-review-counterexamples.md`；方法 [[../10_knowledge/contract-vs-delivery-mismatch]]。
 
