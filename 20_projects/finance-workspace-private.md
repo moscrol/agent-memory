@@ -178,7 +178,6 @@ per-user 不是进程级；`runtime_backend_readiness` 这个全局探针看不�
 
 ## 交接记录
 
-- 2026-09-20 · codex · 执行保全与串行合流，生产和待认领工作树保留 → [执行交接](/Users/a77/fwp-wt-open-work-spec/docs/handoffs/2026-09-20-open-work-execution.md)。
 
 - 2026-09-20 · claude-code · 在途工作总盘点：313树/57未合分支/约30条未推/8792=bf662e93/publish-daily预检失败/生成根跑未合入387028b8；冲突矩阵+合并顺序+10项裁决 → [#789](http://127.0.0.1:3300/a77/finance-workspace-private/pulls/789) / `docs/superpowers/specs/2026-09-20-open-work-consolidation-spec.md`。
 
@@ -892,6 +891,7 @@ per-user 不是进程级；`runtime_backend_readiness` 这个全局探针看不�
 - 2026-09-16 · claude · E2 **P5（D7）跨轮逐轴继承**已完工待审：`feat/e2-p5-cross-turn-inheritance` → **PR #759（开着，合并等确认）**。把 A7 五格压到真实 run_turn→decide_turn→Episode，修两处真缺陷（同值重申前提标注不幂等、上一轮题级标注在本轮渲染成裸题号）；四叶绿（pytest 10963P/0F、frontend 94P、e2e 31P、registry 五条 0），删保护变异 3/3 红。正文 `docs/handoffs/2026-09-16-e2-p5-cross-turn-inheritance.md`。下一片 P6（D6 条件化纯度 + 材料锚点 + 历史句排除），收口点 `build_episode_input`
 
 - 2026-09-18 · pi · 授权快照6b70e540：重验许可不抹执行位置，22变异/四叶通过但不开放跨进程续跑 → `fwp-wt-runtime-contracts-0918/docs/handoffs/2026-09-18-runtime-authorization-snapshot.md`。
+- 2026-09-20 · codex · 执行保全与串行合流，生产和待认领工作树保留 → [执行交接](/Users/a77/fwp-wt-open-work-spec/docs/handoffs/2026-09-20-open-work-execution.md)。
 
 ## 2026-07-18 PR #268 验证
 - #268（orphan marker 归一化）已合并，main CI 全绿（PR 上的 workbench-check failure 为 corepack 下载 pnpm 的网络抖动，与代码无关）。
