@@ -71,7 +71,7 @@ DuckDB → detect_turning_points.py / backtest_sector.py → 信号+板块边际
 ## 任务看板
 | 任务 | 负责 | 状态 | 备注 |
 |---|---|---|---|
-| 09-19 分支收口 / T3 合流QC | coding-agent | blocked | 原q线六类边界修复业务d46c2c3b/留证tipb78dbe3b已推。d46全量12173P/87S/2x、前端110P/E2E34P2S、固定三仓五项/46变异过；原保真6P/占位4P/边界16P，旧4P12F原件保留。ARL-0005唯一有界调用600秒超时、无最终裁决，未自动补试；旧三份CR及0004无效PASS未获有效覆盖。常规队列仍选0004，本轮operations明确指向0005且未改准入器，不冒称gate批准。b78仅有限复验6P/4P/16P，无新tip全量。自然金融会话0、旧not_passed不翻案；未合/未部署，生产与他人树未动 → `fwp-q-research-data-readiness/docs/handoffs/inflight/q-research-data-readiness.md`。 |
+| 09-19 分支收口 / T3 合流QC | coding-agent | blocked | 业务仍d46c2c3b；新只读量具52f6dee7/留证81cbbec7已推。原量具6/4/16P，本窗新比率反例4P10F（五输入×两模式失败，两控制过），尚未修业务；补全公告4P4F另计。ARL-0005首600秒超时后，用户继续授权同请求一次1200秒/$6补审，1189.272秒返回CR但check_manifest无效/authority none（61必需只对上26，漏35）；未再调用/补裁决。旧三份有效CR与0004无效PASS保留。d46全量12173P与旧固定三仓收据不移签新tip；本窗机械预检1301P/46变异非独立批准。自然金融会话0、旧not_passed不翻案，未合/部署/改生产。331原件留证；下一步原q线先修确认反例，不重复求绿 → `fwp-q-research-data-readiness/docs/handoffs/inflight/q-research-data-readiness.md`。 |
 | A股研究数据链 | pi | blocked | a31b572f结果准入/有限正文检查/同会话续修与引用保留已提交；固定工程11635P、13组新撤保护通过；旧默认35组兼容复跑完成。零新自然模型会话，整体回答质量仍未过；8907已停、8792未动 → `fwp-wt-research-data-readiness/docs/handoffs/inflight/feat-research-data-readiness.md`。 |
 | KB双索引部署 | coding-agent | blocked | 本轮代码+文档合并验收已收尾，最终文档身份另获前后完整绿收据，代码main真实消费者14例只签接线/过滤。生产阶段仍blocked：维护链实现/故障恢复与操作授权待，14页隔离、防写保留、8792未切；身份看PR/看板，收据见[#787最终裁决](http://127.0.0.1:3300/a77/finance-workspace-private/pulls/787#issuecomment-4979) → `docs/handoffs/2026-09-19-kb-v4-merge-acceptance.md`。 |
 | KB过滤回执消费 | coding-agent | done | 代码验收收口见 `docs/handoffs/2026-09-18-kb-retrieval-merge-acceptance.md`；部署/索引迁移未执行，生产仍bf662e93；合入身份以PR#784/看板为准。 |
@@ -177,6 +177,8 @@ per-user 不是进程级；`runtime_backend_readiness` 这个全局探针看不�
 而 CLI/回检走 `~/.zshrc` 里的 `/Users/a77/agent-memory/.foresight`——**两套用户台账不是同一份**。
 
 ## 交接记录
+
+- 2026-09-19 · coding-agent · T3有界补审清单不符无效；新量具4P10F，52f/81c留证停合 → `fwp-q-research-data-readiness/docs/handoffs/2026-09-19-t3-boundary-review-retry.md`；方法 [[../10_knowledge/contract-vs-delivery-mismatch]]。
 
 - 2026-09-19 · coding-agent · T3六类边界d46/留证b78已推；原探针16P，全量12173P，单次外审超时无裁决仍停合 → `fwp-q-research-data-readiness/docs/handoffs/2026-09-19-t3-ratio-boundary-repair.md`；方法 [[../10_knowledge/contract-vs-delivery-mismatch]]。
 
