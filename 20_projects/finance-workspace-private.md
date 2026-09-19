@@ -71,7 +71,7 @@ DuckDB → detect_turning_points.py / backtest_sector.py → 信号+板块边际
 ## 任务看板
 | 任务 | 负责 | 状态 | 备注 |
 |---|---|---|---|
-| 09-19 分支收口 / T3 合流QC | coding-agent | blocked | 三shim原字节已封存推Gitea；接续q候选d12，核已有11681P并补前端110P/E2E34P2S/定向174P，固定三仓registry通过。新增真实verifier标点反例4P/2F：逗号连坐删可信正文/引用，故停合；未改业务/生产，0新模型。证据提交d38dab3f → `fwp-q-research-data-readiness/docs/handoffs/inflight/q-research-data-readiness.md`。 |
+| 09-19 分支收口 / T3 合流QC | coding-agent | blocked | 原q整合线a2a33019已修误删并推Gitea：检测上下文/修改范围分开，比率仅标错值。干净全量11754P、前端110P/E2E34P2S、固定三仓registry通过；原样六例6P、17撤保护通过。独立审查一次CLI尝试600秒超时无裁决，预检绿不代签；自然金融会话0，旧not_passed不翻案。不合main/部署，shim封存与生产未动 → `fwp-q-research-data-readiness/docs/handoffs/inflight/q-research-data-readiness.md`。 |
 | A股研究数据链 | pi | blocked | a31b572f结果准入/有限正文检查/同会话续修与引用保留已提交；固定工程11635P、13组新撤保护通过；旧默认35组兼容复跑完成。零新自然模型会话，整体回答质量仍未过；8907已停、8792未动 → `fwp-wt-research-data-readiness/docs/handoffs/inflight/feat-research-data-readiness.md`。 |
 | KB双索引部署 | coding-agent | blocked | 本轮代码+文档合并验收已收尾，最终文档身份另获前后完整绿收据，代码main真实消费者14例只签接线/过滤。生产阶段仍blocked：维护链实现/故障恢复与操作授权待，14页隔离、防写保留、8792未切；身份看PR/看板，收据见[#787最终裁决](http://127.0.0.1:3300/a77/finance-workspace-private/pulls/787#issuecomment-4979) → `docs/handoffs/2026-09-19-kb-v4-merge-acceptance.md`。 |
 | KB过滤回执消费 | coding-agent | done | 代码验收收口见 `docs/handoffs/2026-09-18-kb-retrieval-merge-acceptance.md`；部署/索引迁移未执行，生产仍bf662e93；合入身份以PR#784/看板为准。 |
@@ -177,6 +177,8 @@ per-user 不是进程级；`runtime_backend_readiness` 这个全局探针看不�
 而 CLI/回检走 `~/.zshrc` 里的 `/Users/a77/agent-memory/.foresight`——**两套用户台账不是同一份**。
 
 ## 交接记录
+
+- 2026-09-19 · coding-agent · T3原线返修a2：工程/原反例过，独立审查超时停合 → `fwp-q-research-data-readiness/docs/handoffs/2026-09-19-t3-retention-repair.md`；方法 [[../10_knowledge/contract-vs-delivery-mismatch]]。
 
 - 2026-09-19 · coding-agent · shim封存、接续T3验收；工程绿仍有可信句误删反例，停合不代修 → `fwp-q-research-data-readiness/docs/handoffs/2026-09-19-t3-convergence-qc.md`；方法 [[../10_knowledge/contract-vs-delivery-mismatch]]。
 
