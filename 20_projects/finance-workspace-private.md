@@ -71,7 +71,7 @@ DuckDB → detect_turning_points.py / backtest_sector.py → 信号+板块边际
 ## 任务看板
 | 任务 | 负责 | 状态 | 备注 |
 |---|---|---|---|
-| 09-19 分支收口 / T3 合流QC | coding-agent | blocked | 原q整合线a2a33019已修误删并推Gitea：检测上下文/修改范围分开，比率仅标错值。干净全量11754P、前端110P/E2E34P2S、固定三仓registry通过；原样六例6P、17撤保护通过。独立审查一次CLI尝试600秒超时无裁决，预检绿不代签；自然金融会话0，旧not_passed不翻案。不合main/部署，shim封存与生产未动 → `fwp-q-research-data-readiness/docs/handoffs/inflight/q-research-data-readiness.md`。 |
+| 09-19 分支收口 / T3 合流QC | coding-agent | blocked | 原q线两轮返修，业务79dba348/留证tip58f38d89已推。79既有完整门11912P/前端110P/E2E34P2S/三仓registry及28变异过；三轮有效外审均CHANGES_REQUIRED，不再是超时无裁决。“待核对，实际为1.587”绕过真公开出口，原样四例0P/4F，尚未修；58仅复验旧六例6P/新四例全红，无58全量收据。自然金融会话0、旧not_passed不翻案；不合main/部署，生产与他人树未动 → `fwp-q-research-data-readiness/docs/handoffs/inflight/q-research-data-readiness.md`。 |
 | A股研究数据链 | pi | blocked | a31b572f结果准入/有限正文检查/同会话续修与引用保留已提交；固定工程11635P、13组新撤保护通过；旧默认35组兼容复跑完成。零新自然模型会话，整体回答质量仍未过；8907已停、8792未动 → `fwp-wt-research-data-readiness/docs/handoffs/inflight/feat-research-data-readiness.md`。 |
 | KB双索引部署 | coding-agent | blocked | 本轮代码+文档合并验收已收尾，最终文档身份另获前后完整绿收据，代码main真实消费者14例只签接线/过滤。生产阶段仍blocked：维护链实现/故障恢复与操作授权待，14页隔离、防写保留、8792未切；身份看PR/看板，收据见[#787最终裁决](http://127.0.0.1:3300/a77/finance-workspace-private/pulls/787#issuecomment-4979) → `docs/handoffs/2026-09-19-kb-v4-merge-acceptance.md`。 |
 | KB过滤回执消费 | coding-agent | done | 代码验收收口见 `docs/handoffs/2026-09-18-kb-retrieval-merge-acceptance.md`；部署/索引迁移未执行，生产仍bf662e93；合入身份以PR#784/看板为准。 |
@@ -177,6 +177,8 @@ per-user 不是进程级；`runtime_backend_readiness` 这个全局探针看不�
 而 CLI/回检走 `~/.zshrc` 里的 `/Users/a77/agent-memory/.foresight`——**两套用户台账不是同一份**。
 
 ## 交接记录
+
+- 2026-09-19 · coding-agent · T3两轮返修/三份CHANGES_REQUIRED及占位绕过留红，58f38d89已推停合 → `fwp-q-research-data-readiness/docs/handoffs/2026-09-19-t3-review-counterexamples.md`；方法 [[../10_knowledge/contract-vs-delivery-mismatch]]。
 
 - 2026-09-19 · coding-agent · T3原线返修a2：工程/原反例过，独立审查超时停合 → `fwp-q-research-data-readiness/docs/handoffs/2026-09-19-t3-retention-repair.md`；方法 [[../10_knowledge/contract-vs-delivery-mismatch]]。
 
