@@ -79,6 +79,7 @@ DuckDB → detect_turning_points.py / backtest_sector.py → 信号+板块边际
 | pi/dsh runtime 炼化审计 | pi | done | 固定生产bf662e93，三反例确认保存失败/压缩回读/截断调用边界；未改runtime、未合未部署。报告与探针e251d30a，交接c5576ef4 → `baseline/runtime-absorption-audit-0918:docs/handoffs/2026-09-18-pi-dsh-runtime-absorption-audit.md`。 |
 | 研究答案保留 | pi | blocked | 离线返修cdcbc5a8已收尾：仅顶层draft排版恢复，原件2096字/122证据保留、retained1；有限七类诊断＋原句/原因回同会话修订，不删稿不增预算。精确干净全量11769P/前端115P/E2E34P2S、11撤保护过；4d范围误报中止保留，748文件封存、9旧包不变。本轮新live0，旧三个实际样本仍not_passed，真实自然纠错/金融质量未验；8792未动，未push/合main/部署 → `fwp-wt-research-answer-preservation/docs/handoffs/inflight/feat-research-answer-preservation.md`。 |
 | 市场—板块—个股历史过程研究 | pi | blocked | WIP #783，f9可信历史用途贯通提示/修复/收据/登记；672abcc5修测试任务回收，冻结四叶11579P与历史19项、三夹具删join反证通过，742df6f3归档保留f9全量红。未重跑真模型，最近fbd8四题仍失败；同窗/启动特征及控制组/主动原件消费待修，未合未部署 → `fwp-wt-history-market-anatomy/docs/handoffs/inflight/feat-history-market-anatomy.md`。 |
+| 09-20 夜跑刷新/回填收尾接手 | coding-agent | blocked | #803代码d95b706e修本轮完成判据及Hithink可选skip；固定11913P/前端110P/E2E34P2S/registry与两类变异通过。独立Spec单次额度受阻、0工具无报告，Quality未起；#802回填原双审核实后建PR。跨午夜R2未修、未合main/未部署 → `fwp-wt-nightly-refresh-resume-0920/docs/handoffs/inflight/fix-nightly-refresh-resume-0920.md`。 |
 | 09-16/17 local夜跑恢复 | pi | done | 生产数据/报告/L2/快照已验；配置恢复local，仅指数模块最小部署。生成根后续部署见#50行，方法协议迁移另办；`fwp-wt-nightly-review-0917/docs/handoffs/inflight/fix-nightly-review-0917.md`。 |
 | R5财报与计算交付 / R6验收 | pi | blocked | dfd7b4ff工程与自然验收分账；R6已按授权固定四题首发，整体未过，不翻旧R3。比较口径、正文/产物一致性及完整性提示返修见下一行，未验新自然模型；未push/合main/部署 → `fwp-wt-8792-financial-r6/docs/handoffs/inflight/baseline-8792-financial-r6.md`。 |
 | R6财务原件离线返修 | pi | blocked | d8d6196b仅再接20939 RAG分帧，保金融代码身份/私有pycache换代；a31交付/49fd发布已在，partial正文引用及补修债不变。固定12220P/86S/2X、前端115P/E2E34P2S，RAG九组与原四套过；发布首并发基线180秒超时未归因，后诊断150P及一次限定串行八组通过不翻案，不能签无保留全绿/可合入。宿主registry红，固定三仓五项过；非整枝保稿/runtime合流，旧R6/R3仍0/4，新live0/独立QC未跑，未push/合main/部署 → `fwp-wt-8792-financial-r6-repair/docs/handoffs/inflight/fix-8792-financial-r6-repair.md`。 |
@@ -177,6 +178,8 @@ per-user 不是进程级；`runtime_backend_readiness` 这个全局探针看不�
 而 CLI/回检走 `~/.zshrc` 里的 `/Users/a77/agent-memory/.foresight`——**两套用户台账不是同一份**。
 
 ## 交接记录
+
+- 2026-09-20 · coding-agent · 接手原收尾session，#802补交回填、#803夜跑刷新作者验过但独立审查额度受阻 → `fwp-wt-nightly-refresh-resume-0920/docs/handoffs/inflight/fix-nightly-refresh-resume-0920.md`；原则 [[../10_knowledge/gate-covers-only-its-return-value]]。
 
 - 2026-09-20 · Codex · 未闭环设计按固定源码与离线反例复核，逐片修复、独立双审、候选合流门禁分别记账 → [协调归档 #799](http://127.0.0.1:3300/a77/finance-workspace-private/pulls/799) / `fwp-wt-research-closeout-0920/docs/handoffs/inflight/fix-research-closeout-0920.md`；失败日志环境隔离见 [[../10_knowledge/test-evidence-environment-isolation]]。
 
