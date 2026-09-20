@@ -178,6 +178,7 @@ per-user 不是进程级；`runtime_backend_readiness` 这个全局探针看不�
 
 ## 交接记录
 
+- 2026-09-20 · Codex · 未闭环设计按固定源码与离线反例复核，逐片修复、独立双审、候选合流门禁分别记账 → [协调归档 #799](http://127.0.0.1:3300/a77/finance-workspace-private/pulls/799) / `fwp-wt-research-closeout-0920/docs/handoffs/inflight/fix-research-closeout-0920.md`；失败日志环境隔离见 [[../10_knowledge/test-evidence-environment-isolation]]。
 
 - 2026-09-20 · claude-code · 在途工作总盘点：313树/57未合分支/约30条未推/8792=bf662e93/publish-daily预检失败/生成根跑未合入387028b8；冲突矩阵+合并顺序+10项裁决 → [#789](http://127.0.0.1:3300/a77/finance-workspace-private/pulls/789) / `docs/superpowers/specs/2026-09-20-open-work-consolidation-spec.md`。
 
