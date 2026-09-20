@@ -1071,3 +1071,5 @@ per-user 不是进程级；`runtime_backend_readiness` 这个全局探针看不�
 - 2026-09-20 · codex · 财务比例别名/差值单位有限修复（代码8d281985，交接7149e236，独立复核待）→ `fwp-wt-financial-ratio-units-0920/docs/handoffs/inflight/fix-financial-ratio-units-0920.md`。
 
 - 2026-09-20 · codex · 财务比例Spec前缀单位遗漏返修（26fadf33/文档d2fc872b，原探针12P、定向134P，同轴复验待）→ `fwp-wt-financial-ratio-units-0920/docs/handoffs/2026-09-20-financial-ratio-prefix-unit-repair.md`。
+
+- 2026-09-20 · claude-code · 接手 QC + K3 独立复核：#803（夜跑刷新 R1/I1，代码 d95b706e）Codex 额度阻断后改 pi+kimi-k3 复跑，Spec PASS、Quality PASS(issues=[])，接手对两份报告做哈希/源码位置/探针复跑/变异树咬合/数字回溯五道交叉核验；证据 579c37bb、tip 728f3271 docs-only 门禁绿；查出 #789 关闭无接替指针、共享收据有 d95b706e 的 0 计数收据、337 树中 108 棵可拆待批 → [#803](http://127.0.0.1:3300/a77/finance-workspace-private/pulls/803) / `fwp-wt-nightly-refresh-resume-0920/docs/handoffs/inflight/fix-nightly-refresh-resume-0920.md`；合 main 等用户；方法 [[zsh-unquoted-var-does-not-word-split-rc127-is-not-a-verdict]]。
