@@ -71,6 +71,7 @@ DuckDB → detect_turning_points.py / backtest_sector.py → 信号+板块边际
 ## 任务看板
 | 任务 | 负责 | 状态 | 备注 |
 |---|---|---|---|
+| 同花顺研究观察值第一批 | codex | doing | 06047324：异动/热度/估值接线与只读部署巡检；干净相关445P/8S，两股临时库估值2行/热度10点读回，异动凌晨为空。旧同步树无同花顺步骤且有指数热补丁，未合/部署，待完整门禁与授权 → `fwp-wt-hithink-research-data/docs/handoffs/inflight/feat-hithink-research-data.md`。 |
 | 8792题设与行情根因修复 | codex | blocked | df186f9b已提交；相关回归1728P/12S，但最终live静态PE基数错且judge漏报，未合/部署。需题设年份/数据性质/单位计算合同 → `fwp-wt-8792-premise-market/docs/handoffs/inflight/fix-8792-premise-market-contracts.md`。 |
 | 09-21 两参数计算表格收尾 | coding-agent | doing | [#808](http://127.0.0.1:3300/a77/finance-workspace-private/pulls/808)候选89e6217a：两参推断+prelude v4，原三参不变；完整同SHA门禁见PR收据，不冒称独立验收。未合/未部署，#770材料与重算仍独立 → `docs/handoffs/inflight/fix-fincalc-table-closeout-0921.md`。 |
 | 09-20 陈旧工作前向收尾 | coding-agent | doing | 固定组合5b27fc6b完整门禁11935P/85S/2X、前端110P/E2E34P2S及其余门禁通过。新增[14处变异红绿对照](http://127.0.0.1:3300/a77/finance-workspace-private/pulls/805#issuecomment-5103)，前后75项定向基线通过；86份补充封存，原42份再校验通过，三个检出同SHA干净，候选身份不变。均为作者验证，独立复核/费用上限及合入仍待授权；#804/#807未纳入，#770另办。未合/部署/回填/调模型/删树 → `/Users/a77/.finance-runtime/reviews/stale-closeout-review-20260921/handoff.md`；原组合inflight仍有效。 |
@@ -181,6 +182,8 @@ per-user 不是进程级；`runtime_backend_readiness` 这个全局探针看不�
 而 CLI/回检走 `~/.zshrc` 里的 `/Users/a77/agent-memory/.foresight`——**两套用户台账不是同一份**。
 
 ## 交接记录
+
+- 2026-09-21 · codex · 同花顺研究观察值候选06047324完成，保采集日截止、旧部署缺口另验，不直接换生产 → `fwp-wt-hithink-research-data/docs/handoffs/inflight/feat-hithink-research-data.md`。
 
 - 2026-09-21 · coding-agent · 固定组合5b27fc6b补齐14处变异红绿证据与被动独立复核输入包，不改候选、不冒充独立裁决 → `/Users/a77/.finance-runtime/reviews/stale-closeout-review-20260921/handoff.md`。
 
