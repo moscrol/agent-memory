@@ -186,7 +186,7 @@ per-user 不是进程级；`runtime_backend_readiness` 这个全局探针看不�
 
 - 2026-09-21 · codex · 8792题设/行情/恢复链路隔离修复，财务基数仍验收失败、未部署 → `fwp-wt-8792-premise-market/docs/handoffs/inflight/fix-8792-premise-market-contracts.md`。
 
-- 2026-09-21 · codex · 研究求证意识候选 `696e309a`（默认关；接线通过，8run行为未验收，未部署）→ `fwp-wt-research-reasoning-awareness/docs/handoffs/inflight/feat-research-reasoning-awareness.md`。
+- 2026-09-21 · codex · 研究求证候选续修 `f3dc8717`（输入上限/基线作用域已修；材料、旧快照交付与行为仍未验收，默认关、未部署）→ `fwp-wt-research-reasoning-awareness/docs/handoffs/inflight/feat-research-reasoning-awareness.md`。
 
 - 2026-09-20 · coding-agent · 旧净增量拆为[#806](http://127.0.0.1:3300/a77/finance-workspace-private/pulls/806)/[#805](http://127.0.0.1:3300/a77/finance-workspace-private/pulls/805)，材料尾项不冒认吸收 → 两枝 `docs/handoffs/inflight/fix-{broad-index,generation-degrade}-closeout-0920.md`。
 
