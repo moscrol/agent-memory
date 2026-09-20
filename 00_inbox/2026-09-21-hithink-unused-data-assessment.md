@@ -1,9 +1,9 @@
 ---
 title: 同花顺官方 API 未充分使用的数据与接入优先级
- type: inbox
+type: inbox
 agent: codex
 source: https://fuyao.aicubes.cn/llms-full.txt
- date: 2026-09-21
+date: 2026-09-21
 tags: [inbox, finance, hithink, data-source, research]
 status: draft
 ---
@@ -114,6 +114,10 @@ status: draft
 | fund_indicators | /api/fund/performance/indicators-historical | 18点，估值分位非空 | 3c8a0ea482124851acd1190bdb3c9e9a |
 | futures_basis | /api/futures/basis/main-continuous-latest | 144行，135基差非空 | 8976823c3aee4098b0f6158460a2c7cd |
 | futures_warehouse | /api/futures/warehouse-receipts/historical | 14行 | aeba9ff7c757477ab9ba77d053478064 |
+
+## 笔记校验
+
+已运行 `python3 /Users/a77/agent-memory/scripts/vault_lint.py`。全库结果为 25 errors / 17 warnings，报错均在其他既有文件（缺元数据、死链、镜像漂移等），本笔记未出现在报错项中。未修改那些文件，不宣称全库校验通过。
 
 ## 提炼提示
 
