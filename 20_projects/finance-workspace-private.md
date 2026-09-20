@@ -179,6 +179,8 @@ per-user 不是进程级；`runtime_backend_readiness` 这个全局探针看不�
 
 ## 交接记录
 
+- 2026-09-20 · Codex · 自主研究视角实验候选（469ba766；三组失败对照后单臂接通，质量未验收、默认关）→ `finance-worktrees/adaptive-research-loop/docs/handoffs/inflight/feat-adaptive-research-loop.md`；方法见共享闭环第一性原理笔记的协议边界案例。
+
 - 2026-09-20 · codex · FinArena 独立本机邀请试用版：匿名投票与策略登记分开、无模拟正式胜率，未合 main → `fwp-wt-finance-arena/docs/handoffs/inflight/feat-finance-arena.md`。
 
 - 2026-09-20 · coding-agent · 合入后证据封存发布 → [文档PR #804](http://127.0.0.1:3300/a77/finance-workspace-private/pulls/804)，在途 `docs/handoffs/inflight/docs-pr803-merge-closeout-0920.md`。
