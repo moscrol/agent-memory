@@ -76,7 +76,9 @@ python3 得 71 failed、项目 venv 得 14 failed。不写解释器的计数不�
 
 并发测试结束后读 `latest.json`，可能读到别人的结果；自定义目录只有读方接入、写方仍写默认家，也会让成功测试与收据读取脱节。将唯一收据路径在运行前分配并传给写方，独占创建不可覆盖文件；共享 latest 只作导航。读回再核 revision、解释器、树、实际退出码及非零执行数，失败收据不能因“读成功”而返回 0。显式基线红集比较仍不是可带红合入的授权。
 
-实测用真实 pytest hook 写收据后再由另一个插件替换 latest，新门禁仍读到自己的结果；另测禁用本轮收据且遗留旧 latest 时拒绝。原版首轮 21F 含两条新 helper 缺席，不把 API 不存在记成语义反例。实现：金融候选 `013289c2`，`conftest.py` / `scripts/run_main_gate.sh` / `scripts/main_gate_receipt.py` / `tests/test_main_gate_receipt.py`，[#814](http://127.0.0.1:3300/a77/finance-workspace-private/pulls/814)。通用设计回写 harness-reference `docs/receipt-identity-board-0921`，未合主干。
+实测用真实 pytest hook 写收据后再由另一个插件替换 latest，新门禁仍读到自己的结果；另测禁用本轮收据且遗留旧 latest 时拒绝。原版首轮 21F 含两条新 helper 缺席，不把 API 不存在记成语义反例。实现：金融候选 `d5d807f80`，`conftest.py` / `scripts/run_main_gate.sh` / `scripts/main_gate_receipt.py` / `tests/test_main_gate_receipt.py`，[#814](http://127.0.0.1:3300/a77/finance-workspace-private/pulls/814)。通用设计回写 harness-reference `docs/receipt-identity-board-0921`，未合主干。
+
+第一份完整组合又暴露继承环境的子进程会抢占父路径：`pytest --collect-only` 先落零计数，真正全量12059P结束时被不可覆盖规则挡住，门禁正确保持红。修复把owner进程ID认领前置到pytest configure，子进程不得写父收据，新顶层门禁清外层owner后重新认领。真实子进程反例旧版2F、修后相关49P；另用实际触发的收集测试经过同一门禁1P/1S且读回成功。第一轮原JSON不补写计数，新候选另跑，不能把测试stdout的通过偷换成门禁通过。
 
 ---
 
