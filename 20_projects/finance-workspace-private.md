@@ -204,6 +204,7 @@ per-user 不是进程级；`runtime_backend_readiness` 这个全局探针看不�
 
 - 2026-09-20 · coding-agent · 旧净增量拆为[#806](http://127.0.0.1:3300/a77/finance-workspace-private/pulls/806)/[#805](http://127.0.0.1:3300/a77/finance-workspace-private/pulls/805)，材料尾项不冒认吸收 → 两枝 `docs/handoffs/inflight/fix-{broad-index,generation-degrade}-closeout-0920.md`。
 
+- 2026-09-21 · Codex · 修订传递/时机 `3c30eceb`：SDK完整领域消息、数字补证前投递诊断；完整Python12062P、六撤线和前端/E2E通过，真实模型未验 → `finance-worktrees/adaptive-research-loop/docs/handoffs/2026-09-21-adaptive-repair-delivery.md`。
 - 2026-09-21 · Codex · 同会话审查反馈 `b29f2ad6`/`affe6bdd`：修复诊断误挡材料重写，完整Python12048P、五撤线、前端/E2E通过；公开保真未自然验收 → `finance-worktrees/adaptive-research-loop/docs/handoffs/2026-09-21-adaptive-repair-feedback.md`。
 
 - 2026-09-21 · Codex · 自主研究判官查询身份：0cd4de57 按唯一调用配对保留结构化请求，完整Python12031P/4撤保护通过；未验新模型，公开保真仍阻断、未部署 → `finance-worktrees/adaptive-research-loop/docs/handoffs/2026-09-21-adaptive-query-identity.md`。
