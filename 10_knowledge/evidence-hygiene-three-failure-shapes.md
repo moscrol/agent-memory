@@ -251,7 +251,9 @@ python3 得 71 failed、项目 venv 得 14 failed。不写解释器的计数不�
 - “可读本地”与“只能用已取快照”不同；重新查询同一个库可能改变行、排序或口径，不能伪装成消费原快照。
 - 是否需要研究交付与是否需要新增读取正交；零检索任务也可能需要计算、核验、修订和合法来源绑定。
 
-解析/权限反例已落金融候选分支 `feat/research-reasoning-awareness` 的 `test_reasoning_input_boundaries.py`，三处撤保护变异被抓住；快照恢复尚未实现。来源与失败原件见该分支 `docs/verification/2026-09-21-reasoning-input-boundaries.md`。这是已有工具入口的回归和语义审查方法，不另造通用执行器，不将单次模型表现写成质量趋势。
+解析/权限反例已落金融候选分支 `feat/research-reasoning-awareness` 的 `test_reasoning_input_boundaries.py`，三处撤保护变异被抓住。后续 `7d0afaff` 接入受控单跳恢复：来源身份、登记工件完整性和本轮适用范围分别校验，重新编号，不继承覆盖/完成状态。真实复核14条旧输入、零新增读取，但仍把成交占比说成增量集中，说明传输资格通过不等于推断正确。来源与失败原件见该分支 `docs/verification/2026-09-21-reasoning-input-boundaries.md` 与 `2026-09-21-prior-evidence-review.md`。
+
+完整性门的反例要保持其他条件合法：若篡改成坏JSON，撤掉哈希门仍被解析器挡下，不能证明哈希门有测试。改成等长、schema合法的数值篡改，撤哈希比较才出现误收；会话身份门也做了独立撤保护实验。两项均已恢复，回归进入 `test_prior_evidence.py`。这是已有工具入口的回归和语义审查方法，不另造通用执行器，不将单次模型表现写成质量趋势。
 
 ### 补充：存在、状态与内容是三种证明（2026-09-20）
 
