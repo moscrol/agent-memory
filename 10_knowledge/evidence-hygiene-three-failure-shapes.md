@@ -278,3 +278,7 @@ python3 得 71 failed、项目 venv 得 14 failed。不写解释器的计数不�
 `git status --porcelain -z` 相同只证明文件状态列表相同；验证脏树内容未变还要比二进制 diff 和未跟踪文件哈希。本机文件存在且哈希正确，也不证明文件已提交：收尾实查 24 份 `.log` 被忽略，须再验提交树中的路径和 blob 内容。版本号既可以标识一次修改，也可以标识包含祖先改动的完整快照，不能用「当前提交的 diff 没这几行」否定当前版本包含它们。
 
 测试结果应记录测试时点的首尾 revision/dirty 与每步日志哈希；今天的状态不能补写成历史观测。首尾采样不能检测期间修改后恢复的所有行为，仍需独占检出。正式实现与反例见金融仓 `docs/open-work-consolidation-0920@30ad71a8` 的 `scripts/run_frontend_gate.py`；本轮证据见 #789 下 `docs/verification/2026-09-20-open-work-execution/qc-followup/README.md`。
+
+### 补充：模型报告 PASS 仍需根 QC，且封存清单有时间边界（2026-09-21）
+
+固定候选的第二次 Quality 审查完成后，模型报告七项均 PASS，但根 QC 重新从原始日志计算出 104/104 动态断言、JUnit 199/199，并确认两处质量变异都是基线绿→变异红→恢复绿，才接受为 `PASS_WITH_LIMITS`。两处细节不能被简化：M2 首轮是装置导入失败，最终日志被修正版覆盖，原始 tool result 必须从 events 恢复并和有效三腿分账；模型生成的 SHA256 清单没有覆盖审查结束后写出的 execution/events，必须由独立哈希和外层封存清单补绑。可迁移原则是：**报告的结论、过程失败、清单覆盖范围分别验，不能用一份 exit0 或一份旧清单代替三者。** 本例证据为 `~/.finance-runtime/reviews/stale-closeout-k3-20260921/quality-followup-01/quality-qc-addendum.md` 与外层 manifest；不宣称真实上游覆盖或真实回答质量。
