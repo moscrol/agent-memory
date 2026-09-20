@@ -71,6 +71,7 @@ DuckDB → detect_turning_points.py / backtest_sector.py → 信号+板块边际
 ## 任务看板
 | 任务 | 负责 | 状态 | 备注 |
 |---|---|---|---|
+| 8792题设与行情根因修复 | codex | blocked | df186f9b已提交；相关回归1728P/12S，但最终live静态PE基数错且judge漏报，未合/部署。需题设年份/数据性质/单位计算合同 → `fwp-wt-8792-premise-market/docs/handoffs/inflight/fix-8792-premise-market-contracts.md`。 |
 | 09-20 陈旧工作前向收尾 | coding-agent | doing | 续验固定[#806](http://127.0.0.1:3300/a77/finance-workspace-private/pulls/806)5d46e626：全量11918P/87S/2X；[#805](http://127.0.0.1:3300/a77/finance-workspace-private/pulls/805)4aa80540：11913P/85S/2X。各前端110P/E2E34P2S、Ruff/registry通过、严格同SHA；宽基首轮PATH漏uvx的1F及同条件对照保留。文档[#807](http://127.0.0.1:3300/a77/finance-workspace-private/pulls/807)a77d56e2自身927P，不继承候选签字。待独立验收/合并授权，未部署/回填/调模型/删树；#770及旧尾项仍在途 → `docs/handoffs/2026-09-20-stale-closeout-gates.md`。 |
 | 09-19 分支收口 / T3 合流QC | coding-agent | blocked | 业务仍d46c2c3b；新只读量具52f6dee7/留证81cbbec7已推。原量具6/4/16P，本窗新比率反例4P10F（五输入×两模式失败，两控制过），尚未修业务；补全公告4P4F另计。ARL-0005首600秒超时后，用户继续授权同请求一次1200秒/$6补审，1189.272秒返回CR但check_manifest无效/authority none（61必需只对上26，漏35）；未再调用/补裁决。旧三份有效CR与0004无效PASS保留。d46全量12173P与旧固定三仓收据不移签新tip；本窗机械预检1301P/46变异非独立批准。自然金融会话0、旧not_passed不翻案，未合/部署/改生产。331原件留证；下一步原q线先修确认反例，不重复求绿 → `fwp-q-research-data-readiness/docs/handoffs/inflight/q-research-data-readiness.md`。 |
 | A股研究数据链 | pi | blocked | a31b572f结果准入/有限正文检查/同会话续修与引用保留已提交；固定工程11635P、13组新撤保护通过；旧默认35组兼容复跑完成。零新自然模型会话，整体回答质量仍未过；8907已停、8792未动 → `fwp-wt-research-data-readiness/docs/handoffs/inflight/feat-research-data-readiness.md`。 |
