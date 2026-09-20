@@ -183,6 +183,8 @@ per-user 不是进程级；`runtime_backend_readiness` 这个全局探针看不�
 
 ## 交接记录
 
+- 2026-09-21 · codex · ReAct三片最小修复dda5895a完成干净11972P与独立K3单会话复核，证据封存780ba6b8；金融质量仍未过，生产未动 → [#809](http://127.0.0.1:3300/a77/finance-workspace-private/pulls/809) / `fwp-wt-react-trace-closeout-0921/docs/handoffs/inflight/fix-react-trace-closeout-0921.md`。
+
 - 2026-09-21 · codex · 同花顺研究观察值候选06047324完成，保采集日截止、旧部署缺口另验，不直接换生产 → `fwp-wt-hithink-research-data/docs/handoffs/inflight/feat-hithink-research-data.md`。
 
 - 2026-09-21 · coding-agent · 固定组合5b27fc6b补齐14处变异红绿证据与被动独立复核输入包，不改候选、不冒充独立裁决 → `/Users/a77/.finance-runtime/reviews/stale-closeout-review-20260921/handoff.md`。
