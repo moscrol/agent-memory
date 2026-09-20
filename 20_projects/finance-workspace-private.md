@@ -71,7 +71,7 @@ DuckDB → detect_turning_points.py / backtest_sector.py → 信号+板块边际
 ## 任务看板
 | 任务 | 负责 | 状态 | 备注 |
 |---|---|---|---|
-| 09-21 工作树归属核验与孤儿接管 | codex | blocked | 看板[#812](http://127.0.0.1:3300/a77/finance-workspace-private/pulls/812)、回填[#813](http://127.0.0.1:3300/a77/finance-workspace-private/pulls/813)、收据设施[#814](http://127.0.0.1:3300/a77/finance-workspace-private/pulls/814)均WIP；组合`e1b63b1a`作者全叶12061P/85S/2X、前端110P、E2E34P/2S、registry五项0，独立Spec/Quality与合入待。Arena[#811](http://127.0.0.1:3300/a77/finance-workspace-private/pulls/811)仅保全。未部署/生产回填/删树 → `fwp-wt-ownership-closeout-0921/docs/handoffs/inflight/ops-worktree-ownership-closeout-0921.md`；完整决策见`docs/handoffs/2026-09-21-ownership-followup.md`。 |
+| 09-21 工作树归属核验与孤儿接管 | codex | blocked | #812/#813/#814组合`e1b63b1a`作者全叶12061P/85S/2X、前端110P、E2E34P/2S、registry五项0；Arena前向候选另开[#816](http://127.0.0.1:3300/a77/finance-workspace-private/pulls/816)，固定组合`b8292d23`全仓12104P/85S/2X、Arena43P、Arena E2E8P、前端/registry/smoke全绿。独立Spec/Quality、合入、部署、生产回填、删树仍待 → `fwp-wt-arena-main-ready-0921/docs/handoffs/inflight/fix-arena-main-ready-0921.md`；完整证据`~/.finance-runtime/reviews/arena-main-ready-v2-20260921/evidence/README.md`。 |
 | 同花顺研究观察值第一批 | codex | blocked | [#810](http://127.0.0.1:3300/a77/finance-workspace-private/pulls/810) WIP，当前head `36f76e76a`；运行时代码仍为164b02e4，当前tip定向250P/8S、Ruff及收据校验通过。订阅额度100%/credits0，独立Spec/Quality未执行；非空异动、生产恢复、合main/部署/付费审查仍暂停。旧同步根/生产原样 → `fwp-wt-hithink-research-data/docs/handoffs/inflight/feat-hithink-research-data.md`。 |
 | 8792题设与行情根因修复 | codex | blocked | df186f9b已提交；相关回归1728P/12S，但最终live静态PE基数错且judge漏报，未合/部署。需题设年份/数据性质/单位计算合同 → `fwp-wt-8792-premise-market/docs/handoffs/inflight/fix-8792-premise-market-contracts.md`。 |
 | 09-21 两参数计算表格收尾 | coding-agent | pending merge | 新组合[#815](http://127.0.0.1:3300/a77/finance-workspace-private/pulls/815)固定06f74ef1：逐yield深存行值，prelude v5；旧#808/5b27fc6b有行引用丢数，不是最终合入目标。作者门禁、Spec与新Quality根QC均通过，独立验收PASS_WITH_LIMITS；未合/部署，#770另办 → `~/.finance-runtime/reviews/stale-closeout-k3-20260921/quality-followup-01/README.md`。 |
@@ -220,6 +220,7 @@ per-user 不是进程级；`runtime_backend_readiness` 这个全局探针看不�
 - 2026-09-21 · Codex · 自主研究原四题八次对照完成，1205ee7c 修计划约束/单事实复核；材料授权与公开稿仍失败、默认关 → `finance-worktrees/adaptive-research-loop/docs/handoffs/inflight/feat-adaptive-research-loop.md`；细节见 2026-09-21 日期快照，共享闭环笔记追加审查包保真原则。
 - 2026-09-20 · Codex · 自主研究视角实验候选（469ba766；三组失败对照后单臂接通，质量未验收、默认关）→ `finance-worktrees/adaptive-research-loop/docs/handoffs/inflight/feat-adaptive-research-loop.md`；方法见共享闭环第一性原理笔记的协议边界案例。
 
+- 2026-09-21 · codex · FinArena前向候选`a8fab956`与组合`b8292d23`完成作者工程门禁：全仓12104P/85S/2X、Arena43P、Arena E2E8P、前端和registry全绿；修复公网HTTP本机例外、远端run_id关联、SQLite榜单快照。开WIP PR #816承接#811，独立Spec/Quality、合入、部署未执行 → `fwp-wt-arena-main-ready-0921/docs/handoffs/inflight/fix-arena-main-ready-0921.md` / `~/.finance-runtime/reviews/arena-main-ready-v2-20260921/evidence/README.md`。
 - 2026-09-20 · codex · FinArena 独立本机邀请试用版：匿名投票与策略登记分开、无模拟正式胜率，未合 main → `fwp-wt-finance-arena/docs/handoffs/inflight/feat-finance-arena.md`。
 
 - 2026-09-20 · coding-agent · 合入后证据封存发布 → [文档PR #804](http://127.0.0.1:3300/a77/finance-workspace-private/pulls/804)，在途 `docs/handoffs/inflight/docs-pr803-merge-closeout-0920.md`。
