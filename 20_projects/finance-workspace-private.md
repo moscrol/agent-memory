@@ -71,7 +71,7 @@ DuckDB → detect_turning_points.py / backtest_sector.py → 信号+板块边际
 ## 任务看板
 | 任务 | 负责 | 状态 | 备注 |
 |---|---|---|---|
-| 09-21 工作树归属核验与孤儿接管 | codex | doing | 看板[#812](http://127.0.0.1:3300/a77/finance-workspace-private/pulls/812)、回填[#813](http://127.0.0.1:3300/a77/finance-workspace-private/pulls/813)、收据设施[#814](http://127.0.0.1:3300/a77/finance-workspace-private/pulls/814)均WIP；组合`e1b63b1a`作者全叶12061P/85S/2X、前端110P、E2E34P/2S、registry五项0，独立Spec/Quality与合入待。Arena[#811](http://127.0.0.1:3300/a77/finance-workspace-private/pulls/811)仅保全。未部署/生产回填/删树 → `fwp-wt-ownership-closeout-0921/docs/handoffs/inflight/ops-worktree-ownership-closeout-0921.md`；完整决策见`docs/handoffs/2026-09-21-ownership-followup.md`。 |
+| 09-21 工作树归属核验与孤儿接管 | codex | blocked | 看板[#812](http://127.0.0.1:3300/a77/finance-workspace-private/pulls/812)、回填[#813](http://127.0.0.1:3300/a77/finance-workspace-private/pulls/813)、收据设施[#814](http://127.0.0.1:3300/a77/finance-workspace-private/pulls/814)均WIP；组合`e1b63b1a`作者全叶12061P/85S/2X、前端110P、E2E34P/2S、registry五项0，独立Spec/Quality与合入待。Arena[#811](http://127.0.0.1:3300/a77/finance-workspace-private/pulls/811)仅保全。未部署/生产回填/删树 → `fwp-wt-ownership-closeout-0921/docs/handoffs/inflight/ops-worktree-ownership-closeout-0921.md`；完整决策见`docs/handoffs/2026-09-21-ownership-followup.md`。 |
 | 同花顺研究观察值第一批 | codex | blocked | [#810](http://127.0.0.1:3300/a77/finance-workspace-private/pulls/810) WIP；164b02e4补历史恢复排除latest-only、硬链接生产身份与权限拒绝，干净全量11964P/85S/2X、前端110P/E2E34P2S；交接fe80e9cd不移签。独立签字/生产恢复未完成；合main、部署、付费外审暂停。旧同步根/生产仍原样 → `fwp-wt-hithink-research-data/docs/handoffs/inflight/feat-hithink-research-data.md`。 |
 | 8792题设与行情根因修复 | codex | blocked | df186f9b已提交；相关回归1728P/12S，但最终live静态PE基数错且judge漏报，未合/部署。需题设年份/数据性质/单位计算合同 → `fwp-wt-8792-premise-market/docs/handoffs/inflight/fix-8792-premise-market-contracts.md`。 |
 | 09-21 两参数计算表格收尾 | coding-agent | blocked | 新组合[#815](http://127.0.0.1:3300/a77/finance-workspace-private/pulls/815)固定06f74ef1：逐yield深存行值，prelude v5；旧#808/5b27fc6b有行引用丢数，不是最终合入目标。Spec通过、Quality未完成；未合/部署，#770另办 → `~/.finance-runtime/reviews/stale-closeout-k3-20260921/README.md`。 |
@@ -183,6 +183,8 @@ per-user 不是进程级；`runtime_backend_readiness` 这个全局探针看不�
 而 CLI/回检走 `~/.zshrc` 里的 `/Users/a77/agent-memory/.foresight`——**两套用户台账不是同一份**。
 
 ## 交接记录
+
+- 2026-09-21 · codex · 归属续轮#812/#813/#814形成固定组合e1b63b1a，作者全叶通过；首轮嵌套pytest抢收据的失败原件保留，独立签字/合入/生产未授权，唯一收据与进程写入权补既有证据卫生笔记及harness PR14 → `fwp-wt-ownership-closeout-0921/docs/handoffs/2026-09-21-ownership-followup.md`。
 
 - 2026-09-21 · codex · 三PR合流修可变行丢数并升v5，#815作者门禁绿、Spec通过、Quality预算耗尽阻断；原件分账封存，方法补[[../10_knowledge/evidence-hygiene-three-failure-shapes]]及harness-reference文档分支 → `~/.finance-runtime/reviews/stale-closeout-k3-20260921/handoff.md`。
 
