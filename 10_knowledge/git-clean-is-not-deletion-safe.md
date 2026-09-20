@@ -17,6 +17,14 @@ status: verified
 1. HEAD已合且status为空，ignored路径仍有用户SQLite、检查点、方法验证收据等。2026-09-20初筛125棵“干净已合”树，74棵因未知忽略内容被保留。不能仅凭存放于旧验收树就断言这些是可丢弃夹具。
 2. HEAD已被main包含，reflog（本地Git历史操作记录）中的旧提交却未被main包含。一个候选因此拒删；拆树也会移除私有reflog，不能把HEAD可恢复偷换为历史可恢复。
 
+## 机器读数的前置条件
+
+2026-09-21 再审看板发现，连“Git 干净”本身都可能是错误读数：查询异常被解释为空输出、失效子目录借用了父仓、只看代码脏而漏掉未提交文档。最小规则是先确认仓根，再检查退出码，未知单列保留；`locked` / `prunable` 是待核实元数据，不是清理许可。
+
+Git porcelain 的前两列是状态，开头空格有意义。对完整输出做 `strip()` 会破坏列位置，甚至漏掉单字符文件的修改。只裁末尾换行，测试用真实临时 Git 仓覆盖该反例。多树扫描还须冻结基准 SHA，避免中途 main 移动导致一张表混用多个基准。
+
+实现与九个旧版变红反例：金融仓 `ops/worktree-ownership-closeout-0921` 的 `scripts/worktree_board.py`、`tests/test_worktree_board.py` 和 `docs/verification/2026-09-21-worktree-ownership/`。这些保护只提高初筛可靠性，不替代下面的删除审计。
+
 ## 删除边界
 
 - 看板和补丁等价只用来初筛；精确HEAD、全树状态、ignored完整清单、隐藏index标记、子模块、Git锁/操作、reflog的old/new对象都需另查。
