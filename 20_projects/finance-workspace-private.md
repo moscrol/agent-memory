@@ -1065,3 +1065,5 @@ per-user 不是进程级；`runtime_backend_readiness` 这个全局探针看不�
 - 2026-09-20 · codex · 收尾质检落实：前端首尾身份门禁与两固定提交复验、24份忽略日志补入Git，保留原件和合入边界 → PR #789 / `docs/handoffs/inflight/docs-open-work-consolidation-0920.md`；方法 [[evidence-hygiene-three-failure-shapes]]。
 
 - 2026-09-20 · codex · 财务比例别名/差值单位有限修复（代码8d281985，交接7149e236，独立复核待）→ `fwp-wt-financial-ratio-units-0920/docs/handoffs/inflight/fix-financial-ratio-units-0920.md`。
+
+- 2026-09-20 · codex · 财务比例Spec前缀单位遗漏返修（26fadf33/文档d2fc872b，原探针12P、定向134P，同轴复验待）→ `fwp-wt-financial-ratio-units-0920/docs/handoffs/2026-09-20-financial-ratio-prefix-unit-repair.md`。
