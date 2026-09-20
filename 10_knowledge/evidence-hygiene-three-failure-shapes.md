@@ -72,6 +72,14 @@ python3 得 71 failed、项目 venv 得 14 failed。不写解释器的计数不�
 
 ---
 
+### 补充：共享 latest 不是本轮收据（2026-09-21）
+
+并发测试结束后读 `latest.json`，可能读到别人的结果；自定义目录只有读方接入、写方仍写默认家，也会让成功测试与收据读取脱节。将唯一收据路径在运行前分配并传给写方，独占创建不可覆盖文件；共享 latest 只作导航。读回再核 revision、解释器、树、实际退出码及非零执行数，失败收据不能因“读成功”而返回 0。显式基线红集比较仍不是可带红合入的授权。
+
+实测用真实 pytest hook 写收据后再由另一个插件替换 latest，新门禁仍读到自己的结果；另测禁用本轮收据且遗留旧 latest 时拒绝。原版首轮 21F 含两条新 helper 缺席，不把 API 不存在记成语义反例。实现：金融候选 `013289c2`，`conftest.py` / `scripts/run_main_gate.sh` / `scripts/main_gate_receipt.py` / `tests/test_main_gate_receipt.py`，[#814](http://127.0.0.1:3300/a77/finance-workspace-private/pulls/814)。通用设计回写 harness-reference `docs/receipt-identity-board-0921`，未合主干。
+
+---
+
 ## 形状二：手写清单必漂，且漂时工具照旧发绿
 
 ### 症状

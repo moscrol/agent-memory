@@ -25,6 +25,8 @@ Git porcelain 的前两列是状态，开头空格有意义。对完整输出做
 
 实现与九个旧版变红反例：金融仓 `ops/worktree-ownership-closeout-0921` 的 `scripts/worktree_board.py`、`tests/test_worktree_board.py` 和 `docs/verification/2026-09-21-worktree-ownership/`。这些保护只提高初筛可靠性，不替代下面的删除审计。
 
+同日续审 `49169f7e` 把这个边界写进实际输出：去掉“树可拆”和固定生产快照保留数量；ahead/behind 查询失败也记 -1，缺 main 不回退 HEAD 自证，枚举失败输出 error + trees=null 而非空清单。不能只在文档提醒“未知不等于零”，却让机器接口或标题继续给出相反结论。
+
 ## 删除边界
 
 - 看板和补丁等价只用来初筛；精确HEAD、全树状态、ignored完整清单、隐藏index标记、子模块、Git锁/操作、reflog的old/new对象都需另查。
