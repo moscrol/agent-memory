@@ -179,6 +179,8 @@ per-user 不是进程级；`runtime_backend_readiness` 这个全局探针看不�
 
 ## 交接记录
 
+- 2026-09-20 · codex · FinArena 独立本机邀请试用版：匿名投票与策略登记分开、无模拟正式胜率，未合 main → `fwp-wt-finance-arena/docs/handoffs/inflight/feat-finance-arena.md`。
+
 - 2026-09-20 · coding-agent · 合入后证据封存发布 → [文档PR #804](http://127.0.0.1:3300/a77/finance-workspace-private/pulls/804)，在途 `docs/handoffs/inflight/docs-pr803-merge-closeout-0920.md`。
 
 - 2026-09-20 · coding-agent · #803最终身份门禁、#789指针与保守清树执行留证 → `docs/handoffs/2026-09-20-pr803-merge-cleanup.md`；[[../10_knowledge/git-clean-is-not-deletion-safe]]。
