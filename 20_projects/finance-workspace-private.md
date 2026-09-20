@@ -180,6 +180,8 @@ per-user 不是进程级；`runtime_backend_readiness` 这个全局探针看不�
 
 ## 交接记录
 
+- 2026-09-21 · codex · 研究求证意识候选 `696e309a`（默认关；接线通过，8run行为未验收，未部署）→ `fwp-wt-research-reasoning-awareness/docs/handoffs/inflight/feat-research-reasoning-awareness.md`。
+
 - 2026-09-20 · coding-agent · 旧净增量拆为[#806](http://127.0.0.1:3300/a77/finance-workspace-private/pulls/806)/[#805](http://127.0.0.1:3300/a77/finance-workspace-private/pulls/805)，材料尾项不冒认吸收 → 两枝 `docs/handoffs/inflight/fix-{broad-index,generation-degrade}-closeout-0920.md`。
 
 - 2026-09-20 · Codex · 自主研究视角实验候选（469ba766；三组失败对照后单臂接通，质量未验收、默认关）→ `finance-worktrees/adaptive-research-loop/docs/handoffs/inflight/feat-adaptive-research-loop.md`；方法见共享闭环第一性原理笔记的协议边界案例。
