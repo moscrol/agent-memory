@@ -73,7 +73,7 @@ DuckDB → detect_turning_points.py / backtest_sector.py → 信号+板块边际
 |---|---|---|---|
 | 8792题设与行情根因修复 | codex | blocked | df186f9b已提交；相关回归1728P/12S，但最终live静态PE基数错且judge漏报，未合/部署。需题设年份/数据性质/单位计算合同 → `fwp-wt-8792-premise-market/docs/handoffs/inflight/fix-8792-premise-market-contracts.md`。 |
 | 09-21 两参数计算表格收尾 | coding-agent | doing | [#808](http://127.0.0.1:3300/a77/finance-workspace-private/pulls/808)候选89e6217a：两参推断+prelude v4，原三参不变；完整同SHA门禁见PR收据，不冒称独立验收。未合/未部署，#770材料与重算仍独立 → `docs/handoffs/inflight/fix-fincalc-table-closeout-0921.md`。 |
-| 09-20 陈旧工作前向收尾 | coding-agent | doing | [#805/#806/#808隔离合流证据](http://127.0.0.1:3300/a77/finance-workspace-private/pulls/805#issuecomment-5096)：固定组合5b27fc6b已推验收分支，11935P/85S/2X、前端110P/E2E34P2S、Ruff/registry/ledger通过，严格同SHA/base-drift=0；三源原样保留，只增两份交接。42份本地证据封存，旧失败/单枝收据不改判；#804/#807仅只读归档核对，不在组合内。仍为作者本地验证，待独立复核和合入授权；本轮未合/部署/回填/调模型/删树，#770另办 → `docs/handoffs/inflight/baseline-stale-closeout-integration-0921.md`。 |
+| 09-20 陈旧工作前向收尾 | coding-agent | doing | 固定组合5b27fc6b完整门禁11935P/85S/2X、前端110P/E2E34P2S及其余门禁通过。新增[14处变异红绿对照](http://127.0.0.1:3300/a77/finance-workspace-private/pulls/805#issuecomment-5103)，前后75项定向基线通过；86份补充封存，原42份再校验通过，三个检出同SHA干净，候选身份不变。均为作者验证，独立复核/费用上限及合入仍待授权；#804/#807未纳入，#770另办。未合/部署/回填/调模型/删树 → `/Users/a77/.finance-runtime/reviews/stale-closeout-review-20260921/handoff.md`；原组合inflight仍有效。 |
 | 09-19 分支收口 / T3 合流QC | coding-agent | blocked | 业务仍d46c2c3b；新只读量具52f6dee7/留证81cbbec7已推。原量具6/4/16P，本窗新比率反例4P10F（五输入×两模式失败，两控制过），尚未修业务；补全公告4P4F另计。ARL-0005首600秒超时后，用户继续授权同请求一次1200秒/$6补审，1189.272秒返回CR但check_manifest无效/authority none（61必需只对上26，漏35）；未再调用/补裁决。旧三份有效CR与0004无效PASS保留。d46全量12173P与旧固定三仓收据不移签新tip；本窗机械预检1301P/46变异非独立批准。自然金融会话0、旧not_passed不翻案，未合/部署/改生产。331原件留证；下一步原q线先修确认反例，不重复求绿 → `fwp-q-research-data-readiness/docs/handoffs/inflight/q-research-data-readiness.md`。 |
 | A股研究数据链 | pi | blocked | a31b572f结果准入/有限正文检查/同会话续修与引用保留已提交；固定工程11635P、13组新撤保护通过；旧默认35组兼容复跑完成。零新自然模型会话，整体回答质量仍未过；8907已停、8792未动 → `fwp-wt-research-data-readiness/docs/handoffs/inflight/feat-research-data-readiness.md`。 |
 | KB双索引部署 | coding-agent | blocked | 本轮代码+文档合并验收已收尾，最终文档身份另获前后完整绿收据，代码main真实消费者14例只签接线/过滤。生产阶段仍blocked：维护链源码与离线恢复验收已完成（KB #155待合）；生产操作授权与整机验收待，14页隔离、防写保留、8792未切；身份看PR/看板，收据见[#787最终裁决](http://127.0.0.1:3300/a77/finance-workspace-private/pulls/787#issuecomment-4979) → `docs/handoffs/2026-09-19-kb-v4-merge-acceptance.md`。 |
@@ -181,6 +181,8 @@ per-user 不是进程级；`runtime_backend_readiness` 这个全局探针看不�
 而 CLI/回检走 `~/.zshrc` 里的 `/Users/a77/agent-memory/.foresight`——**两套用户台账不是同一份**。
 
 ## 交接记录
+
+- 2026-09-21 · coding-agent · 固定组合5b27fc6b补齐14处变异红绿证据与被动独立复核输入包，不改候选、不冒充独立裁决 → `/Users/a77/.finance-runtime/reviews/stale-closeout-review-20260921/handoff.md`。
 
 - 2026-09-21 · coding-agent · 三张收尾PR隔离组合5b27fc6b完整本地门禁通过，保留原候选身份且不自动合main → `docs/handoffs/inflight/baseline-stale-closeout-integration-0921.md`。
 
