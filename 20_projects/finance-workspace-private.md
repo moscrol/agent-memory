@@ -71,6 +71,7 @@ DuckDB → detect_turning_points.py / backtest_sector.py → 信号+板块边际
 ## 任务看板
 | 任务 | 负责 | 状态 | 备注 |
 |---|---|---|---|
+| 09-21 工作树归属核验与孤儿接管 | codex | doing | 盘点/看板修复[#812](http://127.0.0.1:3300/a77/finance-workspace-private/pulls/812)，回填前向候选[#813](http://127.0.0.1:3300/a77/finance-workspace-private/pulls/813)，Arena保全[#811](http://127.0.0.1:3300/a77/finance-workspace-private/pulls/811)；均WIP，独立审查与合入待，未部署/生产回填/删树 → `fwp-wt-ownership-closeout-0921/docs/handoffs/inflight/ops-worktree-ownership-closeout-0921.md`。 |
 | 同花顺研究观察值第一批 | codex | doing | 06047324：异动/热度/估值接线与只读部署巡检；干净相关445P/8S，两股临时库估值2行/热度10点读回，异动凌晨为空。旧同步树无同花顺步骤且有指数热补丁，未合/部署，待完整门禁与授权 → `fwp-wt-hithink-research-data/docs/handoffs/inflight/feat-hithink-research-data.md`。 |
 | 8792题设与行情根因修复 | codex | blocked | df186f9b已提交；相关回归1728P/12S，但最终live静态PE基数错且judge漏报，未合/部署。需题设年份/数据性质/单位计算合同 → `fwp-wt-8792-premise-market/docs/handoffs/inflight/fix-8792-premise-market-contracts.md`。 |
 | 09-21 两参数计算表格收尾 | coding-agent | doing | [#808](http://127.0.0.1:3300/a77/finance-workspace-private/pulls/808)候选89e6217a：两参推断+prelude v4，原三参不变；完整同SHA门禁见PR收据，不冒称独立验收。未合/未部署，#770材料与重算仍独立 → `docs/handoffs/inflight/fix-fincalc-table-closeout-0921.md`。 |
@@ -182,6 +183,8 @@ per-user 不是进程级；`runtime_backend_readiness` 这个全局探针看不�
 而 CLI/回检走 `~/.zshrc` 里的 `/Users/a77/agent-memory/.foresight`——**两套用户台账不是同一份**。
 
 ## 交接记录
+
+- 2026-09-21 · codex · 归属盘点与孤儿接管交付#811/#812/#813，保留原件、不重做活跃线，通用规则补[[../10_knowledge/git-clean-is-not-deletion-safe]] → `fwp-wt-ownership-closeout-0921/docs/handoffs/2026-09-21-worktree-ownership-closeout.md`。
 
 - 2026-09-21 · codex · ReAct三片最小修复dda5895a完成干净11972P与独立K3单会话复核，证据封存780ba6b8；金融质量仍未过，生产未动 → [#809](http://127.0.0.1:3300/a77/finance-workspace-private/pulls/809) / `fwp-wt-react-trace-closeout-0921/docs/handoffs/inflight/fix-react-trace-closeout-0921.md`。
 
