@@ -1,0 +1,11 @@
+# 验收探针：失败断言也可能泄露环境
+
+2026-09-20，金融 RAG 退役复核。一个“不应调用旧 CLI”的反例失败，`unittest.mock.assert_not_called()` 自动展示 `subprocess.run(..., env=...)` 的完整参数，连带宿主凭据写入终端和 JUnit。没有显式 `print(os.environ)` 并不能保证日志不含凭据。
+
+离线探针从进程启动时就使用白名单环境，例如 `HOME`、`PATH`、`LANG`、`TMPDIR` 及必要的测试变量。不要先复制全部环境再试图列举需要删除的密钥。对副作用 mock 的断言优先只报告调用次数，以及经过筛选的命令/参数；避免失败对象的完整 repr 包含 env、HTTP header 或认证上下文。
+
+发现已有泄露时，先限制原件权限、停止归档和外发，再生成脱敏副本。原始与副本各记哈希，并明确此副本不是字节原件。随后审计尚未发布的归档；已进工具输出、Git 历史或外部系统的内容不会因本地脱敏消失，需要按暴露范围处理凭据。不得静默覆盖旧失败再宣称证据从未含敏感数据。
+
+本次三份原 JUnit 留在本机受限目录，Git 只收脱敏副本；既有归档没有实际凭据命中。修前/修后复验保持业务输入与断言，环境隔离只移除不参与测试的宿主配置。
+
+项目索引：`finance-workspace-private` 的 `docs/verification/2026-09-20-research-closeout/rag-retirement-review/spec/ARCHIVE-NOTE.md`。
