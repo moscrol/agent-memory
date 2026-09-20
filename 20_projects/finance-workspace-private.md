@@ -192,6 +192,7 @@ per-user 不是进程级；`runtime_backend_readiness` 这个全局探针看不�
 
 - 2026-09-20 · coding-agent · 旧净增量拆为[#806](http://127.0.0.1:3300/a77/finance-workspace-private/pulls/806)/[#805](http://127.0.0.1:3300/a77/finance-workspace-private/pulls/805)，材料尾项不冒认吸收 → 两枝 `docs/handoffs/inflight/fix-{broad-index,generation-degrade}-closeout-0920.md`。
 
+- 2026-09-21 · Codex · 自主研究判官查询身份：0cd4de57 按唯一调用配对保留结构化请求，完整Python12031P/4撤保护通过；未验新模型，公开保真仍阻断、未部署 → `finance-worktrees/adaptive-research-loop/docs/handoffs/2026-09-21-adaptive-query-identity.md`。
 - 2026-09-21 · Codex · 自主研究续修：b6df991f 接通明确本地来源限制，03c08f48 保留完整观察与交付阶段；公开保真仍阻断 → `finance-worktrees/adaptive-research-loop/docs/handoffs/inflight/feat-adaptive-research-loop.md`。
 - 2026-09-21 · Codex · 自主研究原四题八次对照完成，1205ee7c 修计划约束/单事实复核；材料授权与公开稿仍失败、默认关 → `finance-worktrees/adaptive-research-loop/docs/handoffs/inflight/feat-adaptive-research-loop.md`；细节见 2026-09-21 日期快照，共享闭环笔记追加审查包保真原则。
 - 2026-09-20 · Codex · 自主研究视角实验候选（469ba766；三组失败对照后单臂接通，质量未验收、默认关）→ `finance-worktrees/adaptive-research-loop/docs/handoffs/inflight/feat-adaptive-research-loop.md`；方法见共享闭环第一性原理笔记的协议边界案例。
