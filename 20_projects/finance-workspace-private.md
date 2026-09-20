@@ -71,6 +71,7 @@ DuckDB → detect_turning_points.py / backtest_sector.py → 信号+板块边际
 ## 任务看板
 | 任务 | 负责 | 状态 | 备注 |
 |---|---|---|---|
+| 09-20 陈旧工作前向收尾 | coding-agent | doing | 宽基[#806](http://127.0.0.1:3300/a77/finance-workspace-private/pulls/806)最终5d46e626：139P+文档77P；生成降级[#805](http://127.0.0.1:3300/a77/finance-workspace-private/pulls/805)最终4aa80540：584P4S+文档77P。均干净定向/Ruff通过，非全量签字，未合/部署；旧材料证据、同数重算、两参表格仍未交付，#770仅待对账。旧树保留，未采集/回补/调模型 → 两枝inflight及日期快照。 |
 | 09-19 分支收口 / T3 合流QC | coding-agent | blocked | 业务仍d46c2c3b；新只读量具52f6dee7/留证81cbbec7已推。原量具6/4/16P，本窗新比率反例4P10F（五输入×两模式失败，两控制过），尚未修业务；补全公告4P4F另计。ARL-0005首600秒超时后，用户继续授权同请求一次1200秒/$6补审，1189.272秒返回CR但check_manifest无效/authority none（61必需只对上26，漏35）；未再调用/补裁决。旧三份有效CR与0004无效PASS保留。d46全量12173P与旧固定三仓收据不移签新tip；本窗机械预检1301P/46变异非独立批准。自然金融会话0、旧not_passed不翻案，未合/部署/改生产。331原件留证；下一步原q线先修确认反例，不重复求绿 → `fwp-q-research-data-readiness/docs/handoffs/inflight/q-research-data-readiness.md`。 |
 | A股研究数据链 | pi | blocked | a31b572f结果准入/有限正文检查/同会话续修与引用保留已提交；固定工程11635P、13组新撤保护通过；旧默认35组兼容复跑完成。零新自然模型会话，整体回答质量仍未过；8907已停、8792未动 → `fwp-wt-research-data-readiness/docs/handoffs/inflight/feat-research-data-readiness.md`。 |
 | KB双索引部署 | coding-agent | blocked | 本轮代码+文档合并验收已收尾，最终文档身份另获前后完整绿收据，代码main真实消费者14例只签接线/过滤。生产阶段仍blocked：维护链源码与离线恢复验收已完成（KB #155待合）；生产操作授权与整机验收待，14页隔离、防写保留、8792未切；身份看PR/看板，收据见[#787最终裁决](http://127.0.0.1:3300/a77/finance-workspace-private/pulls/787#issuecomment-4979) → `docs/handoffs/2026-09-19-kb-v4-merge-acceptance.md`。 |
@@ -178,6 +179,8 @@ per-user 不是进程级；`runtime_backend_readiness` 这个全局探针看不�
 而 CLI/回检走 `~/.zshrc` 里的 `/Users/a77/agent-memory/.foresight`——**两套用户台账不是同一份**。
 
 ## 交接记录
+
+- 2026-09-20 · coding-agent · 旧净增量拆为[#806](http://127.0.0.1:3300/a77/finance-workspace-private/pulls/806)/[#805](http://127.0.0.1:3300/a77/finance-workspace-private/pulls/805)，材料尾项不冒认吸收 → 两枝 `docs/handoffs/inflight/fix-{broad-index,generation-degrade}-closeout-0920.md`。
 
 - 2026-09-20 · Codex · 自主研究视角实验候选（469ba766；三组失败对照后单臂接通，质量未验收、默认关）→ `finance-worktrees/adaptive-research-loop/docs/handoffs/inflight/feat-adaptive-research-loop.md`；方法见共享闭环第一性原理笔记的协议边界案例。
 
