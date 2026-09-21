@@ -71,6 +71,7 @@ DuckDB → detect_turning_points.py / backtest_sector.py → 信号+板块边际
 ## 任务看板
 | 任务 | 负责 | 状态 | 备注 |
 |---|---|---|---|
+| 09-22 runtime恢复收尾 | codex | blocked | #843代码9fbcc9196修同实例串inbox及step/close重入；固定作者全量12980P/87S/2X、26撤保护、前端110P/E2E34P2S通过。独立审未启动，最新组合/自然质量不代签；未合/部署 → `fwp-wt-runtime-closeout-0921/docs/handoffs/inflight/fix-runtime-closeout-0921.md`。 |
 | 09-21 研究清单与引用身份 | codex | doing | 8a892290d离线修清单送达/排名意图/E号保真；固定定向1504P/4S与五变异通过，不代签逐项语义或生产效果。未push/合main/部署 → `fwp-wt-research-contract-citations-0921/docs/handoffs/inflight/fix-research-contract-citations-0921.md`。 |
 | 09-21 日期差异说明策略 | pi | blocked | 786a3b627两题K3真实conversations已跑，非独立验收；当前题误否09-21本地快照，历史题自然守窗但强制cutoff仍09-21且只读越界反例成立，两题judge unavailable/partial。证据110b4afe5、新68/68与旧200/200 Git对象核验通过；c57作者工程收据不移签。未push/PR/合main/部署/补采 → `fwp-wt-market-date-advisory-0921/docs/handoffs/inflight/fix-market-date-advisory-0921.md`；方法[[finance-canonical-data-source-freshness]]。 |
 | 09-21 RAG readiness诊断 | pi | doing | #844 WIP，代码ea5df3ea4补耗时/固定失败分类；单发5秒不变、172P/4S、两变异命中。未合未部署，历史超时根因未定；交接 `fwp-wt-rag-probe-diagnostics-0921/docs/handoffs/inflight/fix-rag-probe-diagnostics-0921.md`。 |
@@ -193,6 +194,8 @@ per-user 不是进程级；`runtime_backend_readiness` 这个全局探针看不�
 而 CLI/回检走 `~/.zshrc` 里的 `/Users/a77/agent-memory/.foresight`——**两套用户台账不是同一份**。
 
 ## 交接记录
+
+- 2026-09-22 · codex · #843反例修共享实例与驱动重入，锁按实际共享状态定范围；方法[[recovery-plan-is-not-execution]] → `fwp-wt-runtime-closeout-0921/docs/handoffs/2026-09-22-runtime-writer-reentry.md`。
 
 - 2026-09-21 · codex · 本地非命中不认证事件未发生，自报gap不当收据；规则送达与自然效果分账，方法[[evidence-hygiene-three-failure-shapes]] → `finance-worktrees/adaptive-research-loop/docs/handoffs/2026-09-21-adaptive-local-absence.md`。
 
