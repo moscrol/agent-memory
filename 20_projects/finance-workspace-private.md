@@ -185,6 +185,7 @@ per-user 不是进程级；`runtime_backend_readiness` 这个全局探针看不�
 
 ## 交接记录
 
+- 2026-09-21 · claude · 同花顺网关 HTTP 429 全局限流并入 get_json 退避路径（先判 HTTP 状态再判业务码，Retry-After 两形态、单次封顶 60s，退避额度改独立墙钟预算不占 retries——原 retries=4 只等 5.6s 而实测窗口约 7min）；默认 300s 救瞬时限流不保证救整窗，取舍留参数+HITHINK_RATE_LIMIT_BUDGET_SECONDS；9 条新测试三次定点变异各只红对应层（6/3/3，邻层绿）；dd2fae334+ac5c17693 全量 11975P/0F @ dirty:false，已推 Gitea，**未开 PR、未合入、未部署**，真实 429 复现样本=0 → `.claude/worktrees/hithink-429-retry-handling-80eeca/docs/handoffs/2026-09-21-hithink-429-backoff.md`。
 - 2026-09-21 · coding-agent · 获授权修O-K3-001，调用级归属/异常清理落正式回归并变异验证；#814源码a092全量绿，未独立/集成验收 → `fwp-wt-ownership-closeout-0921/docs/handoffs/2026-09-21-ownership-reentrant-repair.md`。
 - 2026-09-21 · coding-agent · 按指定K3审归属v3，保留双轴触帽未终审并复现调用级收据缺口；方法补[[../10_knowledge/evidence-hygiene-three-failure-shapes]] → `fwp-wt-ownership-closeout-0921/docs/handoffs/2026-09-21-ownership-k3-review.md`。
 
