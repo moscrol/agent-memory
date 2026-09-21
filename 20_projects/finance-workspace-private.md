@@ -197,6 +197,8 @@ per-user 不是进程级；`runtime_backend_readiness` 这个全局探针看不�
 
 - 2026-09-21 · pi · #844仅补RAG探针诊断，不抬帽/重试；旧运行目录漂移与原超时分账 → `fwp-wt-rag-probe-diagnostics-0921/docs/handoffs/2026-09-21-rag-probe-diagnostics.md`。
 
+- 2026-09-21 · codex · #841缓存命中重新授权、锁内复核与单次读取；固定版本工程通过，当前main基座漂移门阻断，方法[[gate-covers-only-its-return-value]] → `fwp-wt-history-evidence-integration-0921/docs/handoffs/2026-09-21-history-authority-followup.md`。
+
 - 2026-09-21 · codex · #843接手runtime重复恢复收尾，计划不提前消费执行位置；作者工程全叶绿但不开放续跑，方法[[recovery-plan-is-not-execution]] → `fwp-wt-runtime-closeout-0921/docs/handoffs/2026-09-21-runtime-repeatability-closeout.md`。
 
 - 2026-09-21 · pi · #832前向合流工程收口，K3有草稿不等于完成审查 → `fwp-wt-react-trace-qc-0921/docs/handoffs/2026-09-21-react-trace-main-integration.md`。
