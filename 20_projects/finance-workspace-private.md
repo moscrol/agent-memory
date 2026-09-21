@@ -1,9 +1,9 @@
 ---
 title: 金融项目 (finance-workspace-private)
 type: project
-agent: devin
-source: https://github.com/linxiaoqi5111-del/finance-workspace-private (README/AGENTS)
-date: 2026-06-28
+agent: all
+source: finance-workspace-private README/AGENTS及多agent交接索引；2026-09-21 pi补#830回滚状态
+date: 2026-09-21
 tags: [project, 金融, 量化, duckdb, 复盘, python]
 status: active
 related: ["[[knowledge-base-private]]", "[[finance-agent-capability-graph]]"]
@@ -71,6 +71,7 @@ DuckDB → detect_turning_points.py / backtest_sector.py → 信号+板块边际
 ## 任务看板
 | 任务 | 负责 | 状态 | 备注 |
 |---|---|---|---|
+| 09-21 K3写手 / 无判官上线 | pi | blocked | #830代码已合；固定f2c3工程叶通过，生产两首题接线通过但内容质量未签。最终新增RAG探测超时触发回滚，8792恢复adcda/GLM与原判官配置；旧版亦复现超时，根因未定，不自动重切。备份已成但未停机/未验恢复；详见 `fwp-wt-judge-mode-k3-0921/docs/handoffs/inflight/docs-judge-mode-k3-cutover-0921.md`。 |
 | 09-21 研究尾单前向整合 | pi | blocked | #831小片独立有限通过；#833历史/#834运行时/#835财务各固定作者全叶通过，新独立审核均容量中断无报告，局部测试不补签。工程/自然质量/联合树分账，正式收据修复沿#814，本轮未合并部署。封档c47b2751的两包已验281/281与28/28提交字节 → `fwp-wt-research-tail-closeout-docs-0921/docs/handoffs/inflight/docs-research-tail-closeout-0921.md`；方法[[evidence-hygiene-three-failure-shapes]]。 |
 | 自适应研究回路前向收尾 | pi | blocked | 固定 be6602934 工程叶全过（Python12698P、前端110P/E2E34P2S、registry仅本仓）；股票后缀闸已修、残片不改接受句，K3自然无工具partial格仍缺证据。文档tip129e6cbea，未push/合main/部署 → `finance-worktrees/adaptive-research-loop/docs/handoffs/inflight/feat-adaptive-research-loop.md`。 |
 | 09-21 ReAct trace独立质检返修 | pi | blocked | #832接替#809，两张WIP；代码ec246761/归档010fb559，精确全量12554P、前端110P/E2E34P2S、registry绿，37句式/九撤保护。K3新探针导入失败后504/600秒无报告，仍未签；自然金融0次、原not_passed不翻，后来main#830合流未验。历史片另枝2c529cb1修来源缺失绕门和分块引用，280P+5P不代完整集成 → `fwp-wt-react-trace-qc-0921/docs/handoffs/inflight/fix-react-trace-qc-0921.md`。 |
@@ -188,6 +189,8 @@ per-user 不是进程级；`runtime_backend_readiness` 这个全局探针看不�
 而 CLI/回检走 `~/.zshrc` 里的 `/Users/a77/agent-memory/.foresight`——**两套用户台账不是同一份**。
 
 ## 交接记录
+
+- 2026-09-21 · pi · #830代码合入、K3两题接线成立但上线验收回滚；无判官不计独立审核，恢复不证明因果 → `docs/judge-mode-k3-cutover-0921:docs/handoffs/2026-09-21-judge-mode-k3-cutover.md`；方法[[evidence-hygiene-three-failure-shapes]]。
 
 - 2026-09-21 · pi · 研究尾单分枝前向封存，独立容量失败不补签、收据让位#814 → `docs/research-tail-closeout-0921:docs/handoffs/2026-09-21-research-tail-forward-integration.md`。
 

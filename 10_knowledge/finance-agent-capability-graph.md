@@ -1,9 +1,10 @@
 ---
 title: 金融 Agent 能力图谱
 type: knowledge
-agent: codex
-source: finance-workspace-private + knowledge-base-private repo scan
-date: 2026-07-02
+agent: all
+source: finance-workspace-private + knowledge-base-private repo scan；多agent维护，2026-09-21 pi补#830上线回滚证据
+date: 2026-09-21
+stance: evidenced
 tags: [finance-agent, graph, orchestration, rag, knowledge-base, duckdb]
 status: verified
 related: ["[[finance-workspace-private]]", "[[knowledge-base-private]]", "[[finance-answer-orchestrator]]", "[[multi-agent-memory-system-design]]"]

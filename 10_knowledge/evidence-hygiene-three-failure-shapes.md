@@ -1,9 +1,10 @@
 ---
 title: 证据卫生：三个反复出现的失败形状
 type: knowledge
-agent: codex
-source: finance-workspace-private 会话 2026-08-10（同一轮内三个形状各犯 2-3 次，共 8 次）
-date: 2026-09-13
+agent: all
+source: finance-workspace-private 会话 2026-08-10；多agent案例追加至2026-09-21，pi本轮来源见各节
+date: 2026-09-21
+stance: evidenced
 tags: [knowledge, methodology, verification, gate, provenance, core]
 status: verified
 related: ["[[../20_projects/finance-workspace-private]]", "[[eval-harness-variance-governance]]", "[[agent-system-closed-loop-first-principles]]", "[[gate-assertion-granularity]]"]
@@ -113,6 +114,14 @@ PID（进程号）能分父子进程，分不清同一进程里的重入调用�
 固定6eb12候选的新K3两轴实际取消请求/总时长/强制收尾帽，仍在各50次准入后异常退出1、均无报告。Spec留有磁盘写入ENOSPC，Quality空stderr、提前1.282秒中断。**同时失败不证明同因；实际用量不是预算帽；进程已结束不等于交付已完成。** 共享磁盘容量回升也不能证明本轮已修复，未盘清归属不得删别人的数据或证据。撤用量预算与允许重试、修改基础设施是不同授权字段，不能互相继承。
 
 原模型事件和shell日志、操作员QC、资源观测与封档分别留证。无OS沙箱时，契约中的路径/进程红线并非强隔离；信号测试须绑定本次创建的子PID，宽泛pkill后缺旁伤审计不能保证无旁伤。可迁移到长任务、并发CI和多agent机器。此轮未改共享harness或实现磁盘配额；六项离线自测的完成态/日志审计器及封档校验器已留作有限证据工具，不称常驻资源守卫。来源：金融 `docs/handoffs/2026-09-21-ownership-k3-v4-interrupted.md`、归档 `operator-qc/review-qc.md`；独立结论仍BLOCKED。
+
+### 补充：缺席的审核不能算独立，恢复不能代替因果（2026-09-21）
+
+无模型判官路径曾合成 `passed/correlated=false`，评测只读布尔值便将“没审核”计成“独立审核”。修复让私有mode优先：未审核单列no_judge、公开相关性null、独立分母排除，并把比例一路验到JSON/Markdown落盘。**标签含义依赖产生过程；禁用、未知、失败不是“另一方同意”。** 可迁移到安全扫描、数据校验、双人审批。该代码和撤保护反证已落金融#830，不仅是提醒。
+
+同轮部署的两题真实入口成功后，就绪检查新增超时并回滚；探针在回滚前已恢复，旧版本稍后又同样超时。**接线成功、整体服务接受、答案质量、故障因果是不同断言。** 后一次绿是新观察，不能覆盖首红；“回滚后正常”不能证明回滚治好，更不能从负载/磁盘同时变化直接定因。应用于灰度发布与偶发故障调查时，原始时序比单次终态重要。
+
+另一次误选测试收据说明：同SHA下也可能有其他脏worktree、定向或零执行收据；身份须含目标树、范围、干净/基座与实际日志哈希。失败的shell `&&` 后块未执行，不能用手写“verified=true”补签；后续真正补跑核验另留证。新出现敏感形状的失败日志阻止入Git、只存带原件哈希的脱敏副本，不为哈希一致提交疑似凭证。案例与边界：金融 `docs/handoffs/2026-09-21-judge-mode-k3-cutover.md` / `docs/verification/2026-09-21-judge-mode-k3/`；不是稳定性或金融质量通过证明。
 
 ## 形状二：手写清单必漂，且漂时工具照旧发绿
 
