@@ -71,7 +71,7 @@ DuckDB → detect_turning_points.py / backtest_sector.py → 信号+板块边际
 ## 任务看板
 | 任务 | 负责 | 状态 | 备注 |
 |---|---|---|---|
-| 09-22 watchdog测试红灯验收 | codex | blocked | #848固定2007edfa5获一位独立PASS_WITH_LIMITS；全量12511P/85S/2X、Ruff/registry0、前端110P、缺浏览器修复后E2E34P/2S，首红保留。待用户合并授权，main旧红不代签；文档00666b066独立分支，不推进代码head；未合/部署，#846仍WIP → `fwp-wt-watchdog-closeout-0922/docs/handoffs/inflight/docs-watchdog-848-acceptance-0922.md`。 |
+| 09-22 watchdog测试红灯验收 | codex | done-with-boundaries | #848已合入`a2c8d1f90773fdf3dcb7cf53f5d9733590924ae1`；实际main新门禁12511P/85S/2X、Ruff/registry0、前端110P/E2E34P/2S，收据`20260921T191851Z-a2c8d1f9.json`与审计通过。独立审查仍是一位`PASS_WITH_LIMITS`，0.8s起止点收窄、假钟作用域限制保留；未部署/重启，#846仍WIP → `fwp-wt-watchdog-closeout-0922/docs/handoffs/2026-09-22-watchdog-848-authorized-merge-and-main-gate.md`。 |
 | 09-21 行情恢复 | pi | blocked | 纯候选7311a7738；干净4c0162a9b定向247P，新构造器88P、六类变异抓红。09-04复牌原件已固定，5565范围构造5553候选+12缺失处置；原278+新增136证据回读一致。名称/换手率/官方历史范围/停牌分母与下游三门待闭合；未写库/发布/合并/部署 → `fwp-wt-market-recovery-0921/docs/handoffs/inflight/fix-market-recovery-0921.md`。 |
 | 09-22 runtime恢复收尾 | codex | blocked | #843代码9fbcc9196原作者全量/26撤保护/前端绿不移签；文档tip `8e4797478`。用户授权K3后队列外审查40/40请求硬帽exit75，无终稿；局部writer/reentry 15P、failure fence 13P、restore 23P，fence mutation有效抓红；persistence环境重定向后44/44仅作宿主诊断。未合/部署 → `fwp-wt-runtime-closeout-0921/docs/handoffs/inflight/fix-runtime-closeout-0921.md`、`docs/handoffs/2026-09-22-runtime-k3-review-closeout.md`。 |
 | 09-21 研究清单与引用身份 | codex | blocked | `ba18395ce`补齐`requirement_checks`逐题/子项回执、最终公开稿witness复核与有界contract_rewrite；固定定向1787P/4S、十组变异通过，重入4P/1X（既有预期失败未修）。完整门禁/独立审核/真实语义待验，非待合入批准；未push/合main/部署 → `fwp-wt-research-contract-citations-0921/docs/handoffs/inflight/fix-research-contract-citations-0921.md`，决策快照 `docs/handoffs/2026-09-21-research-contract-requirement-receipts.md`。 |
@@ -200,6 +200,7 @@ per-user 不是进程级；`runtime_backend_readiness` 这个全局探针看不�
 ## 交接记录
 
 - 2026-09-22 · codex · 卖方事件追加订正与日终消费候选已提交`6de192c61`，定向107通过；未合并、未部署，严格历史PIT与river桥接留后续 → `fwp-wt-sellside-consumption-0922/docs/handoffs/2026-09-22-miracle-opinion-corrections.md`。
+- 2026-09-22 · codex · #848已授权合并，实际main提交`a2c8d1f9`完整门禁通过；保留独立审查与0.8s合同限制，未部署/未动#846 → `fwp-wt-watchdog-closeout-0922/docs/handoffs/2026-09-22-watchdog-848-authorized-merge-and-main-gate.md`，PR评论5563。
 - 2026-09-22 · codex · #848固定候选独立有限通过与全叶验收完成，待合并授权；方法[[wall-clock-derived-values-in-equality-asserts]] → `fwp-wt-watchdog-closeout-0922/docs/handoffs/2026-09-22-watchdog-848-acceptance.md`，PR评论5551。
 
 - 2026-09-22 · codex · 五组测试现场保全归档与闲置缓存回收，df整机净增9.02GiB但不独占归因；生产与失败证据保留、未设定期删除 → `~/.finance-runtime/reviews/disk-cleanup-20260922/round3/handoff.md`。
