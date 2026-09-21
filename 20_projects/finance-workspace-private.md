@@ -71,7 +71,7 @@ DuckDB → detect_turning_points.py / backtest_sector.py → 信号+板块边际
 ## 任务看板
 | 任务 | 负责 | 状态 | 备注 |
 |---|---|---|---|
-| 09-21 日期差异说明策略 | pi | doing | c57ec654固定作者工程门禁通过；按各来源日交付，缺项局部限制。独立审查与真实Workbench答案未验，未push/开PR/合main/部署；不补采。见 `fwp-wt-market-date-advisory-0921/docs/handoffs/inflight/fix-market-date-advisory-0921.md`；方法[[finance-canonical-data-source-freshness]]。 |
+| 09-21 日期差异说明策略 | pi | blocked | 786a3b627两题K3真实conversations已跑，非独立验收；当前题误否09-21本地快照，历史题自然守窗但强制cutoff仍09-21且只读越界反例成立，两题judge unavailable/partial。证据110b4afe5、新68/68与旧200/200 Git对象核验通过；c57作者工程收据不移签。未push/PR/合main/部署/补采 → `fwp-wt-market-date-advisory-0921/docs/handoffs/inflight/fix-market-date-advisory-0921.md`；方法[[finance-canonical-data-source-freshness]]。 |
 | 09-21 RAG readiness诊断 | pi | doing | #844 WIP，代码ea5df3ea4补耗时/固定失败分类；单发5秒不变、172P/4S、两变异命中。未合未部署，历史超时根因未定；交接 `fwp-wt-rag-probe-diagnostics-0921/docs/handoffs/inflight/fix-rag-probe-diagnostics-0921.md`。 |
 | 09-21 K3写手 / 无判官上线 | pi | blocked | #830代码已合；固定f2c3工程叶通过，生产两首题接线通过但内容质量未签。最终新增RAG探测超时触发回滚，8792恢复adcda/GLM与原判官配置；旧版亦复现超时，根因未定，不自动重切。备份已成但未停机/未验恢复；详见 `fwp-wt-judge-mode-k3-0921/docs/handoffs/inflight/docs-judge-mode-k3-cutover-0921.md`。 |
 | 09-21 研究尾单前向整合 | pi | blocked | #845/d91aff9d8叠在冻结#833上修H-01引用控制边界，固定530定向通过（含41新例）、五变异有效；H-02合法省略续问丢local_only仍2红，整体CHANGES_REQUIRED。新证据3a1c8289b已推#838、45/45 Git blob核验；旧三包不改。三领域独立终审仍缺，未自动续审；#831有限接受不变，#814正式收据线不接管。未合部署/生产写入 → `fwp-wt-research-tail-closeout-docs-0921/docs/handoffs/inflight/docs-research-tail-closeout-0921.md`；方法[[gate-covers-only-its-return-value]]。 |
@@ -192,6 +192,8 @@ per-user 不是进程级；`runtime_backend_readiness` 这个全局探针看不�
 而 CLI/回检走 `~/.zshrc` 里的 `/Users/a77/agent-memory/.foresight`——**两套用户台账不是同一份**。
 
 ## 交接记录
+
+- 2026-09-21 · codex · 日期策略K3真实验收未过：模型本次守窗不等于工具强制上界，缺证不等于全库不存在；证据110b4afe5已封 → `fwp-wt-market-date-advisory-0921/docs/handoffs/2026-09-21-market-date-k3-live.md`。
 
 - 2026-09-21 · codex · #843补本机单写者与关闭排空，互斥不代替未知效果对账；方法[[recovery-plan-is-not-execution]] → `fwp-wt-runtime-closeout-0921/docs/handoffs/2026-09-21-runtime-single-writer.md`。
 
