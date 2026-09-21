@@ -222,6 +222,7 @@ per-user 不是进程级；`runtime_backend_readiness` 这个全局探针看不�
 
 - 2026-09-20 · coding-agent · 旧净增量拆为[#806](http://127.0.0.1:3300/a77/finance-workspace-private/pulls/806)/[#805](http://127.0.0.1:3300/a77/finance-workspace-private/pulls/805)，材料尾项不冒认吸收 → 两枝 `docs/handoffs/inflight/fix-{broad-index,generation-degrade}-closeout-0920.md`。
 
+- 2026-09-21 · claude · 真实模型冒烟 2/3–5（东阳光，「只用本地资料」型）：`local_only` 四工具上限活体成立；判官抓到三句真实错误、模型无工具修复全改对并自报 partial，`admit_repair_result` 判无进展 → 不重跑判官 → **公开稿发的是修复前稿、错句原样在**（规则在 main，本分支回传使修复轮开启）；另 probe_tool.py 构造即失败、裸股票代码 2/2 复现 → `finance-worktrees/adaptive-research-loop/docs/handoffs/inflight/feat-adaptive-research-loop.md`，原件 `~/.finance-runtime/adaptive-live-smoke-20260921-q2/README.md`。
 - 2026-09-21 · claude · 真实模型冒烟 1/3–5（寒武纪，单臂 off，glm-5.3-flash+judge llm）：修复回路点着、模型整体重写数字条件；第二轮修复流式失败→partial 带稿，公开稿零提示、前端显示已完成；发现表达槽词汇不相认 / 授予窗非墙钟 / 裸股票代码查空 / 判官注册表只含绑定∪引用；代码未改 → `finance-worktrees/adaptive-research-loop/docs/handoffs/inflight/feat-adaptive-research-loop.md`，原件 `~/.finance-runtime/adaptive-live-smoke-20260921/README.md`。
 - 2026-09-21 · claude · 公开发布上限 `88a12753`/`d3a2202f`/`7172ba30` + 复核收尾：未解决机械反馈压 partial、已解决语义修订不误降级；完整Python12096P 收据精确绑 7172ba30e，两轮撤线通过。复核撤回悬空连接词剥离候选（中文兼类连接词误剥，补丁存证据目录），封存件补齐。真实模型验收待网关/judge 参数 → `finance-worktrees/adaptive-research-loop/docs/handoffs/inflight/feat-adaptive-research-loop.md`。
 - 2026-09-21 · Codex · 修订传递/时机 `3c30eceb`：SDK完整领域消息、数字补证前投递诊断；完整Python12062P、六撤线和前端/E2E通过，真实模型未验 → `finance-worktrees/adaptive-research-loop/docs/handoffs/2026-09-21-adaptive-repair-delivery.md`。
