@@ -75,7 +75,7 @@ DuckDB → detect_turning_points.py / backtest_sector.py → 信号+板块边际
 | 09-21 RAG readiness诊断 | pi | doing | #844 WIP，代码ea5df3ea4补耗时/固定失败分类；单发5秒不变、172P/4S、两变异命中。未合未部署，历史超时根因未定；交接 `fwp-wt-rag-probe-diagnostics-0921/docs/handoffs/inflight/fix-rag-probe-diagnostics-0921.md`。 |
 | 09-21 K3写手 / 无判官上线 | pi | blocked | #830代码已合；固定f2c3工程叶通过，生产两首题接线通过但内容质量未签。最终新增RAG探测超时触发回滚，8792恢复adcda/GLM与原判官配置；旧版亦复现超时，根因未定，不自动重切。备份已成但未停机/未验恢复；详见 `fwp-wt-judge-mode-k3-0921/docs/handoffs/inflight/docs-judge-mode-k3-cutover-0921.md`。 |
 | 09-21 研究尾单前向整合 | pi | blocked | #845/d91aff9d8叠在冻结#833上修H-01引用控制边界，固定530定向通过（含41新例）、五变异有效；H-02合法省略续问丢local_only仍2红，整体CHANGES_REQUIRED。新证据3a1c8289b已推#838、45/45 Git blob核验；旧三包不改。三领域独立终审仍缺，未自动续审；#831有限接受不变，#814正式收据线不接管。未合部署/生产写入 → `fwp-wt-research-tail-closeout-docs-0921/docs/handoffs/inflight/docs-research-tail-closeout-0921.md`；方法[[gate-covers-only-its-return-value]]。 |
-| 自适应研究回路前向收尾 | pi | blocked | 4c33e0d45修PLAN路由，固定干净748P/四撤保护过；72a2ac534单次K3真实复验已取证并生成量价比较（19次工具）。判官窗口耗尽降为partial，正文均值/证据边界仍有缺陷，完整交付未过；自然改稿重核仍未覆盖。旧be660全叶不移签；待具体质量修复/独立审查/最终门禁，未push/合main/部署 → `finance-worktrees/adaptive-research-loop/docs/handoffs/inflight/feat-adaptive-research-loop.md`。 |
+| 自适应研究回路前向收尾 | pi | blocked | 00fb5be63补判官最近失败诊断、60a41f2fa补只读成交额均值/有效分母；固定59464c400相关719P/8S、五变异/旧脚本35变异通过，仅工程证据。local_only四能力不变；无新自然模型，旧72a2ac534取证后partial及错误原稿不改判，超证据否定另修。完整门禁/独立审查/自然改稿重核待；旧be660全叶不移签，未push/合main/部署 → `finance-worktrees/adaptive-research-loop/docs/handoffs/inflight/feat-adaptive-research-loop.md`。 |
 | 09-21 ReAct trace独立质检返修 | pi | blocked | #832接替#809，前向合流代码a14005fc9（含当时main f2c3/#830）、归档0888ea984已推；精确全量12596P/87S/2X、前端110P/E2E34P2S及registry通过。唯一新增K3导入成功但600秒到期，只读21次工具/IN_PROGRESS草稿，行为测试0、无独立签字，不重开；自然金融0次、旧not_passed不翻，不覆盖后来main。历史片另见#841；未合/部署 → `fwp-wt-react-trace-qc-0921/docs/handoffs/inflight/fix-react-trace-qc-0921.md`。 |
 | 09-21 历史来源绑定前向集成 | pi | blocked | WIP #841接替#829返修，以#832为diff基线但不执行合入；代码f90fd3dc3、归档bbd948a6a已推。旧普通schema窄兼容、严格历史恢复、query/reader身份、分块观测隔离；精确全量12635P/87S/2X、前端110P/E2E34P2S、registry、八撤保护通过。真实JSON临时store回放225行/9页/累计905次卡恢复，不认证原始归属或自然质量；无独立审核/新自然模型，#793/#794与#833联合验收未完成，未合/部署 → `fwp-wt-history-evidence-integration-0921/docs/handoffs/inflight/feat-history-evidence-integration-0921.md`。 |
 | 09-21 夜跑部署差距收尾 | pi | done | 配置部署完成，业务效果另验：[源码#827](http://127.0.0.1:3300/a77/finance-workspace-private/pulls/827) / [证据#836](http://127.0.0.1:3300/a77/finance-workspace-private/pulls/836)。固定c097最终12502P/0F/0error、前端110P/E2E34P2S，registry/边界绿；独立Spec@2ea6、Quality@b0cf与8安装输入适用性分账。18:43两夜跑job切三adcda根，备份/loaded通过，未kickstart/补采/删根；旧18:30自然sync因东财断连退出2、staging拒换，数据恢复/readiness503仍欠。8792由他会话切f2c3，本轮保持。100原件封存，文档b26a待审不移签全量 → `fwp-wt-nightly-deploy-closeout-0921/docs/handoffs/2026-09-21-nightly-deployment-complete.md`。 |
@@ -192,6 +192,10 @@ per-user 不是进程级；`runtime_backend_readiness` 这个全局探针看不�
 而 CLI/回检走 `~/.zshrc` 里的 `/Users/a77/agent-memory/.foresight`——**两套用户台账不是同一份**。
 
 ## 交接记录
+
+- 2026-09-21 · codex · #843补本机单写者与关闭排空，互斥不代替未知效果对账；方法[[recovery-plan-is-not-execution]] → `fwp-wt-runtime-closeout-0921/docs/handoffs/2026-09-21-runtime-single-writer.md`。
+
+- 2026-09-21 · codex · 判官拒发与最近失败分账；只读均值绑定窗口/分母，工程与自然交付分账，方法[[aggregation-key-use-natural-primary-key]] → `finance-worktrees/adaptive-research-loop/docs/handoffs/2026-09-21-adaptive-amount-summary.md`。
 
 - 2026-09-21 · codex · #846修部署帮助误执行，恢复同版新快照；工程绿不替独立签字，方法[[gate-covers-only-its-return-value]] → `fwp-wt-deploy-help-0921/docs/handoffs/2026-09-21-deploy-help-gates.md`。
 
