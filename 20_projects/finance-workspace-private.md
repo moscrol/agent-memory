@@ -93,7 +93,7 @@ DuckDB → detect_turning_points.py / backtest_sector.py → 信号+板块边际
 | E27引用数字门修复 | pi | done | 代码2841ce66，冻结样本与干净Python全量已验；真入口/四叶准入另验，未合未部署 → `fwp-wt-citation-numeric-gate-0917/docs/handoffs/inflight/fix-citation-numeric-gate-0917.md`。 |
 | 8792 三类边界工程返修 | pi | done | 代码6f9df75a，正式回归/原QC及固定提交四叶通过；未push/合main/部署，无修复版真模型验收 → `fwp-wt-8792-readiness-fixes/docs/handoffs/inflight/fix-8792-readiness-boundaries.md`。 |
 | 8792 上线后独立质检 | pi | done | 审查提交7d253451；三类边界拒收、未改生产，修复与准入见 `fwp-wt-qc-8792-readiness-0917/docs/handoffs/inflight/docs-qc-8792-readiness-0917.md`。 |
-| 磁盘保守清理 | pi | done | 两轮5.4→28.3→36.7GiB；第二轮清再生缓存/安装包/闲置Docker构建产物及29棵可恢复临时树，保留聊天/生产/在途。最新收据 `fwp-wt-qc-8792-readiness-0917/docs/handoffs/2026-09-17-system-disk-cleanup.md`（0170b6cc）。 |
+| 磁盘保守清理 | pi | done | 09-21完成缓存整理、六组测试现场保全归档、旧Gitea包轮转及八棵可恢复验收树回收；生产/聊天/修复库/在途保留。异盘备份待接外置盘，未设自动删除。收据与恢复入口 `~/.finance-runtime/reviews/runtime-worktree-cleanup-20260921/handoff.md`（含前轮指针）。 |
 | E2 P5/P6 整合与真实材料交付 | codex | blocked | WIP #770；单份渲染/Markdown/私有坐标/逐句锚点回执已实现，nonfactual 语义漏判与协议稳定性仍阻塞 D6/P7；未合未部署。见 `docs/handoffs/inflight/fix-e2-material-closeout.md`。 |
 | 同花顺复盘分步接线与新池验算 | pi | doing | 采集版本代码c85d0101、作者验证/证据归档3bba5b4e；请求完成≠供应商全集。独立QC额度/服务阻塞，跨仓registry/环境差异及canonical投影/真实产物待验；未部署。见 `docs/handoffs/inflight/fix-hithink-review-wiring.md`。 |
 | #50 日报生成双根部署 | pi | done | 2fa28a4f最小wrapper接线+387028b8完整冻结根已装机，真实launchd主动触发19步PASS；保留L2，方法capture仍拒绝。下一夜自动触发/源码合流四叶另验 → `fwp-wt-nightly-generation-deploy-0917/docs/handoffs/inflight/fix-nightly-generation-deploy-0917.md`。 |
@@ -185,6 +185,7 @@ per-user 不是进程级；`runtime_backend_readiness` 这个全局探针看不�
 
 ## 交接记录
 
+- 2026-09-21 · pi · 磁盘维护按完成证据保全归档、拒用Git干净代替删除许可；本批收尾及前轮备份轮转索引 → `~/.finance-runtime/reviews/runtime-worktree-cleanup-20260921/handoff.md`。
 - 2026-09-21 · claude · 8792 分支撤回「引了 E 且被拒→删」（1d9e717d2），改判官理由码分流（四码、fail-closed 落路由、unsupported_ranking 改写「N（研判）」、internal_process_leak 改措辞、无码走原槽位规则）+ 排序契约送判块 + 股票代码分区探测器；生产账本 39 条全 demoted/零 deleted 是撤回依据；候选 a97b27057 全仓 12061P 可采信，生产判官吐码零实测 → `fwp-wt-8792-premise-market/docs/handoffs/2026-09-21-judge-reason-codes.md`
 - 2026-09-21 · claude · #815（三PR组合 #805/#806/#808 + 行值快照修复，06f74ef1）用户回复「合并」后 API 合入 main → merge commit 8aff6ebc，main 树与被测树逐字节同、收据 9/9 可采信；合前先给三张兄弟 PR 加 WIP 守卫（修复只在 #815，单合任一张会落缺陷版），合后三张仍 open 未被 Gitea 自动判合、关闭待用户；合并后 inflight 真值化 docs PR #821 用户二次「合并」后已合入（602ec8b7，docs 分支与工作树已清）；「继续推进收尾」后 #805/#806/#808 贴接替指针关闭、远端分支删（证据树未动）；文档收口 PR #822（仓内归档 `docs/handoffs/2026-09-21-fincalc-family-closeout.md` + 五份已合分支 inflight 出册）用户「合并，然后收尾处理」后已合入 5ded1a01，docs 工作树/分支已清；本家族收口完成，仍未做：删证据树、部署/切换 8792、生产回填；工具沉淀 PR #823（`scripts/gitea_pr.py` 增 guard / close / merge 身份钉死+授权记录，15P + 变异 6/6）待确认 → 树外 `~/.finance-runtime/reviews/stale-closeout-k3-20260921/CURRENT.md`（`merge-815-record.json` / `wip-guard-0921.json`）/ `docs/handoffs/inflight/fix-fincalc-row-snapshot-0921.md`。
 - 2026-09-21 · coding-agent · 获授权尝试归属v3独立复核，订阅额度阻断且缺执行组件；保留原件、不付费fallback、不把启动当验收 → `fwp-wt-ownership-closeout-0921/docs/handoffs/2026-09-21-ownership-independent-review-blocked.md`。
