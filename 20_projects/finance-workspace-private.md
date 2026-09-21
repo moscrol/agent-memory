@@ -71,7 +71,7 @@ DuckDB → detect_turning_points.py / backtest_sector.py → 信号+板块边际
 ## 任务看板
 | 任务 | 负责 | 状态 | 备注 |
 |---|---|---|---|
-| 09-21 工作树归属核验与孤儿接管 | codex | blocked | #814只读收据tree漏验已修`cdf6647cf`；#812/#813/#814新固定组合`47530e20`作者全叶12068P/85S/2X、前端110P、E2E34P/2S、registry五项0，86文件封存在#812文档提交`60463b703`。独立Spec/Quality仍待授权，未合/部署/生产回填/删树 → `fwp-wt-ownership-closeout-0921/docs/handoffs/inflight/ops-worktree-ownership-closeout-0921.md`。 |
+| 09-21 工作树归属核验与孤儿接管 | codex | blocked | #814修复`cdf6647cf`、固定组合`47530e20`的作者全叶绿保留在`60463b703`，不移签。用户已授权独立复核；本轮Codex订阅Spec启动因usage limit退出1，另缺code-mode-host，无有效审查产出，Quality未启动。26文件阻塞原件封存#812文档`895603020`，等待可用通道/额度决定；未购额、切付费、合入、部署、回填或删树 → `fwp-wt-ownership-closeout-0921/docs/handoffs/inflight/ops-worktree-ownership-closeout-0921.md`。 |
 | 09-21 Arena前向候选 | codex | blocked | [#816](http://127.0.0.1:3300/a77/finance-workspace-private/pulls/816)固定`b8292d23`的作者工程绿为历史证据（12104P/85S/2X、Arena43P、Arena E2E8P）；后续离线审查NO-GO见评论5165：完成状态与Match非原子、stale-running恢复与发布审计待修。本轮归属续接未复验/接管该线 → `fwp-wt-arena-main-ready-0921/docs/handoffs/inflight/fix-arena-main-ready-0921.md`；报告`~/.finance-runtime/reviews/arena-main-ready-v2-20260921/offline-spec-quality-review.md`。 |
 | 同花顺研究观察值第一批 | codex | blocked | [#810](http://127.0.0.1:3300/a77/finance-workspace-private/pulls/810) WIP，当前head `311a4c92f`；运行时代码仍为164b02e4，最终tip定向250P/8S、Ruff及收据校验通过。订阅额度100%/credits0，独立Spec/Quality未执行；非空异动、生产恢复、合main/部署/付费审查仍暂停。旧同步根/生产原样 → `fwp-wt-hithink-research-data/docs/handoffs/inflight/feat-hithink-research-data.md`。 |
 | 8792题设与行情根因修复 | codex | blocked | df186f9b已提交；相关回归1728P/12S，但最终live静态PE基数错且judge漏报，未合/部署。需题设年份/数据性质/单位计算合同 → `fwp-wt-8792-premise-market/docs/handoffs/inflight/fix-8792-premise-market-contracts.md`。 |
@@ -184,6 +184,9 @@ per-user 不是进程级；`runtime_backend_readiness` 这个全局探针看不�
 而 CLI/回检走 `~/.zshrc` 里的 `/Users/a77/agent-memory/.foresight`——**两套用户台账不是同一份**。
 
 ## 交接记录
+
+- 2026-09-21 · claude · #815（三PR组合 #805/#806/#808 + 行值快照修复，06f74ef1）用户回复「合并」后 API 合入 main → merge commit 8aff6ebc，main 树与被测树逐字节同、收据 9/9 可采信；合前先给三张兄弟 PR 加 WIP 守卫（修复只在 #815，单合任一张会落缺陷版），合后三张仍 open 未被 Gitea 自动判合、关闭待用户；合并后 inflight 真值化 docs PR #821 待确认 → 树外 `~/.finance-runtime/reviews/stale-closeout-k3-20260921/CURRENT.md`（`merge-815-record.json` / `wip-guard-0921.json`）/ `docs/handoffs/inflight/fix-fincalc-row-snapshot-0921.md`。
+- 2026-09-21 · coding-agent · 获授权尝试归属v3独立复核，订阅额度阻断且缺执行组件；保留原件、不付费fallback、不把启动当验收 → `fwp-wt-ownership-closeout-0921/docs/handoffs/2026-09-21-ownership-independent-review-blocked.md`。
 
 - 2026-09-21 · claude · 研究求证意识候选复核第二轮：五叶对 500167e26 全为直接读数（全量 12049P/0F 本轮重跑），候选推至 WIP PR #819，注册表补丁 3c344b61e 不推、由逐字节相同的 #818 接替；registry check 在 fwp-wt-* 树里实测红，合入顺序改 #818→#819→#770；交接 PR #820 → `docs/handoffs/inflight/claude-research-reasoning-awareness-review-f65597.md`。
 - 2026-09-21 · codex · 归属接手续轮补只读收据身份不变量，v3固定验收、原档不移签；方法补[[../10_knowledge/evidence-hygiene-three-failure-shapes]] → `fwp-wt-ownership-closeout-0921/docs/handoffs/2026-09-21-ownership-resume.md`。
