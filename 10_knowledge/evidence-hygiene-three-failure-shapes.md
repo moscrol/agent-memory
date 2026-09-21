@@ -86,7 +86,7 @@ python3 得 71 failed、项目 venv 得 14 failed。不写解释器的计数不�
 
 PID（进程号）能分父子进程，分不清同一进程里的重入调用。固定金融候选 `47530e20` 的独立K3探针在外层pytest里再调用pytest.main，内层先占外层唯一收据；外层1P告警写失败，门禁却读内层2P/不同target返回0。操作员另建精确源码/环境契约的最小仓复现，子进程对照正常。**唯一文件名和不可覆盖只保护文件，不证明写者是这次调用；所有权应绑定调用/config生命周期，并验证嵌套与顺序调用。** 单补target比较也未必挡住同目标重入。可迁移到同进程任务执行器、插件重入与回调产物；未证明失败外层被放绿，不追认历史数字污染。
 
-本轮只审不修，缺口转 #814 后续正式回归；复现脚本是固定证据装置而非已安装守卫，见金融 `docs/handoffs/2026-09-21-ownership-k3-review.md` 与对应归档 `operator-qc/inprocess-reproduction.json`。共享harness脏树未碰，不把设计方向写成已落实。
+审查轮只审不修，原始反例见金融 `docs/handoffs/2026-09-21-ownership-k3-review.md` 与对应归档 `operator-qc/inprocess-reproduction.json`。用户随后授权修复：#814 `a092a021c` 将(PID,路径)认领凭据放入Config私有stash，并用add_cleanup在正常结束/配置失败后释放自己认领的环境状态；继承owner不清，顺序调用可重领。最终15例对精确旧hook为11F/4P、修后15P，撤Config证明/撤cleanup/同PID重领三变异均被抓住；永久守卫已进正式pytest回归，有限装置仅作证据。方法回写独占harness分支BUILD §5/KIT `9f1c80b`（未碰共享脏主树）；作者源码全量绿不等于最新main集成或独立复审。修复快照 `docs/handoffs/2026-09-21-ownership-reentrant-repair.md`。
 
 ---
 
