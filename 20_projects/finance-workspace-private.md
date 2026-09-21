@@ -71,7 +71,7 @@ DuckDB → detect_turning_points.py / backtest_sector.py → 信号+板块边际
 ## 任务看板
 | 任务 | 负责 | 状态 | 备注 |
 |---|---|---|---|
-| 09-21 工作树归属核验与孤儿接管 | coding-agent | blocked | 用户“继续”后已修O-K3-001：#814代码`a092a021c`按Config生命周期绑定收据，新增15例/三变异通过，干净源码全量11963P/85S/2X、gate0；证据`b28a61e5a`115文件已推。旧v3/K3未终审历史不改；修复未独立复审、未建三单新组合/最新main合流。未追加模型会话/合入/部署/生产回填/删真实树 → `fwp-wt-ownership-closeout-0921/docs/handoffs/inflight/ops-worktree-ownership-closeout-0921.md`。 |
+| 09-21 工作树归属核验与孤儿接管 | coding-agent | blocked | #814 O-K3-001已修a092；再次“继续”后，以当时main c615固定三单组合`6eb12c1b8`并推送，作者工程全绿：Python12461P/85S/2X，前端110P、E2E34P/2S、registry五项0。证据`c39e5bfd8`82文件，评论5294/5295/5296回读一致。独立未复审，07:12Z后来main adcda94b未合流验收；旧六档/v3历史不改。未追加模型会话/合入/部署/生产回填/删真实树 → `fwp-wt-ownership-closeout-0921/docs/handoffs/inflight/ops-worktree-ownership-closeout-0921.md`。 |
 | 09-21 Arena前向候选 | codex | blocked | [#816](http://127.0.0.1:3300/a77/finance-workspace-private/pulls/816)固定`b8292d23`的作者工程绿为历史证据（12104P/85S/2X、Arena43P、Arena E2E8P）；后续离线审查NO-GO见评论5165：完成状态与Match非原子、stale-running恢复与发布审计待修。本轮归属续接未复验/接管该线 → `fwp-wt-arena-main-ready-0921/docs/handoffs/inflight/fix-arena-main-ready-0921.md`；报告`~/.finance-runtime/reviews/arena-main-ready-v2-20260921/offline-spec-quality-review.md`。 |
 | 同花顺研究观察值第一批 | codex | blocked | [#810](http://127.0.0.1:3300/a77/finance-workspace-private/pulls/810) WIP，当前head `311a4c92f`；运行时代码仍为164b02e4，最终tip定向250P/8S、Ruff及收据校验通过。订阅额度100%/credits0，独立Spec/Quality未执行；非空异动、生产恢复、合main/部署/付费审查仍暂停。旧同步根/生产原样 → `fwp-wt-hithink-research-data/docs/handoffs/inflight/feat-hithink-research-data.md`。 |
 | 8792题设与行情根因修复 | codex | blocked | df186f9b已提交；相关回归1728P/12S，但最终live静态PE基数错且judge漏报，未合/部署。需题设年份/数据性质/单位计算合同 → `fwp-wt-8792-premise-market/docs/handoffs/inflight/fix-8792-premise-market-contracts.md`。 |
@@ -186,6 +186,7 @@ per-user 不是进程级；`runtime_backend_readiness` 这个全局探针看不�
 ## 交接记录
 
 - 2026-09-21 · claude · 同花顺网关 HTTP 429 全局限流并入 get_json 退避路径（先判 HTTP 状态再判业务码，Retry-After 两形态、单次封顶 60s，退避额度改独立墙钟预算不占 retries——原 retries=4 只等 5.6s 而实测窗口约 7min）；默认 300s 救瞬时限流不保证救整窗，取舍留参数+HITHINK_RATE_LIMIT_BUDGET_SECONDS；9 条新测试三次定点变异各只红对应层（6/3/3，邻层绿）；dd2fae334+ac5c17693 全量 11975P/0F @ dirty:false，已推 Gitea，**未开 PR、未合入、未部署**，真实 429 复现样本=0 → `.claude/worktrees/hithink-429-retry-handling-80eeca/docs/handoffs/2026-09-21-hithink-429-backoff.md`。
+- 2026-09-21 · coding-agent · 三单修复后固定c615基线组合6eb12工程全绿，保留后来main漂移与独立未终审边界；证据c39e5bfd8 → `fwp-wt-ownership-closeout-0921/docs/handoffs/2026-09-21-ownership-integration-v4.md`。
 - 2026-09-21 · coding-agent · 获授权修O-K3-001，调用级归属/异常清理落正式回归并变异验证；#814源码a092全量绿，未独立/集成验收 → `fwp-wt-ownership-closeout-0921/docs/handoffs/2026-09-21-ownership-reentrant-repair.md`。
 - 2026-09-21 · coding-agent · 按指定K3审归属v3，保留双轴触帽未终审并复现调用级收据缺口；方法补[[../10_knowledge/evidence-hygiene-three-failure-shapes]] → `fwp-wt-ownership-closeout-0921/docs/handoffs/2026-09-21-ownership-k3-review.md`。
 
