@@ -71,7 +71,7 @@ DuckDB → detect_turning_points.py / backtest_sector.py → 信号+板块边际
 ## 任务看板
 | 任务 | 负责 | 状态 | 备注 |
 |---|---|---|---|
-| 09-21 夜跑部署差距收尾 | pi | blocked | [#827](http://127.0.0.1:3300/a77/finance-workspace-private/pulls/827) 固定2137345da作者工程12460P/0F/85S/2X、前端110P/E2E34P2S、registry五项绿；初始汇总解析错误保留并从原精确收据/JUnit核对，未重跑。三候选根adcda94b已建，旧指数补丁/L2保全；74原件封存。独立/后来main合流未验，未合/切夜跑/采集/删树；8792他会话已切adcda不重复动 → `fwp-wt-nightly-deploy-closeout-0921/docs/handoffs/inflight/fix-nightly-deploy-closeout-0921.md`。 |
+| 09-21 夜跑部署差距收尾 | pi | blocked | [#827](http://127.0.0.1:3300/a77/finance-workspace-private/pulls/827) 用户「执行」后固定最终合流2ea6c3db：Spec PASS/根复跑21断言；Quality10请求后exit1无报告，未重开。全量磁盘耗尽12454P/2F/8error，维持红；前端110P/E2E34P2S、registry绿。仅自有3.1GiB scratch验档回收，两个失败模块诊断25P不替代全量。未合main/切夜跑/采集；8792现ready503因快照9/21与DB9/18。先协调磁盘与一次有界Quality补审 → `fwp-wt-nightly-deploy-closeout-0921/docs/handoffs/inflight/fix-nightly-deploy-closeout-0921.md`。 |
 | 09-21 工作树归属核验与孤儿接管 | coding-agent | doing | 修复组合`6eb12c1b8`作者工程绿（证据c39e5bfd8）。用户“启动”后明确K3不限预算，执行器/两轴契约已移除40请求/20分钟/强制收尾帽；08:07:40Z Spec+Quality已启动，报告/QC待完成，既有订阅与业务权限边界不变。原件`~/.finance-runtime/reviews/ownership-k3-v4-20260921/`；勿重复启动。未签后来main，旧v3/封档不改，无合并/部署/回填/删树 → `fwp-wt-ownership-closeout-0921/docs/handoffs/inflight/ops-worktree-ownership-closeout-0921.md`。 |
 | 09-21 Arena前向候选 | codex | blocked | [#816](http://127.0.0.1:3300/a77/finance-workspace-private/pulls/816)固定`b8292d23`的作者工程绿为历史证据（12104P/85S/2X、Arena43P、Arena E2E8P）；后续离线审查NO-GO见评论5165：完成状态与Match非原子、stale-running恢复与发布审计待修。本轮归属续接未复验/接管该线 → `fwp-wt-arena-main-ready-0921/docs/handoffs/inflight/fix-arena-main-ready-0921.md`；报告`~/.finance-runtime/reviews/arena-main-ready-v2-20260921/offline-spec-quality-review.md`。 |
 | 同花顺研究观察值第一批 | codex | blocked | [#810](http://127.0.0.1:3300/a77/finance-workspace-private/pulls/810) WIP，当前head `311a4c92f`；运行时代码仍为164b02e4，最终tip定向250P/8S、Ruff及收据校验通过。订阅额度100%/credits0，独立Spec/Quality未执行；非空异动、生产恢复、合main/部署/付费审查仍暂停。旧同步根/生产原样 → `fwp-wt-hithink-research-data/docs/handoffs/inflight/feat-hithink-research-data.md`。 |
@@ -185,6 +185,8 @@ per-user 不是进程级；`runtime_backend_readiness` 这个全局探针看不�
 而 CLI/回检走 `~/.zshrc` 里的 `/Users/a77/agent-memory/.foresight`——**两套用户台账不是同一份**。
 
 ## 交接记录
+
+- 2026-09-21 · pi · #827执行停在最终门禁：磁盘耗尽全量红、Quality无报告，未合/发布；只验档回收本轮scratch → `fwp-wt-nightly-deploy-closeout-0921/docs/handoffs/2026-09-21-nightly-deploy-execute-blocked.md`。
 
 - 2026-09-21 · pi · 夜跑固定根候选+窄安装预览，作者工程绿但未切生产；保留旧根，不混入#810/429 → [#827](http://127.0.0.1:3300/a77/finance-workspace-private/pulls/827) / `fwp-wt-nightly-deploy-closeout-0921/docs/handoffs/2026-09-21-nightly-deploy-closeout.md`。
 
