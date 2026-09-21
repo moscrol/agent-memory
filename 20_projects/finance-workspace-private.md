@@ -193,6 +193,8 @@ per-user 不是进程级；`runtime_backend_readiness` 这个全局探针看不�
 
 ## 交接记录
 
+- 2026-09-21 · codex · #846修部署帮助误执行，恢复同版新快照；工程绿不替独立签字，方法[[gate-covers-only-its-return-value]] → `fwp-wt-deploy-help-0921/docs/handoffs/2026-09-21-deploy-help-gates.md`。
+
 - 2026-09-21 · pi · 日期差异不撤真实证据，作者工程与独立/真实答案分账；方法[[finance-canonical-data-source-freshness]] → `fwp-wt-market-date-advisory-0921/docs/handoffs/2026-09-21-market-date-advisory.md`。
 
 - 2026-09-21 · pi · #844仅补RAG探针诊断，不抬帽/重试；旧运行目录漂移与原超时分账 → `fwp-wt-rag-probe-diagnostics-0921/docs/handoffs/2026-09-21-rag-probe-diagnostics.md`。
