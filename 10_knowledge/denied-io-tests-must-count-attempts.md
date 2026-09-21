@@ -24,4 +24,6 @@ status: verified
 
 `finance-workspace-private@8ea6c5c1` 的 `intelligence/tests/test_e2_local_freeze.py` 用上述模式测试四类临时本地工具。网络socket.connect/connect_ex/getaddrinfo与subprocess.Popen均累计调用；真实DuckDB/JSON/用户台账运行，不替换本地runner。
 
+2026-09-22 codex续验：`fix/market-date-advisory-0921@b41c8d475` 的未来快照读取变异存活。`Path.read_text`替身抛出的AssertionError被loader当坏文件捕获，最终旧快照正确却掩盖未来文件已尝试读取。`b1e04452b`改为累计路径、返回后断言，同一变异从绿变红；完整24项反证仅签对应测试，完整Python/独立与真实验收仍阻塞。原件在该枝 `docs/verification/2026-09-22-market-cutoff-snapshot/`，不是只读最终返回值就认证无IO。
+
 这是通用测试手法而非独立工具：每个项目的外呼通道和允许边界不同，机械保障应落到其回归测试，而不是另造一个声称覆盖所有IO的脚本。

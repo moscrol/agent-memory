@@ -73,7 +73,7 @@ DuckDB → detect_turning_points.py / backtest_sector.py → 信号+板块边际
 |---|---|---|---|
 | 09-22 runtime恢复收尾 | codex | blocked | #843代码9fbcc9196原作者全量/26撤保护/前端绿不移签；文档8e4797478封53f265d7c队列外审查包，12成员/84源码哈希通过、253测试映射未执行。Claude API付费待授权，旧无工具适配器不能独立跑反例；新模型/独立审/组合验收均未启动，未合/部署 → `fwp-wt-runtime-closeout-0921/docs/handoffs/inflight/fix-runtime-closeout-0921.md`。 |
 | 09-21 研究清单与引用身份 | codex | blocked | `ba18395ce`补齐`requirement_checks`逐题/子项回执、最终公开稿witness复核与有界contract_rewrite；固定定向1787P/4S、十组变异通过，重入4P/1X（既有预期失败未修）。完整门禁/独立审核/真实语义待验，非待合入批准；未push/合main/部署 → `fwp-wt-research-contract-citations-0921/docs/handoffs/inflight/fix-research-contract-citations-0921.md`，决策快照 `docs/handoffs/2026-09-21-research-contract-requirement-receipts.md`。 |
-| 09-21 日期差异说明策略 | pi | blocked | 786a3b627两题K3真实conversations已跑，非独立验收；当前题误否09-21本地快照，历史题自然守窗但强制cutoff仍09-21且只读越界反例成立，两题judge unavailable/partial。证据110b4afe5、新68/68与旧200/200 Git对象核验通过；c57作者工程收据不移签。未push/PR/合main/部署/补采 → `fwp-wt-market-date-advisory-0921/docs/handoffs/inflight/fix-market-date-advisory-0921.md`；方法[[finance-canonical-data-source-freshness]]。 |
+| 09-21 日期差异说明策略 | codex | blocked | b1e04452b修严格截止和窄授权本地日快照；固定326P/Ruff0、24变异、前端110P/E2E34P2S、registry五项0。完整Python因磁盘<8GiB未开跑；独立旧候选两审容量失败无结论，新K3未跑，上轮未通过不翻案。证据f7d417238新250/250、旧68/68及200/200 Git核验通过。未push/PR/合main/部署/补采 → `fwp-wt-market-date-advisory-0921/docs/handoffs/inflight/fix-market-date-advisory-0921.md`；方法[[finance-canonical-data-source-freshness]]、[[denied-io-tests-must-count-attempts]]。 |
 | 09-22 RAG readiness诊断 | pi | blocked | #844仍WIP，3451c1d65补单飞，前轮230P/4S；894ad9f65记生产只读核验：主库09-18/快照09-21仍阻塞，沙箱单次help309ms不证历史超时消失。readiness有恢复副作用未调用；仍GLM/判官llm，未合未部署。交接 `fwp-wt-rag-probe-diagnostics-0921/docs/handoffs/inflight/fix-rag-probe-diagnostics-0921.md`。 |
 | 09-21 K3写手 / 无判官上线 | pi | blocked | #830代码已合；固定f2c3工程叶通过，生产两首题接线通过但内容质量未签。最终新增RAG探测超时触发回滚，8792恢复adcda/GLM与原判官配置；旧版亦复现超时，根因未定，不自动重切。备份已成但未停机/未验恢复；详见 `fwp-wt-judge-mode-k3-0921/docs/handoffs/inflight/docs-judge-mode-k3-cutover-0921.md`。 |
 | 09-21 研究尾单前向整合 | pi | blocked | #845/b6de1a38c修H-03材料来源投影，原两输入安全断言转绿，合法续问保local_only；固定985P/4S（含新67例）、十四变异有效，整体仍CHANGES_REQUIRED/未验收。#838/c14bc12f5封81成员，六包Git blobs及原件核验，旧五包不改；原外置探针诊断空值1F与只修诊断副本2P分账。完整门禁/三领域独立终审/自然四题未闭合，未重启；#831有限接受不变，#814及邻线不接管。未合/部署/生产写入 → `fwp-wt-research-tail-closeout-docs-0921/docs/handoffs/inflight/docs-research-tail-closeout-0921.md`；方法[[gate-covers-only-its-return-value]]。 |
@@ -194,6 +194,8 @@ per-user 不是进程级；`runtime_backend_readiness` 这个全局探针看不�
 而 CLI/回检走 `~/.zshrc` 里的 `/Users/a77/agent-memory/.foresight`——**两套用户台账不是同一份**。
 
 ## 交接记录
+
+- 2026-09-22 · codex · 截止与本地快照修复已封存，定向通过不代完整验收；方法[[denied-io-tests-must-count-attempts]] → `fwp-wt-market-date-advisory-0921/docs/handoffs/2026-09-22-market-cutoff-snapshot.md`。
 
 - 2026-09-22 · codex · #841恢复独立读取后双审查额度耗尽，无终稿不签通过；客户端等待非服务停止 → `fwp-wt-history-evidence-integration-0921/docs/handoffs/2026-09-22-history-review-resume.md`。
 
