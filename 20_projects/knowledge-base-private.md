@@ -57,6 +57,8 @@ related: ["[[finance-workspace-private]]", "[[finance-research-site]]", "[[finan
 
 ## 交接记录
 
+- 2026-09-22 · codex · 晨汇证据纠偏与真实消费者分开验；09-15旁路通过、09-18因行情日历阻塞，未发布 → `kb-wt-briefing-evidence-qc-0921/docs/handoffs/2026-09-22-briefing-evidence-qc.md`。
+
 - 2026-09-22 · codex · 原件保真、观点语义、真实消费者和历史可得性分开验；入库结构门新增event-only负例，红门禁不发布 → `kb-wt-sellside-miracle-0818/docs/handoffs/inflight/ingest-sellside-miracle-0818-0918.md`。
 
 - 2026-09-19 · coding-agent · v4合并验收与生产边界分开，原文不改、14页隔离仍保留 → [#153](http://127.0.0.1:3300/a77/knowledge-base-private/pulls/153) / `docs/handoffs/2026-09-19-rag-v4-merge-acceptance.md`。

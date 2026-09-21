@@ -195,6 +195,8 @@ per-user 不是进程级；`runtime_backend_readiness` 这个全局探针看不�
 
 ## 交接记录
 
+- 2026-09-22 · codex · 修缺输入假成功并固化只读消费验收；局部PASS不覆盖行情BLOCKED，沿用[[gate-covers-only-its-return-value]] → `fwp-wt-briefing-consumption-qc-0921/docs/handoffs/2026-09-22-briefing-qc-closeout.md`。
+
 - 2026-09-22 · codex · #841两次独立审查因宿主路径失效未读源码，599项作者回归不代签；自然验收未启动 → `fwp-wt-history-evidence-integration-0921/docs/handoffs/2026-09-22-history-review-attempt.md`。
 
 - 2026-09-22 · pi · 生产只读核验确认行情日期阻塞，避开带恢复副作用的readiness，单次help不代签检索质量 → `fwp-wt-rag-probe-diagnostics-0921/docs/handoffs/2026-09-22-production-readonly-readiness.md`。
