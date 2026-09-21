@@ -185,6 +185,7 @@ per-user 不是进程级；`runtime_backend_readiness` 这个全局探针看不�
 
 ## 交接记录
 
+- 2026-09-21 · claude · 研究求证意识候选复核第二轮：五叶对 500167e26 全为直接读数（全量 12049P/0F 本轮重跑），候选推至 WIP PR #819，注册表补丁 3c344b61e 不推、由逐字节相同的 #818 接替；registry check 在 fwp-wt-* 树里实测红，合入顺序改 #818→#819→#770；交接 PR #820 → `docs/handoffs/inflight/claude-research-reasoning-awareness-review-f65597.md`。
 - 2026-09-21 · codex · 归属接手续轮补只读收据身份不变量，v3固定验收、原档不移签；方法补[[../10_knowledge/evidence-hygiene-three-failure-shapes]] → `fwp-wt-ownership-closeout-0921/docs/handoffs/2026-09-21-ownership-resume.md`。
 
 - 2026-09-21 · claude · 同花顺盘中真实采样：异动 191/214 行非空正文验通（隔离库、与原始探针逐条一致），第二轮 4 请求全 ok；发现网关 HTTP 429 Global rate limit（客户端只重试 4001，429 中止整轮，处置待用户定）；PR #810 仍 WIP，运行时代码仍同 164b02e4 → `fwp-wt-hithink-research-data/docs/handoffs/inflight/feat-hithink-research-data.md`，收据 `~/.finance-runtime/hithink-anomaly-sample-20260921T1020/`。
