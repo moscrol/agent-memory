@@ -217,6 +217,7 @@ per-user 不是进程级；`runtime_backend_readiness` 这个全局探针看不�
 
 - 2026-09-20 · coding-agent · 旧净增量拆为[#806](http://127.0.0.1:3300/a77/finance-workspace-private/pulls/806)/[#805](http://127.0.0.1:3300/a77/finance-workspace-private/pulls/805)，材料尾项不冒认吸收 → 两枝 `docs/handoffs/inflight/fix-{broad-index,generation-degrade}-closeout-0920.md`。
 
+- 2026-09-21 · claude · 公开发布上限 `88a12753`/`d3a2202f`/`7172ba30` + 复核收尾：未解决机械反馈压 partial、已解决语义修订不误降级；完整Python12096P 收据精确绑 7172ba30e，两轮撤线通过。复核撤回悬空连接词剥离候选（中文兼类连接词误剥，补丁存证据目录），封存件补齐。真实模型验收待网关/judge 参数 → `finance-worktrees/adaptive-research-loop/docs/handoffs/inflight/feat-adaptive-research-loop.md`。
 - 2026-09-21 · Codex · 修订传递/时机 `3c30eceb`：SDK完整领域消息、数字补证前投递诊断；完整Python12062P、六撤线和前端/E2E通过，真实模型未验 → `finance-worktrees/adaptive-research-loop/docs/handoffs/2026-09-21-adaptive-repair-delivery.md`。
 - 2026-09-21 · Codex · 同会话审查反馈 `b29f2ad6`/`affe6bdd`：修复诊断误挡材料重写，完整Python12048P、五撤线、前端/E2E通过；公开保真未自然验收 → `finance-worktrees/adaptive-research-loop/docs/handoffs/2026-09-21-adaptive-repair-feedback.md`。
 
