@@ -107,6 +107,7 @@ DuckDB → detect_turning_points.py / backtest_sector.py → 信号+板块边际
 | 8792 上线后独立质检 | pi | done | 审查提交7d253451；三类边界拒收、未改生产，修复与准入见 `fwp-wt-qc-8792-readiness-0917/docs/handoffs/inflight/docs-qc-8792-readiness-0917.md`。 |
 | 磁盘保守清理 | pi | done | 09-21完成缓存整理、六组测试现场保全归档、旧Gitea包轮转及八棵可恢复验收树回收；生产/聊天/修复库/在途保留。异盘备份待接外置盘，未设自动删除。收据与恢复入口 `~/.finance-runtime/reviews/runtime-worktree-cleanup-20260921/handoff.md`（含前轮指针）。 |
 | 磁盘运行现场保全（09-22第三轮） | codex | done | 五组测试展开现场完整归档验证后回收，缓存限定闲置代码根；02:37 df 48.001→57.022GiB、89%→87%，整机净增9.021GiB，含并发活动不独占归因。生产库完整哈希不变；L2/db-repair/失败夜跑/聊天保留，未设自动删除、无commit → `~/.finance-runtime/reviews/disk-cleanup-20260922/round3/handoff.md`。 |
+| 磁盘工作树回收（09-22第四轮） | coding-agent | done | 两棵旧验收源码树完整归档校验后正常移除，无分支删除；回收窗口系统空闲空间净增约200MiB，含并发不独占归因。生产库完整哈希不变，失败收据/聊天/修复库保留，无commit或定时删除 → `~/.finance-runtime/reviews/disk-cleanup-20260922/round4/handoff.md`。 |
 | 磁盘告急清理（09-22轮） | claude | done | 220MiB→28.2GiB。删缓存/12份已收口run库副本/3份旧`.bak`（锚留`cca104bedc85`），报告日志收据全留。**关键：`du`因APFS clonefile严重虚高，估收益必须`df`实测**（按du删47.6G实释放24.7G；3份`.bak`账面10.2G实释放0.38G）。`db-repair`(37G)与今日失败run现场`fwp-wt-market-recovery-0921/tmp`仍保留。待办：Gitea包轮转、node_modules(28.4G真实)、466个run目录保留期策略。收据 `~/.finance-runtime/reviews/disk-cleanup-20260922/receipt.json`。 |
 | E2 P5/P6 整合与真实材料交付 | codex | blocked | WIP #770；单份渲染/Markdown/私有坐标/逐句锚点回执已实现，nonfactual 语义漏判与协议稳定性仍阻塞 D6/P7；未合未部署。见 `docs/handoffs/inflight/fix-e2-material-closeout.md`。 |
 | 同花顺复盘分步接线与新池验算 | pi | doing | 采集版本代码c85d0101、作者验证/证据归档3bba5b4e；请求完成≠供应商全集。独立QC额度/服务阻塞，跨仓registry/环境差异及canonical投影/真实产物待验；未部署。见 `docs/handoffs/inflight/fix-hithink-review-wiring.md`。 |
@@ -198,6 +199,8 @@ per-user 不是进程级；`runtime_backend_readiness` 这个全局探针看不�
 而 CLI/回检走 `~/.zshrc` 里的 `/Users/a77/agent-memory/.foresight`——**两套用户台账不是同一份**。
 
 ## 交接记录
+
+- 2026-09-22 · coding-agent · 两棵旧验收工作树完整保全后回收；未扩大到用途未明树或Cursor，原失败收据保留 → `~/.finance-runtime/reviews/disk-cleanup-20260922/round4/handoff.md`。
 
 - 2026-09-22 · codex · 卖方事件追加订正与日终消费候选已提交`6de192c61`，定向107通过；未合并、未部署，严格历史PIT与river桥接留后续 → `fwp-wt-sellside-consumption-0922/docs/handoffs/2026-09-22-miracle-opinion-corrections.md`。
 - 2026-09-22 · codex · #848已授权合并，实际main提交`a2c8d1f9`完整门禁通过；保留独立审查与0.8s合同限制，未部署/未动#846 → `fwp-wt-watchdog-closeout-0922/docs/handoffs/2026-09-22-watchdog-848-authorized-merge-and-main-gate.md`，PR评论5563。
