@@ -71,7 +71,7 @@ DuckDB → detect_turning_points.py / backtest_sector.py → 信号+板块边际
 ## 任务看板
 | 任务 | 负责 | 状态 | 备注 |
 |---|---|---|---|
-| 09-21 工作树归属核验与孤儿接管 | codex | blocked | #814修复`cdf6647cf`、固定组合`47530e20`的作者全叶绿保留在`60463b703`，不移签。用户已授权独立复核；本轮Codex订阅Spec启动因usage limit退出1，另缺code-mode-host，无有效审查产出，Quality未启动。26文件阻塞原件封存#812文档`895603020`，等待可用通道/额度决定；封存后上游并行推进的身份补记`d79e7f815`，未来合流须新对象新门禁。未购额、切付费、合入、部署、回填或删树 → `fwp-wt-ownership-closeout-0921/docs/handoffs/inflight/ops-worktree-ownership-closeout-0921.md`。 |
+| 09-21 工作树归属核验与孤儿接管 | coding-agent | blocked | 用户指定K3已执行，固定`47530e20`两轴各40请求触帽、无终审（Quality仅占位）；根QC复现同进程嵌套pytest抢外层收据，O-K3-001(P1)代码需修，独立完成度仍BLOCKED。450文件封存，旧四包不变；历史作者绿不移签，最新main合流未验。仅审查，未修代码/扩额/重试/合入/部署/生产回填/删真实树 → `fwp-wt-ownership-closeout-0921/docs/handoffs/inflight/ops-worktree-ownership-closeout-0921.md`。 |
 | 09-21 Arena前向候选 | codex | blocked | [#816](http://127.0.0.1:3300/a77/finance-workspace-private/pulls/816)固定`b8292d23`的作者工程绿为历史证据（12104P/85S/2X、Arena43P、Arena E2E8P）；后续离线审查NO-GO见评论5165：完成状态与Match非原子、stale-running恢复与发布审计待修。本轮归属续接未复验/接管该线 → `fwp-wt-arena-main-ready-0921/docs/handoffs/inflight/fix-arena-main-ready-0921.md`；报告`~/.finance-runtime/reviews/arena-main-ready-v2-20260921/offline-spec-quality-review.md`。 |
 | 同花顺研究观察值第一批 | codex | blocked | [#810](http://127.0.0.1:3300/a77/finance-workspace-private/pulls/810) WIP，当前head `311a4c92f`；运行时代码仍为164b02e4，最终tip定向250P/8S、Ruff及收据校验通过。订阅额度100%/credits0，独立Spec/Quality未执行；非空异动、生产恢复、合main/部署/付费审查仍暂停。旧同步根/生产原样 → `fwp-wt-hithink-research-data/docs/handoffs/inflight/feat-hithink-research-data.md`。 |
 | 8792题设与行情根因修复 | codex | blocked | df186f9b已提交；相关回归1728P/12S，但最终live静态PE基数错且judge漏报，未合/部署。需题设年份/数据性质/单位计算合同 → `fwp-wt-8792-premise-market/docs/handoffs/inflight/fix-8792-premise-market-contracts.md`。 |
@@ -184,6 +184,8 @@ per-user 不是进程级；`runtime_backend_readiness` 这个全局探针看不�
 而 CLI/回检走 `~/.zshrc` 里的 `/Users/a77/agent-memory/.foresight`——**两套用户台账不是同一份**。
 
 ## 交接记录
+
+- 2026-09-21 · coding-agent · 按指定K3审归属v3，保留双轴触帽未终审并复现调用级收据缺口；方法补[[../10_knowledge/evidence-hygiene-three-failure-shapes]] → `fwp-wt-ownership-closeout-0921/docs/handoffs/2026-09-21-ownership-k3-review.md`。
 
 - 2026-09-21 · pi · 磁盘维护按完成证据保全归档、拒用Git干净代替删除许可；本批收尾及前轮备份轮转索引 → `~/.finance-runtime/reviews/runtime-worktree-cleanup-20260921/handoff.md`。
 - 2026-09-21 · claude · 8792 分支撤回「引了 E 且被拒→删」（1d9e717d2），改判官理由码分流（四码、fail-closed 落路由、unsupported_ranking 改写「N（研判）」、internal_process_leak 改措辞、无码走原槽位规则）+ 排序契约送判块 + 股票代码分区探测器；生产账本 39 条全 demoted/零 deleted 是撤回依据；候选 a97b27057 全仓 12061P 可采信，生产判官吐码零实测 → `fwp-wt-8792-premise-market/docs/handoffs/2026-09-21-judge-reason-codes.md`
