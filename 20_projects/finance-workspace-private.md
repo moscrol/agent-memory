@@ -195,6 +195,8 @@ per-user 不是进程级；`runtime_backend_readiness` 这个全局探针看不�
 
 ## 交接记录
 
+- 2026-09-22 · codex · watchdog局部时钟隔离启动前后截止，107P与六变异不覆盖main全量红；PR创建超时、未部署，方法[[wall-clock-derived-values-in-equality-asserts]] → `fwp-wt-watchdog-test-0922/docs/handoffs/2026-09-22-watchdog-test-synchronization.md`。
+
 - 2026-09-22 · codex · 修缺输入假成功并固化只读消费验收；局部PASS不覆盖行情BLOCKED，沿用[[gate-covers-only-its-return-value]] → `fwp-wt-briefing-consumption-qc-0921/docs/handoffs/2026-09-22-briefing-qc-closeout.md`。
 
 - 2026-09-22 · codex · #841两次独立审查因宿主路径失效未读源码，599项作者回归不代签；自然验收未启动 → `fwp-wt-history-evidence-integration-0921/docs/handoffs/2026-09-22-history-review-attempt.md`。
