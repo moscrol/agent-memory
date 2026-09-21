@@ -71,6 +71,7 @@ DuckDB → detect_turning_points.py / backtest_sector.py → 信号+板块边际
 ## 任务看板
 | 任务 | 负责 | 状态 | 备注 |
 |---|---|---|---|
+| 09-21 行情恢复 | pi | blocked | 只读量具3ae615b4d、候选规格f2d935a02；固定159P，278份输入哈希回读通过。候选5565=5553历史bar+12供应商停牌证据，非官方历史全集；复牌参考、名称/换手率及下游分母待签，三门仍红。未写库/发布/合并/部署 → `fwp-wt-market-recovery-0921/docs/handoffs/inflight/fix-market-recovery-0921.md`。 |
 | 09-22 runtime恢复收尾 | codex | blocked | #843代码9fbcc9196原作者全量/26撤保护/前端绿不移签；文档tip `8e4797478`。用户授权K3后队列外审查40/40请求硬帽exit75，无终稿；局部writer/reentry 15P、failure fence 13P、restore 23P，fence mutation有效抓红；persistence环境重定向后44/44仅作宿主诊断。未合/部署 → `fwp-wt-runtime-closeout-0921/docs/handoffs/inflight/fix-runtime-closeout-0921.md`、`docs/handoffs/2026-09-22-runtime-k3-review-closeout.md`。 |
 | 09-21 研究清单与引用身份 | codex | blocked | `ba18395ce`补齐`requirement_checks`逐题/子项回执、最终公开稿witness复核与有界contract_rewrite；固定定向1787P/4S、十组变异通过，重入4P/1X（既有预期失败未修）。完整门禁/独立审核/真实语义待验，非待合入批准；未push/合main/部署 → `fwp-wt-research-contract-citations-0921/docs/handoffs/inflight/fix-research-contract-citations-0921.md`，决策快照 `docs/handoffs/2026-09-21-research-contract-requirement-receipts.md`。 |
 | 09-21 日期差异说明策略 | codex | blocked | b1e04452b修严格截止和窄授权本地日快照；固定326P/Ruff0、24变异、前端110P/E2E34P2S、registry五项0。完整Python因磁盘<8GiB未开跑；独立旧候选两审容量失败无结论，新K3未跑，上轮未通过不翻案。证据f7d417238新250/250、旧68/68及200/200 Git核验通过。未push/PR/合main/部署/补采 → `fwp-wt-market-date-advisory-0921/docs/handoffs/inflight/fix-market-date-advisory-0921.md`；方法[[finance-canonical-data-source-freshness]]、[[denied-io-tests-must-count-attempts]]。 |
@@ -195,6 +196,8 @@ per-user 不是进程级；`runtime_backend_readiness` 这个全局探针看不�
 而 CLI/回检走 `~/.zshrc` 里的 `/Users/a77/agent-memory/.foresight`——**两套用户台账不是同一份**。
 
 ## 交接记录
+
+- 2026-09-22 · pi · 固定09-21行情候选输入，回放通过不授发布权 → `fwp-wt-market-recovery-0921/docs/handoffs/2026-09-22-market-recovery-input-contract.md`（f2d935a02）。
 
 - 2026-09-22 · codex · #845补格返修与05完整面续验封存，RSS环境红和定向复验分账 → `docs/research-tail-closeout-0921:docs/handoffs/2026-09-22-history-engineering-resume.md`。
 
