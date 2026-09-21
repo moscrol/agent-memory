@@ -1,8 +1,8 @@
 ---
 title: 金融 Agent 标准数据源与验鲜探针
 type: knowledge
-agent: all
-source: codex原建；2026-09-21 pi补 finance-workspace-private fix/market-date-advisory-0921 日期来源回归（共享维护）
+agent: codex
+source: codex原建；2026-09-21 pi补 finance-workspace-private fix/market-date-advisory-0921 日期来源回归（agent保留创建者，续写工具记于此）
 date: 2026-09-21
 stance: evidenced
 tags: [finance-agent, duckdb, data-source, freshness, rag]
