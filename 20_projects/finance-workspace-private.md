@@ -73,7 +73,7 @@ DuckDB → detect_turning_points.py / backtest_sector.py → 信号+板块边际
 |---|---|---|---|
 | 09-21 K3写手 / 无判官上线 | pi | blocked | #830代码已合；固定f2c3工程叶通过，生产两首题接线通过但内容质量未签。最终新增RAG探测超时触发回滚，8792恢复adcda/GLM与原判官配置；旧版亦复现超时，根因未定，不自动重切。备份已成但未停机/未验恢复；详见 `fwp-wt-judge-mode-k3-0921/docs/handoffs/inflight/docs-judge-mode-k3-cutover-0921.md`。 |
 | 09-21 研究尾单前向整合 | pi | blocked | #831小片独立有限通过；#833历史/#834运行时/#835财务各固定作者全叶通过，新独立审核均容量中断无报告，局部测试不补签。工程/自然质量/联合树分账，正式收据修复沿#814，本轮未合并部署。封档c47b2751的两包已验281/281与28/28提交字节 → `fwp-wt-research-tail-closeout-docs-0921/docs/handoffs/inflight/docs-research-tail-closeout-0921.md`；方法[[evidence-hygiene-three-failure-shapes]]。 |
-| 自适应研究回路前向收尾 | pi | blocked | 固定 be6602934 工程叶全过（Python12698P、前端110P/E2E34P2S、registry仅本仓）；股票后缀闸已修、残片不改接受句，K3自然无工具partial格仍缺证据。文档tip129e6cbea，未push/合main/部署 → `finance-worktrees/adaptive-research-loop/docs/handoffs/inflight/feat-adaptive-research-loop.md`。 |
+| 自适应研究回路前向收尾 | pi | blocked | K3可当写手；单次真实129e6cbea两轮/零工具，漏PLAN标签被误催终局，交付未过（非400）。4c33e0d45离线修正确分流，固定干净748P/四撤保护过；修后未重跑真模型、无工具改稿partial重核格仍未自然触发。旧be660全叶不移签；待真实验收/独立审查/最终合入门禁，未push/合main/部署 → `finance-worktrees/adaptive-research-loop/docs/handoffs/inflight/feat-adaptive-research-loop.md`。 |
 | 09-21 ReAct trace独立质检返修 | pi | blocked | #832接替#809，两张WIP；代码ec246761/归档010fb559，精确全量12554P、前端110P/E2E34P2S、registry绿，37句式/九撤保护。K3新探针导入失败后504/600秒无报告，仍未签；自然金融0次、原not_passed不翻，后来main#830合流未验。历史片另枝2c529cb1修来源缺失绕门和分块引用，280P+5P不代完整集成 → `fwp-wt-react-trace-qc-0921/docs/handoffs/inflight/fix-react-trace-qc-0921.md`。 |
 | 09-21 夜跑部署差距收尾 | pi | done | 配置部署完成，业务效果另验：[源码#827](http://127.0.0.1:3300/a77/finance-workspace-private/pulls/827) / [证据#836](http://127.0.0.1:3300/a77/finance-workspace-private/pulls/836)。固定c097最终12502P/0F/0error、前端110P/E2E34P2S，registry/边界绿；独立Spec@2ea6、Quality@b0cf与8安装输入适用性分账。18:43两夜跑job切三adcda根，备份/loaded通过，未kickstart/补采/删根；旧18:30自然sync因东财断连退出2、staging拒换，数据恢复/readiness503仍欠。8792由他会话切f2c3，本轮保持。100原件封存，文档b26a待审不移签全量 → `fwp-wt-nightly-deploy-closeout-0921/docs/handoffs/2026-09-21-nightly-deployment-complete.md`。 |
 | 09-21 工作树归属核验与孤儿接管 | coding-agent | blocked | 固定`6eb12c1b8`作者工程绿，双轴K3不限预算但08:40Z均exit1、各50准入/49完整消息，无终审报告：Spec明确ENOSPC，Quality原因未知；不是触帽。部分210P/1S不补独立签字，两轴动态backfill未完成。819份证据已封并验提交字节，完整锚点47f80174d；#812/#813/#814评论5348/5349/5350已回读。本part已收尾（协调53f789969、收据交接6ca9c5724已推），最终验收仍blocked。按用户要求本线暂停，K3可替换，后续重心转投研agent根因；本次未启动新修复。不重启原会话，清理/恢复另确认；未签后来main，无合并/部署/生产回填/删真实树 → `fwp-wt-ownership-closeout-0921/docs/handoffs/inflight/ops-worktree-ownership-closeout-0921.md`。 |
@@ -195,6 +195,7 @@ per-user 不是进程级；`runtime_backend_readiness` 这个全局探针看不�
 - 2026-09-21 · pi · 研究尾单分枝前向封存，独立容量失败不补签、收据让位#814 → `docs/research-tail-closeout-0921:docs/handoffs/2026-09-21-research-tail-forward-integration.md`。
 
 - 2026-09-21 · pi · 自适应回路前向收尾，精确工程收据与K3自然模型未闭合分账 → `finance-worktrees/adaptive-research-loop/docs/handoffs/2026-09-21-adaptive-forward-c097-gates.md`。
+- 2026-09-21 · pi · K3写手单次验收定位漏PLAN标签误催终局，4c33e0d45仅修类型纠错；方法[[retry-must-carry-the-last-rejection]] → `finance-worktrees/adaptive-research-loop/docs/handoffs/2026-09-21-adaptive-k3-plan-routing.md`。
 
 - 2026-09-21 · pi · 夜跑配置窄发布完成，业务数据恢复另验；100原件封存 → [#836](http://127.0.0.1:3300/a77/finance-workspace-private/pulls/836) / `docs/handoffs/2026-09-21-nightly-deployment-complete.md`。
 
