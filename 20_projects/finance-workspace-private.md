@@ -184,6 +184,8 @@ per-user 不是进程级；`runtime_backend_readiness` 这个全局探针看不�
 
 ## 交接记录
 
+- 2026-09-21 · claude · 同花顺盘中真实采样：异动 191/214 行非空正文验通（隔离库、与原始探针逐条一致），第二轮 4 请求全 ok；发现网关 HTTP 429 Global rate limit（客户端只重试 4001，429 中止整轮，处置待用户定）；PR #810 仍 WIP，运行时代码仍同 164b02e4 → `fwp-wt-hithink-research-data/docs/handoffs/inflight/feat-hithink-research-data.md`，收据 `~/.finance-runtime/hithink-anomaly-sample-20260921T1020/`。
+
 - 2026-09-21 · codex · 同花顺候选补离线正文/NULL/重采截止测试，当前tip c7024b5ce定向250P/8S并通过收据校验；额度仍100%/credits0，独立Spec/Quality阻塞，未改运行时/生产 → `fwp-wt-hithink-research-data/docs/handoffs/2026-09-21-hithink-offline-followup.md`。
 
 - 2026-09-21 · codex · 归属续轮#812/#813/#814形成固定组合e1b63b1a，作者全叶通过；首轮嵌套pytest抢收据的失败原件保留，独立签字/合入/生产未授权，唯一收据与进程写入权补既有证据卫生笔记及harness PR14 → `fwp-wt-ownership-closeout-0921/docs/handoffs/2026-09-21-ownership-followup.md`。
