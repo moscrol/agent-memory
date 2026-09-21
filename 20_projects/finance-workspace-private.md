@@ -71,6 +71,7 @@ DuckDB → detect_turning_points.py / backtest_sector.py → 信号+板块边际
 ## 任务看板
 | 任务 | 负责 | 状态 | 备注 |
 |---|---|---|---|
+| 09-21 日期差异说明策略 | pi | doing | c57ec654固定作者工程门禁通过；按各来源日交付，缺项局部限制。独立审查与真实Workbench答案未验，未push/开PR/合main/部署；不补采。见 `fwp-wt-market-date-advisory-0921/docs/handoffs/inflight/fix-market-date-advisory-0921.md`；方法[[finance-canonical-data-source-freshness]]。 |
 | 09-21 RAG readiness诊断 | pi | doing | #844 WIP，代码ea5df3ea4补耗时/固定失败分类；单发5秒不变、172P/4S、两变异命中。未合未部署，历史超时根因未定；交接 `fwp-wt-rag-probe-diagnostics-0921/docs/handoffs/inflight/fix-rag-probe-diagnostics-0921.md`。 |
 | 09-21 K3写手 / 无判官上线 | pi | blocked | #830代码已合；固定f2c3工程叶通过，生产两首题接线通过但内容质量未签。最终新增RAG探测超时触发回滚，8792恢复adcda/GLM与原判官配置；旧版亦复现超时，根因未定，不自动重切。备份已成但未停机/未验恢复；详见 `fwp-wt-judge-mode-k3-0921/docs/handoffs/inflight/docs-judge-mode-k3-cutover-0921.md`。 |
 | 09-21 研究尾单前向整合 | pi | blocked | #831有限接受不变；用户“执行”后#833原thread续审103P又capacity无报告，操作员typed消费者8P/3F确认引用误继承历史/丢local_only，CHANGES_REQUIRED，先修非继续求绿。#834/#835按串行共享容量约定本轮未启动、旧终审仍缺。三源码固定clean，第三包续接证据见#838；旧两包不改、#814仍正式收据线。未合部署/生产写入 → `fwp-wt-research-tail-closeout-docs-0921/docs/handoffs/inflight/docs-research-tail-closeout-0921.md`；方法[[evidence-hygiene-three-failure-shapes]]。 |
@@ -191,6 +192,8 @@ per-user 不是进程级；`runtime_backend_readiness` 这个全局探针看不�
 而 CLI/回检走 `~/.zshrc` 里的 `/Users/a77/agent-memory/.foresight`——**两套用户台账不是同一份**。
 
 ## 交接记录
+
+- 2026-09-21 · pi · 日期差异不撤真实证据，作者工程与独立/真实答案分账；方法[[finance-canonical-data-source-freshness]] → `fwp-wt-market-date-advisory-0921/docs/handoffs/2026-09-21-market-date-advisory.md`。
 
 - 2026-09-21 · pi · #844仅补RAG探针诊断，不抬帽/重试；旧运行目录漂移与原超时分账 → `fwp-wt-rag-probe-diagnostics-0921/docs/handoffs/2026-09-21-rag-probe-diagnostics.md`。
 

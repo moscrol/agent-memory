@@ -183,6 +183,7 @@ flowchart LR
 | CLI 总入口 | finance | `intelligence/cli.py` | 聚合 ask、daily、theme、l3、foresight、checkpoint、dream 等命令 |
 | 飞书 IM 入口（已退役） | finance | `intelligence/cli.py::build_parser@gitea/main`、`intelligence/chat/README.md` | 本次核定 main/生产的 CLI 已不注册 feishu-bot，原 cmd_feishu_bot 与 chat/feishu_bot.py 已移除；非法子命令由 argparse 拒绝，不再描述成仍存活的退役 shim。产品门页该处文字仍旧，问答走 ask / Workbench Episode。 |
 | 问答入口 | finance | `intelligence/services/ask.py` | 多源检索、模块 fan-out、compose 入口 |
+| 市场来源日期与可用性分离（候选，未合未部署） | finance | `intelligence/services/episode_tools.py::_structured_as_of@fix/market-date-advisory-0921`、`intelligence/services/agent_research.py::block_lines_to_evidence@fix/market-date-advisory-0921`、`intelligence/services/ask.py::_asof_prefetch_text@fix/market-date-advisory-0921`、`intelligence/services/market_snapshot_reconcile.py::reconcile_snapshot_with_market_db@fix/market-date-advisory-0921` | c57ec654：readiness日期差异保诊断但不作整体硬门；Episode/旧ask各表按cutoff内可用日期交付，混合事实和预取保自身来源日，明确未知不猜、NULL不补0。保用户历史范围/未来过滤/本地来源约束；对账日期WARN不升级partial。作者固定工程12551P/85S/2X、前端110P/E2E34P2S、11撤保护通过；独立审查及真实模型公开稿/引用尚未验收，非数据恢复或部署证明，不签后来main组合。细节见该枝docs/handoffs/2026-09-21-market-date-advisory.md。 |
 | 多轮对话 | finance | `intelligence/services/ask_chat.py` | 首轮检索后复用证据做追问 |
 | 自主工具 Agent | finance | `intelligence/runtime/agent.py` | LLM 自主决定调用只读检索工具 |
 | 问答编排器 | finance | `intelligence/services/answer_orchestrator.py` | 问题类型、深度、视角、证据计划、质检门槛 |
