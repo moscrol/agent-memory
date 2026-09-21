@@ -1,0 +1,12 @@
+{
+  "id": "wt-orphan-01",
+  "title": "收孤儿 worktree",
+  "status": "doing",
+  "owner": "pi",
+  "session": "ttys000",
+  "goal": "无人接手的 worktree 按最佳路径收完",
+  "next": "盘点无 agent 认领的 tree 并逐个收口",
+  "block": "",
+  "needs_you": false,
+  "updated_at": "2026-09-21T16:12:37+08:00"
+}
