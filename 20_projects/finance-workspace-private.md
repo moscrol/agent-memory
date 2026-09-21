@@ -71,7 +71,7 @@ DuckDB → detect_turning_points.py / backtest_sector.py → 信号+板块边际
 ## 任务看板
 | 任务 | 负责 | 状态 | 备注 |
 |---|---|---|---|
-| 09-22 runtime恢复收尾 | codex | blocked | #843代码9fbcc9196修同实例串inbox及step/close重入；固定作者全量12980P/87S/2X、26撤保护、前端110P/E2E34P2S通过。独立审未启动，最新组合/自然质量不代签；未合/部署 → `fwp-wt-runtime-closeout-0921/docs/handoffs/inflight/fix-runtime-closeout-0921.md`。 |
+| 09-22 runtime恢复收尾 | codex | blocked | #843代码9fbcc9196原作者全量/26撤保护/前端绿不移签；文档8e4797478封53f265d7c队列外审查包，12成员/84源码哈希通过、253测试映射未执行。Claude API付费待授权，旧无工具适配器不能独立跑反例；新模型/独立审/组合验收均未启动，未合/部署 → `fwp-wt-runtime-closeout-0921/docs/handoffs/inflight/fix-runtime-closeout-0921.md`。 |
 | 09-21 研究清单与引用身份 | codex | doing | 8a892290d离线修清单送达/排名意图/E号保真；固定定向1504P/4S与五变异通过，不代签逐项语义或生产效果。未push/合main/部署 → `fwp-wt-research-contract-citations-0921/docs/handoffs/inflight/fix-research-contract-citations-0921.md`。 |
 | 09-21 日期差异说明策略 | pi | blocked | 786a3b627两题K3真实conversations已跑，非独立验收；当前题误否09-21本地快照，历史题自然守窗但强制cutoff仍09-21且只读越界反例成立，两题judge unavailable/partial。证据110b4afe5、新68/68与旧200/200 Git对象核验通过；c57作者工程收据不移签。未push/PR/合main/部署/补采 → `fwp-wt-market-date-advisory-0921/docs/handoffs/inflight/fix-market-date-advisory-0921.md`；方法[[finance-canonical-data-source-freshness]]。 |
 | 09-22 RAG readiness诊断 | pi | blocked | #844仍WIP，3451c1d65补单飞，前轮230P/4S；894ad9f65记生产只读核验：主库09-18/快照09-21仍阻塞，沙箱单次help309ms不证历史超时消失。readiness有恢复副作用未调用；仍GLM/判官llm，未合未部署。交接 `fwp-wt-rag-probe-diagnostics-0921/docs/handoffs/inflight/fix-rag-probe-diagnostics-0921.md`。 |
