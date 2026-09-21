@@ -71,7 +71,7 @@ DuckDB → detect_turning_points.py / backtest_sector.py → 信号+板块边际
 ## 任务看板
 | 任务 | 负责 | 状态 | 备注 |
 |---|---|---|---|
-| 09-21 工作树归属核验与孤儿接管 | codex | blocked | #814修复`cdf6647cf`、固定组合`47530e20`的作者全叶绿保留在`60463b703`，不移签。用户已授权独立复核；本轮Codex订阅Spec启动因usage limit退出1，另缺code-mode-host，无有效审查产出，Quality未启动。26文件阻塞原件封存#812文档`895603020`，等待可用通道/额度决定；未购额、切付费、合入、部署、回填或删树 → `fwp-wt-ownership-closeout-0921/docs/handoffs/inflight/ops-worktree-ownership-closeout-0921.md`。 |
+| 09-21 工作树归属核验与孤儿接管 | codex | blocked | #814修复`cdf6647cf`、固定组合`47530e20`的作者全叶绿保留在`60463b703`，不移签。用户已授权独立复核；本轮Codex订阅Spec启动因usage limit退出1，另缺code-mode-host，无有效审查产出，Quality未启动。26文件阻塞原件封存#812文档`895603020`，等待可用通道/额度决定；封存后上游并行推进的身份补记`d79e7f815`，未来合流须新对象新门禁。未购额、切付费、合入、部署、回填或删树 → `fwp-wt-ownership-closeout-0921/docs/handoffs/inflight/ops-worktree-ownership-closeout-0921.md`。 |
 | 09-21 Arena前向候选 | codex | blocked | [#816](http://127.0.0.1:3300/a77/finance-workspace-private/pulls/816)固定`b8292d23`的作者工程绿为历史证据（12104P/85S/2X、Arena43P、Arena E2E8P）；后续离线审查NO-GO见评论5165：完成状态与Match非原子、stale-running恢复与发布审计待修。本轮归属续接未复验/接管该线 → `fwp-wt-arena-main-ready-0921/docs/handoffs/inflight/fix-arena-main-ready-0921.md`；报告`~/.finance-runtime/reviews/arena-main-ready-v2-20260921/offline-spec-quality-review.md`。 |
 | 同花顺研究观察值第一批 | codex | blocked | [#810](http://127.0.0.1:3300/a77/finance-workspace-private/pulls/810) WIP，当前head `311a4c92f`；运行时代码仍为164b02e4，最终tip定向250P/8S、Ruff及收据校验通过。订阅额度100%/credits0，独立Spec/Quality未执行；非空异动、生产恢复、合main/部署/付费审查仍暂停。旧同步根/生产原样 → `fwp-wt-hithink-research-data/docs/handoffs/inflight/feat-hithink-research-data.md`。 |
 | 8792题设与行情根因修复 | codex | blocked | df186f9b已提交；相关回归1728P/12S，但最终live静态PE基数错且judge漏报，未合/部署。需题设年份/数据性质/单位计算合同 → `fwp-wt-8792-premise-market/docs/handoffs/inflight/fix-8792-premise-market-contracts.md`。 |
@@ -221,6 +221,7 @@ per-user 不是进程级；`runtime_backend_readiness` 这个全局探针看不�
 
 - 2026-09-20 · coding-agent · 旧净增量拆为[#806](http://127.0.0.1:3300/a77/finance-workspace-private/pulls/806)/[#805](http://127.0.0.1:3300/a77/finance-workspace-private/pulls/805)，材料尾项不冒认吸收 → 两枝 `docs/handoffs/inflight/fix-{broad-index,generation-degrade}-closeout-0920.md`。
 
+- 2026-09-21 · claude · 真实模型冒烟 1/3–5（寒武纪，单臂 off，glm-5.3-flash+judge llm）：修复回路点着、模型整体重写数字条件；第二轮修复流式失败→partial 带稿，公开稿零提示、前端显示已完成；发现表达槽词汇不相认 / 授予窗非墙钟 / 裸股票代码查空 / 判官注册表只含绑定∪引用；代码未改 → `finance-worktrees/adaptive-research-loop/docs/handoffs/inflight/feat-adaptive-research-loop.md`，原件 `~/.finance-runtime/adaptive-live-smoke-20260921/README.md`。
 - 2026-09-21 · claude · 公开发布上限 `88a12753`/`d3a2202f`/`7172ba30` + 复核收尾：未解决机械反馈压 partial、已解决语义修订不误降级；完整Python12096P 收据精确绑 7172ba30e，两轮撤线通过。复核撤回悬空连接词剥离候选（中文兼类连接词误剥，补丁存证据目录），封存件补齐。真实模型验收待网关/judge 参数 → `finance-worktrees/adaptive-research-loop/docs/handoffs/inflight/feat-adaptive-research-loop.md`。
 - 2026-09-21 · Codex · 修订传递/时机 `3c30eceb`：SDK完整领域消息、数字补证前投递诊断；完整Python12062P、六撤线和前端/E2E通过，真实模型未验 → `finance-worktrees/adaptive-research-loop/docs/handoffs/2026-09-21-adaptive-repair-delivery.md`。
 - 2026-09-21 · Codex · 同会话审查反馈 `b29f2ad6`/`affe6bdd`：修复诊断误挡材料重写，完整Python12048P、五撤线、前端/E2E通过；公开保真未自然验收 → `finance-worktrees/adaptive-research-loop/docs/handoffs/2026-09-21-adaptive-repair-feedback.md`。
