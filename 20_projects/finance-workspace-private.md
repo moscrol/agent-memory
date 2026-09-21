@@ -72,7 +72,7 @@ DuckDB → detect_turning_points.py / backtest_sector.py → 信号+板块边际
 | 任务 | 负责 | 状态 | 备注 |
 |---|---|---|---|
 | 09-22 runtime恢复收尾 | codex | blocked | #843代码9fbcc9196原作者全量/26撤保护/前端绿不移签；文档8e4797478封53f265d7c队列外审查包，12成员/84源码哈希通过、253测试映射未执行。Claude API付费待授权，旧无工具适配器不能独立跑反例；新模型/独立审/组合验收均未启动，未合/部署 → `fwp-wt-runtime-closeout-0921/docs/handoffs/inflight/fix-runtime-closeout-0921.md`。 |
-| 09-21 研究清单与引用身份 | codex | doing | 8a892290d离线修清单送达/排名意图/E号保真；固定定向1504P/4S与五变异通过，不代签逐项语义或生产效果。未push/合main/部署 → `fwp-wt-research-contract-citations-0921/docs/handoffs/inflight/fix-research-contract-citations-0921.md`。 |
+| 09-21 研究清单与引用身份 | codex | pending merge | `ba18395ce`补齐`requirement_checks`逐题/子项回执、最终公开稿witness复核与有界contract_rewrite；固定定向1787P/4S、十组变异、重入4P/1X通过。只证明协议/预算边界，不代签真实金融语义；未push/合main/部署 → `fwp-wt-research-contract-citations-0921/docs/handoffs/inflight/fix-research-contract-citations-0921.md`，决策快照 `docs/handoffs/2026-09-21-research-contract-requirement-receipts.md`。 |
 | 09-21 日期差异说明策略 | pi | blocked | 786a3b627两题K3真实conversations已跑，非独立验收；当前题误否09-21本地快照，历史题自然守窗但强制cutoff仍09-21且只读越界反例成立，两题judge unavailable/partial。证据110b4afe5、新68/68与旧200/200 Git对象核验通过；c57作者工程收据不移签。未push/PR/合main/部署/补采 → `fwp-wt-market-date-advisory-0921/docs/handoffs/inflight/fix-market-date-advisory-0921.md`；方法[[finance-canonical-data-source-freshness]]。 |
 | 09-22 RAG readiness诊断 | pi | blocked | #844仍WIP，3451c1d65补单飞，前轮230P/4S；894ad9f65记生产只读核验：主库09-18/快照09-21仍阻塞，沙箱单次help309ms不证历史超时消失。readiness有恢复副作用未调用；仍GLM/判官llm，未合未部署。交接 `fwp-wt-rag-probe-diagnostics-0921/docs/handoffs/inflight/fix-rag-probe-diagnostics-0921.md`。 |
 | 09-21 K3写手 / 无判官上线 | pi | blocked | #830代码已合；固定f2c3工程叶通过，生产两首题接线通过但内容质量未签。最终新增RAG探测超时触发回滚，8792恢复adcda/GLM与原判官配置；旧版亦复现超时，根因未定，不自动重切。备份已成但未停机/未验恢复；详见 `fwp-wt-judge-mode-k3-0921/docs/handoffs/inflight/docs-judge-mode-k3-cutover-0921.md`。 |
@@ -210,6 +210,7 @@ per-user 不是进程级；`runtime_backend_readiness` 这个全局探针看不�
 - 2026-09-21 · codex · #841仅清理自有可重建目录后前向固定main重验；候选工程通过不代替独立/自然或main tip验收 → `fwp-wt-history-evidence-integration-0921/docs/handoffs/2026-09-21-history-main-revalidation.md`。
 
 - 2026-09-21 · codex · 研究清单与引用身份离线修复；送达不等于语义完成，方法[[state-transition-identity-must-survive-dedup]] → `fwp-wt-research-contract-citations-0921/docs/handoffs/2026-09-21-research-contract-citations.md`。
+- 2026-09-21 · codex · 研究清单回执续作已提交 `ba18395ce`：逐题/子项 `requirement_checks`、最终公开稿 witness 复核、漏答与事实拒绝分离、修复预算不扩；1787P/4S 与十组变异只证明工程协议，不代签真实金融质量 → `fwp-wt-research-contract-citations-0921/docs/handoffs/2026-09-21-research-contract-requirement-receipts.md`。
 
 - 2026-09-21 · codex · 日期策略K3真实验收未过：模型本次守窗不等于工具强制上界，缺证不等于全库不存在；证据110b4afe5已封 → `fwp-wt-market-date-advisory-0921/docs/handoffs/2026-09-21-market-date-k3-live.md`。
 
