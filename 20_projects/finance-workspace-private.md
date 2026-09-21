@@ -185,7 +185,7 @@ per-user 不是进程级；`runtime_backend_readiness` 这个全局探针看不�
 
 ## 交接记录
 
-- 2026-09-21 · claude · #815（三PR组合 #805/#806/#808 + 行值快照修复，06f74ef1）用户回复「合并」后 API 合入 main → merge commit 8aff6ebc，main 树与被测树逐字节同、收据 9/9 可采信；合前先给三张兄弟 PR 加 WIP 守卫（修复只在 #815，单合任一张会落缺陷版），合后三张仍 open 未被 Gitea 自动判合、关闭待用户；合并后 inflight 真值化 docs PR #821 待确认 → 树外 `~/.finance-runtime/reviews/stale-closeout-k3-20260921/CURRENT.md`（`merge-815-record.json` / `wip-guard-0921.json`）/ `docs/handoffs/inflight/fix-fincalc-row-snapshot-0921.md`。
+- 2026-09-21 · claude · #815（三PR组合 #805/#806/#808 + 行值快照修复，06f74ef1）用户回复「合并」后 API 合入 main → merge commit 8aff6ebc，main 树与被测树逐字节同、收据 9/9 可采信；合前先给三张兄弟 PR 加 WIP 守卫（修复只在 #815，单合任一张会落缺陷版），合后三张仍 open 未被 Gitea 自动判合、关闭待用户；合并后 inflight 真值化 docs PR #821 用户二次「合并」后已合入（602ec8b7，docs 分支与工作树已清）→ 树外 `~/.finance-runtime/reviews/stale-closeout-k3-20260921/CURRENT.md`（`merge-815-record.json` / `wip-guard-0921.json`）/ `docs/handoffs/inflight/fix-fincalc-row-snapshot-0921.md`。
 - 2026-09-21 · coding-agent · 获授权尝试归属v3独立复核，订阅额度阻断且缺执行组件；保留原件、不付费fallback、不把启动当验收 → `fwp-wt-ownership-closeout-0921/docs/handoffs/2026-09-21-ownership-independent-review-blocked.md`。
 
 - 2026-09-21 · claude · 研究求证意识候选复核第二轮：五叶对 500167e26 全为直接读数（全量 12049P/0F 本轮重跑），候选推至 WIP PR #819，注册表补丁 3c344b61e 不推、由逐字节相同的 #818 接替；registry check 在 fwp-wt-* 树里实测红，合入顺序改 #818→#819→#770；交接 PR #820 → `docs/handoffs/inflight/claude-research-reasoning-awareness-review-f65597.md`。
