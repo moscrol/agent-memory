@@ -27,6 +27,12 @@ source: finance-workspace-private 第五轮研究进化 QC，d83a0c48
 
 证据及可执行反例：`/private/tmp/research-evolution-r5-qc-Dmm5xA/report/docs/verification/research-evolution-round5/`。通用件暂沉淀为审查手法而非统一 lint：状态等价和账单覆盖含领域语义；具体反例已落仓可机械重放。未改脏的 harness-reference。
 
+## 过滤后的列表位置不是原始身份
+
+2026-09-21金融离线修复（8a892290d）再证：完整账本给证据编号后，公开层过滤或按同标题去重，再用enumerate补编号，会让正文E号指向另一份报告。身份必须由完整来源账本确定，再沿过滤、保存、事件、重载与公开面板传递；同展示标签不代表同证据，缺身份的旧记录不能靠当前位置伪造绑定。这个检查也适用于分页、搜索结果和审计记录。
+
+机械反例：首项被过滤后E2仍为E2；同标签不同身份保留；重复身份合并；追加账本不改旧号；存储/事件/API重载同号；旧无身份不造号。回归与五组进程内撤保护见finance分支 `fix/research-contract-citations-0921` 的 `scripts/review_probes/check_research_contract_boundaries.py`。只证明这些工程不变量，不证明证据内容足以支持正文或语义要求已满足；不造跨领域语义lint，未改有他人在途的harness-reference。
+
 ## A→B→A：内容身份不等于历史节点身份
 
 第六轮复核（`b12b613c`）继续证实：把最终去重换为「优先留 open」虽救回末态，却可能把初态 A 与末态 A 合成一节点，留下 `B.supersedes=A` 与 `A.supersedes=B`，历史成环。若首末态 item_version 也相同，旧 snooze/close 还可能在动作重放时重新生效。
