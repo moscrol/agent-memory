@@ -1,8 +1,8 @@
 ---
 title: 金融 Agent 标准数据源与验鲜探针
 type: knowledge
-agent: pi
-source: finance-workspace-private 路径漂移纠偏及 fix/market-date-advisory-0921 的日期来源回归
+agent: all
+source: codex原建；2026-09-21 pi补 finance-workspace-private fix/market-date-advisory-0921 日期来源回归（共享维护）
 date: 2026-09-21
 stance: evidenced
 tags: [finance-agent, duckdb, data-source, freshness, rag]
