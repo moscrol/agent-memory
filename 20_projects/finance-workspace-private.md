@@ -74,7 +74,7 @@ DuckDB → detect_turning_points.py / backtest_sector.py → 信号+板块边际
 | 09-22 runtime恢复收尾 | codex | blocked | #843代码9fbcc9196修同实例串inbox及step/close重入；固定作者全量12980P/87S/2X、26撤保护、前端110P/E2E34P2S通过。独立审未启动，最新组合/自然质量不代签；未合/部署 → `fwp-wt-runtime-closeout-0921/docs/handoffs/inflight/fix-runtime-closeout-0921.md`。 |
 | 09-21 研究清单与引用身份 | codex | doing | 8a892290d离线修清单送达/排名意图/E号保真；固定定向1504P/4S与五变异通过，不代签逐项语义或生产效果。未push/合main/部署 → `fwp-wt-research-contract-citations-0921/docs/handoffs/inflight/fix-research-contract-citations-0921.md`。 |
 | 09-21 日期差异说明策略 | pi | blocked | 786a3b627两题K3真实conversations已跑，非独立验收；当前题误否09-21本地快照，历史题自然守窗但强制cutoff仍09-21且只读越界反例成立，两题judge unavailable/partial。证据110b4afe5、新68/68与旧200/200 Git对象核验通过；c57作者工程收据不移签。未push/PR/合main/部署/补采 → `fwp-wt-market-date-advisory-0921/docs/handoffs/inflight/fix-market-date-advisory-0921.md`；方法[[finance-canonical-data-source-freshness]]。 |
-| 09-21 RAG readiness诊断 | pi | doing | #844 WIP，代码ea5df3ea4补耗时/固定失败分类；单发5秒不变、172P/4S、两变异命中。未合未部署，历史超时根因未定；交接 `fwp-wt-rag-probe-diagnostics-0921/docs/handoffs/inflight/fix-rag-probe-diagnostics-0921.md`。 |
+| 09-22 RAG readiness诊断 | pi | blocked | #844仍WIP，3451c1d65补单飞，前轮230P/4S；894ad9f65记生产只读核验：主库09-18/快照09-21仍阻塞，沙箱单次help309ms不证历史超时消失。readiness有恢复副作用未调用；仍GLM/判官llm，未合未部署。交接 `fwp-wt-rag-probe-diagnostics-0921/docs/handoffs/inflight/fix-rag-probe-diagnostics-0921.md`。 |
 | 09-21 K3写手 / 无判官上线 | pi | blocked | #830代码已合；固定f2c3工程叶通过，生产两首题接线通过但内容质量未签。最终新增RAG探测超时触发回滚，8792恢复adcda/GLM与原判官配置；旧版亦复现超时，根因未定，不自动重切。备份已成但未停机/未验恢复；详见 `fwp-wt-judge-mode-k3-0921/docs/handoffs/inflight/docs-judge-mode-k3-cutover-0921.md`。 |
 | 09-21 研究尾单前向整合 | pi | blocked | #845/b6de1a38c修H-03材料来源投影，原两输入安全断言转绿，合法续问保local_only；固定985P/4S（含新67例）、十四变异有效，整体仍CHANGES_REQUIRED/未验收。#838/c14bc12f5封81成员，六包Git blobs及原件核验，旧五包不改；原外置探针诊断空值1F与只修诊断副本2P分账。完整门禁/三领域独立终审/自然四题未闭合，未重启；#831有限接受不变，#814及邻线不接管。未合/部署/生产写入 → `fwp-wt-research-tail-closeout-docs-0921/docs/handoffs/inflight/docs-research-tail-closeout-0921.md`；方法[[gate-covers-only-its-return-value]]。 |
 | 自适应研究回路前向收尾 | pi | blocked | 81ff5e7da收窄本地非命中/历史匹配，未查gap不当收据；固定相关709P（主树.venv-workbench/bin/python）、六撤保护及amount五变异通过，仅工程证据。权限/预算不扩，无新自然模型；旧72a2ac534的partial及错误原稿不改判。完整门禁/独立审查/自然改稿重核待，旧全叶不移签；未push/合main/部署 → `finance-worktrees/adaptive-research-loop/docs/handoffs/inflight/feat-adaptive-research-loop.md`。 |
@@ -194,6 +194,8 @@ per-user 不是进程级；`runtime_backend_readiness` 这个全局探针看不�
 而 CLI/回检走 `~/.zshrc` 里的 `/Users/a77/agent-memory/.foresight`——**两套用户台账不是同一份**。
 
 ## 交接记录
+
+- 2026-09-22 · pi · 生产只读核验确认行情日期阻塞，避开带恢复副作用的readiness，单次help不代签检索质量 → `fwp-wt-rag-probe-diagnostics-0921/docs/handoffs/2026-09-22-production-readonly-readiness.md`。
 
 - 2026-09-22 · codex · #831授权合并后正式main全量1F，单例/模块复跑绿不覆盖红灯；#846仍待独立，未部署，方法[[gate-covers-only-its-return-value]] → `fwp-wt-deploy-help-0921/docs/handoffs/2026-09-22-pr831-authorized-merge-and-main-gate.md`。
 
