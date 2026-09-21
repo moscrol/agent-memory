@@ -46,7 +46,7 @@ select count(*), min(trade_date), max(trade_date) from fact_mainline_sector_dail
 - 来源日、事件日、预期交付日是不同字段。元数据经预取、转文本、证据解析逐层保留；明确未知不能靠正文最大日期或参照日补齐。
 - 允许异日事实不等于允许异口径计算。期间、单位、可比性和快照质量独立校验；NULL不当0，日期WARN不升级partial质量。
 
-上述读取行为在 `fix/market-date-advisory-0921@c57ec654` 有正式回归与撤保护测试。2026-09-22续修 `b1e04452b` 将明确用户截止传入强制合同，新增窄授权的本地日快照读取；326定向与24变异等检查通过，但完整Python资源阻塞、独立审查与新真实答案未通过。上轮K3误否本地快照和系统上界缺失的未验收结论不能被离线绿覆盖。未合入或部署；状态见 [[finance-agent-capability-graph]]，证据见该枝 `docs/handoffs/2026-09-22-market-cutoff-snapshot.md`。
+上述读取行为在 `fix/market-date-advisory-0921@c57ec654` 有正式回归与撤保护测试。2026-09-22续修候选 `53054bfd4` 将明确用户截止传入强制合同，新增窄授权的本地日快照读取；完整 Python 为 12594 passed / 87 skipped / 2 xfailed、Ruff 0，前端、registry、24 项原变异均通过。独立 Spec/Quality 因账号 usage limit 无结论，真实 Workbench 仍未接受，候选未合入或部署。上轮 K3 误否本地快照和系统上界缺失的未验收结论不能被离线绿覆盖；状态见 [[finance-agent-capability-graph]]，续验收据见 `docs/verification/2026-09-22-market-cutoff-followup/`。
 
 日快照与复盘库是独立来源。只查到某表最新日，不能推出整个本地不存在更近行情；快照自带的阶段/行业涨停池也不能直接当复盘阶段/主线全集。历史读取只看截止内文件自身身份和质量，不借当前元数据补造当时状态；日期标签正确仍不等于所有内容在当时已公开。
 

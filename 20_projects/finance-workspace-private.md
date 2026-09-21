@@ -72,7 +72,7 @@ DuckDB → detect_turning_points.py / backtest_sector.py → 信号+板块边际
 | 任务 | 负责 | 状态 | 备注 |
 |---|---|---|---|
 | 09-22 watchdog测试红灯验收 | codex | blocked | #848固定2007edfa5获一位独立PASS_WITH_LIMITS；全量12511P/85S/2X、Ruff/registry0、前端110P、缺浏览器修复后E2E34P/2S，首红保留。待用户合并授权，main旧红不代签；文档00666b066独立分支，不推进代码head；未合/部署，#846仍WIP → `fwp-wt-watchdog-closeout-0922/docs/handoffs/inflight/docs-watchdog-848-acceptance-0922.md`。 |
-| 09-21 行情恢复 | pi | blocked | 只读量具3ae615b4d、候选规格f2d935a02；固定159P，278份输入哈希回读通过。候选5565=5553历史bar+12供应商停牌证据，非官方历史全集；复牌参考、名称/换手率及下游分母待签，三门仍红。未写库/发布/合并/部署 → `fwp-wt-market-recovery-0921/docs/handoffs/inflight/fix-market-recovery-0921.md`。 |
+| 09-21 行情恢复 | pi | blocked | 纯候选7311a7738；干净4c0162a9b定向247P，新构造器88P、六类变异抓红。09-04复牌原件已固定，5565范围构造5553候选+12缺失处置；原278+新增136证据回读一致。名称/换手率/官方历史范围/停牌分母与下游三门待闭合；未写库/发布/合并/部署 → `fwp-wt-market-recovery-0921/docs/handoffs/inflight/fix-market-recovery-0921.md`。 |
 | 09-22 runtime恢复收尾 | codex | blocked | #843代码9fbcc9196原作者全量/26撤保护/前端绿不移签；文档tip `8e4797478`。用户授权K3后队列外审查40/40请求硬帽exit75，无终稿；局部writer/reentry 15P、failure fence 13P、restore 23P，fence mutation有效抓红；persistence环境重定向后44/44仅作宿主诊断。未合/部署 → `fwp-wt-runtime-closeout-0921/docs/handoffs/inflight/fix-runtime-closeout-0921.md`、`docs/handoffs/2026-09-22-runtime-k3-review-closeout.md`。 |
 | 09-21 研究清单与引用身份 | codex | blocked | `ba18395ce`补齐`requirement_checks`逐题/子项回执、最终公开稿witness复核与有界contract_rewrite；固定定向1787P/4S、十组变异通过，重入4P/1X（既有预期失败未修）。完整门禁/独立审核/真实语义待验，非待合入批准；未push/合main/部署 → `fwp-wt-research-contract-citations-0921/docs/handoffs/inflight/fix-research-contract-citations-0921.md`，决策快照 `docs/handoffs/2026-09-21-research-contract-requirement-receipts.md`。 |
 | 09-21 日期差异说明策略 | codex | blocked | b1e04452b修严格截止和窄授权本地日快照；固定326P/Ruff0、24变异、前端110P/E2E34P2S、registry五项0。完整Python因磁盘<8GiB未开跑；独立旧候选两审容量失败无结论，新K3未跑，上轮未通过不翻案。证据f7d417238新250/250、旧68/68及200/200 Git核验通过。未push/PR/合main/部署/补采 → `fwp-wt-market-date-advisory-0921/docs/handoffs/inflight/fix-market-date-advisory-0921.md`；方法[[finance-canonical-data-source-freshness]]、[[denied-io-tests-must-count-attempts]]。 |
@@ -205,13 +205,14 @@ per-user 不是进程级；`runtime_backend_readiness` 这个全局探针看不�
 - 2026-09-22 · codex · 五组测试现场保全归档与闲置缓存回收，df整机净增9.02GiB但不独占归因；生产与失败证据保留、未设定期删除 → `~/.finance-runtime/reviews/disk-cleanup-20260922/round3/handoff.md`。
 
 - 2026-09-22 · pi · 固定09-21行情候选输入，回放通过不授发布权 → `fwp-wt-market-recovery-0921/docs/handoffs/2026-09-22-market-recovery-input-contract.md`（f2d935a02）。
+- 2026-09-22 · codex · 09-21纯候选与复牌原件闭合，计算通过不授权写库 → `fwp-wt-market-recovery-0921/docs/handoffs/2026-09-22-market-recovery-pure-candidate.md`（7311a7738）。
 
 - 2026-09-22 · codex · #845补格返修与05完整面续验封存，RSS环境红和定向复验分账 → `docs/research-tail-closeout-0921:docs/handoffs/2026-09-22-history-engineering-resume.md`。
 - 2026-09-22 · codex · #845同SHA的06完整分组通过，保05原红、不代正式验收 → `docs/research-tail-closeout-0921:docs/handoffs/2026-09-22-history-engineering-resume-06.md`。
 
 - 2026-09-22 · claude · 磁盘告急清理（220MiB→28.2GiB 可用）：删 `~/.cache` 五项缓存、12 份已收口 run 的整库副本、3 份 `market_feature_store` 旧 `.bak`（锚留 `cca104bedc85`，退役收据移入 receipts 目录）；各 run 的报告/日志/收据全留，只删库副本。**`du` 在本机严重虚高**——run 与备份都用 APFS clonefile 复制生产库，按 du 删 47.6G 实际只释放 24.7G，三份 `.bak` 账面 10.2G 实释放 0.38G；sha256 不同≠占独立块（DuckDB 只改少量页）。估算可回收空间必须用 `df` 前后实测，不能拿 du 之和承诺。保留：`db-repair/hithink-20260911`(37G，归属仍未确认)、`fwp-wt-market-recovery-0921/tmp`（今日 01:04 封存的失败 run 证据，且为 clonefile 删了不释放）。未做：B档 Gitea 包轮转、node_modules(28.4G 真实)、`.finance-runtime` 466 个 run 目录保留期策略。另查明今晚 00:44 recovery 失败 `returncode 2` 是数据缺口（`feature_stock_window` 09-21 staging 为空、L2 `top100=0/100`），**不是磁盘**，生产库哈希与 run 前一致未受污染 → `~/.finance-runtime/reviews/disk-cleanup-20260922/receipt.json`（含 manifest.jsonl 逐份 sha256）。
 
-- 2026-09-22 · codex · 截止与本地快照修复已封存，定向通过不代完整验收；方法[[denied-io-tests-must-count-attempts]] → `fwp-wt-market-date-advisory-0921/docs/handoffs/2026-09-22-market-cutoff-snapshot.md`。
+- 2026-09-22 · codex · 截止与本地快照候选 `53054bfd4` 完整作者门禁通过（12594P/87S/2X、Ruff0、前端/registry/24变异），但独立 Spec/Quality 因 usage limit 无结论、真实 Workbench 仍未接受；证据包 `38ceead0e`，方法[[denied-io-tests-must-count-attempts]] → `fwp-wt-market-date-advisory-0921/docs/handoffs/2026-09-22-market-cutoff-followup.md`。
 
 - 2026-09-22 · codex · #841两次新K3审查因here-doc启动失败，各0模型请求；另验嵌套sandbox阻塞，599作者回归不代签，方法[[evidence-hygiene-three-failure-shapes]] → `fwp-wt-history-evidence-integration-0921/docs/handoffs/2026-09-22-history-k3-access.md`。
 - 2026-09-22 · codex · #841恢复独立读取后双审查额度耗尽，无终稿不签通过；客户端等待非服务停止 → `fwp-wt-history-evidence-integration-0921/docs/handoffs/2026-09-22-history-review-resume.md`。
