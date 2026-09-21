@@ -71,7 +71,7 @@ DuckDB → detect_turning_points.py / backtest_sector.py → 信号+板块边际
 ## 任务看板
 | 任务 | 负责 | 状态 | 备注 |
 |---|---|---|---|
-| 09-21 夜跑部署差距收尾 | pi | doing | [#827](http://127.0.0.1:3300/a77/finance-workspace-private/pulls/827) 只认领已合#795/#796的装机候选，不抢#810/429、归属三单与Arena。新三根固定adcda94b，原指数补丁/L2已保全核对；2137345da窄安装+预览已推，完整Python正在跑，前端110P/E2E34P2S、registry与边界探针已过。未合/切生产/采集/删树 → `fwp-wt-nightly-deploy-closeout-0921`；证据`~/.finance-runtime/reviews/nightly-deploy-closeout-20260921/`。 |
+| 09-21 夜跑部署差距收尾 | pi | blocked | [#827](http://127.0.0.1:3300/a77/finance-workspace-private/pulls/827) 固定2137345da作者工程12460P/0F/85S/2X、前端110P/E2E34P2S、registry五项绿；初始汇总解析错误保留并从原精确收据/JUnit核对，未重跑。三候选根adcda94b已建，旧指数补丁/L2保全；74原件封存。独立/后来main合流未验，未合/切夜跑/采集/删树；8792他会话已切adcda不重复动 → `fwp-wt-nightly-deploy-closeout-0921/docs/handoffs/inflight/fix-nightly-deploy-closeout-0921.md`。 |
 | 09-21 工作树归属核验与孤儿接管 | coding-agent | blocked | #814 O-K3-001已修a092；再次“继续”后，以当时main c615固定三单组合`6eb12c1b8`并推送，作者工程全绿：Python12461P/85S/2X，前端110P、E2E34P/2S、registry五项0。证据`c39e5bfd8`82文件，评论5294/5295/5296回读一致。独立未复审，07:12Z后来main adcda94b未合流验收；旧六档/v3历史不改。未追加模型会话/合入/部署/生产回填/删真实树 → `fwp-wt-ownership-closeout-0921/docs/handoffs/inflight/ops-worktree-ownership-closeout-0921.md`。 |
 | 09-21 Arena前向候选 | codex | blocked | [#816](http://127.0.0.1:3300/a77/finance-workspace-private/pulls/816)固定`b8292d23`的作者工程绿为历史证据（12104P/85S/2X、Arena43P、Arena E2E8P）；后续离线审查NO-GO见评论5165：完成状态与Match非原子、stale-running恢复与发布审计待修。本轮归属续接未复验/接管该线 → `fwp-wt-arena-main-ready-0921/docs/handoffs/inflight/fix-arena-main-ready-0921.md`；报告`~/.finance-runtime/reviews/arena-main-ready-v2-20260921/offline-spec-quality-review.md`。 |
 | 同花顺研究观察值第一批 | codex | blocked | [#810](http://127.0.0.1:3300/a77/finance-workspace-private/pulls/810) WIP，当前head `311a4c92f`；运行时代码仍为164b02e4，最终tip定向250P/8S、Ruff及收据校验通过。订阅额度100%/credits0，独立Spec/Quality未执行；非空异动、生产恢复、合main/部署/付费审查仍暂停。旧同步根/生产原样 → `fwp-wt-hithink-research-data/docs/handoffs/inflight/feat-hithink-research-data.md`。 |
@@ -185,6 +185,8 @@ per-user 不是进程级；`runtime_backend_readiness` 这个全局探针看不�
 而 CLI/回检走 `~/.zshrc` 里的 `/Users/a77/agent-memory/.foresight`——**两套用户台账不是同一份**。
 
 ## 交接记录
+
+- 2026-09-21 · pi · 夜跑固定根候选+窄安装预览，作者工程绿但未切生产；保留旧根，不混入#810/429 → [#827](http://127.0.0.1:3300/a77/finance-workspace-private/pulls/827) / `fwp-wt-nightly-deploy-closeout-0921/docs/handoffs/2026-09-21-nightly-deploy-closeout.md`。
 
 - 2026-09-21 · claude · 「合并→部署→推进」整轮收口：#818/#819/#820 合入后切 8792 到 945c04bd7fdd（PR #824 记录）；随后 P6 #770 前向合并 main（132 提交、3 处冲突）并修跨 PR 缝（冻结范围规则拒 #819 恢复的旧证据，加 `frozen_prior_hashes` 白名单，两条规则都不放松），#770/#824 合入后**再切 8792 到 adcda94b5e40**（含他人同窗口合入的 #825），四叶 12440P/0F + 前端门禁六步 0 + registry 五条 0，health 三读/readiness 13/13/账本 ok；**材料题探针前后对照**证实 #770 生效（partial/0 绑定/「证据不足」→ completed/4 绑定 10 锚点/判官 passed）；中途一条 0.2s 看门狗时序红已证伪为负载敏感（加压后新旧两树各 6/6）。记录 PR #828 → `docs/handoffs/2026-09-21-8792-switch-adcda94b5e40.md`。
 - 2026-09-21 · claude · 同花顺网关 HTTP 429 全局限流并入 get_json 退避路径（先判 HTTP 状态再判业务码，Retry-After 两形态、单次封顶 60s，退避额度改独立墙钟预算不占 retries——原 retries=4 只等 5.6s 而实测窗口约 7min）；默认 300s 救瞬时限流不保证救整窗，取舍留参数+HITHINK_RATE_LIMIT_BUDGET_SECONDS；9 条新测试三次定点变异各只红对应层（6/3/3，邻层绿）；dd2fae334+ac5c17693 全量 11975P/0F @ dirty:false，已推 Gitea，**未开 PR、未合入、未部署**，真实 429 复现样本=0 → `.claude/worktrees/hithink-429-retry-handling-80eeca/docs/handoffs/2026-09-21-hithink-429-backoff.md`。
