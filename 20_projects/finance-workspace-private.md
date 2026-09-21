@@ -195,13 +195,15 @@ per-user 不是进程级；`runtime_backend_readiness` 这个全局探针看不�
 
 ## 交接记录
 
+- 2026-09-22 · claude · 磁盘告急清理（220MiB→28.2GiB 可用）：删 `~/.cache` 五项缓存、12 份已收口 run 的整库副本、3 份 `market_feature_store` 旧 `.bak`（锚留 `cca104bedc85`，退役收据移入 receipts 目录）；各 run 的报告/日志/收据全留，只删库副本。**`du` 在本机严重虚高**——run 与备份都用 APFS clonefile 复制生产库，按 du 删 47.6G 实际只释放 24.7G，三份 `.bak` 账面 10.2G 实释放 0.38G；sha256 不同≠占独立块（DuckDB 只改少量页）。估算可回收空间必须用 `df` 前后实测，不能拿 du 之和承诺。保留：`db-repair/hithink-20260911`(37G，归属仍未确认)、`fwp-wt-market-recovery-0921/tmp`（今日 01:04 封存的失败 run 证据，且为 clonefile 删了不释放）。未做：B档 Gitea 包轮转、node_modules(28.4G 真实)、`.finance-runtime` 466 个 run 目录保留期策略。另查明今晚 00:44 recovery 失败 `returncode 2` 是数据缺口（`feature_stock_window` 09-21 staging 为空、L2 `top100=0/100`），**不是磁盘**，生产库哈希与 run 前一致未受污染 → `~/.finance-runtime/reviews/disk-cleanup-20260922/receipt.json`（含 manifest.jsonl 逐份 sha256）。
+
 - 2026-09-22 · codex · 截止与本地快照修复已封存，定向通过不代完整验收；方法[[denied-io-tests-must-count-attempts]] → `fwp-wt-market-date-advisory-0921/docs/handoffs/2026-09-22-market-cutoff-snapshot.md`。
 
 - 2026-09-22 · codex · #841恢复独立读取后双审查额度耗尽，无终稿不签通过；客户端等待非服务停止 → `fwp-wt-history-evidence-integration-0921/docs/handoffs/2026-09-22-history-review-resume.md`。
 
 - 2026-09-22 · codex · watchdog局部时钟隔离启动前后截止，107P与六变异不覆盖main全量红；PR创建超时、未部署，方法[[wall-clock-derived-values-in-equality-asserts]] → `fwp-wt-watchdog-test-0922/docs/handoffs/2026-09-22-watchdog-test-synchronization.md`。
 
-- 2026-09-22 · codex · 修缺输入假成功并固化只读消费验收；局部PASS不覆盖行情BLOCKED，沿用[[gate-covers-only-its-return-value]] → `fwp-wt-briefing-consumption-qc-0921/docs/handoffs/2026-09-22-briefing-qc-closeout.md`。
+- 2026-09-22 · codex · 晨汇候选工程门禁通过，独立审查无结论、行情消费仍阻塞；沿用[[gate-covers-only-its-return-value]] → `fwp-wt-briefing-consumption-qc-0921/docs/handoffs/2026-09-22-briefing-candidate-gates.md`。
 
 - 2026-09-22 · codex · #841两次独立审查因宿主路径失效未读源码，599项作者回归不代签；自然验收未启动 → `fwp-wt-history-evidence-integration-0921/docs/handoffs/2026-09-22-history-review-attempt.md`。
 
