@@ -202,7 +202,7 @@ per-user 不是进程级；`runtime_backend_readiness` 这个全局探针看不�
 
 - 2026-09-21 · codex · 判官拒发与最近失败分账；只读均值绑定窗口/分母，工程与自然交付分账，方法[[aggregation-key-use-natural-primary-key]] → `finance-worktrees/adaptive-research-loop/docs/handoffs/2026-09-21-adaptive-amount-summary.md`。
 
-- 2026-09-21 · codex · #846修部署帮助误执行，恢复同版新快照；工程绿不替独立签字，方法[[gate-covers-only-its-return-value]] → `fwp-wt-deploy-help-0921/docs/handoffs/2026-09-21-deploy-help-gates.md`。
+- 2026-09-21 · codex · #846部署防护有界复审仍无结论；#831固定主干合流候选d97fdf77工程全叶通过，原独立离线限制保留；未合未部署，方法[[gate-covers-only-its-return-value]] → `fwp-wt-deploy-help-0921/docs/handoffs/2026-09-21-pr831-merge-gate-and-846-review.md`。
 
 - 2026-09-21 · pi · 日期差异不撤真实证据，作者工程与独立/真实答案分账；方法[[finance-canonical-data-source-freshness]] → `fwp-wt-market-date-advisory-0921/docs/handoffs/2026-09-21-market-date-advisory.md`。
 
