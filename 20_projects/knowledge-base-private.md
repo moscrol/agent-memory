@@ -57,6 +57,7 @@ related: ["[[finance-workspace-private]]", "[[finance-research-site]]", "[[finan
 
 ## 交接记录
 
+- 2026-09-22 · codex · miracle订正批次追加并完成消费者截止核验；471待审隔离、2降级、2撤回，原台账不改；river未接通 → `kb-wt-sellside-miracle-0818/docs/handoffs/2026-09-22-miracle-opinion-corrections.md`。
 - 2026-09-22 · codex · 晨汇候选工程检查不代独立审查与生产消费；并发日志号须合流前复核 → `kb-wt-briefing-evidence-qc-0921/docs/handoffs/2026-09-22-briefing-gates-followup.md`。
 
 - 2026-09-22 · codex · 原件保真、观点语义、真实消费者和历史可得性分开验；入库结构门新增event-only负例，红门禁不发布 → `kb-wt-sellside-miracle-0818/docs/handoffs/inflight/ingest-sellside-miracle-0818-0918.md`。

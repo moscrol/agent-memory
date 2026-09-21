@@ -199,6 +199,7 @@ per-user 不是进程级；`runtime_backend_readiness` 这个全局探针看不�
 
 ## 交接记录
 
+- 2026-09-22 · codex · 卖方事件追加订正与日终消费候选已提交`6de192c61`，定向107通过；未合并、未部署，严格历史PIT与river桥接留后续 → `fwp-wt-sellside-consumption-0922/docs/handoffs/2026-09-22-miracle-opinion-corrections.md`。
 - 2026-09-22 · codex · #848固定候选独立有限通过与全叶验收完成，待合并授权；方法[[wall-clock-derived-values-in-equality-asserts]] → `fwp-wt-watchdog-closeout-0922/docs/handoffs/2026-09-22-watchdog-848-acceptance.md`，PR评论5551。
 
 - 2026-09-22 · codex · 五组测试现场保全归档与闲置缓存回收，df整机净增9.02GiB但不独占归因；生产与失败证据保留、未设定期删除 → `~/.finance-runtime/reviews/disk-cleanup-20260922/round3/handoff.md`。
