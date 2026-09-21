@@ -57,6 +57,7 @@ related: ["[[finance-workspace-private]]", "[[finance-research-site]]", "[[finan
 
 ## 交接记录
 
+- 2026-09-22 · codex · 原件保真、观点语义、真实消费者和历史可得性分开验；入库结构门新增event-only负例，红门禁不发布 → `kb-wt-sellside-miracle-0818/docs/handoffs/inflight/ingest-sellside-miracle-0818-0918.md`。
 
 - 2026-09-19 · coding-agent · v4合并验收与生产边界分开，原文不改、14页隔离仍保留 → [#153](http://127.0.0.1:3300/a77/knowledge-base-private/pulls/153) / `docs/handoffs/2026-09-19-rag-v4-merge-acceptance.md`。
 - 2026-09-19 · coding-agent · 最终文档身份单独验，原字节证据外置封存、不改提交求收据闭合 → [#154](http://127.0.0.1:3300/a77/knowledge-base-private/pulls/154) / 金融[#787最终裁决](http://127.0.0.1:3300/a77/finance-workspace-private/pulls/787#issuecomment-4979)。
