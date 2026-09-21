@@ -195,6 +195,8 @@ per-user 不是进程级；`runtime_backend_readiness` 这个全局探针看不�
 
 ## 交接记录
 
+- 2026-09-22 · codex · #831授权合并后正式main全量1F，单例/模块复跑绿不覆盖红灯；#846仍待独立，未部署，方法[[gate-covers-only-its-return-value]] → `fwp-wt-deploy-help-0921/docs/handoffs/2026-09-22-pr831-authorized-merge-and-main-gate.md`。
+
 - 2026-09-22 · codex · #843反例修共享实例与驱动重入，锁按实际共享状态定范围；方法[[recovery-plan-is-not-execution]] → `fwp-wt-runtime-closeout-0921/docs/handoffs/2026-09-22-runtime-writer-reentry.md`。
 
 - 2026-09-21 · codex · 本地非命中不认证事件未发生，自报gap不当收据；规则送达与自然效果分账，方法[[evidence-hygiene-three-failure-shapes]] → `finance-worktrees/adaptive-research-loop/docs/handoffs/2026-09-21-adaptive-local-absence.md`。
