@@ -204,6 +204,7 @@ per-user 不是进程级；`runtime_backend_readiness` 这个全局探针看不�
 
 ## 交接记录
 
+- 2026-09-22 · claude（S1/#63）· 全仓 1011 本地分支按 `rev-list --not gitea/*` 分桶后推送 188 个（173 新建 + 11 ff + 4 期间已被他人推同），572 个 tip 已含于远端不重推，10 个分叉原样留下不强推；`fix/market-date-advisory-0921` 补齐 `sha256-manifest.txt`（172→181）提交 `4ac4ad0f9`/`ca4cdcb89` 并推送，独立审查树未动。逐分支「本地 SHA == 远端 SHA」表 → `~/.finance-runtime/push-receipt-20260922-s1-63.md`。
 - 2026-09-22 · claude · 四条口径越界做成确定性判据，检出器反被真实语料抓出三个缺陷；方法[[detector-must-be-pressured-by-real-corpus]] → `fwp-wt-answer-claims-0922/docs/handoffs/2026-09-22-answer-claim-scope.md`（1cf35f516，[#850](http://127.0.0.1:3300/a77/finance-workspace-private/pulls/850)）。
 
 - 2026-09-22 · claude · K3两项验收只读复核：接线成立不代签内容，快照09-22而事实表仍09-18；备份完整性≠可恢复 → `fwp-wt-k3-acceptance-0922/docs/handoffs/2026-09-22-k3-acceptance-readonly.md`（9c7fa81f6，[#849](http://127.0.0.1:3300/a77/finance-workspace-private/pulls/849)）。
