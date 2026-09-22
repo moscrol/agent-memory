@@ -204,6 +204,7 @@ per-user 不是进程级；`runtime_backend_readiness` 这个全局探针看不�
 
 ## 交接记录
 
+- 2026-09-23 · claude（#67）· 研究尾单三线合流候选 `65fde6171` 两棵树四叶齐绿、变异复跑 4/4、候选×main 零冲突，PR #863 已开并 WIP 保护；用户「按照最佳路径推进」落定四项（财务走 #67 / 接受 `contract_receipt` 双语义 / 历史 head 保留 `42784d27e` / 本候选先于 #58 合）；#855 与混比补检不在候选、合入后重新前向；合入仍待 #75 与用户确认 → `~/.finance-runtime/reviews/research-tail-union-resume-20260922/README.md` 文末状态更新，[#863](http://127.0.0.1:3300/a77/finance-workspace-private/pulls/863)。
 - 2026-09-22 · claude（S1/#63）· 全仓 1011 本地分支按 `rev-list --not gitea/*` 分桶后推送 188 个（173 新建 + 11 ff + 4 期间已被他人推同），572 个 tip 已含于远端不重推，10 个分叉原样留下不强推；`fix/market-date-advisory-0921` 补齐 `sha256-manifest.txt`（172→181）提交 `4ac4ad0f9`/`ca4cdcb89` 并推送，独立审查树未动。逐分支「本地 SHA == 远端 SHA」表 → `~/.finance-runtime/push-receipt-20260922-s1-63.md`。
 - 2026-09-22 · claude · 四条口径越界做成确定性判据，检出器反被真实语料抓出三个缺陷；方法[[detector-must-be-pressured-by-real-corpus]] → `fwp-wt-answer-claims-0922/docs/handoffs/2026-09-22-answer-claim-scope.md`（1cf35f516，[#850](http://127.0.0.1:3300/a77/finance-workspace-private/pulls/850)）。
 
