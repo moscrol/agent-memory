@@ -205,6 +205,8 @@ per-user 不是进程级；`runtime_backend_readiness` 这个全局探针看不�
 
 ## 交接记录
 
+- 2026-09-23 · claude · 磁盘第三次告急（2.25→20.6GiB）。**昨天腾的 48G 在 24 小时内吃光**，一次性清理已追不上产出。本轮释放：`.code-review-graph` 200 个索引 **13.43G**（单项最大，可由索引器重建）、`__pycache__` 1.68G、`~/.cache` 2.08G、Library/Caches 0.50G、工作树内 node_modules 等 0.72G。**下次告急先跑**：`find ~ -maxdepth 3 -type d -name .code-review-graph -prune -exec rm -rf {} +`；盘满到 Bash 工具连输出文件都建不了时，改用终端面板 `run_in_terminal` 执行。**诊断：这不是磁盘问题，是工作积压**——210 个工作树（git 登记 273）、461 个 runtime 目录，其中 **203 个挂着真实的未提交已跟踪改动**（按既定判据一个都不能删），仅 3 个已合入+干净；日消耗约 45G，可再生部分恰好抵消。用户明确拒绝每日自动清扫与积压处置（出清单 / 按 14 天归档），本轮只解磁盘。未碰：所有工作树及其改动、runtime 报告日志收据、`db-repair`、l2-cache 7z（管线输入）、Cursor 聊天 → `~/.finance-runtime/reviews/disk-cleanup-20260923/receipt.json`。
+
 - 2026-09-23 · pi · #63整改与两条分叉内容保全完成，不移签验收；方法[[evidence-hygiene-three-failure-shapes]] → `fwp-wt-push-preservation-qc-0923/docs/handoffs/2026-09-23-push-preservation-qc.md`。
 
 - 2026-09-23 · claude（S2/#58 #59）· #58：`fix/gate-collection-0922` 前向 `gitea/main@f24a61a8a` 零冲突、PR #860（head `73d55fb6b`）四叶齐绿（python 无 --ignore 12562P/0F、`collected=12649` 对平、`--require-full-scope` exit 0；registry 5/5；vitest 110 + e2e 34P/2S；三组阳性对照全过），评论 5751，**待用户确认合入**；#59：main tip `f24a61a8a` 四叶（python 带 `--ignore=scripts/archive` 并注明，12526P/0F）0 红，#851 留痕评论 5764，台账行插 `inflight/main.md` 顶部、INDEX 两行改状态（`docs/closeout-workorders-0922@a30d0cd45`，PR #858）。证据 `~/.finance-runtime/reviews/gate-collection-merge-20260922/`、`…/main-tip-gate-20260922/`。负载：他会话 4–5 条 pytest 并跑、load 15–28 峰 47.9，准入 ≤8 不可达，如实记轨迹照跑 → [[shared-machine-load-admission-unreachable-during-closeout-batch]]
