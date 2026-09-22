@@ -268,6 +268,9 @@ flowchart LR
 
 | 专项研究纪律（Knevo 15-28 轮增量，已合 main `c67413c7`，默认工作树未更新） | finance | `intelligence/services/research_workflow_guidance.py::workflow_guidance@gitea/main` | 财报、事件推演、观点审查、事实核对、历史类比五类既有题型共用规则，经 Episode 动态输入与 ask 合成投递；保留材料范围和工具授权。旧 ask 信封专项意图不被通用分类覆盖，显式 override 优先。生成指令而非语义审稿器，不自动写画像/记忆；开关 FINANCE_RESEARCH_WORKFLOW_GUIDANCE=0。575 项相关回归，未部署或证明模型质量增益。 |
 
+| Knevo 消息分层纪律（在途；材料题路由仍有缺口） | finance | `intelligence/services/research_workflow_guidance.py::_NEWS_LAYERS@feat/knevo-absorption-closure-0923` | 复用专项纪律的news_impact/fact_check投递，区分事实、解读、情绪及独立来源；缺基线不量化情绪溢价。生成指导而非语义门禁；自然消息路径离线接线已验，冻结Q14材料题在Workbench仍落general_finance_qa，未收到这组规则，未证明质量增益或部署。 |
+| Knevo 揭盲回归与离线取证（在途；非盲测） | finance | `intelligence/eval/knevo_regression.py::prepare@feat/knevo-absorption-closure-0923`、`intelligence/eval/knevo_regression.py::inspect_run@feat/knevo-absorption-closure-0923`、`scripts/workbench_probe.py::main@feat/knevo-absorption-closure-0923` | 冻结题面/哈希与reviewer-only判据分开；probe题集模式显式选端口、只发题面；inspect核run身份、frame来源、工具轨迹/状态与工件哈希，不自动评分。材料代理不验真实存储/跨轮，公开report可能经清洗、缺轨迹不是零读取。证据在本枝docs/learning/knevo-distill/final-report.md；真实入口整体未验收，未合未部署。 |
+
 ## 更新规则
 
 新增能力时按以下顺序补：
@@ -279,6 +282,8 @@ flowchart LR
 5. **避免事实污染**：项目经验、问答打分和用户纠偏写项目学习层；公司/题材事实写知识库；项目级流程变化写 agent-memory。
 
 ## 变更记录
+
+- 2026-09-23 · pi · 新增Knevo Q14分层与揭盲回归取证两条在途节点，符号钉feat/knevo-absorption-closure-0923；材料范围/路由/交付失败留项目学习层，不以工程绿升级能力验收。
 
 - 2026-09-23 · claude-code · 新增「连续研究最终交付门」节点（PR #862，路径钉 `fix/research-empty-delivery-0922`）：双钥匙判据 + 现场夹具 sha256 钉措辞 + 阳性对照；工程四叶读数贴 PR 评论，不改「真实模型未验」；方法 [[gate-covers-only-its-return-value]]、[[two-defence-layers-need-two-separate-assertions]]。
 
