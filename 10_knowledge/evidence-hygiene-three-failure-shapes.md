@@ -226,6 +226,8 @@ pi 复核金融 #63 的真实反例：方法笔记把 `GIT_INDEX_FILE` 只绑定
 
 量具已入金融 `fix/push-preservation-qc-0923` 的 `scripts/preview_evidence_archive.py` 与回归测试；干净 `fdaf35251235958b34314a0df74344b0f571e4fa` 用主树 `.venv-workbench/bin/python` 定向44P，撤索引隔离/树身份/父身份/非零退出/实际归档复核五处均被捕获。只覆盖 Git 字节合同，不证明独立审查或业务质量。流程、收据与被否方案见该枝 `docs/workflows/evidence-archive-preview.md` 和 `docs/handoffs/2026-09-23-push-preservation-qc.md`。
 
+后续发现：**钉住 SHA 不等于读取了原始对象**。Git replacement refs 可把同一 SHA 显示成另一份合法归档，grafts 可隐藏合并父提交，浅克隆边界可让正常父身份消失。补强必须贯穿全部 Git helper：`--no-replace-objects` 加直接读 `cat-file commit` header，而非只在顶层查一次或使用历史展示 `%P`。不删除用户映射、不改失败原件。金融后续候选 `fix/push-preview-acceptance-0923@b38361a7d` 的六条新回归在旧实现均断言红，固定干净修复版定向50P，撤两层替换保护/原始父读取三变异均被具名反例捕获。可迁移到发布物、备份和供应链取证：先区分原始对象与本地投影视图，再签身份；仍未取得独立通过，不将字节绿升格为全仓/业务验收。
+
 ---
 
 ### 补充：独立公式不等于独立输入，副输出也是写入通道（2026-09-14）
