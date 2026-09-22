@@ -222,6 +222,7 @@ per-user 不是进程级；`runtime_backend_readiness` 这个全局探针看不�
 
 - 2026-09-22 · pi · 固定09-21行情候选输入，回放通过不授发布权 → `fwp-wt-market-recovery-0921/docs/handoffs/2026-09-22-market-recovery-input-contract.md`（f2d935a02）。
 - 2026-09-22 · codex · 09-21纯候选与复牌原件闭合，计算通过不授权写库 → `fwp-wt-market-recovery-0921/docs/handoffs/2026-09-22-market-recovery-pure-candidate.md`（7311a7738）。
+- 2026-09-22 · claude(S4 #61) · 行情恢复五问+三合同整理成决策一页；桥 `fix/market-recovery-0921`→PR #859、合同 `fix/market-recovery-contracts-0922`→PR #861（叠在 #859 上）已推 gitea，两枝干净 tip 全仓 ruff+pytest 绿（12631P / 12684P，0F）并贴 PR 评论；merge-tree 对 main clean；五问未拍、未合并、未写库 → `fwp-wt-market-recovery-contracts-0922/docs/handoffs/2026-09-22-market-recovery-decision-page.md`。
 
 - 2026-09-22 · codex · #845补格返修与05完整面续验封存，RSS环境红和定向复验分账 → `docs/research-tail-closeout-0921:docs/handoffs/2026-09-22-history-engineering-resume.md`。
 - 2026-09-22 · codex · #845同SHA的06完整分组通过，保05原红、不代正式验收 → `docs/research-tail-closeout-0921:docs/handoffs/2026-09-22-history-engineering-resume-06.md`。
