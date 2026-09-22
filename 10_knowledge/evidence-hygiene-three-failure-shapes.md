@@ -2,8 +2,8 @@
 title: 证据卫生：三个反复出现的失败形状
 type: knowledge
 agent: all
-source: finance-workspace-private 会话 2026-08-10；多agent案例追加至2026-09-21，pi本轮来源见各节
-date: 2026-09-21
+source: finance-workspace-private 会话 2026-08-10；多agent案例追加至2026-09-23，pi本轮来源见各节
+date: 2026-09-23
 stance: evidenced
 tags: [knowledge, methodology, verification, gate, provenance, core]
 status: verified
@@ -215,6 +215,16 @@ PID（进程号）能分父子进程，分不清同一进程里的重入调用�
 同轮另一反例：输出目录创建失败，顶层捕获后仍往那个目录写 FAIL，二次异常发生在打印 JSON 之前，只留下 traceback。fallback（备用路径）必须独立于原失败介质：主报告 → 独立仓外临时路径 → 尽力向 stderr 输出结构化 JSON，最终保持非零退出；不承诺所有介质失效时仍一定有磁盘文件。
 
 证据与可复现探针：[hithink 48242bd4 独立审查](/Users/a77/.finance-runtime/reviews/hithink-48242bd4-qc/tree/docs/handoffs/2026-09-13-hithink-48242bd4-qc.md)，提交 `63f377da`。诊断脚本已入审查分支，生产修补交实现方；这是用户只授权审查的边界，不以方法笔记代替回归修复。
+
+---
+
+### 补充：预览隔离要覆盖整个调用链，打印失败不是失败退出（2026-09-23）
+
+pi 复核金融 #63 的真实反例：方法笔记把 `GIT_INDEX_FILE` 只绑定在 `read-tree` 上，后续 `add` 修改真实索引；一次性脚本提交失败/树不符后只打印，末尾仍可能 exit 0。本次历史执行实际用 export 且 tree 相同，**不能把方法缺陷误报成已发生的数据损坏**。
+
+可迁移做法：每条预览子进程显式传唯一临时索引，固定输入 base；实际提交失败立即停，成功后比完整父身份/树并重验实际字节。临时预览、正式提交、远端保全、产品验收是四种不同证据，不能互相升格。检查器不是共享工作树写锁，检测到漂移仍需停下确认归属，而不是自动 reset/amend。
+
+量具已入金融 `fix/push-preservation-qc-0923` 的 `scripts/preview_evidence_archive.py` 与回归测试；干净 `fdaf35251235958b34314a0df74344b0f571e4fa` 用主树 `.venv-workbench/bin/python` 定向44P，撤索引隔离/树身份/父身份/非零退出/实际归档复核五处均被捕获。只覆盖 Git 字节合同，不证明独立审查或业务质量。流程、收据与被否方案见该枝 `docs/workflows/evidence-archive-preview.md` 和 `docs/handoffs/2026-09-23-push-preservation-qc.md`。
 
 ---
 
