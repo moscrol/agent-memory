@@ -206,6 +206,8 @@ per-user 不是进程级；`runtime_backend_readiness` 这个全局探针看不�
 
 ## 交接记录
 
+- 2026-09-23 · codex · L6 离线预检发现验收顺序成环及旧旁车端口不合新规；候选实测须另行授权 → `finance-worktrees/adaptive-research-loop/docs/verification/2026-09-23-adaptive-l6-preflight/README.md`。
+
 - 2026-09-23 · codex · #861/#871 行情恢复 QC：三项离线负例复现，维持 HOLD，不把旧基线全量中断当准入 → `docs/market-recovery-qc-0923@679e842cd` / `docs/handoffs/2026-09-23-market-recovery-qc.md`。
 
 - 2026-09-23 · codex · #67/#69 台账与收据归属核验，历史读数不移签 → [#880](http://127.0.0.1:3300/a77/finance-workspace-private/pulls/880) / `fwp-wt-closeout-67-69-evidence-0923/docs/handoffs/inflight/docs-closeout-67-69-evidence-0923.md`。
