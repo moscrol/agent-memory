@@ -1339,5 +1339,6 @@ per-user 不是进程级；`runtime_backend_readiness` 这个全局探针看不�
 - 2026-09-23 · codex · #884 WIP：K3局部收件箱代码原样验收，28种合同撤保护与宿主回归分账，原拒收不覆写；方法见 [[mutation-test-before-claiming-silent]] → `fwp-wt-runtime-postmerge-qc-0923/docs/handoffs/2026-09-23-runtime-contract-followup.md`。
 - 2026-09-23 · codex · #884固定c71本机工程门禁完成，外层策略干扰自测的红/环境对照/完整原生重跑分账；超CI时限及main前进使最新合流未验，独审仍BLOCKED，未合未部署 → `~/.finance-runtime/reviews/pr884-gates-20260923-02/README.md`（PR评论6199；仓内inflight按冻结前约定读取最终verification.json，不再改tip）。
 - 2026-09-23 · codex · #884对齐27ca后冻结2bc799a8，新轮Python在1800秒被终止且无最终收据，整体BLOCKED；其他叶子绿不拼数，main再前进，失败现场保留、记录中进程已退出，未合未部署 → `~/.finance-runtime/reviews/pr884-gates-20260923-03/README.md`（PR评论6249；下轮先协调全量时段与磁盘，不原地重跑）。
+- 2026-09-23 · codex · 按授权清理6组成功且闲置的pytest临时区（du合计19.57GiB），删前/后磁盘可用14.77→33.51GiB（含并发，不独占归因）；23件对应证据及#884两批116件原件哈希未变，失败现场/模型/生产库/源码保留，未重跑门禁 → `~/.finance-runtime/reviews/disk-cleanup-20260923-pr884/README.md`。
 - 2026-09-23 · codex · #73/#75分组独审仍超时，四叶截断不当全量绿，E2E须自有新构建 → `fwp-wt-closeout-workorders-0922/docs/handoffs/2026-09-23-re06-grouped-qc-and-gates.md`（a5a85619c）。
 - 2026-09-23 · codex · #73发布包修复后四叶过，#75仍阻塞且续跑须另授权 → `fwp-wt-closeout-workorders-0922/docs/handoffs/2026-09-23-re06-shipping-assets-and-acceptance.md`（9538be94d；最新inflight 7d96384ba），方法 [[gate-covers-only-its-return-value]]。
