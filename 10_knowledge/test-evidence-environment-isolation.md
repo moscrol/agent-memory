@@ -10,4 +10,6 @@
 
 本次三份原 JUnit 留在本机受限目录，Git 只收脱敏副本；既有归档没有实际凭据命中。修前/修后复验保持业务输入与断言，环境隔离只移除不参与测试的宿主配置。
 
-项目索引：`finance-workspace-private` 的 `docs/verification/2026-09-20-research-closeout/rag-retirement-review/spec/ARCHIVE-NOTE.md`。
+2026-09-24 补充：环境白名单还不等于持久化隔离。侧车即使隔离 users 根，Episode resolver 仍可能按事实根选中生产目录。应在 source 生产 exports 后重新声明每个已知写根，保留事实读根与 OS 禁写边界；按环境值、实际 resolver、真实 writer 落盘/锁三层对账。假解释器只回显 env 并没有验证真正消费者。可复用实现已进金融仓侧车回归与变异 runner；跨项目方法在 harness 独立文档提交 `65c3b43` 的 BUILD/KIT，未把私有固定用户验收封套另建成通用框架。
+
+项目索引：`finance-workspace-private` 的 `docs/verification/2026-09-20-research-closeout/rag-retirement-review/spec/ARCHIVE-NOTE.md`；续例 `docs/handoffs/2026-09-24-rag-integration-and-live-acceptance.md`。
