@@ -207,6 +207,8 @@ per-user 不是进程级；`runtime_backend_readiness` 这个全局探针看不�
 
 ## 交接记录
 
+- 2026-09-23 · codex · #60 已验收候选发布与 PR 描述回读记录 → `~/.finance-runtime/reviews/eastmoney-cb-deploy-20260922/publication-20260923T0709/record.json`；后续授权边界看本分支 inflight。
+
 - 2026-09-23 · codex · #76 L6失败停批并封存，shim问题不代替产品根因，#75仍待独审 → `finance-worktrees/adaptive-research-loop/docs/handoffs/2026-09-23-adaptive-l6-closure.md`。
 
 - 2026-09-23 · codex · #60 续办：测试时钟受控复现、代码候选四叶验收完成、部署绑定分批；收尾证据索引 → `~/.finance-runtime/reviews/eastmoney-cb-deploy-20260922/closeout-20260923/README.md`。
