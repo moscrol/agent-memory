@@ -71,6 +71,8 @@ related: ["[[evidence-hygiene-three-failure-shapes]]", "[[info-not-delivered-bug
 
 9. **隔离环境也要先证明会拒绝**（2026-09-23 PR884本机门禁）。macOS策略虽有`deny network*`，把local/remote过滤器放进同一条`allow network*`后，外连仍实际成功。先读配置就开测，等测到一半才预检，导致整轮不能作为隔离验收。修复为分别授权network-inbound/local与network-outbound/remote，并在副作用前动态检查本机连接成功、远端连接明确PermissionError、security CLI拒绝执行。超时/不可达不能冒充策略拒绝；坏策略要被预检拒收，正确策略要通过。工具已归finance `scripts/review_probes/check_loopback_sandbox.py`；范围仅IPv4 TCP及该CLI，不据此宣称完整主机或所有钥匙串API隔离。原始错误收据保留，另起固定提交和新目录复验。
 
+10. **额外隔离也可能破坏被测前提**（同轮PR884）。特定外层Seatbelt策略让沙箱自测及RSS读取7例重复变红；相同8例在正常主机环境8P，再套该策略7F/1P。第8例清理脚本超时未稳定复现，不能把8红全归一个原因；也不能泛化为“macOS完全不支持嵌套沙箱”，allow-default两层冒烟是绿的。应保留原红、做同例环境对照，再按适合该叶子的环境**重新跑完整门禁**。去掉宿主额外限制不等于关闭测试自身的防护，但必须如实声明没有整轮OS级禁网。环境分类之后仍不可把局部复跑加到原全量数字里。
+
 ## 与「信息没送到」的关系
 
 [[info-not-delivered-bug-pattern]] 是「存在 ≠ 送达」；本条是「没响 ≠ 没事」。
