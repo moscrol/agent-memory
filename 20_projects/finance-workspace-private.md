@@ -1148,6 +1148,8 @@ per-user 不是进程级；`runtime_backend_readiness` 这个全局探针看不�
 
 - 2026-09-18 · pi · 授权快照6b70e540：重验许可不抹执行位置，22变异/四叶通过但不开放跨进程续跑 → `fwp-wt-runtime-contracts-0918/docs/handoffs/2026-09-18-runtime-authorization-snapshot.md`。
 - 2026-09-20 · codex · 执行保全与串行合流，生产和待认领工作树保留 → [执行交接](/Users/a77/fwp-wt-open-work-spec/docs/handoffs/2026-09-20-open-work-execution.md)。
+- 2026-09-23 · claude · 无人接手盘点：7 张被接替 PR 关闭留指针、#838 退回、工单 #81–#87 + INDEX 续表（PR #889）、#77 合并批在预览树 53c51cfdc 跑四叶（三叶绿、python 在跑，未合入）→ `docs/handoffs/2026-09-23-orphan-inventory.md`、inflight `docs-orphan-workorders-0923.md`。
+
 
 ## 2026-07-18 PR #268 验证
 - #268（orphan marker 归一化）已合并，main CI 全绿（PR 上的 workbench-check failure 为 corepack 下载 pnpm 的网络抖动，与代码无关）。
