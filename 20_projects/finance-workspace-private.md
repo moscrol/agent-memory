@@ -220,6 +220,7 @@ per-user 不是进程级；`runtime_backend_readiness` 这个全局探针看不�
 - 2026-09-23 · codex · Workbench续办校正口径已拍、核实候选22:21全仓4F/前端2F，现网不变 → `fwp-wt-workbench-release-0923/docs/handoffs/2026-09-23-workbench-release-resume.md`。
 
 - 2026-09-23 · codex · #84 看板与清理入口共用安全采样，WIP #895；资源受限未齐四叶，12证据树保留 → `docs/handoffs/inflight/fix-worktree-board-hardening-0923.md`。
+- 2026-09-24 · codex · #84/#895 固定 b26b8711 四叶通过，基座漂移 8>5 不放行；报告另枝 #903 保住受测 head → `fwp-wt-board-acceptance-0924/docs/handoffs/inflight/docs-worktree-board-acceptance-0924.md`。
 
 - 2026-09-24 · codex · #85候选四叶与K3双轴复审完成，M1独立撤销，待合入授权；方法[[../10_knowledge/reproduced-behavior-is-not-contract-violation]] → `fwp-wt-hithink-research-0923/docs/handoffs/inflight/fix-hithink-research-85.md` / WIP #894。
 - 2026-09-23 · codex · #85前向与429补丁落地，partial穿透发布保护，完整门禁/独审仍阻塞；沉淀[[../10_knowledge/retry-budget-needs-time-and-attempt-bounds]] → `fwp-wt-hithink-research-0923/docs/handoffs/inflight/fix-hithink-research-85.md` / WIP #894。
