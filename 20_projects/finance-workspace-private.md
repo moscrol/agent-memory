@@ -208,6 +208,8 @@ per-user 不是进程级；`runtime_backend_readiness` 这个全局探针看不�
 
 ## 交接记录
 
+- 2026-09-23 · codex · FinanceQuery 绝对截止修复、新候选 Python 4 红/前端 2 红及定向诊断封存，仍 HOLD → `fwp-wt-market-recovery-qc-fix-0923/docs/handoffs/2026-09-23-market-recovery-deadline.md`；继续入口为同枝 inflight。
+
 - 2026-09-23 · codex · Workbench续办校正口径已拍、核实候选22:21全仓4F/前端2F，现网不变 → `fwp-wt-workbench-release-0923/docs/handoffs/2026-09-23-workbench-release-resume.md`。
 
 - 2026-09-23 · codex · #84 看板与清理入口共用安全采样，WIP #895；资源受限未齐四叶，12证据树保留 → `docs/handoffs/inflight/fix-worktree-board-hardening-0923.md`。
