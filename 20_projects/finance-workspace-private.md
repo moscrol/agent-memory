@@ -206,6 +206,8 @@ per-user 不是进程级；`runtime_backend_readiness` 这个全局探针看不�
 
 ## 交接记录
 
+- 2026-09-23 · codex · #67/#69 台账与收据归属核验，历史读数不移签 → [#880](http://127.0.0.1:3300/a77/finance-workspace-private/pulls/880) / `fwp-wt-closeout-67-69-evidence-0923/docs/handoffs/inflight/docs-closeout-67-69-evidence-0923.md`。
+
 - 2026-09-23 · codex · #72 前向冲突解决及门禁复验；文档漂移不改写代码收据，WIP 保留 → `finance-worktrees/adaptive-research-loop/docs/handoffs/inflight/feat-adaptive-research-loop.md`。
 
 - 2026-09-23 · claude · 磁盘第三次告急（2.25→20.6GiB）。**昨天腾的 48G 在 24 小时内吃光**，一次性清理已追不上产出。本轮释放：`.code-review-graph` 200 个索引 **13.43G**（单项最大，可由索引器重建）、`__pycache__` 1.68G、`~/.cache` 2.08G、Library/Caches 0.50G、工作树内 node_modules 等 0.72G。**下次告急先跑**：`find ~ -maxdepth 3 -type d -name .code-review-graph -prune -exec rm -rf {} +`；盘满到 Bash 工具连输出文件都建不了时，改用终端面板 `run_in_terminal` 执行。**诊断：这不是磁盘问题，是工作积压**——210 个工作树（git 登记 273）、461 个 runtime 目录，其中 **203 个挂着真实的未提交已跟踪改动**（按既定判据一个都不能删），仅 3 个已合入+干净；日消耗约 45G，可再生部分恰好抵消。用户明确拒绝每日自动清扫与积压处置（出清单 / 按 14 天归档），本轮只解磁盘。未碰：所有工作树及其改动、runtime 报告日志收据、`db-repair`、l2-cache 7z（管线输入）、Cursor 聊天 → `~/.finance-runtime/reviews/disk-cleanup-20260923/receipt.json`。
