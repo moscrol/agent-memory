@@ -71,7 +71,7 @@ DuckDB → detect_turning_points.py / backtest_sector.py → 信号+板块边际
 ## 任务看板
 | 任务 | 负责 | 状态 | 备注 |
 |---|---|---|---|
-| #73 计时授权独立 B | codex | blocked | 候选冻结`f9ce5c6b2`；K3第四轮真实往返过、分组首请求仍超时，累计10请求，无独立终稿/探针。四叶Ruff过，pytest到30分钟上限（最后93%、无完整收据），其他三叶资源阻塞未跑。E2E新计划自己build，仅离线反证。证据`a5a85619c`，未推/合/部署 → `~/fwp-wt-closeout-workorders-0922/docs/verification/2026-09-23-re06-timer-scope/README.md`。 |
+| #73 计时授权独立 B | codex | blocked | 新候选`b24c86f87`仅修已提交发布包，固定身份四叶完整PASS。独审仍因HTTP504及缺探针交付阻塞，C1-C10未签，不能合入；旧f9证据未移签。文档`9538be94d`、授权边界`7d96384ba`；本轮未推/合/部署，不得自动续QC → `~/fwp-wt-closeout-workorders-0922/docs/verification/2026-09-23-re06-timer-assets/README.md`。 |
 | 09-22 watchdog测试红灯验收 | codex | done-with-boundaries | #848已合入`a2c8d1f90773fdf3dcb7cf53f5d9733590924ae1`；实际main新门禁12511P/85S/2X、Ruff/registry0、前端110P/E2E34P/2S，收据`20260921T191851Z-a2c8d1f9.json`与审计通过。独立审查仍是一位`PASS_WITH_LIMITS`，0.8s起止点收窄、假钟作用域限制保留；未部署/重启，#846仍WIP → `fwp-wt-watchdog-closeout-0922/docs/handoffs/2026-09-22-watchdog-848-authorized-merge-and-main-gate.md`。 |
 | 09-22 变异量具超时留证 | claude-code | done-with-boundaries | R6 线「发布超时归因」的**前置量具**已补：`e9e3361a`（+文档`94eddad1`，分支`fix/mutation-timeout-evidence-0922`，基座main`a2c8d1f90`）让 `run_extraction_mutations.py` 超时/中断/启动失败都留现场——输出直接落盘、卡住转储线程栈、进程组独占清理、缺JUnit记`executed=None`不记0、`check_result`拒收非完成态、证据文件不可覆盖。四叶均有结论：全量12534P/85S/2X+Ruff0（收据`20260922T111226Z-e9e3361a.json`经`check_test_receipt --expect-revision` exit0）、前端110P、E2E34P/2S、registry五项0；11组撤保护各有具名红证人、还原后绿、树clean。**不归因也不翻案09-18那次180秒超时**（旧现场已不存在），未跑publication套件、未push/PR/合main/部署、R6真实验收与独立QC仍缺（该线已由#835接替）→ `fwp-wt-mutation-timeout-evidence-0922/docs/handoffs/inflight/fix-mutation-timeout-evidence-0922.md`，证据根`~/.finance-runtime/reviews/mutation-timeout-evidence-20260922/`。 |
 | 09-21 行情恢复 | pi | blocked | 纯候选7311a7738；干净4c0162a9b定向247P，新构造器88P、六类变异抓红。09-04复牌原件已固定，5565范围构造5553候选+12缺失处置；原278+新增136证据回读一致。名称/换手率/官方历史范围/停牌分母与下游三门待闭合；未写库/发布/合并/部署 → `fwp-wt-market-recovery-0921/docs/handoffs/inflight/fix-market-recovery-0921.md`。 |
@@ -219,6 +219,7 @@ per-user 不是进程级；`runtime_backend_readiness` 这个全局探针看不�
 
 - 2026-09-23 · codex · #877 固定候选完成工程验证并推 WIP，语义0/12及原件格式非零保留；勘误端点diff与执行来源 → `fwp-wt-knevo-closure-0923/docs/handoffs/inflight/feat-knevo-absorption-closure-0923.md`，方法 [[evidence-hygiene-three-failure-shapes]]。
 
+- 2026-09-23 · codex · 行情恢复续跑：main2edbe4c46组合257263f全仓14874P/85S/2XFAIL、零漂移；原独立探针复跑20P，五历史回退均检出行为错误；F1报告/F2补强各504，新交付0，仍HOLD未写生产 → `fix/market-recovery-qc-0923@32a7d2031` / `docs/handoffs/2026-09-23-market-recovery-continuation.md`。
 - 2026-09-23 · codex · 行情恢复限读交付门实跑：组合4dd5独立20P，F2/F3限域通过、F1报告504；tests/2676P/62S非全仓。收尾main到2edbe4c46，零漂移门拒旧收据，仍HOLD未写生产 → `fix/market-recovery-qc-0923@f3c99ab5b` / `docs/handoffs/2026-09-23-market-recovery-delivery-gate.md`。
 - 2026-09-23 · codex · 行情恢复 K3 真实工具链已通；13请求、16工具操作，但504/600秒零交付分别阻塞，仍HOLD；未改业务代码或写生产 → `fix/market-recovery-qc-0923@7466e3982` / `docs/handoffs/2026-09-23-market-recovery-k3-resume.md`。
 
@@ -1339,3 +1340,4 @@ per-user 不是进程级；`runtime_backend_readiness` 这个全局探针看不�
 - 2026-09-23 · codex · #884固定c71本机工程门禁完成，外层策略干扰自测的红/环境对照/完整原生重跑分账；超CI时限及main前进使最新合流未验，独审仍BLOCKED，未合未部署 → `~/.finance-runtime/reviews/pr884-gates-20260923-02/README.md`（PR评论6199；仓内inflight按冻结前约定读取最终verification.json，不再改tip）。
 - 2026-09-23 · codex · #884对齐27ca后冻结2bc799a8，新轮Python在1800秒被终止且无最终收据，整体BLOCKED；其他叶子绿不拼数，main再前进，失败现场保留、记录中进程已退出，未合未部署 → `~/.finance-runtime/reviews/pr884-gates-20260923-03/README.md`（PR评论6249；下轮先协调全量时段与磁盘，不原地重跑）。
 - 2026-09-23 · codex · #73/#75分组独审仍超时，四叶截断不当全量绿，E2E须自有新构建 → `fwp-wt-closeout-workorders-0922/docs/handoffs/2026-09-23-re06-grouped-qc-and-gates.md`（a5a85619c）。
+- 2026-09-23 · codex · #73发布包修复后四叶过，#75仍阻塞且续跑须另授权 → `fwp-wt-closeout-workorders-0922/docs/handoffs/2026-09-23-re06-shipping-assets-and-acceptance.md`（9538be94d；最新inflight 7d96384ba），方法 [[gate-covers-only-its-return-value]]。
