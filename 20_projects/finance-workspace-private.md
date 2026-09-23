@@ -216,6 +216,7 @@ per-user 不是进程级；`runtime_backend_readiness` 这个全局探针看不�
 - 2026-09-23 · codex · 行情恢复 K3 真实工具链已通；13请求、16工具操作，但504/600秒零交付分别阻塞，仍HOLD；未改业务代码或写生产 → `fix/market-recovery-qc-0923@7466e3982` / `docs/handoffs/2026-09-23-market-recovery-k3-resume.md`。
 
 - 2026-09-23 · codex · RAG失败按恢复责任归属、安全子进程诊断；候选6c26041cb相关413P与16组撤保护通过，未合入/部署 → `fwp-wt-rag-recovery-state-0923/docs/handoffs/inflight/fix-rag-recovery-state-0923.md`；方法 [[failure-state-must-follow-recovery-owner]]。
+- 2026-09-23 · codex · RAG完整预热错误归属、退役竞争与管道清理补修；52a9bceb6相关421P及21组撤保护，仍未合入/部署 → `fwp-wt-rag-recovery-state-0923/docs/handoffs/2026-09-23-rag-recovery-state-followup.md`；方法 [[failure-state-must-follow-recovery-owner]]。
 
 - 2026-09-23 · codex · #60 已验收候选发布与 PR 描述回读记录 → `~/.finance-runtime/reviews/eastmoney-cb-deploy-20260922/publication-20260923T0709/record.json`；后续授权边界看本分支 inflight。
 
