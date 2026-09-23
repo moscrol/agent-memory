@@ -218,6 +218,7 @@ per-user 不是进程级；`runtime_backend_readiness` 这个全局探针看不�
 
 - 2026-09-23 · codex · RAG失败按恢复责任归属、安全子进程诊断；候选6c26041cb相关413P与16组撤保护通过，未合入/部署 → `fwp-wt-rag-recovery-state-0923/docs/handoffs/inflight/fix-rag-recovery-state-0923.md`；方法 [[failure-state-must-follow-recovery-owner]]。
 - 2026-09-23 · codex · RAG完整预热错误归属、退役竞争与管道清理补修；52a9bceb6相关421P及21组撤保护，仍未合入/部署 → `fwp-wt-rag-recovery-state-0923/docs/handoffs/2026-09-23-rag-recovery-state-followup.md`；方法 [[failure-state-must-follow-recovery-owner]]。
+- 2026-09-23 · codex · RAG双向管道/写入截止时间补修d29d554f1；最新相关430P/1F、管道变异基线红、独审无报告，未部署 → `fwp-wt-rag-recovery-state-0923/docs/handoffs/2026-09-23-rag-duplex-request-deadline.md`；边界 [[kill-on-timeout-is-an-amplifier]]。
 
 - 2026-09-23 · codex · #60 已验收候选发布与 PR 描述回读记录 → `~/.finance-runtime/reviews/eastmoney-cb-deploy-20260922/publication-20260923T0709/record.json`；后续授权边界看本分支 inflight。
 
@@ -1330,4 +1331,5 @@ per-user 不是进程级；`runtime_backend_readiness` 这个全局探针看不�
 - 2026-09-23 · codex · K3写手两次上游失败留证，宿主修量具完成16绿/两种有效撤保护/还原绿，作者与独审分账 → `fwp-wt-runtime-postmerge-qc-0923/docs/handoffs/inflight/test-runtime-probe-repair-0923.md`。
 - 2026-09-23 · codex · #884 WIP：K3局部收件箱代码原样验收，28种合同撤保护与宿主回归分账，原拒收不覆写；方法见 [[mutation-test-before-claiming-silent]] → `fwp-wt-runtime-postmerge-qc-0923/docs/handoffs/2026-09-23-runtime-contract-followup.md`。
 - 2026-09-23 · codex · #884固定c71本机工程门禁完成，外层策略干扰自测的红/环境对照/完整原生重跑分账；超CI时限及main前进使最新合流未验，独审仍BLOCKED，未合未部署 → `~/.finance-runtime/reviews/pr884-gates-20260923-02/README.md`（PR评论6199；仓内inflight按冻结前约定读取最终verification.json，不再改tip）。
+- 2026-09-23 · codex · #884对齐27ca后冻结2bc799a8，新轮Python在1800秒被终止且无最终收据，整体BLOCKED；其他叶子绿不拼数，main再前进，失败现场保留、记录中进程已退出，未合未部署 → `~/.finance-runtime/reviews/pr884-gates-20260923-03/README.md`（PR评论6249；下轮先协调全量时段与磁盘，不原地重跑）。
 - 2026-09-23 · codex · #73/#75分组独审仍超时，四叶截断不当全量绿，E2E须自有新构建 → `fwp-wt-closeout-workorders-0922/docs/handoffs/2026-09-23-re06-grouped-qc-and-gates.md`（a5a85619c）。
