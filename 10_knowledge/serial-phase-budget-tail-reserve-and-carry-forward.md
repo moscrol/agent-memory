@@ -41,6 +41,8 @@ related: ["[[finance-workspace-private]]"]
 
 验证分两层：受控时钟证明授予不续期、过期不执行、迟到结果不成功；真实线程测试观察实际中断与耗时。前者不能保证操作系统调度延迟，后者单次超阈值也不能直接归因为预算逻辑。假钟替换被测模块绑定，不要篡改整个进程共享的 `time.monotonic`。这也适用于连接池等待、线程池排队和请求重试。
 
+2026-09-23 续验：独立GLM在候选1de68567e740生成4个探针，当前4P、旧50330cf有2个行为失败；作者151P另记。原报告把连接后过期写成连接前耗尽分支已覆盖，交独立澄清而非作者改原文，最终PASS_WITH_LIMITS。完整14911P只证明该固定运行通过，仍不保证真实调度延迟，也不解释历史超阈值根因。证据：金融 `docs/handoffs/2026-09-23-market-recovery-suite.md`。
+
 ## 参考
 
 - `finance-workspace-private/docs/superpowers/specs/2026-08-03-grounded-chain-budget-allocation-design.md`

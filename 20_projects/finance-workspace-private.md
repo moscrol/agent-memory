@@ -208,6 +208,8 @@ per-user 不是进程级；`runtime_backend_readiness` 这个全局探针看不�
 
 ## 交接记录
 
+- 2026-09-23 行情QC续验：固定1de68567e740工程四叶全绿（Python14911P、前端120P/E2E34P2S），截止GLM澄清PASS_WITH_LIMITS；旧六红根因未证、恢复整体仍HOLD，无本会话生产操作。详见 `docs/handoffs/2026-09-23-market-recovery-suite.md`。
+
 - 2026-09-23 · claude · 盘点遗留四件事收口：五问三合同受托代拍（1=B→D、2=A、3=A；a 5565 / b NULL / c frozen_identity / d 缺行+仲裁 / e 停采）→ #871/#861/#874/#893 已合入 main（`c9dd71dfd`）；#868 不合列翻转条件；工单 #62/#66/#68 → PR #844/#896/#897/#898/#899 批次预览四叶绿等用户确认合入；#73 归协调者会话 → `docs/handoffs/2026-09-23-market-recovery-decisions.md`、`docs/handoffs/2026-09-23-orphan-followup-batches.md`（收据 `~/.finance-runtime/reviews/orphan-followup-0923/`）。
 
 - 2026-09-23 · codex · FinanceQuery 绝对截止修复、新候选 Python 4 红/前端 2 红及定向诊断封存，仍 HOLD → `fwp-wt-market-recovery-qc-fix-0923/docs/handoffs/2026-09-23-market-recovery-deadline.md`；继续入口为同枝 inflight。
