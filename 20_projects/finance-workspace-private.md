@@ -208,6 +208,8 @@ per-user 不是进程级；`runtime_backend_readiness` 这个全局探针看不�
 
 ## 交接记录
 
+- 2026-09-23 · claude · 盘点遗留四件事收口：五问三合同受托代拍（1=B→D、2=A、3=A；a 5565 / b NULL / c frozen_identity / d 缺行+仲裁 / e 停采）→ #871/#861/#874/#893 已合入 main（`c9dd71dfd`）；#868 不合列翻转条件；工单 #62/#66/#68 → PR #844/#896/#897/#898/#899 批次预览四叶绿等用户确认合入；#73 归协调者会话 → `docs/handoffs/2026-09-23-market-recovery-decisions.md`、`docs/handoffs/2026-09-23-orphan-followup-batches.md`（收据 `~/.finance-runtime/reviews/orphan-followup-0923/`）。
+
 - 2026-09-23 · codex · FinanceQuery 绝对截止修复、新候选 Python 4 红/前端 2 红及定向诊断封存，仍 HOLD → `fwp-wt-market-recovery-qc-fix-0923/docs/handoffs/2026-09-23-market-recovery-deadline.md`；继续入口为同枝 inflight。
 
 - 2026-09-23 · codex · Workbench续办校正口径已拍、核实候选22:21全仓4F/前端2F，现网不变 → `fwp-wt-workbench-release-0923/docs/handoffs/2026-09-23-workbench-release-resume.md`。
