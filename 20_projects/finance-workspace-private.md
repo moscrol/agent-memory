@@ -73,7 +73,7 @@ DuckDB → detect_turning_points.py / backtest_sector.py → 信号+板块边际
 |---|---|---|---|
 | #83 302132 回填整合 | codex | blocked | #813 固定 fd6d8cc5b，定向118P、前端120P/E2E34P+2S、registry五项0；Python全量触4GiB保护，本head整库演练不足8GiB拒绝，旧绿不移签。无后台测试、无合入或生产授权 → `fwp-wt-backfill-302132-0923/docs/handoffs/inflight/fix-backfill-302132-0923.md`。 |
 | 09-23 RAG启动恢复 | codex | blocked | 代码候选2ac97e68c对齐c9，干净全仓14895P、前端/30撤保护/registry四项加台账审计过；GLM静态链及真实自然入口完成，生产与候选仍行情错位503。旧发布四失败ID本轮全仓均过，不改签旧红、不归因历史超时；未push/合main/部署。最终市场QC组合与换库按既有owner授权边界 → `fwp-wt-rag-recovery-state-0923/docs/handoffs/inflight/fix-rag-recovery-state-0923.md`。 |
-| #73 计时授权独立 B | codex | blocked-resource | 最新固定合流7ec9d022b1/base626d8a508c；旧8eac全量绿但漂移门拒收，旧E2 C1-C3独审仅历史。新候选资源等待超时，测试/build/模型0，C1-C10未签，不可部署；有界本地QC仍在本次授权内，发布/生产/自然质量另闸 → `~/fwp-wt-closeout-workorders-0922/docs/handoffs/inflight/docs-closeout-workorders-0922.md`。 |
+| #73 计时授权独立 B | codex | blocked-resource | 最新固定合流b027194f1/base3bb81b9638；与7ec的intelligence有4文件差分，旧绿/旧E2独审不移签。QC04与工程15分钟等待结束，测试/build/模型0，C1-C10未签；约6.6GiB通过pytest临时夹具清理且证据不变，无自动续跑。有界本地就绪仍授权，发布/生产/自然质量另闸 → `~/fwp-wt-closeout-workorders-0922/docs/handoffs/inflight/docs-closeout-workorders-0922.md`。 |
 | 09-22 watchdog测试红灯验收 | codex | done-with-boundaries | #848已合入`a2c8d1f90773fdf3dcb7cf53f5d9733590924ae1`；实际main新门禁12511P/85S/2X、Ruff/registry0、前端110P/E2E34P/2S，收据`20260921T191851Z-a2c8d1f9.json`与审计通过。独立审查仍是一位`PASS_WITH_LIMITS`，0.8s起止点收窄、假钟作用域限制保留；未部署/重启，#846仍WIP → `fwp-wt-watchdog-closeout-0922/docs/handoffs/2026-09-22-watchdog-848-authorized-merge-and-main-gate.md`。 |
 | 09-22 变异量具超时留证 | claude-code | done-with-boundaries | R6 线「发布超时归因」的**前置量具**已补：`e9e3361a`（+文档`94eddad1`，分支`fix/mutation-timeout-evidence-0922`，基座main`a2c8d1f90`）让 `run_extraction_mutations.py` 超时/中断/启动失败都留现场——输出直接落盘、卡住转储线程栈、进程组独占清理、缺JUnit记`executed=None`不记0、`check_result`拒收非完成态、证据文件不可覆盖。四叶均有结论：全量12534P/85S/2X+Ruff0（收据`20260922T111226Z-e9e3361a.json`经`check_test_receipt --expect-revision` exit0）、前端110P、E2E34P/2S、registry五项0；11组撤保护各有具名红证人、还原后绿、树clean。**不归因也不翻案09-18那次180秒超时**（旧现场已不存在），未跑publication套件、未push/PR/合main/部署、R6真实验收与独立QC仍缺（该线已由#835接替）→ `fwp-wt-mutation-timeout-evidence-0922/docs/handoffs/inflight/fix-mutation-timeout-evidence-0922.md`，证据根`~/.finance-runtime/reviews/mutation-timeout-evidence-20260922/`。 |
 | 09-21 行情恢复 | pi | blocked | 纯候选7311a7738；干净4c0162a9b定向247P，新构造器88P、六类变异抓红。09-04复牌原件已固定，5565范围构造5553候选+12缺失处置；原278+新增136证据回读一致。名称/换手率/官方历史范围/停牌分母与下游三门待闭合；未写库/发布/合并/部署 → `fwp-wt-market-recovery-0921/docs/handoffs/inflight/fix-market-recovery-0921.md`。 |
@@ -209,6 +209,8 @@ per-user 不是进程级；`runtime_backend_readiness` 这个全局探针看不�
 而 CLI/回检走 `~/.zshrc` 里的 `/Users/a77/agent-memory/.foresight`——**两套用户台账不是同一份**。
 
 ## 交接记录
+
+- 2026-09-24 · codex · #73/#75完整前向当前main，QC04/工程资源窗口仍拒绝，清理通过测试的临时夹具但不移签旧绿 → `~/fwp-wt-closeout-workorders-0922/docs/handoffs/2026-09-24-re06-current-main-resource-block.md`（fe433fc27）。
 
 - 2026-09-23 · codex · 恢复隔离续验：整行桥指纹修复0d3f562cb，新合流6b43定向396P/独立3P；全量资源阻塞，旧绿不移签、恢复仍HOLD → `docs/handoffs/2026-09-23-market-recovery-acceptance.md`。
 
