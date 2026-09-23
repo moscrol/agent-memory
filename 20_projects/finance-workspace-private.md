@@ -213,6 +213,7 @@ per-user 不是进程级；`runtime_backend_readiness` 这个全局探针看不�
 
 - 2026-09-23 · codex · #877 固定候选完成工程验证并推 WIP，语义0/12及原件格式非零保留；勘误端点diff与执行来源 → `fwp-wt-knevo-closure-0923/docs/handoffs/inflight/feat-knevo-absorption-closure-0923.md`，方法 [[evidence-hygiene-three-failure-shapes]]。
 
+- 2026-09-23 · codex · 行情恢复限读交付门实跑：新组合4dd5e6660独立探针20P，F2/F3报告限域通过、F1报告504阻塞；tests/2676P/62S非全仓，仍HOLD且未写生产 → `fix/market-recovery-qc-0923@ec76cb41d` / `docs/handoffs/2026-09-23-market-recovery-delivery-gate.md`。
 - 2026-09-23 · codex · 行情恢复 K3 真实工具链已通；13请求、16工具操作，但504/600秒零交付分别阻塞，仍HOLD；未改业务代码或写生产 → `fix/market-recovery-qc-0923@7466e3982` / `docs/handoffs/2026-09-23-market-recovery-k3-resume.md`。
 
 - 2026-09-23 · codex · RAG失败按恢复责任归属、安全子进程诊断；候选6c26041cb相关413P与16组撤保护通过，未合入/部署 → `fwp-wt-rag-recovery-state-0923/docs/handoffs/inflight/fix-rag-recovery-state-0923.md`；方法 [[failure-state-must-follow-recovery-owner]]。
