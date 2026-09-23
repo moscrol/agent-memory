@@ -207,6 +207,8 @@ per-user 不是进程级；`runtime_backend_readiness` 这个全局探针看不�
 
 ## 交接记录
 
+- 2026-09-23 · codex · #862 固定候选3b7e473575b0完成8792蓝绿验收，保留旧回滚快照；新配对探针与三读ready通过，非金融质量签字 → `~/.finance-runtime/reviews/research-empty-delivery-gate-0922/current-main-3b7e473575b0/recovery-handoff-20260923.md`。
+
 - 2026-09-23 · codex · #883 queued 红项的测试隔离修复与固定候选完整绿门禁；旧红原件保留，未合入/未部署 → [#885](http://127.0.0.1:3300/a77/finance-workspace-private/pulls/885) / `fwp-wt-run-queued-regression-0923/docs/handoffs/inflight/fix-run-queued-regression-0923.md`；方法 [[terminal-signal-scope-and-projection-waits]]。
 
 - 2026-09-23 · codex · #60 东财本地修复与冻结质检，整体 HOLD；完整状态与收据 → `~/fwp-wt-eastmoney-circuit-breaker-0922/docs/handoffs/2026-09-23-eastmoney-circuit-breaker-qc.md`（未合入/部署）。
