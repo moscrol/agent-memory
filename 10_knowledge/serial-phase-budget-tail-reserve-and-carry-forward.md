@@ -35,6 +35,12 @@ related: ["[[finance-workspace-private]]"]
 - **token/吞吐自适应**：理论效率更高，但要求可靠的 phase 级 usage 与延迟分布；缺数据时会把估算误差引入调度器。
 - **尾段异步化**：可缩短用户等待，但会改变 fail-closed 与发布语义；验证闸是安全边界时不能只为性能默认后置。
 
+## 执行线程不能重发授予时间
+
+2026-09-23 FinanceQuery 补充：在监控线程内部计算 `now + timeout`，会把连接与线程排队时间排除，并给晚启动监控重新发足额预算。应在启动这些步骤前固定 child deadline，与父 deadline 减去 reserve 取交集；执行前再次检查，返回结果前拒绝超窗成功。金融分支 `fix/market-recovery-qc-0923` 的 `f22cd22b6` 复用已有 `ResearchDeadline.bounded_stage`，没有新增预算机制。
+
+验证分两层：受控时钟证明授予不续期、过期不执行、迟到结果不成功；真实线程测试观察实际中断与耗时。前者不能保证操作系统调度延迟，后者单次超阈值也不能直接归因为预算逻辑。假钟替换被测模块绑定，不要篡改整个进程共享的 `time.monotonic`。这也适用于连接池等待、线程池排队和请求重试。
+
 ## 参考
 
 - `finance-workspace-private/docs/superpowers/specs/2026-08-03-grounded-chain-budget-allocation-design.md`
