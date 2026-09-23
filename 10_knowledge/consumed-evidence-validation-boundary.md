@@ -7,7 +7,7 @@ source: finance-workspace-private eb4ec08f 的历史身份回归与三项撤保�
 date: 2026-09-24
 tags: [data-contract, validation, testing, evidence]
 status: verified
-related: ["[[evidence-hygiene-three-failure-shapes]]", "[[git-clean-is-not-deletion-safe]]", "[[finance-workspace-private]]"]
+related: ["[[evidence-hygiene-three-failure-shapes]]", "[[git-clean-is-not-deletion-safe]]", "[[nullable-classification-must-preserve-unknown]]", "[[finance-workspace-private]]"]
 ---
 
 # 缺失保留未知态，校验落在实际消费边界
@@ -45,5 +45,6 @@ related: ["[[evidence-hygiene-three-failure-shapes]]", "[[git-clean-is-not-delet
 
 ## 参考
 
+- [[nullable-classification-must-preserve-unknown]]：SQL 到 Python 的未知态保留与原因类型。本文侧重消费集合和写前不变量。
 - [[evidence-hygiene-three-failure-shapes]]：不要把环境错误、假红或旧收据当作当前回归证据。
 - [[git-clean-is-not-deletion-safe]]：未知不能被转换成允许破坏性操作的肯定结论。

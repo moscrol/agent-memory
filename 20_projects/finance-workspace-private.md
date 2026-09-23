@@ -210,6 +210,8 @@ per-user 不是进程级；`runtime_backend_readiness` 这个全局探针看不�
 
 ## 交接记录
 
+- 2026-09-24 · codex · eb4完整工程收据15084P及35项变异核验，live仍503；新浪5564条当日展示名证据获限定采信、缺三只不缩分母 → `fwp-wt-workbench-release-ready-0924/docs/handoffs/2026-09-24-eb4-gates-and-name-scope.md`。
+
 - 2026-09-24 · codex · Workbench eb4工程门全绿、真实问答完成，数据readiness仍503；历史未知名按消费拒绝，80板块身份门不放宽 → `fwp-wt-workbench-release-0924/docs/handoffs/inflight/fix-workbench-release-0924.md`；方法 [[../10_knowledge/nullable-classification-must-preserve-unknown]]。
 
 - 2026-09-24 · codex · #81前向/C6真实缺陷返修至27034ce44，五批209请求后独审及新头全量仍阻塞；2337原件以37797b3d5推#892，配置契约/阶段schema/逐ID勘误分账 → `fwp-wt-react-trace-chain-docs-0923/docs/handoffs/2026-09-24-react-trace-native-c6.md`。
