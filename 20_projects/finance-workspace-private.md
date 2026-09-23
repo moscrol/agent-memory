@@ -89,7 +89,7 @@ DuckDB → detect_turning_points.py / backtest_sector.py → 信号+板块边际
 | 09-22 历史来源绑定前向集成 | codex | blocked | WIP #841接替#829，#832仍为diff基线；724加固与固定f73全叶工程收据保留，不移签。审查候选固定fedce；离线审查执行器29项通过，真实Spec/Quality各一次均因provider HTTP 429 `credit_exhausted_5h` 无终稿，裁决`BLOCKED_PROVIDER_QUOTA_NO_FINAL_REPORT`。新证据包由`543b1a361`封存，228/228 Git blob核验通过；599作者回归不代独立签字。自然金融、main组合及#793/#794、#833/#845联合树仍未验；未改生产配置/服务，未合/部署 → `fwp-wt-history-evidence-integration-0921/docs/handoffs/inflight/feat-history-evidence-integration-0921.md`。 |
 | 09-21 夜跑部署差距收尾 | pi | done | 配置部署完成，业务效果另验：[源码#827](http://127.0.0.1:3300/a77/finance-workspace-private/pulls/827) / [证据#836](http://127.0.0.1:3300/a77/finance-workspace-private/pulls/836)。固定c097最终12502P/0F/0error、前端110P/E2E34P2S，registry/边界绿；独立Spec@2ea6、Quality@b0cf与8安装输入适用性分账。18:43两夜跑job切三adcda根，备份/loaded通过，未kickstart/补采/删根；旧18:30自然sync因东财断连退出2、staging拒换，数据恢复/readiness503仍欠。8792由他会话切f2c3，本轮保持。100原件封存，文档b26a待审不移签全量 → `fwp-wt-nightly-deploy-closeout-0921/docs/handoffs/2026-09-21-nightly-deployment-complete.md`。 |
 | 09-21 工作树归属核验与孤儿接管 | coding-agent | blocked | 固定`6eb12c1b8`作者工程绿，双轴K3不限预算但08:40Z均exit1、各50准入/49完整消息，无终审报告：Spec明确ENOSPC，Quality原因未知；不是触帽。部分210P/1S不补独立签字，两轴动态backfill未完成。819份证据已封并验提交字节，完整锚点47f80174d；#812/#813/#814评论5348/5349/5350已回读。本part已收尾（协调53f789969、收据交接6ca9c5724已推），最终验收仍blocked。按用户要求本线暂停，K3可替换，后续重心转投研agent根因；本次未启动新修复。不重启原会话，清理/恢复另确认；未签后来main，无合并/部署/生产回填/删真实树 → `fwp-wt-ownership-closeout-0921/docs/handoffs/inflight/ops-worktree-ownership-closeout-0921.md`。 |
-| 09-21 Arena前向候选 | codex | blocked | [#816](http://127.0.0.1:3300/a77/finance-workspace-private/pulls/816)固定`b8292d23`的作者工程绿为历史证据（12104P/85S/2X、Arena43P、Arena E2E8P）；后续离线审查NO-GO见评论5165：完成状态与Match非原子、stale-running恢复与发布审计待修。本轮归属续接未复验/接管该线 → `fwp-wt-arena-main-ready-0921/docs/handoffs/inflight/fix-arena-main-ready-0921.md`；报告`~/.finance-runtime/reviews/arena-main-ready-v2-20260921/offline-spec-quality-review.md`。 |
+| #82 FinArena候选处置 | codex | blocked | 产品建议本期归档，待用户确认，#816/#817仍open/WIP；决策`79f72b385`已推，评论6440/6438回读一致。#817含事务/恢复/审计修复但未重验，与ops同树；三条旧质量样本交#76待授权补充，18/18原件核验，不翻旧结论。未合/部署/关PR → `fwp-wt-finarena-decision-0923/docs/handoffs/inflight/docs-finarena-decision-0923.md`。 |
 | 同花顺研究观察值第一批 | codex | blocked | [#810](http://127.0.0.1:3300/a77/finance-workspace-private/pulls/810) WIP，当前head `311a4c92f`；运行时代码仍为164b02e4，最终tip定向250P/8S、Ruff及收据校验通过。订阅额度100%/credits0，独立Spec/Quality未执行；非空异动、生产恢复、合main/部署/付费审查仍暂停。旧同步根/生产原样 → `fwp-wt-hithink-research-data/docs/handoffs/inflight/feat-hithink-research-data.md`。 |
 | 8792题设与行情根因修复 | codex | blocked | df186f9b已提交；相关回归1728P/12S，但最终live静态PE基数错且judge漏报，未合/部署。需题设年份/数据性质/单位计算合同 → `fwp-wt-8792-premise-market/docs/handoffs/inflight/fix-8792-premise-market-contracts.md`。 |
 | 09-21 两参数计算表格收尾 | coding-agent | pending merge | 新组合[#815](http://127.0.0.1:3300/a77/finance-workspace-private/pulls/815)固定06f74ef1：逐yield深存行值，prelude v5；旧#808/5b27fc6b有行引用丢数，不是最终合入目标。作者门禁、Spec与新Quality根QC均通过，独立验收PASS_WITH_LIMITS；未合/部署，#770另办 → `~/.finance-runtime/reviews/stale-closeout-k3-20260921/quality-followup-01/README.md`。 |
@@ -206,6 +206,8 @@ per-user 不是进程级；`runtime_backend_readiness` 这个全局探针看不�
 而 CLI/回检走 `~/.zshrc` 里的 `/Users/a77/agent-memory/.foresight`——**两套用户台账不是同一份**。
 
 ## 交接记录
+
+- 2026-09-23 · codex · #82 建议归档 FinArena 候选，待确认；三条旧样本移交 #76 → `fwp-wt-finarena-decision-0923/docs/handoffs/inflight/docs-finarena-decision-0923.md`。
 
 - 2026-09-23 · codex · 行情恢复固定候选 GLM 有限独审、全仓红收据与主线漂移封存 → `fwp-wt-market-recovery-qc-fix-0923/docs/handoffs/2026-09-23-market-recovery-glm.md`；继续入口为同枝 inflight。
 
