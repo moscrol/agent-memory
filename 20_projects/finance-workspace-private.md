@@ -71,7 +71,7 @@ DuckDB → detect_turning_points.py / backtest_sector.py → 信号+板块边际
 ## 任务看板
 | 任务 | 负责 | 状态 | 备注 |
 |---|---|---|---|
-| #73 计时授权独立 B | codex | blocked | 新候选`b24c86f87`仅修已提交发布包，固定身份四叶完整PASS。独审仍因HTTP504及缺探针交付阻塞，C1-C10未签，不能合入；旧f9证据未移签。文档`9538be94d`、授权边界`7d96384ba`；本轮未推/合/部署，不得自动续QC → `~/fwp-wt-closeout-workorders-0922/docs/verification/2026-09-23-re06-timer-assets/README.md`。 |
+| #73 计时授权独立 B | codex | blocked-resource | 最新固定合流7ec9d022b1/base626d8a508c；旧8eac全量绿但漂移门拒收，旧E2 C1-C3独审仅历史。新候选资源等待超时，测试/build/模型0，C1-C10未签，不可部署；有界本地QC仍在本次授权内，发布/生产/自然质量另闸 → `~/fwp-wt-closeout-workorders-0922/docs/handoffs/inflight/docs-closeout-workorders-0922.md`。 |
 | 09-22 watchdog测试红灯验收 | codex | done-with-boundaries | #848已合入`a2c8d1f90773fdf3dcb7cf53f5d9733590924ae1`；实际main新门禁12511P/85S/2X、Ruff/registry0、前端110P/E2E34P/2S，收据`20260921T191851Z-a2c8d1f9.json`与审计通过。独立审查仍是一位`PASS_WITH_LIMITS`，0.8s起止点收窄、假钟作用域限制保留；未部署/重启，#846仍WIP → `fwp-wt-watchdog-closeout-0922/docs/handoffs/2026-09-22-watchdog-848-authorized-merge-and-main-gate.md`。 |
 | 09-22 变异量具超时留证 | claude-code | done-with-boundaries | R6 线「发布超时归因」的**前置量具**已补：`e9e3361a`（+文档`94eddad1`，分支`fix/mutation-timeout-evidence-0922`，基座main`a2c8d1f90`）让 `run_extraction_mutations.py` 超时/中断/启动失败都留现场——输出直接落盘、卡住转储线程栈、进程组独占清理、缺JUnit记`executed=None`不记0、`check_result`拒收非完成态、证据文件不可覆盖。四叶均有结论：全量12534P/85S/2X+Ruff0（收据`20260922T111226Z-e9e3361a.json`经`check_test_receipt --expect-revision` exit0）、前端110P、E2E34P/2S、registry五项0；11组撤保护各有具名红证人、还原后绿、树clean。**不归因也不翻案09-18那次180秒超时**（旧现场已不存在），未跑publication套件、未push/PR/合main/部署、R6真实验收与独立QC仍缺（该线已由#835接替）→ `fwp-wt-mutation-timeout-evidence-0922/docs/handoffs/inflight/fix-mutation-timeout-evidence-0922.md`，证据根`~/.finance-runtime/reviews/mutation-timeout-evidence-20260922/`。 |
 | 09-21 行情恢复 | pi | blocked | 纯候选7311a7738；干净4c0162a9b定向247P，新构造器88P、六类变异抓红。09-04复牌原件已固定，5565范围构造5553候选+12缺失处置；原278+新增136证据回读一致。名称/换手率/官方历史范围/停牌分母与下游三门待闭合；未写库/发布/合并/部署 → `fwp-wt-market-recovery-0921/docs/handoffs/inflight/fix-market-recovery-0921.md`。 |
@@ -207,6 +207,8 @@ per-user 不是进程级；`runtime_backend_readiness` 这个全局探针看不�
 而 CLI/回检走 `~/.zshrc` 里的 `/Users/a77/agent-memory/.foresight`——**两套用户台账不是同一份**。
 
 ## 交接记录
+
+- 2026-09-23 · codex · #73/#75固定合流刷新，旧绿收据不移签，新候选资源阻断，原件封存 → `~/fwp-wt-closeout-workorders-0922/docs/handoffs/2026-09-23-re06-readiness-refresh-and-resource-block.md`。
 
 - 2026-09-23 · codex · Workbench授权执行停在数据与精确版本门，保留现网、不发布残缺staging；原始检查留证 → `fwp-wt-workbench-release-0923/docs/handoffs/2026-09-23-workbench-release-blocked.md`。
 
