@@ -1325,4 +1325,5 @@ per-user 不是进程级；`runtime_backend_readiness` 这个全局探针看不�
 - 2026-09-23 · codex · runtime合后独审BLOCKED，完整门禁与K3/宿主补跑分账、首红保留、授权误记追加勘误 → `fwp-wt-runtime-postmerge-qc-0923/docs/handoffs/inflight/docs-runtime-postmerge-qc-0923.md`。
 - 2026-09-23 · codex · K3写手两次上游失败留证，宿主修量具完成16绿/两种有效撤保护/还原绿，作者与独审分账 → `fwp-wt-runtime-postmerge-qc-0923/docs/handoffs/inflight/test-runtime-probe-repair-0923.md`。
 - 2026-09-23 · codex · #884 WIP：K3局部收件箱代码原样验收，28种合同撤保护与宿主回归分账，原拒收不覆写；方法见 [[mutation-test-before-claiming-silent]] → `fwp-wt-runtime-postmerge-qc-0923/docs/handoffs/2026-09-23-runtime-contract-followup.md`。
+- 2026-09-23 · codex · #884固定c71本机工程门禁完成，外层策略干扰自测的红/环境对照/完整原生重跑分账；超CI时限及main前进使最新合流未验，独审仍BLOCKED，未合未部署 → `~/.finance-runtime/reviews/pr884-gates-20260923-02/README.md`（PR评论6199；仓内inflight按冻结前约定读取最终verification.json，不再改tip）。
 - 2026-09-23 · codex · #73/#75分组独审仍超时，四叶截断不当全量绿，E2E须自有新构建 → `fwp-wt-closeout-workorders-0922/docs/handoffs/2026-09-23-re06-grouped-qc-and-gates.md`（a5a85619c）。
