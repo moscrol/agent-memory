@@ -104,6 +104,24 @@ finance Knevo Q14在固定f1fd8aa1a的新真实入口中，消息分层规则确
 及其runtime `material-repair-closeout/q14-judge-false-positive.json`（原run、claim与回执hash绑定）。
 这是单次真实反例，不是通用错误率或修复成功证明。
 
+### 生成schema、解析合法与语义正确是三层（2026-09-23）
+
+finance Knevo两轮续修将含糊的invalid tool call留成私有原返回、阶段、原因码和哈希，
+实际捕获nonfactual+[1]与unsupported+[1]两类互斥违例。将原接收规则写进生成schema，
+本地20组合矩阵一致，实际模型仍违例：**字段约束发出不等于供应商强制结构化解码**。
+不要自动清空锚点、改支持类型或放宽接收端来制造协议通过。原始报告与私有诊断不作为作者指令。
+
+单次格式反馈可以合并多个位置，保持有限续修预算；但稿件通过格式与逐字来源后，仍可能
+计算句未绑定全部输入、删句后不再回答原问题，或下一个复核阶段已没有剩余时间。
+把格式、来源、报告合法性、预算与逐句语义分别留证；不能用其中一项通过替另外几项签收。
+完整原请求也属于重放合同：漏传material_outputs会把真实material_claim_checks误诊成report_keys。
+
+本轮G1b内部passed仍以撤回暗示认领未核实的旧答；包3的“撤回”不对应自身版本A倾向。
+这些需要对照原句与任务义务，不能只数输出标题或检查字段类型。量具已归入finance的
+knevo_regression.inspect_run；不自动语义评分，因为声明是否蕴含、跨版本是否自洽尚无可靠机械判据。
+证据：该分支2026-09-23-knevo-protocol-repair快照与runtime protocol-repair-closeout索引。
+两轮6+5是11次执行、6个不同题目，不是盲测或质量增益证明。
+
 ### 删除错误后，既要保住可信结果，也要重新检查任务完整性（2026-09-18）
 
 finance `fix/8792-boundary-integration@9655b16d` 的两个实测形状：一次非法 URL 被正确拒绝，
