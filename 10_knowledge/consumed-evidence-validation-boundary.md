@@ -4,7 +4,7 @@ type: knowledge
 stance: evidenced
 agent: codex
 source: finance-workspace-private eb4ec08f 的历史身份回归与三项撤保护验证，2026-09-24
- date: 2026-09-24
+date: 2026-09-24
 tags: [data-contract, validation, testing, evidence]
 status: verified
 related: ["[[evidence-hygiene-three-failure-shapes]]", "[[git-clean-is-not-deletion-safe]]", "[[finance-workspace-private]]"]
