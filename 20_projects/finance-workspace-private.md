@@ -207,6 +207,8 @@ per-user 不是进程级；`runtime_backend_readiness` 这个全局探针看不�
 
 ## 交接记录
 
+- 2026-09-23 · codex · #83/#813 前向及两处时间推进护栏修复，真实完整副本验收/异常拒收/恢复通过，#802关闭留指针；工程门禁未齐，未合入/未写生产 → `fwp-wt-backfill-302132-0923/docs/handoffs/inflight/fix-backfill-302132-0923.md`，动态证据 `~/.finance-runtime/reviews/backfill-302132-0923/CURRENT.json`。
+
 - 2026-09-23 · codex · #81沿#832前向合main，只留两项产品增量；新头工程门禁仍阻塞，旧K3终稿订正但不移签，#75/#76分账 → `fwp-wt-react-trace-chain-docs-0923/docs/handoffs/2026-09-23-react-trace-chain.md`（文档PR #892）。
 
 - 2026-09-23 · WIP #890续办：14f候选GLM独审PASS_WITH_LIMITS，L5转数据一致性阻塞且首发仍0；未合未部署。入口：`fwp-wt-claim-scope-runtime-0923/docs/handoffs/inflight/feat-claim-scope-runtime-0923.md`；封存证据：`~/.finance-runtime/reviews/claim-scope-runtime-20260923/continue-01/audit.json`（GLM不改签K3，旧收据保留）。
