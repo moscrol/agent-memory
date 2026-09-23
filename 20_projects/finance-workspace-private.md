@@ -207,6 +207,8 @@ per-user 不是进程级；`runtime_backend_readiness` 这个全局探针看不�
 
 ## 交接记录
 
+- 2026-09-23 · codex · RAG失败按恢复责任归属、安全子进程诊断；候选6c26041cb相关413P与16组撤保护通过，未合入/部署 → `fwp-wt-rag-recovery-state-0923/docs/handoffs/inflight/fix-rag-recovery-state-0923.md`；方法 [[failure-state-must-follow-recovery-owner]]。
+
 - 2026-09-23 · codex · #60 已验收候选发布与 PR 描述回读记录 → `~/.finance-runtime/reviews/eastmoney-cb-deploy-20260922/publication-20260923T0709/record.json`；后续授权边界看本分支 inflight。
 
 - 2026-09-23 · codex · #76 L6失败停批并封存，shim问题不代替产品根因，#75仍待独审 → `finance-worktrees/adaptive-research-loop/docs/handoffs/2026-09-23-adaptive-l6-closure.md`。
