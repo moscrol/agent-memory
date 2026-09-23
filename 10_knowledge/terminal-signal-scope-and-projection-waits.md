@@ -69,6 +69,14 @@ finance #885 的旧屏障对照 1P/1F（queued != completed），修后 3P；候
 
 回归在本测试的 supervisor 实例上暂停 worker 尾段，显式确认 completed 已可见、当前信号仍在，再放行并等待清理。旧断言稳定 1P/1F，补修相关场景 5P、模块 145P；候选 9e5d6d940 完整门禁通过。只修测试观察时点，不为测试改生产终态或 shutdown 顺序。原件与边界见 finance 的 `docs/handoffs/2026-09-23-cancel-test-cleanup-wait.md`。
 
+## 超时与事件构造时的活性是两个事实
+
+[2026-09-23 实测] 等待超时以后，记录降级、保存模块等操作仍会耗时；工作线程可能在这段时间结束。因此「等到了 TimeoutError」不能推出后续事件构造时 `not future.done()` 仍为真。慢夹具只比超时阈值多睡一点，会把合法的任务结束误报为生产缺陷。此处的 Future 完成仍不等于它的所有结束回调已结束，勿混用上一节的边界。
+
+用 Event 暂停该实例的 worker，再分别控制它在超时事件构造前完成、或持续到事件落盘；逐态断言 true / false。释放后等实际 Future，而非方法内的完成标志。不要延长 sleep 或删掉状态断言。测试只验证任务生命周期时，通过现有依赖注入隔离无关检索；业务检索仍由其他集成用例覆盖。
+
+finance 合后 main@2edbe4c4 定向 213P/1F 的原事件为 degraded、elapsed_ms=1298、task_may_continue=false，后续技能与 run 正常完成。受控旧断言 1P/1F，新两态 2P、相邻五文件 320P（开发期定向，不是完整门禁）。证据与后续完整验收入口：`docs/handoffs/2026-09-23-skill-timeout-test-lifecycle.md`，PR #888。可迁移到线程池任务、异步请求和事件记录的时序测试；不据此宣称所有超时都是测试问题。
+
 ## 与项目的关系
 
 [2026-09-16 实测] finance的run claim先于message revise是既有明确契约；三轮测试只等run导致pending。293ff71b只修测试同步，新增屏障回归。禁用消息等待1F，正确版定向7P；不是生产性能结论。详细证据见项目 `docs/handoffs/2026-09-16-release-merge-message-wait.md` 与PR #748。
