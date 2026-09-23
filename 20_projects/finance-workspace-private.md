@@ -213,6 +213,7 @@ per-user 不是进程级；`runtime_backend_readiness` 这个全局探针看不�
 
 - 2026-09-23 · codex · #60 东财本地修复与冻结质检，整体 HOLD；完整状态与收据 → `~/fwp-wt-eastmoney-circuit-breaker-0922/docs/handoffs/2026-09-23-eastmoney-circuit-breaker-qc.md`（未合入/部署）。
 
+- 2026-09-23 · codex · 行情恢复补无效收盘价保护；新组合45e752c定向2639P/62S，非全仓，独审及合同仍阻塞，未写生产 → `fix/market-recovery-qc-0923@0e08dd5a8` / `docs/handoffs/2026-09-23-market-recovery-close-guard.md`。
 - 2026-09-23 · codex · 行情恢复组合 d3abd670 全仓14798P/85S/2XFAIL、收据全范围/身份/漂移门通过；独审超时且通道预检超时，无裁决，合同待签，仍HOLD → `fix/market-recovery-qc-0923@1717db91c` / `docs/handoffs/2026-09-23-market-recovery-full-gate.md`。
 - 2026-09-23 · codex · 行情恢复 F1/F2/F3 修复，最新组合429P/1S；沙箱红灯完成路径对照，整体仍HOLD → `fix/market-recovery-qc-0923@bb8e207e6` / `docs/handoffs/inflight/fix-market-recovery-qc-0923.md`。
 
