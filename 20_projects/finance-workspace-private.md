@@ -209,6 +209,8 @@ per-user 不是进程级；`runtime_backend_readiness` 这个全局探针看不�
 
 ## 交接记录
 
+- 2026-09-23 · codex · 恢复隔离续验：整行桥指纹修复0d3f562cb，新合流6b43定向396P/独立3P；全量资源阻塞，旧绿不移签、恢复仍HOLD → `docs/handoffs/2026-09-23-market-recovery-acceptance.md`。
+
 - 2026-09-24 · codex · #900恢复接桥候选四叶绿；真实副本演练证实缺名称会漏跌停，生产恢复及发布仍HOLD → `fwp-wt-workbench-release-0923/docs/handoffs/2026-09-24-workbench-bridge-rehearsal.md`（5a6041210）。
 
 - 2026-09-23 行情QC续验：固定1de68567e740工程四叶全绿（Python14911P、前端120P/E2E34P2S），截止GLM澄清PASS_WITH_LIMITS；旧六红根因未证、恢复整体仍HOLD，无本会话生产操作。详见 `docs/handoffs/2026-09-23-market-recovery-suite.md`。
