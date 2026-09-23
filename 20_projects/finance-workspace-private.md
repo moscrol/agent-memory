@@ -208,6 +208,8 @@ per-user 不是进程级；`runtime_backend_readiness` 这个全局探针看不�
 
 ## 交接记录
 
+- 2026-09-23 · codex · #84 看板与清理入口共用安全采样，WIP #895；资源受限未齐四叶，12证据树保留 → `docs/handoffs/inflight/fix-worktree-board-hardening-0923.md`。
+
 - 2026-09-23 · codex · #85前向与429补丁落地，partial穿透发布保护，完整门禁/独审仍阻塞；沉淀[[../10_knowledge/retry-budget-needs-time-and-attempt-bounds]] → `fwp-wt-hithink-research-0923/docs/handoffs/inflight/fix-hithink-research-85.md` / WIP #894。
 
 - 2026-09-23 · codex · #73/#75固定合流刷新，旧绿收据不移签，新候选资源阻断，原件封存 → `~/fwp-wt-closeout-workorders-0922/docs/handoffs/2026-09-23-re06-readiness-refresh-and-resource-block.md`。
