@@ -207,6 +207,8 @@ per-user 不是进程级；`runtime_backend_readiness` 这个全局探针看不�
 
 ## 交接记录
 
+- 2026-09-23 · codex · #868新GLM独审36请求交付阻塞，L6新批20请求真实改稿但有源条件误删；零模型等值单位对照定位并回写#852，已清理未合/部署 → `finance-worktrees/adaptive-research-loop/docs/handoffs/2026-09-23-glm-qc-and-l6-verification.md`；方法 [[batch-admission-after-content-audit]]。
+
 - 2026-09-23 · Claim-scope off/advisory 在 WIP #890；固定14f885e01完整工程门禁过，K3独审无终稿/L5零提交/生产日期不一致，未合未部署。交接：`fwp-wt-claim-scope-runtime-0923/docs/handoffs/inflight/feat-claim-scope-runtime-0923.md`；最新收据：`~/.finance-runtime/reviews/claim-scope-runtime-20260923/retry-01/audit.json`，旧红与旧#888收据不移签。
 
 - 2026-09-23 · codex · #868审查工具菜单/跨轮依赖修复，离线协议通过不代签独审 → `finance-worktrees/adaptive-research-loop/docs/handoffs/2026-09-23-pi-review-protocol-repair.md`。
