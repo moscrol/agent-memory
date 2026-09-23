@@ -3,7 +3,7 @@ title: 失败状态必须跟随恢复责任归属
 type: knowledge
 stance: evidenced
 agent: codex
-source: finance-workspace-private fix/rag-recovery-state-0923@6c26041cb，真实轻量子进程与 HTTP 生命周期回归及撤保护
+source: finance-workspace-private fix/rag-recovery-state-0923@52a9bceb6（初版6c26041cb），真实轻量子进程与 HTTP 生命周期回归及撤保护
 date: 2026-09-23
 tags: [engineering, lifecycle, recovery, readiness]
 status: verified
@@ -28,6 +28,20 @@ related: ["[[recovery-plan-is-not-execution]]"]
 最小回归同时包含：失败→重试仍失败→修复→公开就绪恢复；另一实例仍失败时不转绿；
 尚无实例的配置错误不被普通成功请求掩盖。只验内部 healthy，不足以证明 HTTP 就绪已恢复。
 
+## 所有权还要覆盖整个生命周期
+
+- 不能只包住核心 IO：注册实例后的代际检查、恢复参数转换、保活线程启动若在错误处理
+  范围外，调用已经抛错而公开状态仍可能 ready。先完成整段初始化，再发布成功状态；
+  恢复配方先完整转换，再一起替换，避免错误输入留下半份新配方。
+- 关闭是旧实例的单向终态。异步恢复在排队前检查 closed 不够，真正取得执行锁后还要
+  再查；用事件屏障固定“恢复已获准、随后关闭、最后继续恢复”的交错顺序测试，
+  不靠 sleep 赌线程调度。新的应用生命周期可以创建新实例，不复用退役实例。
+- 资源清理从取得资源起覆盖：selector 创建后，管道注册也必须在 finally 的保护范围内。
+  只保护读取循环，会在注册第二条管道失败时漏掉系统资源。
+
+2026-09-23 候选补测先检出上述失败形状，修复后通过，并加入撤保护用例。
+这是初始化/退役边界证据，不扩大为任意并发交错或真实模型运行验证。
+
 ## 适用条件
 
 数据库连接池、常驻模型进程、消息消费者等同时具备启动探针、后台自愈与聚合就绪状态时。
@@ -45,7 +59,8 @@ related: ["[[recovery-plan-is-not-execution]]"]
 2026-09-23 [实测] 金融 RAG 候选在假知识库、真实子进程管道及应用 lifespan 中完成
 503→200；恢复 module 或 API 的重复错误锁存后测试重新失败，还原后通过。
 这证明状态归属修复，不证明生产模型、资源余量、自然会话质量或候选已部署。
-完整原件与边界见该分支 `docs/handoffs/2026-09-23-rag-recovery-state.md`。
+初版原件与边界见该分支 `docs/handoffs/2026-09-23-rag-recovery-state.md`；
+生命周期补修见 `docs/handoffs/2026-09-23-rag-recovery-state-followup.md`。
 
 ## 参考
 
