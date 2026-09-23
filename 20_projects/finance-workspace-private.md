@@ -211,7 +211,7 @@ per-user 不是进程级；`runtime_backend_readiness` 这个全局探针看不�
 
 - 2026-09-23 · codex · #81沿#832前向合main，只留两项产品增量；新头工程门禁仍阻塞，旧K3终稿订正但不移签，#75/#76分账 → `fwp-wt-react-trace-chain-docs-0923/docs/handoffs/2026-09-23-react-trace-chain.md`（文档PR #892）。
 
-- 2026-09-23 · WIP #890续办：14f候选GLM独审PASS_WITH_LIMITS，L5转数据一致性阻塞且首发仍0；未合未部署。入口：`fwp-wt-claim-scope-runtime-0923/docs/handoffs/inflight/feat-claim-scope-runtime-0923.md`；封存证据：`~/.finance-runtime/reviews/claim-scope-runtime-20260923/continue-01/audit.json`（GLM不改签K3，旧收据保留）。
+- 2026-09-23 · WIP #890续办：14f候选GLM独审PASS_WITH_LIMITS，L5转数据一致性阻塞且首发仍0；未合未部署。入口：`fwp-wt-claim-scope-runtime-0923/docs/handoffs/inflight/feat-claim-scope-runtime-0923.md`；封存证据：`~/.finance-runtime/reviews/claim-scope-runtime-20260923/continue-01/audit.json`（GLM不改签K3，旧收据保留）；续轮只读定位夜跑快照失败，须手动复盘入口：`docs/handoffs/2026-09-23-claim-scope-recovery-preflight.md`。
 
 - 2026-09-23 · codex · #82 用户确认归档，#816/#817留指针关闭、分支原件保留；三条旧样本移交#76，原则[[completion-state-artifact-atomicity]] → `fwp-wt-finarena-decision-0923/docs/handoffs/2026-09-23-finarena-archive-closeout.md`。
 
