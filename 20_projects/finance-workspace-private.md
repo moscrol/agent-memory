@@ -207,6 +207,8 @@ per-user 不是进程级；`runtime_backend_readiness` 这个全局探针看不�
 
 ## 交接记录
 
+- 2026-09-23 · codex · 行情恢复 F1/F2/F3 修复，最新组合429P/1S；沙箱红灯完成路径对照，整体仍HOLD → `fix/market-recovery-qc-0923@bb8e207e6` / `docs/handoffs/inflight/fix-market-recovery-qc-0923.md`。
+
 - 2026-09-23 · codex · #65 候选订正与补验，定向复跑不覆盖全量红；清理及保留边界 → [#883](http://127.0.0.1:3300/a77/finance-workspace-private/pulls/883) / `fwp-wt-claim-scope-final-state-0923/docs/handoffs/2026-09-23-claim-scope-final-state.md`。
 
 - 2026-09-23 · codex · #73按用户B拆计时授权，读取兼容不迁移；候选待四叶/独审 → `~/fwp-wt-wave2-re06-0923/docs/handoffs/inflight/fix-re06-timer-scope-0923.md`。
