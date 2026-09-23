@@ -71,7 +71,7 @@ DuckDB → detect_turning_points.py / backtest_sector.py → 信号+板块边际
 ## 任务看板
 | 任务 | 负责 | 状态 | 备注 |
 |---|---|---|---|
-| #73 计时授权独立 B | codex | blocked | 候选冻结`f9ce5c6b2`未改；真实Pi工具/流式往返2请求200，explore第3请求120秒超时，无终稿/探针，C1-C10仍未独验。本次5请求/累计6；四叶受资源门阻塞，旧收据不移签。文档`22c3671e6`，未推/合/部署 → `~/fwp-wt-closeout-workorders-0922/docs/verification/2026-09-23-re06-timer-scope/README.md`。 |
+| #73 计时授权独立 B | codex | blocked | 候选冻结`f9ce5c6b2`；K3第四轮真实往返过、分组首请求仍超时，累计10请求，无独立终稿/探针。四叶Ruff过，pytest到30分钟上限（最后93%、无完整收据），其他三叶资源阻塞未跑。E2E新计划自己build，仅离线反证。证据`a5a85619c`，未推/合/部署 → `~/fwp-wt-closeout-workorders-0922/docs/verification/2026-09-23-re06-timer-scope/README.md`。 |
 | 09-22 watchdog测试红灯验收 | codex | done-with-boundaries | #848已合入`a2c8d1f90773fdf3dcb7cf53f5d9733590924ae1`；实际main新门禁12511P/85S/2X、Ruff/registry0、前端110P/E2E34P/2S，收据`20260921T191851Z-a2c8d1f9.json`与审计通过。独立审查仍是一位`PASS_WITH_LIMITS`，0.8s起止点收窄、假钟作用域限制保留；未部署/重启，#846仍WIP → `fwp-wt-watchdog-closeout-0922/docs/handoffs/2026-09-22-watchdog-848-authorized-merge-and-main-gate.md`。 |
 | 09-22 变异量具超时留证 | claude-code | done-with-boundaries | R6 线「发布超时归因」的**前置量具**已补：`e9e3361a`（+文档`94eddad1`，分支`fix/mutation-timeout-evidence-0922`，基座main`a2c8d1f90`）让 `run_extraction_mutations.py` 超时/中断/启动失败都留现场——输出直接落盘、卡住转储线程栈、进程组独占清理、缺JUnit记`executed=None`不记0、`check_result`拒收非完成态、证据文件不可覆盖。四叶均有结论：全量12534P/85S/2X+Ruff0（收据`20260922T111226Z-e9e3361a.json`经`check_test_receipt --expect-revision` exit0）、前端110P、E2E34P/2S、registry五项0；11组撤保护各有具名红证人、还原后绿、树clean。**不归因也不翻案09-18那次180秒超时**（旧现场已不存在），未跑publication套件、未push/PR/合main/部署、R6真实验收与独立QC仍缺（该线已由#835接替）→ `fwp-wt-mutation-timeout-evidence-0922/docs/handoffs/inflight/fix-mutation-timeout-evidence-0922.md`，证据根`~/.finance-runtime/reviews/mutation-timeout-evidence-20260922/`。 |
 | 09-21 行情恢复 | pi | blocked | 纯候选7311a7738；干净4c0162a9b定向247P，新构造器88P、六类变异抓红。09-04复牌原件已固定，5565范围构造5553候选+12缺失处置；原278+新增136证据回读一致。名称/换手率/官方历史范围/停牌分母与下游三门待闭合；未写库/发布/合并/部署 → `fwp-wt-market-recovery-0921/docs/handoffs/inflight/fix-market-recovery-0921.md`。 |
@@ -1311,3 +1311,4 @@ per-user 不是进程级；`runtime_backend_readiness` 这个全局探针看不�
 - 2026-09-23 · codex · runtime合后独审BLOCKED，完整门禁与K3/宿主补跑分账、首红保留、授权误记追加勘误 → `fwp-wt-runtime-postmerge-qc-0923/docs/handoffs/inflight/docs-runtime-postmerge-qc-0923.md`。
 - 2026-09-23 · codex · K3写手两次上游失败留证，宿主修量具完成16绿/两种有效撤保护/还原绿，作者与独审分账 → `fwp-wt-runtime-postmerge-qc-0923/docs/handoffs/inflight/test-runtime-probe-repair-0923.md`。
 - 2026-09-23 · codex · #884 WIP：K3局部收件箱代码原样验收，28种合同撤保护与宿主回归分账，原拒收不覆写；方法见 [[mutation-test-before-claiming-silent]] → `fwp-wt-runtime-postmerge-qc-0923/docs/handoffs/2026-09-23-runtime-contract-followup.md`。
+- 2026-09-23 · codex · #73/#75分组独审仍超时，四叶截断不当全量绿，E2E须自有新构建 → `fwp-wt-closeout-workorders-0922/docs/handoffs/2026-09-23-re06-grouped-qc-and-gates.md`（a5a85619c）。
