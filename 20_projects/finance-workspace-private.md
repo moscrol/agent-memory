@@ -217,7 +217,7 @@ per-user 不是进程级；`runtime_backend_readiness` 这个全局探针看不�
 
 - 2026-09-23 · codex · #75新GLM批准入4请求先猜后写失败即停，另发现CLI终稿工具名单缺口，离线mock不代签；归档05a3cfea4 → `finance-worktrees/adaptive-research-loop/docs/handoffs/2026-09-23-adaptive-qc-glm-roundtrip-blocked.md`。
 
-- 2026-09-23 #60 部署准备：固定f47完整验收/只读预演已过，但main持续合入含代码的新批次，暂停追tip，待用户定发布版本或稳定窗口；未部署。证据 `~/.finance-runtime/reviews/eastmoney-cb-deploy-20260922/current-main-f47d464e-20260923/summary.json`；正文 `fwp-wt-eastmoney-deploy-binding-0923/docs/handoffs/2026-09-23-eastmoney-release-scope-blocked.md`，在途见同枝inflight。
+- 2026-09-23 #60 固定发布版：按“继续推进”承接固定f47建议，原收据/依赖复核与新预演通过；未部署，安装仍需单独授权及自然空闲窗口。证据 `~/.finance-runtime/reviews/eastmoney-cb-deploy-20260922/release-f47-20260923T1243/summary.json`；正文 `fwp-wt-eastmoney-deploy-binding-0923/docs/handoffs/2026-09-23-eastmoney-fixed-release-ready.md`，在途见同枝inflight。
 
 - 2026-09-23 · codex · #65 合后技能超时测试收尾索引 → `docs/handoffs/inflight/fix-skill-timeout-test-lifecycle-0923.md`（#888，冻结取舍与指针）；实际门禁、授权合入及清理读 `~/.finance-runtime/reviews/claim-scope-postmerge-closeout-20260923/closeout.json` / `final-handoff.md`，不移签旧绿；方法 [[terminal-signal-scope-and-projection-waits]]。
 
