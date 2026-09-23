@@ -24,4 +24,10 @@ finance 候选 `ac11027fa` 的 `scripts/review_probes/adaptive_l6_batch.py` 已�
 
 新自然批在严格 deadline 与检索依赖预检处阻塞，首题都未发；所以只证明修复的离线合同，不证明自然金融质量。原理同样适用于审稿、导入与付费任务队列，不能把传输终态升级为业务准入凭据。
 
-来源：`finance-worktrees/adaptive-research-loop/docs/handoffs/2026-09-23-glm-qc-and-l6-verification.md`；后续修复见 `docs/handoffs/2026-09-23-adaptive-repaired-verification.md`。
+## 准入探针也必须证明触及目标
+
+进程 exit 0 不能代替就绪结果；在启动阶段准时超时，也不能证明响应体取消正确。检查必须同时核对结果合同与目标阶段：就绪需有效终态载荷，时限探针需实际请求/响应阶段，取消探针需记录触发器真正执行。无换行流的行迭代器不会进入循环体，把取消开关写在循环体内就测不到取消。
+
+finance `fe548838b` 已把覆盖门与检索结果核验落在正式量具；独立进程内撤保护分别产生1/5条预期断言失败、零error。分段flush和周期栈让超时可定位，缓存只读避免无关冷编译，但一次新诊断成功不证明旧超时根因、稳定性能或自然验收。作者测试/控制应在有界独审预算前段执行；提示顺序不是强制执行证明，仍要核真实工具记录。
+
+来源：`finance-worktrees/adaptive-research-loop/docs/handoffs/2026-09-23-glm-qc-and-l6-verification.md`；后续修复见 `docs/handoffs/2026-09-23-adaptive-repaired-verification.md`、`docs/handoffs/2026-09-23-adaptive-admission-diagnostic.md`。
