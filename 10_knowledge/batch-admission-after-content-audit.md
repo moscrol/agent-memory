@@ -1,6 +1,6 @@
 # 下一项准入必须等待内容审计
 
-适用：有成本、有副作用的顺序批处理。状态：方法与反例要求；来源批次的控制器尚未实现自动屏障。
+适用：有成本、有副作用的顺序批处理。状态：来源旧批未实现屏障；后续候选已实现并通过离线反例，尚无自然批次通过证明。
 
 ## 失败形状
 
@@ -18,4 +18,10 @@
 
 现有控制器是绝对路径绑定的冻结批次脚本，现场必须停止并封存，不能在失败后改原脚本伪造当时已受保护。单批原件已经入仓，可重放；通用屏障应在下一版受测控制器落实上述反例，不把本条笔记当能力完成证明。
 
-来源：`finance-worktrees/adaptive-research-loop/docs/handoffs/2026-09-23-glm-qc-and-l6-verification.md`。
+## 后续实现与边界
+
+finance 候选 `ac11027fa` 的 `scripts/review_probes/adaptive_l6_batch.py` 已把内容审计接到下一项提交之前：审计必须绑定精确 Episode 的 SHA256，只有 PASS 可放行；缺失、格式错误、超时、审计异常、非 PASS 或运行未完成都停止。真实回环假服务验证了失败时下一项请求为 0，以及 PASS 时允许继续，防止用永不启动冒充守卫。旧批原脚本和失败记录未改。
+
+新自然批在严格 deadline 与检索依赖预检处阻塞，首题都未发；所以只证明修复的离线合同，不证明自然金融质量。原理同样适用于审稿、导入与付费任务队列，不能把传输终态升级为业务准入凭据。
+
+来源：`finance-worktrees/adaptive-research-loop/docs/handoffs/2026-09-23-glm-qc-and-l6-verification.md`；后续修复见 `docs/handoffs/2026-09-23-adaptive-repaired-verification.md`。
