@@ -69,6 +69,8 @@ related: ["[[evidence-hygiene-three-failure-shapes]]", "[[info-not-delivered-bug
 7. **协调钩子不能兼任语义证人**（2026-09-23 runtime writer）。测试先等内部锁钩子、再看close是否等待消息；撤掉锁后钩子根本不来，测试虽红，却没观察close提前返回。应直接观察合同动作（例如阻塞中的close不能完成、竞争者仍Busy），同步手段要独立于被撤保护。具名测试红仍不足够，还要看红在了哪个断言。
 8. **不能只按异常类型判真伪**。收集/import错误当然不能算，但变异删掉必需输出字段后，真实消费者的精确KeyError可以是语义证人。接纳必须绑定“变异id + 完整参数化用例名 + 精确字段消息”，并有无关KeyError拒收自测，不能泛化成“所有异常都算kill”。修校验器后对旧输出重新裁决，应保留原拒收和输出hash，注明不是重新执行测试。工具实现见finance PR #884的 `scripts/review_probes/run_runtime_contract_checks.py`。
 
+9. **隔离环境也要先证明会拒绝**（2026-09-23 PR884本机门禁）。macOS策略虽有`deny network*`，把local/remote过滤器放进同一条`allow network*`后，外连仍实际成功。先读配置就开测，等测到一半才预检，导致整轮不能作为隔离验收。修复为分别授权network-inbound/local与network-outbound/remote，并在副作用前动态检查本机连接成功、远端连接明确PermissionError、security CLI拒绝执行。超时/不可达不能冒充策略拒绝；坏策略要被预检拒收，正确策略要通过。工具已归finance `scripts/review_probes/check_loopback_sandbox.py`；范围仅IPv4 TCP及该CLI，不据此宣称完整主机或所有钥匙串API隔离。原始错误收据保留，另起固定提交和新目录复验。
+
 ## 与「信息没送到」的关系
 
 [[info-not-delivered-bug-pattern]] 是「存在 ≠ 送达」；本条是「没响 ≠ 没事」。
