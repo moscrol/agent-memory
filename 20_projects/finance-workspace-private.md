@@ -247,6 +247,7 @@ per-user 不是进程级；`runtime_backend_readiness` 这个全局探针看不�
 
 - 2026-09-23 #60 部署绑定准备：#887 候选99bd31c97630四叶绿（Python14620P、完整收集14707），真实模板临时HOME安装及新运行根离线探针通过；WIP等待本PR合入确认，未部署，后续仍需实际main门禁与最终预演。证据 `~/.finance-runtime/reviews/eastmoney-cb-deploy-20260922/deploy-binding-20260923/`；交接 `fwp-wt-eastmoney-deploy-binding-0923/docs/handoffs/inflight/fix-eastmoney-deploy-binding-0923.md`。
 
+- 2026-09-23 · codex · #877提示归属34902599f：排除编号材料题旧模板冲突，2151P定向；新原入口成稿后判官仍超时，作者不接纳，WIP不变 → `fwp-wt-knevo-closure-0923/docs/handoffs/2026-09-23-knevo-writer-prompt-owner.md`；方法 [[contract-vs-delivery-mismatch]]。
 - 2026-09-23 · codex · #877调用诊断5beeeef3c、文档b0ab979a0已推；包1成稿但判官超时/作者不接纳，1869P定向非全仓，WIP不变 → `fwp-wt-knevo-closure-0923/docs/handoffs/2026-09-23-knevo-writer-diagnostics.md`；方法 [[contract-vs-delivery-mismatch]]。
 - 2026-09-23 · codex · #877去重984e53588/计时测试48ad099af/文档f2101ad51已推；冻结稿两层判官单次完整返回但未通过，原入口写手仍失败，1887P定向，WIP不变 → `fwp-wt-knevo-closure-0923/docs/handoffs/2026-09-23-knevo-compact-review.md`；方法 [[contract-vs-delivery-mismatch]]。
 - 2026-09-23 · codex · #877判官参数6d472c523/文档4fb2bb864已推；同low请求成功后两次超时，原入口写手失败，1874P定向，WIP不变 → `fwp-wt-knevo-closure-0923/docs/handoffs/2026-09-23-knevo-judge-effort.md`；方法 [[contract-vs-delivery-mismatch]]。
