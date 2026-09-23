@@ -230,6 +230,7 @@ per-user 不是进程级；`runtime_backend_readiness` 这个全局探针看不�
 - 2026-09-23 · codex · RAG失败按恢复责任归属、安全子进程诊断；候选6c26041cb相关413P与16组撤保护通过，未合入/部署 → `fwp-wt-rag-recovery-state-0923/docs/handoffs/inflight/fix-rag-recovery-state-0923.md`；方法 [[failure-state-must-follow-recovery-owner]]。
 - 2026-09-23 · codex · RAG完整预热错误归属、退役竞争与管道清理补修；52a9bceb6相关421P及21组撤保护，仍未合入/部署 → `fwp-wt-rag-recovery-state-0923/docs/handoffs/2026-09-23-rag-recovery-state-followup.md`；方法 [[failure-state-must-follow-recovery-owner]]。
 - 2026-09-23 · codex · RAG双向管道/写入截止时间补修d29d554f1；最新相关430P/1F、管道变异基线红、独审无报告，未部署 → `fwp-wt-rag-recovery-state-0923/docs/handoffs/2026-09-23-rag-duplex-request-deadline.md`；边界 [[kill-on-timeout-is-an-amplifier]]。
+- 2026-09-23 · codex · RAG改用GLM完成bff独立静态报告；复现P3关闭竞争并补修86543370f，干净定向321P/启动16组撤保护绿，新候选增量独审末请求截止无终稿，仍HOLD → `fwp-wt-rag-recovery-state-0923/docs/handoffs/2026-09-23-rag-glm-review-and-stderr-close.md`。
 - 2026-09-23 · codex · RAG超时诊断入仓，bffb098c3全仓14652P及前端/26组撤保护通过；历史超时未归因、独审/真实模型待验，仍HOLD未部署 → `fwp-wt-rag-recovery-state-0923/docs/handoffs/2026-09-23-rag-timeout-attribution.md`。
 
 - 2026-09-23 · codex · #60 已验收候选发布与 PR 描述回读记录 → `~/.finance-runtime/reviews/eastmoney-cb-deploy-20260922/publication-20260923T0709/record.json`；后续授权边界看本分支 inflight。

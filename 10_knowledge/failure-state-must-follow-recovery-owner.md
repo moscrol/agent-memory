@@ -36,6 +36,10 @@ related: ["[[recovery-plan-is-not-execution]]"]
 - 关闭是旧实例的单向终态。异步恢复在排队前检查 closed 不够，真正取得执行锁后还要
   再查；用事件屏障固定“恢复已获准、随后关闭、最后继续恢复”的交错顺序测试，
   不靠 sleep 赌线程调度。新的应用生命周期可以创建新实例，不复用退役实例。
+- 退役可能先关闭管道，再等待在途查询的锁；读取前检查 closed 不能消除交错。
+  读取抛错后，仅在确认流已关闭时归为流结束，仍走受控的子进程退出错误；开放流的
+  真错误继续上抛。用 Event 固定 close 与 fileno/read 的交错，并补“不能吞开放流错误”
+  的反向用例，避免通过扩大 except 掩盖错误。此证据不覆盖任意 fd 复用时序。
 - 资源清理从取得资源起覆盖：selector 创建后，管道注册也必须在 finally 的保护范围内。
   只保护读取循环，会在注册第二条管道失败时漏掉系统资源。
 
@@ -61,6 +65,8 @@ related: ["[[recovery-plan-is-not-execution]]"]
 这证明状态归属修复，不证明生产模型、资源余量、自然会话质量或候选已部署。
 初版原件与边界见该分支 `docs/handoffs/2026-09-23-rag-recovery-state.md`；
 生命周期补修见 `docs/handoffs/2026-09-23-rag-recovery-state-followup.md`。
+并发关闭补修 `86543370f`：原实现2F/2P，新版相关321P、16组撤保护有效；原始记录见
+`docs/handoffs/2026-09-23-rag-glm-review-and-stderr-close.md`。新版独审终稿和真实模型验收仍待完成。
 
 ## 参考
 
