@@ -91,7 +91,7 @@ DuckDB → detect_turning_points.py / backtest_sector.py → 信号+板块边际
 | 09-21 工作树归属核验与孤儿接管 | coding-agent | blocked | 固定`6eb12c1b8`作者工程绿，双轴K3不限预算但08:40Z均exit1、各50准入/49完整消息，无终审报告：Spec明确ENOSPC，Quality原因未知；不是触帽。部分210P/1S不补独立签字，两轴动态backfill未完成。819份证据已封并验提交字节，完整锚点47f80174d；#812/#813/#814评论5348/5349/5350已回读。本part已收尾（协调53f789969、收据交接6ca9c5724已推），最终验收仍blocked。按用户要求本线暂停，K3可替换，后续重心转投研agent根因；本次未启动新修复。不重启原会话，清理/恢复另确认；未签后来main，无合并/部署/生产回填/删真实树 → `fwp-wt-ownership-closeout-0921/docs/handoffs/inflight/ops-worktree-ownership-closeout-0921.md`。 |
 | 09-23 Workbench发布执行 | codex | blocked | 用户已授权按门推进；固定main626只读production/staging数据门均rc2，09-23个股0行、09-22市场13列NULL；readiness503，旧preview收据精确版本校验rc1。现网仍3b7e，未补库/切服务/调用模型；接行情恢复owner及口径裁决后再验 → `fwp-wt-workbench-release-0923/docs/handoffs/inflight/ops-workbench-release-0923.md`。 |
 | #82 FinArena候选处置 | codex | done | 用户「执行」确认本期归档；#816/#817已留指针关闭、未合并，评论6458/6454回读一致，分支/原树/证据保留。三条旧样本交#76待授权补充，18/18原件复验；通用原则[[completion-state-artifact-atomicity]]。未合main/部署/调用真实模型 → `fwp-wt-finarena-decision-0923/docs/handoffs/2026-09-23-finarena-archive-closeout.md`。 |
-| 同花顺研究观察值第一批 | codex | blocked | [#810](http://127.0.0.1:3300/a77/finance-workspace-private/pulls/810) WIP，当前head `311a4c92f`；运行时代码仍为164b02e4，最终tip定向250P/8S、Ruff及收据校验通过。订阅额度100%/credits0，独立Spec/Quality未执行；非空异动、生产恢复、合main/部署/付费审查仍暂停。旧同步根/生产原样 → `fwp-wt-hithink-research-data/docs/handoffs/inflight/feat-hithink-research-data.md`。 |
+| 同花顺研究观察值第一批 / #85 | codex | blocked | [WIP #894](http://127.0.0.1:3300/a77/finance-workspace-private/pulls/894) 承接#810，冻结代码 `0f0231553` 已推；429有界退避、保4001、局部partial穿透CLI/夜跑/旧单体且不放宽发布。干净定向130P，阳性2F→2P；完整四叶及#75独审待办，未合/部署/采集 → `fwp-wt-hithink-research-0923/docs/handoffs/inflight/fix-hithink-research-85.md`。 |
 | 8792题设与行情根因修复 | codex | blocked | df186f9b已提交；相关回归1728P/12S，但最终live静态PE基数错且judge漏报，未合/部署。需题设年份/数据性质/单位计算合同 → `fwp-wt-8792-premise-market/docs/handoffs/inflight/fix-8792-premise-market-contracts.md`。 |
 | 09-21 两参数计算表格收尾 | coding-agent | pending merge | 新组合[#815](http://127.0.0.1:3300/a77/finance-workspace-private/pulls/815)固定06f74ef1：逐yield深存行值，prelude v5；旧#808/5b27fc6b有行引用丢数，不是最终合入目标。作者门禁、Spec与新Quality根QC均通过，独立验收PASS_WITH_LIMITS；未合/部署，#770另办 → `~/.finance-runtime/reviews/stale-closeout-k3-20260921/quality-followup-01/README.md`。 |
 | 09-20 陈旧工作前向收尾 | coding-agent | blocked | #815承接#806/#805/#808，06f74ef1作者完整门禁及18项变异已封存；既有订阅新Spec13项经根QC接受（有分母勘误、非完全盲审），Quality40请求触顶exit75、仅局部探针。整体独立验收BLOCKED，下一次Quality需另行授权，不自动加额/重试；旧证据保留，#804/#807未纳入。未合/部署/回填/关PR/删树 → `~/.finance-runtime/reviews/stale-closeout-k3-20260921/handoff.md`。 |
@@ -207,6 +207,8 @@ per-user 不是进程级；`runtime_backend_readiness` 这个全局探针看不�
 而 CLI/回检走 `~/.zshrc` 里的 `/Users/a77/agent-memory/.foresight`——**两套用户台账不是同一份**。
 
 ## 交接记录
+
+- 2026-09-23 · codex · #85前向与429补丁落地，partial穿透发布保护，完整门禁/独审仍阻塞；沉淀[[../10_knowledge/retry-budget-needs-time-and-attempt-bounds]] → `fwp-wt-hithink-research-0923/docs/handoffs/inflight/fix-hithink-research-85.md` / WIP #894。
 
 - 2026-09-23 · codex · #73/#75固定合流刷新，旧绿收据不移签，新候选资源阻断，原件封存 → `~/fwp-wt-closeout-workorders-0922/docs/handoffs/2026-09-23-re06-readiness-refresh-and-resource-block.md`。
 
