@@ -207,6 +207,8 @@ per-user 不是进程级；`runtime_backend_readiness` 这个全局探针看不�
 
 ## 交接记录
 
+- 2026-09-23 · codex · #60 续办：测试时钟受控复现、代码候选四叶验收完成、部署绑定分批；收尾证据索引 → `~/.finance-runtime/reviews/eastmoney-cb-deploy-20260922/closeout-20260923/README.md`。
+
 - 2026-09-23 · codex · #862 固定候选3b7e473575b0完成8792蓝绿验收，保留旧回滚快照；新配对探针与三读ready通过，非金融质量签字 → `~/.finance-runtime/reviews/research-empty-delivery-gate-0922/current-main-3b7e473575b0/recovery-handoff-20260923.md`。
 
 - 2026-09-23 · codex · #883 queued 红项的测试隔离修复与固定候选完整绿门禁；旧红原件保留，未合入/未部署 → [#885](http://127.0.0.1:3300/a77/finance-workspace-private/pulls/885) / `fwp-wt-run-queued-regression-0923/docs/handoffs/inflight/fix-run-queued-regression-0923.md`；方法 [[terminal-signal-scope-and-projection-waits]]。
