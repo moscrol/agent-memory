@@ -71,7 +71,7 @@ DuckDB → detect_turning_points.py / backtest_sector.py → 信号+板块边际
 ## 任务看板
 | 任务 | 负责 | 状态 | 备注 |
 |---|---|---|---|
-| #73 计时授权独立 B | codex | blocked | 候选冻结`f9ce5c6b2`未改；17业务事务+1底层调用完成作者静态核对，C1–C10入#75。K3基础预检1请求90.034秒超时，独审未启动；四叶受负载阻塞，旧89P/9P不移签。文档`b92d66419`，未推/合/部署 → `~/fwp-wt-closeout-workorders-0922/docs/verification/2026-09-23-re06-timer-scope/README.md`。 |
+| #73 计时授权独立 B | codex | blocked | 候选冻结`f9ce5c6b2`未改；真实Pi工具/流式往返2请求200，explore第3请求120秒超时，无终稿/探针，C1-C10仍未独验。本次5请求/累计6；四叶受资源门阻塞，旧收据不移签。文档`22c3671e6`，未推/合/部署 → `~/fwp-wt-closeout-workorders-0922/docs/verification/2026-09-23-re06-timer-scope/README.md`。 |
 | 09-22 watchdog测试红灯验收 | codex | done-with-boundaries | #848已合入`a2c8d1f90773fdf3dcb7cf53f5d9733590924ae1`；实际main新门禁12511P/85S/2X、Ruff/registry0、前端110P/E2E34P/2S，收据`20260921T191851Z-a2c8d1f9.json`与审计通过。独立审查仍是一位`PASS_WITH_LIMITS`，0.8s起止点收窄、假钟作用域限制保留；未部署/重启，#846仍WIP → `fwp-wt-watchdog-closeout-0922/docs/handoffs/2026-09-22-watchdog-848-authorized-merge-and-main-gate.md`。 |
 | 09-22 变异量具超时留证 | claude-code | done-with-boundaries | R6 线「发布超时归因」的**前置量具**已补：`e9e3361a`（+文档`94eddad1`，分支`fix/mutation-timeout-evidence-0922`，基座main`a2c8d1f90`）让 `run_extraction_mutations.py` 超时/中断/启动失败都留现场——输出直接落盘、卡住转储线程栈、进程组独占清理、缺JUnit记`executed=None`不记0、`check_result`拒收非完成态、证据文件不可覆盖。四叶均有结论：全量12534P/85S/2X+Ruff0（收据`20260922T111226Z-e9e3361a.json`经`check_test_receipt --expect-revision` exit0）、前端110P、E2E34P/2S、registry五项0；11组撤保护各有具名红证人、还原后绿、树clean。**不归因也不翻案09-18那次180秒超时**（旧现场已不存在），未跑publication套件、未push/PR/合main/部署、R6真实验收与独立QC仍缺（该线已由#835接替）→ `fwp-wt-mutation-timeout-evidence-0922/docs/handoffs/inflight/fix-mutation-timeout-evidence-0922.md`，证据根`~/.finance-runtime/reviews/mutation-timeout-evidence-20260922/`。 |
 | 09-21 行情恢复 | pi | blocked | 纯候选7311a7738；干净4c0162a9b定向247P，新构造器88P、六类变异抓红。09-04复牌原件已固定，5565范围构造5553候选+12缺失处置；原278+新增136证据回读一致。名称/换手率/官方历史范围/停牌分母与下游三门待闭合；未写库/发布/合并/部署 → `fwp-wt-market-recovery-0921/docs/handoffs/inflight/fix-market-recovery-0921.md`。 |
@@ -212,6 +212,7 @@ per-user 不是进程级；`runtime_backend_readiness` 这个全局探针看不�
 - 2026-09-23 · codex · #65 候选订正与补验，定向复跑不覆盖全量红；清理及保留边界 → [#883](http://127.0.0.1:3300/a77/finance-workspace-private/pulls/883) / `fwp-wt-claim-scope-final-state-0923/docs/handoffs/2026-09-23-claim-scope-final-state.md`。
 
 - 2026-09-23 · codex · #73按用户B拆计时授权，读取兼容不迁移；候选待四叶/独审 → `~/fwp-wt-wave2-re06-0923/docs/handoffs/inflight/fix-re06-timer-scope-0923.md`。
+- 2026-09-23 · codex · #73真实Pi预检通过、独审超时分账，拒以exit0签字 → `~/fwp-wt-closeout-workorders-0922/docs/handoffs/2026-09-23-re06-k3-payload-review.md`（`22c3671e6`）。
 
 - 2026-09-23 · codex · L6 离线预检发现验收顺序成环及旧旁车端口不合新规；候选实测须另行授权 → `finance-worktrees/adaptive-research-loop/docs/verification/2026-09-23-adaptive-l6-preflight/README.md`。
 
