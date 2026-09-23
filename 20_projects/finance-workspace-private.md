@@ -219,7 +219,7 @@ per-user 不是进程级；`runtime_backend_readiness` 这个全局探针看不�
 
 - 2026-09-23 · codex · #60 授权合入操作、合后固定版本门禁及部署边界 → `~/.finance-runtime/reviews/eastmoney-cb-deploy-20260922/merge-20260923T0736/summary.json`；原始授权与核验见同目录 `merge.json`。
 
-- 2026-09-23 · codex · #59 main27批次及#886旧候选c3四叶已验收；整合#887后当前fb91候选正在独占树跑正式full（18:09启动，勿重复开跑），frontend/E2E/registry已绿，合并授权有效；实时状态与恢复步骤 → `~/.finance-runtime/reviews/gate-closeout-qc-20260923/pr886-fb91/README.md`（PR评论6281，旧结果不移签）。
+- 2026-09-23 · codex · #58/#59历史批次与#886候选门禁质检、受限上游增量裁决及完结检出清理 → `~/.finance-runtime/reviews/gate-closeout-qc-20260923/pr886-fb91/README.md`；最终操作记录 `closeout.json`，裁决背景 `decisions-20260923.md`，PR评论6364。各SHA收据独立，历史等待/运行快照不代表当前状态。
 
 - 2026-09-23 · codex · #877 固定候选完成工程验证并推 WIP，语义0/12及原件格式非零保留；勘误端点diff与执行来源 → `fwp-wt-knevo-closure-0923/docs/handoffs/inflight/feat-knevo-absorption-closure-0923.md`，方法 [[evidence-hygiene-three-failure-shapes]]。
 

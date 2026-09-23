@@ -67,6 +67,8 @@ related: ["[[recovery-plan-is-not-execution]]"]
 生命周期补修见 `docs/handoffs/2026-09-23-rag-recovery-state-followup.md`。
 并发关闭补修 `86543370f`：原实现2F/2P，新版相关321P、16组撤保护有效；原始记录见
 `docs/handoffs/2026-09-23-rag-glm-review-and-stderr-close.md`。新版独审终稿和真实模型验收仍待完成。
+异常传播影响必须核对完整捕获链：本例 worker 的 ValueError 仍被检索层末尾通用 except 兜底，
+不能因为前几项具体类型没列 ValueError 就断言穿出工具层；独审报告此处的过度描述由宿主收窄。
 
 ## 参考
 
