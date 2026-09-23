@@ -63,6 +63,12 @@ finance候选672abcc5已在quota/credits/admission三夹具固化，缺join变�
 
 finance #885 的旧屏障对照 1P/1F（queued != completed），修后 3P；候选 0e9b4f3b7 完整门禁通过，未改生产状态机。原事故只保留了相符时间线而没有触发者 ID，不把受控复现冒充原现场完整轨迹。详见 `docs/handoffs/2026-09-23-run-publication-test-isolation.md` 和对应独立收据。
 
+## 任务完成与结束回调也不是同一时点
+
+[2026-09-23 实测] Future 是后台任务的完成句柄。runner 可以先写 run.completed 再返回，取消信号则由 Future 的结束回调删除；只等 run 终态就断言信号表为空，会在合法时序下报错。Future 的完成状态也不能一般性地替代回调完成。需要断言某个 `(user, run_id)` 已清理，就有界等待这个键消失，保留原来的泄漏与幂等断言；这不等于证明所有后置结算已完成，更不替代夹具的 wait-join。
+
+回归在本测试的 supervisor 实例上暂停 worker 尾段，显式确认 completed 已可见、当前信号仍在，再放行并等待清理。旧断言稳定 1P/1F，补修相关场景 5P、模块 145P；候选 9e5d6d940 完整门禁通过。只修测试观察时点，不为测试改生产终态或 shutdown 顺序。原件与边界见 finance 的 `docs/handoffs/2026-09-23-cancel-test-cleanup-wait.md`。
+
 ## 与项目的关系
 
 [2026-09-16 实测] finance的run claim先于message revise是既有明确契约；三轮测试只等run导致pending。293ff71b只修测试同步，新增屏障回归。禁用消息等待1F，正确版定向7P；不是生产性能结论。详细证据见项目 `docs/handoffs/2026-09-16-release-merge-message-wait.md` 与PR #748。

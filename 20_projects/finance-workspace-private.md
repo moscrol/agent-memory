@@ -207,6 +207,8 @@ per-user 不是进程级；`runtime_backend_readiness` 这个全局探针看不�
 
 ## 交接记录
 
+- 2026-09-23 · codex · #60 授权合入操作、合后固定版本门禁及部署边界 → `~/.finance-runtime/reviews/eastmoney-cb-deploy-20260922/merge-20260923T0736/summary.json`；原始授权与核验见同目录 `merge.json`。
+
 - 2026-09-23 · codex · #58/#59 收口 PR #886 保持 WIP：门禁证据按时间与 SHA 冻结，资源阻塞不冒充全绿 → `docs/handoffs/inflight/docs-gate-closeout-status-0923-python-blocked.md`。
 
 - 2026-09-23 · codex · #877 固定候选完成工程验证并推 WIP，语义0/12及原件格式非零保留；勘误端点diff与执行来源 → `fwp-wt-knevo-closure-0923/docs/handoffs/inflight/feat-knevo-absorption-closure-0923.md`，方法 [[evidence-hygiene-three-failure-shapes]]。
