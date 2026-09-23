@@ -207,6 +207,8 @@ per-user 不是进程级；`runtime_backend_readiness` 这个全局探针看不�
 
 ## 交接记录
 
+- 2026-09-23 #60 已可部署、未部署：#887实际main0525e780e043合后完整四叶绿，正式收据/JUnit及最终装机源dry-run通过；等待独立装机授权，真实行情恢复未验。证据 `~/.finance-runtime/reviews/eastmoney-cb-deploy-20260922/binding-merge-20260923T0919/README.md`；交接 `fwp-wt-eastmoney-deploy-binding-0923/docs/handoffs/inflight/fix-eastmoney-deploy-binding-0923.md`。
+
 - 2026-09-23 · codex · #65 合后技能超时测试的双时态复现与修复索引 → `docs/handoffs/inflight/fix-skill-timeout-test-lifecycle-0923.md`（#888）；实际门禁与合入状态读 `~/.finance-runtime/reviews/claim-scope-postmerge-closeout-20260923/closeout.json`，不移签旧绿；方法 [[terminal-signal-scope-and-projection-waits]]。
 
 - 2026-09-23 #60 部署绑定准备：#887 候选99bd31c97630四叶绿（Python14620P、完整收集14707），真实模板临时HOME安装及新运行根离线探针通过；WIP等待本PR合入确认，未部署，后续仍需实际main门禁与最终预演。证据 `~/.finance-runtime/reviews/eastmoney-cb-deploy-20260922/deploy-binding-20260923/`；交接 `fwp-wt-eastmoney-deploy-binding-0923/docs/handoffs/inflight/fix-eastmoney-deploy-binding-0923.md`。
@@ -215,7 +217,7 @@ per-user 不是进程级；`runtime_backend_readiness` 这个全局探针看不�
 
 - 2026-09-23 · codex · #60 授权合入操作、合后固定版本门禁及部署边界 → `~/.finance-runtime/reviews/eastmoney-cb-deploy-20260922/merge-20260923T0736/summary.json`；原始授权与核验见同目录 `merge.json`。
 
-- 2026-09-23 · codex · #59 的 main 27ca 批次验收完成；#886 已获合并授权，但冻结候选自身门禁仍因资源阻塞而 WIP；已清理本轮完结临时产物并保全收据（评论 6248、证据根 cleanup-20260923/），旧结果不移签 → `docs/handoffs/inflight/docs-gate-closeout-status-0923-python-blocked.md`。
+- 2026-09-23 · codex · #59 main27批次及#886旧候选c3四叶已验收；整合#887后当前fb91候选正在独占树跑正式full（18:09启动，勿重复开跑），frontend/E2E/registry已绿，合并授权有效；实时状态与恢复步骤 → `~/.finance-runtime/reviews/gate-closeout-qc-20260923/pr886-fb91/README.md`（PR评论6281，旧结果不移签）。
 
 - 2026-09-23 · codex · #877 固定候选完成工程验证并推 WIP，语义0/12及原件格式非零保留；勘误端点diff与执行来源 → `fwp-wt-knevo-closure-0923/docs/handoffs/inflight/feat-knevo-absorption-closure-0923.md`，方法 [[evidence-hygiene-three-failure-shapes]]。
 
