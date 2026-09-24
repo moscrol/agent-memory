@@ -72,9 +72,9 @@ DuckDB → detect_turning_points.py / backtest_sector.py → 信号+板块边际
 | 任务 | 负责 | 状态 | 备注 |
 |---|---|---|---|
 | 09-24 Pi尾项执行 | codex | blocked | #906协议修补43P；#81本地合流380P及两撤保护；#73固定全量绿但主线准入拒收；生产/独审/未实施项分账，无后台 → `~/fwp-wt-pi-closeout-execution-0924/docs/handoffs/2026-09-24-pi-closeout-TODO.md`。 |
-| 09-24 Pi式研究兑现 | codex | blocked | spec与P0机制验收已提交；后续接续#868独审/真实研究，不另造Loop，不动8792 → `~/fwp-wt-pi-research/docs/handoffs/inflight/feat-pi-research-loop.md`。 |
+| 09-24 Pi式研究兑现 | codex | blocked | P1组合离线已提交，真实研究待#868独审/逐行授权；不另造Loop、不动8792，最新候选和收据见本支交接 → `~/fwp-wt-pi-research/docs/handoffs/inflight/feat-pi-research-loop.md`。 |
 | 09-24 输入与底座验收 | codex | doing | 阶段A完成：spec、只读基线与运营审计假绿修复；干净6e6a2eac2定向103P。真实消费/跨日稳定/优化未签，生产恢复交原owner且另授权 → `~/fwp-wt-architecture-audit-0924/docs/handoffs/inflight/feat-architecture-audit-0924.md`。 |
-| #83 302132 回填整合 | codex | active | ca4四叶/整库已绿，发布前main合入#884；#813已前向3c5b3c9a6，本轮continue-08重验中，旧绿不移签。未合入/写生产，#75独审待验收闭环 → `fwp-wt-backfill-302132-0923/docs/handoffs/inflight/fix-backfill-302132-0923.md`；实时看树外CURRENT.json。 |
+| #83 302132 回填整合 | codex | 待独审 | #813固定3c5b3c9a6（base4cc15e703），四叶及整库全绿：15457P/0F/0E，完整收集15544及身份校验通过。评论6795，文档a6af0d941；WIP保留等#75，未合入/写生产，无后台验收 → `fwp-wt-backfill-302132-0923/docs/handoffs/inflight/fix-backfill-302132-0923.md`。 |
 | 09-23 RAG启动恢复 | codex | blocked | 代码候选2ac97e68c对齐c9，干净全仓14895P、前端/30撤保护/registry四项加台账审计过；GLM静态链及真实自然入口完成，生产与候选仍行情错位503。旧发布四失败ID本轮全仓均过，不改签旧红、不归因历史超时；未push/合main/部署。最终市场QC组合与换库按既有owner授权边界 → `fwp-wt-rag-recovery-state-0923/docs/handoffs/inflight/fix-rag-recovery-state-0923.md`。 |
 | #73 计时授权独立 B | codex | blocked | 本轮将b027+a54固定为8088b4af7，完整15387P/85S/2X、registry五项0；main到4cc后正式基座门6>5拒收，前端/E2E因load>8未启。三组独审/C1-C10仍缺，模型0、无后台、未推/PR/部署 → `~/fwp-wt-re06-closeout-forward-0924/docs/handoffs/inflight/fix-re06-closeout-forward-0924.md`。 |
 | 09-22 watchdog测试红灯验收 | codex | done-with-boundaries | #848已合入`a2c8d1f90773fdf3dcb7cf53f5d9733590924ae1`；实际main新门禁12511P/85S/2X、Ruff/registry0、前端110P/E2E34P/2S，收据`20260921T191851Z-a2c8d1f9.json`与审计通过。独立审查仍是一位`PASS_WITH_LIMITS`，0.8s起止点收窄、假钟作用域限制保留；未部署/重启，#846仍WIP → `fwp-wt-watchdog-closeout-0922/docs/handoffs/2026-09-22-watchdog-848-authorized-merge-and-main-gate.md`。 |
@@ -216,6 +216,7 @@ per-user 不是进程级；`runtime_backend_readiness` 这个全局探针看不�
 - 2026-09-24 · codex · Pi尾项执行：#906协议修补、#81冲突与撤保护、#73固定测试和漂移拒收分账 → `fwp-wt-pi-closeout-execution-0924/docs/handoffs/2026-09-24-pi-closeout-TODO.md`；方法 [[../10_knowledge/terminal-signal-scope-and-projection-waits]]。
 
 - 2026-09-24 · codex · Pi式研究spec与P0机制验收落盘；复用现有循环，真实研究接续#868，不把离线绿签成上线 → `~/fwp-wt-pi-research/docs/handoffs/inflight/feat-pi-research-loop.md`。
+- 2026-09-24 · codex · Pi研究P1组合离线完成，双态与深度复核通过；真实模型/独审/部署不代签 → `~/fwp-wt-pi-research/docs/handoffs/2026-09-24-pi-research-p1-offline.md`。
 
 - 2026-09-24 · codex · 输入/底座验收规格与阶段A落盘，未知欠账不再判零；工程与生产/消费分账，当前账户从启动器确认 → `~/fwp-wt-architecture-audit-0924/docs/handoffs/inflight/feat-architecture-audit-0924.md`。
 
@@ -262,7 +263,7 @@ per-user 不是进程级；`runtime_backend_readiness` 这个全局探针看不�
 - 2026-09-23 · codex · #868准入量具补覆盖/有效结果与分段日志，一次离线绿不改旧失败或代签独审 → `finance-worktrees/adaptive-research-loop/docs/handoffs/2026-09-23-adaptive-admission-diagnostic.md`；方法 [[batch-admission-after-content-audit]]。
 
 - 2026-09-23 · codex · #83/#813 前向及两处时间推进护栏修复，真实完整副本验收/异常拒收/恢复通过，#802关闭留指针；工程门禁未齐，未合入/未写生产 → `fwp-wt-backfill-302132-0923/docs/handoffs/inflight/fix-backfill-302132-0923.md`，动态证据 `~/.finance-runtime/reviews/backfill-302132-0923/CURRENT.json`。
-- 2026-09-24 · codex · #83 已补齐fd6/ca4四叶与整库，主线再前进后3c5继续重验；发现顺序与历史证据 → `fwp-wt-backfill-302132-0923/docs/handoffs/2026-09-24-backfill-302132-engineering-ready.md`；方法 [[pytest-temp-paths-and-mock-lifetime]]。
+- 2026-09-24 · codex · #83 的3c5已完成当前main四叶/整库重验，工程就绪等#75独审，合入与生产另行授权 → `fwp-wt-backfill-302132-0923/docs/handoffs/2026-09-24-backfill-302132-current-main-ready.md`；方法 [[pytest-temp-paths-and-mock-lifetime]]。
 
 - 2026-09-23 · codex · #81沿#832前向合main，只留两项产品增量；新头工程门禁仍阻塞，旧K3终稿订正但不移签，#75/#76分账 → `fwp-wt-react-trace-chain-docs-0923/docs/handoffs/2026-09-23-react-trace-chain.md`（文档PR #892）。
 
