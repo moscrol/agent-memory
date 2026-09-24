@@ -72,7 +72,7 @@ DuckDB → detect_turning_points.py / backtest_sector.py → 信号+板块边际
 | 任务 | 负责 | 状态 | 备注 |
 |---|---|---|---|
 | 09-24 Pi尾项执行 | codex | blocked | #906协议修补43P；#81本地合流380P及两撤保护；#73固定全量绿但主线准入拒收；生产/独审/未实施项分账，无后台 → `~/fwp-wt-pi-closeout-execution-0924/docs/handoffs/2026-09-24-pi-closeout-TODO.md`。 |
-| 09-24 Pi式研究兑现 | codex | blocked | P1组合离线已提交，真实研究待#868独审/逐行授权；不另造Loop、不动8792，最新候选和收据见本支交接 → `~/fwp-wt-pi-research/docs/handoffs/inflight/feat-pi-research-loop.md`。 |
+| 09-24 Pi式研究兑现 | codex | blocked | P1组合与交付即时校验离线已提交，真实研究待#868独审/逐行授权；不另造Loop、不动8792，研究/协议修补入口见本支交接 → `~/fwp-wt-pi-research/docs/handoffs/inflight/feat-pi-research-loop.md`。 |
 | 09-24 输入与底座验收 | codex | blocked | A完成，B离线前置已推进；7863fa125干净137P。SPT限定装配通过，风远审批/画像漂移待裁定；晨汇隔离样本通过而生产仍失败，行情/发布及真模型前置未闭合 → `~/fwp-wt-architecture-audit-0924/docs/handoffs/inflight/feat-architecture-audit-0924.md`。 |
 | #83 302132 回填整合 | codex | 待独审 | #813固定3c5b3c9a6（base4cc15e703），四叶及整库全绿：15457P/0F/0E，完整收集15544及身份校验通过。评论6795，文档a6af0d941；WIP保留等#75，未合入/写生产，无后台验收 → `fwp-wt-backfill-302132-0923/docs/handoffs/inflight/fix-backfill-302132-0923.md`。 |
 | 09-23 RAG启动恢复 | codex | blocked | 代码候选2ac97e68c对齐c9，干净全仓14895P、前端/30撤保护/registry四项加台账审计过；GLM静态链及真实自然入口完成，生产与候选仍行情错位503。旧发布四失败ID本轮全仓均过，不改签旧红、不归因历史超时；未push/合main/部署。最终市场QC组合与换库按既有owner授权边界 → `fwp-wt-rag-recovery-state-0923/docs/handoffs/inflight/fix-rag-recovery-state-0923.md`。 |
@@ -217,6 +217,7 @@ per-user 不是进程级；`runtime_backend_readiness` 这个全局探针看不�
 
 - 2026-09-24 · codex · Pi式研究spec与P0机制验收落盘；复用现有循环，真实研究接续#868，不把离线绿签成上线 → `~/fwp-wt-pi-research/docs/handoffs/inflight/feat-pi-research-loop.md`。
 - 2026-09-24 · codex · Pi研究P1组合离线完成，双态与深度复核通过；真实模型/独审/部署不代签 → `~/fwp-wt-pi-research/docs/handoffs/2026-09-24-pi-research-p1-offline.md`。
+- 2026-09-24 · codex · #868交付即时路径校验57P/0S，错误在原预算内反馈，不代改封存交付 → `~/fwp-wt-pr868-delivery-validation-0924/docs/handoffs/inflight/fix-pr868-delivery-validation-0924.md`；方法 [[../10_knowledge/terminal-signal-scope-and-projection-waits]]。
 
 - 2026-09-24 · codex · 输入/底座验收规格与阶段A落盘，未知欠账不再判零；工程与生产/消费分账，当前账户从启动器确认 → `~/fwp-wt-architecture-audit-0924/docs/handoffs/inflight/feat-architecture-audit-0924.md`。
 - 2026-09-24 · codex · 续推视角与晨汇离线消费，修验收输入/精度合同，保留生产及审批漂移阻塞；方法 [[readback-audit-must-match-write-contract]] → `~/fwp-wt-architecture-audit-0924/docs/handoffs/inflight/feat-architecture-audit-0924.md`。
