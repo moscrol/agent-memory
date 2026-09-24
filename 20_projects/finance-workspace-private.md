@@ -210,6 +210,8 @@ per-user 不是进程级；`runtime_backend_readiness` 这个全局探针看不�
 
 ## 交接记录
 
+- 2026-09-24 · claude · 盘点 09-23 的 20 个 Pi 会话；合并列车合入 #895/#844/#896/#897/#898/#899/#894/#880（联合预览 b464a9436 四叶 15282P/0F，合后 main 树 == 预览树），关 #812/#810 并留指针，补推 13 条本机独有分支；INDEX 更正 #904。五问三合同已由 #893 受托代拍，#61 只剩生产授权 → `docs/handoffs/2026-09-24-pi-sessions-0923-inventory.md`
+
 - 2026-09-24 · codex · #868 e7七叶工程绿，0415独审证据不足封存、累计131/152；对象交付仅离线原型，预算与自然验收仍待闭合 → `finance-worktrees/adaptive-research-loop/docs/handoffs/2026-09-24-adaptive-e7-qc-budget-boundary.md`。
 
 - 2026-09-24 · codex · eb4完整工程收据15084P及35项变异核验，live仍503；新浪5564条当日展示名证据获限定采信、缺三只不缩分母 → `fwp-wt-workbench-release-ready-0924/docs/handoffs/2026-09-24-eb4-gates-and-name-scope.md`。
