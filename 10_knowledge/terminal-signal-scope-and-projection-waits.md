@@ -77,6 +77,14 @@ finance #885 的旧屏障对照 1P/1F（queued != completed），修后 3P；候
 
 finance 合后 main@2edbe4c4 定向 213P/1F 的原事件为 degraded、elapsed_ms=1298、task_may_continue=false，后续技能与 run 正常完成。受控旧断言 1P/1F，新两态 2P、相邻五文件 320P（开发期定向，不是完整门禁）。证据与后续完整验收入口：`docs/handoffs/2026-09-23-skill-timeout-test-lifecycle.md`，PR #888。可迁移到线程池任务、异步请求和事件记录的时序测试；不据此宣称所有超时都是测试问题。
 
+## 交付完成与审查通过分属两种状态
+
+[2026-09-24 实测] 审查者已提供证据与BLOCKED结论，却因忘填恒定`complete=true`而耗掉最后交付请求。阶段、候选版本、基线和交付状态应由掌握这些事实的控制器绑定；模型只提供阶段要求的内容。先校验内容与证据字段，再附加可信元数据，并拒绝模型注入控制器字段，不用额外付费回合修复可确定处理的信封字段。
+
+交付完成仍不等于审查通过：必须保留BLOCKED结论，缺证不得接纳，更不能给旧封存报告代填成功。协议与提示词要同步升级，不能旧提示词要求模型填complete而新协议拒绝该字段。金融4e0ca6373的正式协议/生成器与真实Pi CLI加本地脚本化服务回归43P；装回旧必填schema后同一交付被拒，新版单请求交付且保留BLOCKED。零真实模型请求，不认证新一轮独审已通过，也不证明模型语义稳定。
+
+可迁移到代码审查、内容审核和多阶段代理交付。机械保护已进`scripts/review_probes/pi_review_protocol.mjs`与`tests/test_pi_review_repair.py`，不另造框架；证据入口为金融PR #906及`fix-pr868-delivery-completion-0924`交接。审查完成状态由控制器认证，审查正确性仍要核独立行为证据。
+
 ## 与项目的关系
 
 [2026-09-16 实测] finance的run claim先于message revise是既有明确契约；三轮测试只等run导致pending。293ff71b只修测试同步，新增屏障回归。禁用消息等待1F，正确版定向7P；不是生产性能结论。详细证据见项目 `docs/handoffs/2026-09-16-release-merge-message-wait.md` 与PR #748。
