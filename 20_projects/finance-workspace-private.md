@@ -71,7 +71,7 @@ DuckDB → detect_turning_points.py / backtest_sector.py → 信号+板块边际
 ## 任务看板
 | 任务 | 负责 | 状态 | 备注 |
 |---|---|---|---|
-| 09-24 Pi尾项执行 | codex | blocked | 09-25局部3198修同题重复句来源，736P/4S，不是#877原八问根因修复；两变异待load<=8、环境锁偏差未改。#71历史2749四叶齐仍欠独审/真实复验；#813旧K3终审缺失，原执行者另跑限定GLM复核。未合main/部署/新增付费 → `~/fwp-wt-pi-closeout-execution-0924/docs/handoffs/2026-09-24-pi-closeout-TODO.md`。 |
+| 09-24 Pi尾项执行 | codex | blocked | 09-25材料a99两组5F/7F及恢复绿、736P/4S；#73新a30e四叶通过、漂移0，仍欠锁定环境/独审/自然验收。#813限定GLM已结束且报告被拒；旧PR档案/实现归属已核。未push/合main/部署/新增付费 → `~/fwp-wt-pi-closeout-execution-0924/docs/handoffs/2026-09-24-pi-closeout-TODO.md`。 |
 | 09-24 Pi式研究兑现 | codex | blocked | #911补20个进程内API研究链场景，独立锁环境787P/3S/1X；#910/#911交#868 owner采用。脚本化模型不作自然质量，未合main/部署 → `~/fwp-wt-pi-research/docs/handoffs/inflight/feat-pi-research-loop.md`。 |
 | 09-24 输入与底座验收 | codex | blocked | SPT原文三题草案待确认：当前1/3、内存边界2/3；机会规则有票据但改写facts未触发，不改题刷绿。88ddfa5b0干净509P；未写画像/考卷。风远追溯及readiness503仍未闭合，检索协议一次失败后复查通过、原因未知 → `~/fwp-wt-architecture-audit-0924/docs/handoffs/inflight/feat-architecture-audit-0924.md`。 |
 | #83 302132 回填整合 | codex | 独审终稿拒收 | #813固定3c5/base4cc；09-25续跑42请求（K3预检1超时，按09-23偏好换已有GLM两批11+30）。独立三例通过、四例夹具/算式失败、两次语法收集错；非法枚举及未执行PASS终稿被拒，Quality未启。490原件封存、无后台；main033新组合未验，旧作者15457P及整库37PASS不代独审。未改/推产品、未合入/写生产 → `fwp-wt-backfill-302132-0923/docs/handoffs/inflight/fix-backfill-302132-0923.md`。 |
@@ -215,6 +215,7 @@ per-user 不是进程级；`runtime_backend_readiness` 这个全局探针看不�
 
 - 2026-09-25 凌晨 · claude · #909（INDEX #72/#75 真值化）四叶全绿后合入 `03352758c`；#906 采纳进 #868 分支，#868 前向成受审候选 `f2610293f`，四叶全绿（15886P/0F）；#868 下一批独审与 #884 第 08 轮（C1/C7/C6）都已准备好、零成本验证通过，**未授权未启动**（runner 有授权门）→ `~/.finance-runtime/reviews/pr868-glm-qc-20260925-next/STATE.md`、`pr884-closeout-20260925-08/STATE.md`
 - 2026-09-25 · codex · 同题重复句绑定局部修补，不代签Knevo八问 → `fwp-wt-material-claim-occurrence-0925/docs/handoffs/inflight/fix-material-claim-occurrence-0925.md`；方法 [[../10_knowledge/state-transition-identity-must-survive-dedup]]。
+- 2026-09-25 · codex · 材料撤保护闭合、#73新主干四叶绿但环境/独审仍阻塞、旧PR归属核验 → `fwp-wt-pi-closeout-execution-0924/docs/handoffs/inflight/docs-pi-closeout-execution-0924.md`。
 
 - 2026-09-24 深夜 · claude · 用户「合并，然后继续推进」：#884 合入 `4cc15e703`；运行时合同独审 07 轮 166 次，两轮合计 C2/C3/C4/C5/C8 宿主有限采信、C1/C7 部分、C6 无、零产品缺陷；#868 前向到 `f531d2d00`（四叶绿），批 2105 spec PASS_WITH_LIMITS、quality 封存、213/244；与并行 Pi 会话 01a0d357 的 #906 已对齐 → `docs/handoffs/2026-09-24-runtime-review-r07-and-pr868-2105.md`（PR #909）
 - 2026-09-24 · codex · Agent基线授权合入与精确版本策略 → finance `docs/handoffs/2026-09-24-agent-foundation-merge.md`（#908）；实时状态读Gitea和原始收据，不从历史快照猜。
