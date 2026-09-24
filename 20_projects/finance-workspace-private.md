@@ -72,7 +72,7 @@ DuckDB → detect_turning_points.py / backtest_sector.py → 信号+板块边际
 | 任务 | 负责 | 状态 | 备注 |
 |---|---|---|---|
 | 09-24 Pi尾项执行 | codex | blocked | 09-25局部3198修同题重复句来源，736P/4S，不是#877原八问根因修复；两变异待load<=8、环境锁偏差未改。#71历史2749四叶齐仍欠独审/真实复验；#813旧K3终审缺失，原执行者另跑限定GLM复核。未合main/部署/新增付费 → `~/fwp-wt-pi-closeout-execution-0924/docs/handoffs/2026-09-24-pi-closeout-TODO.md`。 |
-| 09-24 Pi式研究兑现 | codex | blocked | 已推#910路径修补与#911研究链验收，交#868 owner采用；定向绿不作独审/自然质量，主线和8792未动 → `~/fwp-wt-pi-research/docs/handoffs/inflight/feat-pi-research-loop.md`。 |
+| 09-24 Pi式研究兑现 | codex | blocked | #911补20个进程内API研究链场景，独立锁环境787P/3S/1X；#910/#911交#868 owner采用。脚本化模型不作自然质量，未合main/部署 → `~/fwp-wt-pi-research/docs/handoffs/inflight/feat-pi-research-loop.md`。 |
 | 09-24 输入与底座验收 | codex | blocked | SPT原文三题草案待确认：当前1/3、内存边界2/3；机会规则有票据但改写facts未触发，不改题刷绿。88ddfa5b0干净509P；未写画像/考卷。风远追溯及readiness503仍未闭合，检索协议一次失败后复查通过、原因未知 → `~/fwp-wt-architecture-audit-0924/docs/handoffs/inflight/feat-architecture-audit-0924.md`。 |
 | #83 302132 回填整合 | codex | 独审终稿拒收 | #813固定3c5/base4cc；09-25续跑42请求（K3预检1超时，按09-23偏好换已有GLM两批11+30）。独立三例通过、四例夹具/算式失败、两次语法收集错；非法枚举及未执行PASS终稿被拒，Quality未启。490原件封存、无后台；main033新组合未验，旧作者15457P及整库37PASS不代独审。未改/推产品、未合入/写生产 → `fwp-wt-backfill-302132-0923/docs/handoffs/inflight/fix-backfill-302132-0923.md`。 |
 | 09-23 RAG启动恢复 | codex | blocked | 代码候选2ac97e68c对齐c9，干净全仓14895P、前端/30撤保护/registry四项加台账审计过；GLM静态链及真实自然入口完成，生产与候选仍行情错位503。旧发布四失败ID本轮全仓均过，不改签旧红、不归因历史超时；未push/合main/部署。最终市场QC组合与换库按既有owner授权边界 → `fwp-wt-rag-recovery-state-0923/docs/handoffs/inflight/fix-rag-recovery-state-0923.md`。 |
@@ -230,6 +230,7 @@ per-user 不是进程级；`runtime_backend_readiness` 这个全局探针看不�
 - 2026-09-24 · codex · Pi研究P1组合离线完成，双态与深度复核通过；真实模型/独审/部署不代签 → `~/fwp-wt-pi-research/docs/handoffs/2026-09-24-pi-research-p1-offline.md`。
 - 2026-09-24 · codex · #868交付即时路径校验57P/0S，错误在原预算内反馈，不代改封存交付 → `~/fwp-wt-pr868-delivery-validation-0924/docs/handoffs/inflight/fix-pr868-delivery-validation-0924.md`；方法 [[../10_knowledge/terminal-signal-scope-and-projection-waits]]。
 - 2026-09-25 · codex · #910/#911交#868 owner；固定f261组合定向复验，依赖漂移已告警、不改并发共享环境 → `~/fwp-wt-pi-research/docs/handoffs/2026-09-25-pi-research-forward-delivery.md`。
+- 2026-09-25 · codex · #911新增Workbench入口离线组合，0c57cd0d7十目标787P/3S/1X；独立锁环境、不接管owner新独审批次 → `~/fwp-wt-pi-research/docs/handoffs/2026-09-25-pi-research-http-offline.md`。
 
 - 2026-09-24 · codex · 输入/底座验收规格与阶段A落盘，未知欠账不再判零；工程与生产/消费分账，当前账户从启动器确认 → `~/fwp-wt-architecture-audit-0924/docs/handoffs/inflight/feat-architecture-audit-0924.md`。
 - 2026-09-24 · codex · 续推视角与晨汇离线消费，修验收输入/精度合同，保留生产及审批漂移阻塞；方法 [[readback-audit-must-match-write-contract]] → `~/fwp-wt-architecture-audit-0924/docs/handoffs/inflight/feat-architecture-audit-0924.md`。
