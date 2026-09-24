@@ -210,6 +210,7 @@ per-user 不是进程级；`runtime_backend_readiness` 这个全局探针看不�
 
 ## 交接记录
 
+- 2026-09-24 · claude · 清理第二轮 + 工具修复：再拆 45 棵（#880 锁树 6、旧生产快照 8 残留先打包、证据/等价/被包含树 29、封存后拆 2），worktree 154→112、磁盘 81 GiB；`cleanup_gate_trees.sh`/`worktree_safety.py` 两道守卫修好开 PR #905（缓存不算内容、目录监视句柄不算在用、`--release-merged-locks`，65P/0F，合入等用户）；75 条待裁决线逐条建议 → `~/.finance-runtime/reviews/pi-session-inventory-20260924/cleanup/DECISION-SHEET.md`。
 - 2026-09-24 · claude · 「收口了没清理」清理：148 棵已合入/已关带指针/detached 取证树拆除（34.4 GiB）+ 29 棵先封存到 `salvage/*-20260924` 再拆，659 条已合入本地分支删（sha 台账），7 条本机独有分支补推；磁盘 39→76 GiB、worktree 331→154；待决定的分支树、生产快照、夜跑代码根、取证保留库一棵没动 → `~/.finance-runtime/reviews/pi-session-inventory-20260924/cleanup/README.md`（判定规则 / 收据 / 可恢复性 / 留给用户判的 6 项）。
 - 2026-09-24 · claude · 盘点 09-23 的 20 个 Pi 会话；合并列车合入 #895/#844/#896/#897/#898/#899/#894/#880（联合预览 b464a9436 四叶 15282P/0F，合后 main 树 == 预览树），关 #812/#810 并留指针，补推 13 条本机独有分支；INDEX 更正 #904。五问三合同已由 #893 受托代拍，#61 只剩生产授权 → `docs/handoffs/2026-09-24-pi-sessions-0923-inventory.md`
 
