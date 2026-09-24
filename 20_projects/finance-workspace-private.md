@@ -71,7 +71,7 @@ DuckDB → detect_turning_points.py / backtest_sector.py → 信号+板块边际
 ## 任务看板
 | 任务 | 负责 | 状态 | 备注 |
 |---|---|---|---|
-| 09-24 Pi尾项执行 | codex | blocked | #906协议修补43P；#81本地合流380P及两撤保护；#73固定全量绿但主线准入拒收；生产/独审/未实施项分账，无后台 → `~/fwp-wt-pi-closeout-execution-0924/docs/handoffs/2026-09-24-pi-closeout-TODO.md`。 |
+| 09-24 Pi尾项执行 | codex | blocked | #71本地2749四叶齐（16049P、65组变异红绿），仍缺独审/新真实复验；#813原执行者工程就绪待QC；#906协议43P、#81合流380P/两撤保护、#73全量绿但漂移拒收。未推#71/合main/部署，无本轮后台 → `~/fwp-wt-pi-closeout-execution-0924/docs/handoffs/2026-09-24-pi-closeout-TODO.md`。 |
 | 09-24 Pi式研究兑现 | codex | blocked | P1组合与交付即时校验离线已提交，真实研究待#868独审/逐行授权；不另造Loop、不动8792，研究/协议修补入口见本支交接 → `~/fwp-wt-pi-research/docs/handoffs/inflight/feat-pi-research-loop.md`。 |
 | 09-24 输入与底座验收 | codex | blocked | A完成，B离线前置已推进；7863fa125干净137P。SPT限定装配通过，风远审批/画像漂移待裁定；晨汇隔离样本通过而生产仍失败，行情/发布及真模型前置未闭合 → `~/fwp-wt-architecture-audit-0924/docs/handoffs/inflight/feat-architecture-audit-0924.md`。 |
 | #83 302132 回填整合 | codex | 独审阻塞 | #813固定3c5b3c9a6（base4cc15e703），作者四叶/整库37PASS仍有效。#75 K3本批11请求，Spec第6请求200头后120秒流中断，无探针/终稿，Quality未启动；214原件无损封存，进程已退。WIP保留，未合入/写生产，不能把作者15457P代独审 → `fwp-wt-backfill-302132-0923/docs/handoffs/inflight/fix-backfill-302132-0923.md`。 |
@@ -213,6 +213,7 @@ per-user 不是进程级；`runtime_backend_readiness` 这个全局探针看不�
 
 ## 交接记录
 
+- 2026-09-24 · codex · #71前向组合完成四叶和65组变异，工程与独审/自然分账 → `fwp-wt-delivery-guard-forward-0924/docs/handoffs/2026-09-24-delivery-guard-forward.md`；方法 [[../10_knowledge/validator-bound-to-producer-chosen-labels]]。
 - 2026-09-24 · codex · Pi尾项执行：#906协议修补、#81冲突与撤保护、#73固定测试和漂移拒收分账 → `fwp-wt-pi-closeout-execution-0924/docs/handoffs/2026-09-24-pi-closeout-TODO.md`；方法 [[../10_knowledge/terminal-signal-scope-and-projection-waits]]。
 
 - 2026-09-24 · codex · Pi式研究spec与P0机制验收落盘；复用现有循环，真实研究接续#868，不把离线绿签成上线 → `~/fwp-wt-pi-research/docs/handoffs/inflight/feat-pi-research-loop.md`。
