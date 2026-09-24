@@ -27,6 +27,12 @@ source: finance-workspace-private 第五轮研究进化 QC，d83a0c48
 
 证据及可执行反例：`/private/tmp/research-evolution-r5-qc-Dmm5xA/report/docs/verification/research-evolution-round5/`。通用件暂沉淀为审查手法而非统一 lint：状态等价和账单覆盖含领域语义；具体反例已落仓可机械重放。未改脏的 harness-reference。
 
+## 同文句子的出现位置不是内容身份
+
+2026-09-25 材料复核局部修补（finance `fix/material-claim-occurrence-0925@3198df496`）：同一题重复两次/三次句子，按文字做双层遍历会展开成四条/九条审查记录，使各次出现的独立锚点与拒句位置混淆。题内原有逐句有序合同已足够：按 output 与未消费的句子位置一一配对，不按内容去重，也不新增持久化 ID。公开投影删掉前一句时，不能用耗尽全局迭代器的办法吞掉后续不同句。
+
+反例已落 `intelligence/tests/test_e2_material_claim_review.py`：重复两次/三次、同题中间夹不同句、跨题同文、binding 反序、拒绝仅绑定问句的那次出现、删除前句。原实现7F/1P，修后8P，固定相关736P/4S；测试替身只证明身份与拒句归属，不证明模型语义判断正确。本次冻结 Knevo 八问续稿没有同题重复句，不能把旁路发现写成其根因修复。撤保护定义入库 `scripts/review_probes/material_claim_occurrence_mutations.json`，执行状态看本分支交接。跨项目适用于日志、批次结果和重复表格行；语义等价仍需领域判断，不造统一静态 lint。
+
 ## 过滤后的列表位置不是原始身份
 
 2026-09-21金融离线修复（8a892290d）再证：完整账本给证据编号后，公开层过滤或按同标题去重，再用enumerate补编号，会让正文E号指向另一份报告。身份必须由完整来源账本确定，再沿过滤、保存、事件、重载与公开面板传递；同展示标签不代表同证据，缺身份的旧记录不能靠当前位置伪造绑定。这个检查也适用于分页、搜索结果和审计记录。
