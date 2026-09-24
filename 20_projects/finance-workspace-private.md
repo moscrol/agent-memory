@@ -71,9 +71,12 @@ DuckDB → detect_turning_points.py / backtest_sector.py → 信号+板块边际
 ## 任务看板
 | 任务 | 负责 | 状态 | 备注 |
 |---|---|---|---|
-| #83 302132 回填整合 | codex | blocked | #813 固定 fd6d8cc5b，定向118P、前端120P/E2E34P+2S、registry五项0；Python全量触4GiB保护，本head整库演练不足8GiB拒绝，旧绿不移签。无后台测试、无合入或生产授权 → `fwp-wt-backfill-302132-0923/docs/handoffs/inflight/fix-backfill-302132-0923.md`。 |
+| 09-24 Pi尾项执行 | codex | blocked | #906协议修补43P；#81本地合流380P及两撤保护；#73固定全量绿但主线准入拒收；生产/独审/未实施项分账，无后台 → `~/fwp-wt-pi-closeout-execution-0924/docs/handoffs/2026-09-24-pi-closeout-TODO.md`。 |
+| 09-24 Pi式研究兑现 | codex | blocked | spec与P0机制验收已提交；后续接续#868独审/真实研究，不另造Loop，不动8792 → `~/fwp-wt-pi-research/docs/handoffs/inflight/feat-pi-research-loop.md`。 |
+| 09-24 输入与底座验收 | codex | doing | 阶段A完成：spec、只读基线与运营审计假绿修复；干净6e6a2eac2定向103P。真实消费/跨日稳定/优化未签，生产恢复交原owner且另授权 → `~/fwp-wt-architecture-audit-0924/docs/handoffs/inflight/feat-architecture-audit-0924.md`。 |
+| #83 302132 回填整合 | codex | active | ca4四叶/整库已绿，发布前main合入#884；#813已前向3c5b3c9a6，本轮continue-08重验中，旧绿不移签。未合入/写生产，#75独审待验收闭环 → `fwp-wt-backfill-302132-0923/docs/handoffs/inflight/fix-backfill-302132-0923.md`；实时看树外CURRENT.json。 |
 | 09-23 RAG启动恢复 | codex | blocked | 代码候选2ac97e68c对齐c9，干净全仓14895P、前端/30撤保护/registry四项加台账审计过；GLM静态链及真实自然入口完成，生产与候选仍行情错位503。旧发布四失败ID本轮全仓均过，不改签旧红、不归因历史超时；未push/合main/部署。最终市场QC组合与换库按既有owner授权边界 → `fwp-wt-rag-recovery-state-0923/docs/handoffs/inflight/fix-rag-recovery-state-0923.md`。 |
-| #73 计时授权独立 B | codex | blocked-resource | 最新固定合流b027194f1/base3bb81b9638；与7ec的intelligence有4文件差分，旧绿/旧E2独审不移签。QC04与工程15分钟等待结束，测试/build/模型0，C1-C10未签；约6.6GiB通过pytest临时夹具清理且证据不变，无自动续跑。有界本地就绪仍授权，发布/生产/自然质量另闸 → `~/fwp-wt-closeout-workorders-0922/docs/handoffs/inflight/docs-closeout-workorders-0922.md`。 |
+| #73 计时授权独立 B | codex | blocked | 本轮将b027+a54固定为8088b4af7，完整15387P/85S/2X、registry五项0；main到4cc后正式基座门6>5拒收，前端/E2E因load>8未启。三组独审/C1-C10仍缺，模型0、无后台、未推/PR/部署 → `~/fwp-wt-re06-closeout-forward-0924/docs/handoffs/inflight/fix-re06-closeout-forward-0924.md`。 |
 | 09-22 watchdog测试红灯验收 | codex | done-with-boundaries | #848已合入`a2c8d1f90773fdf3dcb7cf53f5d9733590924ae1`；实际main新门禁12511P/85S/2X、Ruff/registry0、前端110P/E2E34P/2S，收据`20260921T191851Z-a2c8d1f9.json`与审计通过。独立审查仍是一位`PASS_WITH_LIMITS`，0.8s起止点收窄、假钟作用域限制保留；未部署/重启，#846仍WIP → `fwp-wt-watchdog-closeout-0922/docs/handoffs/2026-09-22-watchdog-848-authorized-merge-and-main-gate.md`。 |
 | 09-22 变异量具超时留证 | claude-code | done-with-boundaries | R6 线「发布超时归因」的**前置量具**已补：`e9e3361a`（+文档`94eddad1`，分支`fix/mutation-timeout-evidence-0922`，基座main`a2c8d1f90`）让 `run_extraction_mutations.py` 超时/中断/启动失败都留现场——输出直接落盘、卡住转储线程栈、进程组独占清理、缺JUnit记`executed=None`不记0、`check_result`拒收非完成态、证据文件不可覆盖。四叶均有结论：全量12534P/85S/2X+Ruff0（收据`20260922T111226Z-e9e3361a.json`经`check_test_receipt --expect-revision` exit0）、前端110P、E2E34P/2S、registry五项0；11组撤保护各有具名红证人、还原后绿、树clean。**不归因也不翻案09-18那次180秒超时**（旧现场已不存在），未跑publication套件、未push/PR/合main/部署、R6真实验收与独立QC仍缺（该线已由#835接替）→ `fwp-wt-mutation-timeout-evidence-0922/docs/handoffs/inflight/fix-mutation-timeout-evidence-0922.md`，证据根`~/.finance-runtime/reviews/mutation-timeout-evidence-20260922/`。 |
 | 09-21 行情恢复 | pi | blocked | 纯候选7311a7738；干净4c0162a9b定向247P，新构造器88P、六类变异抓红。09-04复牌原件已固定，5565范围构造5553候选+12缺失处置；原278+新增136证据回读一致。名称/换手率/官方历史范围/停牌分母与下游三门待闭合；未写库/发布/合并/部署 → `fwp-wt-market-recovery-0921/docs/handoffs/inflight/fix-market-recovery-0921.md`。 |
@@ -212,6 +215,13 @@ per-user 不是进程级；`runtime_backend_readiness` 这个全局探针看不�
 
 - 2026-09-24 · Agent 开发基线与六图确定性纠错候选：finance `feat/agent-foundation@29e42db81`；接手见该分支 `docs/handoffs/inflight/feat-agent-foundation.md`。Harness 工具包 `docs/agent-foundation@54bef89`；均未合入/部署，非全量验收。
 
+- 2026-09-24 · codex · Pi尾项执行：#906协议修补、#81冲突与撤保护、#73固定测试和漂移拒收分账 → `fwp-wt-pi-closeout-execution-0924/docs/handoffs/2026-09-24-pi-closeout-TODO.md`；方法 [[../10_knowledge/terminal-signal-scope-and-projection-waits]]。
+
+- 2026-09-24 · codex · Pi式研究spec与P0机制验收落盘；复用现有循环，真实研究接续#868，不把离线绿签成上线 → `~/fwp-wt-pi-research/docs/handoffs/inflight/feat-pi-research-loop.md`。
+
+- 2026-09-24 · codex · 输入/底座验收规格与阶段A落盘，未知欠账不再判零；工程与生产/消费分账，当前账户从启动器确认 → `~/fwp-wt-architecture-audit-0924/docs/handoffs/inflight/feat-architecture-audit-0924.md`。
+
+- 2026-09-24 晚 · claude · #884 第 06 轮四批跑完、84/84 用尽：只有 C3 宿主有限采信，没有发现产品缺陷，独审未闭合（#884 不含运行时代码，可否先合交用户定）；#868 批 1405 在 spec/execute 因交付漏 `complete` 被拒收而封存，166/209 → 两个评审根下的 `STATE.md`，PR 评论 6779 / 6780
 - 2026-09-24 · claude · 额度批准后推进：#884 前向到 b77ff2241、#868 前向到 ce2a27131，两条线的工程四叶都全绿；#884 第 06 轮独审 A/B 已跑（42/84，C3 审查者 PASS 但宿主审计待做，C1/C2/C4 缺证据），#868 批 1405 已跑 spec gateway + explore（149/209），两条线都暂停待续（只读候选树勿删）→ 各自评审根下的 `STATE.md`（`~/.finance-runtime/reviews/pr884-closeout-20260924-06/`、`pr868-glm-qc-20260924-1405/`）
 - 2026-09-24 · claude · 清理第二轮 + 工具修复：再拆 45 棵（#880 锁树 6、旧生产快照 8 残留先打包、证据/等价/被包含树 29、封存后拆 2），worktree 154→112、磁盘 81 GiB；`cleanup_gate_trees.sh`/`worktree_safety.py` 两道守卫修好开 PR #905（缓存不算内容、目录监视句柄不算在用、`--release-merged-locks`，65P/0F，合入等用户）；75 条待裁决线逐条建议 → `~/.finance-runtime/reviews/pi-session-inventory-20260924/cleanup/DECISION-SHEET.md`。
 - 2026-09-24 · claude · 「收口了没清理」清理：148 棵已合入/已关带指针/detached 取证树拆除（34.4 GiB）+ 29 棵先封存到 `salvage/*-20260924` 再拆，659 条已合入本地分支删（sha 台账），7 条本机独有分支补推；磁盘 39→76 GiB、worktree 331→154；待决定的分支树、生产快照、夜跑代码根、取证保留库一棵没动 → `~/.finance-runtime/reviews/pi-session-inventory-20260924/cleanup/README.md`（判定规则 / 收据 / 可恢复性 / 留给用户判的 6 项）。
@@ -254,7 +264,7 @@ per-user 不是进程级；`runtime_backend_readiness` 这个全局探针看不�
 - 2026-09-23 · codex · #868准入量具补覆盖/有效结果与分段日志，一次离线绿不改旧失败或代签独审 → `finance-worktrees/adaptive-research-loop/docs/handoffs/2026-09-23-adaptive-admission-diagnostic.md`；方法 [[batch-admission-after-content-audit]]。
 
 - 2026-09-23 · codex · #83/#813 前向及两处时间推进护栏修复，真实完整副本验收/异常拒收/恢复通过，#802关闭留指针；工程门禁未齐，未合入/未写生产 → `fwp-wt-backfill-302132-0923/docs/handoffs/inflight/fix-backfill-302132-0923.md`，动态证据 `~/.finance-runtime/reviews/backfill-302132-0923/CURRENT.json`。
-- 2026-09-24 · codex · #83 系统模拟隔离修正及变异验证，fd6候选保留WIP，剩全量Python/整库演练因容量缺证；交接单独提交、不移动被验head → `fwp-wt-backfill-302132-0923/docs/handoffs/2026-09-24-backfill-302132-gate-continuation.md`；方法 [[pytest-temp-paths-and-mock-lifetime]]。
+- 2026-09-24 · codex · #83 已补齐fd6/ca4四叶与整库，主线再前进后3c5继续重验；发现顺序与历史证据 → `fwp-wt-backfill-302132-0923/docs/handoffs/2026-09-24-backfill-302132-engineering-ready.md`；方法 [[pytest-temp-paths-and-mock-lifetime]]。
 
 - 2026-09-23 · codex · #81沿#832前向合main，只留两项产品增量；新头工程门禁仍阻塞，旧K3终稿订正但不移签，#75/#76分账 → `fwp-wt-react-trace-chain-docs-0923/docs/handoffs/2026-09-23-react-trace-chain.md`（文档PR #892）。
 
