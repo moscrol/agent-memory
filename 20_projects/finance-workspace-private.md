@@ -213,6 +213,7 @@ per-user 不是进程级；`runtime_backend_readiness` 这个全局探针看不�
 
 ## 交接记录
 
+- 2026-09-25 · claude · 第三轮受托代拍（用户「按照最优推进」，记录 `cleanup/round3-authorization.md`）：按 DECISION-SHEET 建议前向开 PR **#915**（Workbench 发布候选 eb4 → 当前 main，两处冲突按意图解，全量 15,561P，3 个替身红已修）、**#916** sellside、**#917** BP、**#919** fupanhui 429 熔断、**#920** LLM_COMPAT_PAYLOAD；关 #900 → #915；C11/G5/G6 核实已被 main 覆盖、C4–C10/F1–F3/H1/H7 归档，指针 **#918**，14 棵树拆（3 棵先封存）。合入 main 全部等用户 → `~/.finance-runtime/reviews/pi-session-inventory-20260924/cleanup/README.md` 第三轮表。
 - 2026-09-25 01:3x · claude · 用户「执行」：#868 独审批跑完（281/291；与 2105 合并后 C1/C2/C4/C5/C6 已验证、零缺陷；C7 被新 conftest 要调 git 挡住，下一批设 FWP_WORKBENCH_PYTHON）；#884 第 08 轮 47 次（C1 宿主采信，三轮合计 6/8 采信、零缺陷；K3 上游凌晨 3 次约 120 秒 504）；**更正 #61：不是只差授权，发布线仍有工程前置** → `docs/handoffs/2026-09-25-review-batches-and-61-correction.md`（PR #914）
 - 2026-09-25 凌晨 · claude · #909（INDEX #72/#75 真值化）四叶全绿后合入 `03352758c`；#906 采纳进 #868 分支，#868 前向成受审候选 `f2610293f`，四叶全绿（15886P/0F）；#868 下一批独审与 #884 第 08 轮（C1/C7/C6）都已准备好、零成本验证通过，**未授权未启动**（runner 有授权门）→ `~/.finance-runtime/reviews/pr868-glm-qc-20260925-next/STATE.md`、`pr884-closeout-20260925-08/STATE.md`
 - 2026-09-25 · codex · 同题重复句绑定局部修补，不代签Knevo八问 → `fwp-wt-material-claim-occurrence-0925/docs/handoffs/inflight/fix-material-claim-occurrence-0925.md`；方法 [[../10_knowledge/state-transition-identity-must-survive-dedup]]。
