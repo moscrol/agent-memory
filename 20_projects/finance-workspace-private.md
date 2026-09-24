@@ -73,7 +73,7 @@ DuckDB → detect_turning_points.py / backtest_sector.py → 信号+板块边际
 |---|---|---|---|
 | 09-24 Pi尾项执行 | codex | blocked | 09-25材料a99两组5F/7F及恢复绿、736P/4S；#73新a30e四叶通过、漂移0，仍欠锁定环境/独审/自然验收。#813限定GLM已结束且报告被拒；旧PR档案/实现归属已核。未push/合main/部署/新增付费 → `~/fwp-wt-pi-closeout-execution-0924/docs/handoffs/2026-09-24-pi-closeout-TODO.md`。 |
 | 09-24 Pi式研究兑现 | codex | blocked | #911补20个进程内API研究链场景，独立锁环境787P/3S/1X；#910/#911交#868 owner采用。脚本化模型不作自然质量，未合main/部署 → `~/fwp-wt-pi-research/docs/handoffs/inflight/feat-pi-research-loop.md`。 |
-| 09-24 输入与底座验收 | codex | blocked | 用户委托后采用原SPT三题候选标准；cd2116dbe按规则条件合同+内存边界3/3，原画像仍1/3、正式卷仍缺。干净597P与三处撤保护检出；未写用户态/合入/部署，不签模型质量。风远追溯及readiness503仍未闭合 → `~/fwp-wt-architecture-audit-0924/docs/handoffs/inflight/feat-architecture-audit-0924.md`。 |
+| 09-24 输入与底座验收 | codex | blocked | 词面合同经12项反例复核8F而拒收，fa82a73ca撤运行接线并拒实验字段；原三题标准不改，原画像仍1/3、正式卷缺。干净636P/撤护栏21F只证隔离，不签独审/模型质量；readiness503仍缺行情一致性，未写用户态/合入/部署 → `~/fwp-wt-architecture-audit-0924/docs/handoffs/inflight/feat-architecture-audit-0924.md`。 |
 | #83 302132 回填整合 | codex | Spec局部交付 / Quality阻塞 | #813固定3c5/base4cc；09-25新批65请求，Spec独立5P且正式PASS_WITH_LIMITS，作者沙箱1F/宿主同测1P另计。Quality未执行产品探针且无工具终稿；宿主修C3夹具7P、去多重集保护重复例1F/原版再7P不代独审。760原件封存、无后台，main033新组合未验；后续复用已验证夹具独立执行，不重造大夹具。未改/推产品、未合入/写生产 → `fwp-wt-backfill-302132-0923/docs/handoffs/inflight/fix-backfill-302132-0923.md`。 |
 | 09-23 RAG启动恢复 | codex | blocked | 代码候选2ac97e68c对齐c9，干净全仓14895P、前端/30撤保护/registry四项加台账审计过；GLM静态链及真实自然入口完成，生产与候选仍行情错位503。旧发布四失败ID本轮全仓均过，不改签旧红、不归因历史超时；未push/合main/部署。最终市场QC组合与换库按既有owner授权边界 → `fwp-wt-rag-recovery-state-0923/docs/handoffs/inflight/fix-rag-recovery-state-0923.md`。 |
 | #73 计时授权独立 B | codex | blocked | 本轮将b027+a54固定为8088b4af7，完整15387P/85S/2X、registry五项0；main到4cc后正式基座门6>5拒收，前端/E2E因load>8未启。三组独审/C1-C10仍缺，模型0、无后台、未推/PR/部署 → `~/fwp-wt-re06-closeout-forward-0924/docs/handoffs/inflight/fix-re06-closeout-forward-0924.md`。 |
@@ -239,6 +239,7 @@ per-user 不是进程级；`runtime_backend_readiness` 这个全局探针看不�
 - 2026-09-24 · codex · 风远十条差异对齐七次剥数/三次措辞；分开历史票据、当前装配与旧考卷，缺卷不放行，干净162P；不自动恢复旧值、不代签审批 → `~/fwp-wt-architecture-audit-0924/docs/handoffs/2026-09-24-perspective-reconciliation-decisions.md`。
 - 2026-09-25 · codex · 视角离线检查贯通首次provider请求，保留审批/缺卷/生产阻塞；截停不伪造答案，487P只签定向工程，旧SPT署名不代质量 → `~/fwp-wt-architecture-audit-0924/docs/handoffs/2026-09-25-perspective-delivery-decisions.md`。
 - 2026-09-25 · codex · SPT考卷原文草案先冻结再预演，定位已有规则的字面漏触发；草案永不自动批准，待用户确认，干净509P → `~/fwp-wt-architecture-audit-0924/docs/handoffs/2026-09-25-spt-exam-proposal-decisions.md`。
+- 2026-09-25 · codex · 反例复核否决词面条件合同，撤运行接线并显式拒收；原画像仍1/3，636P与撤护栏21F只证隔离 → `~/fwp-wt-architecture-audit-0924/docs/handoffs/2026-09-25-spt-contract-rejected.md`。
 - 2026-09-25 · codex · 用户委托采用原三题候选标准，精确规则条件合同隔离3/3；原题/画像不改，597P与三撤保护只签工程，不签生产应用或模型质量 → `~/fwp-wt-architecture-audit-0924/docs/handoffs/2026-09-25-spt-signal-contract-decisions.md`。
 
 - 2026-09-24 晚 · claude · #884 第 06 轮四批跑完、84/84 用尽：只有 C3 宿主有限采信，没有发现产品缺陷，独审未闭合（#884 不含运行时代码，可否先合交用户定）；#868 批 1405 在 spec/execute 因交付漏 `complete` 被拒收而封存，166/209 → 两个评审根下的 `STATE.md`，PR 评论 6779 / 6780
