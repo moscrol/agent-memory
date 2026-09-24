@@ -210,6 +210,8 @@ per-user 不是进程级；`runtime_backend_readiness` 这个全局探针看不�
 
 ## 交接记录
 
+- 2026-09-24 · Agent 开发基线与六图确定性纠错候选：finance `feat/agent-foundation@29e42db81`；接手见该分支 `docs/handoffs/inflight/feat-agent-foundation.md`。Harness 工具包 `docs/agent-foundation@54bef89`；均未合入/部署，非全量验收。
+
 - 2026-09-24 · claude · 额度批准后推进：#884 前向到 b77ff2241、#868 前向到 ce2a27131，两条线的工程四叶都全绿；#884 第 06 轮独审 A/B 已跑（42/84，C3 审查者 PASS 但宿主审计待做，C1/C2/C4 缺证据），#868 批 1405 已跑 spec gateway + explore（149/209），两条线都暂停待续（只读候选树勿删）→ 各自评审根下的 `STATE.md`（`~/.finance-runtime/reviews/pr884-closeout-20260924-06/`、`pr868-glm-qc-20260924-1405/`）
 - 2026-09-24 · claude · 清理第二轮 + 工具修复：再拆 45 棵（#880 锁树 6、旧生产快照 8 残留先打包、证据/等价/被包含树 29、封存后拆 2），worktree 154→112、磁盘 81 GiB；`cleanup_gate_trees.sh`/`worktree_safety.py` 两道守卫修好开 PR #905（缓存不算内容、目录监视句柄不算在用、`--release-merged-locks`，65P/0F，合入等用户）；75 条待裁决线逐条建议 → `~/.finance-runtime/reviews/pi-session-inventory-20260924/cleanup/DECISION-SHEET.md`。
 - 2026-09-24 · claude · 「收口了没清理」清理：148 棵已合入/已关带指针/detached 取证树拆除（34.4 GiB）+ 29 棵先封存到 `salvage/*-20260924` 再拆，659 条已合入本地分支删（sha 台账），7 条本机独有分支补推；磁盘 39→76 GiB、worktree 331→154；待决定的分支树、生产快照、夜跑代码根、取证保留库一棵没动 → `~/.finance-runtime/reviews/pi-session-inventory-20260924/cleanup/README.md`（判定规则 / 收据 / 可恢复性 / 留给用户判的 6 项）。
