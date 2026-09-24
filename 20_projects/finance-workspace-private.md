@@ -71,6 +71,7 @@ DuckDB → detect_turning_points.py / backtest_sector.py → 信号+板块边际
 ## 任务看板
 | 任务 | 负责 | 状态 | 备注 |
 |---|---|---|---|
+| 09-24 输入与底座验收 | codex | doing | 阶段A完成：spec、只读基线与运营审计假绿修复；干净6e6a2eac2定向103P。真实消费/跨日稳定/优化未签，生产恢复交原owner且另授权 → `~/fwp-wt-architecture-audit-0924/docs/handoffs/inflight/feat-architecture-audit-0924.md`。 |
 | #83 302132 回填整合 | codex | blocked | #813 固定 fd6d8cc5b，定向118P、前端120P/E2E34P+2S、registry五项0；Python全量触4GiB保护，本head整库演练不足8GiB拒绝，旧绿不移签。无后台测试、无合入或生产授权 → `fwp-wt-backfill-302132-0923/docs/handoffs/inflight/fix-backfill-302132-0923.md`。 |
 | 09-23 RAG启动恢复 | codex | blocked | 代码候选2ac97e68c对齐c9，干净全仓14895P、前端/30撤保护/registry四项加台账审计过；GLM静态链及真实自然入口完成，生产与候选仍行情错位503。旧发布四失败ID本轮全仓均过，不改签旧红、不归因历史超时；未push/合main/部署。最终市场QC组合与换库按既有owner授权边界 → `fwp-wt-rag-recovery-state-0923/docs/handoffs/inflight/fix-rag-recovery-state-0923.md`。 |
 | #73 计时授权独立 B | codex | blocked-resource | 最新固定合流b027194f1/base3bb81b9638；与7ec的intelligence有4文件差分，旧绿/旧E2独审不移签。QC04与工程15分钟等待结束，测试/build/模型0，C1-C10未签；约6.6GiB通过pytest临时夹具清理且证据不变，无自动续跑。有界本地就绪仍授权，发布/生产/自然质量另闸 → `~/fwp-wt-closeout-workorders-0922/docs/handoffs/inflight/docs-closeout-workorders-0922.md`。 |
@@ -209,6 +210,8 @@ per-user 不是进程级；`runtime_backend_readiness` 这个全局探针看不�
 而 CLI/回检走 `~/.zshrc` 里的 `/Users/a77/agent-memory/.foresight`——**两套用户台账不是同一份**。
 
 ## 交接记录
+
+- 2026-09-24 · codex · 输入/底座验收规格与阶段A落盘，未知欠账不再判零；工程与生产/消费分账，当前账户从启动器确认 → `~/fwp-wt-architecture-audit-0924/docs/handoffs/inflight/feat-architecture-audit-0924.md`。
 
 - 2026-09-24 晚 · claude · #884 第 06 轮四批跑完、84/84 用尽：只有 C3 宿主有限采信，没有发现产品缺陷，独审未闭合（#884 不含运行时代码，可否先合交用户定）；#868 批 1405 在 spec/execute 因交付漏 `complete` 被拒收而封存，166/209 → 两个评审根下的 `STATE.md`，PR 评论 6779 / 6780
 - 2026-09-24 · claude · 额度批准后推进：#884 前向到 b77ff2241、#868 前向到 ce2a27131，两条线的工程四叶都全绿；#884 第 06 轮独审 A/B 已跑（42/84，C3 审查者 PASS 但宿主审计待做，C1/C2/C4 缺证据），#868 批 1405 已跑 spec gateway + explore（149/209），两条线都暂停待续（只读候选树勿删）→ 各自评审根下的 `STATE.md`（`~/.finance-runtime/reviews/pr884-closeout-20260924-06/`、`pr868-glm-qc-20260924-1405/`）
