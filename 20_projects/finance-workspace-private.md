@@ -213,6 +213,7 @@ per-user 不是进程级；`runtime_backend_readiness` 这个全局探针看不�
 
 ## 交接记录
 
+- 2026-09-24 深夜 · claude · 用户「合并，然后继续推进」：#884 合入 `4cc15e703`；运行时合同独审 07 轮 166 次，两轮合计 C2/C3/C4/C5/C8 宿主有限采信、C1/C7 部分、C6 无、零产品缺陷；#868 前向到 `f531d2d00`（四叶绿），批 2105 spec PASS_WITH_LIMITS、quality 封存、213/244；与并行 Pi 会话 01a0d357 的 #906 已对齐 → `docs/handoffs/2026-09-24-runtime-review-r07-and-pr868-2105.md`（PR #909）
 - 2026-09-24 · codex · Agent基线授权合入与精确版本策略 → finance `docs/handoffs/2026-09-24-agent-foundation-merge.md`（#908）；实时状态读Gitea和原始收据，不从历史快照猜。
 
 - 2026-09-24 · codex · Agent基线#907固定03af完整工程门禁通过，未合/部署；交接与原件另在docs/agent-foundation-closeout → `docs/handoffs/2026-09-24-agent-foundation-acceptance.md`，收据不签后来文档或合并SHA。
