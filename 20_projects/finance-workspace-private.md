@@ -213,6 +213,7 @@ per-user 不是进程级；`runtime_backend_readiness` 这个全局探针看不�
 
 ## 交接记录
 
+- 2026-09-25 凌晨 · claude · #909（INDEX #72/#75 真值化）四叶全绿后合入 `03352758c`；#906 采纳进 #868 分支，#868 前向成受审候选 `f2610293f`，四叶全绿（15886P/0F）；#868 下一批独审与 #884 第 08 轮（C1/C7/C6）都已准备好、零成本验证通过，**未授权未启动**（runner 有授权门）→ `~/.finance-runtime/reviews/pr868-glm-qc-20260925-next/STATE.md`、`pr884-closeout-20260925-08/STATE.md`
 - 2026-09-25 · codex · 同题重复句绑定局部修补，不代签Knevo八问 → `fwp-wt-material-claim-occurrence-0925/docs/handoffs/inflight/fix-material-claim-occurrence-0925.md`；方法 [[../10_knowledge/state-transition-identity-must-survive-dedup]]。
 
 - 2026-09-24 深夜 · claude · 用户「合并，然后继续推进」：#884 合入 `4cc15e703`；运行时合同独审 07 轮 166 次，两轮合计 C2/C3/C4/C5/C8 宿主有限采信、C1/C7 部分、C6 无、零产品缺陷；#868 前向到 `f531d2d00`（四叶绿），批 2105 spec PASS_WITH_LIMITS、quality 封存、213/244；与并行 Pi 会话 01a0d357 的 #906 已对齐 → `docs/handoffs/2026-09-24-runtime-review-r07-and-pr868-2105.md`（PR #909）
