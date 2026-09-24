@@ -71,7 +71,7 @@ DuckDB → detect_turning_points.py / backtest_sector.py → 信号+板块边际
 ## 任务看板
 | 任务 | 负责 | 状态 | 备注 |
 |---|---|---|---|
-| 09-24 Pi尾项执行 | codex | blocked | #71本地2749四叶齐（16049P、65组变异红绿），仍缺独审/新真实复验；#813原执行者工程就绪待QC；#906协议43P、#81合流380P/两撤保护、#73全量绿但漂移拒收。未推#71/合main/部署，无本轮后台 → `~/fwp-wt-pi-closeout-execution-0924/docs/handoffs/2026-09-24-pi-closeout-TODO.md`。 |
+| 09-24 Pi尾项执行 | codex | blocked | 09-25局部3198修同题重复句来源，736P/4S，不是#877原八问根因修复；两变异待load<=8、环境锁偏差未改。#71历史2749四叶齐仍欠独审/真实复验；#813旧K3终审缺失，原执行者另跑限定GLM复核。未合main/部署/新增付费 → `~/fwp-wt-pi-closeout-execution-0924/docs/handoffs/2026-09-24-pi-closeout-TODO.md`。 |
 | 09-24 Pi式研究兑现 | codex | blocked | 已推#910路径修补与#911研究链验收，交#868 owner采用；定向绿不作独审/自然质量，主线和8792未动 → `~/fwp-wt-pi-research/docs/handoffs/inflight/feat-pi-research-loop.md`。 |
 | 09-24 输入与底座验收 | codex | blocked | A完成，B继续离线；6365501ba干净162P。风远147条当前装配、十条改写有旧记录但追溯未闭合，既有考卷3/3；SPT92条装配但缺卷。Q-002扩展在原未合分支；行情/readiness仍503，真模型前置未闭合 → `~/fwp-wt-architecture-audit-0924/docs/handoffs/inflight/feat-architecture-audit-0924.md`。 |
 | #83 302132 回填整合 | codex | 独审阻塞 | #813固定3c5b3c9a6（base4cc15e703），作者四叶/整库37PASS仍有效。#75 K3本批11请求，Spec第6请求200头后120秒流中断，无探针/终稿，Quality未启动；214原件无损封存，进程已退。发布前main到03af215e0含门禁/环境变化，新组合未验；WIP保留，未合入/写生产，不能把作者15457P代独审 → `fwp-wt-backfill-302132-0923/docs/handoffs/inflight/fix-backfill-302132-0923.md`。 |
@@ -212,6 +212,8 @@ per-user 不是进程级；`runtime_backend_readiness` 这个全局探针看不�
 而 CLI/回检走 `~/.zshrc` 里的 `/Users/a77/agent-memory/.foresight`——**两套用户台账不是同一份**。
 
 ## 交接记录
+
+- 2026-09-25 · codex · 同题重复句绑定局部修补，不代签Knevo八问 → `fwp-wt-material-claim-occurrence-0925/docs/handoffs/inflight/fix-material-claim-occurrence-0925.md`；方法 [[../10_knowledge/state-transition-identity-must-survive-dedup]]。
 
 - 2026-09-24 深夜 · claude · 用户「合并，然后继续推进」：#884 合入 `4cc15e703`；运行时合同独审 07 轮 166 次，两轮合计 C2/C3/C4/C5/C8 宿主有限采信、C1/C7 部分、C6 无、零产品缺陷；#868 前向到 `f531d2d00`（四叶绿），批 2105 spec PASS_WITH_LIMITS、quality 封存、213/244；与并行 Pi 会话 01a0d357 的 #906 已对齐 → `docs/handoffs/2026-09-24-runtime-review-r07-and-pr868-2105.md`（PR #909）
 - 2026-09-24 · codex · Agent基线授权合入与精确版本策略 → finance `docs/handoffs/2026-09-24-agent-foundation-merge.md`（#908）；实时状态读Gitea和原始收据，不从历史快照猜。
