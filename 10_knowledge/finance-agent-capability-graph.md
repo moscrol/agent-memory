@@ -190,6 +190,7 @@ flowchart LR
 | 多轮对话 | finance | `intelligence/services/ask_chat.py` | 首轮检索后复用证据做追问 |
 | 自主工具 Agent | finance | `intelligence/runtime/agent.py` | LLM 自主决定调用只读检索工具 |
 | 问答编排器 | finance | `intelligence/services/answer_orchestrator.py` | 问题类型、深度、视角、证据计划、质检门槛 |
+| 视角条件匹配与保真预演（候选，未部署） | finance | `intelligence/services/perspective_signals.py::validated_rules@feat/architecture-audit-0924`、`intelligence/services/perspective_signals.py::matches@feat/architecture-audit-0924`、`scripts/preview_perspective_exam.py::preview@feat/architecture-audit-0924` | cd2116dbe：按画像值哈希绑定多条件短语合同，否定/反证优先；考卷与确定性合议共用，不改未配置规则或模型提示。真实SPT原题/画像不变，隔离合同+边界3/3；原画像仍1/3、正式卷仍缺。干净597P及三处撤保护检出；不是通用语义、未见题或金融质量。未写用户态/合main/部署；范围见本枝2026-09-25-perspective-signal-contract规格与验证目录。 |
 | 正式复盘查漏门 | finance | `intelligence/services/forecast_preflight.py` | daily-agent 缺口未补齐时暂停正式复盘 |
 | 回答质量层 | finance | `intelligence/services/answer_quality.py` | 输出前自审、叙事组织、影子用户反驳 |
 | 数字条件门引用隔离（在途组合候选） | finance | `intelligence/services/episode_protocol.py::strip_evidence_ordinals@fix/8792-boundary-integration` | 原修复`2841ce66`已组合进`3faf64fb`：答案与证据数量提取共用协议引用语法，E27不充当阈值或数值依据；原文、未知引用与真实阈值保护保留。冻结8792样本第20句误报移除，24/25仍拒绝；与日期门组合的双模式测试及固定提交四叶已验，不代签语义正确性。09-18固定3faf真实会话保留2026-10-21+E45/E43计划，真证据离线6门对照通过；四题含1运行失败，整体验收未过。未push/合main/部署；看 `docs/handoffs/inflight/fix-8792-boundary-integration.md`，不借旧枝收据。 |
