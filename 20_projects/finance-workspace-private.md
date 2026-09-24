@@ -213,6 +213,8 @@ per-user 不是进程级；`runtime_backend_readiness` 这个全局探针看不�
 
 ## 交接记录
 
+- 2026-09-24 · codex · Agent基线#907固定03af完整工程门禁通过，未合/部署；交接与原件另在docs/agent-foundation-closeout → `docs/handoffs/2026-09-24-agent-foundation-acceptance.md`，收据不签后来文档或合并SHA。
+
 - 2026-09-24 · Agent 开发基线与六图确定性纠错候选：finance `feat/agent-foundation@29e42db81`；接手见该分支 `docs/handoffs/inflight/feat-agent-foundation.md`。Harness 工具包 `docs/agent-foundation@54bef89`；均未合入/部署，非全量验收。
 
 - 2026-09-24 · codex · Pi尾项执行：#906协议修补、#81冲突与撤保护、#73固定测试和漂移拒收分账 → `fwp-wt-pi-closeout-execution-0924/docs/handoffs/2026-09-24-pi-closeout-TODO.md`；方法 [[../10_knowledge/terminal-signal-scope-and-projection-waits]]。
