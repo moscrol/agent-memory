@@ -213,6 +213,7 @@ per-user 不是进程级；`runtime_backend_readiness` 这个全局探针看不�
 
 ## 交接记录
 
+- 2026-09-25 01:3x · claude · 用户「执行」：#868 独审批跑完（281/291；与 2105 合并后 C1/C2/C4/C5/C6 已验证、零缺陷；C7 被新 conftest 要调 git 挡住，下一批设 FWP_WORKBENCH_PYTHON）；#884 第 08 轮 47 次（C1 宿主采信，三轮合计 6/8 采信、零缺陷；K3 上游凌晨 3 次约 120 秒 504）；**更正 #61：不是只差授权，发布线仍有工程前置** → `docs/handoffs/2026-09-25-review-batches-and-61-correction.md`（PR #914）
 - 2026-09-25 凌晨 · claude · #909（INDEX #72/#75 真值化）四叶全绿后合入 `03352758c`；#906 采纳进 #868 分支，#868 前向成受审候选 `f2610293f`，四叶全绿（15886P/0F）；#868 下一批独审与 #884 第 08 轮（C1/C7/C6）都已准备好、零成本验证通过，**未授权未启动**（runner 有授权门）→ `~/.finance-runtime/reviews/pr868-glm-qc-20260925-next/STATE.md`、`pr884-closeout-20260925-08/STATE.md`
 - 2026-09-25 · codex · 同题重复句绑定局部修补，不代签Knevo八问 → `fwp-wt-material-claim-occurrence-0925/docs/handoffs/inflight/fix-material-claim-occurrence-0925.md`；方法 [[../10_knowledge/state-transition-identity-must-survive-dedup]]。
 - 2026-09-25 · codex · 材料撤保护闭合、#73新主干四叶绿但环境/独审仍阻塞、旧PR归属核验 → `fwp-wt-pi-closeout-execution-0924/docs/handoffs/inflight/docs-pi-closeout-execution-0924.md`。
