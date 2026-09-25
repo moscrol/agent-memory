@@ -213,6 +213,7 @@ per-user 不是进程级；`runtime_backend_readiness` 这个全局探针看不�
 
 ## 交接记录
 
+- 2026-09-25 · claude · 「继续推进」：夜跑新根只读预检通过（hithink key 在 launchd 环境可见、plan=local、根/解释器正确）；拆树工具默认口径 dry-run 0 棵（无过期树）；挂了 18:52 / 20:58 两个会话内定时检查；#61 写成带命令的执行计划 `~/.finance-runtime/reviews/nightly-install-20260925/61-status-plan.md`（生产库 fact_stock_daily 停 09-22、fact_sector_daily 停 09-18；09-23/24 空洞要走 `/duckdb-backfill`，同花顺近 10 日包有时间窗；板块成员身份缺口需要新来源或产品口径，由用户定）。
 - 2026-09-25 · claude · 用户「授权推进」→ #923 四叶绿合入（main 55db731a6）；**#60 夜跑代码根装完**：诊断 09-24 runlog（local 计划下 `stock-daily` fallback fail → 下游全红，根因安装根/绑定根都早于 #871 桥），建运行根 `finance-sync-fe9fdbfd70a6`（树 == 四叶全绿预览），绑定 PR #924（四文件五处；Python 叶第一次 1 红为满载竞态、重跑 15,640P/0F）合入 → main `79861f07e485`，按 eastmoney runbook 从安装源 `finance-nightly-installer-79861f07e485` dry-run + 安装（无 kickstart），读回四文件同源、两任务加载。**生产验收待 09-25 18:30 / 20:40**；记录 `~/.finance-runtime/reviews/nightly-install-20260925/`。#61 未动（INDEX 09-25：工程前置未完成）。
 - 2026-09-25 · codex · #868组合前向新main的fb41完整工程门禁、C3聚合槽/实际尝试分账、五调用点compat验证及逐轴边界 → `~/fwp-wt-pr868-current-0925/docs/handoffs/2026-09-25-pr868-current-base-offline.md`。
 
