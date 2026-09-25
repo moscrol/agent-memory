@@ -213,6 +213,8 @@ per-user 不是进程级；`runtime_backend_readiness` 这个全局探针看不�
 
 ## 交接记录
 
+- 2026-09-25 · codex · #910/#911增量准备与授权误记撤销，零模型、停批入口拒绝，跟随owner冻结最终基座后再申请明确额度 → `~/fwp-wt-pr868-current-0925/docs/handoffs/2026-09-25-pr910-911-review-preparation.md`。
+
 - 2026-09-25 · codex · #73控制器冻结输入/预期失败交付离线修正；执行边界资源拒绝，0新增模型；主干漂移27>5另拒收 → `~/fwp-wt-re06-closeout-refresh-0925/docs/handoffs/2026-09-25-re06-controller-alignment-and-drift.md`。
 
 - 2026-09-25 · claude · 「继续推进」：夜跑新根只读预检通过（hithink key 在 launchd 环境可见、plan=local、根/解释器正确）；拆树工具默认口径 dry-run 0 棵（无过期树）；挂了 18:52 / 20:58 两个会话内定时检查；#61 写成带命令的执行计划 `~/.finance-runtime/reviews/nightly-install-20260925/61-status-plan.md`（生产库 fact_stock_daily 停 09-22、fact_sector_daily 停 09-18；09-23/24 空洞要走 `/duckdb-backfill`，同花顺近 10 日包有时间窗；板块成员身份缺口需要新来源或产品口径，由用户定）。
