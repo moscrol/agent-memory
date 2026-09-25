@@ -213,6 +213,8 @@ per-user 不是进程级；`runtime_backend_readiness` 这个全局探针看不�
 
 ## 交接记录
 
+- 2026-09-25 · codex · #913两条历史缺行在受保护副本补齐、09-22三股原件复核；16321P全量绿但#933漂移拒收，数据门仍阻塞 → Finance `docs/handoffs/2026-09-25-historical-gap-preparation.md`（本地 `~/fwp-wt-dated-recovery-forward-0925/`）。
+
 - 2026-09-25 · codex · 日期化恢复前向、离线具名缺口及缓存竞态后全量复跑；候选绿与基座拒收分账 → Finance `docs/handoffs/2026-09-25-dated-recovery-forward.md`（本地 `~/fwp-wt-dated-recovery-forward-0925/`）。
 - 2026-09-25 · codex · 启动归属、跨树沙箱夹具与前端验收隔离的精确版本回读及恢复接续 → Finance `docs/handoffs/2026-09-25-startup-attribution-merge.md`（本地 `~/fwp-wt-deploy-attribution-archive-0925/`）。
 - 2026-09-25 · codex · #868合入后将#910/#911各自无冲突前向main1751并改PR base；新候选4P/56P分账、完整门禁待资源，零新增模型 → `~/fwp-wt-pr910-main-0925/docs/handoffs/2026-09-25-pr910-main-forward.md`、`~/fwp-wt-pr911-main-0925/docs/handoffs/2026-09-25-pr911-main-forward.md`。
