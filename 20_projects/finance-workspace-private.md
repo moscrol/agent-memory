@@ -72,7 +72,7 @@ DuckDB → detect_turning_points.py / backtest_sector.py → 信号+板块边际
 | 任务 | 负责 | 状态 | 备注 |
 |---|---|---|---|
 | 09-24 Pi尾项执行 | codex | blocked | 09-25 23:23 #73 Q07资源准入后pytest插件加载失败，后续即停；修补模板36项离线过但未接新批，186/218余32，无新模型/自动重试。Q06/Q07原件保留，新16件归档，独审/自然验收仍缺，旧main绿不移签。邻线只读，不自动关闭旧PR，无后台/推送/合并/生产 → `~/fwp-wt-pi-closeout-execution-0924/docs/handoffs/2026-09-24-pi-closeout-TODO.md`。 |
-| 09-24 Pi式研究兑现 | codex | running | 固定#910 2da72eef4/#911 34e31a256；第03批#911完整工程过（Python16266P/0F0E/75S2X），两边定向74P/56P及前端123P/E2E34P2S。归档协调枝2b088cb32，哈希147/147、58/58过；评论7253/7255回读。用户继续后第04批只补#910全仓，监督14749，最多5分钟等待准入，尚未启动pytest；原根`~/.finance-runtime/reviews/pr910-main12d-full-20260925-04/`。main e159漂移未吸收，WIP/零模型/未合入部署。 |
+| 09-24 Pi式研究兑现 | codex | blocked | 固定#910 2da72eef4/#911 34e31a256；#911完整工程过（Python16266P/0F0E/75S2X），两边定向74P/56P及前端123P/E2E34P2S。#910全仓仍缺：第04批5分钟11次/第05批零等待1次均拒绝，未新增pytest。归档50fcb4fa8哈希24/24过，评论7261/7255回读；需协调测试窗口，不连续建批次抢空档。main e159未吸收，WIP/零模型/无后台/未合入部署 → `~/fwp-wt-pr868-current-0925/docs/handoffs/inflight/baseline-pr868-current-0925.md`。 |
 | 09-24 输入与底座验收 | codex | blocked | 词面合同12项反例8F后拒收；fa82a73ca隔离运行接线。ec806440c完成纠偏读侧117P（含CLI `prime`）；f3d39d7d2完成Workbench写侧临时根探针、default正例及fail-open，f3d定向231P。只证审计分支和临时状态，读侧覆盖单仍未落地；SPT仍1/3、正式卷缺，readiness503缺行情一致性，未写用户态/合入/部署 → `~/fwp-wt-architecture-audit-0924/docs/handoffs/inflight/feat-architecture-audit-0924.md`。
 | #83 302132 回填整合 | codex | blocked | [WIP #813](http://127.0.0.1:3300/a77/finance-workspace-private/pulls/813#issuecomment-7132)远端仍ae3；最新本地47061506/main724工程16325P/0F/72S/2X、完整库演练37项及等价sandbox rehearsal通过。实际toolEnv组合供应探针25P，仍未重现独审20身份失败；无有效终稿，旧QC不转签。未合入/未写生产 → `fwp-wt-backfill-302132-0923/docs/handoffs/inflight/fix-backfill-302132-0923.md`，handoff fef8fc673。 |
 | 09-23 RAG启动恢复 | codex | blocked | 代码候选2ac97e68c对齐c9，干净全仓14895P、前端/30撤保护/registry四项加台账审计过；GLM静态链及真实自然入口完成，生产与候选仍行情错位503。旧发布四失败ID本轮全仓均过，不改签旧红、不归因历史超时；未push/合main/部署。最终市场QC组合与换库按既有owner授权边界 → `fwp-wt-rag-recovery-state-0923/docs/handoffs/inflight/fix-rag-recovery-state-0923.md`。 |
@@ -224,6 +224,7 @@ per-user 不是进程级；`runtime_backend_readiness` 这个全局探针看不�
   - 遗留：`_rebuild_outcome` 丢观察值（任务卡未修）；main 上本 PR 的 inflight 文件过期，已请 `local_d1bf0c0c` 在下一份 docs PR 里删。
   - → `docs/handoffs/2026-09-25-numeric-preflight-model-number.md`
 
+- 2026-09-25 · codex · #910固定候选第04/05批准入分别11/1次拒绝，无新增pytest；复核既有证据、协调窗口后再补，归档50fcb4fa8 → `~/fwp-wt-pr868-current-0925/docs/handoffs/2026-09-25-pr910-admission04-05.md`。
 - 2026-09-25 · codex · main12d固定候选#911完整工程16266P闭合，#910定向/前端通过但全仓未准入；分账归档2b088cb32，不移签main e159 → `~/fwp-wt-pr868-current-0925/docs/handoffs/2026-09-25-pr910-911-main12d-gates03.md`。
 - 2026-09-25 · codex · 固定#910当前HEAD取得74P，#911与剩余门禁受30分钟61次资源拒绝阻挡；证据独立写协调枝ca4d7ea53、不移动受测HEAD → `~/fwp-wt-pr868-current-0925/docs/handoffs/2026-09-25-pr910-911-fixed-head-gates02.md`。
 - 2026-09-25 · codex · #910旧SHA全仓16232P封存，#910/#911再前向main643但动态准入拒绝，不移签 → `~/fwp-wt-pr910-main-0925/docs/handoffs/2026-09-25-pr910-main643-engineering.md`、`~/fwp-wt-pr911-main-0925/docs/handoffs/2026-09-25-pr911-main643-engineering.md`。
