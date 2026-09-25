@@ -71,12 +71,12 @@ DuckDB → detect_turning_points.py / backtest_sector.py → 信号+板块边际
 ## 任务看板
 | 任务 | 负责 | 状态 | 备注 |
 |---|---|---|---|
-| 09-24 Pi尾项执行 | codex | blocked | 09-25材料a99局部回归/撤保护齐；#73 Q07已接写隔离且25项/9组离线过，真实pytest/UI包装器因资源未准入，独审未启动；累计186/218余32，QC06原件保留，旧main漂移54>5不移签；自然验收仍缺。邻线只读跟踪、旧PR不自动关闭，无本任务后台/推送/合并/生产 → `~/fwp-wt-pi-closeout-execution-0924/docs/handoffs/2026-09-24-pi-closeout-TODO.md`。 |
+| 09-24 Pi尾项执行 | codex | blocked | 09-25 23:23 #73 Q07资源准入后pytest插件加载失败，后续即停；修补模板36项离线过但未接新批，186/218余32，无新模型/自动重试。Q06/Q07原件保留，新16件归档，独审/自然验收仍缺，旧main绿不移签。邻线只读，不自动关闭旧PR，无后台/推送/合并/生产 → `~/fwp-wt-pi-closeout-execution-0924/docs/handoffs/2026-09-24-pi-closeout-TODO.md`。 |
 | 09-24 Pi式研究兑现 | codex | running | 固定#910 2da72eef4/#911 34e31a256；第03批#911完整工程过（Python16266P/0F0E/75S2X），两边定向74P/56P及前端123P/E2E34P2S。归档协调枝2b088cb32，哈希147/147、58/58过；评论7253/7255回读。用户继续后第04批只补#910全仓，监督14749，最多5分钟等待准入，尚未启动pytest；原根`~/.finance-runtime/reviews/pr910-main12d-full-20260925-04/`。main e159漂移未吸收，WIP/零模型/未合入部署。 |
 | 09-24 输入与底座验收 | codex | blocked | 词面合同12项反例8F后拒收；fa82a73ca隔离运行接线。ec806440c完成纠偏读侧117P（含CLI `prime`）；f3d39d7d2完成Workbench写侧临时根探针、default正例及fail-open，f3d定向231P。只证审计分支和临时状态，读侧覆盖单仍未落地；SPT仍1/3、正式卷缺，readiness503缺行情一致性，未写用户态/合入/部署 → `~/fwp-wt-architecture-audit-0924/docs/handoffs/inflight/feat-architecture-audit-0924.md`。
 | #83 302132 回填整合 | codex | blocked | [WIP #813](http://127.0.0.1:3300/a77/finance-workspace-private/pulls/813#issuecomment-7132)远端仍ae3；最新本地47061506/main724工程16325P/0F/72S/2X、完整库演练37项及等价sandbox rehearsal通过。实际toolEnv组合供应探针25P，仍未重现独审20身份失败；无有效终稿，旧QC不转签。未合入/未写生产 → `fwp-wt-backfill-302132-0923/docs/handoffs/inflight/fix-backfill-302132-0923.md`，handoff fef8fc673。 |
 | 09-23 RAG启动恢复 | codex | blocked | 代码候选2ac97e68c对齐c9，干净全仓14895P、前端/30撤保护/registry四项加台账审计过；GLM静态链及真实自然入口完成，生产与候选仍行情错位503。旧发布四失败ID本轮全仓均过，不改签旧红、不归因历史超时；未push/合main/部署。最终市场QC组合与换库按既有owner授权边界 → `fwp-wt-rag-recovery-state-0923/docs/handoffs/inflight/fix-rag-recovery-state-0923.md`。 |
-| #73 计时授权独立 B | codex | blocked | 09-25 18:51 Q07写工具/探针OS隔离已接，25项unittest/Ruff及9组SDK/原生反例过；资源pytest3预计4拒绝，真实pytest/UI包装器及独审未启动。0新模型、仍186/218余32，E2切片最多11另两组未准入；482件证据归档，QC06原件未动。三组/自然验收未齐，无后台/重试/推送/部署 → `~/fwp-wt-re06-closeout-refresh-0925/docs/handoffs/inflight/fix-re06-closeout-refresh-0925.md`。 |
+| #73 计时授权独立 B | codex | blocked | 09-25 23:23 Q07真实预检因旧work检查拒新scratch/users，在插件加载期exit1/counts=null，无JUnit；后续即停。新模板/16件归档46e094bc0，36项unittest/Ruff过但未接新批；0新模型，186/218余32，E2上限11不变。旧482归档未改，仅源资源台账合法追加；三组/自然验收欠缺，无后台/自动重试/推送/部署 → `~/fwp-wt-re06-closeout-refresh-0925/docs/handoffs/inflight/fix-re06-closeout-refresh-0925.md`。 |
 | 09-22 watchdog测试红灯验收 | codex | done-with-boundaries | #848已合入`a2c8d1f90773fdf3dcb7cf53f5d9733590924ae1`；实际main新门禁12511P/85S/2X、Ruff/registry0、前端110P/E2E34P/2S，收据`20260921T191851Z-a2c8d1f9.json`与审计通过。独立审查仍是一位`PASS_WITH_LIMITS`，0.8s起止点收窄、假钟作用域限制保留；未部署/重启，#846仍WIP → `fwp-wt-watchdog-closeout-0922/docs/handoffs/2026-09-22-watchdog-848-authorized-merge-and-main-gate.md`。 |
 | 09-22 变异量具超时留证 | claude-code | done-with-boundaries | R6 线「发布超时归因」的**前置量具**已补：`e9e3361a`（+文档`94eddad1`，分支`fix/mutation-timeout-evidence-0922`，基座main`a2c8d1f90`）让 `run_extraction_mutations.py` 超时/中断/启动失败都留现场——输出直接落盘、卡住转储线程栈、进程组独占清理、缺JUnit记`executed=None`不记0、`check_result`拒收非完成态、证据文件不可覆盖。四叶均有结论：全量12534P/85S/2X+Ruff0（收据`20260922T111226Z-e9e3361a.json`经`check_test_receipt --expect-revision` exit0）、前端110P、E2E34P/2S、registry五项0；11组撤保护各有具名红证人、还原后绿、树clean。**不归因也不翻案09-18那次180秒超时**（旧现场已不存在），未跑publication套件、未push/PR/合main/部署、R6真实验收与独立QC仍缺（该线已由#835接替）→ `fwp-wt-mutation-timeout-evidence-0922/docs/handoffs/inflight/fix-mutation-timeout-evidence-0922.md`，证据根`~/.finance-runtime/reviews/mutation-timeout-evidence-20260922/`。 |
 | 09-21 行情恢复 | pi | blocked | 纯候选7311a7738；干净4c0162a9b定向247P，新构造器88P、六类变异抓红。09-04复牌原件已固定，5565范围构造5553候选+12缺失处置；原278+新增136证据回读一致。名称/换手率/官方历史范围/停牌分母与下游三门待闭合；未写库/发布/合并/部署 → `fwp-wt-market-recovery-0921/docs/handoffs/inflight/fix-market-recovery-0921.md`。 |
@@ -212,6 +212,8 @@ per-user 不是进程级；`runtime_backend_readiness` 这个全局探针看不�
 而 CLI/回检走 `~/.zshrc` 里的 `/Users/a77/agent-memory/.foresight`——**两套用户台账不是同一份**。
 
 ## 交接记录
+
+- 2026-09-25 · codex · #73 Q07真实pytest插件加载失败即停，新scratch用户目录模板36项离线过未接新批，186/218 → `~/fwp-wt-re06-closeout-refresh-0925/docs/handoffs/2026-09-25-re06-qc07-userspace-rejection.md`。
 
 - 2026-09-25 晚 · claude（`local_afca30fa`）· 用户派单修数值预检把型号 / 单独月份当阈值。
   - PR #932 已合入 main `e159c5644`：`local_d1bf0c0c` 执行，用户原话「合并」。合并树 == 预览树 `aaded60d8`，预览上四叶全绿。
