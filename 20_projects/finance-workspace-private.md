@@ -72,7 +72,7 @@ DuckDB → detect_turning_points.py / backtest_sector.py → 信号+板块边际
 | 任务 | 负责 | 状态 | 备注 |
 |---|---|---|---|
 | 09-24 Pi尾项执行 | codex | blocked | 09-25材料a99两组5F/7F及恢复绿、736P/4S；#73新a30e四叶通过、漂移0，仍欠锁定环境/独审/自然验收。#813限定GLM已结束且报告被拒；旧PR档案/实现归属已核。未push/合main/部署/新增付费 → `~/fwp-wt-pi-closeout-execution-0924/docs/handoffs/2026-09-24-pi-closeout-TODO.md`。 |
-| 09-24 Pi式研究兑现 | codex | blocked | #868+#910+#911前向main fe9，受测fb41全仓16243P/75S/2X、前端123P、E2E34P2S、registry绿，C3作者重放及compat五调用点12例过。当前无独审/L6/生产验收；另一会话旧f261 C3有限采信不移签。归档保留格式红 → `~/fwp-wt-pr868-current-0925/docs/handoffs/inflight/baseline-pr868-current-0925.md`。 |
+| 09-24 Pi式研究兑现 | codex | doing | #910/#911已各自前向固定main1751并改base；4ad2四项4P、86da两文件56P，完整四叶/独审仍缺，旧fb41不移签。当前新树与边界见协调索引 → `~/fwp-wt-pr868-current-0925/docs/handoffs/inflight/baseline-pr868-current-0925.md`。 |
 | 09-24 输入与底座验收 | codex | blocked | 词面合同12项反例8F后拒收；fa82a73ca隔离运行接线。ec806440c完成纠偏读侧117P（含CLI `prime`）；f3d39d7d2完成Workbench写侧临时根探针、default正例及fail-open，f3d定向231P。只证审计分支和临时状态，读侧覆盖单仍未落地；SPT仍1/3、正式卷缺，readiness503缺行情一致性，未写用户态/合入/部署 → `~/fwp-wt-architecture-audit-0924/docs/handoffs/inflight/feat-architecture-audit-0924.md`。
 | #83 302132 回填整合 | codex | Quality已执行 / 终稿拒收 | #813固定3c5/base4cc；09-25续批39请求，给定复跑7P、新写1P/1F（窗前fixture缺行）。真实工具终稿缺控制status/带失败报PASS且首bash违规，原门拒收；宿主修夹具基线1P/全3P另计。旧Spec5P局部有效，398原件封存、无后台，发布观测main前进至d21707ca6，新组合未验。先离线约束工具首命令/字段再续审，不原样再投17+17。未改/推产品、未合入/生产 → `fwp-wt-backfill-302132-0923/docs/handoffs/inflight/fix-backfill-302132-0923.md`。 |
 | 09-23 RAG启动恢复 | codex | blocked | 代码候选2ac97e68c对齐c9，干净全仓14895P、前端/30撤保护/registry四项加台账审计过；GLM静态链及真实自然入口完成，生产与候选仍行情错位503。旧发布四失败ID本轮全仓均过，不改签旧红、不归因历史超时；未push/合main/部署。最终市场QC组合与换库按既有owner授权边界 → `fwp-wt-rag-recovery-state-0923/docs/handoffs/inflight/fix-rag-recovery-state-0923.md`。 |
@@ -212,6 +212,8 @@ per-user 不是进程级；`runtime_backend_readiness` 这个全局探针看不�
 而 CLI/回检走 `~/.zshrc` 里的 `/Users/a77/agent-memory/.foresight`——**两套用户台账不是同一份**。
 
 ## 交接记录
+
+- 2026-09-25 · codex · #868合入后将#910/#911各自无冲突前向main1751并改PR base；新候选4P/56P分账、完整门禁待资源，零新增模型 → `~/fwp-wt-pr910-main-0925/docs/handoffs/2026-09-25-pr910-main-forward.md`、`~/fwp-wt-pr911-main-0925/docs/handoffs/2026-09-25-pr911-main-forward.md`。
 
 - 2026-09-25 · codex · #910/#911增量准备与授权误记撤销，零模型、停批入口拒绝，跟随owner冻结最终基座后再申请明确额度 → `~/fwp-wt-pr868-current-0925/docs/handoffs/2026-09-25-pr910-911-review-preparation.md`。
 
