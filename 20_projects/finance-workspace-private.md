@@ -213,6 +213,7 @@ per-user 不是进程级；`runtime_backend_readiness` 这个全局探针看不�
 
 ## 交接记录
 
+- 2026-09-25 上午 · claude · 用户「pi准」（=批准）：#884 C7 证人批 13 次闭合，三轮合计 7/8 宿主有限采信（只差 C6 现成证人），零缺陷；#868 c3c7 批 34 次（给审查沙箱设 FWP_WORKBENCH_PYTHON 后 C7 验证），同 revision 6/7 已验证、只差 C3；下一步两个小批已备好但未授权（`pr884-closeout-20260925-09`、`pr868-glm-qc-20260925-c3`）；INDEX 经 #921 合入 `4db9a42b6`（merge POST 超时但服务端已合，手写 record 后带指针关 PR）→ `docs/handoffs/2026-09-25-morning-review-batches.md`
 - 2026-09-25 · claude · 用户「你继续按照最优推进，可以合的就合」→ 合并列车七张全部合入（#905 #915 #916 #917 #919 #920 #918，main → `fe9fdbfd7`，合后树 == 预览树，每张 `merge --expect-head/--expect-base --record`），远端分支随合删，本地前向树 / 预览树 / 九棵源分支树拆除（worktree 129）。合入后的拆树工具对真实仓 dry-run 又暴露两条（家目录引用误判 37 棵、retain 锁被当过期）→ **PR #923** 等用户。记录 `~/.finance-runtime/reviews/pi-session-inventory-20260924/train-0925/README.md`。
 - 2026-09-25 · codex · #868/#910/#911联合候选adbe完整离线门禁与逐轴证据边界，C3探针observer签名最小复现，不代独审/L6 → `~/fwp-wt-pr868-combined-0925/docs/handoffs/2026-09-25-pr868-combined-offline-gates.md`。
 
