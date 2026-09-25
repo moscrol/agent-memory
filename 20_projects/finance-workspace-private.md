@@ -72,7 +72,7 @@ DuckDB → detect_turning_points.py / backtest_sector.py → 信号+板块边际
 | 任务 | 负责 | 状态 | 备注 |
 |---|---|---|---|
 | 09-24 Pi尾项执行 | codex | blocked | 09-25材料a99两组5F/7F及恢复绿、736P/4S；#73新a30e四叶通过、漂移0，仍欠锁定环境/独审/自然验收。#813限定GLM已结束且报告被拒；旧PR档案/实现归属已核。未push/合main/部署/新增付费 → `~/fwp-wt-pi-closeout-execution-0924/docs/handoffs/2026-09-24-pi-closeout-TODO.md`。 |
-| 09-24 Pi式研究兑现 | codex | blocked | #911进程内API链787P/3S/1X；#910续修沙箱准入，固定ff62四目标199P/0S、双轴C3/C7作者检查可执行，不代独审。交#868 owner采用，未合main/部署/新增付费 → `~/fwp-wt-pr868-delivery-validation-0924/docs/handoffs/inflight/fix-pr868-delivery-validation-0924.md`；研究链见`~/fwp-wt-pi-research/docs/handoffs/inflight/feat-pi-research-loop.md`。 |
+| 09-24 Pi式研究兑现 | codex | blocked | #868+#910+#911联合adbe全仓15969P/88S/2X、前端120P、E2E34P2S、registry绿，交owner采用；独审/L6/生产未过，不移签旧f261。同期c3c7原件与探针签名定位见新交接 → `~/fwp-wt-pr868-combined-0925/docs/handoffs/inflight/baseline-pr868-combined-0925.md`。 |
 | 09-24 输入与底座验收 | codex | blocked | 词面合同12项反例8F后拒收；fa82a73ca隔离运行接线。新增用户记忆离线前置：A写入/A消费、B空结果、撤回空结果、缺身份不装配，ec806440c定向117P（含CLI `prime`）；仅证既有读取链，Workbench自动写入仍UNKNOWN/BLOCKED。SPT仍1/3、正式卷缺，readiness503缺行情一致性，未写用户态/合入/部署 → `~/fwp-wt-architecture-audit-0924/docs/handoffs/inflight/feat-architecture-audit-0924.md`。
 | #83 302132 回填整合 | codex | Quality已执行 / 终稿拒收 | #813固定3c5/base4cc；09-25续批39请求，给定复跑7P、新写1P/1F（窗前fixture缺行）。真实工具终稿缺控制status/带失败报PASS且首bash违规，原门拒收；宿主修夹具基线1P/全3P另计。旧Spec5P局部有效，398原件封存、无后台，发布观测main前进至d21707ca6，新组合未验。先离线约束工具首命令/字段再续审，不原样再投17+17。未改/推产品、未合入/生产 → `fwp-wt-backfill-302132-0923/docs/handoffs/inflight/fix-backfill-302132-0923.md`。 |
 | 09-23 RAG启动恢复 | codex | blocked | 代码候选2ac97e68c对齐c9，干净全仓14895P、前端/30撤保护/registry四项加台账审计过；GLM静态链及真实自然入口完成，生产与候选仍行情错位503。旧发布四失败ID本轮全仓均过，不改签旧红、不归因历史超时；未push/合main/部署。最终市场QC组合与换库按既有owner授权边界 → `fwp-wt-rag-recovery-state-0923/docs/handoffs/inflight/fix-rag-recovery-state-0923.md`。 |
@@ -212,6 +212,8 @@ per-user 不是进程级；`runtime_backend_readiness` 这个全局探针看不�
 而 CLI/回检走 `~/.zshrc` 里的 `/Users/a77/agent-memory/.foresight`——**两套用户台账不是同一份**。
 
 ## 交接记录
+
+- 2026-09-25 · codex · #868/#910/#911联合候选adbe完整离线门禁与逐轴证据边界，C3探针observer签名最小复现，不代独审/L6 → `~/fwp-wt-pr868-combined-0925/docs/handoffs/2026-09-25-pr868-combined-offline-gates.md`。
 
 - 2026-09-25 · claude · 合并列车 0925：七张 PR（#905 #915 #916 #917 #919 #920 #918）叠成联合预览 `~/fwp-preview-train-0925`（tip 9a39c6a90 = main@d21707ca6 + 七 head，零冲突），四叶全绿（Python 15,640P/0F、registry 五项 0、前端四步 0、e2e 34P）→ **合入等用户**，顺序与证据在 `~/.finance-runtime/reviews/pi-session-inventory-20260924/train-0925/README.md`。主树 L2 叠层快照 `ops/main-tree-l2-overlay-20260925`（临时索引，主树未动），6 棵副本树封存后拆；A6/C2 前向遇语义级冲突不代拍。
 - 2026-09-25 · claude · 第三轮受托代拍（用户「按照最优推进」，记录 `cleanup/round3-authorization.md`）：按 DECISION-SHEET 建议前向开 PR **#915**（Workbench 发布候选 eb4 → 当前 main，两处冲突按意图解，全量 15,561P，3 个替身红已修）、**#916** sellside、**#917** BP、**#919** fupanhui 429 熔断、**#920** LLM_COMPAT_PAYLOAD；关 #900 → #915；C11/G5/G6 核实已被 main 覆盖、C4–C10/F1–F3/H1/H7 归档，指针 **#918**，14 棵树拆（3 棵先封存）。合入 main 全部等用户 → `~/.finance-runtime/reviews/pi-session-inventory-20260924/cleanup/README.md` 第三轮表。
