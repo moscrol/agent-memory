@@ -213,6 +213,7 @@ per-user 不是进程级；`runtime_backend_readiness` 这个全局探针看不�
 
 ## 交接记录
 
+- 2026-09-25 · claude · 用户「授权推进」→ #923 四叶绿合入（main 55db731a6）；**#60 夜跑代码根装完**：诊断 09-24 runlog（local 计划下 `stock-daily` fallback fail → 下游全红，根因安装根/绑定根都早于 #871 桥），建运行根 `finance-sync-fe9fdbfd70a6`（树 == 四叶全绿预览），绑定 PR #924（四文件五处；Python 叶第一次 1 红为满载竞态、重跑 15,640P/0F）合入 → main `79861f07e485`，按 eastmoney runbook 从安装源 `finance-nightly-installer-79861f07e485` dry-run + 安装（无 kickstart），读回四文件同源、两任务加载。**生产验收待 09-25 18:30 / 20:40**；记录 `~/.finance-runtime/reviews/nightly-install-20260925/`。#61 未动（INDEX 09-25：工程前置未完成）。
 - 2026-09-25 · codex · #868组合前向新main的fb41完整工程门禁、C3聚合槽/实际尝试分账、五调用点compat验证及逐轴边界 → `~/fwp-wt-pr868-current-0925/docs/handoffs/2026-09-25-pr868-current-base-offline.md`。
 
 - 2026-09-25 上午 · claude · 用户「批准执行」：#868 C3 批 18 次（333/354）验证 → f2610293f 上 C1–C7 全验证、spec 独审闭合；#884 C6 证人 10 次闭合 → 06–09 四轮 C1–C8 全采信、零缺陷（341 次）；宿主加「同一慢载荷放宽窗口」对照；文档 #925 合入 `f52b5b0b7`；#868 定 A 路只合本身、前向到 `fwd/pr868-main-0925`@4239b75f9（#920 调用点作者 12/12；四叶 16162P/0F，已快进推 PR 分支，WIP 待用户确认合入），L6 按 #76 是合入后验收 → `docs/handoffs/2026-09-25-c3-c6-review-closeout.md`
