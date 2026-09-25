@@ -213,6 +213,8 @@ per-user 不是进程级；`runtime_backend_readiness` 这个全局探针看不�
 
 ## 交接记录
 
+- 2026-09-25 晚 · claude（`local_afca30fa`）· 用户派单修数值预检把型号 / 单独月份当阈值：PR #932（head `0f3a70aa8`，**未合，等确认**）。改法是抽数前一刻才掩月份与字母数字代号，证据侧用同一张代号视图，删除权不动。四叶绿，读数见 PR 评论。零额度重放：L6-N1 句 13、L6-T3 句 22 解除；全存档 9 解 1 删（有意收紧）。发现 `_rebuild_outcome` 丢观察值（已开任务）。L6 批 2 的 `500亿` / `30日` 两种形状由本会话另开 PR → `docs/handoffs/2026-09-25-numeric-preflight-model-number.md`
+
 - 2026-09-25 · codex · #910旧SHA全仓16232P封存，#910/#911再前向main643但动态准入拒绝，不移签 → `~/fwp-wt-pr910-main-0925/docs/handoffs/2026-09-25-pr910-main643-engineering.md`、`~/fwp-wt-pr911-main-0925/docs/handoffs/2026-09-25-pr911-main643-engineering.md`。
 
 - 2026-09-25 · codex · #73实际QC06资源拒绝后审查者write覆盖收据，已停拒收；新writer13项离线过未接线，186/218 → `~/fwp-wt-re06-closeout-refresh-0925/docs/handoffs/2026-09-25-re06-qc06-receipt-write-rejection.md`。
