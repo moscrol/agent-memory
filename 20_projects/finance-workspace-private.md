@@ -213,7 +213,14 @@ per-user 不是进程级；`runtime_backend_readiness` 这个全局探针看不�
 
 ## 交接记录
 
-- 2026-09-25 晚 · claude（`local_afca30fa`）· 用户派单修数值预检把型号 / 单独月份当阈值：PR #932（head `1659528dd`，**未合，等确认**）。改法是抽数前一刻才掩月份与字母数字代号，证据侧用同一张代号视图，删除权不动。四叶绿，读数见 PR 评论。零额度重放：L6-N1 句 13、L6-T3 句 22 解除；全存档 9 解 1 删（有意收紧）。发现 `_rebuild_outcome` 丢观察值（已开任务）。L6 批 2 的 `500亿` / `30日` 两种形状已由 `local_d1bf0c0c` 的 #933 修复合入（`12d91dc73`，只改生产方 asof_prefetch）；它在合并预览（main + #932，树 `aaded60d8`）上跑四叶，#932 head 冻结待确认 → `docs/handoffs/2026-09-25-numeric-preflight-model-number.md`
+- 2026-09-25 晚 · claude（`local_afca30fa`）· 用户派单修数值预检把型号 / 单独月份当阈值。
+  - PR #932 已合入 main `e159c5644`：`local_d1bf0c0c` 执行，用户原话「合并」。合并树 == 预览树 `aaded60d8`，预览上四叶全绿。
+  - 用户随后「按照最佳方案推进，可以合并的就合并」：作者会话核过合入，删了本地与远端分支，CE4 按原方案保留。
+  - 改法：抽数前一刻才掩月份与字母数字代号，证据侧用同一张代号视图，删除权不动。
+  - 零额度重放：L6-N1 句 13、L6-T3 句 22 解除；全存档 9 解 1 删（有意收紧）。
+  - L6 批 2 的 `500亿` / `30日` 两种形状由 #933（`12d91dc73`，只改生产方）修复。
+  - 遗留：`_rebuild_outcome` 丢观察值（任务卡未修）；main 上本 PR 的 inflight 文件过期，已请 `local_d1bf0c0c` 在下一份 docs PR 里删。
+  - → `docs/handoffs/2026-09-25-numeric-preflight-model-number.md`
 
 - 2026-09-25 · codex · 固定#910当前HEAD取得74P，#911与剩余门禁受30分钟61次资源拒绝阻挡；证据独立写协调枝ca4d7ea53、不移动受测HEAD → `~/fwp-wt-pr868-current-0925/docs/handoffs/2026-09-25-pr910-911-fixed-head-gates02.md`。
 - 2026-09-25 · codex · #910旧SHA全仓16232P封存，#910/#911再前向main643但动态准入拒绝，不移签 → `~/fwp-wt-pr910-main-0925/docs/handoffs/2026-09-25-pr910-main643-engineering.md`、`~/fwp-wt-pr911-main-0925/docs/handoffs/2026-09-25-pr911-main643-engineering.md`。
