@@ -213,7 +213,7 @@ per-user 不是进程级；`runtime_backend_readiness` 这个全局探针看不�
 
 ## 交接记录
 
-- 2026-09-25 · codex · 启动归属、代码地图索引修复与前端验收账本隔离的精确版本收据及接续边界 → Finance `docs/startup-attribution-closeout-0925` 的 `docs/handoffs/2026-09-25-startup-attribution.md`（本地 `~/fwp-wt-startup-attribution-closeout-0925/`）。
+- 2026-09-25 · codex · 启动归属、跨树沙箱夹具与前端验收隔离的精确版本回读及恢复接续 → Finance `docs/handoffs/2026-09-25-startup-attribution-merge.md`（本地 `~/fwp-wt-deploy-attribution-archive-0925/`）。
 - 2026-09-25 · codex · #868合入后将#910/#911各自无冲突前向main1751并改PR base；新候选4P/56P分账、完整门禁待资源，零新增模型 → `~/fwp-wt-pr910-main-0925/docs/handoffs/2026-09-25-pr910-main-forward.md`、`~/fwp-wt-pr911-main-0925/docs/handoffs/2026-09-25-pr911-main-forward.md`。
 
 - 2026-09-25 · codex · #910/#911增量准备与授权误记撤销，零模型、停批入口拒绝，跟随owner冻结最终基座后再申请明确额度 → `~/fwp-wt-pr868-current-0925/docs/handoffs/2026-09-25-pr910-911-review-preparation.md`。
