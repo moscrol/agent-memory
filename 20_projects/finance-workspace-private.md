@@ -72,7 +72,7 @@ DuckDB → detect_turning_points.py / backtest_sector.py → 信号+板块边际
 | 任务 | 负责 | 状态 | 备注 |
 |---|---|---|---|
 | 09-24 Pi尾项执行 | codex | blocked | 09-25材料a99两组5F/7F及恢复绿、736P/4S；#73新a30e四叶通过、漂移0，仍欠锁定环境/独审/自然验收。#813限定GLM已结束且报告被拒；旧PR档案/实现归属已核。未push/合main/部署/新增付费 → `~/fwp-wt-pi-closeout-execution-0924/docs/handoffs/2026-09-24-pi-closeout-TODO.md`。 |
-| 09-24 Pi式研究兑现 | codex | doing | #910/#911已各自前向固定main1751并改base；4ad2四项4P、86da两文件56P，完整四叶/独审仍缺，旧fb41不移签。当前新树与边界见协调索引 → `~/fwp-wt-pr868-current-0925/docs/handoffs/inflight/baseline-pr868-current-0925.md`。 |
+| 09-24 Pi式研究兑现 | codex | blocked | #910/#911再前向main9d5，167c/8dec静态门禁过，冲突前7P仅诊断；十分钟资源准入持续拒绝，无新pytest收据/后台，旧4P/56P不移签。完整四叶/独审仍缺 → `~/fwp-wt-pr868-current-0925/docs/handoffs/inflight/baseline-pr868-current-0925.md`。 |
 | 09-24 输入与底座验收 | codex | blocked | 词面合同12项反例8F后拒收；fa82a73ca隔离运行接线。ec806440c完成纠偏读侧117P（含CLI `prime`）；f3d39d7d2完成Workbench写侧临时根探针、default正例及fail-open，f3d定向231P。只证审计分支和临时状态，读侧覆盖单仍未落地；SPT仍1/3、正式卷缺，readiness503缺行情一致性，未写用户态/合入/部署 → `~/fwp-wt-architecture-audit-0924/docs/handoffs/inflight/feat-architecture-audit-0924.md`。
 | #83 302132 回填整合 | codex | blocked | [WIP #813](http://127.0.0.1:3300/a77/finance-workspace-private/pulls/813#issuecomment-7132)已推ae3/main1751，工程16259P及完整库副本演练通过；独审批20为23P/2F、无有效终稿，沙箱身份拒绝根因未定。2738原件Git齐；最新main9d5含代码变更，组合未验，不移签。文档2b2f3e9cb已推，无后台/合入/生产 → `fwp-wt-backfill-302132-0923/docs/handoffs/inflight/fix-backfill-302132-0923.md`。 |
 | 09-23 RAG启动恢复 | codex | blocked | 代码候选2ac97e68c对齐c9，干净全仓14895P、前端/30撤保护/registry四项加台账审计过；GLM静态链及真实自然入口完成，生产与候选仍行情错位503。旧发布四失败ID本轮全仓均过，不改签旧红、不归因历史超时；未push/合main/部署。最终市场QC组合与换库按既有owner授权边界 → `fwp-wt-rag-recovery-state-0923/docs/handoffs/inflight/fix-rag-recovery-state-0923.md`。 |
@@ -212,6 +212,8 @@ per-user 不是进程级；`runtime_backend_readiness` 这个全局探针看不�
 而 CLI/回检走 `~/.zshrc` 里的 `/Users/a77/agent-memory/.foresight`——**两套用户台账不是同一份**。
 
 ## 交接记录
+
+- 2026-09-25 · codex · #910/#911续前向main9d5，保双方沙箱夹具意图；静态绿，十分钟21次资源拒绝，无新候选pytest/后台 → `~/fwp-wt-pr910-main-0925/docs/handoffs/2026-09-25-pr910-main9d5-gates.md`、`~/fwp-wt-pr911-main-0925/docs/handoffs/2026-09-25-pr911-main9d5-gates.md`。
 
 - 2026-09-25 · codex · #868合入后将#910/#911各自无冲突前向main1751并改PR base；新候选4P/56P分账、完整门禁待资源，零新增模型 → `~/fwp-wt-pr910-main-0925/docs/handoffs/2026-09-25-pr910-main-forward.md`、`~/fwp-wt-pr911-main-0925/docs/handoffs/2026-09-25-pr911-main-forward.md`。
 
