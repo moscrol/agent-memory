@@ -72,8 +72,8 @@ DuckDB → detect_turning_points.py / backtest_sector.py → 信号+板块边际
 | 任务 | 负责 | 状态 | 备注 |
 |---|---|---|---|
 | 09-24 Pi尾项执行 | codex | blocked | 09-25材料a99两组5F/7F及恢复绿、736P/4S；#73新a30e四叶通过、漂移0，仍欠锁定环境/独审/自然验收。#813限定GLM已结束且报告被拒；旧PR档案/实现归属已核。未push/合main/部署/新增付费 → `~/fwp-wt-pi-closeout-execution-0924/docs/handoffs/2026-09-24-pi-closeout-TODO.md`。 |
-| 09-24 Pi式研究兑现 | codex | blocked | #911进程内API链787P/3S/1X；#910续修沙箱准入，固定ff62四目标199P/0S、双轴C3/C7作者检查可执行，不代独审。交#868 owner采用，未合main/部署/新增付费 → `~/fwp-wt-pr868-delivery-validation-0924/docs/handoffs/inflight/fix-pr868-delivery-validation-0924.md`；研究链见`~/fwp-wt-pi-research/docs/handoffs/inflight/feat-pi-research-loop.md`。 |
-| 09-24 输入与底座验收 | codex | blocked | 词面合同12项反例8F后拒收；fa82a73ca隔离运行接线。新增用户记忆离线前置：A写入/A消费、B空结果、撤回空结果、缺身份不装配，6d4bb99d1定向117P；仅证既有读取链，Workbench自动写入仍UNKNOWN/BLOCKED。SPT仍1/3、正式卷缺，readiness503缺行情一致性，未写用户态/合入/部署 → `~/fwp-wt-architecture-audit-0924/docs/handoffs/inflight/feat-architecture-audit-0924.md`。
+| 09-24 Pi式研究兑现 | codex | blocked | #868+#910+#911联合adbe全仓15969P/88S/2X、前端120P、E2E34P2S、registry绿，交owner采用；独审/L6/生产未过，不移签旧f261。同期c3c7原件与探针签名定位见新交接 → `~/fwp-wt-pr868-combined-0925/docs/handoffs/inflight/baseline-pr868-combined-0925.md`。 |
+| 09-24 输入与底座验收 | codex | blocked | 词面合同12项反例8F后拒收；fa82a73ca隔离运行接线。ec806440c完成纠偏读侧117P（含CLI `prime`）；f3d39d7d2完成Workbench写侧临时根探针、default正例及fail-open，f3d定向231P。只证审计分支和临时状态，读侧覆盖单仍未落地；SPT仍1/3、正式卷缺，readiness503缺行情一致性，未写用户态/合入/部署 → `~/fwp-wt-architecture-audit-0924/docs/handoffs/inflight/feat-architecture-audit-0924.md`。
 | #83 302132 回填整合 | codex | Quality已执行 / 终稿拒收 | #813固定3c5/base4cc；09-25续批39请求，给定复跑7P、新写1P/1F（窗前fixture缺行）。真实工具终稿缺控制status/带失败报PASS且首bash违规，原门拒收；宿主修夹具基线1P/全3P另计。旧Spec5P局部有效，398原件封存、无后台，发布观测main前进至d21707ca6，新组合未验。先离线约束工具首命令/字段再续审，不原样再投17+17。未改/推产品、未合入/生产 → `fwp-wt-backfill-302132-0923/docs/handoffs/inflight/fix-backfill-302132-0923.md`。 |
 | 09-23 RAG启动恢复 | codex | blocked | 代码候选2ac97e68c对齐c9，干净全仓14895P、前端/30撤保护/registry四项加台账审计过；GLM静态链及真实自然入口完成，生产与候选仍行情错位503。旧发布四失败ID本轮全仓均过，不改签旧红、不归因历史超时；未push/合main/部署。最终市场QC组合与换库按既有owner授权边界 → `fwp-wt-rag-recovery-state-0923/docs/handoffs/inflight/fix-rag-recovery-state-0923.md`。 |
 | #73 计时授权独立 B | codex | blocked | 本轮将b027+a54固定为8088b4af7，完整15387P/85S/2X、registry五项0；main到4cc后正式基座门6>5拒收，前端/E2E因load>8未启。三组独审/C1-C10仍缺，模型0、无后台、未推/PR/部署 → `~/fwp-wt-re06-closeout-forward-0924/docs/handoffs/inflight/fix-re06-closeout-forward-0924.md`。 |
@@ -213,6 +213,11 @@ per-user 不是进程级；`runtime_backend_readiness` 这个全局探针看不�
 
 ## 交接记录
 
+- 2026-09-25 上午 · claude · 用户「pi准」（=批准）：#884 C7 证人批 13 次闭合，三轮合计 7/8 宿主有限采信（只差 C6 现成证人），零缺陷；#868 c3c7 批 34 次（给审查沙箱设 FWP_WORKBENCH_PYTHON 后 C7 验证），同 revision 6/7 已验证、只差 C3；下一步两个小批已备好但未授权（`pr884-closeout-20260925-09`、`pr868-glm-qc-20260925-c3`）；INDEX 经 #921 合入 `4db9a42b6`（merge POST 超时但服务端已合，手写 record 后带指针关 PR）→ `docs/handoffs/2026-09-25-morning-review-batches.md`
+- 2026-09-25 · claude · 用户「你继续按照最优推进，可以合的就合」→ 合并列车七张全部合入（#905 #915 #916 #917 #919 #920 #918，main → `fe9fdbfd7`，合后树 == 预览树，每张 `merge --expect-head/--expect-base --record`），远端分支随合删，本地前向树 / 预览树 / 九棵源分支树拆除（worktree 129）。合入后的拆树工具对真实仓 dry-run 又暴露两条（家目录引用误判 37 棵、retain 锁被当过期）→ **PR #923** 等用户。记录 `~/.finance-runtime/reviews/pi-session-inventory-20260924/train-0925/README.md`。
+- 2026-09-25 · codex · #868/#910/#911联合候选adbe完整离线门禁与逐轴证据边界，C3探针observer签名最小复现，不代独审/L6 → `~/fwp-wt-pr868-combined-0925/docs/handoffs/2026-09-25-pr868-combined-offline-gates.md`。
+
+- 2026-09-25 · claude · 合并列车 0925：七张 PR（#905 #915 #916 #917 #919 #920 #918）叠成联合预览 `~/fwp-preview-train-0925`（tip 9a39c6a90 = main@d21707ca6 + 七 head，零冲突），四叶全绿（Python 15,640P/0F、registry 五项 0、前端四步 0、e2e 34P）→ **合入等用户**，顺序与证据在 `~/.finance-runtime/reviews/pi-session-inventory-20260924/train-0925/README.md`。主树 L2 叠层快照 `ops/main-tree-l2-overlay-20260925`（临时索引，主树未动），6 棵副本树封存后拆；A6/C2 前向遇语义级冲突不代拍。
 - 2026-09-25 · claude · 第三轮受托代拍（用户「按照最优推进」，记录 `cleanup/round3-authorization.md`）：按 DECISION-SHEET 建议前向开 PR **#915**（Workbench 发布候选 eb4 → 当前 main，两处冲突按意图解，全量 15,561P，3 个替身红已修）、**#916** sellside、**#917** BP、**#919** fupanhui 429 熔断、**#920** LLM_COMPAT_PAYLOAD；关 #900 → #915；C11/G5/G6 核实已被 main 覆盖、C4–C10/F1–F3/H1/H7 归档，指针 **#918**，14 棵树拆（3 棵先封存）。合入 main 全部等用户 → `~/.finance-runtime/reviews/pi-session-inventory-20260924/cleanup/README.md` 第三轮表。
 - 2026-09-25 01:3x · claude · 用户「执行」：#868 独审批跑完（281/291；与 2105 合并后 C1/C2/C4/C5/C6 已验证、零缺陷；C7 被新 conftest 要调 git 挡住，下一批设 FWP_WORKBENCH_PYTHON）；#884 第 08 轮 47 次（C1 宿主采信，三轮合计 6/8 采信、零缺陷；K3 上游凌晨 3 次约 120 秒 504）；**更正 #61：不是只差授权，发布线仍有工程前置** → `docs/handoffs/2026-09-25-review-batches-and-61-correction.md`（PR #914）
 - 2026-09-25 凌晨 · claude · #909（INDEX #72/#75 真值化）四叶全绿后合入 `03352758c`；#906 采纳进 #868 分支，#868 前向成受审候选 `f2610293f`，四叶全绿（15886P/0F）；#868 下一批独审与 #884 第 08 轮（C1/C7/C6）都已准备好、零成本验证通过，**未授权未启动**（runner 有授权门）→ `~/.finance-runtime/reviews/pr868-glm-qc-20260925-next/STATE.md`、`pr884-closeout-20260925-08/STATE.md`
@@ -242,7 +247,7 @@ per-user 不是进程级；`runtime_backend_readiness` 这个全局探针看不�
 - 2026-09-25 · codex · 视角离线检查贯通首次provider请求，保留审批/缺卷/生产阻塞；截停不伪造答案，487P只签定向工程，旧SPT署名不代质量 → `~/fwp-wt-architecture-audit-0924/docs/handoffs/2026-09-25-perspective-delivery-decisions.md`。
 - 2026-09-25 · codex · SPT考卷原文草案先冻结再预演，定位已有规则的字面漏触发；草案永不自动批准，待用户确认，干净509P → `~/fwp-wt-architecture-audit-0924/docs/handoffs/2026-09-25-spt-exam-proposal-decisions.md`。
 - 2026-09-25 · codex · 反例复核否决词面条件合同，撤运行接线并显式拒收；原画像仍1/3，636P与撤护栏21F只证隔离 → `~/fwp-wt-architecture-audit-0924/docs/handoffs/2026-09-25-spt-contract-rejected.md`。
-- 2026-09-25 · codex · 离线核验纠偏writer→memory_lookup消费及跨用户/撤回/缺身份护栏；Workbench自动写侧仍未接，6d4bb99d1定向117P → `~/fwp-wt-architecture-audit-0924/docs/verification/2026-09-25-user-memory-consumption/README.md`。
+- 2026-09-25 · codex · 离线核验纠偏writer→memory_lookup消费及跨用户/撤回/缺身份护栏；随后在审计分支接通Workbench P0写侧，W-corr冻结夹具和default临时根通过，f3d39d7d2定向231P → `~/fwp-wt-architecture-audit-0924/docs/verification/2026-09-25-workbench-correction-ingest/README.md`。
 - 2026-09-25 · codex · 用户委托采用原三题候选标准，精确规则条件合同隔离3/3；原题/画像不改，597P与三撤保护只签工程，不签生产应用或模型质量 → `~/fwp-wt-architecture-audit-0924/docs/handoffs/2026-09-25-spt-signal-contract-decisions.md`。
 
 - 2026-09-24 晚 · claude · #884 第 06 轮四批跑完、84/84 用尽：只有 C3 宿主有限采信，没有发现产品缺陷，独审未闭合（#884 不含运行时代码，可否先合交用户定）；#868 批 1405 在 spec/execute 因交付漏 `complete` 被拒收而封存，166/209 → 两个评审根下的 `STATE.md`，PR 评论 6779 / 6780
