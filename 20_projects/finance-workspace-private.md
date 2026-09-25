@@ -213,7 +213,7 @@ per-user 不是进程级；`runtime_backend_readiness` 这个全局探针看不�
 
 ## 交接记录
 
-- 2026-09-25 晚 · claude（`local_afca30fa`）· 用户派单修数值预检把型号 / 单独月份当阈值：PR #932（head `1659528dd`，**未合，等确认**）。改法是抽数前一刻才掩月份与字母数字代号，证据侧用同一张代号视图，删除权不动。四叶绿，读数见 PR 评论。零额度重放：L6-N1 句 13、L6-T3 句 22 解除；全存档 9 解 1 删（有意收紧）。发现 `_rebuild_outcome` 丢观察值（已开任务）。L6 批 2 的 `500亿` / `30日` 两种形状改由 `local_d1bf0c0c` 另开分支修（证据侧；已告知其 #932 也动了 `_bound_evidence_quantities`） → `docs/handoffs/2026-09-25-numeric-preflight-model-number.md`
+- 2026-09-25 晚 · claude（`local_afca30fa`）· 用户派单修数值预检把型号 / 单独月份当阈值：PR #932（head `1659528dd`，**未合，等确认**）。改法是抽数前一刻才掩月份与字母数字代号，证据侧用同一张代号视图，删除权不动。四叶绿，读数见 PR 评论。零额度重放：L6-N1 句 13、L6-T3 句 22 解除；全存档 9 解 1 删（有意收紧）。发现 `_rebuild_outcome` 丢观察值（已开任务）。L6 批 2 的 `500亿` / `30日` 两种形状已由 `local_d1bf0c0c` 的 #933 修复合入（`12d91dc73`，只改生产方 asof_prefetch）；它在合并预览（main + #932，树 `aaded60d8`）上跑四叶，#932 head 冻结待确认 → `docs/handoffs/2026-09-25-numeric-preflight-model-number.md`
 
 - 2026-09-25 · codex · #910旧SHA全仓16232P封存，#910/#911再前向main643但动态准入拒绝，不移签 → `~/fwp-wt-pr910-main-0925/docs/handoffs/2026-09-25-pr910-main643-engineering.md`、`~/fwp-wt-pr911-main-0925/docs/handoffs/2026-09-25-pr911-main643-engineering.md`。
 
@@ -233,7 +233,7 @@ per-user 不是进程级；`runtime_backend_readiness` 这个全局探针看不�
 
 - 2026-09-25 傍晚 · claude · 用户「按照最优推进」：#930 合入 `643a2888e`（`LLM_REASONING_EFFORT_BY_MODEL`，判官单独 low；同载荷重放 low 16/23 s、默认 75 s 超时）；L6 批 2（T3）判官 5/5 作答但数值预检误删 2 句有证据条件（口径行无单位阈值、行数计数）→ NOT_PASSED，额度 29/80；新形状已发给修 CPU1000 的会话 `local_afca30fa` → `docs/handoffs/2026-09-25-l6-batch2-and-judge-effort.md`
 - 2026-09-25 下午 · claude · 用户「你按照最优方案推进」：#76 L6 在合入后 main `1751e21e0` 首跑 → BLOCKED_JUDGE_UNAVAILABLE（T1 零有证据数值条件被删；glm-5.3-flash 判官 0/5 应答，75 s 处被截止切断；14 次请求/上限 80；题目更正为零提交 T 系列）；根因：GLM-5.3 强制思考、reasoning_effort 只能全局设；#799/#838/#841/#877/#832 按内容比例均未被取代，不动 → `docs/handoffs/2026-09-25-l6-postmerge-result.md`
-- 2026-09-25 中午 · claude · 用户「合并，然后继续推进」：#868 前向 79861f07e 后四叶 16162P/0F → 合入 main `1751e21e0`（合并树 == 受测树；分支留给 #910/#911 作 base，已评论请改指 main）；L6 前置零额度核对：bge-m3 就绪，09-23 N1 被删的证伪条件在合入后代码上重放不再被删（#868 新增观测值支撑），CPU1000 型号误判另开待办；L6 协议草稿待批 → `docs/handoffs/2026-09-25-pr868-merged-l6-readiness.md`
+- 2026-09-25 中午 · claude · 用户「合并，然后继续推进」：#868 前向 79861f07e 后四叶 16162P/0F → 合入 main `1751e21e0`（合并树 == 受测树；分支留给 #910/#911 作 base，已评论请改指 main）；L6 前置零额度核对：bge-m3 就绪，09-23 N1 被删的证伪条件在合入后代码上重放不再被删（#868 新增的货币字段单位换算；原写「观测值支撑」有误，已更正），CPU1000 型号误判另开待办；L6 协议草稿待批 → `docs/handoffs/2026-09-25-pr868-merged-l6-readiness.md`
 - 2026-09-25 上午 · claude · 用户「批准执行」：#868 C3 批 18 次（333/354）验证 → f2610293f 上 C1–C7 全验证、spec 独审闭合；#884 C6 证人 10 次闭合 → 06–09 四轮 C1–C8 全采信、零缺陷（341 次）；宿主加「同一慢载荷放宽窗口」对照；文档 #925 合入 `f52b5b0b7`；#868 定 A 路只合本身、前向到 `fwd/pr868-main-0925`@4239b75f9（#920 调用点作者 12/12；四叶 16162P/0F，已快进推 PR 分支，WIP 待用户确认合入），L6 按 #76 是合入后验收 → `docs/handoffs/2026-09-25-c3-c6-review-closeout.md`
 - 2026-09-25 上午 · claude · 用户「pi准」（=批准）：#884 C7 证人批 13 次闭合，三轮合计 7/8 宿主有限采信（只差 C6 现成证人），零缺陷；#868 c3c7 批 34 次（给审查沙箱设 FWP_WORKBENCH_PYTHON 后 C7 验证），同 revision 6/7 已验证、只差 C3；下一步两个小批已备好但未授权（`pr884-closeout-20260925-09`、`pr868-glm-qc-20260925-c3`）；INDEX 经 #921 合入 `4db9a42b6`（merge POST 超时但服务端已合，手写 record 后带指针关 PR）→ `docs/handoffs/2026-09-25-morning-review-batches.md`
 - 2026-09-25 · claude · 用户「你继续按照最优推进，可以合的就合」→ 合并列车七张全部合入（#905 #915 #916 #917 #919 #920 #918，main → `fe9fdbfd7`，合后树 == 预览树，每张 `merge --expect-head/--expect-base --record`），远端分支随合删，本地前向树 / 预览树 / 九棵源分支树拆除（worktree 129）。合入后的拆树工具对真实仓 dry-run 又暴露两条（家目录引用误判 37 棵、retain 锁被当过期）→ **PR #923** 等用户。记录 `~/.finance-runtime/reviews/pi-session-inventory-20260924/train-0925/README.md`。
