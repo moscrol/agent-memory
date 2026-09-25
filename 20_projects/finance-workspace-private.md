@@ -213,7 +213,7 @@ per-user 不是进程级；`runtime_backend_readiness` 这个全局探针看不�
 
 ## 交接记录
 
-- 2026-09-25 · codex · #913第12轮核9/2备份30表：80缺口板块与封存基线全同、新增身份0；官网一次403后停止。生产hash变化未归因，200/503，零写入/合入/部署；最新缺口包v5 → Finance `docs/handoffs/2026-09-25-archive-evidence-boundary.md`（本地 `~/fwp-wt-dated-recovery-forward-0925/`；第11轮仲裁背景仍保留）。
+- 2026-09-26 · codex · #913第13轮确认夜跑L2休市台账写入；生产/失败staging的68共有对象中65相同，两来源表及台账有差，非旧生产精确前像，不唯一归因全部hash变化。历史缺口0新增，200/503、本次RAG通过，零生产写入/合入/部署；v6及修正记录 → Finance `docs/handoffs/2026-09-26-production-calendar-attribution.md`（本地 `~/fwp-wt-dated-recovery-forward-0925/`；前轮封存保留）。
 - 2026-09-25 · codex · #913两条历史缺行在受保护副本补齐、09-22三股原件复核；16321P全量绿但#933漂移拒收，数据门仍阻塞 → Finance `docs/handoffs/2026-09-25-historical-gap-preparation.md`（本地 `~/fwp-wt-dated-recovery-forward-0925/`）。
 
 - 2026-09-25 · codex · 日期化恢复前向、离线具名缺口及缓存竞态后全量复跑；候选绿与基座拒收分账 → Finance `docs/handoffs/2026-09-25-dated-recovery-forward.md`（本地 `~/fwp-wt-dated-recovery-forward-0925/`）。
