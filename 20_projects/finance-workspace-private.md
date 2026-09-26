@@ -335,6 +335,7 @@ per-user 不是进程级；`runtime_backend_readiness` 这个全局探针看不�
 - 2026-09-24 · codex · #83 的3c5已完成当前main四叶/整库重验，工程就绪等#75独审，合入与生产另行授权 → `fwp-wt-backfill-302132-0923/docs/handoffs/2026-09-24-backfill-302132-current-main-ready.md`；方法 [[pytest-temp-paths-and-mock-lifetime]]。
 - 2026-09-24 · codex · #83/#75实际启动K3独审，小载荷/工具往返过但Spec第6请求120秒流中断；11请求、无探针/终稿，Quality未启动，214原件封存，不以HTTP200或exit0补签 → `fwp-wt-backfill-302132-0923/docs/handoffs/2026-09-24-backfill-302132-qc-blocked.md`。
 - 2026-09-25 · codex · #83 ae3工程过、独审失败与main新漂移分账保留，不补签/不部署 → `fwp-wt-backfill-302132-0923/docs/handoffs/2026-09-25-backfill-302132-main1751-continuation.md`及同日`backfill-302132-publication-boundary.md`。
+- 2026-09-26 · claude · 未收口盘点并收口：推备份（10 分支 83 提交 + 57 个钉引用，全仓未备份提交归 0）、拆 34 棵已合入树（ignored 原件先打包）、删 32 条已合分支、归档 16 个桌面会话；#935 → `546d3a3f1e9b`、#928 → `9c3e61bfa2b0` 合入（四叶全绿） → `~/.finance-runtime/reviews/unclosed-inventory-20260926/README.md`。
 
 - 2026-09-23 · codex · #81沿#832前向合main，只留两项产品增量；新头工程门禁仍阻塞，旧K3终稿订正但不移签，#75/#76分账 → `fwp-wt-react-trace-chain-docs-0923/docs/handoffs/2026-09-23-react-trace-chain.md`（文档PR #892）。
 
