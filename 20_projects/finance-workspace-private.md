@@ -213,6 +213,8 @@ per-user 不是进程级；`runtime_backend_readiness` 这个全局探针看不�
 
 ## 交接记录
 
+- 2026-09-27 · claude · 接手 Pi / Claude 未收口线收尾：7 个合入列车合 15 张（#838 #799 #936 #937 #938 #939 #910 #911 #940 #813 #941 #832 #841 #942 #943），关 #913→#940、#892→#832、#912；生产换库补 09-21～09-24（local 计划），8792 切到 `4f334a6da0af`；终扫拆 56 棵已合 / 被取代树、删 28 条已合分支。仍等用户：#877、#890、#83 生产写入逐字授权、#941 取舍、A、裁决表 24 条 → `docs/handoffs/2026-09-27-takeover-closeout.md`（main）+ `~/.finance-runtime/reviews/unclosed-inventory-20260926/takeover/BOARD.md`。注：本笔记里指向已拆树（`fwp-wt-*/docs/handoffs/…`）的交接件，同路径在 main 或已移到 `docs/handoffs/inflight-archive-2026-09-26/`。
+
 - 2026-09-26 · codex · #73 QC09真实执行器/gateway过，E2启动前资源拒绝；529件归档e72745965，188/218余30，无重试 → `~/fwp-wt-re06-closeout-refresh-0925/docs/handoffs/2026-09-26-re06-qc09-resource-refusal.md`。
 
 - 2026-09-25 · codex · #73 QC08真实控制8P2F因证据父目录缺失拒收，准备helper/39项离线及507件归档7434a38a1，0新模型 → `~/fwp-wt-re06-closeout-refresh-0925/docs/handoffs/2026-09-25-re06-qc08-controller-fixture.md`。
