@@ -213,6 +213,8 @@ per-user 不是进程级；`runtime_backend_readiness` 这个全局探针看不�
 
 ## 交接记录
 
+- 2026-09-28 · codex · #948 已部署8792：修复个人记忆/持久学习/KB与夜跑根边界；真实纠偏召回撤回闭环通过，内容语义和缺档边界保留 → `docs/handoffs/2026-09-28-8792-interactive-readiness-closeout.md`；当前发布身份见其机器收据入口。
+
 - 2026-09-27 深夜 · claude · 接手收尾第四轮收口：按用户逐项拍板把 5 份旧整库备份（post941 / post943、#83 两份、09-22）及本线 L7 遗留 staging（与 #83 回滚点同 sha `4023cd0f`）移入废纸篓，保留 09-26 与 22:03 两份；22:03 生产换库归属 = Codex 会话 `01a0e270` 的 L2 资金流回补（09-21～09-24，run `3a474fcfcb63`），#83 数据仍在；我方无开着的 PR，8792 = `85bcee6dca48` 健康 → `~/.finance-runtime/reviews/unclosed-inventory-20260926/takeover/BOARD.md`。
 
 - 2026-09-27 晚 · claude · #877 Knevo 收口合入（判官默认关、max 档判官帽 120/240 s、修复窗按重写长度、编号材料题包 glm-5.3 写手与 150 s 上限；live glm-5.3 写手过题库硬规则，PASS_WITH_LIMITS）；#945 修 #941 记忆缺口绑定致降级；8792 切到 `85bcee6dca48`；工单 83 生产回填已执行（37/37）；#890 默认关合入（L5 NOT_PASSED 另账）。另立任务：传输层截止失效（75 s 调用卡 2320 s）→ `docs/handoffs/2026-09-27-knevo-closeout-judge-off-memory-gap.md`（main）。
