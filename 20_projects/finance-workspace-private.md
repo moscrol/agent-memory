@@ -213,6 +213,8 @@ per-user 不是进程级；`runtime_backend_readiness` 这个全局探针看不�
 
 ## 交接记录
 
+- 2026-09-28 上午 · claude · 遗留 worktree 收口（受托代拍，原话「遗留的worktree，你按照最优方案去处理推进」）：87 → 23 棵，拆 64 棵，HEAD 全钉 `refs/archive/wt-20260928/*`、4 份未提交内容封存 `salvage/*-20260928` 并推 Gitea；8 条搁置线只拆检出、分支留；两个事故取证目录无损迁到 `~/.finance-runtime/evidence-archive/`（APFS 克隆，净多占约 4 GiB，已更正记录）；可用 22 → 35 GiB。PR #950 待合 → `docs/handoffs/2026-09-28-legacy-worktree-closeout.md`。
+
 - 2026-09-28 · codex · #948 已部署8792：修复个人记忆/持久学习/KB与夜跑根边界；真实纠偏召回撤回闭环通过，内容语义和缺档边界保留 → `docs/handoffs/2026-09-28-8792-interactive-readiness-closeout.md`；当前发布身份见其机器收据入口。
 
 - 2026-09-27 深夜 · claude · 接手收尾第四轮收口：按用户逐项拍板把 5 份旧整库备份（post941 / post943、#83 两份、09-22）及本线 L7 遗留 staging（与 #83 回滚点同 sha `4023cd0f`）移入废纸篓，保留 09-26 与 22:03 两份；22:03 生产换库归属 = Codex 会话 `01a0e270` 的 L2 资金流回补（09-21～09-24，run `3a474fcfcb63`），#83 数据仍在；我方无开着的 PR，8792 = `85bcee6dca48` 健康 → `~/.finance-runtime/reviews/unclosed-inventory-20260926/takeover/BOARD.md`。
