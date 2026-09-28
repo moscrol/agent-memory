@@ -71,7 +71,7 @@ DuckDB → detect_turning_points.py / backtest_sector.py → 信号+板块边际
 ## 任务看板
 | 任务 | 负责 | 状态 | 备注 |
 |---|---|---|---|
-| 09-28 8792 Harness协议修复 | codex | doing | [WIP #952](http://127.0.0.1:3300/a77/finance-workspace-private/pulls/952)：统一回复合同、校验后补充任务；独立规格/质量过，最终整仓门禁绑定7ef3e08d7，状态读 `~/.finance-runtime/reviews/8792-harness-20260928/acceptance/result.json`。未合/部署、未签自然金融效果 → 本枝 `docs/handoffs/2026-09-28-8792-harness-protocol.md`。 |
+| 09-28 8792 Harness协议修复 | codex | done-with-boundaries | [WIP #952](http://127.0.0.1:3300/a77/finance-workspace-private/pulls/952)：统一回复合同、校验后补充任务；独立规格/质量过。固定7ef3e08d7完整门禁18375P/0F/72S2X、前端125P/E2E34P2S、Ruff/registry及范围检查过；收据 `~/.finance-runtime/reviews/8792-harness-20260928/acceptance/result.json`。未合/部署、未签自然金融效果 → 本枝 `docs/handoffs/2026-09-28-8792-harness-protocol.md`。 |
 | 09-24 Pi尾项执行 | codex | blocked | 09-26 #73 Q09真实Python/UI控制与作者收集过，gateway2请求过；00:53 E2启动前load1=8.974>8拒绝，E2零模型/零探针，无重试。529件归档e72745965，188/218余30，本切片最多再9。新授权可复核绑定后续同Q09，独审/自然验收仍缺，旧绿不签新main，邻线只读，无后台/推送/合并/生产 → `~/fwp-wt-pi-closeout-execution-0924/docs/handoffs/2026-09-24-pi-closeout-TODO.md`。 |
 | 09-24 Pi式研究兑现 | codex | blocked | 固定#910 2da72eef4/#911 34e31a256；#911完整工程过（Python16266P/0F0E/75S2X），两边定向74P/56P及前端123P/E2E34P2S。#910全仓仍缺：第04批5分钟11次/第05批零等待1次均拒绝，未新增pytest。归档50fcb4fa8哈希24/24过，评论7261/7255回读；需协调测试窗口，不连续建批次抢空档。main e159未吸收，WIP/零模型/无后台/未合入部署 → `~/fwp-wt-pr868-current-0925/docs/handoffs/inflight/baseline-pr868-current-0925.md`。 |
 | 09-24 输入与底座验收 | codex | blocked | 词面合同12项反例8F后拒收；fa82a73ca隔离运行接线。ec806440c完成纠偏读侧117P（含CLI `prime`）；f3d39d7d2完成Workbench写侧临时根探针、default正例及fail-open，f3d定向231P。只证审计分支和临时状态，读侧覆盖单仍未落地；SPT仍1/3、正式卷缺，readiness503缺行情一致性，未写用户态/合入/部署 → `~/fwp-wt-architecture-audit-0924/docs/handoffs/inflight/feat-architecture-audit-0924.md`。
