@@ -217,6 +217,7 @@ per-user 不是进程级；`runtime_backend_readiness` 这个全局探针看不�
 - 2026-09-28 · codex · 8792 Controller统一协议并封住校验前污染，保留研究义务；固定回复对照与独审通过，完整门禁另以机器收据裁定 → [PR #952](http://127.0.0.1:3300/a77/finance-workspace-private/pulls/952) / `docs/handoffs/2026-09-28-8792-harness-protocol.md`；方法 [[gate-covers-only-its-return-value]]。
 - 2026-09-28 · codex · #952 已部署 8792，合后全量与真实查数通过，保留首次切换/泛化问法失败边界 → `docs/handoffs/2026-09-28-8792-harness-deployment-closeout.md`。
 
+- 2026-09-28 下午 · claude · A 实现（用户选 A，原话经会话 local_4ed0c651 转「…然后a继续」）：数值预检从整句删改为句内标注待核，PR #954 `fix/numeric-mark-not-delete-0928`；复述先验回答维持 #948 删除；回滚 env `FINANCE_NUMERIC_CONDITION_MARK=0`；普查 308 稿 516 句标注前后交付复检零变化；变异 10 杀；行为变化：要求长期跟踪时带待核条件连说明登记；合入 / 部署待用户逐字确认 → `docs/handoffs/2026-09-28-numeric-condition-mark-not-delete.md`
 - 2026-09-28 上午 · claude · 遗留 worktree 收口（受托代拍，原话「遗留的worktree，你按照最优方案去处理推进」）：87 → 23 棵，拆 64 棵，HEAD 全钉 `refs/archive/wt-20260928/*`、4 份未提交内容封存 `salvage/*-20260928` 并推 Gitea；8 条搁置线只拆检出、分支留；两个事故取证目录无损迁到 `~/.finance-runtime/evidence-archive/`（APFS 克隆，净多占约 4 GiB，已更正记录）；可用 22 → 35 GiB。PR #950 待合 → `docs/handoffs/2026-09-28-legacy-worktree-closeout.md`。
 
 - 2026-09-28 · codex · #948 已部署8792：修复个人记忆/持久学习/KB与夜跑根边界；真实纠偏召回撤回闭环通过，内容语义和缺档边界保留 → `docs/handoffs/2026-09-28-8792-interactive-readiness-closeout.md`；当前发布身份见其机器收据入口。
