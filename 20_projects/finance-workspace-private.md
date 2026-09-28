@@ -214,6 +214,8 @@ per-user 不是进程级；`runtime_backend_readiness` 这个全局探针看不�
 
 ## 交接记录
 
+- 2026-09-28 · codex · 回答能力候选减负/恢复/输入边界已实现，18509项Python及前端门禁通过；自然财务与历史仍未过，8792未动 → [WIP #956](http://127.0.0.1:3300/a77/finance-workspace-private/pulls/956) / `docs/handoffs/inflight/fix-8792-answer-capability-0928.md`。
+
 - 2026-09-28 · codex · 8792 Controller统一协议并封住校验前污染，保留研究义务；固定回复对照与独审通过，完整门禁另以机器收据裁定 → [PR #952](http://127.0.0.1:3300/a77/finance-workspace-private/pulls/952) / `docs/handoffs/2026-09-28-8792-harness-protocol.md`；方法 [[gate-covers-only-its-return-value]]。
 - 2026-09-28 · codex · #952 已部署 8792，合后全量与真实查数通过，保留首次切换/泛化问法失败边界 → `docs/handoffs/2026-09-28-8792-harness-deployment-closeout.md`。
 
