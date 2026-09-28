@@ -214,7 +214,7 @@ per-user 不是进程级；`runtime_backend_readiness` 这个全局探针看不�
 
 ## 交接记录
 
-- 2026-09-28 · claude · 七轮一次性收口脚本收进仓内：`worktree_closeout.py`（点名、dry-run 收据即计划、复核→补丁/残留包/DuckDB clonefile/salvage/钉 ref→拆）+ `worktree_board.py --landed`；顺带修 cleanup_gate_trees 中文锁理由误解锁与 detached 孤儿提交；四叶 @66af2cadd 齐绿，待用户确认合入 → [PR #955](http://127.0.0.1:3300/a77/finance-workspace-private/pulls/955) / `docs/handoffs/2026-09-28-worktree-closeout-tool.md`。
+- 2026-09-28 · claude · 七轮一次性收口脚本收进仓内：`worktree_closeout.py`（点名、dry-run 收据即计划、复核→补丁/残留包/DuckDB clonefile/salvage/钉 ref→拆）+ `worktree_board.py --landed`；顺带修 cleanup_gate_trees 中文锁理由误解锁与 detached 孤儿提交；四叶 @66af2cadd 齐绿，用户确认后合入 `20d49970a`；合入后首轮真跑受托拆 3 棵（#952 线两棵 + 旧回滚锚 7a40），回执 [PR #958](http://127.0.0.1:3300/a77/finance-workspace-private/pulls/958) → [PR #955](http://127.0.0.1:3300/a77/finance-workspace-private/pulls/955) / `docs/handoffs/2026-09-28-worktree-closeout-tool.md`。
 - 2026-09-28 · codex · 回答能力候选减负/恢复/输入边界已实现，18509项Python及前端门禁通过；自然财务与历史仍未过，8792未动 → [WIP #956](http://127.0.0.1:3300/a77/finance-workspace-private/pulls/956) / `docs/handoffs/inflight/fix-8792-answer-capability-0928.md`。
 
 - 2026-09-28 · codex · 8792 Controller统一协议并封住校验前污染，保留研究义务；固定回复对照与独审通过，完整门禁另以机器收据裁定 → [PR #952](http://127.0.0.1:3300/a77/finance-workspace-private/pulls/952) / `docs/handoffs/2026-09-28-8792-harness-protocol.md`；方法 [[gate-covers-only-its-return-value]]。
