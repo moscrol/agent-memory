@@ -71,7 +71,7 @@ DuckDB → detect_turning_points.py / backtest_sector.py → 信号+板块边际
 ## 任务看板
 | 任务 | 负责 | 状态 | 备注 |
 |---|---|---|---|
-| 09-29 回答能力接续复审 | codex | doing | [WIP #956](http://127.0.0.1:3300/a77/finance-workspace-private/pulls/956)：保留Pi有效部分并补来源拒收回归；代码d9eeb69b7工程绿，整体自然质量仍未通过，未合入部署 → `~/.codex/worktrees/8792-quote-repair-review/finance-workspace-private/docs/handoffs/inflight/fix-8792-answer-review-0929.md`。 |
+| 09-29 回答能力接续复审 | codex | doing | [WIP #956](http://127.0.0.1:3300/a77/finance-workspace-private/pulls/956)：Pi窄修复保留；片段v2与历史删减重写均未过语义门槛，未合入部署；收口路线见 `docs/handoffs/2026-09-30-8792-answer-capability-closeout.md` 与本分支 inflight。 |
 | 09-28 8792 Harness协议修复 | codex | deployed-with-boundaries | [#952](http://127.0.0.1:3300/a77/finance-workspace-private/pulls/952) 已合并并部署 `8e45e299a13b`；合后完整门禁、health/readiness、固定日期真实查数通过。泛化问法两次一败一成，不签可靠性或 ReAct 追平 → `docs/handoffs/2026-09-28-8792-harness-deployment-closeout.md`；归档身份与原件 `~/.finance-runtime/reviews/8792-harness-20260928/release/result.json`。 |
 | 09-24 Pi尾项执行 | codex | blocked | 09-26 #73 Q09真实Python/UI控制与作者收集过，gateway2请求过；00:53 E2启动前load1=8.974>8拒绝，E2零模型/零探针，无重试。529件归档e72745965，188/218余30，本切片最多再9。新授权可复核绑定后续同Q09，独审/自然验收仍缺，旧绿不签新main，邻线只读，无后台/推送/合并/生产 → `~/fwp-wt-pi-closeout-execution-0924/docs/handoffs/2026-09-24-pi-closeout-TODO.md`。 |
 | 09-24 Pi式研究兑现 | codex | blocked | 固定#910 2da72eef4/#911 34e31a256；#911完整工程过（Python16266P/0F0E/75S2X），两边定向74P/56P及前端123P/E2E34P2S。#910全仓仍缺：第04批5分钟11次/第05批零等待1次均拒绝，未新增pytest。归档50fcb4fa8哈希24/24过，评论7261/7255回读；需协调测试窗口，不连续建批次抢空档。main e159未吸收，WIP/零模型/无后台/未合入部署 → `~/fwp-wt-pr868-current-0925/docs/handoffs/inflight/baseline-pr868-current-0925.md`。 |
@@ -214,6 +214,8 @@ per-user 不是进程级；`runtime_backend_readiness` 这个全局探针看不�
 而 CLI/回检走 `~/.zshrc` 里的 `/Users/a77/agent-memory/.foresight`——**两套用户台账不是同一份**。
 
 ## 交接记录
+
+- 2026-09-30 · codex · 统筹收口：片段v2撤回、GLM输入删减拒收，保留d9/退役v2/纠正连续性候选并要求最新main单一owner做有限正文验收 → `docs/handoffs/2026-09-30-8792-answer-capability-closeout.md` / WIP #956。
 
 - 2026-09-29 下午 · claude · 变异验证从手法变工具：`scripts/mutation_check.py`（spec 逐个拆门、点名子集判定；锚点恰一处 / 与 HEAD 一致 / 基线绿才开跑，三处删 .pyc，原字节还原）；独立审查补父目录符号链接与硬链接两道，自检 32/32 KILLED @040a4a261，联合预览全量 18580P → [PR #965](http://127.0.0.1:3300/a77/finance-workspace-private/pulls/965) / `docs/handoffs/2026-09-29-mutation-check-tool.md`（已合入 `6a7817f9c`，原话「合并」；交接归档 #969 已合 `e8605ca04`；TOOLKIT 三处改动开在 [harness-reference#19](http://127.0.0.1:3300/a77/harness-reference/pulls/19)，合入后跑 agent-memory `scripts/sync_toolkit_mirror.py` 同步镜像）
 - 2026-09-29 · claude · `gitea_pr.py` 超时不再在回读前崩溃：服务端日志实证客户端挂断会把 `git push` 杀在半路（#959 没落 / #854 落了但 PR 未标），默认超时 30→300 s（实测最慢 211 s），merge / open 报错先回读（PR merged + ls-remote base ref），退 3=结果未知；四叶在 d4802df71 全绿（python 18511P/0F），已合入 `3a6f6854`（合前主干漂移 1 张零重叠，按规则重评）；收口 PR #963 待确认 → [PR #961](http://127.0.0.1:3300/a77/finance-workspace-private/pulls/961) · `docs/handoffs/inflight/fix-gitea-pr-timeouts.md`
