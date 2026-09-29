@@ -215,6 +215,7 @@ per-user 不是进程级；`runtime_backend_readiness` 这个全局探针看不�
 
 ## 交接记录
 
+- 2026-09-29 下午 · claude · 变异验证从手法变工具：`scripts/mutation_check.py`（spec 逐个拆门、点名子集判定；锚点恰一处 / 与 HEAD 一致 / 基线绿才开跑，三处删 .pyc，原字节还原）；独立审查补父目录符号链接与硬链接两道，自检 32/32 KILLED @040a4a261，联合预览全量 18580P → [PR #965](http://127.0.0.1:3300/a77/finance-workspace-private/pulls/965) / `docs/handoffs/2026-09-29-mutation-check-tool.md`（合入待用户确认；harness-reference TOOLKIT 行待合入后经同意再改）
 - 2026-09-29 · claude · `gitea_pr.py` 超时不再在回读前崩溃：服务端日志实证客户端挂断会把 `git push` 杀在半路（#959 没落 / #854 落了但 PR 未标），默认超时 30→300 s（实测最慢 211 s），merge / open 报错先回读（PR merged + ls-remote base ref），退 3=结果未知；四叶在 d4802df71 全绿（python 18511P/0F），已合入 `3a6f6854`（合前主干漂移 1 张零重叠，按规则重评）；收口 PR #963 待确认 → [PR #961](http://127.0.0.1:3300/a77/finance-workspace-private/pulls/961) · `docs/handoffs/inflight/fix-gitea-pr-timeouts.md`
 - 2026-09-29 · codex · 接收Pi有效续做，修混合错误遮住来源拒收，新增同历史多摘录有界重写；#956继续WIP → `~/.codex/worktrees/8792-quote-repair-review/finance-workspace-private/docs/handoffs/inflight/fix-8792-answer-review-0929.md`；方法 [[../10_knowledge/retry-must-carry-the-last-rejection]]。
 
