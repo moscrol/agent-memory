@@ -215,7 +215,7 @@ per-user 不是进程级；`runtime_backend_readiness` 这个全局探针看不�
 
 ## 交接记录
 
-- 2026-09-29 · claude · `gitea_pr.py` 超时不再在回读前崩溃：服务端日志实证客户端挂断会把 `git push` 杀在半路（#959 没落 / #854 落了但 PR 未标），默认超时 30→300 s（实测最慢 211 s），merge / open 报错先回读（PR merged + ls-remote base ref），退 3=结果未知；四叶在 d4802df71 全绿（python 18511P/0F），待用户确认合入 → [PR #961](http://127.0.0.1:3300/a77/finance-workspace-private/pulls/961) · `docs/handoffs/inflight/fix-gitea-pr-timeouts.md`
+- 2026-09-29 · claude · `gitea_pr.py` 超时不再在回读前崩溃：服务端日志实证客户端挂断会把 `git push` 杀在半路（#959 没落 / #854 落了但 PR 未标），默认超时 30→300 s（实测最慢 211 s），merge / open 报错先回读（PR merged + ls-remote base ref），退 3=结果未知；四叶在 d4802df71 全绿（python 18511P/0F），已合入 `3a6f6854`（合前主干漂移 1 张零重叠，按规则重评）；收口 PR #963 待确认 → [PR #961](http://127.0.0.1:3300/a77/finance-workspace-private/pulls/961) · `docs/handoffs/inflight/fix-gitea-pr-timeouts.md`
 - 2026-09-29 · codex · 接收Pi有效续做，修混合错误遮住来源拒收，新增同历史多摘录有界重写；#956继续WIP → `~/.codex/worktrees/8792-quote-repair-review/finance-workspace-private/docs/handoffs/inflight/fix-8792-answer-review-0929.md`；方法 [[../10_knowledge/retry-must-carry-the-last-rejection]]。
 
 - 2026-09-28 · claude · 修 `test_pi_review_repair` 从嵌套 worktree 跑必红的 10 条（venv 锚点数进了夹具自生成的树祖先规则；#954/#955 都换到主仓外跑绕开）：按生成规则切开再重生成 + 与位置无关的回归测试，嵌套 / 主仓外整文件各 75 绿 → [PR #957](http://127.0.0.1:3300/a77/finance-workspace-private/pulls/957)（已合 494de8b52，四叶在嵌套位置全绿）/ `docs/handoffs/2026-09-28-pi-review-sandbox-anchor.md`（归档 [PR #959](http://127.0.0.1:3300/a77/finance-workspace-private/pulls/959) 已合 33023225d）
