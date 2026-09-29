@@ -214,6 +214,8 @@ per-user 不是进程级；`runtime_backend_readiness` 这个全局探针看不�
 
 ## 交接记录
 
+- 2026-09-29 · codex · 接收Pi有效续做，修混合错误遮住来源拒收，新增同历史多摘录有界重写；#956继续WIP → `~/.codex/worktrees/8792-quote-repair-review/finance-workspace-private/docs/handoffs/inflight/fix-8792-answer-review-0929.md`；方法 [[../10_knowledge/retry-must-carry-the-last-rejection]]。
+
 - 2026-09-28 · claude · 修 `test_pi_review_repair` 从嵌套 worktree 跑必红的 10 条（venv 锚点数进了夹具自生成的树祖先规则；#954/#955 都换到主仓外跑绕开）：按生成规则切开再重生成 + 与位置无关的回归测试，嵌套 / 主仓外整文件各 75 绿 → [PR #957](http://127.0.0.1:3300/a77/finance-workspace-private/pulls/957)（已合 494de8b52，四叶在嵌套位置全绿）/ `docs/handoffs/2026-09-28-pi-review-sandbox-anchor.md`（归档 [PR #959](http://127.0.0.1:3300/a77/finance-workspace-private/pulls/959) 已合 33023225d）
 - 2026-09-28 · claude · 七轮一次性收口脚本收进仓内：`worktree_closeout.py`（点名、dry-run 收据即计划、复核→补丁/残留包/DuckDB clonefile/salvage/钉 ref→拆）+ `worktree_board.py --landed`；顺带修 cleanup_gate_trees 中文锁理由误解锁与 detached 孤儿提交；四叶 @66af2cadd 齐绿，用户确认后合入 `20d49970a`；合入后首轮真跑受托拆 3 棵（#952 线两棵 + 旧回滚锚 7a40），回执 [PR #958](http://127.0.0.1:3300/a77/finance-workspace-private/pulls/958) 于 09-29 00:55 合入 `180df3b15`（四叶 @1a51059a8 齐绿）；本线收口，两条本地分支已删 → [PR #955](http://127.0.0.1:3300/a77/finance-workspace-private/pulls/955) / `docs/handoffs/2026-09-28-worktree-closeout-tool.md`。
 - 2026-09-28 · codex · 回答能力候选减负/恢复/输入边界已实现，18509项Python及前端门禁通过；自然财务与历史仍未过，8792未动 → [WIP #956](http://127.0.0.1:3300/a77/finance-workspace-private/pulls/956) / `docs/handoffs/inflight/fix-8792-answer-capability-0928.md`。
