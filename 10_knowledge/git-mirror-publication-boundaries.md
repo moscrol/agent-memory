@@ -22,6 +22,8 @@ related: ["[[finance-workspace-private]]"]
 
 还要查本地远程跟踪日志中的推进与 forced-update。2026-09-30 实查出现两端当前头一致、但它们已一起退回旧版本的情况；从之前取回的记录恢复了两个云端新提交。恢复时先建本地引用与 bundle，再普通快进；不能把这种“当前一致”当作没有丢失推进的证明。
 
+单端缺失还可能来自并行清理。先核删除事件和接替记录，再判断是否创建分支；按另一端清单机械补齐会把刚清理的引用复活。
+
 ## 适用条件
 
 多远程、云端 agent、迁移或备份镜像，以及向看似私有的仓库发布内部交接。
@@ -36,4 +38,4 @@ related: ["[[finance-workspace-private]]"]
 ## 参考
 
 - [Gitea push mirror 说明](https://docs.gitea.com/1.25/usage/repository/repo-mirror/)：强制推送可能覆盖目标变更。
-- [本次镜像边界处置](https://github.com/moscrol/finance/blob/a486f8833ab247e939e96135d601822e04b1b437/docs/handoffs/2026-09-30-remote-mirror-boundary.md)。
+- [本次镜像边界处置](https://github.com/moscrol/finance/blob/8f550d1f97d9c0976267601fede355cff0ebaf5b/docs/handoffs/2026-09-30-remote-mirror-boundary.md)。

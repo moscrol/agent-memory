@@ -71,7 +71,7 @@ DuckDB → detect_turning_points.py / backtest_sector.py → 信号+板块边际
 ## 任务看板
 | 任务 | 负责 | 状态 | 备注 |
 |---|---|---|---|
-| 09-29 回答能力接续复审 | codex | doing | [WIP #956](http://127.0.0.1:3300/a77/finance-workspace-private/pulls/956)：按依赖抽取窄修复，片段v2/删减重写拒收；[全局共享交接](https://github.com/moscrol/finance/blob/a486f8833ab247e939e96135d601822e04b1b437/docs/handoffs/2026-09-30-project-wide-closeout-shareable.md)已补云端测试候选与双远程边界，流程候选见 Gitea #991（正文已补恢复云端新头3d2b1ba99；停用强制镜像待确认，最新交接补丁暂存本地）；实时状态需同时核双方分支/PR，发布前沿 [[git-mirror-publication-boundaries]] 核最终可见性。 |
+| 09-29 回答能力接续复审 | codex | doing | [WIP #956](http://127.0.0.1:3300/a77/finance-workspace-private/pulls/956)：按依赖抽取窄修复，片段v2/删减重写拒收；[全局共享交接](https://github.com/moscrol/finance/blob/8f550d1f97d9c0976267601fede355cff0ebaf5b/docs/handoffs/2026-09-30-project-wide-closeout-shareable.md)已补云端测试候选与双远程边界，流程候选见 Gitea #991（镜像已按用户确认停用，交接已双端发布；改按需普通快进，云端候选3d2b1ba99待验）；实时状态需同时核双方分支/PR，发布前沿 [[git-mirror-publication-boundaries]] 核最终可见性。 |
 | 09-28 8792 Harness协议修复 | codex | deployed-with-boundaries | [#952](http://127.0.0.1:3300/a77/finance-workspace-private/pulls/952) 已合并并部署 `8e45e299a13b`；合后完整门禁、health/readiness、固定日期真实查数通过。泛化问法两次一败一成，不签可靠性或 ReAct 追平 → `docs/handoffs/2026-09-28-8792-harness-deployment-closeout.md`；归档身份与原件 `~/.finance-runtime/reviews/8792-harness-20260928/release/result.json`。 |
 | 09-24 Pi尾项执行 | codex | blocked | 09-26 #73 Q09真实Python/UI控制与作者收集过，gateway2请求过；00:53 E2启动前load1=8.974>8拒绝，E2零模型/零探针，无重试。529件归档e72745965，188/218余30，本切片最多再9。新授权可复核绑定后续同Q09，独审/自然验收仍缺，旧绿不签新main，邻线只读，无后台/推送/合并/生产 → `~/fwp-wt-pi-closeout-execution-0924/docs/handoffs/2026-09-24-pi-closeout-TODO.md`。 |
 | 09-24 Pi式研究兑现 | codex | blocked | 固定#910 2da72eef4/#911 34e31a256；#911完整工程过（Python16266P/0F0E/75S2X），两边定向74P/56P及前端123P/E2E34P2S。#910全仓仍缺：第04批5分钟11次/第05批零等待1次均拒绝，未新增pytest。归档50fcb4fa8哈希24/24过，评论7261/7255回读；需协调测试窗口，不连续建批次抢空档。main e159未吸收，WIP/零模型/无后台/未合入部署 → `~/fwp-wt-pr868-current-0925/docs/handoffs/inflight/baseline-pr868-current-0925.md`。 |
@@ -1337,6 +1337,8 @@ per-user 不是进程级；`runtime_backend_readiness` 这个全局探针看不�
 - 2026-09-24 · codex · #81机械加固后新批27请求停于零探针，结构交付成功不代表审查完成；读取截断修正仅宿主对照，342件封存 → `fwp-wt-react-trace-chain-docs-0923/docs/handoffs/2026-09-24-react-trace-qc-hardened.md`（#892，7e53a88c9），方法补[[../10_knowledge/evidence-hygiene-three-failure-shapes]]。
 
 - 2026-09-30 · codex · 补云端已实现测试分支并双端核对；沿镜像核公开边界，共享交接可远程读取 → [Gitea #991](http://127.0.0.1:3300/a77/finance-workspace-private/pulls/991) / [[git-mirror-publication-boundaries]]。
+
+- 2026-09-30 · codex · 按用户确认停用强制镜像，显式快进及双端文件回读完成；保留arena并行删枝现场 → [Gitea #991](http://127.0.0.1:3300/a77/finance-workspace-private/pulls/991) / [[git-mirror-publication-boundaries]]。
 
 ## 2026-07-18 PR #268 验证
 - #268（orphan marker 归一化）已合并，main CI 全绿（PR 上的 workbench-check failure 为 corepack 下载 pnpm 的网络抖动，与代码无关）。
