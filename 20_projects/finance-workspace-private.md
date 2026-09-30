@@ -71,7 +71,7 @@ DuckDB → detect_turning_points.py / backtest_sector.py → 信号+板块边际
 ## 任务看板
 | 任务 | 负责 | 状态 | 备注 |
 |---|---|---|---|
-| 09-30 GitHub 主协作与本地备份 | codex | done | 本机默认入口、主干保护、每小时单向备份已安装；196 定向通过，313 源引用离线恢复核对过，556 旧引用留存。规程集成 [GitHub #5](https://github.com/moscrol/finance/pull/5) 待全量 CI 与用户确认；业务测试隔离验收另线 → `docs/handoffs/2026-09-30-github-primary-local-backup.md`。 |
+| 09-30 GitHub 主协作与本地备份 | codex | done | 本机默认入口、主干保护、每小时单向备份已安装；196 定向通过，313 源引用离线恢复核对过，556 旧引用留存。用户已授权 [GitHub #5](https://github.com/moscrol/finance/pull/5) 全量检查通过后合入，条件合并已启用；业务测试隔离验收另线 → `docs/handoffs/2026-09-30-github-primary-local-backup.md`。 |
 | 09-29 回答能力接续复审 | codex | doing | [WIP #956](http://127.0.0.1:3300/a77/finance-workspace-private/pulls/956)：按依赖抽取窄修复，片段v2/删减重写拒收；[全局共享交接](https://github.com/moscrol/finance/blob/8f550d1f97d9c0976267601fede355cff0ebaf5b/docs/handoffs/2026-09-30-project-wide-closeout-shareable.md)已补云端测试候选与双远程边界，流程候选见 Gitea #991（镜像已按用户确认停用，交接已双端发布；改按需普通快进，云端候选3d2b1ba99待验）；实时状态需同时核双方分支/PR，发布前沿 [[git-mirror-publication-boundaries]] 核最终可见性。 |
 | 09-28 8792 Harness协议修复 | codex | deployed-with-boundaries | [#952](http://127.0.0.1:3300/a77/finance-workspace-private/pulls/952) 已合并并部署 `8e45e299a13b`；合后完整门禁、health/readiness、固定日期真实查数通过。泛化问法两次一败一成，不签可靠性或 ReAct 追平 → `docs/handoffs/2026-09-28-8792-harness-deployment-closeout.md`；归档身份与原件 `~/.finance-runtime/reviews/8792-harness-20260928/release/result.json`。 |
 | 09-24 Pi尾项执行 | codex | blocked | 09-26 #73 Q09真实Python/UI控制与作者收集过，gateway2请求过；00:53 E2启动前load1=8.974>8拒绝，E2零模型/零探针，无重试。529件归档e72745965，188/218余30，本切片最多再9。新授权可复核绑定后续同Q09，独审/自然验收仍缺，旧绿不签新main，邻线只读，无后台/推送/合并/生产 → `~/fwp-wt-pi-closeout-execution-0924/docs/handoffs/2026-09-24-pi-closeout-TODO.md`。 |
@@ -215,6 +215,8 @@ per-user 不是进程级；`runtime_backend_readiness` 这个全局探针看不�
 而 CLI/回检走 `~/.zshrc` 里的 `/Users/a77/agent-memory/.foresight`——**两套用户台账不是同一份**。
 
 ## 交接记录
+
+- 2026-09-30 · codex · 用户已明确授权环境 PR 全量检查通过后合入，GitHub 条件合并已启用；无需重复确认，红灯不得绕过 → [GitHub #5](https://github.com/moscrol/finance/pull/5)。
 
 - 2026-09-30 · codex · GitHub 主协作环境与每小时本地保留备份已装机并完成离线恢复；规程 PR 待全量 CI / 用户确认 → [GitHub #5](https://github.com/moscrol/finance/pull/5) / `docs/handoffs/2026-09-30-github-primary-local-backup.md`。
 
