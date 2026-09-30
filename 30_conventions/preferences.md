@@ -3,7 +3,7 @@ title: 个人偏好与人设
 type: convention
 agent: devin
 source: 用户口述 (2026-06-28) + 各 repo 的 AGENTS.md/CLAUDE.md/README.md
-date: 2026-08-12
+date: 2026-09-30
 tags: [convention, preferences, persona, core, learning]
 status: verified
 ---
@@ -55,12 +55,12 @@ status: verified
 
 ## 工作流 / Git 约定(各 repo AGENTS.md 的共性,跨项目通用)
 
-- **日常远程是本机 Gitea**（2026-08-15 起，按 GitHub 不解封规划）：`git fetch gitea`，从 `gitea/main` 开分支，`git push` 走 `remote.pushDefault=gitea`。GitHub `origin` 保留但不假设会解封，日常不要 fetch/push `origin`。用法：`~/backups/github-suspension-20260814/GITEA-USAGE.md`。
-- **改仓任务先报状态**：接到写代码 / 改配置 / 查故障时先跑 `git status --short && git branch --show-current`。基线用 `gitea/main`，不要用本机停住的旧 `main`。问答、身份、解释类问题直接回答，不扫仓、不回写。
+- **GitHub 为主协作平台，Gitea 为本地备份**（2026-09-30 用户要求切换）：已验证 GitHub 入口的仓从最新 `origin/main` 开分支，`git push` 使用 `remote.pushDefault=origin`，PR、评审和合入在 GitHub。金融仓入口是 `moscrol/finance`；Gitea 单向接收备份并保留历史引用，旧枝不自动补回 GitHub。尚未迁移的私有配套仓先核实各自 GitHub 入口和可见性，不把私有资料发到公开金融仓。金融仓运行与恢复流程：`docs/workflows/dual-remote-collaboration.md`。
+- **改仓任务先报状态**：接到写代码 / 改配置 / 查故障时先跑 `git status --short && git branch --show-current`。金融仓基线用最新 `origin/main`，不要用本机停住的旧 `main` 或备份的旧枝。其他仓以已核实的主协作入口为准。问答、身份、解释类问题直接回答，不扫仓、不回写。
 - **大任务必开分支**,不在 `main` 直接做(新增/批量改内容、改脚本、跨仓库改动等);分支名按 `<type>/<short-task>`(如 `research/...`、`pdf-ingest/...`、`fix/...`)。
 - **合并回 `main` 必须等我确认**。
 - 小型文档修补可直接在 `main`。
-- Gitea 不跑 GitHub Actions：合并前在本机跑该仓等价检查。
+- GitHub 合入须通过该仓 Actions 和既有验收；金融 main 必需检查为 `workbench-check` 与 `registry-check`，管理员同样受保护。Gitea 的代码同步不代表通过验收或已部署。
 - 模型选择要务实（2026-09-23 用户纠正）：K3 不可用就用已有 GLM，两者都可以做写手；不要把临时通道选择固化成任务禁令。切换保留模型身份、失败证据与质量标准，不擅自改生产部署或无限加预算。
 
 ## 🚫 红线(永远别做)
