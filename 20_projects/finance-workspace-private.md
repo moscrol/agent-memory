@@ -71,7 +71,7 @@ DuckDB → detect_turning_points.py / backtest_sector.py → 信号+板块边际
 ## 任务看板
 | 任务 | 负责 | 状态 | 备注 |
 |---|---|---|---|
-| 09-29 回答能力接续复审 | codex | doing | [WIP #956](http://127.0.0.1:3300/a77/finance-workspace-private/pulls/956)：Pi窄修复保留；片段v2与历史删减重写均未过语义门槛，未合入部署；收口路线见 `docs/handoffs/2026-09-30-8792-answer-capability-closeout.md` 与本分支 inflight。 |
+| 09-29 回答能力接续复审 | codex | doing | [WIP #956](http://127.0.0.1:3300/a77/finance-workspace-private/pulls/956)：按依赖抽取窄修复，片段v2/删减重写拒收；全局集成与发布条件见 `fix/8792-answer-review-0929` 的 `docs/handoffs/2026-09-30-project-wide-closeout-plan.md`，实时合入状态看 worktree_board。 |
 | 09-28 8792 Harness协议修复 | codex | deployed-with-boundaries | [#952](http://127.0.0.1:3300/a77/finance-workspace-private/pulls/952) 已合并并部署 `8e45e299a13b`；合后完整门禁、health/readiness、固定日期真实查数通过。泛化问法两次一败一成，不签可靠性或 ReAct 追平 → `docs/handoffs/2026-09-28-8792-harness-deployment-closeout.md`；归档身份与原件 `~/.finance-runtime/reviews/8792-harness-20260928/release/result.json`。 |
 | 09-24 Pi尾项执行 | codex | blocked | 09-26 #73 Q09真实Python/UI控制与作者收集过，gateway2请求过；00:53 E2启动前load1=8.974>8拒绝，E2零模型/零探针，无重试。529件归档e72745965，188/218余30，本切片最多再9。新授权可复核绑定后续同Q09，独审/自然验收仍缺，旧绿不签新main，邻线只读，无后台/推送/合并/生产 → `~/fwp-wt-pi-closeout-execution-0924/docs/handoffs/2026-09-24-pi-closeout-TODO.md`。 |
 | 09-24 Pi式研究兑现 | codex | blocked | 固定#910 2da72eef4/#911 34e31a256；#911完整工程过（Python16266P/0F0E/75S2X），两边定向74P/56P及前端123P/E2E34P2S。#910全仓仍缺：第04批5分钟11次/第05批零等待1次均拒绝，未新增pytest。归档50fcb4fa8哈希24/24过，评论7261/7255回读；需协调测试窗口，不连续建批次抢空档。main e159未吸收，WIP/零模型/无后台/未合入部署 → `~/fwp-wt-pr868-current-0925/docs/handoffs/inflight/baseline-pr868-current-0925.md`。 |
@@ -214,6 +214,8 @@ per-user 不是进程级；`runtime_backend_readiness` 这个全局探针看不�
 而 CLI/回检走 `~/.zshrc` 里的 `/Users/a77/agent-memory/.foresight`——**两套用户台账不是同一份**。
 
 ## 交接记录
+
+- 2026-09-30 · codex · 完成全项目推进盘点，区分已上线收尾、原版8798成套发布、回答候选正文验收与方法采样拒绝；纠正旧枝祖先关系不能代表能力未落地 → `fix/8792-answer-review-0929` / `docs/handoffs/2026-09-30-project-wide-closeout-plan.md`。
 
 - 2026-09-30 · codex · 统筹收口：片段v2撤回、GLM输入删减拒收，保留d9/退役v2/纠正连续性候选并要求最新main单一owner做有限正文验收 → `docs/handoffs/2026-09-30-8792-answer-capability-closeout.md` / WIP #956。
 
