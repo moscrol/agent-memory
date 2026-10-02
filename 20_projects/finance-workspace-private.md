@@ -71,6 +71,7 @@ DuckDB → detect_turning_points.py / backtest_sector.py → 信号+板块边际
 ## 任务看板
 | 任务 | 负责 | 状态 | 备注 |
 |---|---|---|---|
+| 10-02 PR16质检返修 | pi | blocked | 比较器f1e90ae3a已修，独立E2E根因定位a68f48bfb；561项定向/7项变异过，E2E产品未修、新CI未跑，0新模型、未推送合并部署 → `~/fwp-wt-pr16-qc-1002/docs/handoffs/inflight/fix-pr16-qc-1002.md`。 |
 | 09-30 GitHub 主协作与本地备份 | codex | done | [GitHub #5](https://github.com/moscrol/finance/pull/5) 已按用户授权完成合入；最终同 SHA 本机 18729P、GitHub 五项全绿，两轴复核通过。GitHub 为主入口，Gitea 每小时单向保留备份；安装、恢复范围与最终记录见 PR / `docs/handoffs/2026-09-30-github-primary-local-backup.md`。 |
 | 09-30 回答工程基线与环境接续 | codex → claude | doing | [草稿 #8](https://github.com/moscrol/finance/pull/8) 的 b55eb4d86 本机 19012P 与 GitHub 五项全绿，内容验收仍未过；原始首答保留，由 Claude 继续内容/模型路线。8792 遗留 8080 启动预检已修，09-30 行情恢复并实测 ready；内容/模型仍由 Claude 验收 → `docs/handoffs/2026-09-30-answer-quality-integration.md` 与本次 Codex outputs 状态记录。 |
 | 09-30 夜跑断线与行情恢复 | codex | done | [GitHub #9](https://github.com/moscrol/finance/pull/9) 已按用户确认合入 main 3a2718c6c（候选 7eec31b04 整树一致，本机 18746P/0F，GitHub 五项全绿）。18:30/20:40 定时任务同步根已切至固定 7eec31b04，旧 plist 回滚副本保留。09-30 行情、L2（官方证据排除停牌 002813）、20 步报告、最终硬门、方法日步完成；8792 仍 2c3949786568 且 healthy/ready。最终收据见本任务 `outputs/8792-ops-readiness.json`；回答质量仍交 Claude 验收。 |
@@ -217,6 +218,8 @@ per-user 不是进程级；`runtime_backend_readiness` 这个全局探针看不�
 而 CLI/回检走 `~/.zshrc` 里的 `/Users/a77/agent-memory/.foresight`——**两套用户台账不是同一份**。
 
 ## 交接记录
+
+- 2026-10-02 · pi · PR16比较器改收显式逐题结果；E2E输出身份错位单独定位、未修产品 → `~/fwp-wt-pr16-qc-1002/docs/handoffs/2026-10-02-pr16-qc-fix.md`。
 
 - 2026-09-30 · codex · 完成 GitHub 主协作环境收尾，回答工程与内容验收分账，后者交 Claude 接续 → [#5](https://github.com/moscrol/finance/pull/5) / [#8](https://github.com/moscrol/finance/pull/8) / `docs/handoffs/2026-09-30-answer-quality-integration.md`。
 
