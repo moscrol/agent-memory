@@ -71,7 +71,7 @@ DuckDB → detect_turning_points.py / backtest_sector.py → 信号+板块边际
 ## 任务看板
 | 任务 | 负责 | 状态 | 备注 |
 |---|---|---|---|
-| 10-02 压缩接续 / Harness契约评审 | pi | doing | 文档4000f7ab：对齐v0.1方向，消费者身份/PLAN撤回/解释版本/旧词面门退出四项待实施；产品未改、新模型0 → `~/fwp-wt-owner-output-contract-1002/docs/handoffs/inflight/fix-owner-output-contract-1002.md`。 |
+| 10-02 Harness优化 / P1a计划所有权 | pi | doing | 产品12555e9ad、测试pin7513d476b：自拟PLAN可撤、required贯穿补写/失败投影；相关1045P/1既有S、9变异红→绿。P1b/完整合入与质量验收待；新模型0、未推送合并部署。接续 `~/fwp-wt-harness-plan-ownership-1002/docs/handoffs/inflight/feat-harness-plan-ownership-1002.md`；原则补入 [[agent-system-closed-loop-first-principles]]。 |
 | 10-02 追问输出身份窄修复 | pi | blocked | 4cba44a63在生成端条件去重；相关632P/1F、浏览器40P/2既有S、5变异捕获。正文覆盖反例正常红，未签发布；0新模型、未推送合并部署 → `~/fwp-wt-owner-output-contract-1002/docs/handoffs/inflight/fix-owner-output-contract-1002.md`。 |
 | 10-02 PR16返修 / Harness方向复核 | pi | blocked | 比较器f1e90ae3a、跨树诊断ddba3fb7d，旧交付b8b1e15fc保留；产品身份续修转上列独立分支，集成/全文仍未通过，不整枝移入发布候选 → `~/fwp-wt-pr16-qc-1002/docs/handoffs/inflight/fix-pr16-qc-1002.md`。 |
 | 09-30 GitHub 主协作与本地备份 | codex | done | [GitHub #5](https://github.com/moscrol/finance/pull/5) 已按用户授权完成合入；最终同 SHA 本机 18729P、GitHub 五项全绿，两轴复核通过。GitHub 为主入口，Gitea 每小时单向保留备份；安装、恢复范围与最终记录见 PR / `docs/handoffs/2026-09-30-github-primary-local-backup.md`。 |
@@ -1566,3 +1566,4 @@ per-user 不是进程级；`runtime_backend_readiness` 这个全局探针看不�
 - 2026-09-24 · codex · RAG新组合2ac工程/自然入口通过，数据readiness仍503；隔离写根与证据身份分账 → `fwp-wt-rag-recovery-state-0923/docs/handoffs/2026-09-24-rag-integration-and-live-acceptance.md`；方法 [[test-evidence-environment-isolation]]。
 - 2026-09-30 · codex · 夜跑断线改为有界请求重试，原生分块恢复行情并使 8792 ready；OS 授权与永久启用待续 → [PR #9](https://github.com/moscrol/finance/pull/9) / `docs/handoffs/2026-09-30-nightly-data-recovery.md`。
 - 2026-10-02 · pi · 接续压缩中断，转向语义权限减法；复核词面门与建议身份消费者，保留原红灯且未实施产品 → `~/fwp-wt-owner-output-contract-1002/docs/handoffs/2026-10-02-knevo-takeover-contract-review.md`。
+- 2026-10-02 · pi · P1a固定7513d476b离线验证，计划可撤不改用户义务；交接d67ae8318 → `~/fwp-wt-harness-plan-ownership-1002/docs/handoffs/2026-10-02-harness-plan-ownership.md`。
