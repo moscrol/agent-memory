@@ -221,6 +221,8 @@ per-user 不是进程级；`runtime_backend_readiness` 这个全局探针看不�
 
 ## 交接记录
 
+- 2026-10-03 · Codex · 无人接手工程完成质检、收口与8792发布；失败实验/FinArena归档及pi活动线保留各自边界 → 金融仓 `docs/handoffs/2026-10-03-workspace-release-closeout.md`。
+
 - 2026-10-02 · pi · 追问身份在生产端归一；结构通过不抵消正文覆盖红灯，候选继续阻塞 → `~/fwp-wt-owner-output-contract-1002/docs/handoffs/2026-10-02-owner-output-identity.md`。
 
 - 2026-10-02 · pi · Harness独立复核保留输入/工具增强方向；发布工程绿不抵消同义追问缺陷，与发布/四格线分工不重叠 → `~/fwp-wt-pr16-qc-1002/docs/handoffs/2026-10-02-harness-alignment-review.md`。
