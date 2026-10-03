@@ -71,13 +71,14 @@ DuckDB → detect_turning_points.py / backtest_sector.py → 信号+板块边际
 ## 任务看板
 | 任务 | 负责 | 状态 | 备注 |
 |---|---|---|---|
+| 10-03 全局遗留工程收口 | codex | done | [GitHub #28](https://github.com/moscrol/finance/pull/28) 已合并部署ffe1c60d；日期提示/AIHOT入口、历史PR处置、保全回收与备份核验见金融仓 `docs/handoffs/2026-10-03-workspace-global-closeout.md`。pi活动线与内容质量未通过保持独立。 |
 | 10-02 Harness优化 / P1a计划所有权 | pi | doing | 产品12555e9ad、测试pin7513d476b：自拟PLAN可撤、required贯穿补写/失败投影；相关1045P/1既有S、9变异红→绿。P1b/完整合入与质量验收待；新模型0、未推送合并部署。接续 `~/fwp-wt-harness-plan-ownership-1002/docs/handoffs/inflight/feat-harness-plan-ownership-1002.md`；原则补入 [[agent-system-closed-loop-first-principles]]。 |
 | 10-02 追问输出身份窄修复 | pi | blocked | 4cba44a63在生成端条件去重；相关632P/1F、浏览器40P/2既有S、5变异捕获。正文覆盖反例正常红，未签发布；0新模型、未推送合并部署 → `~/fwp-wt-owner-output-contract-1002/docs/handoffs/inflight/fix-owner-output-contract-1002.md`。 |
 | 10-02 PR16返修 / Harness方向复核 | pi | blocked | 比较器f1e90ae3a、跨树诊断ddba3fb7d，旧交付b8b1e15fc保留；产品身份续修转上列独立分支，集成/全文仍未通过，不整枝移入发布候选 → `~/fwp-wt-pr16-qc-1002/docs/handoffs/inflight/fix-pr16-qc-1002.md`。 |
 | 09-30 GitHub 主协作与本地备份 | codex | done | [GitHub #5](https://github.com/moscrol/finance/pull/5) 已按用户授权完成合入；最终同 SHA 本机 18729P、GitHub 五项全绿，两轴复核通过。GitHub 为主入口，Gitea 每小时单向保留备份；安装、恢复范围与最终记录见 PR / `docs/handoffs/2026-09-30-github-primary-local-backup.md`。 |
 | 09-30 回答工程基线与环境接续 | codex → claude | doing | [草稿 #8](https://github.com/moscrol/finance/pull/8) 的 b55eb4d86 本机 19012P 与 GitHub 五项全绿，内容验收仍未过；原始首答保留，由 Claude 继续内容/模型路线。8792 遗留 8080 启动预检已修，09-30 行情恢复并实测 ready；内容/模型仍由 Claude 验收 → `docs/handoffs/2026-09-30-answer-quality-integration.md` 与本次 Codex outputs 状态记录。 |
 | 09-30 夜跑断线与行情恢复 | codex | done | [GitHub #9](https://github.com/moscrol/finance/pull/9) 已按用户确认合入 main 3a2718c6c（候选 7eec31b04 整树一致，本机 18746P/0F，GitHub 五项全绿）。18:30/20:40 定时任务同步根已切至固定 7eec31b04，旧 plist 回滚副本保留。09-30 行情、L2（官方证据排除停牌 002813）、20 步报告、最终硬门、方法日步完成；8792 仍 2c3949786568 且 healthy/ready。最终收据见本任务 `outputs/8792-ops-readiness.json`；回答质量仍交 Claude 验收。 |
-| 09-29 回答能力接续复审 | codex | doing | [WIP #956](http://127.0.0.1:3300/a77/finance-workspace-private/pulls/956)：按依赖抽取窄修复，片段v2/删减重写拒收；[全局共享交接](https://github.com/moscrol/finance/blob/8f550d1f97d9c0976267601fede355cff0ebaf5b/docs/handoffs/2026-09-30-project-wide-closeout-shareable.md)已补云端测试候选与双远程边界，流程候选见 Gitea #991（镜像已按用户确认停用，交接已双端发布；改按需普通快进，云端候选3d2b1ba99待验）；实时状态需同时核双方分支/PR，发布前沿 [[git-mirror-publication-boundaries]] 核最终可见性。 |
+| 09-29 回答能力接续复审 | codex | done | Gitea #956已留下[GitHub #24](https://github.com/moscrol/finance/pull/24)工程接替及原质量未通过裁决后关闭；固定原题新跑和首偏差审计已完成。质量未达标与pi活动线另计，详见金融仓 `docs/verification/2026-10-03-legacy-optimization-closeout.md`。 |
 | 09-28 8792 Harness协议修复 | codex | deployed-with-boundaries | [#952](http://127.0.0.1:3300/a77/finance-workspace-private/pulls/952) 已合并并部署 `8e45e299a13b`；合后完整门禁、health/readiness、固定日期真实查数通过。泛化问法两次一败一成，不签可靠性或 ReAct 追平 → `docs/handoffs/2026-09-28-8792-harness-deployment-closeout.md`；归档身份与原件 `~/.finance-runtime/reviews/8792-harness-20260928/release/result.json`。 |
 | 09-24 Pi尾项执行 | codex | blocked | 09-26 #73 Q09真实Python/UI控制与作者收集过，gateway2请求过；00:53 E2启动前load1=8.974>8拒绝，E2零模型/零探针，无重试。529件归档e72745965，188/218余30，本切片最多再9。新授权可复核绑定后续同Q09，独审/自然验收仍缺，旧绿不签新main，邻线只读，无后台/推送/合并/生产 → `~/fwp-wt-pi-closeout-execution-0924/docs/handoffs/2026-09-24-pi-closeout-TODO.md`。 |
 | 09-24 Pi式研究兑现 | codex | blocked | 固定#910 2da72eef4/#911 34e31a256；#911完整工程过（Python16266P/0F0E/75S2X），两边定向74P/56P及前端123P/E2E34P2S。#910全仓仍缺：第04批5分钟11次/第05批零等待1次均拒绝，未新增pytest。归档50fcb4fa8哈希24/24过，评论7261/7255回读；需协调测试窗口，不连续建批次抢空档。main e159未吸收，WIP/零模型/无后台/未合入部署 → `~/fwp-wt-pr868-current-0925/docs/handoffs/inflight/baseline-pr868-current-0925.md`。 |
@@ -220,6 +221,8 @@ per-user 不是进程级；`runtime_backend_readiness` 这个全局探针看不�
 而 CLI/回检走 `~/.zshrc` 里的 `/Users/a77/agent-memory/.foresight`——**两套用户台账不是同一份**。
 
 ## 交接记录
+
+- 2026-10-03 · Codex · 全局遗留工程第二次发布与备份对账，保留内容失败和pi边界 → 金融仓 `docs/handoffs/2026-10-03-workspace-global-closeout.md`；回滚原则 [[rollback-restore-prestate]]。
 
 - 2026-10-03 · Codex · 无人接手工程完成质检、收口与8792发布；失败实验/FinArena归档及pi活动线保留各自边界 → 金融仓 `docs/handoffs/2026-10-03-workspace-release-closeout.md`。
 
