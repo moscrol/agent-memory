@@ -1574,3 +1574,5 @@ per-user 不是进程级；`runtime_backend_readiness` 这个全局探针看不�
 - 2026-09-30 · codex · 夜跑断线改为有界请求重试，原生分块恢复行情并使 8792 ready；OS 授权与永久启用待续 → [PR #9](https://github.com/moscrol/finance/pull/9) / `docs/handoffs/2026-09-30-nightly-data-recovery.md`。
 - 2026-10-02 · pi · 接续压缩中断，转向语义权限减法；复核词面门与建议身份消费者，保留原红灯且未实施产品 → `~/fwp-wt-owner-output-contract-1002/docs/handoffs/2026-10-02-knevo-takeover-contract-review.md`。
 - 2026-10-02 · pi · P1a固定7513d476b离线验证，计划可撤不改用户义务；交接d67ae8318 → `~/fwp-wt-harness-plan-ownership-1002/docs/handoffs/2026-10-02-harness-plan-ownership.md`。
+
+- 2026-10-04 · codex · FINANCEWORKS-8 PR36 合入、全量门禁、生产切换、真实 Episode 烟测、Gitea 备份与验收树收口完成；弱/强模型收益仍未验收 → `docs/handoffs/2026-10-04-recall-failure-deploy.md`
