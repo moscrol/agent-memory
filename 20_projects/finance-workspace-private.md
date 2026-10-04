@@ -1576,3 +1576,5 @@ per-user 不是进程级；`runtime_backend_readiness` 这个全局探针看不�
 - 2026-10-02 · pi · P1a固定7513d476b离线验证，计划可撤不改用户义务；交接d67ae8318 → `~/fwp-wt-harness-plan-ownership-1002/docs/handoffs/2026-10-02-harness-plan-ownership.md`。
 
 - 2026-10-04 · codex · FINANCEWORKS-8 PR36 合入、全量门禁、生产切换、真实 Episode 烟测、Gitea 备份与验收树收口完成；弱/强模型收益仍未验收 → `docs/handoffs/2026-10-04-recall-failure-deploy.md`
+
+- 2026-10-04 · codex · PR37全绿合入、GitHub/Gitea一致、发布项in_review；内容收益/PR30/数据源仍未完，最终交接 → `/Users/a77/.finance-runtime/harness-quality-closeout-1003/HANDOFF-2026-10-04.md`
