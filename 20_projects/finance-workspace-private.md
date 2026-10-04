@@ -222,6 +222,8 @@ per-user 不是进程级；`runtime_backend_readiness` 这个全局探针看不�
 
 ## 交接记录
 
+- 2026-10-04 · Codex · 记忆评分/具体纠偏交付与评测状态隔离分阶段验收，语义召回仍因污染及限定遗漏保持默认，内容收益另验 → 金融仓 `docs/verification/2026-10-04-memory-raw-query-and-isolation.md`；当前接续 FINANCEWORKS-8。
+
 - 2026-10-03 · Codex · 全局遗留工程第二次发布与备份对账，保留内容失败和pi边界 → 金融仓 `docs/handoffs/2026-10-03-workspace-global-closeout.md`；回滚原则 [[rollback-restore-prestate]]。
 
 - 2026-10-03 · Codex · 无人接手工程完成质检、收口与8792发布；失败实验/FinArena归档及pi活动线保留各自边界 → 金融仓 `docs/handoffs/2026-10-03-workspace-release-closeout.md`。
