@@ -222,6 +222,7 @@ per-user 不是进程级；`runtime_backend_readiness` 这个全局探针看不�
 
 ## 交接记录
 
+- 2026-10-06 · Pi · PR #52 公司边界与trace响应身份修复；工程/身份与质量分账，质量仍未通过 → 金融仓 `docs/handoffs/2026-10-06-company-boundary-model-admission.md`（最终状态见分支inflight和PR同头评论）。
 - 2026-10-05 · Pi · 接续 Claude 中断会话：启动器花括号采样修复与预算/引用记账修补分开留证；工程通过不代替回答质量通过 → 金融仓 `docs/handoffs/2026-10-05-worktree-safety-shell-brace-paths.md`、`docs/handoffs/2026-10-05-harness-budget-takeover.md`；各分支在途状态看对应 inflight 与 PR 评论。
 
 - 2026-10-05 · Claude · `worktree_safety` 引用判据改单向：指向祖先目录（主检出根、`/private/tmp`、`$HOME`）的启动器引用不再挡嵌套树，实况 15 棵由挡变放、新增阻塞 0；PR #49 待用户确认合入 → 金融仓 `docs/handoffs/2026-10-05-worktree-safety-ancestor-refs.md`。
