@@ -222,6 +222,7 @@ per-user 不是进程级；`runtime_backend_readiness` 这个全局探针看不�
 
 ## 交接记录
 
+- 2026-10-06 · Claude · PR #54（叠在 #52 上，未合未部署）模型优先：盘面题回 Episode、工具观察/行数/篇幅/单轮时限放开、明天方向门改受众开关缺省关、实体候选不反问、修 09-22 起潜伏的 PLAN 分支身份 storage_failed；旁路 10 题 n=1 自读与 Pi 持平或更好，独立盲评未做 → 金融仓 `docs/handoffs/2026-10-06-model-first-harness.md`
 - 2026-10-06 · Pi · PR #52 公司边界与trace响应身份修复；工程/身份与质量分账，质量仍未通过 → 金融仓 `docs/handoffs/2026-10-06-company-boundary-model-admission.md`（最终状态见分支inflight和PR同头评论）。
 - 2026-10-05 · Pi · 接续 Claude 中断会话：启动器花括号采样修复与预算/引用记账修补分开留证；工程通过不代替回答质量通过 → 金融仓 `docs/handoffs/2026-10-05-worktree-safety-shell-brace-paths.md`、`docs/handoffs/2026-10-05-harness-budget-takeover.md`；各分支在途状态看对应 inflight 与 PR 评论。
 
