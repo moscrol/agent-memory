@@ -222,6 +222,8 @@ per-user 不是进程级；`runtime_backend_readiness` 这个全局探针看不�
 
 ## 交接记录
 
+- 2026-10-05 · Claude · `worktree_safety` 引用判据改单向：指向祖先目录（主检出根、`/private/tmp`、`$HOME`）的启动器引用不再挡嵌套树，实况 15 棵由挡变放、新增阻塞 0；PR #49 待用户确认合入 → 金融仓 `docs/handoffs/2026-10-05-worktree-safety-ancestor-refs.md`。
+
 - 2026-10-04 · Codex · 记忆评分/具体纠偏交付与评测状态隔离分阶段验收，语义召回仍因污染及限定遗漏保持默认，内容收益另验 → 金融仓 `docs/verification/2026-10-04-memory-raw-query-and-isolation.md`；当前接续 FINANCEWORKS-8。
 
 - 2026-10-03 · Codex · 全局遗留工程第二次发布与备份对账，保留内容失败和pi边界 → 金融仓 `docs/handoffs/2026-10-03-workspace-global-closeout.md`；回滚原则 [[rollback-restore-prestate]]。
