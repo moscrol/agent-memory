@@ -226,6 +226,7 @@ per-user 不是进程级；`runtime_backend_readiness` 这个全局探针看不�
 - 2026-10-06 · Claude · 数据/工具缺口一轮：#56 外盘复制旧值逐行标注 + `turnover_est` 推算换手率 + 下线空列 `sector_daily.strength`（12:32 上线 76d1586ca）；#57 休市罐头补最近交易日、#58 外盘题改走 Episode 并默认停打停抓中的复盘会接口（13:23 上线 e33021db0，后由 #59 会话切到 d5d7c5f60）；盲评 v6 生产 7/10 对 Pi 8/10、胜负 4:5:1；#62 切换脚本 `scripts/switch_8792.sh`（待合）；回填（外盘换源、估值、流通市值）待 task-planner 采访 → 金融仓 `docs/handoffs/2026-10-06-data-tool-gaps-and-overseas-routing.md`
 - 2026-10-06 · Claude · PR #54（10-06 已合，8792 上午切 `f3b97499aaff`，部署记录 `docs/handoffs/2026-10-06-model-first-deploy-f3b97499.md`）模型优先：盘面题回 Episode、工具观察/行数/篇幅/单轮时限放开、明天方向门改受众开关缺省关、实体候选不反问、修 09-22 起潜伏的 PLAN 分支身份 storage_failed；独立盲评 v6 见下一轮 → 金融仓 `docs/handoffs/2026-10-06-model-first-harness.md`
 - 2026-10-06 · Pi · PR #52 公司边界与trace响应身份修复；工程/身份与质量分账，质量仍未通过 → 金融仓 `docs/handoffs/2026-10-06-company-boundary-model-admission.md`（最终状态见分支inflight和PR同头评论）。
+- 2026-10-06 · Pi · a788冻结证据离线审计：26条裁决、D4/D9/D10建议稿与11个边界探针；D10合同更正为8规格/4必需，真实内容仍未验收 → 金融仓 `docs/handoffs/2026-10-06-answer-quality-offline-content-audit.md`。
 - 2026-10-05 · Pi · 接续 Claude 中断会话：启动器花括号采样修复与预算/引用记账修补分开留证；工程通过不代替回答质量通过 → 金融仓 `docs/handoffs/2026-10-05-worktree-safety-shell-brace-paths.md`、`docs/handoffs/2026-10-05-harness-budget-takeover.md`；各分支在途状态看对应 inflight 与 PR 评论。
 
 - 2026-10-05 · Claude · `worktree_safety` 引用判据改单向：指向祖先目录（主检出根、`/private/tmp`、`$HOME`）的启动器引用不再挡嵌套树，实况 15 棵由挡变放、新增阻塞 0；PR #49 待用户确认合入 → 金融仓 `docs/handoffs/2026-10-05-worktree-safety-ancestor-refs.md`。
