@@ -73,6 +73,7 @@ DuckDB → detect_turning_points.py / backtest_sector.py → 信号+板块边际
 |---|---|---|---|
 | 10-03 全局遗留工程收口 | codex | done | [GitHub #28](https://github.com/moscrol/finance/pull/28) 已合并部署ffe1c60d；日期提示/AIHOT入口、历史PR处置、保全回收与备份核验见金融仓 `docs/handoffs/2026-10-03-workspace-global-closeout.md`。pi活动线与内容质量未通过保持独立。 |
 | 10-02 Harness优化 / P1a计划所有权 | pi | doing | 产品12555e9ad、测试pin7513d476b：自拟PLAN可撤、required贯穿补写/失败投影；相关1045P/1既有S、9变异红→绿。P1b/完整合入与质量验收待；新模型0、未推送合并部署。接续 `~/fwp-wt-harness-plan-ownership-1002/docs/handoffs/inflight/feat-harness-plan-ownership-1002.md`；原则补入 [[agent-system-closed-loop-first-principles]]。 |
+| 10-06 回答质量证据边界与离线内容审计 | pi | blocked | a788b8ca5工程收据全绿但内容仍未验收；26条裁决、11探针/5个边界不符，D10合同更正为8规格/4必需；未改产品、未真实修订、未独立批准 → `docs/handoffs/2026-10-06-answer-quality-offline-content-audit.md`。 |
 | 10-02 追问输出身份窄修复 | pi | blocked | 4cba44a63在生成端条件去重；相关632P/1F、浏览器40P/2既有S、5变异捕获。正文覆盖反例正常红，未签发布；0新模型、未推送合并部署 → `~/fwp-wt-owner-output-contract-1002/docs/handoffs/inflight/fix-owner-output-contract-1002.md`。 |
 | 10-02 PR16返修 / Harness方向复核 | pi | blocked | 比较器f1e90ae3a、跨树诊断ddba3fb7d，旧交付b8b1e15fc保留；产品身份续修转上列独立分支，集成/全文仍未通过，不整枝移入发布候选 → `~/fwp-wt-pr16-qc-1002/docs/handoffs/inflight/fix-pr16-qc-1002.md`。 |
 | 09-30 GitHub 主协作与本地备份 | codex | done | [GitHub #5](https://github.com/moscrol/finance/pull/5) 已按用户授权完成合入；最终同 SHA 本机 18729P、GitHub 五项全绿，两轴复核通过。GitHub 为主入口，Gitea 每小时单向保留备份；安装、恢复范围与最终记录见 PR / `docs/handoffs/2026-09-30-github-primary-local-backup.md`。 |
@@ -226,7 +227,7 @@ per-user 不是进程级；`runtime_backend_readiness` 这个全局探针看不�
 - 2026-10-06 · Claude · 数据/工具缺口一轮：#56 外盘复制旧值逐行标注 + `turnover_est` 推算换手率 + 下线空列 `sector_daily.strength`（12:32 上线 76d1586ca）；#57 休市罐头补最近交易日、#58 外盘题改走 Episode 并默认停打停抓中的复盘会接口（13:23 上线 e33021db0，后由 #59 会话切到 d5d7c5f60）；盲评 v6 生产 7/10 对 Pi 8/10、胜负 4:5:1；#62 切换脚本 `scripts/switch_8792.sh`（待合）；回填（外盘换源、估值、流通市值）待 task-planner 采访 → 金融仓 `docs/handoffs/2026-10-06-data-tool-gaps-and-overseas-routing.md`
 - 2026-10-06 · Claude · PR #54（10-06 已合，8792 上午切 `f3b97499aaff`，部署记录 `docs/handoffs/2026-10-06-model-first-deploy-f3b97499.md`）模型优先：盘面题回 Episode、工具观察/行数/篇幅/单轮时限放开、明天方向门改受众开关缺省关、实体候选不反问、修 09-22 起潜伏的 PLAN 分支身份 storage_failed；独立盲评 v6 见下一轮 → 金融仓 `docs/handoffs/2026-10-06-model-first-harness.md`
 - 2026-10-06 · Pi · PR #52 公司边界与trace响应身份修复；工程/身份与质量分账，质量仍未通过 → 金融仓 `docs/handoffs/2026-10-06-company-boundary-model-admission.md`（最终状态见分支inflight和PR同头评论）。
-- 2026-10-06 · Pi · a788冻结证据离线审计：26条裁决、D4/D9/D10建议稿与11个边界探针；D10合同更正为8规格/4必需，真实内容仍未验收 → 金融仓 `docs/handoffs/2026-10-06-answer-quality-offline-content-audit.md`。
+-- 2026-10-06 · Pi · a788冻结证据离线审计：26条裁决、D4/D9/D10建议稿与11个边界探针；D10合同更正为8规格/4必需，真实内容仍未验收 → 金融仓 `docs/handoffs/2026-10-06-answer-quality-offline-content-audit.md`。
 - 2026-10-05 · Pi · 接续 Claude 中断会话：启动器花括号采样修复与预算/引用记账修补分开留证；工程通过不代替回答质量通过 → 金融仓 `docs/handoffs/2026-10-05-worktree-safety-shell-brace-paths.md`、`docs/handoffs/2026-10-05-harness-budget-takeover.md`；各分支在途状态看对应 inflight 与 PR 评论。
 
 - 2026-10-05 · Claude · `worktree_safety` 引用判据改单向：指向祖先目录（主检出根、`/private/tmp`、`$HOME`）的启动器引用不再挡嵌套树，实况 15 棵由挡变放、新增阻塞 0；PR #49 待用户确认合入 → 金融仓 `docs/handoffs/2026-10-05-worktree-safety-ancestor-refs.md`。
