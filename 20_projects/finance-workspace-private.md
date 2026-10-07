@@ -223,6 +223,8 @@ per-user 不是进程级；`runtime_backend_readiness` 这个全局探针看不�
 
 ## 交接记录
 
+- 2026-10-07 · codex · PR68/69/70上线8792 `6b8269bcdcb2`；一题有效Pi对照两边内容未过、知识已消费、长河及记忆完整收益未证，结构缺口由root接续 → 金融仓PR73 `docs/handoffs/2026-10-07-quality-verification-closeout.md` / `/Users/a77/.finance-runtime/knevo-coverage-release-1007/final-quality-report.md`。
+
 - 2026-10-07 · codex · PR #66落地Knevo内部研究维度与三轮合同继承（保覆盖、减固定章节；代码a5feb工程通过，真实质量待验）→ finance仓 docs/handoffs/2026-10-07-knevo-market-research-dimensions.md。
 
 - 2026-10-06 · Claude · PR #64（未合，须用户确认）数值门「待核」误报：月份 / 日期（「6 月」「一月」）不再当数，两端有据的区间（「0.75~1.07」）放行，整数端点不借观察值 ±0.5；自拟判据照旧点名。GitHub Actions 因账户计费没启动，本机各叶齐绿读数在 PR 评论 → 金融仓 `docs/handoffs/2026-10-06-verifier-month-range-marks.md`
