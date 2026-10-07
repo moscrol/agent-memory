@@ -223,6 +223,8 @@ per-user 不是进程级；`runtime_backend_readiness` 这个全局探针看不�
 
 ## 交接记录
 
+- 2026-10-07 · codex · PR #66落地Knevo内部研究维度与三轮合同继承（保覆盖、减固定章节；代码a5feb工程通过，真实质量待验）→ finance仓 docs/handoffs/2026-10-07-knevo-market-research-dimensions.md。
+
 - 2026-10-06 · Claude · PR #64（未合，须用户确认）数值门「待核」误报：月份 / 日期（「6 月」「一月」）不再当数，两端有据的区间（「0.75~1.07」）放行，整数端点不借观察值 ±0.5；自拟判据照旧点名。GitHub Actions 因账户计费没启动，本机各叶齐绿读数在 PR 评论 → 金融仓 `docs/handoffs/2026-10-06-verifier-month-range-marks.md`
 - 2026-10-06 · Claude · 数据/工具缺口一轮：#56 外盘复制旧值逐行标注 + `turnover_est` 推算换手率 + 下线空列 `sector_daily.strength`（12:32 上线 76d1586ca）；#57 休市罐头补最近交易日、#58 外盘题改走 Episode 并默认停打停抓中的复盘会接口（13:23 上线 e33021db0，后由 #59 会话切到 d5d7c5f60）；盲评 v6 生产 7/10 对 Pi 8/10、胜负 4:5:1；#62 切换脚本 `scripts/switch_8792.sh`（待合）；回填（外盘换源、估值、流通市值）待 task-planner 采访 → 金融仓 `docs/handoffs/2026-10-06-data-tool-gaps-and-overseas-routing.md`
 - 2026-10-06 · Claude · PR #54（10-06 已合，8792 上午切 `f3b97499aaff`，部署记录 `docs/handoffs/2026-10-06-model-first-deploy-f3b97499.md`）模型优先：盘面题回 Episode、工具观察/行数/篇幅/单轮时限放开、明天方向门改受众开关缺省关、实体候选不反问、修 09-22 起潜伏的 PLAN 分支身份 storage_failed；独立盲评 v6 见下一轮 → 金融仓 `docs/handoffs/2026-10-06-model-first-harness.md`
