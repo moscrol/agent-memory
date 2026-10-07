@@ -71,7 +71,7 @@ DuckDB → detect_turning_points.py / backtest_sector.py → 信号+板块边际
 ## 任务看板
 | 任务 | 负责 | 状态 | 备注 |
 |---|---|---|---|
-| 10-08 vidio finance 交付迁移与质检 | pi | doing | [草稿 GitHub #75](https://github.com/moscrol/finance/pull/75)，公开代码31fc76f95：补丁树审实现、main作对照，隔离私人历史；锁定环境定向1093P/44S，非全仓。完整验收及日常问答接线待，未合未部署 → `~/fwp-wt-vidio-finance-public/docs/handoffs/inflight/feat-vidio-finance-transfer-public.md`。 |
+| 10-08 vidio finance 交付迁移与质检 | pi | doing | [草稿 GitHub #75](https://github.com/moscrol/finance/pull/75)，公开接线7389549bc：[实测]A首发/B默认及旧合成接口替身收到镜头，12K装不下则拒发且不升事实；本树`.venv-workbench/bin/python`3.12.13净树定向1785P/44S、Ruff过，非全仓。只读真库可出数；教学缺数/旧schema与历史版本不足仍在，模型利用/质量及生产未验，未合未部署 → `~/fwp-wt-vidio-finance-public/docs/handoffs/inflight/feat-vidio-finance-transfer-public.md`。 |
 | 10-03 全局遗留工程收口 | codex | done | [GitHub #28](https://github.com/moscrol/finance/pull/28) 已合并部署ffe1c60d；日期提示/AIHOT入口、历史PR处置、保全回收与备份核验见金融仓 `docs/handoffs/2026-10-03-workspace-global-closeout.md`。pi活动线与内容质量未通过保持独立。 |
 | 10-02 Harness优化 / P1a计划所有权 | pi | doing | 产品12555e9ad、测试pin7513d476b：自拟PLAN可撤、required贯穿补写/失败投影；相关1045P/1既有S、9变异红→绿。P1b/完整合入与质量验收待；新模型0、未推送合并部署。接续 `~/fwp-wt-harness-plan-ownership-1002/docs/handoffs/inflight/feat-harness-plan-ownership-1002.md`；原则补入 [[agent-system-closed-loop-first-principles]]。 |
 | 10-06 回答质量证据边界与离线内容审计 | pi | blocked | a788b8ca5工程收据全绿但内容仍未验收；26条裁决、11探针/5个边界不符，D10合同更正为8规格/4必需；未改产品、未真实修订、未独立批准 → `docs/handoffs/2026-10-06-answer-quality-offline-content-audit.md`。 |
@@ -223,6 +223,8 @@ per-user 不是进程级；`runtime_backend_readiness` 这个全局探针看不�
 而 CLI/回检走 `~/.zshrc` 里的 `/Users/a77/agent-memory/.foresight`——**两套用户台账不是同一份**。
 
 ## 交接记录
+
+- 2026-10-08 · pi · [实测]7389549bc将历史镜头送到A/B模型接口替身，读数与限制原子保留、超预算拒发；不代签模型利用/质量/生产 → [草稿 #75](https://github.com/moscrol/finance/pull/75) / 金融仓 `docs/handoffs/2026-10-08-river-history-consumption.md`。
 
 - 2026-10-08 · pi · 迁入教学桥、镜头与环境剧本并修边界；从main重建公开差异，不推私人历史，定向收据不冒充全仓 → [草稿 #75](https://github.com/moscrol/finance/pull/75) / 金融仓 `docs/handoffs/2026-10-08-vidio-finance-transfer-public.md`；方法 [[evidence-hygiene-three-failure-shapes]]。
 
