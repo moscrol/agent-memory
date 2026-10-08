@@ -2,7 +2,7 @@
 title: 反复出错时先找根因，不逐句堆补丁
 type: knowledge
 agent: pi
-source: 用户于 2026-10-08 两次明确纠正；金融历史比较离线根因诊断 18090fc76
+source: 用户于 2026-10-08 多次明确纠正；金融历史比较诊断 18090fc76；Root 固定首答 run_20261008_132253_459354 原件回放
 date: 2026-10-08
 tags: [debugging, root-cause, user-preference, testing]
 status: verified
@@ -26,5 +26,7 @@ related: ["[[finance-workspace-private]]", "[[evidence-hygiene-three-failure-sha
 ## 本次证据与边界
 
 金融历史比较中同时复现小候选集突出度阈值不可达、距离小但方向相反、同签名不同路径、窗口日期与候选范围未完整保留。既有28项测试仍通过。原始诊断见金融续作树 `docs/handoffs/2026-10-08-river-root-cause-diagnosis.md`；这不证明后来修复已完成，也不揭示模型内部推理。
+
+同日 Root 首答复审确认另一条链：正确计算的 false 已送达，模型首稿写成 true，有效修订仍保留；用完整原件回放真实核验函数，输出与公稿逐字相同且仍标 passed。因此首先区分“供数错”“解读错”“核验未覆盖”，不能继续补数据、改句子或把合法 schema 当作蕴含证明。源码未续改，候选接口仍在验证；证据为 `~/.finance-runtime/answer-evidence-quality-1007/round2-release/root-first-answer-triage/`。Root 已将用户本次再次强调写入 canonical 用户纠偏台账，不改旧答卷。
 
 本卡记录用户明确偏好及已核实方法。受保护的 `30_conventions/preferences.md` 本轮未改；没有将未审提案自动升为跨 agent 常驻指令。
