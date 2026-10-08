@@ -72,7 +72,7 @@ DuckDB → detect_turning_points.py / backtest_sector.py → 信号+板块边际
 ## 任务看板
 | 任务 | 负责 | 状态 | 备注 |
 |---|---|---|---|
-| 10-08 river正门与pi消费 | pi | blocked | 18090fc76记录根因诊断：用户要求暂停逐句补丁与第三轮模型；64624794a离线复现突出度小样本上限、距离接近/方向/路径混义、投影缺定义/范围。既有28P与反例并存，不是修复绿；原两库材料相同、旧58/85项封存全过。产品仍094797ed6，前轮594P及两轮GLM运输/利用证据不代签质量；未实施新合同。下一步修现有计算对象与同源投影，不堆提醒。Codex755472a84与旧river脏树未接管，整枝冲突未合；未推合部署，真库另授权 → `~/fwp-wt-river-consumer-pi/docs/handoffs/inflight/feat-river-consumer-pi-1008.md`。 |
+| 10-08 river正门与pi消费 | pi | blocked | 产品d3df048ae已修既有对象/同源投影：窗口身份/选择范围/观测状态、贡献与方向分列，撤未校准突出类别，预算不增；净树定向641P、原两库数值对账不变。30291f3d0记第三轮GLM两例4请求/2工具：完整投影送达并使用，仍unknown→0/近零→反向/摘要→路径/维度归属混淆，全文质量未过；原两例只算开发回归。也有D10逐对方向/退出维逐窗分母等材料余缺，下一步按命题依赖定位，不叠提醒、不重抽。旧58/85/20项封存不变，Codex/旧river树未接管、整枝冲突未合；未推合部署，真库另授权 → `~/fwp-wt-river-consumer-pi/docs/handoffs/inflight/feat-river-consumer-pi-1008.md`。 |
 | 10-08 vidio finance 交付迁移与质检 | pi | doing | [草稿 GitHub #75](https://github.com/moscrol/finance/pull/75)，当前b7a5bcf3b：[实测]A首发/B合成与补写接口替身收到完整镜头，12K装不下降级且不升事实；0154修合法夹具并补真实registry路径，旧九红保留。本机锁定Python3.12.13净树全量21071P/78S/2X、前端214P/E2E52P/2S；关联CI五项全绿（PR预览ed75c512与HEAD同树，Python20982P/167S/2X；环境/跳过分账）。教学缺数/旧schema、完整入口/模型利用/金融质量及生产仍未验，未合未部署 → `~/fwp-wt-vidio-finance-public/docs/handoffs/inflight/feat-vidio-finance-transfer-public.md`，最新终态见PR正文。 |
 | 10-03 全局遗留工程收口 | codex | done | [GitHub #28](https://github.com/moscrol/finance/pull/28) 已合并部署ffe1c60d；日期提示/AIHOT入口、历史PR处置、保全回收与备份核验见金融仓 `docs/handoffs/2026-10-03-workspace-global-closeout.md`。pi活动线与内容质量未通过保持独立。 |
 | 10-02 Harness优化 / P1a计划所有权 | pi | doing | 产品12555e9ad、测试pin7513d476b：自拟PLAN可撤、required贯穿补写/失败投影；相关1045P/1既有S、9变异红→绿。P1b/完整合入与质量验收待；新模型0、未推送合并部署。接续 `~/fwp-wt-harness-plan-ownership-1002/docs/handoffs/inflight/feat-harness-plan-ownership-1002.md`；原则补入 [[agent-system-closed-loop-first-principles]]。 |
@@ -225,6 +225,8 @@ per-user 不是进程级；`runtime_backend_readiness` 这个全局探针看不�
 而 CLI/回检走 `~/.zshrc` 里的 `/Users/a77/agent-memory/.foresight`——**两套用户台账不是同一份**。
 
 ## 交接记录
+
+- 2026-10-08 · pi · d3df048ae结果合同落地、净641P；第三轮GLM运输/利用过但质量未过，按命题依赖继续归因 → 金融仓 `docs/handoffs/2026-10-08-history-result-contract-and-glm-regression.md`。
 
 - 2026-10-08 · pi · 18090fc76：暂停逐句补丁，离线定位指标适用域与证据表示缺口；产品未改、新模型0 → 金融仓 `docs/handoffs/2026-10-08-river-root-cause-diagnosis.md`。
 
