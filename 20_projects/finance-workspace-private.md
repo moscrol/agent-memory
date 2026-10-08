@@ -226,6 +226,8 @@ per-user 不是进程级；`runtime_backend_readiness` 这个全局探针看不�
 
 ## 交接记录
 
+- 2026-10-08 · codex · PR76已部署e3，唯一首答独审仍NOT_PASSED；原件回放定位正确false被模型读成true、现有核验未覆盖；三案与所有权原型只签局部，生产合同待设计 → [根因与接续](/Users/a77/.codex/worktrees/knevo-coverage-release-1007/finance-workspace-private/docs/handoffs/2026-10-08-answer-qualification-root-cause.md)。
+
 - 2026-10-08 · pi · d3df048ae结果合同落地、净641P；第三轮GLM运输/利用过但质量未过，按命题依赖继续归因 → 金融仓 `docs/handoffs/2026-10-08-history-result-contract-and-glm-regression.md`。
 
 - 2026-10-08 · pi · 18090fc76：暂停逐句补丁，离线定位指标适用域与证据表示缺口；产品未改、新模型0 → 金融仓 `docs/handoffs/2026-10-08-river-root-cause-diagnosis.md`。
