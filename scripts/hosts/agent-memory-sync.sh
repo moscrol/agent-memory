@@ -26,12 +26,9 @@ BRANCH="$(git symbolic-ref --quiet --short HEAD || echo '<detached>')"
 # Paths this job must never auto-commit.  Kept as one pathspec list so the
 # dirty-check and the staging step can never disagree with each other.
 #
-# 60_dialogues/ holds verbatim transcripts exported from external AI products
-# (single files reach ~470KB / 6800 lines).  Those are raw source material, not
-# distilled memory: they belong in the vault for reading, but a 3-minute timer
-# should not be the thing that decides they enter shared git history.
-# 2026-08-09 14:24 (b50db773) did exactly that with two knevo exports before
-# anyone had reviewed them.
+# 60_dialogues/ was excluded on 2026-08-09.  On 2026-10-08 the user put it
+# back into git so cloud clones can read the Knevo transcripts, including the
+# 44-round export that holds the old skill text and tool definitions.
 #
 # The db patterns are here as well as in main's .gitignore on purpose: a feature
 # branch can be parked on an older .gitignore (this one was), and then `add -A`
@@ -57,7 +54,6 @@ BRANCH="$(git symbolic-ref --quiet --short HEAD || echo '<detached>')"
 # Already-tracked files under these paths stay tracked — this only stops *new*
 # and *modified* ones from riding along.
 EXCLUDES=(
-  ':!60_dialogues'
   ':!可证伪点回检'
   ':!.foresight'
   ':!*.sqlite' ':!*.sqlite3' ':!*.db' ':!*.duckdb'

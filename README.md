@@ -21,7 +21,7 @@ agent-memory/
 ├── 30_conventions/  # 跨 Agent 共享约定：规范、术语表、个人偏好
 ├── 40_playbooks/    # 可复用工作流（谁负责哪步、交接物格式）
 ├── 50_agents/       # 每个 Agent 的"接入约定卡"（贴进各自工具的指令里）
-├── 60_dialogues/    # 用户与外部 AI（Knevo 等）的原始对话记录（⚠ 仅 Mac 本地、不入 git，新 clone 里没有；备份见 scripts/hosts/untracked-backup.sh）
+├── 60_dialogues/    # 用户与外部 AI（Knevo 等）的原始对话记录（含 44 轮原文、旧 skill 与工具定义全文；2026-10-08 起进 git）
 ├── 70_tutor/        # 经用户检阅批准的科普 / 原理学习笔记（用户外脑）
 └── _templates/      # 标准笔记模板（保证写入格式一致）
 ```

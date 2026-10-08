@@ -43,7 +43,7 @@ launchctl list | grep agent-memory
 
 ## 孤本备份（不入 git 的目录）
 
-`60_dialogues/` 与 `.foresight/` 被 gitignore，auto-sync 覆盖不到。每日 tar 快照由 `com.a77.agent-memory-backup` 跑，安装见 [[../40_playbooks/mac-tail]]。
+`60_dialogues/` 从 2026-10-08 起进 git，auto-sync 会带上。`.foresight/` 仍被 gitignore，每日 tar 快照由 `com.a77.agent-memory-backup` 跑，安装见 [[../40_playbooks/mac-tail]]。
 
 ## 用户级 SessionStart hook 必须指向 vault 内路径
 

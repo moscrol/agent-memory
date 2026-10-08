@@ -43,6 +43,6 @@ git diff --stat -- scripts/hosts   # 有 diff 就说明 ~/bin 改过而这里没
 | `cockpit-codex-auth-watchdog.sh` | 上面那个 py 的 launchd 包装 |
 | `cockpit-disable-empty-plus-refresh.py` | 关掉额度耗尽的 Plus 账号的刷新组 |
 | `finhot-exec-watchdog.sh` | finhot 执行看护 |
-| `untracked-backup.sh` | vault 内不入 git 的孤本目录（`60_dialogues/`、`.foresight/`）每日 tar 快照 |
+| `untracked-backup.sh` | vault 内仍不入 git 的孤本（`.foresight/`；`60_dialogues/` 已于 2026-10-08 进 git，脚本仍会顺带打一份 tar）每日 tar 快照 |
 | `com.a77.agent-memory-backup.plist` | 上面那个脚本的 launchd 定义（每天 04:10） |
 | `install-mac-tail.sh` | **Mac 一次性安装器**：拷脚本 + 装 plist + 立刻跑一次 + 检查 hook 路径。auto-sync 拉到 main 后在 Mac 上跑这一条即可 |
