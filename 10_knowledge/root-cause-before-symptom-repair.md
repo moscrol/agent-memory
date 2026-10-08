@@ -6,6 +6,7 @@ source: 用户于 2026-10-08 多次明确纠正；金融历史比较诊断 18090
 date: 2026-10-08
 tags: [debugging, root-cause, user-preference, testing]
 status: verified
+stance: evidenced
 related: ["[[finance-workspace-private]]", "[[evidence-hygiene-three-failure-shapes]]"]
 ---
 
