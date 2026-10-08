@@ -71,7 +71,7 @@ DuckDB → detect_turning_points.py / backtest_sector.py → 信号+板块边际
 ## 任务看板
 | 任务 | 负责 | 状态 | 备注 |
 |---|---|---|---|
-| 10-08 river正门与pi消费 | pi | blocked | 用户授权不限预算后，净树8a29bcacd经pi原生工具跑GLM-5.3两组合成样本：4请求/2工具，完整传输与实际利用通过；金融质量未过，发现相对/绝对量、终点频率/路径混淆及上游D10常量/无数据混标，未改业务。此前定向550P边界保留；真库范围另确认，未推合部署 → `~/fwp-wt-river-consumer-pi/docs/handoffs/inflight/feat-river-consumer-pi-1008.md`。 |
+| 10-08 river正门与pi消费 | pi | blocked | 094797ed6修D10查询失败/无值/常量退出、当前窗覆盖与记录时间语义；净树定向594P，原两库数值不变。同输入库/问题再跑GLM5.3两首发4请求/2工具，确实利用修正信息（常量/0比20、终点频率0比2），全文仍因百分位/候选范围解释错误未过。Codex755472a84做D4/日期权限，窄修不重复，但整枝ask_synthesis已有冲突须保两边意图。未推合部署；真库范围另确认 → `~/fwp-wt-river-consumer-pi/docs/handoffs/inflight/feat-river-consumer-pi-1008.md`。 |
 | 10-08 vidio finance 交付迁移与质检 | pi | doing | [草稿 GitHub #75](https://github.com/moscrol/finance/pull/75)，当前b7a5bcf3b：[实测]A首发/B合成与补写接口替身收到完整镜头，12K装不下降级且不升事实；0154修合法夹具并补真实registry路径，旧九红保留。本机锁定Python3.12.13净树全量21071P/78S/2X、前端214P/E2E52P/2S；关联CI五项全绿（PR预览ed75c512与HEAD同树，Python20982P/167S/2X；环境/跳过分账）。教学缺数/旧schema、完整入口/模型利用/金融质量及生产仍未验，未合未部署 → `~/fwp-wt-vidio-finance-public/docs/handoffs/inflight/feat-vidio-finance-transfer-public.md`，最新终态见PR正文。 |
 | 10-03 全局遗留工程收口 | codex | done | [GitHub #28](https://github.com/moscrol/finance/pull/28) 已合并部署ffe1c60d；日期提示/AIHOT入口、历史PR处置、保全回收与备份核验见金融仓 `docs/handoffs/2026-10-03-workspace-global-closeout.md`。pi活动线与内容质量未通过保持独立。 |
 | 10-02 Harness优化 / P1a计划所有权 | pi | doing | 产品12555e9ad、测试pin7513d476b：自拟PLAN可撤、required贯穿补写/失败投影；相关1045P/1既有S、9变异红→绿。P1b/完整合入与质量验收待；新模型0、未推送合并部署。接续 `~/fwp-wt-harness-plan-ownership-1002/docs/handoffs/inflight/feat-harness-plan-ownership-1002.md`；原则补入 [[agent-system-closed-loop-first-principles]]。 |
@@ -224,6 +224,8 @@ per-user 不是进程级；`runtime_backend_readiness` 这个全局探针看不�
 而 CLI/回检走 `~/.zshrc` 里的 `/Users/a77/agent-memory/.foresight`——**两套用户台账不是同一份**。
 
 ## 交接记录
+
+- 2026-10-08 · pi · D10语义窄修避开Codex在途，594P及真实复验分账，整枝冲突已定位未合流 → 金融仓 `docs/handoffs/2026-10-08-d10-semantics-and-codex-coordination.md`。
 
 - 2026-10-08 · pi · 授权不限预算后完成GLM两例原生工具试跑：传输/利用过、金融质量未过，上游材料与写手问题分账 → 金融仓 `docs/handoffs/2026-10-08-river-glm-synthetic-trial.md`。
 
