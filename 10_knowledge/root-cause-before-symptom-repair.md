@@ -28,6 +28,10 @@ related: ["[[finance-workspace-private]]", "[[evidence-hygiene-three-failure-sha
 
 金融历史比较中同时复现小候选集突出度阈值不可达、距离小但方向相反、同签名不同路径、窗口日期与候选范围未完整保留。既有28项测试仍通过。原始诊断见金融续作树 `docs/handoffs/2026-10-08-river-root-cause-diagnosis.md`；这不证明后来修复已完成，也不揭示模型内部推理。
 
-同日 Root 首答复审确认另一条链：正确计算的 false 已送达，模型首稿写成 true，有效修订仍保留；用完整原件回放真实核验函数，输出与公稿逐字相同且仍标 passed。因此首先区分“供数错”“解读错”“核验未覆盖”，不能继续补数据、改句子或把合法 schema 当作蕴含证明。源码未续改，候选接口仍在验证；证据为 `~/.finance-runtime/answer-evidence-quality-1007/round2-release/root-first-answer-triage/`。Root 已将用户本次再次强调写入 canonical 用户纠偏台账，不改旧答卷。
+同日 Root 首答复审确认另一条链：正确计算的 false 已送达，模型首稿写成 true，有效修订仍保留；用完整原件回放真实核验函数，输出与公稿逐字相同且仍标 passed。因此首先区分“供数错”“解读错”“核验未覆盖”，不能继续补数据、改句子或把合法 schema 当作蕴含证明。该诊断时尚未续改源码；证据为 `~/.finance-runtime/answer-evidence-quality-1007/round2-release/root-first-answer-triage/`。Root 已将用户本次再次强调写入 canonical 用户纠偏台账，不改旧答卷。
+
+同日后续 PR80 已把有限的结果文字所有权机制部署至8792 `bd66de25085e`。新增出口的两项工程缺口分别由真实反例修复：稳定owner身份不能替代当前授权重核；公开拒收必须复用现有统一view，不能拼字串旁路。候选和actual main各自完整门禁通过后，唯一新首答仍被独立判 NOT_PASSED，原失败也保留。
+
+这次26个程序refs和正确范围/历史字段已送达，却没有采用；真正system终局仍引导旧draft，optional新形式只在工具说明出现。可迁移原则：新增schema支持不等于实际模型调用合同已落地，必须沿真实前缀检查system、工具观察、终止载荷和公开出口是否由同一owner表示；不能只看mock能提交或把非采用归为模型主观拒绝。统一合同只修消费接口，不自动纠正其它自由语义。新稿的连续性、去重集合/分母、因果和反证目标在正确producer/projection之后首次出错，仍要按各自可证对象定位；不要给更多观察数字混成全局数池。完整证据在 `~/.finance-runtime/answer-evidence-quality-1007/owned-delivery-1008/content-review-first-01/`，新旧库不同，不签代码因果或长期记忆收益。
 
 本卡记录用户明确偏好及已核实方法。受保护的 `30_conventions/preferences.md` 本轮未改；没有将未审提案自动升为跨 agent 常驻指令。
