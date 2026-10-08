@@ -226,6 +226,8 @@ per-user 不是进程级；`runtime_backend_readiness` 这个全局探针看不�
 
 ## 交接记录
 
+- 2026-10-09 · codex · 研究过程Task A b0共享结果语义/GLM与headless投影，Spec19控制与Standards通过；修有限样本说明及取消后恢复资格，原失败保留。Task B实际作者接线继续，未部署/未签全文 → [Task A与接续](/Users/a77/.codex/worktrees/knevo-coverage-release-1007/finance-workspace-private/docs/handoffs/2026-10-09-research-process-task-a.md)。
+
 - 2026-10-09 · codex · 对照用户Knevo六步审生产bd66：已有循环/权限/预算/观测，缺口在实际合同、相关上下文消费及自由结论纠正；普通成稿Task1 f584定向121P、Spec/Standards通过，Task2/3暂缓，先统一既有研究链职责 → [架构审查与接续](/Users/a77/.codex/worktrees/knevo-coverage-release-1007/finance-workspace-private/docs/handoffs/2026-10-09-knevo-architecture-review.md)。
 
 - 2026-10-08 · codex · PR80已部署bd66，候选/main各21207完整工程绿；唯一首答全文仍NOT_PASSED、26refs送达未采用，系统旧finish合同与free推理错误分账，KB/个人memory/River未消费 → [发布与首答接续](/Users/a77/.codex/worktrees/knevo-coverage-release-1007/finance-workspace-private/docs/handoffs/2026-10-08-owned-result-delivery-and-first-answer.md)（文档PR81）。
