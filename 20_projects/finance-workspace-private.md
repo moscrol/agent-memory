@@ -54,6 +54,7 @@ DuckDB → detect_turning_points.py / backtest_sector.py → 信号+板块边际
 - Python 3.9+（duckdb）；Chrome（fupanhui 登录态）；CDP Proxy；飞书凭证 `~/.claude/shared/feishu_config.json`
 
 ## 关键约定
+- **用户反复强调的排错偏好（2026-10-08）**：先定位最早失真的层、用反例验证根因，再修计算/对象/合同；不围着错误句子叠提醒与特判。方法与来源见 [[root-cause-before-symptom-repair]]。
 - **错误教训唯一沉淀地**：`finance-workspace-private/.claude/lessons_learned.md`（知识库的教训用 `[kb]` 前缀也记到这里）。
 
 ## 📚 外部知识源（任务开始前可检索）
