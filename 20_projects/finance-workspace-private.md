@@ -72,6 +72,7 @@ DuckDB → detect_turning_points.py / backtest_sector.py → 信号+板块边际
 ## 任务看板
 | 任务 | 负责 | 状态 | 备注 |
 |---|---|---|---|
+| 10-09 研究过程与首答验收 | codex | doing | [PR #82](https://github.com/moscrol/finance/pull/82)已上线；来源/作者消费合同及工程核验成立，答案仍部分通过。下一离线正负控与窄来源关联→金融仓`docs/handoffs/inflight/codex-claim-support-quality-1009.md`。 |
 | 10-08 river正门与pi消费 | pi | blocked | 原river af1f64b9f保持，隔离联合代码642b45358保D4 typed资格与D10整块推断。文档tip5509ecef3净树68文件2083P/2F：grounded准入使D4事实送达0，另有main/642同现的字节测试未固定cutoff跨午夜红；两者均未修。最短一条D4可装，全三条+D10需12943超12K；metadata存量缺口/悬空ID留待准入合同。普通B/原生Episode过，owned不签全文；两库三截止工具字节/库哈希不变，新模型0、旧GLM质量未过。未改Codex owned/运行层，未推金融枝/合并/部署，真库另授权 → `~/fwp-wt-river-owned-joint-1008/docs/handoffs/inflight/baseline-river-owned-joint-1008.md`。 |
 | 10-08 vidio finance 交付迁移与质检 | pi | doing | [草稿 GitHub #75](https://github.com/moscrol/finance/pull/75)，当前b7a5bcf3b：[实测]A首发/B合成与补写接口替身收到完整镜头，12K装不下降级且不升事实；0154修合法夹具并补真实registry路径，旧九红保留。本机锁定Python3.12.13净树全量21071P/78S/2X、前端214P/E2E52P/2S；关联CI五项全绿（PR预览ed75c512与HEAD同树，Python20982P/167S/2X；环境/跳过分账）。教学缺数/旧schema、完整入口/模型利用/金融质量及生产仍未验，未合未部署 → `~/fwp-wt-vidio-finance-public/docs/handoffs/inflight/feat-vidio-finance-transfer-public.md`，最新终态见PR正文。 |
 | 10-03 全局遗留工程收口 | codex | done | [GitHub #28](https://github.com/moscrol/finance/pull/28) 已合并部署ffe1c60d；日期提示/AIHOT入口、历史PR处置、保全回收与备份核验见金融仓 `docs/handoffs/2026-10-03-workspace-global-closeout.md`。pi活动线与内容质量未通过保持独立。 |
@@ -1623,3 +1624,4 @@ per-user 不是进程级；`runtime_backend_readiness` 这个全局探针看不�
 - 2026-10-08 · pi · ae80c725补逐窗分母与原准入披露，663P/数值对账；新模型0，不代签金融质量 → 金融仓 `docs/handoffs/2026-10-08-history-producer-coverage.md`。
 - 2026-10-08 · pi · 39e6bc1c6补D10同源首尾方向，701P/6撤实现；摘要可逆压缩守原预算、新模型0 → 金融仓 `docs/handoffs/2026-10-08-history-direction-contract.md`。
 - 2026-10-09 · pi · 5509ecef3联合68文件2083P/2F，准入饥饿与午夜日期夹具分账；保留两红、不抬预算 → 联合树 `docs/handoffs/2026-10-09-joint-closeout-clock-boundary.md`。
+2026-10-09 · codex · 研究来源与作者合同已发布，质量分账并续验正负控 → finance `docs/handoffs/2026-10-09-research-process-release-closeout.md`
