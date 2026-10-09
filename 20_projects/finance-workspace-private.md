@@ -236,7 +236,7 @@ per-user 不是进程级；`runtime_backend_readiness` 这个全局探针看不�
 
 - 2026-10-09 深夜 · Codex · #83容量/首屏接续：产品181f3c4c9全量21758P，完整历史投影在12K内送达，四尺寸首张读数卡可见；真实GLM因凭证字段缺失零请求，PR49/53终态另查收据，未合并部署 → [接续](/Users/a77/fwp-wt-arena-session-takeover-1009/docs/handoffs/inflight/codex-arena-session-takeover-1009.md)；本轮证据 `~/.finance-runtime/river-completion-20261009/`。
 
-- 2026-10-09 深夜 · claude（会话 fec761d8）· **knevo 工具包/skill 层炼化**：审计结论「两天的线一条 knevo 机制没进代码」；用户选定先在 Pi 原生验证再接 8792 可切换后端。开枝 `feat/knevo-skill-layer-1009`（基 gitea/main 6c1d9f5d4，树 `~/fwp-wt-knevo-skill-layer-1009`）：`skills/finance-mode` OS 层 + 4 专项 SKILL.md + `integrations/pi/`（扩展/桥/runner）。**不碰** `episode_finalizer / research_harness / episode_protocol`（出口门三条留给 Codex 线 `c5379ee91` 之上做）→ [接续](/Users/a77/fwp-wt-knevo-skill-layer-1009/docs/handoffs/inflight/feat-knevo-skill-layer-1009.md)。
+- 2026-10-09 深夜 · claude（会话 fec761d8）· **knevo 工具包/skill 层炼化**：审计结论「两天的线一条 knevo 机制没进代码」；用户选定先在 Pi 原生验证再接 8792 可切换后端。开枝 `feat/knevo-skill-layer-1009`：`skills/finance-mode` OS 层 + 4 专项 + `integrations/pi/`。**10-10 02:45 已被 `fix/knevo-pi-runtime-1010` 超集接手（修了 5 个真 bug、跑了 6 次首发），原树与分支已删。** 续作 `feat/knevo-skill-inventory-1010`（树 `~/fwp-wt-knevo-skill-inventory-1010`，基 Pi 线 HEAD `708411e7d`）：只做不与 Pi 线撞的事——按 44 轮原文补齐其余专项（review-check / associate / kol-analyze / earnings 并入 analyze-stock）、机制来源清单；不碰 market-review、product 代码、出口门。
 
 - 2026-10-09 晚 · Codex · Arena两会话工程收尾：#71观察结束，长河末事实/测试隔离修复，本机与CI齐绿；容量/首屏/金融验收待续 → [Draft #83](https://github.com/moscrol/finance/pull/83) / `~/fwp-wt-arena-session-takeover-1009/docs/handoffs/inflight/codex-arena-session-takeover-1009.md`。
 
