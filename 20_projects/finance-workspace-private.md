@@ -228,6 +228,8 @@ per-user 不是进程级；`runtime_backend_readiness` 这个全局探针看不�
 
 ## 交接记录
 
+- 2026-10-09 深夜 · claude（会话 fec761d8）· **knevo 工具包/skill 层炼化**：审计结论「两天的线一条 knevo 机制没进代码」；用户选定先在 Pi 原生验证再接 8792 可切换后端。开枝 `feat/knevo-skill-layer-1009`（基 gitea/main 6c1d9f5d4，树 `~/fwp-wt-knevo-skill-layer-1009`）：`skills/finance-mode` OS 层 + 4 专项 SKILL.md + `integrations/pi/`（扩展/桥/runner）。**不碰** `episode_finalizer / research_harness / episode_protocol`（出口门三条留给 Codex 线 `c5379ee91` 之上做）→ [接续](/Users/a77/fwp-wt-knevo-skill-layer-1009/docs/handoffs/inflight/feat-knevo-skill-layer-1009.md)。
+
 - 2026-10-09 晚 · Codex · Arena两会话工程收尾：#71观察结束，长河末事实/测试隔离修复，本机与CI齐绿；容量/首屏/金融验收待续 → [Draft #83](https://github.com/moscrol/finance/pull/83) / `~/fwp-wt-arena-session-takeover-1009/docs/handoffs/inflight/codex-arena-session-takeover-1009.md`。
 
 - 2026-10-09 · pi · 长河/Dashboard四项隔离修复，工程与实际送达通过但不签发布；完整E2E、元数据与金融质量待验 → [接续](/Users/a77/fwp-wt-river-dashboard-fix-1009/docs/handoffs/inflight/fix-river-dashboard-evidence-1009.md)；方法 [[info-not-delivered-bug-pattern]]。
