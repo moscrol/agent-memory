@@ -228,6 +228,8 @@ per-user 不是进程级；`runtime_backend_readiness` 这个全局探针看不�
 
 ## 交接记录
 
+- 2026-10-10 · Codex/Pi · 接手 Fable Knevo skill 线，原树保留；`fix/knevo-pi-runtime-1010` 修 Pi 工具屏蔽/自检循环/失败传播/冻结及 Keychain 解析，相关89P。94286真首答2083字、二看2310→2550字，局部修正但两份内容均未过（预览外推/资金归因等）；最新接口统计补丁仅离线验，未推送/合并/部署、无后台 → [在途交接](/Users/a77/fwp-wt-knevo-pi-runtime-1010/docs/handoffs/inflight/fix-knevo-pi-runtime-1010.md)。
+
 - 2026-10-10 · Codex · 长河/PR接续工程收齐：#83同head4a81e412f本机21763P及CI五绿，#49→#53预览21279P、#71当前头21285P均已回贴；模型认证阻塞/归档回填/合并部署保持边界 → `~/.finance-runtime/river-completion-20261009/final-verification.json` / [在途交接](/Users/a77/fwp-wt-arena-session-takeover-1009/docs/handoffs/inflight/codex-arena-session-takeover-1009.md)。
 
 - 2026-10-09 深夜 · Codex · #83容量/首屏接续：产品181f3c4c9全量21758P，完整历史投影在12K内送达，四尺寸首张读数卡可见；真实GLM因凭证字段缺失零请求，PR49/53终态另查收据，未合并部署 → [接续](/Users/a77/fwp-wt-arena-session-takeover-1009/docs/handoffs/inflight/codex-arena-session-takeover-1009.md)；本轮证据 `~/.finance-runtime/river-completion-20261009/`。
