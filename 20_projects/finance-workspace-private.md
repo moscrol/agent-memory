@@ -72,7 +72,7 @@ DuckDB → detect_turning_points.py / backtest_sector.py → 信号+板块边际
 ## 任务看板
 | 任务 | 负责 | 状态 | 备注 |
 |---|---|---|---|
-| 10-09 长河/Dashboard隔离修复 | pi → codex接续 | engineering-pass / financial-blocked | 草稿#83最终4a81e412f同SHA本机21763P/0F，GitHub五绿；11970/12000材料准入、四尺寸首卡可见、前端241P/E2E52+6+16P。GLM凭证读取字段缺失，新模型0，旧金融质量未过；未合/部署/回填 → `~/fwp-wt-arena-session-takeover-1009/docs/handoffs/inflight/codex-arena-session-takeover-1009.md`；终态 `~/.finance-runtime/river-completion-20261009/final-verification.json`。 |
+| 10-09 长河/Dashboard隔离修复 | pi → codex接续 | engineering-pass / financial-changes-required | 产品4a81e412f本机21763P/0F及同head五绿保留；容量/四尺寸首卡完成。GLM认证已恢复，原两题真实4请求/2工具首发，传输/利用成立但全文均未过：方向/差值/缺数/范围等9条问题绑定原稿；未重抽或改产品。文档ccc26b1ef另计，未合/部署/回填 → `~/fwp-wt-arena-session-takeover-1009/docs/handoffs/inflight/codex-arena-session-takeover-1009.md`；新包 `~/.finance-runtime/river-live-acceptance-20261010-0116/`。 |
 | 10-09 研究过程与首答验收 | codex | blocked | 221769e6b工程PASS保留；完整flash首发对照已做、各5请求，本题不劣未过：候选2273字符草稿因绑定键/恢复JSON失败变218字符占位答复，Pi1984字符但仍有全集/资金因果错误。原件、匿名评审勘误和零模型协议反例已留证；先调查终稿协议职责，未改产品/合并/部署，无后台→金融仓`docs/handoffs/inflight/codex-claim-support-quality-1009.md`及`docs/verification/2026-10-09-full-trace-pi-comparison.md`。 |
 | 10-08 river正门与pi消费 | pi | blocked | 原river af1f64b9f保持，隔离联合代码642b45358保D4 typed资格与D10整块推断。文档tip5509ecef3净树68文件2083P/2F：grounded准入使D4事实送达0，另有main/642同现的字节测试未固定cutoff跨午夜红；两者均未修。最短一条D4可装，全三条+D10需12943超12K；metadata存量缺口/悬空ID留待准入合同。普通B/原生Episode过，owned不签全文；两库三截止工具字节/库哈希不变，新模型0、旧GLM质量未过。未改Codex owned/运行层，未推金融枝/合并/部署，真库另授权 → `~/fwp-wt-river-owned-joint-1008/docs/handoffs/inflight/baseline-river-owned-joint-1008.md`。 |
 | 10-08 vidio finance 交付迁移与质检 | pi | doing | [草稿 GitHub #75](https://github.com/moscrol/finance/pull/75)，当前b7a5bcf3b：[实测]A首发/B合成与补写接口替身收到完整镜头，12K装不下降级且不升事实；0154修合法夹具并补真实registry路径，旧九红保留。本机锁定Python3.12.13净树全量21071P/78S/2X、前端214P/E2E52P/2S；关联CI五项全绿（PR预览ed75c512与HEAD同树，Python20982P/167S/2X；环境/跳过分账）。教学缺数/旧schema、完整入口/模型利用/金融质量及生产仍未验，未合未部署 → `~/fwp-wt-vidio-finance-public/docs/handoffs/inflight/feat-vidio-finance-transfer-public.md`，最新终态见PR正文。 |
@@ -227,6 +227,8 @@ per-user 不是进程级；`runtime_backend_readiness` 这个全局探针看不�
 而 CLI/回检走 `~/.zshrc` 里的 `/Users/a77/agent-memory/.foresight`——**两套用户台账不是同一份**。
 
 ## 交接记录
+
+- 2026-10-10 · Codex · GLM已接回Pi且移除K3；长河4a两题真实首发4请求/2工具、传输/利用过、全文未过。源值和9期限收益复算正确，问题在成文/核验边界，9原句及6确定性反例留证，未重抽/未改产品 → [验收记录](/Users/a77/fwp-wt-arena-session-takeover-1009/docs/handoffs/2026-10-10-river-live-financial-acceptance.md)。
 
 - 2026-10-10 · Codex/Pi · 接手 Fable Knevo skill 线，原树保留；`fix/knevo-pi-runtime-1010` 修 Pi 工具屏蔽/自检循环/失败传播/冻结及 Keychain 解析，相关89P。94286真首答2083字、二看2310→2550字，局部修正但两份内容均未过（预览外推/资金归因等）；最新接口统计补丁仅离线验，未推送/合并/部署、无后台 → [在途交接](/Users/a77/fwp-wt-knevo-pi-runtime-1010/docs/handoffs/inflight/fix-knevo-pi-runtime-1010.md)。
 
