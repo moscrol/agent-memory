@@ -228,6 +228,8 @@ per-user 不是进程级；`runtime_backend_readiness` 这个全局探针看不�
 
 ## 交接记录
 
+- 2026-10-09 晚 · Codex · Arena两会话工程收尾：#71观察结束，长河末事实/测试隔离修复，本机与CI齐绿；容量/首屏/金融验收待续 → [Draft #83](https://github.com/moscrol/finance/pull/83) / `~/fwp-wt-arena-session-takeover-1009/docs/handoffs/inflight/codex-arena-session-takeover-1009.md`。
+
 - 2026-10-09 · pi · 长河/Dashboard四项隔离修复，工程与实际送达通过但不签发布；完整E2E、元数据与金融质量待验 → [接续](/Users/a77/fwp-wt-river-dashboard-fix-1009/docs/handoffs/inflight/fix-river-dashboard-evidence-1009.md)；方法 [[info-not-delivered-bug-pattern]]。
 
 - 2026-10-09 · codex · 研究过程Task A b0共享结果语义/GLM与headless投影，Spec19控制与Standards通过；修有限样本说明及取消后恢复资格，原失败保留。Task B实际作者接线继续，未部署/未签全文 → [Task A与接续](/Users/a77/.codex/worktrees/knevo-coverage-release-1007/finance-workspace-private/docs/handoffs/2026-10-09-research-process-task-a.md)。
