@@ -230,6 +230,8 @@ per-user 不是进程级；`runtime_backend_readiness` 这个全局探针看不�
 
 ## 交接记录
 
+- 2026-10-11 · Codex/Pi · 第二批合集发布与工作区收口 → [PR #85](https://github.com/moscrol/finance/pull/85)；[规范范围与历史勘误](/Users/a77/fwp-wt-release-wave2-1010/docs/handoffs/2026-10-11-release-wave2-integration.md)；[当前验收、备份、回收及剩余事项](/Users/a77/.finance-runtime/release-1010/wave2/README.md)。候选、实际 main 和生产状态分账，最新结果从收据回读。
+
 - 2026-10-11 · Codex/Pi · 长河续写锁接续：31ad7df79统一严格同名拒绝，干净定向74P，重复回调反例先红后绿、reload/new/resume正常续写，TS/Ruff通过；新全量与真实模型未跑，未推送/合并/部署，发布线与8792未动 → [接续与收据](/Users/a77/fwp-wt-arena-session-takeover-1009/docs/handoffs/2026-10-11-pi-continuation-owner-strict.md)。
 
 - 2026-10-10 · Codex · 长河原生复核代码a6bbe24f1工程21825P及产品CI五绿；39次真实审核/类型探针未验过，分批仍有协议失败和类型漏检，明确实验性不默认启用，未再抽作者首稿 → [实现与反例](/Users/a77/fwp-wt-arena-session-takeover-1009/docs/handoffs/2026-10-10-native-history-review-implementation.md) / `~/.finance-runtime/river-review-implementation-20261010/completion.json`。
