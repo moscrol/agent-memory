@@ -230,6 +230,8 @@ per-user 不是进程级；`runtime_backend_readiness` 这个全局探针看不�
 
 ## 交接记录
 
+- 2026-10-11：研究能力迁移候选 `feat/research-capabilities-1011` 已有计算/US技术位/研究图形两包，固定代码 `77b85df44` 相关1153P；69项未缩减、完整数据/方法记忆/自然质量仍待，未合部署。接手见金融仓 `docs/handoffs/inflight/feat-research-capabilities-1011.md` 与 `docs/handoffs/2026-10-11-research-capabilities-phase2.md`。
+
 - 2026-10-11 · Codex/Pi · 10-09 核心行情恢复候选与分阶段审计修复 → [PR #88](https://github.com/moscrol/finance/pull/88)；[决策与边界](/Users/a77/fwp-wt-market-recovery-1011/docs/handoffs/2026-10-11-market-recovery-and-audit-scope.md)；[当前验收与候选封存](/Users/a77/.finance-runtime/market-recovery-20261011/README.md)。生产未换库，工程门禁、数据门和发布授权分账。
 
 - 2026-10-11 · Codex/Pi · 第二批合集发布与工作区收口 → [PR #85](https://github.com/moscrol/finance/pull/85)；[规范范围与历史勘误](/Users/a77/fwp-wt-release-wave2-1010/docs/handoffs/2026-10-11-release-wave2-integration.md)；[当前验收、备份、回收及剩余事项](/Users/a77/.finance-runtime/release-1010/wave2/README.md)。候选、实际 main 和生产状态分账，最新结果从收据回读。
