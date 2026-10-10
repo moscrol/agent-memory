@@ -229,6 +229,8 @@ per-user 不是进程级；`runtime_backend_readiness` 这个全局探针看不�
 
 ## 交接记录
 
+- 2026-10-11 · Codex/Pi · 长河续写锁接续：31ad7df79统一严格同名拒绝，干净定向74P，重复回调反例先红后绿、reload/new/resume正常续写，TS/Ruff通过；新全量与真实模型未跑，未推送/合并/部署，发布线与8792未动 → [接续与收据](/Users/a77/fwp-wt-arena-session-takeover-1009/docs/handoffs/2026-10-11-pi-continuation-owner-strict.md)。
+
 - 2026-10-10 · Codex · 长河原生复核代码a6bbe24f1工程21825P及产品CI五绿；39次真实审核/类型探针未验过，分批仍有协议失败和类型漏检，明确实验性不默认启用，未再抽作者首稿 → [实现与反例](/Users/a77/fwp-wt-arena-session-takeover-1009/docs/handoffs/2026-10-10-native-history-review-implementation.md) / `~/.finance-runtime/river-review-implementation-20261010/completion.json`。
 
 - 2026-10-10 · Codex · GLM已接回Pi且移除K3；长河4a两题真实首发4请求/2工具、传输/利用过、全文未过。源值和9期限收益复算正确，问题在成文/核验边界，9原句及6确定性反例留证，未重抽/未改产品 → [验收记录](/Users/a77/fwp-wt-arena-session-takeover-1009/docs/handoffs/2026-10-10-river-live-financial-acceptance.md)。
