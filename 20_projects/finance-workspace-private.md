@@ -233,7 +233,7 @@ per-user 不是进程级；`runtime_backend_readiness` 这个全局探针看不�
 
 - 2026-10-10 · Codex · GLM已接回Pi且移除K3；长河4a两题真实首发4请求/2工具、传输/利用过、全文未过。源值和9期限收益复算正确，问题在成文/核验边界，9原句及6确定性反例留证，未重抽/未改产品 → [验收记录](/Users/a77/fwp-wt-arena-session-takeover-1009/docs/handoffs/2026-10-10-river-live-financial-acceptance.md)。
 
-- 2026-10-10 · Codex/Pi · Fable Knevo继续：在708411e7d全量计数之上，`350aef914` 固定证据direct/aligned定稿，`3a00af21a` 修专项晚读/漏读为首请求完整注入；净树707P。两证据包8个首发变体、15请求、0新取数，215产物哈希一致；方法到达通过，内容均未过，已定位工作表先错与成文极性/数字漂移。aligned只留诊断，不默认增加阶段；原树/旧稿保留，未推送/合并/部署、无后台 → [在途交接](/Users/a77/fwp-wt-knevo-pi-runtime-1010/docs/handoffs/inflight/fix-knevo-pi-runtime-1010.md)。
+- 2026-10-10 · Codex/Pi · Knevo接手线：保留D4全量统计与独立数字表，`11e0780c9` 可逆证据视图实测输入token降32.872%/30.687%，4首发/0新取数/120产物哈希过，但四稿内容未过，默认raw不变；`b61a9a54e` 适配协调分支同键续写owner（含同名副本拒绝、真实history侧双向冲突验证），净树766P。未新造正文判官；先按看板一病三线协调唯一owner。原Fable树已由原owner收口、其他专项由inventory线承接，本线旧稿全留；未推送/合并/部署、无后台 → [在途交接](/Users/a77/fwp-wt-knevo-pi-runtime-1010/docs/handoffs/inflight/fix-knevo-pi-runtime-1010.md)。
 
 - 2026-10-10 · Codex · 长河/PR接续工程收齐：#83同head4a81e412f本机21763P及CI五绿，#49→#53预览21279P、#71当前头21285P均已回贴；模型认证阻塞/归档回填/合并部署保持边界 → `~/.finance-runtime/river-completion-20261009/final-verification.json` / [在途交接](/Users/a77/fwp-wt-arena-session-takeover-1009/docs/handoffs/inflight/codex-arena-session-takeover-1009.md)。
 
