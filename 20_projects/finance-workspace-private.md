@@ -72,9 +72,9 @@ DuckDB → detect_turning_points.py / backtest_sector.py → 信号+板块边际
 ## 任务看板
 | 任务 | 负责 | 状态 | 备注 |
 |---|---|---|---|
-| 10-11 成文层与三线质检收口 | A统一；Codex接Claude质检 | implementation-pending / draft | 用户已选A `fix/knevo-pi-runtime-1010` 为唯一成文层owner：工具qualifications核逐句命题类型、词面补充、一次标注修订不拒收。B `reviewed-history` 保持实验不扩写；清点交反例，C可继续其运行时/输入工作，不另建成文判官。新合同尚未实现。A已开Draft #86，清点#87依赖#86；B#83补锁/勘误后验最终候选再推。实际交叉测试已入仓且31P，B严格锁74P；完整门禁以本轮精确SHA收据为准。原三臂付费对照只是备选，未开跑。协调与结果入口 → `fwp-wt-arena-session-takeover-1009/docs/handoffs/2026-10-11-pi-crossline-closeout.md`。 |
-| 10-11 Knevo专项清点质检 | Codex接Claude | Draft #87 / quality-not-passed | 已纠正“剩两族/四类消失”：q0仍无贡献证据而写集中带动，q4反向量价推资金，q1自算同比应约-14.5%/-15.3%。industry-track未测、D维逐句列原文版未复跑，旧21344P属708基座。已合流A及main 8b01812bd并生成registry；未新增模型、未合部署 → `fwp-wt-knevo-skill-inventory-1010/docs/handoffs/inflight/feat-knevo-skill-inventory-1010.md`。 |
-| 10-09 长河/Dashboard隔离修复 | pi → codex接续 | engineering-pass / reviewer-not-accepted | 产品a6bbe24f1实现显式原生Pi复核/一次修订、typed旁路、严格回执和12条分批；同SHA本机21825P/0F及产品head五绿，前端241P/E2E52+6+16P。真实正反对照未过，39请求（含3源盲类型探针）保全，不能当金融放行门，默认不启用。文档c35a90ccf另计；旧4a两题金融失败不改，未合/部署/回填 → `~/fwp-wt-arena-session-takeover-1009/docs/handoffs/inflight/codex-arena-session-takeover-1009.md`；新包 `~/.finance-runtime/river-review-implementation-20261010/`。 |
+| 10-11 成文层与三线质检收口 | A统一；Codex接Claude质检 | engineering-closeout-complete / implementation-pending | 原四项授权已收齐：A Draft#86 f0d464152、清点#87 f13dce19c（依赖A）、B#83 dac1081e1，三头各自本机完整门禁与CI五绿、树净、无本轮后台；三冗余本地枝保全后删除并实测可恢复。用户已定A唯一负责qualifications核逐句命题、词面补充、一次标注修订不拒收；新功能仍未实现，B实验不扩写，清点交反例，C继续自身运行时工作。未合/部署/新增模型，旧金融失败不翻案。收据与边界 → `~/.finance-runtime/pi-crossline-closeout-20261011/RESULT.md`。 |
+| 10-11 Knevo专项清点质检 | Codex接Claude | Draft #87 / quality-not-passed | f13dce19c同头Python21545P/0F/76S/2X、前端214P/E2E52P2S与CI五绿。已勘误q0带动归因、q4反向量价推资金、q1自算同比应约-14.5%/-15.3%；旧21344P属708基座。industry-track未测、D维新版本未复跑；未新增模型/合部署 → `fwp-wt-knevo-skill-inventory-1010/docs/handoffs/inflight/feat-knevo-skill-inventory-1010.md`。 |
+| 10-09/11 长河/Dashboard隔离修复 | pi → codex接续 | engineering-pass / reviewer-not-accepted | 当前Draft#83 dac1081e1含严格同名续写锁及质检勘误；同SHA完整Python21933P/0F/78S/2X、组件241P、E2E52+6+16P、CI五绿。专项首轮Corepack缓存启动超时保留，同版本禁网复验过。39次旧真实审核来自脚本，非适配器实盘验收；正反对照未过，默认不启用。未合/部署/回填 → `~/fwp-wt-arena-session-takeover-1009/docs/handoffs/inflight/codex-arena-session-takeover-1009.md`；本轮终态 `~/.finance-runtime/pi-crossline-closeout-20261011/RESULT.md`。 |
 | 10-09/11 Harness trace优化 | codex接手 | candidate / semantic-target-failed | HEAD45b1，改动未提交，默认v3/判官off。通富新公司完整对照主写手参数含stream一致，0格式回灌，双方算术对、reader判持平；仍有未证定义/披露断言。范围说明诊断仍错；现有判官漏目标且误拒合法计算编号，暂不启用。定向2966P/5S、目录/Ruff通过；新增11模型请求封155件，旧seal与失败保留；无后台、未推送合并部署→金融仓`docs/handoffs/2026-10-11-prose-stream-and-scope.md`和本分支inflight。 |
 | 10-08 river正门与pi消费 | pi | blocked | 原river af1f64b9f保持，隔离联合代码642b45358保D4 typed资格与D10整块推断。文档tip5509ecef3净树68文件2083P/2F：grounded准入使D4事实送达0，另有main/642同现的字节测试未固定cutoff跨午夜红；两者均未修。最短一条D4可装，全三条+D10需12943超12K；metadata存量缺口/悬空ID留待准入合同。普通B/原生Episode过，owned不签全文；两库三截止工具字节/库哈希不变，新模型0、旧GLM质量未过。未改Codex owned/运行层，未推金融枝/合并/部署，真库另授权 → `~/fwp-wt-river-owned-joint-1008/docs/handoffs/inflight/baseline-river-owned-joint-1008.md`。 |
 | 10-08 vidio finance 交付迁移与质检 | pi | doing | [草稿 GitHub #75](https://github.com/moscrol/finance/pull/75)，当前b7a5bcf3b：[实测]A首发/B合成与补写接口替身收到完整镜头，12K装不下降级且不升事实；0154修合法夹具并补真实registry路径，旧九红保留。本机锁定Python3.12.13净树全量21071P/78S/2X、前端214P/E2E52P/2S；关联CI五项全绿（PR预览ed75c512与HEAD同树，Python20982P/167S/2X；环境/跳过分账）。教学缺数/旧schema、完整入口/模型利用/金融质量及生产仍未验，未合未部署 → `~/fwp-wt-vidio-finance-public/docs/handoffs/inflight/feat-vidio-finance-transfer-public.md`，最新终态见PR正文。 |
@@ -229,6 +229,8 @@ per-user 不是进程级；`runtime_backend_readiness` 这个全局探针看不�
 而 CLI/回检走 `~/.zshrc` 里的 `/Users/a77/agent-memory/.foresight`——**两套用户台账不是同一份**。
 
 ## 交接记录
+
+- 2026-10-11 · Codex/Pi · 原Claude三线质检收口：#83 dac1081e1 / #86 f0d464152 / #87 f13dce19c各自完整本机与当前CI五绿，正文/远端头回读一致，三树净、无本轮后台；三冗余枝有bundle及真实恢复验证。未合部署/新增模型，A成文合同仍待实现 → `~/.finance-runtime/pi-crossline-closeout-20261011/RESULT.md` / 金融仓`docs/handoffs/2026-10-11-pi-crossline-closeout.md`。
 
 - 2026-10-11：研究能力迁移候选 `feat/research-capabilities-1011` 已有计算/US技术位/研究图形两包，固定代码 `77b85df44` 相关1153P；69项未缩减、完整数据/方法记忆/自然质量仍待，未合部署。接手见金融仓 `docs/handoffs/inflight/feat-research-capabilities-1011.md` 与 `docs/handoffs/2026-10-11-research-capabilities-phase2.md`。
 
