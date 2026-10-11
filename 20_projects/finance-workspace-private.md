@@ -230,6 +230,8 @@ per-user 不是进程级；`runtime_backend_readiness` 这个全局探针看不�
 
 ## 交接记录
 
+- 2026-10-11 · Codex · 双任务独立审查与用户授权执行 → [审查记录](/Users/a77/.finance-runtime/reviews/completion-20261011-936djmri/completion-audit.json)；[合入、主干验收、备份与清理原件](/Users/a77/.finance-runtime/reviews/pr88-merge-20261011-YDseTk/result.json)。合入与生产发布分账，当前结论从具名收据回读。
+
 - 2026-10-11 · Codex/Pi · 原Claude三线质检收口：#83 dac1081e1 / #86 f0d464152 / #87 f13dce19c各自完整本机与当前CI五绿，正文/远端头回读一致，三树净、无本轮后台；三冗余枝有bundle及真实恢复验证。未合部署/新增模型，A成文合同仍待实现 → `~/.finance-runtime/pi-crossline-closeout-20261011/RESULT.md` / 金融仓`docs/handoffs/2026-10-11-pi-crossline-closeout.md`。
 
 - 2026-10-11：研究能力迁移候选 `feat/research-capabilities-1011` 已有计算/US技术位/研究图形两包，固定代码 `77b85df44` 相关1153P；69项未缩减、完整数据/方法记忆/自然质量仍待，未合部署。接手见金融仓 `docs/handoffs/inflight/feat-research-capabilities-1011.md` 与 `docs/handoffs/2026-10-11-research-capabilities-phase2.md`。
